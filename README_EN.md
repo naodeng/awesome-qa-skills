@@ -2,12 +2,15 @@
 
 # Awesome QA Skills
 
-This repo provides **one set of QA workflow Skills** for **Cursor**, **Claude Code**, and **OpenCode**, based on prompts and workflows from [awesome-qa-prompt](https://github.com/awesome-qa-prompt).  
-**Chinese and English are split at the directory level:** Chinese skill dirs (e.g. `daily-testing-workflow`), English skill dirs (e.g. `daily-testing-workflow-en`). Copy the matching dir from **`skills/`** into your tool’s skill location; no need to depend on the repo root.
+This repo provides **one set of QA workflow Skills** for **Cursor**, **Claude Code**, and **OpenCode**.  
+**Chinese and English are split at the directory level:** Chinese skill dirs (e.g. `daily-testing-workflow`), English skill dirs (e.g. `daily-testing-workflow-en`).  
+- **Workflow skills** live under **`skills/testing-workflows/`** (daily / sprint / release).  
+- **Testing-type skills** live under **`skills/testing-types/`** (15 types × CN/EN).  
+Copy the matching dir into your tool's skill location; no need to depend on the repo root.
 
 ---
 
-## The Three Workflows
+## The Three Workflows (`skills/testing-workflows/`)
 
 | Workflow | Name | Summary |
 |----------|------|---------|
@@ -19,52 +22,70 @@ Each workflow includes **When to Use**, **steps**, **How to Use the Prompts**, *
 
 ---
 
-## Directory Layout (single `skills/`)
+## Testing Type Skills (`skills/testing-types/`)
 
-All skills live under **`skills/`**, with Chinese and English dirs:
+Skills per **testing type**; **Chinese and English** are separate dirs (e.g. `functional-testing` / `functional-testing-en`).  
 
-- **Chinese skill:** e.g. `daily-testing-workflow` — Chinese `SKILL.md`, `reference.md`, and `prompts/` with Chinese prompts only (`xxx.md`).
-- **English skill:** e.g. `daily-testing-workflow-en` — English `SKILL.md`, `reference.md`, and `prompts/` with English prompts only (`xxx_EN.md`).
+**Output formats:** Default is **Markdown**; you can request **Excel** (tab-separated), **CSV**, or **JSON** by adding a short instruction at the **end** of your request. Each skill dir has **output-formats.md** with examples.
 
-**Copy the dir for your language from `skills/` into your tool;** no dependency on the repo root `prompts/`.
+Types: functional-testing, api-testing, automation-testing, bug-reporting, manual-testing, test-case-writing, test-reporting, test-strategy, requirements-analysis, performance-testing, security-testing, accessibility-testing, ai-assisted-testing, test-case-reviewer, mobile-testing (15 types × CN/EN). Prompts are bundled in each skill’s `prompts/`.
 
-| Language | Example dir names | Note |
-|----------|-------------------|------|
-| Chinese | daily-testing-workflow, sprint-testing-workflow, release-testing-workflow | Skill name = dir name |
-| English | daily-testing-workflow-en, sprint-testing-workflow-en, release-testing-workflow-en | Skill name has `-en` suffix |
+See **[skills/testing-types/README.md](skills/testing-types/README.md)**.
+
+---
+
+## Directory Layout
+
+All skills live under **`skills/`**, in two groups:
+
+- **`skills/testing-workflows/`** — The three workflows (daily / sprint / release), each with CN and EN dirs.
+- **`skills/testing-types/`** — Per–testing-type skills (15 types × CN/EN), with output format options.
+
+**Chinese skill:** e.g. `daily-testing-workflow` — Chinese `SKILL.md`, `reference.md`, and `prompts/` with Chinese prompts only (`xxx.md`).  
+**English skill:** e.g. `daily-testing-workflow-en` — English `SKILL.md`, `reference.md`, and `prompts/` with English prompts only (`xxx_EN.md`).  
+**Copy the dir for your language into your tool;** no dependency on the repo root `prompts/`.
+
+| Type | Chinese dir example | English dir example |
+|------|---------------------|---------------------|
+| Workflows | testing-workflows/daily-testing-workflow, sprint-testing-workflow, release-testing-workflow | testing-workflows/daily-testing-workflow-en, …-en |
+| Testing types | testing-types/functional-testing, api-testing, … | testing-types/functional-testing-en, …-en |
 
 ```
 awesome-qa-skills/
-├── skills/                           # Single skill set (Cursor / Claude Code / OpenCode)
-│   ├── daily-testing-workflow/       # Daily (Chinese)
-│   │   ├── SKILL.md
-│   │   ├── reference.md
-│   │   └── prompts/                 # Chinese .md only
-│   ├── daily-testing-workflow-en/   # Daily (English)
-│   │   ├── SKILL.md
-│   │   ├── reference.md
-│   │   └── prompts/                 # xxx_EN.md only
-│   ├── sprint-testing-workflow/
-│   ├── sprint-testing-workflow-en/
-│   ├── release-testing-workflow/
-│   └── release-testing-workflow-en/
-├── prompts/                          # Root prompt source (CN + EN, for maintenance)
-├── README.md                         # This repo (Chinese default)
-└── README_EN.md                      # This file (English)
+├── skills/
+│   ├── testing-workflows/            # Three workflows (CN/EN)
+│   │   ├── daily-testing-workflow/   # Daily (Chinese)
+│   │   │   ├── SKILL.md
+│   │   │   ├── reference.md
+│   │   │   └── prompts/              # Chinese .md only
+│   │   ├── daily-testing-workflow-en/
+│   │   ├── sprint-testing-workflow/
+│   │   ├── sprint-testing-workflow-en/
+│   │   ├── release-testing-workflow/
+│   │   └── release-testing-workflow-en/
+│   └── testing-types/                # Per–testing-type (CN/EN + output formats)
+│       ├── functional-testing/
+│       ├── functional-testing-en/
+│       ├── … 15 types × CN/EN
+│       └── README.md
+├── prompts/                          # Root prompt source (for maintenance)
+├── README.md
+└── README_EN.md
 ```
 
 ---
 
 ## Usage by Tool
 
-Copy the matching skill dir from **`skills/`** into your tool’s skill directory. The same skill set works for all tools below.
+Copy the matching skill dir from **`skills/testing-workflows/`** or **`skills/testing-types/`** into your tool’s skill directory. The same skill set works for all tools below.
 
 ### Cursor
 
 - **Project-level:** Copy into the project’s `.cursor/skills/`.
   ```bash
-  cp -r skills/daily-testing-workflow /path/to/your/project/.cursor/skills/       # Chinese
-  cp -r skills/daily-testing-workflow-en /path/to/your/project/.cursor/skills/   # English
+  # Workflow example
+  cp -r skills/testing-workflows/daily-testing-workflow /path/to/your/project/.cursor/skills/       # Chinese
+  cp -r skills/testing-workflows/daily-testing-workflow-en /path/to/your/project/.cursor/skills/   # English
   ```
 - **User-level:** Copy to `~/.cursor/skills/`, again choosing by language.
 
@@ -73,8 +94,8 @@ Copy the matching skill dir from **`skills/`** into your tool’s skill director
 - Copy into the project’s `.claude/skills/`; dir name must match the skill `name`.
   ```bash
   mkdir -p .claude/skills
-  cp -r skills/daily-testing-workflow .claude/skills/           # Chinese
-  cp -r skills/daily-testing-workflow-en .claude/skills/       # English
+  cp -r skills/testing-workflows/daily-testing-workflow .claude/skills/           # Chinese
+  cp -r skills/testing-workflows/daily-testing-workflow-en .claude/skills/       # English
   ```
 
 ### OpenCode
@@ -83,28 +104,26 @@ Copy the matching skill dir from **`skills/`** into your tool’s skill director
 - **Global:** `~/.config/opencode/skills/<skill-name>/`
   ```bash
   mkdir -p .opencode/skills
-  cp -r skills/daily-testing-workflow .opencode/skills/         # Chinese
-  cp -r skills/daily-testing-workflow-en .opencode/skills/   # English
+  cp -r skills/testing-workflows/daily-testing-workflow .opencode/skills/         # Chinese
+  cp -r skills/testing-workflows/daily-testing-workflow-en .opencode/skills/   # English
   ```
 
 ---
 
 ## Prompts and reference (CN/EN)
 
-- **Root `prompts/`:** 13 prompt categories from awesome-qa-prompt’s `testing-types/<type>/`, each with **Chinese `xxx.md`** and **English `xxx_EN.md`** for maintenance and reference. Each skill dir’s `prompts/` matches the language: **Chinese skills** only `xxx.md`, **English skills** only `xxx_EN.md`. For a given step, open the corresponding file under that skill’s `prompts/` and use it with the AI.
+- **Root `prompts/`:** Multiple prompt categories, each with **Chinese `xxx.md`** and **English `xxx_EN.md`** for maintenance and reference. Each skill dir’s `prompts/` matches the language: **Chinese skills** only `xxx.md`, **English skills** only `xxx_EN.md`. For a given step, open the corresponding file under that skill’s `prompts/` and use it with the AI.
 - **Each workflow’s `reference.md`:** Lists prompt types used, their role in the workflow, and a step→prompt mapping so you can look up and run “step → prompt” inside a single skill dir.
 - **“How to Use the Prompts” in SKILL.md:** Describes the three steps: check reference → open the matching file under this dir’s `prompts/` → run with context and the AI.
 
 ---
 
-## Source and conventions
+## Conventions
 
-- Workflow phases, steps, checklists, and recommended prompts come from **awesome-qa-prompt**’s `workflows/` (CN and EN).
-- The actual prompts (Role, Task, execution instructions) come from awesome-qa-prompt’s `testing-types/<type>/`, provided in this repo in root `prompts/` and each workflow’s `prompts/` in both languages, and summarized in each skill’s `reference.md` for quick lookup.
 - Skill `name` matches dir name; keep the dir name when copying into each tool.
 
 ---
 
 ## License
 
-Aligned with awesome-qa-prompt; this repo only provides Skill packaging for AI tools and does not claim additional copyright.
+This repo provides Skill packaging for AI tools only.

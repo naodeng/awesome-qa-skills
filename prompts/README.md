@@ -1,6 +1,6 @@
 # 工作流所用提示词
 
-本目录提示词来自 [awesome-qa-prompt](https://github.com/awesome-qa-prompt)（`testing-types/<类型>/`）。部分文件为仓库内**全文引用**，其余在头部注明**来源路径**。**Skills 已根据本目录提示词做了对应调整**（各 workflow 的 reference.md 与 SKILL 中的步骤→提示词对应关系均与本目录一致）。
+本目录为工作流与测试类型技能所用的提示词。各 workflow 的 reference.md 与 SKILL 中的步骤→提示词对应关系与本目录一致。
 
 ## 文件与用途（中英文双版本）
 
@@ -19,9 +19,11 @@
 | 安全测试 | security-testing.md | security-testing_EN.md | 安全测试策略与执行 | 发布专项测试 |
 | 可访问性测试 | accessibility-testing.md | accessibility-testing_EN.md | 可访问性/视觉测试 | 发布专项、迭代视觉 |
 | AI 辅助测试 | ai-assisted-testing.md | ai-assisted-testing_EN.md | AI 辅助测试与智能选择 | 回归选择、测试维护 |
+| 测试用例评审 | test-case-reviewer.md | test-case-reviewer_EN.md | 测试用例评审、缺失场景与改进建议 | 迭代/发布前评审 |
+| 移动端测试 | mobile-testing.md | mobile-testing_EN.md | 移动端（iOS/Android）测试方案与用例 | 移动端专项 |
 
 ## 使用方式
 
 - 在 **Cursor / Claude Code / OpenCode** 的 workflow skill 中，各步骤会标明「使用 xxx 提示词」。
 - 直接打开本目录下对应 **中文 `.md` 或英文 `_EN.md`** 文件，将其中 **Role、Task、执行指令** 及（按需）输出格式，作为与 AI 对话的提示词使用。
-- 完整输出格式与示例请参阅 awesome-qa-prompt 仓库内 `testing-types/<类型>/` 下的 *Prompt.md / *Prompt_EN.md。
+- 完整输出格式与示例见本目录各提示词文件内的 Output Format 小节。

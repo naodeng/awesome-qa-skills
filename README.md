@@ -2,12 +2,15 @@
 
 # Awesome QA Skills
 
-本仓库基于 [awesome-qa-prompt](https://github.com/awesome-qa-prompt) 的提示词与工作流，提供一套**统一的 QA 工作流技能（Skills）**，适用于 **Cursor**、**Claude Code**、**OpenCode** 等 AI 编码工具。  
-**中英文在目录层面分离**：中文技能目录如 `daily-testing-workflow`，英文技能目录如 `daily-testing-workflow-en`。按使用语言将 **`skills/`** 下对应目录复制到各工具指定位置即可。
+本仓库提供一套**统一的 QA 工作流技能（Skills）**，适用于 **Cursor**、**Claude Code**、**OpenCode** 等 AI 编码工具。  
+**中英文在目录层面分离**：中文技能目录如 `daily-testing-workflow`，英文技能目录如 `daily-testing-workflow-en`。  
+- **工作流技能**位于 **`skills/testing-workflows/`**（日常 / 迭代 / 发布）。  
+- **测试类型技能**位于 **`skills/testing-types/`**（功能测试、API 测试等 15 类 × 中英文）。  
+按使用语言将对应目录复制到各工具指定位置即可。
 
 ---
 
-## 三个工作流
+## 三个工作流（skills/testing-workflows/）
 
 | 工作流         | 英文名                  | 简要说明 |
 |----------------|-------------------------|----------|
@@ -19,52 +22,72 @@
 
 ---
 
-## 目录结构（统一在 skills/）
+## 测试类型技能（skills/testing-types/）
 
-所有技能集中在 **`skills/`** 下，按语言分为中文目录与英文目录：
+按**测试类型**单独封装的技能，**中英文分目录**（如 `functional-testing` / `functional-testing-en`）。  
 
-- **中文技能**：如 `daily-testing-workflow`，内含中文 `SKILL.md`、中文 `reference.md`、以及仅含中文提示词（`xxx.md`）的 `prompts/`。
-- **英文技能**：如 `daily-testing-workflow-en`，内含英文 `SKILL.md`、英文 `reference.md`、以及仅含英文提示词（`xxx_EN.md`）的 `prompts/`。
+**输出格式**：默认输出为 **Markdown**；可在对话末尾说明以获取 **Excel**（制表符分隔表）、**CSV** 或 **JSON** 格式结果。各技能目录下 **output-formats.md** 有详细请求说明与示例。
 
-**按语言复制 `skills/` 下对应目录到目标工具即可**，不依赖仓库根目录的 `prompts/`。
+| 类型 | 中文目录 | 英文目录 |
+|------|----------|----------|
+| 功能测试、API 测试、自动化测试、缺陷上报、手动测试、测试用例编写、测试报告、测试策略、需求分析、性能测试、安全测试、可访问性测试、AI 辅助测试、测试用例评审、移动端测试 | `skills/testing-types/<类型名>/` | `skills/testing-types/<类型名>-en/` |
 
-| 语言 | 技能目录名示例 | 说明 |
-|------|----------------|------|
-| 中文 | daily-testing-workflow、sprint-testing-workflow、release-testing-workflow | 技能名与目录名一致 |
-| 英文 | daily-testing-workflow-en、sprint-testing-workflow-en、release-testing-workflow-en | 技能名带 `-en` 后缀 |
+详见 **[skills/testing-types/README.md](skills/testing-types/README.md)**。
+
+---
+
+## 目录结构
+
+所有技能在 **`skills/`** 下分为两类：
+
+- **`skills/testing-workflows/`** — 三个工作流（日常 / 迭代 / 发布），中英文各一目录。
+- **`skills/testing-types/`** — 按测试类型分的技能（15 类 × 中英文），每类含输出格式选项。
+
+**中文技能**：如 `daily-testing-workflow`，内含中文 `SKILL.md`、`reference.md`、及仅含中文提示词（`xxx.md`）的 `prompts/`。  
+**英文技能**：如 `daily-testing-workflow-en`，内含英文 `SKILL.md`、`reference.md`、及仅含英文提示词（`xxx_EN.md`）的 `prompts/`。  
+**按语言复制对应目录到目标工具即可**，不依赖仓库根目录的 `prompts/`。
+
+| 类型 | 中文目录示例 | 英文目录示例 |
+|------|----------------|----------------|
+| 工作流 | testing-workflows/daily-testing-workflow、sprint-testing-workflow、release-testing-workflow | testing-workflows/daily-testing-workflow-en、…-en |
+| 测试类型 | testing-types/functional-testing、api-testing、… | testing-types/functional-testing-en、…-en |
 
 ```
 awesome-qa-skills/
-├── skills/                           # 统一技能目录（通用 Cursor / Claude Code / OpenCode）
-│   ├── daily-testing-workflow/       # 日常测试（中文）
-│   │   ├── SKILL.md
-│   │   ├── reference.md
-│   │   └── prompts/                  # 仅中文 .md
-│   ├── daily-testing-workflow-en/   # 日常测试（英文）
-│   │   ├── SKILL.md
-│   │   ├── reference.md
-│   │   └── prompts/                 # 仅 xxx_EN.md
-│   ├── sprint-testing-workflow/
-│   ├── sprint-testing-workflow-en/
-│   ├── release-testing-workflow/
-│   └── release-testing-workflow-en/
-├── prompts/                          # 根目录提示词源（中英文均有，供维护与参考）
-├── README.md                         # 本文件（中文默认）
-└── README_EN.md                      # 英文说明
+├── skills/
+│   ├── testing-workflows/            # 三个工作流（中/英）
+│   │   ├── daily-testing-workflow/   # 日常测试（中文）
+│   │   │   ├── SKILL.md
+│   │   │   ├── reference.md
+│   │   │   └── prompts/              # 仅中文 .md
+│   │   ├── daily-testing-workflow-en/
+│   │   ├── sprint-testing-workflow/
+│   │   ├── sprint-testing-workflow-en/
+│   │   ├── release-testing-workflow/
+│   │   └── release-testing-workflow-en/
+│   └── testing-types/                # 按测试类型（中/英 + 输出格式）
+│       ├── functional-testing/
+│       ├── functional-testing-en/
+│       ├── api-testing/  … 共 15 类 × 中英文
+│       └── README.md
+├── prompts/                          # 根目录提示词源（供维护与参考）
+├── README.md
+└── README_EN.md
 ```
 
 ---
 
 ## 各工具使用方式
 
-将 **`skills/`** 下对应技能目录复制到各工具指定位置即可，同一套技能适用于以下工具。
+将 **`skills/testing-workflows/`** 或 **`skills/testing-types/`** 下对应技能目录复制到各工具指定位置即可，同一套技能适用于以下工具。
 
 ### Cursor
 
 - **项目级**：复制到项目的 `.cursor/skills/`。
   ```bash
-  cp -r skills/daily-testing-workflow /你的项目路径/.cursor/skills/        # 中文
-  cp -r skills/daily-testing-workflow-en /你的项目路径/.cursor/skills/    # 英文
+  # 工作流示例
+  cp -r skills/testing-workflows/daily-testing-workflow /你的项目路径/.cursor/skills/        # 中文
+  cp -r skills/testing-workflows/daily-testing-workflow-en /你的项目路径/.cursor/skills/    # 英文
   ```
 - **用户级**：复制到 `~/.cursor/skills/`，同样按语言选择目录。
 
@@ -73,8 +96,8 @@ awesome-qa-skills/
 - 复制到项目的 `.claude/skills/`，目录名需与技能 `name` 一致。
   ```bash
   mkdir -p .claude/skills
-  cp -r skills/daily-testing-workflow .claude/skills/           # 中文
-  cp -r skills/daily-testing-workflow-en .claude/skills/        # 英文
+  cp -r skills/testing-workflows/daily-testing-workflow .claude/skills/           # 中文
+  cp -r skills/testing-workflows/daily-testing-workflow-en .claude/skills/        # 英文
   ```
 
 ### OpenCode
@@ -83,28 +106,26 @@ awesome-qa-skills/
 - **全局**：`~/.config/opencode/skills/<技能名>/`
   ```bash
   mkdir -p .opencode/skills
-  cp -r skills/daily-testing-workflow .opencode/skills/         # 中文
-  cp -r skills/daily-testing-workflow-en .opencode/skills/     # 英文
+  cp -r skills/testing-workflows/daily-testing-workflow .opencode/skills/         # 中文
+  cp -r skills/testing-workflows/daily-testing-workflow-en .opencode/skills/     # 英文
   ```
 
 ---
 
 ## 提示词与 reference（中英文双版本）
 
-- **根目录 `prompts/`**：13 类提示词来源于 awesome-qa-prompt 的 `testing-types/<类型>/`，每类提供**中文 `xxx.md`** 与**英文 `xxx_EN.md`**，用于集中维护与参考。各技能目录下的 `prompts/` 与语言一致：**中文技能**仅包含 `xxx.md`，**英文技能**仅包含 `xxx_EN.md`。执行某一步时，打开当前技能目录下 `prompts/` 中对应文件，与 AI 协同即可。
+- **根目录 `prompts/`**：多类提示词，每类提供**中文 `xxx.md`** 与**英文 `xxx_EN.md`**，用于集中维护与参考。各技能目录下的 `prompts/` 与语言一致：**中文技能**仅包含 `xxx.md`，**英文技能**仅包含 `xxx_EN.md`。执行某一步时，打开当前技能目录下 `prompts/` 中对应文件，与 AI 协同即可。
 - **各工作流下的 `reference.md`**：列出该工作流涉及的提示词类型、在本工作流中的用途，以及步骤与提示词文件的对照表，便于在单技能目录内完成「步骤 → 提示词」的查找与执行。
 - **SKILL.md 中的「如何使用本技能中的提示词」**：说明「查 reference → 打开本目录 prompts 下对应文件 → 结合上下文与 AI 执行」的三步用法。
 
 ---
 
-## 内容来源与约定
+## 约定
 
-- 工作流的阶段、步骤、检查清单与推荐提示词均来自 **awesome-qa-prompt** 的 `workflows/`（中英文版本）。
-- 具体执行用的提示词（Role、Task、执行指令等）来自 awesome-qa-prompt 的 `testing-types/<类型>/`，在本仓库的根目录 `prompts/` 以及各工作流目录的 `prompts/` 中以中英文双版本提供，并在各技能的 `reference.md` 中可速查，便于按步骤执行。
 - 技能的 `name` 与目录名一致，复制到各工具时保持目录名即可。
 
 ---
 
 ## 许可证
 
-与 awesome-qa-prompt 项目保持一致；本仓库仅提供供 AI 工具使用的 Skill 封装，不单独声明新版权。
+本仓库仅提供供 AI 工具使用的 Skill 封装。
