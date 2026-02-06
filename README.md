@@ -10,6 +10,41 @@
 
 ---
 
+## 🚀 5 分钟快速开始
+
+### 1. 克隆项目
+
+```bash
+git clone https://github.com/your-repo/awesome-qa-skills.git
+cd awesome-qa-skills
+```
+
+### 2. 安装 Skill（以 Cursor 为例）
+
+```bash
+# 复制日常测试工作流（中文）
+cp -r skills/testing-workflows/daily-testing-workflow ~/.cursor/skills/
+
+# 或复制功能测试 skill（中文）
+cp -r skills/testing-types/functional-testing ~/.cursor/skills/
+```
+
+### 3. 在 AI 工具中使用
+
+```
+@skill daily-testing-workflow
+今天需要测试用户登录功能
+```
+
+### 4. 探索更多
+
+- 📚 查看 [skills-index.md](skills-index.md) 了解所有可用 skills
+- 🔗 查看 [skills-graph.md](skills-graph.md) 了解 skills 依赖关系
+- ❓ 查看 [FAQ.md](FAQ.md) 获取常见问题解答
+- 🛠️ 查看 [CONTRIBUTING.md](CONTRIBUTING.md) 了解如何贡献
+
+---
+
 ## 三个工作流（skills/testing-workflows/）
 
 | 工作流         | 英文名                  | 简要说明 |

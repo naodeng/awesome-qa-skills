@@ -1,0 +1,466 @@
+{
+  "info": {
+    "name": "User API Tests",
+    "description": "完整的 REST API 测试集合，包含 CRUD 操作、认证、错误处理等",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://jsonplaceholder.typicode.com",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "1. GET Users List",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test(\"Response time is less than 500ms\", function () {",
+              "    pm.expect(pm.response.responseTime).to.be.below(500);",
+              "});",
+              "",
+              "pm.test(\"Response is an array\", function () {",
+              "    const jsonData = pm.response.json();",
+              "    pm.expect(jsonData).to.be.an('array');",
+              "});",
+              "",
+              "pm.test(\"Array is not empty\", function () {",
+              "    const jsonData = pm.response.json();",
+              "    pm.expect(jsonData.length).to.be.above(0);",
+              "});",
+              "",
+              "pm.test(\"Each user has required fields\", function () {",
+              "    const jsonData = pm.response.json();",
+              "    jsonData.forEach(user => {",
+              "        pm.expect(user).to.have.property('id');",
+              "        pm.expect(user).to.have.property('name');",
+              "        pm.expect(user).to.have.property('email');",
+              "        pm.expect(user).to.have.property('username');",
+              "    });",
+              "});",
+              "",
+              "// 保存第一个用户的 ID",
+              "const jsonData = pm.response.json();",
+              "if (jsonData.length > 0) {",
+              "    pm.environment.set(\"userId\", jsonData[0].id);",
+              "}"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/users",
+          "host": ["{{baseUrl}}"],
+          "path": ["users"]
+        },
+        "description": "获取所有用户列表"
+      }
+    },
+    {
+      "name": "2. GET Single User",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test(\"Response is an object\", function () {",
+              "    const jsonData = pm.response.json();",
+              "    pm.expect(jsonData).to.be.an('object');",
+              "});",
+              "",
+              "pm.test(\"User has all required fields\", function () {",
+              "    const jsonData = pm.response.json();",
+              "    pm.expect(jsonData).to.have.property('id');",
+              "    pm.expect(jsonData).to.have.property('name');",
+              "    pm.expect(jsonData).to.have.property('email');",
+              "    pm.expect(jsonData).to.have.property('username');",
+              "    pm.expect(jsonData).to.have.property('address');",
+              "    pm.expect(jsonData).to.have.property('phone');",
+              "    pm.expect(jsonData).to.have.property('website');",
+              "    pm.expect(jsonData).to.have.property('company');",
+              "});",
+              "",
+              "pm.test(\"Email format is valid\", function () {",
+              "    const jsonData = pm.response.json();",
+              "    pm.expect(jsonData.email).to.match(/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/);",
+              "});",
+              "",
+              "pm.test(\"Address has required fields\", function () {",
+              "    const jsonData = pm.response.json();",
+              "    pm.expect(jsonData.address).to.have.property('street');",
+              "    pm.expect(jsonData.address).to.have.property('city');",
+              "    pm.expect(jsonData.address).to.have.property('zipcode');",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/users/{{userId}}",
+          "host": ["{{baseUrl}}"],
+          "path": ["users", "{{userId}}"]
+        },
+        "description": "获取单个用户详情"
+      }
+    },
+    {
+      "name": "3. POST Create User",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 201\", function () {",
+              "    pm.response.to.have.status(201);",
+              "});",
+              "",
+              "pm.test(\"Response has id\", function () {",
+              "    const jsonData = pm.response.json();",
+              "    pm.expect(jsonData).to.have.property('id');",
+              "    pm.expect(jsonData.id).to.be.a('number');",
+              "});",
+              "",
+              "pm.test(\"Response data matches request\", function () {",
+              "    const jsonData = pm.response.json();",
+              "    const requestData = JSON.parse(pm.request.body.raw);",
+              "    ",
+              "    pm.expect(jsonData.name).to.eql(requestData.name);",
+              "    pm.expect(jsonData.email).to.eql(requestData.email);",
+              "    pm.expect(jsonData.username).to.eql(requestData.username);",
+              "});",
+              "",
+              "pm.test(\"Content-Type is application/json\", function () {",
+              "    pm.response.to.have.header('Content-Type');",
+              "    pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json');",
+              "});",
+              "",
+              "// 保存新创建的用户 ID",
+              "const jsonData = pm.response.json();",
+              "pm.environment.set(\"newUserId\", jsonData.id);"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Test User\",\n  \"email\": \"test@example.com\",\n  \"username\": \"testuser\",\n  \"phone\": \"1-770-736-8031\",\n  \"website\": \"test.org\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/users",
+          "host": ["{{baseUrl}}"],
+          "path": ["users"]
+        },
+        "description": "创建新用户"
+      }
+    },
+    {
+      "name": "4. PUT Update User",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test(\"Response data matches request\", function () {",
+              "    const jsonData = pm.response.json();",
+              "    const requestData = JSON.parse(pm.request.body.raw);",
+              "    ",
+              "    pm.expect(jsonData.name).to.eql(requestData.name);",
+              "    pm.expect(jsonData.email).to.eql(requestData.email);",
+              "});",
+              "",
+              "pm.test(\"User ID is preserved\", function () {",
+              "    const jsonData = pm.response.json();",
+              "    const userId = pm.environment.get(\"userId\");",
+              "    pm.expect(jsonData.id).to.eql(parseInt(userId));",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Updated User\",\n  \"email\": \"updated@example.com\",\n  \"username\": \"updateduser\",\n  \"phone\": \"1-770-736-8031\",\n  \"website\": \"updated.org\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/users/{{userId}}",
+          "host": ["{{baseUrl}}"],
+          "path": ["users", "{{userId}}"]
+        },
+        "description": "完整更新用户信息"
+      }
+    },
+    {
+      "name": "5. PATCH Partial Update",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test(\"Email is updated\", function () {",
+              "    const jsonData = pm.response.json();",
+              "    const requestData = JSON.parse(pm.request.body.raw);",
+              "    pm.expect(jsonData.email).to.eql(requestData.email);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"newemail@example.com\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/users/{{userId}}",
+          "host": ["{{baseUrl}}"],
+          "path": ["users", "{{userId}}"]
+        },
+        "description": "部分更新用户信息"
+      }
+    },
+    {
+      "name": "6. DELETE User",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test(\"Response is empty object\", function () {",
+              "    const jsonData = pm.response.json();",
+              "    pm.expect(Object.keys(jsonData).length).to.eql(0);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/users/{{userId}}",
+          "host": ["{{baseUrl}}"],
+          "path": ["users", "{{userId}}"]
+        },
+        "description": "删除用户"
+      }
+    },
+    {
+      "name": "7. GET User Posts",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test(\"Response is an array\", function () {",
+              "    const jsonData = pm.response.json();",
+              "    pm.expect(jsonData).to.be.an('array');",
+              "});",
+              "",
+              "pm.test(\"All posts belong to the user\", function () {",
+              "    const jsonData = pm.response.json();",
+              "    const userId = parseInt(pm.environment.get(\"userId\"));",
+              "    ",
+              "    jsonData.forEach(post => {",
+              "        pm.expect(post.userId).to.eql(userId);",
+              "    });",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/users/{{userId}}/posts",
+          "host": ["{{baseUrl}}"],
+          "path": ["users", "{{userId}}", "posts"]
+        },
+        "description": "获取用户的所有文章"
+      }
+    },
+    {
+      "name": "8. GET with Query Parameters",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test(\"Results are filtered correctly\", function () {",
+              "    const jsonData = pm.response.json();",
+              "    const userId = parseInt(pm.request.url.query.get('userId'));",
+              "    ",
+              "    jsonData.forEach(post => {",
+              "        pm.expect(post.userId).to.eql(userId);",
+              "    });",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/posts?userId={{userId}}",
+          "host": ["{{baseUrl}}"],
+          "path": ["posts"],
+          "query": [
+            {
+              "key": "userId",
+              "value": "{{userId}}"
+            }
+          ]
+        },
+        "description": "使用查询参数过滤结果"
+      }
+    },
+    {
+      "name": "9. GET Non-existent User (404)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 404\", function () {",
+              "    pm.response.to.have.status(404);",
+              "});",
+              "",
+              "pm.test(\"Response is empty object\", function () {",
+              "    const jsonData = pm.response.json();",
+              "    pm.expect(Object.keys(jsonData).length).to.eql(0);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/users/99999",
+          "host": ["{{baseUrl}}"],
+          "path": ["users", "99999"]
+        },
+        "description": "测试 404 错误处理"
+      }
+    },
+    {
+      "name": "10. POST Invalid Data (400)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "// 注意：JSONPlaceholder 不会真正验证数据",
+              "// 这个测试演示如何测试 400 错误",
+              "pm.test(\"Request was sent\", function () {",
+              "    pm.expect(pm.response.code).to.be.oneOf([200, 201, 400]);",
+              "});",
+              "",
+              "// 在真实 API 中，应该测试：",
+              "// pm.test(\"Status code is 400\", function () {",
+              "//     pm.response.to.have.status(400);",
+              "// });",
+              "//",
+              "// pm.test(\"Error message is present\", function () {",
+              "//     const jsonData = pm.response.json();",
+              "//     pm.expect(jsonData).to.have.property('error');",
+              "// });"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"invalid_field\": \"invalid_value\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/users",
+          "host": ["{{baseUrl}}"],
+          "path": ["users"]
+        },
+        "description": "测试无效数据的错误处理"
+      }
+    }
+  ]
+}

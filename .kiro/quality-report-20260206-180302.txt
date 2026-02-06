@@ -1,0 +1,13 @@
+Skills 质量检查报告
+生成时间: Fri Feb  6 18:03:02 CST 2026
+检查路径: skills/testing-types/functional-testing
+
+统计信息:
+  总检查项: 17
+  通过: 16
+  失败: 0
+  警告: 1
+  通过率: 94%
+
+警告列表:
+  - functional-testing: 建议添加 quick-start.md
