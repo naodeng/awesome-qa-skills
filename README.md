@@ -2,8 +2,8 @@
 
 # Awesome QA Skills
 
-本仓库基于 [awesome-qa-prompt](https://github.com/awesome-qa-prompt) 的提示词与工作流，为 **Cursor**、**Claude Code**、**OpenCode** 三种 AI 编码工具生成可直接使用的 **QA 工作流技能（Skills）**。  
-**中英文在目录层面分离**：中文技能目录如 `daily-testing-workflow`，英文技能目录如 `daily-testing-workflow-en`，按使用语言复制对应目录即可，无需依赖仓库根目录。
+本仓库基于 [awesome-qa-prompt](https://github.com/awesome-qa-prompt) 的提示词与工作流，提供一套**统一的 QA 工作流技能（Skills）**，适用于 **Cursor**、**Claude Code**、**OpenCode** 等 AI 编码工具。  
+**中英文在目录层面分离**：中文技能目录如 `daily-testing-workflow`，英文技能目录如 `daily-testing-workflow-en`。按使用语言将 **`skills/`** 下对应目录复制到各工具指定位置即可。
 
 ---
 
@@ -19,14 +19,14 @@
 
 ---
 
-## 目录结构（中/英技能分目录）
+## 目录结构（统一在 skills/）
 
-每个工作流在 Cursor、Claude、OpenCode 下各有一组**中文目录**和**英文目录**：
+所有技能集中在 **`skills/`** 下，按语言分为中文目录与英文目录：
 
-- **中文技能**：目录名如 `daily-testing-workflow`，内含中文 `SKILL.md`、中文 `reference.md`、以及仅含中文提示词（`xxx.md`）的 `prompts/`。
-- **英文技能**：目录名如 `daily-testing-workflow-en`，内含英文 `SKILL.md`、英文 `reference.md`、以及仅含英文提示词（`xxx_EN.md`）的 `prompts/`。
+- **中文技能**：如 `daily-testing-workflow`，内含中文 `SKILL.md`、中文 `reference.md`、以及仅含中文提示词（`xxx.md`）的 `prompts/`。
+- **英文技能**：如 `daily-testing-workflow-en`，内含英文 `SKILL.md`、英文 `reference.md`、以及仅含英文提示词（`xxx_EN.md`）的 `prompts/`。
 
-**按语言复制对应目录即可单独使用**，不依赖仓库根目录的 `prompts/`。
+**按语言复制 `skills/` 下对应目录到目标工具即可**，不依赖仓库根目录的 `prompts/`。
 
 | 语言 | 技能目录名示例 | 说明 |
 |------|----------------|------|
@@ -35,11 +35,11 @@
 
 ```
 awesome-qa-skills/
-├── cursor/                          # Cursor 用
-│   ├── daily-testing-workflow/      # 日常测试（中文）
+├── skills/                           # 统一技能目录（通用 Cursor / Claude Code / OpenCode）
+│   ├── daily-testing-workflow/       # 日常测试（中文）
 │   │   ├── SKILL.md
 │   │   ├── reference.md
-│   │   └── prompts/                 # 仅中文 .md
+│   │   └── prompts/                  # 仅中文 .md
 │   ├── daily-testing-workflow-en/   # 日常测试（英文）
 │   │   ├── SKILL.md
 │   │   ├── reference.md
@@ -48,49 +48,44 @@ awesome-qa-skills/
 │   ├── sprint-testing-workflow-en/
 │   ├── release-testing-workflow/
 │   └── release-testing-workflow-en/
-├── claude/                          # Claude Code 用（结构同上）
-├── opencode/                        # OpenCode 用（结构同上）
-├── prompts/                         # 根目录提示词源（中英文均有，供维护与参考）
-├── README.md                        # 本文件（中文默认）
-└── README_EN.md                     # 英文说明
+├── prompts/                          # 根目录提示词源（中英文均有，供维护与参考）
+├── README.md                         # 本文件（中文默认）
+└── README_EN.md                      # 英文说明
 ```
 
 ---
 
-## 各平台使用方式
+## 各工具使用方式
+
+将 **`skills/`** 下对应技能目录复制到各工具指定位置即可，同一套技能适用于以下工具。
 
 ### Cursor
 
-- **项目级**：将对应技能目录复制到项目的 `.cursor/skills/` 下。
+- **项目级**：复制到项目的 `.cursor/skills/`。
   ```bash
-  # 中文
-  cp -r cursor/daily-testing-workflow /你的项目路径/.cursor/skills/
-  # 英文
-  cp -r cursor/daily-testing-workflow-en /你的项目路径/.cursor/skills/
+  cp -r skills/daily-testing-workflow /你的项目路径/.cursor/skills/        # 中文
+  cp -r skills/daily-testing-workflow-en /你的项目路径/.cursor/skills/    # 英文
   ```
-- **用户级**：复制到 `~/.cursor/skills/`，同样按语言选择 `daily-testing-workflow` 或 `daily-testing-workflow-en`。
-- 规范：`SKILL.md` 需包含 `name`、`description`（第三人称，含触发场景）；正文建议控制在 500 行以内。
+- **用户级**：复制到 `~/.cursor/skills/`，同样按语言选择目录。
 
 ### Claude Code
 
-- 技能目录放在项目的 `.claude/skills/` 下，目录名需与技能 `name` 一致。
+- 复制到项目的 `.claude/skills/`，目录名需与技能 `name` 一致。
   ```bash
   mkdir -p .claude/skills
-  cp -r claude/daily-testing-workflow .claude/skills/           # 中文
-  cp -r claude/daily-testing-workflow-en .claude/skills/        # 英文
+  cp -r skills/daily-testing-workflow .claude/skills/           # 中文
+  cp -r skills/daily-testing-workflow-en .claude/skills/        # 英文
   ```
-- 规范：frontmatter 需包含 `name`、`version`（语义化版本）、`description`（建议 ≤ 200 字符）。
 
 ### OpenCode
 
-- **项目级**：`.opencode/skills/<技能名>/SKILL.md`
-- **全局**：`~/.config/opencode/skills/<技能名>/SKILL.md`
+- **项目级**：`.opencode/skills/<技能名>/`
+- **全局**：`~/.config/opencode/skills/<技能名>/`
   ```bash
   mkdir -p .opencode/skills
-  cp -r opencode/daily-testing-workflow .opencode/skills/        # 中文
-  cp -r opencode/daily-testing-workflow-en .opencode/skills/     # 英文
+  cp -r skills/daily-testing-workflow .opencode/skills/         # 中文
+  cp -r skills/daily-testing-workflow-en .opencode/skills/     # 英文
   ```
-- 规范：`name` 为小写字母、数字与单连字符（1–64 字符），与目录名一致；`description` 1–1024 字符。
 
 ---
 
@@ -106,7 +101,7 @@ awesome-qa-skills/
 
 - 工作流的阶段、步骤、检查清单与推荐提示词均来自 **awesome-qa-prompt** 的 `workflows/`（中英文版本）。
 - 具体执行用的提示词（Role、Task、执行指令等）来自 awesome-qa-prompt 的 `testing-types/<类型>/`，在本仓库的根目录 `prompts/` 以及各工作流目录的 `prompts/` 中以中英文双版本提供，并在各技能的 `reference.md` 中可速查，便于按步骤执行。
-- 各平台均按语言拆分为**中文技能目录**（如 `daily-testing-workflow`）与**英文技能目录**（如 `daily-testing-workflow-en`），技能的 `name` 与目录名一致，并按各平台规范调整 frontmatter 与篇幅。
+- 技能的 `name` 与目录名一致，复制到各工具时保持目录名即可。
 
 ---
 

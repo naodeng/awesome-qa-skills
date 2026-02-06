@@ -2,8 +2,8 @@
 
 # Awesome QA Skills
 
-This repo provides **QA workflow Skills** for **Cursor**, **Claude Code**, and **OpenCode**, based on prompts and workflows from [awesome-qa-prompt](https://github.com/awesome-qa-prompt).  
-**Chinese and English are split at the directory level:** Chinese skill dirs (e.g. `daily-testing-workflow`), English skill dirs (e.g. `daily-testing-workflow-en`). Copy the dir for your language; no need to depend on the repo root.
+This repo provides **one set of QA workflow Skills** for **Cursor**, **Claude Code**, and **OpenCode**, based on prompts and workflows from [awesome-qa-prompt](https://github.com/awesome-qa-prompt).  
+**Chinese and English are split at the directory level:** Chinese skill dirs (e.g. `daily-testing-workflow`), English skill dirs (e.g. `daily-testing-workflow-en`). Copy the matching dir from **`skills/`** into your tool’s skill location; no need to depend on the repo root.
 
 ---
 
@@ -19,14 +19,14 @@ Each workflow includes **When to Use**, **steps**, **How to Use the Prompts**, *
 
 ---
 
-## Directory Layout (CN/EN skill dirs)
+## Directory Layout (single `skills/`)
 
-For each workflow, Cursor, Claude, and OpenCode each have a **Chinese** and an **English** skill dir:
+All skills live under **`skills/`**, with Chinese and English dirs:
 
 - **Chinese skill:** e.g. `daily-testing-workflow` — Chinese `SKILL.md`, `reference.md`, and `prompts/` with Chinese prompts only (`xxx.md`).
 - **English skill:** e.g. `daily-testing-workflow-en` — English `SKILL.md`, `reference.md`, and `prompts/` with English prompts only (`xxx_EN.md`).
 
-**Copy the dir for your language to use standalone;** no dependency on the repo root `prompts/`.
+**Copy the dir for your language from `skills/` into your tool;** no dependency on the repo root `prompts/`.
 
 | Language | Example dir names | Note |
 |----------|-------------------|------|
@@ -35,8 +35,8 @@ For each workflow, Cursor, Claude, and OpenCode each have a **Chinese** and an *
 
 ```
 awesome-qa-skills/
-├── cursor/                          # For Cursor
-│   ├── daily-testing-workflow/      # Daily (Chinese)
+├── skills/                           # Single skill set (Cursor / Claude Code / OpenCode)
+│   ├── daily-testing-workflow/       # Daily (Chinese)
 │   │   ├── SKILL.md
 │   │   ├── reference.md
 │   │   └── prompts/                 # Chinese .md only
@@ -48,49 +48,44 @@ awesome-qa-skills/
 │   ├── sprint-testing-workflow-en/
 │   ├── release-testing-workflow/
 │   └── release-testing-workflow-en/
-├── claude/                          # For Claude Code (same layout)
-├── opencode/                        # For OpenCode (same layout)
-├── prompts/                         # Root prompt source (CN + EN, for maintenance)
-├── README.md                        # This repo (Chinese default)
-└── README_EN.md                     # This file (English)
+├── prompts/                          # Root prompt source (CN + EN, for maintenance)
+├── README.md                         # This repo (Chinese default)
+└── README_EN.md                      # This file (English)
 ```
 
 ---
 
-## Usage by Platform
+## Usage by Tool
+
+Copy the matching skill dir from **`skills/`** into your tool’s skill directory. The same skill set works for all tools below.
 
 ### Cursor
 
-- **Project-level:** Copy the skill dir into the project’s `.cursor/skills/`.
+- **Project-level:** Copy into the project’s `.cursor/skills/`.
   ```bash
-  # Chinese
-  cp -r cursor/daily-testing-workflow /path/to/your/project/.cursor/skills/
-  # English
-  cp -r cursor/daily-testing-workflow-en /path/to/your/project/.cursor/skills/
+  cp -r skills/daily-testing-workflow /path/to/your/project/.cursor/skills/       # Chinese
+  cp -r skills/daily-testing-workflow-en /path/to/your/project/.cursor/skills/   # English
   ```
-- **User-level:** Copy to `~/.cursor/skills/`, again choosing `daily-testing-workflow` or `daily-testing-workflow-en` by language.
-- Convention: `SKILL.md` must include `name`, `description` (third person, with trigger context); body &lt; 500 lines recommended.
+- **User-level:** Copy to `~/.cursor/skills/`, again choosing by language.
 
 ### Claude Code
 
-- Put skill dirs under the project’s `.claude/skills/`; dir name must match the skill `name`.
+- Copy into the project’s `.claude/skills/`; dir name must match the skill `name`.
   ```bash
   mkdir -p .claude/skills
-  cp -r claude/daily-testing-workflow .claude/skills/           # Chinese
-  cp -r claude/daily-testing-workflow-en .claude/skills/       # English
+  cp -r skills/daily-testing-workflow .claude/skills/           # Chinese
+  cp -r skills/daily-testing-workflow-en .claude/skills/       # English
   ```
-- Convention: frontmatter must include `name`, `version` (semver), `description` (≤ 200 chars recommended).
 
 ### OpenCode
 
-- **Project-level:** `.opencode/skills/<skill-name>/SKILL.md`
-- **Global:** `~/.config/opencode/skills/<skill-name>/SKILL.md`
+- **Project-level:** `.opencode/skills/<skill-name>/`
+- **Global:** `~/.config/opencode/skills/<skill-name>/`
   ```bash
   mkdir -p .opencode/skills
-  cp -r opencode/daily-testing-workflow .opencode/skills/      # Chinese
-  cp -r opencode/daily-testing-workflow-en .opencode/skills/   # English
+  cp -r skills/daily-testing-workflow .opencode/skills/         # Chinese
+  cp -r skills/daily-testing-workflow-en .opencode/skills/   # English
   ```
-- Convention: `name` is lowercase letters, digits, single hyphen (1–64 chars), same as dir name; `description` 1–1024 chars.
 
 ---
 
@@ -106,7 +101,7 @@ awesome-qa-skills/
 
 - Workflow phases, steps, checklists, and recommended prompts come from **awesome-qa-prompt**’s `workflows/` (CN and EN).
 - The actual prompts (Role, Task, execution instructions) come from awesome-qa-prompt’s `testing-types/<type>/`, provided in this repo in root `prompts/` and each workflow’s `prompts/` in both languages, and summarized in each skill’s `reference.md` for quick lookup.
-- Each platform splits into **Chinese skill dirs** (e.g. `daily-testing-workflow`) and **English skill dirs** (e.g. `daily-testing-workflow-en`); skill `name` matches dir name; frontmatter and length follow each platform’s rules.
+- Skill `name` matches dir name; keep the dir name when copying into each tool.
 
 ---
 
