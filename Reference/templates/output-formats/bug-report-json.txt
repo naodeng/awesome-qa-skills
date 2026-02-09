@@ -1,0 +1,500 @@
+# JSON 格式缺陷报告模板
+
+## 格式说明
+适用于 API 集成、自动化工具、数据交换。
+
+## 模板结构
+
+```json
+{
+  "bug": {
+    "id": "BUG-123",
+    "title": "账号锁定后未发送通知邮件",
+    "status": "open",
+    "priority": "high",
+    "severity": "major",
+    "type": "bug",
+    "component": "Authentication",
+    "affectsVersion": "v1.2.3",
+    "fixVersion": "v1.2.4",
+    "environment": "Staging",
+    "reporter": {
+      "name": "Bob Chen",
+      "email": "bob@example.com",
+      "role": "QA Engineer"
+    },
+    "assignee": {
+      "team": "Dev Team",
+      "email": "dev-team@example.com"
+    },
+    "dates": {
+      "reported": "2024-01-16T15:00:00Z",
+      "updated": "2024-01-16T15:30:00Z",
+      "dueDate": "2024-01-18T00:00:00Z"
+    },
+    "labels": [
+      "security",
+      "email",
+      "notification",
+      "p1",
+      "regression"
+    ],
+    "description": {
+      "summary": "在用户账号因多次登录失败被锁定后，系统未能发送通知邮件给用户。",
+      "details": "这是一个安全问题，用户无法及时知道账号被锁定，可能导致用户困惑和支持请求增加。",
+      "businessImpact": {
+        "userExperience": "差",
+        "securityRisk": "中",
+        "supportLoad": "增加",
+        "affectedUsers": "所有用户"
+      }
+    },
+    "stepsToReproduce": [
+      {
+        "step": 1,
+        "action": "打开登录页面",
+        "data": {
+          "url": "https://staging.example.com/login"
+        },
+        "expectedResult": "页面正确加载"
+      },
+      {
+        "step": 2,
+        "action": "输入登录信息",
+        "data": {
+          "username": "testuser@example.com",
+          "password": "WrongPassword123"
+        },
+        "expectedResult": "显示错误消息"
+      },
+      {
+        "step": 3,
+        "action": "重复登录尝试5次",
+        "data": {
+          "attempts": 5
+        },
+        "expectedResult": "每次都显示错误消息"
+      },
+      {
+        "step": 4,
+        "action": "观察账号锁定",
+        "data": {},
+        "expectedResult": "显示账号锁定消息"
+      },
+      {
+        "step": 5,
+        "action": "检查邮箱",
+        "data": {
+          "email": "testuser@example.com",
+          "waitTime": 300
+        },
+        "expectedResult": "收到通知邮件"
+      }
+    ],
+    "expectedBehavior": {
+      "accountLockout": {
+        "status": "success",
+        "message": "账号已被锁定，请30分钟后重试",
+        "databaseRecord": true
+      },
+      "emailNotification": {
+        "sent": true,
+        "subject": "账号安全警告",
+        "content": {
+          "lockReason": "您的账号因多次登录失败已被锁定",
+          "lockTime": "2024-01-16T14:47:30Z",
+          "unlockTime": "2024-01-16T15:17:30Z",
+          "securityAdvice": "如果不是您本人操作，请立即修改密码"
+        },
+        "deliveryTime": 30
+      }
+    },
+    "actualBehavior": {
+      "accountLockout": {
+        "status": "success",
+        "message": "账号已被锁定，请30分钟后重试",
+        "databaseRecord": true
+      },
+      "emailNotification": {
+        "sent": false,
+        "queueStatus": "empty",
+        "error": {
+          "type": "SMTPConnectionTimeout",
+          "message": "SMTP connection timeout",
+          "timestamp": "2024-01-16T14:47:35Z"
+        }
+      }
+    },
+    "errorLogs": [
+      {
+        "timestamp": "2024-01-16T14:47:35Z",
+        "level": "ERROR",
+        "message": "SMTP connection timeout",
+        "service": "email-service",
+        "details": {
+          "host": "smtp.example.com",
+          "port": 587,
+          "timeout": 5000
+        }
+      },
+      {
+        "timestamp": "2024-01-16T14:47:35Z",
+        "level": "ERROR",
+        "message": "Failed to send email to testuser@example.com",
+        "service": "email-service"
+      },
+      {
+        "timestamp": "2024-01-16T14:47:40Z",
+        "level": "ERROR",
+        "message": "Retry attempt 1/3 failed",
+        "service": "email-service"
+      },
+      {
+        "timestamp": "2024-01-16T14:47:45Z",
+        "level": "ERROR",
+        "message": "Email sending abandoned after 3 retries",
+        "service": "email-service"
+      }
+    ],
+    "attachments": [
+      {
+        "type": "screenshot",
+        "filename": "bug-123-locked-screen.png",
+        "url": "https://storage.example.com/bugs/123/screenshot1.png",
+        "size": 245678,
+        "mimeType": "image/png",
+        "description": "账号锁定界面截图"
+      },
+      {
+        "type": "log",
+        "filename": "email-service.log",
+        "url": "https://storage.example.com/bugs/123/email-service.log",
+        "size": 12345,
+        "mimeType": "text/plain",
+        "description": "邮件服务完整日志"
+      },
+      {
+        "type": "trace",
+        "filename": "network-trace.har",
+        "url": "https://storage.example.com/bugs/123/network-trace.har",
+        "size": 567890,
+        "mimeType": "application/json",
+        "description": "网络追踪文件"
+      }
+    ],
+    "technicalAnalysis": {
+      "rootCause": {
+        "primary": "SMTP 超时配置过短",
+        "details": "配置文件中 SMTP 超时设置为5秒，在高负载情况下无法建立连接",
+        "affectedCode": {
+          "file": "src/services/email-service.js",
+          "lines": "45-60",
+          "function": "sendEmail"
+        }
+      },
+      "contributingFactors": [
+        {
+          "factor": "高负载",
+          "description": "SMTP 服务器在高负载时响应时间超过5秒"
+        },
+        {
+          "factor": "重试机制不完善",
+          "description": "重试间隔固定为5秒，没有指数退避策略"
+        }
+      ],
+      "impactScope": {
+        "functionality": "所有邮件发送功能",
+        "users": "所有用户",
+        "frequency": "高负载时期约20%失败",
+        "environments": ["staging", "production"]
+      }
+    },
+    "suggestedFixes": [
+      {
+        "id": "FIX-1",
+        "title": "增加 SMTP 超时时间",
+        "priority": "high",
+        "effort": "low",
+        "description": "将 SMTP 超时从5秒增加到30秒",
+        "codeChange": {
+          "file": "src/services/email-service.js",
+          "before": "timeout: 5000",
+          "after": "timeout: 30000"
+        },
+        "pros": ["简单", "快速"],
+        "cons": ["可能掩盖其他问题"]
+      },
+      {
+        "id": "FIX-2",
+        "title": "改进重试机制",
+        "priority": "high",
+        "effort": "medium",
+        "description": "实现指数退避重试策略",
+        "codeChange": {
+          "file": "src/services/email-service.js",
+          "implementation": "exponential-backoff"
+        },
+        "pros": ["更可靠", "处理临时故障"],
+        "cons": ["实现复杂"]
+      },
+      {
+        "id": "FIX-3",
+        "title": "使用异步队列",
+        "priority": "medium",
+        "effort": "high",
+        "description": "使用消息队列异步处理邮件发送",
+        "infrastructure": ["RabbitMQ", "Redis Queue"],
+        "pros": ["最可靠", "可扩展"],
+        "cons": ["需要额外基础设施"]
+      }
+    ],
+    "workaround": {
+      "available": true,
+      "description": "手动通过管理后台发送通知邮件",
+      "steps": [
+        "登录管理后台",
+        "导航到用户管理",
+        "选择受影响用户",
+        "点击 '发送通知邮件' 按钮"
+      ],
+      "apiEndpoint": {
+        "method": "POST",
+        "url": "https://staging.example.com/admin/send-notification",
+        "headers": {
+          "Authorization": "Bearer $ADMIN_TOKEN",
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "userId": "12345",
+          "type": "account_locked",
+          "email": "testuser@example.com"
+        }
+      }
+    },
+    "verificationSteps": [
+      {
+        "step": 1,
+        "action": "部署修复版本到 Staging",
+        "responsible": "DevOps"
+      },
+      {
+        "step": 2,
+        "action": "重复重现步骤",
+        "responsible": "QA"
+      },
+      {
+        "step": 3,
+        "action": "验证邮件在30秒内送达",
+        "responsible": "QA"
+      },
+      {
+        "step": 4,
+        "action": "检查邮件内容正确",
+        "responsible": "QA"
+      },
+      {
+        "step": 5,
+        "action": "验证日志无错误",
+        "responsible": "QA"
+      },
+      {
+        "step": 6,
+        "action": "进行负载测试",
+        "responsible": "QA",
+        "details": {
+          "concurrentUsers": 100,
+          "duration": 600
+        }
+      }
+    ],
+    "relatedIssues": [
+      {
+        "id": "PROJ-456",
+        "title": "发布测试",
+        "relationship": "blocks",
+        "url": "https://jira.example.com/PROJ-456"
+      },
+      {
+        "id": "PROJ-123",
+        "title": "邮件服务优化",
+        "relationship": "related",
+        "url": "https://jira.example.com/PROJ-123"
+      },
+      {
+        "id": "BUG-089",
+        "title": "邮件发送失败",
+        "relationship": "duplicate",
+        "url": "https://jira.example.com/BUG-089"
+      }
+    ],
+    "testCase": {
+      "id": "TC-005",
+      "title": "账号锁定通知功能",
+      "url": "https://testrail.example.com/TC-005"
+    },
+    "timeline": [
+      {
+        "timestamp": "2024-01-16T14:47:30Z",
+        "event": "问题发现",
+        "actor": "Bob Chen",
+        "details": "在执行 TC-005 时发现问题"
+      },
+      {
+        "timestamp": "2024-01-16T15:00:00Z",
+        "event": "缺陷报告创建",
+        "actor": "Bob Chen",
+        "details": "创建 BUG-123"
+      },
+      {
+        "timestamp": "2024-01-16T15:30:00Z",
+        "event": "分配给开发团队",
+        "actor": "QA Lead",
+        "details": "优先级设置为 High"
+      },
+      {
+        "timestamp": "2024-01-16T16:00:00Z",
+        "event": "开始调查",
+        "actor": "Dev Team",
+        "details": "开始分析根本原因"
+      },
+      {
+        "timestamp": "2024-01-16T17:00:00Z",
+        "event": "确认根本原因",
+        "actor": "Dev Team",
+        "details": "SMTP 超时配置问题"
+      },
+      {
+        "timestamp": "2024-01-17T10:00:00Z",
+        "event": "修复完成",
+        "actor": "Dev Team",
+        "details": "PR #234 已合并"
+      },
+      {
+        "timestamp": "2024-01-17T14:00:00Z",
+        "event": "部署到 Staging",
+        "actor": "DevOps",
+        "details": "版本 v1.2.4-rc1"
+      },
+      {
+        "timestamp": "2024-01-17T15:00:00Z",
+        "event": "验证通过",
+        "actor": "QA Team",
+        "details": "所有测试通过"
+      },
+      {
+        "timestamp": "2024-01-18T10:00:00Z",
+        "event": "部署到 Production",
+        "actor": "DevOps",
+        "details": "版本 v1.2.4"
+      },
+      {
+        "timestamp": "2024-01-18T11:00:00Z",
+        "event": "缺陷关闭",
+        "actor": "QA Lead",
+        "details": "验证生产环境正常"
+      }
+    ],
+    "comments": [
+      {
+        "id": "COMMENT-1",
+        "author": "Bob Chen",
+        "timestamp": "2024-01-16T15:00:00Z",
+        "text": "创建缺陷报告。这个问题影响用户体验，建议优先修复。"
+      },
+      {
+        "id": "COMMENT-2",
+        "author": "Dev Team",
+        "timestamp": "2024-01-16T16:30:00Z",
+        "text": "已确认问题。SMTP 超时配置确实过短。计划在 v1.2.4 中修复。"
+      },
+      {
+        "id": "COMMENT-3",
+        "author": "QA Lead",
+        "timestamp": "2024-01-17T15:30:00Z",
+        "text": "验证通过。邮件通知功能正常工作。建议部署到生产环境。"
+      }
+    ],
+    "metrics": {
+      "timeToDetect": 0,
+      "timeToReport": 1800,
+      "timeToFix": 68400,
+      "timeToVerify": 3600,
+      "timeToClose": 7200,
+      "totalResolutionTime": 82800
+    }
+  }
+}
+```
+
+## Schema 定义
+
+```json
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "bug": {
+      "type": "object",
+      "required": ["id", "title", "status", "priority", "severity"],
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "status": { "enum": ["open", "in_progress", "fixed", "verified", "closed", "wont_fix"] },
+        "priority": { "enum": ["blocker", "critical", "high", "medium", "low"] },
+        "severity": { "enum": ["critical", "major", "minor", "trivial"] }
+      }
+    }
+  }
+}
+```
+
+## 使用示例
+
+### 1. 创建缺陷
+```javascript
+const bug = {
+  id: "BUG-123",
+  title: "账号锁定后未发送通知邮件",
+  status: "open",
+  priority: "high",
+  // ... 其他字段
+};
+
+// POST 到 API
+fetch('https://api.example.com/bugs', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify(bug)
+});
+```
+
+### 2. 查询缺陷
+```javascript
+// GET 从 API
+const response = await fetch('https://api.example.com/bugs/BUG-123');
+const bug = await response.json();
+console.log(bug.bug.title);
+```
+
+### 3. 更新状态
+```javascript
+// PATCH 更新
+fetch('https://api.example.com/bugs/BUG-123', {
+  method: 'PATCH',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    status: "fixed",
+    fixVersion: "v1.2.4"
+  })
+});
+```
+
+## 最佳实践
+
+1. **使用 JSON Schema 验证**: 确保数据格式正确
+2. **版本控制**: 使用 API 版本管理
+3. **完整性**: 包含所有必要字段
+4. **可扩展性**: 使用嵌套对象支持扩展
+5. **时间戳**: 使用 ISO 8601 格式
+6. **URL**: 包含完整的资源 URL
+7. **关联**: 使用 ID 关联相关资源

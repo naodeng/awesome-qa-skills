@@ -1,10 +1,23 @@
 ---
 name: automation-testing
 version: 2.0.0
-description: 默认输出 Markdown，可请求 Excel/CSV/JSON。Use for 自动化测试 or automation-testing.
-tags: [automation, testing, selenium, pom, page-object-model, pytest]
-difficulty: intermediate
-last_updated: 2026-02-06
+last-updated: 2026-02-06
+description: 设计自动化测试方案，包括 POM、数据驱动、BDD 等模式。默认输出 Markdown，可请求 Excel/CSV/JSON。Use for 自动化测试 or automation-testing.
+category: testing-types
+level: intermediate
+tags: [automation, selenium, playwright, cypress, pom, bdd, data-driven]
+dependencies: [functional-testing]
+recommended-with: [api-testing, functional-testing, test-case-writing]
+context-aware: true
+context-patterns:
+  project-types: [web, mobile, api]
+  frameworks: [selenium, playwright, cypress, appium, webdriverio]
+  test-frameworks: [pytest, junit, testng, jest, mocha]
+  patterns: [page-object-model, data-driven, bdd, keyword-driven]
+output-formats: [markdown, excel, csv, json, code]
+examples-count: 3
+has-tutorial: false
+has-troubleshooting: true
 ---
 
 # 自动化测试（中文版）

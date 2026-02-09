@@ -1,0 +1,128 @@
+# Excel 格式测试用例模板
+
+## 格式说明
+适用于 Microsoft Excel 或 Google Sheets，使用 CSV 格式导入。
+
+## 模板结构
+
+```csv
+Test Case ID,Test Case Title,Priority,Category,Preconditions,Test Steps,Expected Results,Test Data,Status,Assigned To,Tags
+TC-001,用户登录功能 - 有效凭证,High,Functional,"1. 用户已注册
+2. 数据库中存在测试账号","1. 打开登录页面
+2. 输入有效用户名
+3. 输入有效密码
+4. 点击登录按钮","1. 页面跳转到首页
+2. 显示欢迎消息
+3. 用户会话已创建","用户名: testuser@example.com
+密码: Test@123",Not Run,QA Team,login;authentication;smoke
+TC-002,用户登录功能 - 无效密码,High,Negative,"1. 用户已注册
+2. 数据库中存在测试账号","1. 打开登录页面
+2. 输入有效用户名
+3. 输入无效密码
+4. 点击登录按钮","1. 显示错误消息: '用户名或密码错误'
+2. 用户停留在登录页面
+3. 密码输入框被清空","用户名: testuser@example.com
+密码: WrongPass123",Not Run,QA Team,login;authentication;negative
+TC-003,用户登录功能 - 空用户名,Medium,Negative,"1. 打开登录页面","1. 保持用户名为空
+2. 输入有效密码
+3. 点击登录按钮","1. 显示验证错误: '请输入用户名'
+2. 登录按钮保持禁用状态","密码: Test@123",Not Run,QA Team,login;validation;negative
+TC-004,用户登录功能 - SQL 注入测试,Critical,Security,"1. 打开登录页面","1. 在用户名输入框输入: admin' OR '1'='1
+2. 在密码输入框输入: ' OR '1'='1
+3. 点击登录按钮","1. 显示错误消息
+2. 登录失败
+3. 系统记录安全事件","用户名: admin' OR '1'='1
+密码: ' OR '1'='1",Not Run,Security Team,login;security;sql-injection
+TC-005,用户登录功能 - 账号锁定,High,Functional,"1. 用户已注册
+2. 账号锁定策略: 5次失败后锁定","1. 输入有效用户名
+2. 输入错误密码
+3. 重复步骤1-2共5次
+4. 第6次尝试登录","1. 前5次显示: '用户名或密码错误'
+2. 第6次显示: '账号已被锁定，请30分钟后重试'
+3. 发送锁定通知邮件","用户名: testuser@example.com
+密码: WrongPass123",Not Run,QA Team,login;security;account-lockout
+```
+
+## 字段说明
+
+| 字段 | 说明 | 必填 |
+|------|------|------|
+| Test Case ID | 唯一标识符，格式: TC-XXX | ✓ |
+| Test Case Title | 测试用例标题 | ✓ |
+| Priority | 优先级: Critical/High/Medium/Low | ✓ |
+| Category | 类别: Functional/Negative/Security/Performance/UI | ✓ |
+| Preconditions | 前置条件，多条用换行分隔 | ✓ |
+| Test Steps | 测试步骤，编号列表 | ✓ |
+| Expected Results | 预期结果，编号列表 | ✓ |
+| Test Data | 测试数据，键值对格式 | - |
+| Status | 状态: Not Run/Pass/Fail/Blocked/Skip | ✓ |
+| Assigned To | 负责人 | - |
+| Tags | 标签，分号分隔 | - |
+
+## 导入步骤
+
+### Excel
+1. 打开 Excel
+2. 选择 "数据" > "从文本/CSV"
+3. 选择此 CSV 文件
+4. 确认分隔符为逗号
+5. 点击 "加载"
+
+### Google Sheets
+1. 打开 Google Sheets
+2. 选择 "文件" > "导入"
+3. 上传此 CSV 文件
+4. 选择 "替换当前工作表"
+5. 点击 "导入数据"
+
+## 最佳实践
+
+1. **ID 命名规范**
+   - 使用前缀标识模块: LOGIN-001, CART-001
+   - 保持连续编号
+   - 预留编号空间用于扩展
+
+2. **步骤编写**
+   - 每个步骤一个操作
+   - 使用清晰的动词: 点击、输入、选择
+   - 包含具体的定位信息
+
+3. **预期结果**
+   - 与步骤一一对应
+   - 可验证和可观察
+   - 包含具体的值或状态
+
+4. **标签使用**
+   - 功能模块标签: login, checkout, search
+   - 测试类型标签: smoke, regression, sanity
+   - 优先级标签: p0, p1, p2
+
+5. **数据管理**
+   - 敏感数据使用占位符
+   - 测试数据与生产数据隔离
+   - 记录数据依赖关系
+
+## 扩展字段（可选）
+
+```csv
+Automation Status,Automation Script,Execution Time,Last Run Date,Last Run Result,Defect ID,Comments
+Manual,N/A,5 min,2024-01-15,Pass,N/A,测试通过
+Automated,tests/login.spec.js,30 sec,2024-01-15,Pass,N/A,自动化测试通过
+Manual,N/A,3 min,2024-01-15,Fail,BUG-123,密码验证失败
+```
+
+## 状态转换
+
+```
+Not Run → In Progress → Pass/Fail/Blocked
+                      ↓
+                   Retest
+```
+
+## 报告统计
+
+使用 Excel 公式统计:
+- 总用例数: `=COUNTA(A2:A100)`
+- 通过率: `=COUNTIF(I2:I100,"Pass")/COUNTA(I2:I100)`
+- 失败数: `=COUNTIF(I2:I100,"Fail")`
+- 阻塞数: `=COUNTIF(I2:I100,"Blocked")`

@@ -1,0 +1,359 @@
+# TestRail 测试用例模板
+
+## 基本信息
+Section: [测试套件名称]
+Title: [测试用例标题]
+Type: [Automated/Manual/Other]
+Priority: [Critical/High/Medium/Low]
+Estimate: [预计执行时间，如：5m, 30m, 1h]
+References: [关联需求ID，如：REQ-001]
+
+## 测试用例详情
+
+### Preconditions（前置条件）
+```
+[描述执行测试前需要满足的条件]
+- 条件1
+- 条件2
+```
+
+### Steps（测试步骤）
+```
+Step 1: [操作描述]
+Expected Result: [预期结果]
+
+Step 2: [操作描述]
+Expected Result: [预期结果]
+
+Step 3: [操作描述]
+Expected Result: [预期结果]
+```
+
+### Expected Result（总体预期结果）
+```
+[描述测试用例执行完成后的总体预期结果]
+```
+
+## 自定义字段
+
+### Test Data（测试数据）
+```
+[测试所需的数据]
+- 数据项1: 值1
+- 数据项2: 值2
+```
+
+### Automation Status（自动化状态）
+- [ ] Not Automated
+- [ ] Automated
+- [ ] Automation Planned
+
+### Test Environment（测试环境）
+```
+[测试环境要求]
+- 操作系统：
+- 浏览器：
+- 数据库：
+- 其他依赖：
+```
+
+### Tags（标签）
+```
+[用于分类和过滤的标签，用逗号分隔]
+smoke, regression, api, critical
+```
+
+---
+
+## 示例：用户登录测试用例
+
+### 基本信息
+Section: Authentication
+Title: 验证用户使用有效凭据登录
+Type: Automated
+Priority: Critical
+Estimate: 5m
+References: REQ-AUTH-001
+
+### Preconditions
+```
+- 测试用户账号已创建（username: testuser@example.com, password: Test@123）
+- 应用程序已部署并可访问
+- 数据库连接正常
+```
+
+### Steps
+```
+Step 1: 打开登录页面（/login）
+Expected Result: 登录页面正确加载，显示用户名和密码输入框
+
+Step 2: 在用户名字段输入 "testuser@example.com"
+Expected Result: 用户名字段显示输入的邮箱地址
+
+Step 3: 在密码字段输入 "Test@123"
+Expected Result: 密码字段显示为掩码字符
+
+Step 4: 点击"登录"按钮
+Expected Result: 系统验证凭据并重定向到仪表板页面
+
+Step 5: 验证用户已登录
+Expected Result: 
+- URL 变更为 /dashboard
+- 页面显示用户名 "testuser@example.com"
+- 显示"退出"按钮
+```
+
+### Expected Result
+```
+用户成功登录并重定向到仪表板页面，显示个性化内容
+```
+
+### Test Data
+```
+- 有效用户名: testuser@example.com
+- 有效密码: Test@123
+- 预期重定向URL: /dashboard
+```
+
+### Automation Status
+- [x] Automated
+
+### Test Environment
+```
+- 操作系统：Windows 10 / macOS / Linux
+- 浏览器：Chrome 120+, Firefox 120+, Safari 17+
+- 数据库：PostgreSQL 14
+- API版本：v2.0
+```
+
+### Tags
+```
+smoke, authentication, login, critical, automated
+```
+
+---
+
+## 字段说明
+
+### Section（测试套件）
+测试用例所属的测试套件或模块，用于组织和分类测试用例。
+
+### Title（标题）
+简洁明确的测试用例标题，应该清楚描述测试的目标。
+
+### Type（类型）
+- **Automated**: 自动化测试
+- **Manual**: 手工测试
+- **Other**: 其他类型
+
+### Priority（优先级）
+- **Critical**: 关键功能，必须通过
+- **High**: 高优先级，重要功能
+- **Medium**: 中等优先级
+- **Low**: 低优先级，次要功能
+
+### Estimate（预计时间）
+执行测试用例所需的预计时间，格式：
+- 分钟：5m, 10m, 30m
+- 小时：1h, 2h
+
+### References（关联需求）
+关联的需求、用户故事或缺陷ID，用于追溯性管理。
+
+### Preconditions（前置条件）
+执行测试前必须满足的条件，包括：
+- 系统状态
+- 测试数据准备
+- 环境配置
+- 依赖服务
+
+### Steps（测试步骤）
+详细的测试执行步骤，每个步骤包括：
+- 操作描述：清晰的操作说明
+- 预期结果：该步骤的预期输出
+
+### Expected Result（总体预期结果）
+测试用例执行完成后的总体预期结果，描述最终状态。
+
+### Test Data（测试数据）
+测试所需的输入数据、配置参数等。
+
+### Automation Status（自动化状态）
+- **Not Automated**: 未自动化
+- **Automated**: 已自动化
+- **Automation Planned**: 计划自动化
+
+### Test Environment（测试环境）
+测试执行所需的环境配置，包括：
+- 操作系统
+- 浏览器/客户端
+- 数据库
+- 第三方服务
+- API版本
+
+### Tags（标签）
+用于分类、过滤和搜索的标签，常用标签：
+- **功能模块**: login, checkout, payment, search
+- **测试类型**: smoke, regression, integration, e2e
+- **优先级**: critical, high, medium, low
+- **自动化**: automated, manual
+- **平台**: web, mobile, api, desktop
+
+---
+
+## TestRail 导入格式
+
+TestRail 支持多种导入格式，推荐使用 CSV 或 XML 格式：
+
+### CSV 格式示例
+```csv
+Section,Title,Type,Priority,Estimate,References,Preconditions,Steps,Expected Result,Tags
+Authentication,"验证用户使用有效凭据登录",Automated,Critical,5m,REQ-AUTH-001,"测试用户账号已创建","Step 1: 打开登录页面
+Expected: 页面加载成功","用户成功登录","smoke,authentication"
+```
+
+### XML 格式示例
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<testcases>
+  <testcase>
+    <section>Authentication</section>
+    <title>验证用户使用有效凭据登录</title>
+    <type>Automated</type>
+    <priority>Critical</priority>
+    <estimate>5m</estimate>
+    <references>REQ-AUTH-001</references>
+    <preconditions>测试用户账号已创建</preconditions>
+    <steps>
+      <step>
+        <index>1</index>
+        <content>打开登录页面</content>
+        <expected>页面加载成功</expected>
+      </step>
+    </steps>
+    <expected>用户成功登录</expected>
+    <custom_tags>smoke,authentication</custom_tags>
+  </testcase>
+</testcases>
+```
+
+---
+
+## 最佳实践
+
+### 1. 标题命名
+- ✅ 使用动词开头：验证、测试、检查
+- ✅ 清晰描述测试目标
+- ❌ 避免模糊描述：测试登录功能
+
+### 2. 步骤编写
+- ✅ 每个步骤一个操作
+- ✅ 包含明确的预期结果
+- ✅ 使用清晰的动词：点击、输入、选择
+- ❌ 避免多个操作合并
+
+### 3. 前置条件
+- ✅ 列出所有必要条件
+- ✅ 包含测试数据准备
+- ✅ 说明环境要求
+- ❌ 避免遗漏关键条件
+
+### 4. 标签使用
+- ✅ 使用一致的标签体系
+- ✅ 包含功能、类型、优先级标签
+- ✅ 便于过滤和搜索
+- ❌ 避免标签过多或混乱
+
+### 5. 可追溯性
+- ✅ 关联需求ID
+- ✅ 关联用户故事
+- ✅ 关联缺陷ID
+- ❌ 避免孤立的测试用例
+
+---
+
+## 常见问题
+
+### Q1: 如何组织测试套件（Section）？
+**A**: 按功能模块或用户流程组织，例如：
+- Authentication（认证）
+- User Management（用户管理）
+- Shopping Cart（购物车）
+- Payment（支付）
+
+### Q2: 测试步骤应该多详细？
+**A**: 足够详细以便任何人都能执行，但不要过于冗长。平衡可读性和完整性。
+
+### Q3: 如何处理测试数据？
+**A**: 
+- 在 Preconditions 中说明数据准备
+- 在 Test Data 字段中列出具体数据
+- 使用参数化处理多组数据
+
+### Q4: 自动化测试用例需要详细步骤吗？
+**A**: 需要。即使是自动化测试，详细步骤也有助于：
+- 理解测试逻辑
+- 手工验证
+- 故障排查
+
+### Q5: 如何管理测试用例版本？
+**A**: TestRail 自动管理版本历史，建议：
+- 在 References 中记录变更原因
+- 使用标签标记版本相关信息
+- 定期审查和更新用例
+
+---
+
+## 工具集成
+
+### 与自动化框架集成
+TestRail 支持与多种自动化框架集成：
+
+**Selenium/WebDriver**
+```python
+from testrail import APIClient
+
+client = APIClient('https://your-domain.testrail.io/')
+client.user = 'your-email@example.com'
+client.password = 'your-password'
+
+# 更新测试结果
+client.send_post(
+    'add_result_for_case/1/123',
+    {'status_id': 1, 'comment': 'Test passed'}
+)
+```
+
+**Pytest**
+```python
+# pytest.ini
+[pytest]
+testrail = True
+testrail_url = https://your-domain.testrail.io/
+testrail_email = your-email@example.com
+testrail_key = your-api-key
+```
+
+**JUnit**
+```xml
+<!-- pom.xml -->
+<plugin>
+    <groupId>com.codepine.api</groupId>
+    <artifactId>testrail-api-java-client</artifactId>
+    <version>2.0.2</version>
+</plugin>
+```
+
+---
+
+## 参考资源
+
+- [TestRail 官方文档](https://www.gurock.com/testrail/docs)
+- [TestRail API 文档](https://www.gurock.com/testrail/docs/api)
+- [测试用例设计最佳实践](../../docs/guides/test-case-design.md)
+- [自动化测试集成指南](../../docs/guides/automation-integration.md)
+
+---
+
+*模板版本: 1.0.0*  
+*最后更新: 2026-02-09*

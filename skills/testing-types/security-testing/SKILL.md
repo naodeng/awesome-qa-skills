@@ -1,10 +1,23 @@
 ---
 name: security-testing
 version: 2.0.0
-description: 默认输出 Markdown，可请求 Excel/CSV/JSON。Use for 安全测试 or security-testing.
-tags: [security, testing, owasp, zap, penetration-testing, vulnerability]
-difficulty: advanced
-last_updated: 2026-02-06
+last-updated: 2026-02-06
+description: 设计安全测试方案，包括 OWASP Top 10、渗透测试、漏洞扫描。默认输出 Markdown，可请求 Excel/CSV/JSON。Use for 安全测试 or security-testing.
+category: testing-types
+level: advanced
+tags: [security, owasp, penetration, vulnerability, zap, burp-suite, sql-injection, xss]
+dependencies: [api-testing]
+recommended-with: [automation-testing, test-strategy, test-reporting]
+context-aware: true
+context-patterns:
+  project-types: [api, web, mobile]
+  test-types: [vulnerability-scan, penetration, authentication, authorization, encryption, injection]
+  test-frameworks: [owasp-zap, burp-suite, nmap, metasploit]
+  standards: [owasp-top-10, pci-dss, gdpr, hipaa]
+output-formats: [markdown, excel, csv, json, html-report]
+examples-count: 1
+has-tutorial: false
+has-troubleshooting: true
 ---
 
 # 安全测试（中文版）

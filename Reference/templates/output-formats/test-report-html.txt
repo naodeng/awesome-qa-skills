@@ -1,0 +1,645 @@
+# HTML 格式测试报告模板
+
+## 格式说明
+适用于生成可视化的测试报告，可在浏览器中查看，支持图表和交互。
+
+## 模板结构
+
+```html
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>测试报告 - 用户认证模块</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            border-bottom: 3px solid #4CAF50;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .header h1 {
+            color: #2c3e50;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        
+        .header .meta {
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+        
+        .summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .summary-card {
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .summary-card.pass {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+        }
+        
+        .summary-card.fail {
+            background: #f8d7da;
+            border-left: 4px solid #dc3545;
+        }
+        
+        .summary-card.skip {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+        }
+        
+        .summary-card.total {
+            background: #d1ecf1;
+            border-left: 4px solid #17a2b8;
+        }
+        
+        .summary-card .number {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .summary-card .label {
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .chart-container {
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 30px;
+            background: #e9ecef;
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+        
+        .progress-segment {
+            height: 100%;
+            float: left;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .progress-segment.pass { background: #28a745; }
+        .progress-segment.fail { background: #dc3545; }
+        .progress-segment.skip { background: #ffc107; }
+        
+        .section {
+            margin: 30px 0;
+        }
+        
+        .section h2 {
+            color: #2c3e50;
+            font-size: 24px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ecf0f1;
+        }
+        
+        .test-case {
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+        
+        .test-case-header {
+            padding: 15px;
+            background: #f8f9fa;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .test-case-header:hover {
+            background: #e9ecef;
+        }
+        
+        .test-case-title {
+            font-weight: bold;
+            font-size: 16px;
+        }
+        
+        .test-case-status {
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .status-pass {
+            background: #28a745;
+            color: white;
+        }
+        
+        .status-fail {
+            background: #dc3545;
+            color: white;
+        }
+        
+        .status-skip {
+            background: #ffc107;
+            color: #333;
+        }
+        
+        .test-case-body {
+            padding: 15px;
+            display: none;
+        }
+        
+        .test-case-body.active {
+            display: block;
+        }
+        
+        .test-details {
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .test-details .label {
+            font-weight: bold;
+            color: #666;
+        }
+        
+        .test-steps {
+            margin-top: 15px;
+        }
+        
+        .test-step {
+            padding: 10px;
+            margin-bottom: 10px;
+            background: #f8f9fa;
+            border-left: 3px solid #6c757d;
+            border-radius: 4px;
+        }
+        
+        .test-step.pass {
+            border-left-color: #28a745;
+        }
+        
+        .test-step.fail {
+            border-left-color: #dc3545;
+        }
+        
+        .error-message {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+        
+        .screenshot {
+            max-width: 100%;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        th {
+            background: #f8f9fa;
+            font-weight: bold;
+            color: #495057;
+        }
+        
+        tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #ecf0f1;
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .container {
+                box-shadow: none;
+            }
+            
+            .test-case-body {
+                display: block !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>测试报告 - 用户认证模块</h1>
+            <div class="meta">
+                <strong>项目:</strong> Awesome QA Platform | 
+                <strong>版本:</strong> v1.2.3 | 
+                <strong>环境:</strong> Staging | 
+                <strong>执行日期:</strong> 2024-01-16 14:30:00 | 
+                <strong>执行人:</strong> QA Team
+            </div>
+        </div>
+
+        <!-- Summary Cards -->
+        <div class="summary">
+            <div class="summary-card total">
+                <div class="number">25</div>
+                <div class="label">总用例数</div>
+            </div>
+            <div class="summary-card pass">
+                <div class="number">22</div>
+                <div class="label">通过 (88%)</div>
+            </div>
+            <div class="summary-card fail">
+                <div class="number">2</div>
+                <div class="label">失败 (8%)</div>
+            </div>
+            <div class="summary-card skip">
+                <div class="number">1</div>
+                <div class="label">跳过 (4%)</div>
+            </div>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="progress-bar">
+            <div class="progress-segment pass" style="width: 88%;">88% 通过</div>
+            <div class="progress-segment fail" style="width: 8%;">8%</div>
+            <div class="progress-segment skip" style="width: 4%;">4%</div>
+        </div>
+
+        <!-- Test Execution Summary -->
+        <div class="section">
+            <h2>执行概要</h2>
+            <table>
+                <tr>
+                    <th>指标</th>
+                    <th>值</th>
+                </tr>
+                <tr>
+                    <td>开始时间</td>
+                    <td>2024-01-16 14:30:00</td>
+                </tr>
+                <tr>
+                    <td>结束时间</td>
+                    <td>2024-01-16 15:45:30</td>
+                </tr>
+                <tr>
+                    <td>总耗时</td>
+                    <td>1小时 15分钟 30秒</td>
+                </tr>
+                <tr>
+                    <td>通过率</td>
+                    <td>88%</td>
+                </tr>
+                <tr>
+                    <td>测试环境</td>
+                    <td>Staging (https://staging.example.com)</td>
+                </tr>
+                <tr>
+                    <td>浏览器</td>
+                    <td>Chrome 120, Firefox 121</td>
+                </tr>
+                <tr>
+                    <td>构建版本</td>
+                    <td>v1.2.3 (commit: abc123)</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Test Cases -->
+        <div class="section">
+            <h2>测试用例详情</h2>
+
+            <!-- Test Case 1: Pass -->
+            <div class="test-case">
+                <div class="test-case-header" onclick="toggleTestCase(this)">
+                    <div class="test-case-title">TC-001: 用户登录功能 - 有效凭证</div>
+                    <span class="test-case-status status-pass">✓ PASS</span>
+                </div>
+                <div class="test-case-body">
+                    <div class="test-details">
+                        <div class="label">优先级:</div>
+                        <div>High</div>
+                        
+                        <div class="label">类别:</div>
+                        <div>Functional</div>
+                        
+                        <div class="label">执行时间:</div>
+                        <div>2024-01-16 14:32:15</div>
+                        
+                        <div class="label">耗时:</div>
+                        <div>2分15秒</div>
+                        
+                        <div class="label">执行人:</div>
+                        <div>alice@example.com</div>
+                    </div>
+                    
+                    <div class="test-steps">
+                        <strong>测试步骤:</strong>
+                        <div class="test-step pass">
+                            <strong>步骤 1:</strong> 打开登录页面<br>
+                            <em>结果:</em> ✓ 页面正确加载
+                        </div>
+                        <div class="test-step pass">
+                            <strong>步骤 2:</strong> 输入有效用户名<br>
+                            <em>结果:</em> ✓ 用户名输入成功
+                        </div>
+                        <div class="test-step pass">
+                            <strong>步骤 3:</strong> 输入有效密码<br>
+                            <em>结果:</em> ✓ 密码输入成功
+                        </div>
+                        <div class="test-step pass">
+                            <strong>步骤 4:</strong> 点击登录按钮<br>
+                            <em>结果:</em> ✓ 成功跳转到首页
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Test Case 2: Fail -->
+            <div class="test-case">
+                <div class="test-case-header" onclick="toggleTestCase(this)">
+                    <div class="test-case-title">TC-005: 账号锁定通知功能</div>
+                    <span class="test-case-status status-fail">✗ FAIL</span>
+                </div>
+                <div class="test-case-body">
+                    <div class="test-details">
+                        <div class="label">优先级:</div>
+                        <div>High</div>
+                        
+                        <div class="label">类别:</div>
+                        <div>Security</div>
+                        
+                        <div class="label">执行时间:</div>
+                        <div>2024-01-16 14:45:30</div>
+                        
+                        <div class="label">耗时:</div>
+                        <div>5分20秒</div>
+                        
+                        <div class="label">执行人:</div>
+                        <div>bob@example.com</div>
+                        
+                        <div class="label">关联缺陷:</div>
+                        <div><a href="https://jira.example.com/BUG-123">BUG-123</a></div>
+                    </div>
+                    
+                    <div class="test-steps">
+                        <strong>测试步骤:</strong>
+                        <div class="test-step pass">
+                            <strong>步骤 1:</strong> 触发账号锁定<br>
+                            <em>结果:</em> ✓ 账号成功锁定
+                        </div>
+                        <div class="test-step fail">
+                            <strong>步骤 2:</strong> 验证邮件通知<br>
+                            <em>结果:</em> ✗ 未收到邮件通知
+                        </div>
+                    </div>
+                    
+                    <div class="error-message">
+                        <strong>错误信息:</strong><br>
+                        预期收到邮件通知，但在5分钟内未收到任何邮件。<br>
+                        邮件服务日志显示: "SMTP connection timeout"
+                    </div>
+                    
+                    <img src="screenshots/tc-005-fail.png" alt="失败截图" class="screenshot">
+                </div>
+            </div>
+
+            <!-- Test Case 3: Skip -->
+            <div class="test-case">
+                <div class="test-case-header" onclick="toggleTestCase(this)">
+                    <div class="test-case-title">TC-010: 第三方登录 - Google OAuth</div>
+                    <span class="test-case-status status-skip">⊘ SKIP</span>
+                </div>
+                <div class="test-case-body">
+                    <div class="test-details">
+                        <div class="label">优先级:</div>
+                        <div>Medium</div>
+                        
+                        <div class="label">类别:</div>
+                        <div>Integration</div>
+                        
+                        <div class="label">跳过原因:</div>
+                        <div>Google OAuth 服务在测试环境不可用</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Failed Tests Summary -->
+        <div class="section">
+            <h2>失败用例汇总</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>用例ID</th>
+                        <th>用例标题</th>
+                        <th>失败原因</th>
+                        <th>缺陷ID</th>
+                        <th>负责人</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>TC-005</td>
+                        <td>账号锁定通知功能</td>
+                        <td>邮件通知未发送</td>
+                        <td><a href="https://jira.example.com/BUG-123">BUG-123</a></td>
+                        <td>Dev Team</td>
+                    </tr>
+                    <tr>
+                        <td>TC-018</td>
+                        <td>密码强度验证</td>
+                        <td>弱密码被接受</td>
+                        <td><a href="https://jira.example.com/BUG-124">BUG-124</a></td>
+                        <td>Dev Team</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Environment Info -->
+        <div class="section">
+            <h2>测试环境信息</h2>
+            <table>
+                <tr>
+                    <th>项目</th>
+                    <th>值</th>
+                </tr>
+                <tr>
+                    <td>应用版本</td>
+                    <td>v1.2.3</td>
+                </tr>
+                <tr>
+                    <td>环境</td>
+                    <td>Staging</td>
+                </tr>
+                <tr>
+                    <td>URL</td>
+                    <td>https://staging.example.com</td>
+                </tr>
+                <tr>
+                    <td>数据库</td>
+                    <td>PostgreSQL 14.5</td>
+                </tr>
+                <tr>
+                    <td>操作系统</td>
+                    <td>Ubuntu 22.04 LTS</td>
+                </tr>
+                <tr>
+                    <td>浏览器</td>
+                    <td>Chrome 120, Firefox 121, Safari 17</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>此报告由自动化测试系统生成 | 生成时间: 2024-01-16 15:50:00</p>
+            <p>© 2024 QA Team. All rights reserved.</p>
+        </div>
+    </div>
+
+    <script>
+        function toggleTestCase(header) {
+            const body = header.nextElementSibling;
+            body.classList.toggle('active');
+        }
+        
+        // 自动展开失败的测试用例
+        document.addEventListener('DOMContentLoaded', function() {
+            const failedCases = document.querySelectorAll('.status-fail');
+            failedCases.forEach(status => {
+                const header = status.parentElement;
+                const body = header.nextElementSibling;
+                body.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
+```
+
+## 使用指南
+
+### 1. 生成报告
+```javascript
+// Node.js 示例
+const fs = require('fs');
+const template = fs.readFileSync('test-report-template.html', 'utf8');
+
+// 替换模板变量
+const report = template
+  .replace('{{totalCases}}', testResults.total)
+  .replace('{{passedCases}}', testResults.passed)
+  .replace('{{failedCases}}', testResults.failed);
+
+fs.writeFileSync('test-report.html', report);
+```
+
+### 2. 集成到 CI/CD
+```yaml
+# .github/workflows/test.yml
+- name: Generate HTML Report
+  run: |
+    npm run test:report
+    
+- name: Upload Report
+  uses: actions/upload-artifact@v2
+  with:
+    name: test-report
+    path: test-report.html
+```
+
+### 3. 添加图表
+```html
+<!-- 使用 Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<canvas id="testChart"></canvas>
+<script>
+new Chart(document.getElementById('testChart'), {
+  type: 'pie',
+  data: {
+    labels: ['通过', '失败', '跳过'],
+    datasets: [{
+      data: [22, 2, 1],
+      backgroundColor: ['#28a745', '#dc3545', '#ffc107']
+    }]
+  }
+});
+</script>
+```
+
+## 最佳实践
+
+1. **响应式设计**: 支持移动设备查看
+2. **打印友好**: 使用 @media print 优化打印样式
+3. **交互性**: 可折叠的测试用例详情
+4. **可视化**: 使用图表展示统计数据
+5. **链接**: 关联缺陷跟踪系统
+6. **截图**: 包含失败用例的截图
+7. **历史对比**: 显示趋势图
+8. **导出功能**: 支持导出为 PDF

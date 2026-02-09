@@ -1,0 +1,102 @@
+# Jira 格式缺陷报告模板
+
+## 格式说明
+适用于 Atlassian Jira 缺陷跟踪系统。
+
+## 模板结构
+
+### 基础信息
+```
+Summary: 账号锁定后未发送通知邮件
+
+Issue Type: Bug
+Priority: High
+Severity: Major
+Component: Authentication
+Affects Version: v1.2.3
+Environment: Staging
+Reporter: bob@example.com
+Assignee: dev-team@example.com
+Labels: security, email, notification, p1
+
+Description:
+在用户账号因多次登录失败被锁定后，系统未能发送通知邮件给用户。
+
+Steps to Reproduce:
+1. 使用有效用户名和错误密码尝试登录5次
+2. 观察账号被锁定
+3. 检查用户邮箱
+4. 验证邮件服务日志
+
+Expected Result:
+- 账号锁定后，用户应该收到一封通知邮件
+- 邮件主题: "账号安全警告"
+- 邮件内容包含锁定原因和解锁时间
+
+Actual Result:
+- 账号成功锁定
+- 用户未收到任何邮件通知
+- 邮件服务日志显示: "SMTP connection timeout"
+
+Attachments:
+- screenshot-account-locked.png
+- email-service-log.txt
+- network-trace.har
+
+Additional Information:
+- 测试用例: TC-005
+- 数据库记录显示锁定事件已记录
+- 邮件队列为空
+- SMTP 服务器连接超时
+
+Root Cause (if known):
+邮件服务配置的 SMTP 超时时间过短（5秒），在高负载情况下无法建立连接。
+
+Workaround:
+手动通过管理后台发送通知邮件给用户。
+
+Related Issues:
+- Blocks: PROJ-456 (发布测试)
+- Relates to: PROJ-123 (邮件服务优化)
+```
+
+## 字段说明
+
+| 字段 | 说明 | 必填 | 示例值 |
+|------|------|------|--------|
+| Summary | 缺陷简要描述 | ✓ | 账号锁定后未发送通知邮件 |
+| Issue Type | 问题类型 | ✓ | Bug, Task, Story |
+| Priority | 优先级 | ✓ | Blocker, Critical, Major, Minor, Trivial |
+| Severity | 严重程度 | ✓ | Critical, High, Medium, Low |
+| Component | 所属组件 | ✓ | Authentication, Payment, UI |
+| Affects Version | 影响版本 | ✓ | v1.2.3 |
+| Fix Version | 修复版本 | - | v1.2.4 |
+| Environment | 测试环境 | ✓ | Staging, Production |
+| Reporter | 报告人 | ✓ | bob@example.com |
+| Assignee | 负责人 | - | dev-team@example.com |
+| Labels | 标签 | - | security, email |
+| Description | 详细描述 | ✓ | 问题的详细说明 |
+| Steps to Reproduce | 重现步骤 | ✓ | 编号列表 |
+| Expected Result | 预期结果 | ✓ | 应该发生什么 |
+| Actual Result | 实际结果 | ✓ | 实际发生了什么 |
+| Attachments | 附件 | - | 截图、日志 |
+
+## 优先级定义
+
+| 优先级 | 定义 | 响应时间 | 示例 |
+|--------|------|----------|------|
+| Blocker | 阻塞发布 | 立即 | 系统崩溃、数据丢失 |
+| Critical | 核心功能不可用 | 4小时 | 无法登录、支付失败 |
+| Major | 重要功能受影响 | 1天 | 邮件通知失败 |
+| Minor | 次要功能问题 | 3天 | UI 显示错误 |
+| Trivial | 微小问题 | 1周 | 文字拼写错误 |
+
+## 最佳实践
+
+1. **标题清晰**: 简洁描述问题核心
+2. **步骤详细**: 可重现的步骤
+3. **附加截图**: 视觉证据
+4. **环境信息**: 完整的环境配置
+5. **关联用例**: 链接测试用例
+6. **影响范围**: 说明影响的功能
+7. **紧急程度**: 正确设置优先级

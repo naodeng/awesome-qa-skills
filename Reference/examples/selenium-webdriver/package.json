@@ -1,0 +1,29 @@
+{
+  "name": "selenium-webdriver-examples",
+  "version": "1.0.0",
+  "description": "Selenium WebDriver 测试示例 - 等待策略、元素定位和交互操作",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha tests/**/*.test.js --timeout 30000",
+    "test:waits": "mocha tests/waits.test.js --timeout 30000",
+    "test:locators": "mocha tests/locators.test.js --timeout 30000",
+    "test:interactions": "mocha tests/interactions.test.js --timeout 30000",
+    "test:advanced": "mocha tests/advanced.test.js --timeout 30000"
+  },
+  "keywords": [
+    "selenium",
+    "webdriver",
+    "testing",
+    "automation",
+    "e2e"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "selenium-webdriver": "^4.15.0"
+  },
+  "devDependencies": {
+    "mocha": "^10.2.0",
+    "chai": "^4.3.10"
+  }
+}

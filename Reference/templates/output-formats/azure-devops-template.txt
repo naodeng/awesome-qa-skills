@@ -1,0 +1,591 @@
+# Azure DevOps 测试用例模板
+
+## Work Item 基本信息
+Work Item Type: Test Case
+Area Path: [项目名称]\[功能模块]
+Iteration Path: [项目名称]\Sprint X
+State: Design / Ready / Closed
+Reason: New / Approved / Completed
+Assigned To: [负责人]
+Priority: 1 (Critical) / 2 (High) / 3 (Medium) / 4 (Low)
+
+## 测试用例详情
+
+### Title（标题）
+```
+[简洁明确的测试用例标题]
+```
+
+### Description（描述）
+```
+[测试用例的详细描述，包括测试目标和范围]
+```
+
+### Steps（测试步骤）
+| Step | Action | Expected Result | Test Data |
+|------|--------|-----------------|-----------|
+| 1 | [操作描述] | [预期结果] | [测试数据] |
+| 2 | [操作描述] | [预期结果] | [测试数据] |
+| 3 | [操作描述] | [预期结果] | [测试数据] |
+
+### System Info（系统信息）
+```
+[测试环境和系统配置信息]
+- 操作系统：
+- 浏览器：
+- 应用版本：
+- 数据库：
+```
+
+## 关联信息
+
+### Linked Work Items（关联工作项）
+- **Parent**: [User Story ID] - [用户故事标题]
+- **Related**: [Bug ID] - [缺陷标题]
+- **Tested By**: [Test Suite ID] - [测试套件名称]
+
+### Attachments（附件）
+- [测试数据文件]
+- [截图/录屏]
+- [配置文件]
+
+## 自动化信息
+
+### Automation Status（自动化状态）
+- [ ] Not Automated
+- [ ] Planned
+- [ ] Automated
+
+### Automated Test Name（自动化测试名称）
+```
+[自动化测试的完整名称，包括命名空间]
+Example: MyProject.Tests.LoginTests.ValidUserLogin
+```
+
+### Automated Test Storage（自动化测试存储）
+```
+[测试程序集的路径]
+Example: MyProject.Tests.dll
+```
+
+### Automated Test Type（自动化测试类型）
+- Unit Test
+- Integration Test
+- UI Test
+- API Test
+
+## 标签和分类
+
+### Tags（标签）
+```
+[用于分类和过滤的标签，用分号分隔]
+smoke; regression; authentication; critical
+```
+
+### Test Suite（测试套件）
+```
+[所属测试套件]
+- Smoke Test Suite
+- Regression Test Suite
+- Sprint X Test Suite
+```
+
+---
+
+## 示例：用户登录测试用例
+
+### Work Item 基本信息
+Work Item Type: Test Case
+Area Path: ECommerce\Authentication
+Iteration Path: ECommerce\Sprint 5
+State: Ready
+Reason: Approved
+Assigned To: Zhang San
+Priority: 1 (Critical)
+
+### Title
+```
+验证用户使用有效凭据成功登录系统
+```
+
+### Description
+```
+测试目标：验证已注册用户能够使用正确的用户名和密码成功登录系统
+
+测试范围：
+- 登录页面UI验证
+- 凭据验证逻辑
+- 登录成功后的重定向
+- 会话管理
+
+前置条件：
+- 测试用户账号已创建（testuser@example.com / Test@123）
+- 应用程序已部署到测试环境
+- 数据库连接正常
+```
+
+### Steps
+| Step | Action | Expected Result | Test Data |
+|------|--------|-----------------|-----------|
+| 1 | 打开浏览器，访问登录页面 (https://app.example.com/login) | 登录页面正确加载，显示用户名和密码输入框、"记住我"复选框和"登录"按钮 | URL: https://app.example.com/login |
+| 2 | 在"用户名"字段输入有效的邮箱地址 | 用户名字段显示输入的邮箱地址，无错误提示 | Email: testuser@example.com |
+| 3 | 在"密码"字段输入正确的密码 | 密码字段显示为掩码字符（●●●●●●），无错误提示 | Password: Test@123 |
+| 4 | 点击"登录"按钮 | 系统显示加载指示器，验证凭据 | - |
+| 5 | 等待系统响应 | 系统验证成功，重定向到仪表板页面 (https://app.example.com/dashboard) | - |
+| 6 | 验证登录状态 | 页面显示用户名"testuser@example.com"，显示"退出"按钮，会话cookie已设置 | - |
+
+### System Info
+```
+测试环境：Test Environment
+- 操作系统：Windows 10 Pro (64-bit)
+- 浏览器：Chrome 120.0.6099.109
+- 应用版本：v2.5.0
+- 数据库：SQL Server 2019
+- API版本：v2.0
+- 服务器：https://test.example.com
+```
+
+### Linked Work Items
+- **Parent**: #12345 - 用户认证功能
+- **Related**: #12350 - 实现登录API
+- **Tested By**: #12360 - 认证测试套件
+
+### Attachments
+- login-test-data.xlsx
+- login-success-screenshot.png
+- test-environment-config.json
+
+### Automation Status
+- [x] Automated
+
+### Automated Test Name
+```
+ECommerce.Tests.Authentication.LoginTests.ValidUserLogin_ShouldRedirectToDashboard
+```
+
+### Automated Test Storage
+```
+ECommerce.Tests.dll
+```
+
+### Automated Test Type
+- UI Test
+
+### Tags
+```
+smoke; regression; authentication; login; critical; automated
+```
+
+### Test Suite
+```
+- Smoke Test Suite
+- Regression Test Suite
+- Sprint 5 Test Suite
+- Authentication Test Suite
+```
+
+---
+
+## 字段说明
+
+### Work Item Type（工作项类型）
+固定为 "Test Case"，表示这是一个测试用例工作项。
+
+### Area Path（区域路径）
+测试用例所属的功能模块或团队，用于组织和分类。格式：`项目名称\模块\子模块`
+
+### Iteration Path（迭代路径）
+测试用例所属的迭代或Sprint。格式：`项目名称\Sprint X`
+
+### State（状态）
+- **Design**: 设计中
+- **Ready**: 就绪，可以执行
+- **Closed**: 已关闭
+
+### Reason（原因）
+状态变更的原因：
+- **New**: 新创建
+- **Approved**: 已批准
+- **Completed**: 已完成
+- **Obsolete**: 已过时
+
+### Priority（优先级）
+- **1**: Critical（关键）
+- **2**: High（高）
+- **3**: Medium（中）
+- **4**: Low（低）
+
+### Title（标题）
+简洁明确的测试用例标题，应该清楚描述测试的目标。
+
+### Description（描述）
+详细描述测试用例，包括：
+- 测试目标
+- 测试范围
+- 前置条件
+- 测试环境要求
+
+### Steps（测试步骤）
+表格格式的测试步骤，包含：
+- **Step**: 步骤编号
+- **Action**: 操作描述
+- **Expected Result**: 预期结果
+- **Test Data**: 测试数据
+
+### System Info（系统信息）
+测试执行所需的环境配置，包括：
+- 操作系统
+- 浏览器/客户端
+- 应用版本
+- 数据库
+- API版本
+- 服务器地址
+
+### Linked Work Items（关联工作项）
+关联的其他工作项：
+- **Parent**: 父工作项（通常是User Story或Feature）
+- **Child**: 子工作项
+- **Related**: 相关工作项
+- **Tested By**: 测试套件
+- **Tests**: 被测试的工作项
+
+### Attachments（附件）
+相关的文件附件：
+- 测试数据文件
+- 截图/录屏
+- 配置文件
+- 测试报告
+
+### Automation Status（自动化状态）
+- **Not Automated**: 未自动化
+- **Planned**: 计划自动化
+- **Automated**: 已自动化
+
+### Automated Test Name（自动化测试名称）
+自动化测试的完整名称，包括命名空间和类名。
+
+### Automated Test Storage（自动化测试存储）
+测试程序集（DLL）的路径或名称。
+
+### Automated Test Type（自动化测试类型）
+- **Unit Test**: 单元测试
+- **Integration Test**: 集成测试
+- **UI Test**: UI测试
+- **API Test**: API测试
+
+### Tags（标签）
+用于分类、过滤和搜索的标签，用分号分隔。常用标签：
+- **功能模块**: login, checkout, payment, search
+- **测试类型**: smoke, regression, integration, e2e
+- **优先级**: critical, high, medium, low
+- **自动化**: automated, manual
+- **平台**: web, mobile, api, desktop
+
+### Test Suite（测试套件）
+测试用例所属的测试套件，用于组织和批量执行。
+
+---
+
+## Azure DevOps 导入格式
+
+Azure DevOps 支持多种导入格式：
+
+### CSV 格式示例
+```csv
+Work Item Type,Title,Area Path,Iteration Path,State,Priority,Description,Steps,Tags
+Test Case,"验证用户使用有效凭据成功登录系统",ECommerce\Authentication,ECommerce\Sprint 5,Ready,1,"测试用户登录功能","<steps><step id='1'><parameterizedString>打开登录页面</parameterizedString><parameterizedString>页面加载成功</parameterizedString></step></steps>","smoke;authentication"
+```
+
+### Excel 格式示例
+Azure DevOps 提供 Excel 插件，可以直接在 Excel 中编辑测试用例：
+
+| ID | Work Item Type | Title | Area Path | Iteration Path | State | Priority | Assigned To |
+|----|----------------|-------|-----------|----------------|-------|----------|-------------|
+| | Test Case | 验证用户登录 | Project\Auth | Project\Sprint 5 | Ready | 1 | Zhang San |
+
+### XML 格式示例
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<WorkItems>
+  <WorkItem Type="Test Case">
+    <Title>验证用户使用有效凭据成功登录系统</Title>
+    <AreaPath>ECommerce\Authentication</AreaPath>
+    <IterationPath>ECommerce\Sprint 5</IterationPath>
+    <State>Ready</State>
+    <Priority>1</Priority>
+    <Description>测试用户登录功能</Description>
+    <Steps>
+      <Step>
+        <Action>打开登录页面</Action>
+        <ExpectedResult>页面加载成功</ExpectedResult>
+      </Step>
+    </Steps>
+    <Tags>smoke;authentication</Tags>
+  </WorkItem>
+</WorkItems>
+```
+
+---
+
+## 最佳实践
+
+### 1. 标题命名
+- ✅ 使用动词开头：验证、测试、检查
+- ✅ 清晰描述测试目标和预期结果
+- ✅ 包含关键业务术语
+- ❌ 避免模糊描述：测试登录
+
+### 2. 区域路径组织
+- ✅ 按功能模块组织：Authentication, UserManagement, Payment
+- ✅ 使用层级结构：Project\Module\SubModule
+- ✅ 保持一致的命名规范
+- ❌ 避免过深的层级（建议不超过4层）
+
+### 3. 测试步骤编写
+- ✅ 使用表格格式，清晰易读
+- ✅ 每个步骤一个操作
+- ✅ 包含明确的预期结果
+- ✅ 提供必要的测试数据
+- ❌ 避免步骤过于简略或过于冗长
+
+### 4. 工作项关联
+- ✅ 关联父User Story或Feature
+- ✅ 关联相关的Bug
+- ✅ 关联测试套件
+- ✅ 建立可追溯性
+- ❌ 避免孤立的测试用例
+
+### 5. 标签使用
+- ✅ 使用一致的标签体系
+- ✅ 用分号分隔多个标签
+- ✅ 包含功能、类型、优先级标签
+- ✅ 便于查询和过滤
+- ❌ 避免标签过多或混乱
+
+### 6. 自动化集成
+- ✅ 为自动化测试提供完整的命名空间
+- ✅ 指定正确的测试程序集
+- ✅ 保持测试用例和自动化代码同步
+- ❌ 避免手工测试用例和自动化测试用例混淆
+
+---
+
+## 查询示例
+
+### 查询所有就绪的测试用例
+```
+Work Item Type = Test Case
+AND State = Ready
+AND Iteration Path = @CurrentIteration
+```
+
+### 查询高优先级的自动化测试
+```
+Work Item Type = Test Case
+AND Priority <= 2
+AND Automation Status = Automated
+```
+
+### 查询特定模块的测试用例
+```
+Work Item Type = Test Case
+AND Area Path UNDER 'ECommerce\Authentication'
+AND Tags CONTAINS 'smoke'
+```
+
+---
+
+## 与自动化框架集成
+
+### MSTest 集成
+```csharp
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Microsoft.TeamFoundation.TestManagement.Client;
+
+[TestClass]
+public class LoginTests
+{
+    [TestMethod]
+    [TestCategory("Smoke")]
+    [TestCategory("Authentication")]
+    [TestProperty("WorkItem", "12345")]
+    public void ValidUserLogin_ShouldRedirectToDashboard()
+    {
+        // Test implementation
+    }
+}
+```
+
+### NUnit 集成
+```csharp
+using NUnit.Framework;
+
+[TestFixture]
+[Category("Smoke")]
+[Category("Authentication")]
+public class LoginTests
+{
+    [Test]
+    [Property("WorkItem", "12345")]
+    public void ValidUserLogin_ShouldRedirectToDashboard()
+    {
+        // Test implementation
+    }
+}
+```
+
+### Selenium 集成
+```csharp
+using OpenQA.Selenium;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+[TestClass]
+public class LoginTests
+{
+    private IWebDriver driver;
+    
+    [TestInitialize]
+    public void Setup()
+    {
+        driver = new ChromeDriver();
+    }
+    
+    [TestMethod]
+    [TestProperty("WorkItem", "12345")]
+    public void ValidUserLogin_ShouldRedirectToDashboard()
+    {
+        driver.Navigate().GoToUrl("https://app.example.com/login");
+        driver.FindElement(By.Id("username")).SendKeys("testuser@example.com");
+        driver.FindElement(By.Id("password")).SendKeys("Test@123");
+        driver.FindElement(By.Id("loginButton")).Click();
+        
+        Assert.AreEqual("https://app.example.com/dashboard", driver.Url);
+    }
+    
+    [TestCleanup]
+    public void Teardown()
+    {
+        driver.Quit();
+    }
+}
+```
+
+### REST API 集成
+```csharp
+using System.Net.Http;
+using Newtonsoft.Json;
+
+public class AzureDevOpsClient
+{
+    private readonly HttpClient client;
+    private readonly string organization;
+    private readonly string project;
+    
+    public async Task UpdateTestResult(int testCaseId, string outcome, string comment)
+    {
+        var url = $"https://dev.azure.com/{organization}/{project}/_apis/test/runs/{runId}/results?api-version=6.0";
+        
+        var result = new
+        {
+            testCase = new { id = testCaseId },
+            outcome = outcome,
+            comment = comment
+        };
+        
+        var content = new StringContent(JsonConvert.SerializeObject(result));
+        await client.PostAsync(url, content);
+    }
+}
+```
+
+---
+
+## 常见问题
+
+### Q1: 如何批量导入测试用例？
+**A**: 使用以下方法：
+1. Excel 插件：安装 Azure DevOps Office Integration
+2. CSV 导入：使用 Azure DevOps CLI
+3. REST API：编写脚本批量创建
+4. 第三方工具：使用 Test Case Migrator
+
+### Q2: 测试步骤应该多详细？
+**A**: 足够详细以便任何人都能执行，建议：
+- 每个步骤一个操作
+- 包含明确的预期结果
+- 提供必要的测试数据
+- 平衡可读性和完整性
+
+### Q3: 如何管理测试数据？
+**A**: 
+- 在 Steps 的 Test Data 列中提供
+- 使用附件上传数据文件
+- 在 Description 中说明数据准备步骤
+- 使用参数化测试处理多组数据
+
+### Q4: 如何追踪测试覆盖率？
+**A**: 
+- 关联测试用例到 User Story
+- 使用 Test Plans 组织测试
+- 查看 Test Coverage 报告
+- 使用 Queries 统计覆盖情况
+
+### Q5: 自动化测试结果如何同步？
+**A**: 
+- 使用 Azure Pipelines 自动运行测试
+- 配置测试结果发布任务
+- 测试结果自动关联到测试用例
+- 查看 Test Runs 和 Test Results
+
+### Q6: 如何处理测试用例版本？
+**A**: 
+- Azure DevOps 自动保存历史版本
+- 使用 Iteration Path 管理不同版本
+- 克隆测试用例创建新版本
+- 使用 Tags 标记版本信息
+
+---
+
+## Azure DevOps Test Plans 功能
+
+### Test Plans（测试计划）
+组织和管理测试用例的容器：
+- 创建测试计划
+- 添加测试套件
+- 分配测试用例
+- 追踪测试进度
+
+### Test Suites（测试套件）
+组织测试用例的方式：
+- **Static Suite**: 手动添加测试用例
+- **Requirement-based Suite**: 基于需求自动关联
+- **Query-based Suite**: 基于查询动态生成
+
+### Test Configurations（测试配置）
+定义测试环境：
+- 操作系统
+- 浏览器
+- 设备类型
+- 应用版本
+
+### Test Runs（测试运行）
+执行测试并记录结果：
+- 手工执行测试
+- 自动化测试执行
+- 记录测试结果
+- 生成测试报告
+
+---
+
+## 参考资源
+
+- [Azure DevOps 官方文档](https://docs.microsoft.com/en-us/azure/devops/)
+- [Test Plans 文档](https://docs.microsoft.com/en-us/azure/devops/test/)
+- [Azure DevOps REST API](https://docs.microsoft.com/en-us/rest/api/azure/devops/)
+- [测试用例设计最佳实践](../../docs/guides/test-case-design.md)
+- [自动化测试集成指南](../../docs/guides/automation-integration.md)
+
+---
+
+*模板版本: 1.0.0*  
+*最后更新: 2026-02-09*

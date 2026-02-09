@@ -1,0 +1,28 @@
+{
+  "name": "keyword-driven-testing-examples",
+  "version": "1.0.0",
+  "description": "关键字驱动测试示例 - 使用关键字库执行测试用例",
+  "main": "index.js",
+  "scripts": {
+    "test": "node engine/TestRunner.js",
+    "test:login": "node engine/TestRunner.js --suite login",
+    "test:shopping": "node engine/TestRunner.js --suite shopping",
+    "test:api": "node engine/TestRunner.js --suite api",
+    "test:report": "node engine/TestRunner.js --report html"
+  },
+  "keywords": [
+    "keyword-driven",
+    "testing",
+    "automation",
+    "test-framework"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "selenium-webdriver": "^4.15.0",
+    "axios": "^1.6.0"
+  },
+  "devDependencies": {
+    "chai": "^4.3.10"
+  }
+}

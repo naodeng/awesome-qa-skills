@@ -15,6 +15,36 @@
 
 ---
 
+## Context-Aware Adaptation (上下文感知适配)
+
+> 💡 **智能适配说明**：本 Prompt 会根据项目上下文自动调整测试策略和工具推荐。
+
+### 项目类型适配
+- **如果是 REST API 项目**：重点关注 HTTP 方法、状态码、RESTful 设计原则
+- **如果是 GraphQL 项目**：重点关注查询优化、N+1 问题、Schema 验证
+- **如果是微服务架构**：重点关注服务间通信、契约测试、服务发现
+- **如果是单体应用**：重点关注模块化 API 设计、内部接口测试
+
+### 技术栈适配
+- **如果使用 Java/Spring Boot**：推荐 REST Assured + JUnit/TestNG
+- **如果使用 Node.js/Express**：推荐 Supertest + Jest/Mocha
+- **如果使用 Python/Django/Flask**：推荐 pytest + requests
+- **如果使用 .NET**：推荐 RestSharp + xUnit/NUnit
+
+### 测试框架适配
+- **如果已有 Jest**：优先使用 Supertest + Jest 进行 API 测试
+- **如果已有 Pytest**：优先使用 pytest + requests 进行 API 测试
+- **如果已有 JUnit**：优先使用 REST Assured + JUnit 进行 API 测试
+- **如果没有测试框架**：根据技术栈推荐最合适的组合
+
+### CI/CD 环境适配
+- **如果使用 GitHub Actions**：提供 GitHub Actions 工作流配置
+- **如果使用 GitLab CI**：提供 GitLab CI 配置示例
+- **如果使用 Jenkins**：提供 Jenkins Pipeline 配置
+- **如果使用 Azure DevOps**：提供 Azure Pipelines 配置
+
+---
+
 ## API Testing Methodology (API测试方法论)
 
 ### 1. API测试类型 (API Test Types)

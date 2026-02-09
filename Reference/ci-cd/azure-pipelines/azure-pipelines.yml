@@ -1,0 +1,402 @@
+# Azure Pipelines 配置模板 - 测试自动化
+
+trigger:
+  branches:
+    include:
+      - main
+      - develop
+      - feature/*
+  paths:
+    exclude:
+      - docs/*
+      - README.md
+
+pr:
+  branches:
+    include:
+      - main
+      - develop
+  paths:
+    exclude:
+      - docs/*
+      - README.md
+
+# 变量定义
+variables:
+  - group: test-variables  # 变量组
+  - name: nodeVersion
+    value: '18.x'
+  - name: pythonVersion
+    value: '3.11'
+  - name: buildConfiguration
+    value: 'Release'
+
+# 资源定义
+resources:
+  repositories:
+    - repository: templates
+      type: git
+      name: shared-templates
+      ref: main
+
+# 阶段定义
+stages:
+  # 阶段 1: 代码质量检查
+  - stage: CodeQuality
+    displayName: '代码质量检查'
+    jobs:
+      - job: Lint
+        displayName: 'ESLint 检查'
+        pool:
+          vmImage: 'ubuntu-latest'
+        steps:
+          - task: NodeTool@0
+            inputs:
+              versionSpec: $(nodeVersion)
+            displayName: '安装 Node.js'
+          
+          - task: Cache@2
+            inputs:
+              key: 'npm | "$(Agent.OS)" | package-lock.json'
+              path: $(npm_config_cache)
+              restoreKeys: |
+                npm | "$(Agent.OS)"
+            displayName: '缓存 npm 包'
+          
+          - script: npm ci
+            displayName: '安装依赖'
+          
+          - script: npm run lint
+            displayName: '运行 ESLint'
+          
+          - task: PublishCodeCoverageResults@1
+            inputs:
+              codeCoverageTool: 'Cobertura'
+              summaryFileLocation: '$(System.DefaultWorkingDirectory)/coverage/cobertura-coverage.xml'
+            condition: succeededOrFailed()
+      
+      - job: TypeCheck
+        displayName: 'TypeScript 类型检查'
+        pool:
+          vmImage: 'ubuntu-latest'
+        steps:
+          - task: NodeTool@0
+            inputs:
+              versionSpec: $(nodeVersion)
+          
+          - script: npm ci
+            displayName: '安装依赖'
+          
+          - script: npm run type-check
+            displayName: '类型检查'
+
+  # 阶段 2: 单元测试和 API 测试
+  - stage: UnitAndAPITests
+    displayName: '单元测试和 API 测试'
+    dependsOn: CodeQuality
+    jobs:
+      - job: UnitTests
+        displayName: '单元测试'
+        pool:
+          vmImage: 'ubuntu-latest'
+        strategy:
+          matrix:
+            Node16:
+              nodeVersion: '16.x'
+            Node18:
+              nodeVersion: '18.x'
+            Node20:
+              nodeVersion: '20.x'
+        steps:
+          - task: NodeTool@0
+            inputs:
+              versionSpec: $(nodeVersion)
+            displayName: '安装 Node.js $(nodeVersion)'
+          
+          - task: Cache@2
+            inputs:
+              key: 'npm | "$(Agent.OS)" | package-lock.json'
+              path: $(npm_config_cache)
+            displayName: '缓存 npm 包'
+          
+          - script: npm ci
+            displayName: '安装依赖'
+          
+          - script: npm run test:unit -- --ci --coverage
+            displayName: '运行单元测试'
+            env:
+              NODE_ENV: test
+          
+          - task: PublishTestResults@2
+            inputs:
+              testResultsFormat: 'JUnit'
+              testResultsFiles: '**/test-results/unit/junit.xml'
+              mergeTestResults: true
+              failTaskOnFailedTests: true
+              testRunTitle: '单元测试 - Node $(nodeVersion)'
+            condition: succeededOrFailed()
+          
+          - task: PublishCodeCoverageResults@1
+            inputs:
+              codeCoverageTool: 'Cobertura'
+              summaryFileLocation: '$(System.DefaultWorkingDirectory)/coverage/cobertura-coverage.xml'
+              reportDirectory: '$(System.DefaultWorkingDirectory)/coverage'
+            condition: succeededOrFailed()
+      
+      - job: APITests
+        displayName: 'API 测试'
+        pool:
+          vmImage: 'ubuntu-latest'
+        steps:
+          - task: NodeTool@0
+            inputs:
+              versionSpec: $(nodeVersion)
+          
+          - script: npm ci
+            displayName: '安装依赖'
+          
+          - script: |
+              npm run start:test &
+              npx wait-on http://localhost:3000 -t 60000
+            displayName: '启动测试服务器'
+          
+          - script: npm run test:api
+            displayName: '运行 API 测试'
+          
+          - task: PublishTestResults@2
+            inputs:
+              testResultsFormat: 'JUnit'
+              testResultsFiles: '**/test-results/api/junit.xml'
+              testRunTitle: 'API 测试'
+            condition: succeededOrFailed()
+
+  # 阶段 3: E2E 测试
+  - stage: E2ETests
+    displayName: 'E2E 测试'
+    dependsOn: UnitAndAPITests
+    jobs:
+      - job: E2ETests
+        displayName: 'E2E 测试'
+        pool:
+          vmImage: 'ubuntu-latest'
+        strategy:
+          parallel: 3
+        steps:
+          - task: NodeTool@0
+            inputs:
+              versionSpec: $(nodeVersion)
+          
+          - script: npm ci
+            displayName: '安装依赖'
+          
+          - script: npx playwright install --with-deps chromium firefox
+            displayName: '安装浏览器'
+          
+          - script: |
+              npm run start:test &
+              npx wait-on http://localhost:3000 -t 60000
+            displayName: '启动应用'
+          
+          - script: npm run test:e2e -- --shard=$(System.JobPositionInPhase)/$(System.TotalJobsInPhase)
+            displayName: '运行 E2E 测试'
+          
+          - task: PublishTestResults@2
+            inputs:
+              testResultsFormat: 'JUnit'
+              testResultsFiles: '**/test-results/e2e/junit.xml'
+              testRunTitle: 'E2E 测试 - Shard $(System.JobPositionInPhase)'
+            condition: succeededOrFailed()
+          
+          - task: PublishPipelineArtifact@1
+            inputs:
+              targetPath: 'test-results/e2e/screenshots'
+              artifact: 'e2e-screenshots-$(System.JobPositionInPhase)'
+            condition: failed()
+          
+          - task: PublishPipelineArtifact@1
+            inputs:
+              targetPath: 'test-results/e2e/videos'
+              artifact: 'e2e-videos-$(System.JobPositionInPhase)'
+            condition: failed()
+
+  # 阶段 4: 性能和安全测试
+  - stage: PerformanceAndSecurity
+    displayName: '性能和安全测试'
+    dependsOn: E2ETests
+    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
+    jobs:
+      - job: PerformanceTests
+        displayName: '性能测试'
+        pool:
+          vmImage: 'ubuntu-latest'
+        steps:
+          - task: NodeTool@0
+            inputs:
+              versionSpec: $(nodeVersion)
+          
+          - script: npm ci
+            displayName: '安装依赖'
+          
+          - script: |
+              npm run start:test &
+              npx wait-on http://localhost:3000 -t 60000
+            displayName: '启动应用'
+          
+          - script: npm run test:performance
+            displayName: '运行性能测试'
+          
+          - task: PublishPipelineArtifact@1
+            inputs:
+              targetPath: 'performance-results'
+              artifact: 'performance-report'
+            condition: succeededOrFailed()
+      
+      - job: SecurityTests
+        displayName: '安全测试'
+        pool:
+          vmImage: 'ubuntu-latest'
+        steps:
+          - task: NodeTool@0
+            inputs:
+              versionSpec: $(nodeVersion)
+          
+          - script: npm ci
+            displayName: '安装依赖'
+          
+          - script: npm audit --audit-level=moderate
+            displayName: '依赖安全扫描'
+            continueOnError: true
+          
+          - task: Docker@2
+            inputs:
+              command: 'run'
+              arguments: '-t owasp/zap2docker-stable zap-baseline.py -t http://localhost:3000 -r zap-report.html'
+            displayName: 'OWASP ZAP 扫描'
+            continueOnError: true
+          
+          - task: PublishPipelineArtifact@1
+            inputs:
+              targetPath: 'zap-report.html'
+              artifact: 'security-report'
+            condition: succeededOrFailed()
+
+  # 阶段 5: 构建
+  - stage: Build
+    displayName: '构建'
+    dependsOn: 
+      - UnitAndAPITests
+      - E2ETests
+    condition: and(succeeded(), or(eq(variables['Build.SourceBranch'], 'refs/heads/main'), eq(variables['Build.SourceBranch'], 'refs/heads/develop')))
+    jobs:
+      - job: BuildApp
+        displayName: '构建应用'
+        pool:
+          vmImage: 'ubuntu-latest'
+        steps:
+          - task: NodeTool@0
+            inputs:
+              versionSpec: $(nodeVersion)
+          
+          - script: npm ci
+            displayName: '安装依赖'
+          
+          - script: npm run build
+            displayName: '构建应用'
+            env:
+              NODE_ENV: production
+          
+          - task: PublishPipelineArtifact@1
+            inputs:
+              targetPath: 'dist'
+              artifact: 'build-artifacts'
+            displayName: '发布构建产物'
+
+  # 阶段 6: 部署到 Staging
+  - stage: DeployStaging
+    displayName: '部署到 Staging'
+    dependsOn: Build
+    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/develop'))
+    jobs:
+      - deployment: DeployToStaging
+        displayName: '部署到 Staging 环境'
+        pool:
+          vmImage: 'ubuntu-latest'
+        environment: 'staging'
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - download: current
+                  artifact: build-artifacts
+                
+                - task: AzureWebApp@1
+                  inputs:
+                    azureSubscription: 'Azure-Subscription'
+                    appType: 'webAppLinux'
+                    appName: 'myapp-staging'
+                    package: '$(Pipeline.Workspace)/build-artifacts'
+                  displayName: '部署到 Azure Web App'
+                
+                - script: |
+                    echo "运行冒烟测试"
+                    curl -f https://myapp-staging.azurewebsites.net/health
+                  displayName: '冒烟测试'
+
+  # 阶段 7: 部署到 Production
+  - stage: DeployProduction
+    displayName: '部署到 Production'
+    dependsOn: Build
+    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
+    jobs:
+      - deployment: DeployToProduction
+        displayName: '部署到 Production 环境'
+        pool:
+          vmImage: 'ubuntu-latest'
+        environment: 'production'
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - download: current
+                  artifact: build-artifacts
+                
+                - task: AzureWebApp@1
+                  inputs:
+                    azureSubscription: 'Azure-Subscription'
+                    appType: 'webAppLinux'
+                    appName: 'myapp-production'
+                    package: '$(Pipeline.Workspace)/build-artifacts'
+                    deploymentMethod: 'zipDeploy'
+                  displayName: '部署到 Azure Web App'
+                
+                - script: |
+                    echo "运行冒烟测试"
+                    curl -f https://myapp-production.azurewebsites.net/health
+                  displayName: '冒烟测试'
+                
+                - task: InvokeRESTAPI@1
+                  inputs:
+                    connectionType: 'connectedServiceName'
+                    serviceConnection: 'Slack-Webhook'
+                    method: 'POST'
+                    body: '{"text":"✅ 部署到 Production 成功！"}'
+                  displayName: '发送 Slack 通知'
+
+# 模板示例 - 可重用的步骤
+# templates/test-template.yml
+# parameters:
+#   - name: testType
+#     type: string
+#   - name: testCommand
+#     type: string
+# 
+# steps:
+#   - task: NodeTool@0
+#     inputs:
+#       versionSpec: $(nodeVersion)
+#   
+#   - script: npm ci
+#     displayName: '安装依赖'
+#   
+#   - script: ${{ parameters.testCommand }}
+#     displayName: '运行 ${{ parameters.testType }} 测试'

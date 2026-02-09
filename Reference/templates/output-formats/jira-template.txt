@@ -1,0 +1,264 @@
+# Jira Test Case Template
+# Atlassian Jira 测试用例模板
+# 
+# 使用说明：
+# 1. 复制此模板内容
+# 2. 在 Jira 中创建新的测试用例（Test Case）
+# 3. 将对应字段内容粘贴到 Jira 的相应字段中
+# 
+# Usage Instructions:
+# 1. Copy this template content
+# 2. Create a new Test Case in Jira
+# 3. Paste the corresponding field content into Jira fields
+
+---
+
+## Test Case ID: {test_case_id}
+
+### Summary (概要)
+{summary}
+
+### Description (描述)
+{description}
+
+### Preconditions (前置条件)
+{preconditions}
+
+### Test Steps (测试步骤)
+{test_steps}
+
+### Expected Result (预期结果)
+{expected_result}
+
+### Priority (优先级)
+{priority}
+
+### Labels (标签)
+{labels}
+
+### Components (组件)
+{components}
+
+### Test Type (测试类型)
+{test_type}
+
+### Automation Status (自动化状态)
+{automation_status}
+
+### Estimated Time (预估时间)
+{estimated_time}
+
+### Environment (测试环境)
+{environment}
+
+### Test Data (测试数据)
+{test_data}
+
+---
+
+## 示例 / Example
+
+---
+
+## Test Case ID: TC-001
+
+### Summary (概要)
+用户登录功能测试 - 有效凭证登录
+
+### Description (描述)
+验证用户使用有效的用户名和密码能够成功登录系统，并跳转到主页面。
+
+测试目标：
+- 验证登录功能的正确性
+- 验证用户凭证的验证机制
+- 验证登录后的页面跳转
+
+### Preconditions (前置条件)
+1. 测试环境已部署并可访问
+2. 测试用户账号已创建（用户名：testuser，密码：Test@123）
+3. 浏览器已打开登录页面
+4. 用户未登录状态
+
+### Test Steps (测试步骤)
+| Step | Action | Expected Result |
+|------|--------|-----------------|
+| 1 | 打开登录页面 | 显示登录表单，包含用户名、密码输入框和登录按钮 |
+| 2 | 在用户名输入框中输入 "testuser" | 用户名输入框显示输入的内容 |
+| 3 | 在密码输入框中输入 "Test@123" | 密码输入框显示掩码字符 |
+| 4 | 点击"登录"按钮 | 系统验证凭证并跳转到主页面 |
+| 5 | 验证主页面显示 | 主页面显示用户欢迎信息 "Welcome, testuser!" |
+| 6 | 验证用户菜单 | 用户菜单显示用户名和登出选项 |
+
+### Expected Result (预期结果)
+- 用户成功登录系统
+- 页面跳转到主页面（/dashboard）
+- 主页面显示用户欢迎信息
+- 用户菜单显示正确的用户名
+- 登录状态保持（刷新页面仍保持登录）
+
+### Priority (优先级)
+Highest (P0)
+
+### Labels (标签)
+login, authentication, core-functionality, smoke-test
+
+### Components (组件)
+Authentication Module, User Management
+
+### Test Type (测试类型)
+Functional
+
+### Automation Status (自动化状态)
+Automated
+
+### Estimated Time (预估时间)
+5 minutes
+
+### Environment (测试环境)
+- Browser: Chrome 120+
+- OS: Windows 10/11, macOS 13+
+- Test Environment: QA Environment
+- Base URL: https://qa.example.com
+
+### Test Data (测试数据)
+```json
+{
+  "valid_user": {
+    "username": "testuser",
+    "password": "Test@123",
+    "expected_role": "user"
+  },
+  "admin_user": {
+    "username": "admin",
+    "password": "Admin@123",
+    "expected_role": "admin"
+  }
+}
+```
+
+---
+
+## 字段说明 / Field Descriptions
+
+### Test Case ID (测试用例ID)
+- 格式：TC-XXX 或 {模块缩写}-TC-XXX
+- 示例：TC-001, AUTH-TC-001, API-TC-001
+- 说明：唯一标识测试用例的编号
+
+### Summary (概要)
+- 长度：10-200 字符
+- 格式：简洁描述测试用例的目的
+- 示例：用户登录功能测试 - 有效凭证登录
+
+### Description (描述)
+- 长度：50-2000 字符
+- 内容：详细描述测试用例的目标、范围和验证点
+- 包含：测试目标、业务场景、验证重点
+
+### Preconditions (前置条件)
+- 格式：编号列表
+- 内容：执行测试前必须满足的条件
+- 包含：环境状态、数据准备、系统配置
+
+### Test Steps (测试步骤)
+- 格式：表格或编号列表
+- 列：步骤编号、操作、预期结果
+- 要求：步骤清晰、可操作、可验证
+
+### Expected Result (预期结果)
+- 格式：编号列表或段落
+- 内容：测试执行后的预期结果
+- 包含：功能结果、数据变化、界面显示
+
+### Priority (优先级)
+- Highest (P0)：核心功能，必须通过
+- High (P1)：重要功能，优先测试
+- Medium (P2)：一般功能，常规测试
+- Low (P3)：边缘功能，可选测试
+
+### Labels (标签)
+- 格式：逗号分隔的标签列表
+- 用途：分类、筛选、统计
+- 示例：login, api, performance, security
+
+### Components (组件)
+- 格式：逗号分隔的组件列表
+- 内容：测试涉及的系统组件或模块
+- 示例：Authentication Module, User Management, API Gateway
+
+### Test Type (测试类型)
+- Functional：功能测试
+- API：接口测试
+- Performance：性能测试
+- Security：安全测试
+- Automation：自动化测试
+- Integration：集成测试
+- E2E：端到端测试
+
+### Automation Status (自动化状态)
+- Automated：已自动化
+- To be automated：计划自动化
+- Not automated：手工测试
+- Cannot be automated：无法自动化
+
+### Estimated Time (预估时间)
+- 格式：X minutes/hours
+- 内容：执行测试用例的预估时间
+- 示例：5 minutes, 30 minutes, 1 hour
+
+### Environment (测试环境)
+- 内容：测试执行所需的环境配置
+- 包含：浏览器、操作系统、测试环境URL、依赖服务
+
+### Test Data (测试数据)
+- 格式：JSON、表格或列表
+- 内容：测试所需的输入数据和预期数据
+- 包含：有效数据、无效数据、边界数据
+
+---
+
+## Jira 导入格式 / Jira Import Format
+
+如果需要批量导入 Jira，可以使用以下 CSV 格式：
+
+```csv
+"Summary","Description","Preconditions","Test Steps","Expected Result","Priority","Labels","Components","Test Type"
+"用户登录功能测试 - 有效凭证登录","验证用户使用有效的用户名和密码能够成功登录系统","1. 测试环境已部署\n2. 测试用户账号已创建","1. 打开登录页面\n2. 输入用户名\n3. 输入密码\n4. 点击登录按钮","用户成功登录并跳转到主页面","Highest","login,authentication","Authentication Module","Functional"
+```
+
+---
+
+## 最佳实践 / Best Practices
+
+### 1. 测试用例编写原则
+- **清晰性**：步骤清晰，易于理解和执行
+- **完整性**：覆盖所有验证点和边界情况
+- **可重复性**：任何人都能按步骤重现测试
+- **独立性**：测试用例之间相互独立，不依赖执行顺序
+
+### 2. 优先级设置建议
+- **P0 (Highest)**：核心业务流程、支付功能、数据安全
+- **P1 (High)**：重要功能、常用功能、用户体验关键点
+- **P2 (Medium)**：一般功能、辅助功能、配置管理
+- **P3 (Low)**：边缘功能、低频功能、可选特性
+
+### 3. 标签使用建议
+- **功能标签**：login, search, payment, checkout
+- **类型标签**：smoke-test, regression, integration
+- **平台标签**：web, mobile, api, desktop
+- **状态标签**：blocked, in-progress, ready-for-test
+
+### 4. 自动化建议
+- **优先自动化**：回归测试、冒烟测试、API测试
+- **适合手工**：探索性测试、用户体验测试、一次性测试
+- **自动化ROI**：考虑维护成本和执行频率
+
+---
+
+## 变更日志 / Change Log
+
+### v1.0.0 (2026-02-09)
+- 初始版本
+- 包含完整的 Jira 测试用例模板
+- 添加示例和字段说明
+- 添加最佳实践指南

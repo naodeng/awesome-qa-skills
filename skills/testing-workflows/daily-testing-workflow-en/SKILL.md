@@ -19,36 +19,129 @@ Use **this directory's `prompts/`**. Step→prompt mapping: [reference.md](refer
 
 ## Morning Routine (5–25 min)
 
-1. **Review test plan (5–10 min):** requirements-analysis, test-strategy → stories, priorities, blockers.
-2. **Set up environment (10–15 min):** automation-testing, test-strategy → environment, data, local automation.
+### ☑️ Step Tracking Checklist
+
+- [ ] **Review test plan (5–10 min)**
+  - [ ] Review today's user stories and tasks
+  - [ ] Confirm test priorities
+  - [ ] Identify potential blockers and dependencies
+  - [ ] Use prompts: requirements-analysis, test-strategy
+
+- [ ] **Set up environment (10–15 min)**
+  - [ ] Verify test environment availability
+  - [ ] Prepare test data
+  - [ ] Update local automation scripts
+  - [ ] Check CI/CD pipeline status
+  - [ ] Use prompts: automation-testing, test-strategy
 
 ## Test Case Creation (30–60 min)
 
-**New features:** test-case-writing → requirements-analysis (edge cases) → functional-testing checklist → record in test tool. **Bug fixes:** functional-testing regression → verify fix → anti-regression cases.
+### ☑️ Step Tracking Checklist
+
+- [ ] **New feature test cases**
+  - [ ] Analyze requirements and acceptance criteria
+  - [ ] Identify boundary values and equivalence classes
+  - [ ] Write functional test cases
+  - [ ] Record in test management tool
+  - [ ] Use prompts: test-case-writing, requirements-analysis, functional-testing
+
+- [ ] **Bug fix verification cases**
+  - [ ] Write bug verification test cases
+  - [ ] Create anti-regression test cases
+  - [ ] Update regression test suite
+  - [ ] Use prompts: functional-testing
 
 ## Test Automation (1–2 h)
 
-**New:** Selenium/Playwright → automation-testing; API → api-testing. Generate → review → run locally → commit. **Maintenance:** automation-testing + ai-assisted-testing; fix flaky, update selectors, refactor.
+### ☑️ Step Tracking Checklist
+
+- [ ] **New automation test development**
+  - [ ] Select appropriate test framework (Selenium/Playwright/API)
+  - [ ] Generate automation test scripts
+  - [ ] Code review and optimization
+  - [ ] Run locally to verify
+  - [ ] Commit code to version control
+  - [ ] Use prompts: automation-testing, api-testing
+
+- [ ] **Automation test maintenance**
+  - [ ] Fix flaky test cases
+  - [ ] Update element locators
+  - [ ] Refactor test code
+  - [ ] Optimize test execution time
+  - [ ] Use prompts: automation-testing, ai-assisted-testing
 
 ## Exploratory Testing (30–45 min)
 
-manual-testing charters; time-box 60–90 min; log findings and bugs.
+### ☑️ Step Tracking Checklist
+
+- [ ] **Exploratory testing execution**
+  - [ ] Create test charter (mission, duration, area)
+  - [ ] Apply heuristics (SFDPOT, FEW HICCUPS)
+  - [ ] Time-box execution (60–90 min)
+  - [ ] Record findings and observations
+  - [ ] Report discovered bugs
+  - [ ] Use prompts: manual-testing
 
 ## Bug Reporting (15–30 min)
 
-bug-reporting template → title, steps, expected vs actual, environment, screenshots/logs → issue tracker.
+### ☑️ Step Tracking Checklist
+
+- [ ] **Bug documentation**
+  - [ ] Write clear bug title
+  - [ ] Record detailed reproduction steps
+  - [ ] Describe expected vs actual results
+  - [ ] Add environment information
+  - [ ] Attach screenshots and logs
+  - [ ] Record in issue tracker
+  - [ ] Use prompts: bug-reporting
 
 ## Optional: Visual & E2E (30 min–2 h)
 
-accessibility-testing + visual regression; functional-testing E2E (critical journeys).
+### ☑️ Step Tracking Checklist
+
+- [ ] **Accessibility and visual testing**
+  - [ ] Execute accessibility tests
+  - [ ] Perform visual regression tests
+  - [ ] Use prompts: accessibility-testing
+
+- [ ] **End-to-end testing**
+  - [ ] Test critical user journeys
+  - [ ] Verify system integration points
+  - [ ] Use prompts: functional-testing
 
 ## Afternoon Review (~30 min)
 
-CI/CD results, failed tests; test-reporting, test-strategy → coverage, defect metrics, dashboard; team sync.
+### ☑️ Step Tracking Checklist
+
+- [ ] **CI/CD results review**
+  - [ ] Check pipeline execution results
+  - [ ] Analyze failed test cases
+  - [ ] Record issues needing fixes
+
+- [ ] **Quality metrics review**
+  - [ ] Review test coverage
+  - [ ] Analyze defect metrics
+  - [ ] Update quality dashboard
+  - [ ] Use prompts: test-reporting, test-strategy
+
+- [ ] **Team sync**
+  - [ ] Share testing progress
+  - [ ] Discuss blockers and risks
+  - [ ] Coordinate tomorrow's plan
 
 ## End of Day (~15 min)
 
-Commit code, update docs, log time, update tasks, plan tomorrow.
+### ☑️ Step Tracking Checklist
+
+- [ ] **Code and documentation**
+  - [ ] Commit all code changes
+  - [ ] Update test documentation
+  - [ ] Log work time
+
+- [ ] **Task management**
+  - [ ] Update task status
+  - [ ] Plan tomorrow's work
+  - [ ] Record incomplete items
 
 ## How to Use the Prompts
 

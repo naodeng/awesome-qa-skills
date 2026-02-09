@@ -1,0 +1,455 @@
+# XML 格式缺陷报告模板
+
+## 格式说明
+适用于企业级缺陷跟踪系统、数据交换、工具集成。
+
+## 模板结构
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<bug id="BUG-123">
+  <metadata>
+    <title>账号锁定后未发送通知邮件</title>
+    <status>open</status>
+    <priority>high</priority>
+    <severity>major</severity>
+    <type>bug</type>
+    <component>Authentication</component>
+    <affectsVersion>v1.2.3</affectsVersion>
+    <fixVersion>v1.2.4</fixVersion>
+    <environment>Staging</environment>
+    <labels>
+      <label>security</label>
+      <label>email</label>
+      <label>notification</label>
+      <label>p1</label>
+    </labels>
+  </metadata>
+
+  <reporter>
+    <name>Bob Chen</name>
+    <email>bob@example.com</email>
+    <role>QA Engineer</role>
+  </reporter>
+
+  <assignee>
+    <team>Dev Team</team>
+    <email>dev-team@example.com</email>
+  </assignee>
+
+  <dates>
+    <reported>2024-01-16T15:00:00Z</reported>
+    <updated>2024-01-16T15:30:00Z</updated>
+    <dueDate>2024-01-18T00:00:00Z</dueDate>
+  </dates>
+
+  <description>
+    <summary>在用户账号因多次登录失败被锁定后，系统未能发送通知邮件给用户。</summary>
+    <details>这是一个安全问题，用户无法及时知道账号被锁定，可能导致用户困惑和支持请求增加。</details>
+    <businessImpact>
+      <userExperience>差</userExperience>
+      <securityRisk>中</securityRisk>
+      <supportLoad>增加</supportLoad>
+      <affectedUsers>所有用户</affectedUsers>
+    </businessImpact>
+  </description>
+
+  <stepsToReproduce>
+    <step number="1">
+      <action>打开登录页面</action>
+      <data>
+        <parameter name="url">https://staging.example.com/login</parameter>
+      </data>
+      <expectedResult>页面正确加载</expectedResult>
+    </step>
+    <step number="2">
+      <action>输入登录信息</action>
+      <data>
+        <parameter name="username">testuser@example.com</parameter>
+        <parameter name="password">WrongPassword123</parameter>
+      </data>
+      <expectedResult>显示错误消息</expectedResult>
+    </step>
+    <step number="3">
+      <action>重复登录尝试5次</action>
+      <data>
+        <parameter name="attempts">5</parameter>
+      </data>
+      <expectedResult>每次都显示错误消息</expectedResult>
+    </step>
+    <step number="4">
+      <action>观察账号锁定</action>
+      <expectedResult>显示账号锁定消息</expectedResult>
+    </step>
+    <step number="5">
+      <action>检查邮箱</action>
+      <data>
+        <parameter name="email">testuser@example.com</parameter>
+        <parameter name="waitTime">300</parameter>
+      </data>
+      <expectedResult>收到通知邮件</expectedResult>
+    </step>
+  </stepsToReproduce>
+
+  <expectedBehavior>
+    <accountLockout>
+      <status>success</status>
+      <message>账号已被锁定，请30分钟后重试</message>
+      <databaseRecord>true</databaseRecord>
+    </accountLockout>
+    <emailNotification>
+      <sent>true</sent>
+      <subject>账号安全警告</subject>
+      <content>
+        <lockReason>您的账号因多次登录失败已被锁定</lockReason>
+        <lockTime>2024-01-16T14:47:30Z</lockTime>
+        <unlockTime>2024-01-16T15:17:30Z</unlockTime>
+        <securityAdvice>如果不是您本人操作，请立即修改密码</securityAdvice>
+      </content>
+      <deliveryTime unit="seconds">30</deliveryTime>
+    </emailNotification>
+  </expectedBehavior>
+
+  <actualBehavior>
+    <accountLockout>
+      <status>success</status>
+      <message>账号已被锁定，请30分钟后重试</message>
+      <databaseRecord>true</databaseRecord>
+    </accountLockout>
+    <emailNotification>
+      <sent>false</sent>
+      <queueStatus>empty</queueStatus>
+      <error>
+        <type>SMTPConnectionTimeout</type>
+        <message>SMTP connection timeout</message>
+        <timestamp>2024-01-16T14:47:35Z</timestamp>
+      </error>
+    </emailNotification>
+  </actualBehavior>
+
+  <errorLogs>
+    <log>
+      <timestamp>2024-01-16T14:47:35Z</timestamp>
+      <level>ERROR</level>
+      <message>SMTP connection timeout</message>
+      <service>email-service</service>
+      <details>
+        <host>smtp.example.com</host>
+        <port>587</port>
+        <timeout>5000</timeout>
+      </details>
+    </log>
+    <log>
+      <timestamp>2024-01-16T14:47:35Z</timestamp>
+      <level>ERROR</level>
+      <message>Failed to send email to testuser@example.com</message>
+      <service>email-service</service>
+    </log>
+    <log>
+      <timestamp>2024-01-16T14:47:45Z</timestamp>
+      <level>ERROR</level>
+      <message>Email sending abandoned after 3 retries</message>
+      <service>email-service</service>
+    </log>
+  </errorLogs>
+
+  <attachments>
+    <attachment type="screenshot">
+      <filename>bug-123-locked-screen.png</filename>
+      <url>https://storage.example.com/bugs/123/screenshot1.png</url>
+      <size unit="bytes">245678</size>
+      <mimeType>image/png</mimeType>
+      <description>账号锁定界面截图</description>
+    </attachment>
+    <attachment type="log">
+      <filename>email-service.log</filename>
+      <url>https://storage.example.com/bugs/123/email-service.log</url>
+      <size unit="bytes">12345</size>
+      <mimeType>text/plain</mimeType>
+      <description>邮件服务完整日志</description>
+    </attachment>
+  </attachments>
+
+  <technicalAnalysis>
+    <rootCause>
+      <primary>SMTP 超时配置过短</primary>
+      <details>配置文件中 SMTP 超时设置为5秒，在高负载情况下无法建立连接</details>
+      <affectedCode>
+        <file>src/services/email-service.js</file>
+        <lines>45-60</lines>
+        <function>sendEmail</function>
+      </affectedCode>
+    </rootCause>
+    <contributingFactors>
+      <factor>
+        <name>高负载</name>
+        <description>SMTP 服务器在高负载时响应时间超过5秒</description>
+      </factor>
+      <factor>
+        <name>重试机制不完善</name>
+        <description>重试间隔固定为5秒，没有指数退避策略</description>
+      </factor>
+    </contributingFactors>
+    <impactScope>
+      <functionality>所有邮件发送功能</functionality>
+      <users>所有用户</users>
+      <frequency>高负载时期约20%失败</frequency>
+      <environments>
+        <environment>staging</environment>
+        <environment>production</environment>
+      </environments>
+    </impactScope>
+  </technicalAnalysis>
+
+  <suggestedFixes>
+    <fix id="FIX-1" priority="high" effort="low">
+      <title>增加 SMTP 超时时间</title>
+      <description>将 SMTP 超时从5秒增加到30秒</description>
+      <codeChange>
+        <file>src/services/email-service.js</file>
+        <before>timeout: 5000</before>
+        <after>timeout: 30000</after>
+      </codeChange>
+      <pros>
+        <pro>简单</pro>
+        <pro>快速</pro>
+      </pros>
+      <cons>
+        <con>可能掩盖其他问题</con>
+      </cons>
+    </fix>
+    <fix id="FIX-2" priority="high" effort="medium">
+      <title>改进重试机制</title>
+      <description>实现指数退避重试策略</description>
+      <codeChange>
+        <file>src/services/email-service.js</file>
+        <implementation>exponential-backoff</implementation>
+      </codeChange>
+      <pros>
+        <pro>更可靠</pro>
+        <pro>处理临时故障</pro>
+      </pros>
+      <cons>
+        <con>实现复杂</con>
+      </cons>
+    </fix>
+  </suggestedFixes>
+
+  <workaround available="true">
+    <description>手动通过管理后台发送通知邮件</description>
+    <steps>
+      <step>登录管理后台</step>
+      <step>导航到用户管理</step>
+      <step>选择受影响用户</step>
+      <step>点击 '发送通知邮件' 按钮</step>
+    </steps>
+    <apiEndpoint>
+      <method>POST</method>
+      <url>https://staging.example.com/admin/send-notification</url>
+      <headers>
+        <header name="Authorization">Bearer $ADMIN_TOKEN</header>
+        <header name="Content-Type">application/json</header>
+      </headers>
+      <body><![CDATA[
+{
+  "userId": "12345",
+  "type": "account_locked",
+  "email": "testuser@example.com"
+}
+      ]]></body>
+    </apiEndpoint>
+  </workaround>
+
+  <verificationSteps>
+    <step number="1" responsible="DevOps">
+      <action>部署修复版本到 Staging</action>
+    </step>
+    <step number="2" responsible="QA">
+      <action>重复重现步骤</action>
+    </step>
+    <step number="3" responsible="QA">
+      <action>验证邮件在30秒内送达</action>
+    </step>
+    <step number="4" responsible="QA">
+      <action>检查邮件内容正确</action>
+    </step>
+    <step number="5" responsible="QA">
+      <action>验证日志无错误</action>
+    </step>
+    <step number="6" responsible="QA">
+      <action>进行负载测试</action>
+      <details>
+        <concurrentUsers>100</concurrentUsers>
+        <duration unit="seconds">600</duration>
+      </details>
+    </step>
+  </verificationSteps>
+
+  <relatedIssues>
+    <issue id="PROJ-456" relationship="blocks">
+      <title>发布测试</title>
+      <url>https://jira.example.com/PROJ-456</url>
+    </issue>
+    <issue id="PROJ-123" relationship="related">
+      <title>邮件服务优化</title>
+      <url>https://jira.example.com/PROJ-123</url>
+    </issue>
+  </relatedIssues>
+
+  <testCase>
+    <id>TC-005</id>
+    <title>账号锁定通知功能</title>
+    <url>https://testrail.example.com/TC-005</url>
+  </testCase>
+
+  <timeline>
+    <event>
+      <timestamp>2024-01-16T14:47:30Z</timestamp>
+      <type>discovered</type>
+      <actor>Bob Chen</actor>
+      <details>在执行 TC-005 时发现问题</details>
+    </event>
+    <event>
+      <timestamp>2024-01-16T15:00:00Z</timestamp>
+      <type>reported</type>
+      <actor>Bob Chen</actor>
+      <details>创建 BUG-123</details>
+    </event>
+    <event>
+      <timestamp>2024-01-16T15:30:00Z</timestamp>
+      <type>assigned</type>
+      <actor>QA Lead</actor>
+      <details>分配给开发团队</details>
+    </event>
+    <event>
+      <timestamp>2024-01-17T10:00:00Z</timestamp>
+      <type>fixed</type>
+      <actor>Dev Team</actor>
+      <details>PR #234 已合并</details>
+    </event>
+    <event>
+      <timestamp>2024-01-17T15:00:00Z</timestamp>
+      <type>verified</type>
+      <actor>QA Team</actor>
+      <details>验证通过</details>
+    </event>
+    <event>
+      <timestamp>2024-01-18T11:00:00Z</timestamp>
+      <type>closed</type>
+      <actor>QA Lead</actor>
+      <details>验证生产环境正常</details>
+    </event>
+  </timeline>
+
+  <comments>
+    <comment id="COMMENT-1">
+      <author>Bob Chen</author>
+      <timestamp>2024-01-16T15:00:00Z</timestamp>
+      <text>创建缺陷报告。这个问题影响用户体验，建议优先修复。</text>
+    </comment>
+    <comment id="COMMENT-2">
+      <author>Dev Team</author>
+      <timestamp>2024-01-16T16:30:00Z</timestamp>
+      <text>已确认问题。SMTP 超时配置确实过短。计划在 v1.2.4 中修复。</text>
+    </comment>
+  </comments>
+
+  <metrics>
+    <timeToDetect unit="seconds">0</timeToDetect>
+    <timeToReport unit="seconds">1800</timeToReport>
+    <timeToFix unit="seconds">68400</timeToFix>
+    <timeToVerify unit="seconds">3600</timeToVerify>
+    <timeToClose unit="seconds">7200</timeToClose>
+    <totalResolutionTime unit="seconds">82800</totalResolutionTime>
+  </metrics>
+</bug>
+```
+
+## XSD Schema
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="bug">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="metadata" type="MetadataType"/>
+        <xs:element name="reporter" type="PersonType"/>
+        <xs:element name="assignee" type="AssigneeType"/>
+        <xs:element name="dates" type="DatesType"/>
+        <xs:element name="description" type="DescriptionType"/>
+        <xs:element name="stepsToReproduce" type="StepsType"/>
+        <xs:element name="expectedBehavior" type="BehaviorType"/>
+        <xs:element name="actualBehavior" type="BehaviorType"/>
+        <xs:element name="errorLogs" type="LogsType" minOccurs="0"/>
+        <xs:element name="attachments" type="AttachmentsType" minOccurs="0"/>
+        <xs:element name="technicalAnalysis" type="AnalysisType" minOccurs="0"/>
+        <xs:element name="suggestedFixes" type="FixesType" minOccurs="0"/>
+        <xs:element name="workaround" type="WorkaroundType" minOccurs="0"/>
+        <xs:element name="verificationSteps" type="StepsType" minOccurs="0"/>
+        <xs:element name="relatedIssues" type="IssuesType" minOccurs="0"/>
+        <xs:element name="testCase" type="TestCaseType" minOccurs="0"/>
+        <xs:element name="timeline" type="TimelineType" minOccurs="0"/>
+        <xs:element name="comments" type="CommentsType" minOccurs="0"/>
+        <xs:element name="metrics" type="MetricsType" minOccurs="0"/>
+      </xs:sequence>
+      <xs:attribute name="id" type="xs:string" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:simpleType name="StatusType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="open"/>
+      <xs:enumeration value="in_progress"/>
+      <xs:enumeration value="fixed"/>
+      <xs:enumeration value="verified"/>
+      <xs:enumeration value="closed"/>
+      <xs:enumeration value="wont_fix"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="PriorityType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="blocker"/>
+      <xs:enumeration value="critical"/>
+      <xs:enumeration value="high"/>
+      <xs:enumeration value="medium"/>
+      <xs:enumeration value="low"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+```
+
+## 使用指南
+
+### 1. 验证 XML
+```bash
+xmllint --schema bug-schema.xsd bug-report.xml
+```
+
+### 2. 转换为其他格式
+```bash
+# XML 转 JSON
+xq . bug-report.xml > bug-report.json
+
+# XML 转 HTML
+xsltproc bug-to-html.xsl bug-report.xml > bug-report.html
+```
+
+### 3. 导入到工具
+```bash
+# 导入到 Jira
+curl -X POST https://jira.example.com/api/import \
+  -H "Content-Type: application/xml" \
+  --data-binary @bug-report.xml
+```
+
+## 最佳实践
+
+1. **使用 CDATA**: 对于包含特殊字符的内容
+2. **命名空间**: 使用命名空间避免冲突
+3. **验证**: 使用 XSD 验证 XML 格式
+4. **编码**: 始终使用 UTF-8 编码
+5. **格式化**: 保持良好的缩进
+6. **注释**: 添加 XML 注释说明
+7. **版本**: 在根元素添加版本属性

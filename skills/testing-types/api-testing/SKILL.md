@@ -1,10 +1,22 @@
 ---
 name: api-testing
 version: 2.0.0
-description: 默认输出 Markdown，可请求 Excel/CSV/JSON。Use for API 测试 or api-testing.
-tags: [api, testing, rest, graphql, postman, newman]
-difficulty: intermediate
-last_updated: 2026-02-06
+last-updated: 2026-02-06
+description: 设计 API 测试方案与用例，覆盖 REST/GraphQL/gRPC 接口。默认输出 Markdown，可请求 Excel/CSV/JSON。Use for API 测试 or api-testing.
+category: testing-types
+level: intermediate
+tags: [api, rest, graphql, grpc, postman, newman, integration]
+dependencies: []
+recommended-with: [automation-testing, performance-testing, security-testing]
+context-aware: true
+context-patterns:
+  project-types: [api, web, mobile]
+  frameworks: [express, nestjs, django, flask, fastapi, spring-boot, gin]
+  test-frameworks: [postman, rest-assured, supertest, pytest, junit]
+output-formats: [markdown, excel, csv, json, jira, testrail]
+examples-count: 3
+has-tutorial: false
+has-troubleshooting: true
 ---
 
 # API 测试（中文版）

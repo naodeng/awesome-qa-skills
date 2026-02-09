@@ -1,5 +1,7 @@
 ---
 name: functional-testing-en
+version: 2.0.0
+last-updated: 2026-02-09
 description: Design functional test plans and cases (business, UI, data, integration). Default output Markdown; can request Excel, CSV, or JSON. Use for functional testing.
 ---
 

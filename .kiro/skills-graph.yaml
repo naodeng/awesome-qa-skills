@@ -1,0 +1,484 @@
+# AI Testing Assistant Skills - Dependency Graph
+# AI 测试辅助技能合集 - 依赖关系图
+
+version: "1.0.0"
+
+# 18 个核心 Skills 定义
+skills:
+  # 测试管理 Skills
+  requirements-analysis:
+    name: "需求分析"
+    name_en: "Requirements Analysis"
+    category: "test-management"
+    level: "basic"
+    dependencies: []
+    recommended_with:
+      - test-case-writing
+      - test-strategy
+      - functional-testing
+    use_cases:
+      - "新功能开发前的需求分析"
+      - "测试计划制定"
+      - "用例设计准备"
+    tags:
+      - requirements
+      - analysis
+      - planning
+    context_patterns:
+      project_types: [web, mobile, desktop, api]
+      methodologies: [agile, waterfall, user-story, use-case]
+
+  test-strategy:
+    name: "测试策略"
+    name_en: "Test Strategy"
+    category: "test-management"
+    level: "intermediate"
+    dependencies:
+      - requirements-analysis
+    recommended_with:
+      - test-reporting
+      - test-case-writing
+      - functional-testing
+    use_cases:
+      - "项目测试策略制定"
+      - "测试方法选择"
+      - "资源规划"
+    tags:
+      - strategy
+      - planning
+      - management
+    context_patterns:
+      project_types: [web, mobile, desktop, api, embedded]
+      methodologies: [agile, waterfall, devops, continuous-testing]
+
+  test-case-writing:
+    name: "测试用例编写"
+    name_en: "Test Case Writing"
+    category: "test-management"
+    level: "basic"
+    dependencies:
+      - requirements-analysis
+    recommended_with:
+      - functional-testing
+      - test-case-reviewer
+      - test-strategy
+    use_cases:
+      - "编写功能测试用例"
+      - "设计测试场景"
+      - "用例模板创建"
+    tags:
+      - test-case
+      - design
+      - documentation
+    context_patterns:
+      project_types: [web, mobile, desktop, api]
+      frameworks: [any]
+
+  test-case-reviewer:
+    name: "测试用例评审"
+    name_en: "Test Case Reviewer"
+    category: "test-management"
+    level: "intermediate"
+    dependencies:
+      - test-case-writing
+    recommended_with:
+      - test-strategy
+      - requirements-analysis
+      - functional-testing
+    use_cases:
+      - "用例质量评审"
+      - "用例完整性检查"
+      - "用例优化建议"
+    tags:
+      - review
+      - quality
+      - improvement
+    context_patterns:
+      review_types: [completeness, clarity, maintainability, efficiency]
+      methodologies: [checklist, peer-review, walkthrough]
+
+  bug-reporting:
+    name: "缺陷上报"
+    name_en: "Bug Reporting"
+    category: "test-management"
+    level: "basic"
+    dependencies: []
+    recommended_with:
+      - manual-testing
+      - test-case-writing
+      - test-reporting
+    use_cases:
+      - "缺陷报告编写"
+      - "缺陷分类和优先级"
+      - "缺陷跟踪"
+    tags:
+      - bug
+      - defect
+      - reporting
+    context_patterns:
+      project_types: [web, mobile, desktop, api]
+      frameworks: [any]
+
+  test-reporting:
+    name: "测试报告"
+    name_en: "Test Reporting"
+    category: "test-management"
+    level: "intermediate"
+    dependencies:
+      - test-strategy
+    recommended_with:
+      - bug-reporting
+      - test-case-writing
+      - test-strategy
+    use_cases:
+      - "日常测试报告"
+      - "Sprint 总结报告"
+      - "发布测试报告"
+    tags:
+      - reporting
+      - metrics
+      - communication
+    context_patterns:
+      report_types: [daily, weekly, sprint, release, executive]
+      audiences: [team, management, stakeholders]
+
+  # 核心测试 Skills
+  functional-testing:
+    name: "功能测试"
+    name_en: "Functional Testing"
+    category: "core-testing"
+    level: "intermediate"
+    dependencies:
+      - requirements-analysis
+      - test-case-writing
+    recommended_with:
+      - automation-testing
+      - manual-testing
+      - bug-reporting
+    use_cases:
+      - "Web 应用功能测试"
+      - "移动应用功能测试"
+      - "业务流程验证"
+    tags:
+      - functional
+      - core
+      - manual
+      - ui
+      - integration
+    context_patterns:
+      project_types: [web, mobile, desktop, api]
+      frameworks: [react, vue, angular, flutter, electron]
+      test_frameworks: [playwright, cypress, selenium, appium]
+
+  api-testing:
+    name: "API 测试"
+    name_en: "API Testing"
+    category: "core-testing"
+    level: "intermediate"
+    dependencies:
+      - test-case-writing
+    recommended_with:
+      - automation-testing
+      - performance-testing
+      - security-testing
+    use_cases:
+      - "REST API 测试"
+      - "GraphQL API 测试"
+      - "微服务接口测试"
+    tags:
+      - api
+      - rest
+      - graphql
+      - grpc
+      - integration
+    context_patterns:
+      project_types: [api, web, mobile]
+      frameworks: [express, nestjs, django, flask, fastapi, spring-boot, gin]
+      test_frameworks: [postman, rest-assured, supertest, pytest, junit]
+
+  automation-testing:
+    name: "自动化测试"
+    name_en: "Automation Testing"
+    category: "core-testing"
+    level: "intermediate"
+    dependencies:
+      - functional-testing
+    recommended_with:
+      - api-testing
+      - functional-testing
+      - test-case-writing
+    use_cases:
+      - "UI 自动化测试"
+      - "API 自动化测试"
+      - "回归测试自动化"
+    tags:
+      - automation
+      - selenium
+      - playwright
+      - cypress
+      - pom
+      - bdd
+    context_patterns:
+      project_types: [web, mobile, api]
+      frameworks: [selenium, playwright, cypress, appium, webdriverio]
+      test_frameworks: [pytest, junit, testng, jest, mocha]
+      patterns: [page-object-model, data-driven, bdd, keyword-driven]
+
+  manual-testing:
+    name: "手动测试"
+    name_en: "Manual Testing"
+    category: "core-testing"
+    level: "basic"
+    dependencies:
+      - requirements-analysis
+    recommended_with:
+      - functional-testing
+      - bug-reporting
+      - test-case-writing
+    use_cases:
+      - "探索性测试"
+      - "用户体验测试"
+      - "临时测试"
+    tags:
+      - manual
+      - exploratory
+      - ad-hoc
+      - usability
+    context_patterns:
+      project_types: [web, mobile, desktop, api]
+      approaches: [scripted, exploratory, session-based]
+
+  # 专项测试 Skills
+  performance-testing:
+    name: "性能测试"
+    name_en: "Performance Testing"
+    category: "specialized-testing"
+    level: "advanced"
+    dependencies:
+      - automation-testing
+    recommended_with:
+      - api-testing
+      - test-strategy
+      - test-reporting
+    use_cases:
+      - "负载测试"
+      - "压力测试"
+      - "容量规划"
+    tags:
+      - performance
+      - load
+      - stress
+      - capacity
+      - scalability
+    context_patterns:
+      project_types: [api, web, mobile]
+      test_types: [load, stress, spike, endurance, scalability, volume]
+      test_frameworks: [k6, jmeter, gatling, locust, artillery]
+      metrics: [response-time, throughput, error-rate, resource-usage]
+
+  security-testing:
+    name: "安全测试"
+    name_en: "Security Testing"
+    category: "specialized-testing"
+    level: "advanced"
+    dependencies:
+      - api-testing
+    recommended_with:
+      - automation-testing
+      - test-strategy
+      - test-reporting
+    use_cases:
+      - "漏洞扫描"
+      - "渗透测试"
+      - "安全合规检查"
+    tags:
+      - security
+      - owasp
+      - penetration
+      - vulnerability
+    context_patterns:
+      project_types: [api, web, mobile]
+      test_types: [vulnerability-scan, penetration, authentication, authorization, encryption, injection]
+      test_frameworks: [owasp-zap, burp-suite, nmap, metasploit]
+      standards: [owasp-top-10, pci-dss, gdpr, hipaa]
+
+  accessibility-testing:
+    name: "可访问性测试"
+    name_en: "Accessibility Testing"
+    category: "specialized-testing"
+    level: "intermediate"
+    dependencies:
+      - functional-testing
+    recommended_with:
+      - manual-testing
+      - automation-testing
+    use_cases:
+      - "WCAG 合规检查"
+      - "屏幕阅读器测试"
+      - "键盘导航测试"
+    tags:
+      - accessibility
+      - wcag
+      - a11y
+      - inclusive
+    context_patterns:
+      project_types: [web, mobile, desktop]
+      frameworks: [react, vue, angular, flutter]
+      test_frameworks: [axe-core, pa11y, lighthouse]
+      standards: [wcag-2.1, wcag-2.2, section-508]
+
+  mobile-testing:
+    name: "移动端测试"
+    name_en: "Mobile Testing"
+    category: "specialized-testing"
+    level: "advanced"
+    dependencies:
+      - functional-testing
+    recommended_with:
+      - automation-testing
+      - performance-testing
+      - accessibility-testing
+    use_cases:
+      - "Android 应用测试"
+      - "iOS 应用测试"
+      - "跨平台应用测试"
+    tags:
+      - mobile
+      - android
+      - ios
+      - appium
+    context_patterns:
+      project_types: [mobile]
+      platforms: [android, ios, react-native, flutter, hybrid]
+      test_frameworks: [appium, detox, espresso, xcuitest, flutter-test]
+      test_types: [functional, compatibility, performance, network, battery, security]
+
+  # AI 辅助 Skills
+  ai-assisted-testing:
+    name: "AI 辅助测试"
+    name_en: "AI-Assisted Testing"
+    category: "ai-assisted"
+    level: "advanced"
+    dependencies: []
+    recommended_with:
+      - test-case-writing
+      - bug-reporting
+      - test-strategy
+    use_cases:
+      - "智能测试数据生成"
+      - "缺陷根因分析"
+      - "测试优先级排序"
+    tags:
+      - ai
+      - machine-learning
+      - intelligent
+      - optimization
+    context_patterns:
+      ai_capabilities: [generation, analysis, prediction, optimization]
+      use_cases: [test-data, root-cause, prioritization, recommendation]
+
+# 3 个工作流定义
+workflows:
+  daily-testing-workflow:
+    name: "日常测试工作流"
+    name_en: "Daily Testing Workflow"
+    description: "日常测试活动的标准工作流程"
+    skills:
+      - requirements-analysis
+      - test-case-writing
+      - functional-testing
+      - bug-reporting
+
+  sprint-testing-workflow:
+    name: "迭代测试工作流"
+    name_en: "Sprint Testing Workflow"
+    description: "敏捷迭代中的测试工作流程"
+    skills:
+      - test-strategy
+      - requirements-analysis
+      - test-case-writing
+      - functional-testing
+      - automation-testing
+      - test-reporting
+
+  release-testing-workflow:
+    name: "发布测试工作流"
+    name_en: "Release Testing Workflow"
+    description: "产品发布前的完整测试流程"
+    skills:
+      - test-strategy
+      - functional-testing
+      - automation-testing
+      - performance-testing
+      - security-testing
+      - accessibility-testing
+      - test-reporting
+
+# 推荐组合（常用场景）
+recommended_combinations:
+  - name: "新功能完整测试"
+    skills:
+      - requirements-analysis
+      - test-case-writing
+      - functional-testing
+      - automation-testing
+    use_case: "新功能从需求到上线的完整测试"
+
+  - name: "API 开发测试"
+    skills:
+      - api-testing
+      - automation-testing
+      - performance-testing
+    use_case: "API 接口开发和测试"
+
+  - name: "移动端完整测试"
+    skills:
+      - mobile-testing
+      - automation-testing
+      - performance-testing
+    use_case: "移动应用全面测试"
+
+  - name: "安全审计"
+    skills:
+      - security-testing
+      - api-testing
+    use_case: "安全漏洞扫描和渗透测试"
+
+  - name: "可访问性合规"
+    skills:
+      - accessibility-testing
+      - functional-testing
+    use_case: "WCAG 合规性检查"
+
+# 依赖层级
+dependency_levels:
+  level_0:
+    name: "基础层（无依赖）"
+    skills:
+      - requirements-analysis
+      - bug-reporting
+      - ai-assisted-testing
+
+  level_1:
+    name: "核心层"
+    skills:
+      - test-strategy
+      - test-case-writing
+      - manual-testing
+
+  level_2:
+    name: "执行层"
+    skills:
+      - functional-testing
+      - api-testing
+      - test-case-reviewer
+      - test-reporting
+
+  level_3:
+    name: "高级层"
+    skills:
+      - automation-testing
+      - performance-testing
+      - security-testing
+      - accessibility-testing
+      - mobile-testing

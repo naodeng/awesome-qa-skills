@@ -1,0 +1,99 @@
+{
+  "loginTests": [
+    {
+      "id": 1,
+      "username": "admin",
+      "password": "admin123",
+      "expected": "success",
+      "description": "管理员登录成功"
+    },
+    {
+      "id": 2,
+      "username": "user1",
+      "password": "user123",
+      "expected": "success",
+      "description": "普通用户登录成功"
+    },
+    {
+      "id": 3,
+      "username": "",
+      "password": "password",
+      "expected": "error_username",
+      "description": "用户名为空"
+    },
+    {
+      "id": 4,
+      "username": "username",
+      "password": "",
+      "expected": "error_password",
+      "description": "密码为空"
+    },
+    {
+      "id": 5,
+      "username": "invalid",
+      "password": "wrong",
+      "expected": "error_credentials",
+      "description": "无效的凭证"
+    }
+  ],
+  "searchTests": [
+    {
+      "keyword": "selenium",
+      "expectedResults": 10,
+      "description": "搜索 Selenium"
+    },
+    {
+      "keyword": "playwright",
+      "expectedResults": 5,
+      "description": "搜索 Playwright"
+    },
+    {
+      "keyword": "",
+      "expectedResults": 0,
+      "description": "空搜索关键词"
+    }
+  ],
+  "formTests": [
+    {
+      "name": "张三",
+      "email": "zhangsan@example.com",
+      "age": 25,
+      "country": "中国",
+      "expected": "success"
+    },
+    {
+      "name": "李四",
+      "email": "invalid-email",
+      "age": 30,
+      "country": "中国",
+      "expected": "error_email"
+    },
+    {
+      "name": "",
+      "email": "test@example.com",
+      "age": 20,
+      "country": "中国",
+      "expected": "error_name"
+    }
+  ],
+  "apiTests": [
+    {
+      "endpoint": "/api/users",
+      "method": "GET",
+      "expectedStatus": 200,
+      "expectedFields": ["id", "name", "email"]
+    },
+    {
+      "endpoint": "/api/users/1",
+      "method": "GET",
+      "expectedStatus": 200,
+      "expectedFields": ["id", "name", "email", "phone"]
+    },
+    {
+      "endpoint": "/api/users/999",
+      "method": "GET",
+      "expectedStatus": 404,
+      "expectedFields": []
+    }
+  ]
+}

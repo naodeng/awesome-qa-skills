@@ -1,0 +1,664 @@
+# 测试报告模板 - 多种格式
+
+## 1. Markdown 格式测试报告
+
+```markdown
+# 测试报告 - 用户认证模块
+
+**项目**: Awesome QA Platform  
+**版本**: v1.2.3  
+**环境**: Staging  
+**执行日期**: 2024-01-16 14:30:00  
+**执行人**: QA Team  
+**报告生成时间**: 2024-01-16 15:50:00
+
+---
+
+## 执行概要
+
+| 指标 | 值 |
+|------|-----|
+| 总用例数 | 25 |
+| 通过 | 22 (88%) |
+| 失败 | 2 (8%) |
+| 跳过 | 1 (4%) |
+| 通过率 | 88% |
+| 总耗时 | 1小时 15分钟 30秒 |
+
+### 测试结果分布
+
+```
+████████████████████████████████████████████ 88% 通过 (22)
+████ 8% 失败 (2)
+██ 4% 跳过 (1)
+```
+
+---
+
+## 测试用例详情
+
+### ✓ TC-001: 用户登录功能 - 有效凭证
+
+**状态**: PASS  
+**优先级**: High  
+**类别**: Functional  
+**执行时间**: 2024-01-16 14:32:15  
+**耗时**: 2分15秒  
+**执行人**: alice@example.com
+
+**测试步骤**:
+1. ✓ 打开登录页面 - 页面正确加载
+2. ✓ 输入有效用户名 - 用户名输入成功
+3. ✓ 输入有效密码 - 密码输入成功
+4. ✓ 点击登录按钮 - 成功跳转到首页
+
+---
+
+### ✗ TC-005: 账号锁定通知功能
+
+**状态**: FAIL  
+**优先级**: High  
+**类别**: Security  
+**执行时间**: 2024-01-16 14:45:30  
+**耗时**: 5分20秒  
+**执行人**: bob@example.com  
+**关联缺陷**: [BUG-123](https://jira.example.com/BUG-123)
+
+**测试步骤**:
+1. ✓ 触发账号锁定 - 账号成功锁定
+2. ✗ 验证邮件通知 - 未收到邮件通知
+
+**错误信息**:
+```
+预期收到邮件通知，但在5分钟内未收到任何邮件。
+邮件服务日志显示: "SMTP connection timeout"
+```
+
+**截图**: ![失败截图](screenshots/tc-005-fail.png)
+
+---
+
+### ⊘ TC-010: 第三方登录 - Google OAuth
+
+**状态**: SKIP  
+**优先级**: Medium  
+**类别**: Integration  
+**跳过原因**: Google OAuth 服务在测试环境不可用
+
+---
+
+## 失败用例汇总
+
+| 用例ID | 用例标题 | 失败原因 | 缺陷ID | 负责人 |
+|--------|----------|----------|--------|--------|
+| TC-005 | 账号锁定通知功能 | 邮件通知未发送 | [BUG-123](https://jira.example.com/BUG-123) | Dev Team |
+| TC-018 | 密码强度验证 | 弱密码被接受 | [BUG-124](https://jira.example.com/BUG-124) | Dev Team |
+
+---
+
+## 测试环境信息
+
+| 项目 | 值 |
+|------|-----|
+| 应用版本 | v1.2.3 |
+| 环境 | Staging |
+| URL | https://staging.example.com |
+| 数据库 | PostgreSQL 14.5 |
+| 操作系统 | Ubuntu 22.04 LTS |
+| 浏览器 | Chrome 120, Firefox 121, Safari 17 |
+
+---
+
+## 测试趋势
+
+### 最近5次测试通过率
+
+| 日期 | 版本 | 通过率 | 总用例 | 通过 | 失败 |
+|------|------|--------|--------|------|------|
+| 2024-01-16 | v1.2.3 | 88% | 25 | 22 | 2 |
+| 2024-01-15 | v1.2.2 | 84% | 25 | 21 | 3 |
+| 2024-01-14 | v1.2.1 | 92% | 25 | 23 | 2 |
+| 2024-01-13 | v1.2.0 | 80% | 25 | 20 | 4 |
+| 2024-01-12 | v1.1.9 | 88% | 25 | 22 | 3 |
+
+---
+
+## 建议和后续行动
+
+### 高优先级
+- [ ] 修复 BUG-123: 邮件通知功能
+- [ ] 修复 BUG-124: 密码强度验证
+
+### 中优先级
+- [ ] 配置测试环境的 Google OAuth
+- [ ] 优化测试执行时间（当前1小时15分钟）
+
+### 低优先级
+- [ ] 增加更多边界条件测试
+- [ ] 添加性能测试用例
+
+---
+
+## 附录
+
+### 测试数据
+- 测试账号: testuser@example.com
+- 测试环境: https://staging.example.com
+- 数据库快照: db_snapshot_20240116.sql
+
+### 相关文档
+- [测试计划](./test-plan.md)
+- [测试用例](./test-cases.md)
+- [缺陷列表](https://jira.example.com/projects/BUG)
+
+---
+
+*此报告由自动化测试系统生成*  
+*© 2024 QA Team. All rights reserved.*
+```
+
+---
+
+## 2. JSON 格式测试报告
+
+```json
+{
+  "testReport": {
+    "metadata": {
+      "reportId": "TR-20240116-001",
+      "project": "Awesome QA Platform",
+      "version": "v1.2.3",
+      "environment": "Staging",
+      "executionDate": "2024-01-16T14:30:00Z",
+      "completionDate": "2024-01-16T15:45:30Z",
+      "executor": "QA Team",
+      "reportGeneratedAt": "2024-01-16T15:50:00Z"
+    },
+    "summary": {
+      "totalCases": 25,
+      "executed": 25,
+      "passed": 22,
+      "failed": 2,
+      "skipped": 1,
+      "blocked": 0,
+      "passRate": 88.0,
+      "totalDuration": 4530,
+      "averageDuration": 181.2
+    },
+    "testCases": [
+      {
+        "id": "TC-001",
+        "title": "用户登录功能 - 有效凭证",
+        "status": "pass",
+        "priority": "high",
+        "category": "functional",
+        "executionTime": "2024-01-16T14:32:15Z",
+        "duration": 135,
+        "executor": "alice@example.com",
+        "steps": [
+          {
+            "stepNumber": 1,
+            "action": "打开登录页面",
+            "status": "pass",
+            "actualResult": "页面正确加载",
+            "duration": 30
+          },
+          {
+            "stepNumber": 2,
+            "action": "输入有效用户名",
+            "status": "pass",
+            "actualResult": "用户名输入成功",
+            "duration": 15
+          },
+          {
+            "stepNumber": 3,
+            "action": "输入有效密码",
+            "status": "pass",
+            "actualResult": "密码输入成功",
+            "duration": 15
+          },
+          {
+            "stepNumber": 4,
+            "action": "点击登录按钮",
+            "status": "pass",
+            "actualResult": "成功跳转到首页",
+            "duration": 75
+          }
+        ],
+        "attachments": []
+      },
+      {
+        "id": "TC-005",
+        "title": "账号锁定通知功能",
+        "status": "fail",
+        "priority": "high",
+        "category": "security",
+        "executionTime": "2024-01-16T14:45:30Z",
+        "duration": 320,
+        "executor": "bob@example.com",
+        "defectId": "BUG-123",
+        "defectUrl": "https://jira.example.com/BUG-123",
+        "steps": [
+          {
+            "stepNumber": 1,
+            "action": "触发账号锁定",
+            "status": "pass",
+            "actualResult": "账号成功锁定",
+            "duration": 180
+          },
+          {
+            "stepNumber": 2,
+            "action": "验证邮件通知",
+            "status": "fail",
+            "actualResult": "未收到邮件通知",
+            "expectedResult": "收到账号锁定通知邮件",
+            "duration": 140
+          }
+        ],
+        "errorMessage": "预期收到邮件通知，但在5分钟内未收到任何邮件。邮件服务日志显示: SMTP connection timeout",
+        "attachments": [
+          {
+            "type": "screenshot",
+            "path": "screenshots/tc-005-fail.png",
+            "description": "失败时的截图"
+          },
+          {
+            "type": "log",
+            "path": "logs/email-service.log",
+            "description": "邮件服务日志"
+          }
+        ]
+      },
+      {
+        "id": "TC-010",
+        "title": "第三方登录 - Google OAuth",
+        "status": "skip",
+        "priority": "medium",
+        "category": "integration",
+        "skipReason": "Google OAuth 服务在测试环境不可用"
+      }
+    ],
+    "failedTests": [
+      {
+        "testCaseId": "TC-005",
+        "title": "账号锁定通知功能",
+        "failureReason": "邮件通知未发送",
+        "defectId": "BUG-123",
+        "assignedTo": "Dev Team",
+        "severity": "high"
+      },
+      {
+        "testCaseId": "TC-018",
+        "title": "密码强度验证",
+        "failureReason": "弱密码被接受",
+        "defectId": "BUG-124",
+        "assignedTo": "Dev Team",
+        "severity": "medium"
+      }
+    ],
+    "environment": {
+      "applicationVersion": "v1.2.3",
+      "environment": "Staging",
+      "url": "https://staging.example.com",
+      "database": "PostgreSQL 14.5",
+      "os": "Ubuntu 22.04 LTS",
+      "browsers": [
+        "Chrome 120",
+        "Firefox 121",
+        "Safari 17"
+      ]
+    },
+    "trends": {
+      "recentExecutions": [
+        {
+          "date": "2024-01-16",
+          "version": "v1.2.3",
+          "passRate": 88.0,
+          "total": 25,
+          "passed": 22,
+          "failed": 2
+        },
+        {
+          "date": "2024-01-15",
+          "version": "v1.2.2",
+          "passRate": 84.0,
+          "total": 25,
+          "passed": 21,
+          "failed": 3
+        },
+        {
+          "date": "2024-01-14",
+          "version": "v1.2.1",
+          "passRate": 92.0,
+          "total": 25,
+          "passed": 23,
+          "failed": 2
+        }
+      ]
+    }
+  }
+}
+```
+
+---
+
+## 3. XML 格式测试报告 (JUnit)
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="用户认证模块测试" tests="25" failures="2" skipped="1" time="4530" timestamp="2024-01-16T14:30:00Z">
+  <testsuite name="登录功能测试" tests="10" failures="1" skipped="0" time="1200" timestamp="2024-01-16T14:30:00Z">
+    <properties>
+      <property name="environment" value="Staging"/>
+      <property name="version" value="v1.2.3"/>
+      <property name="url" value="https://staging.example.com"/>
+    </properties>
+    
+    <testcase name="TC-001: 用户登录功能 - 有效凭证" classname="AuthenticationTests" time="135">
+      <system-out>
+        步骤 1: 打开登录页面 - PASS
+        步骤 2: 输入有效用户名 - PASS
+        步骤 3: 输入有效密码 - PASS
+        步骤 4: 点击登录按钮 - PASS
+      </system-out>
+    </testcase>
+    
+    <testcase name="TC-005: 账号锁定通知功能" classname="SecurityTests" time="320">
+      <failure message="邮件通知未发送" type="AssertionError">
+        预期收到邮件通知，但在5分钟内未收到任何邮件。
+        邮件服务日志显示: "SMTP connection timeout"
+        
+        Stack trace:
+        at verifyEmailNotification (test/security/account-lockout.spec.js:45:10)
+        at runTest (test/runner.js:120:5)
+      </failure>
+      <system-out>
+        步骤 1: 触发账号锁定 - PASS
+        步骤 2: 验证邮件通知 - FAIL
+      </system-out>
+      <system-err>
+        SMTP connection timeout
+        Email service unavailable
+      </system-err>
+    </testcase>
+    
+    <testcase name="TC-010: 第三方登录 - Google OAuth" classname="IntegrationTests" time="0">
+      <skipped message="Google OAuth 服务在测试环境不可用"/>
+    </testcase>
+  </testsuite>
+  
+  <testsuite name="注册功能测试" tests="8" failures="0" skipped="0" time="960" timestamp="2024-01-16T14:50:00Z">
+    <testcase name="TC-011: 用户注册 - 有效信息" classname="RegistrationTests" time="120"/>
+    <testcase name="TC-012: 用户注册 - 重复邮箱" classname="RegistrationTests" time="90"/>
+  </testsuite>
+  
+  <testsuite name="密码管理测试" tests="7" failures="1" skipped="1" time="840" timestamp="2024-01-16T15:10:00Z">
+    <testcase name="TC-018: 密码强度验证" classname="PasswordTests" time="60">
+      <failure message="弱密码被接受" type="ValidationError">
+        密码 "123456" 应该被拒绝，但系统接受了该密码。
+        密码强度验证规则未正确实施。
+      </failure>
+    </testcase>
+  </testsuite>
+</testsuites>
+```
+
+---
+
+## 4. CSV 格式测试报告
+
+```csv
+Test Case ID,Title,Priority,Category,Status,Execution Time,Duration (s),Executor,Defect ID,Error Message
+TC-001,用户登录功能 - 有效凭证,High,Functional,PASS,2024-01-16 14:32:15,135,alice@example.com,,
+TC-002,用户登录功能 - 无效密码,High,Negative,PASS,2024-01-16 14:34:30,88,alice@example.com,,
+TC-003,用户登录功能 - 空字段验证,Medium,Validation,PASS,2024-01-16 14:36:00,65,alice@example.com,,
+TC-004,用户登录功能 - SQL 注入测试,Critical,Security,PASS,2024-01-16 14:38:00,180,security-team@example.com,,
+TC-005,账号锁定通知功能,High,Security,FAIL,2024-01-16 14:45:30,320,bob@example.com,BUG-123,"邮件通知未发送, SMTP connection timeout"
+TC-006,用户登录功能 - 记住我功能,Medium,Functional,PASS,2024-01-16 14:52:00,95,alice@example.com,,
+TC-007,用户登录功能 - 会话超时,High,Security,PASS,2024-01-16 14:55:00,240,bob@example.com,,
+TC-008,用户登录功能 - 并发登录,Medium,Functional,PASS,2024-01-16 15:00:00,150,alice@example.com,,
+TC-009,用户登录功能 - 密码可见性切换,Low,UI,PASS,2024-01-16 15:03:00,45,alice@example.com,,
+TC-010,第三方登录 - Google OAuth,Medium,Integration,SKIP,,,,"Google OAuth 服务在测试环境不可用"
+TC-011,用户注册 - 有效信息,High,Functional,PASS,2024-01-16 15:05:00,120,bob@example.com,,
+TC-012,用户注册 - 重复邮箱,High,Negative,PASS,2024-01-16 15:08:00,90,bob@example.com,,
+TC-013,用户注册 - 邮箱验证,High,Functional,PASS,2024-01-16 15:10:00,180,bob@example.com,,
+TC-014,用户注册 - 用户名规则,Medium,Validation,PASS,2024-01-16 15:14:00,75,bob@example.com,,
+TC-015,密码重置 - 邮件发送,High,Functional,PASS,2024-01-16 15:16:00,150,alice@example.com,,
+TC-016,密码重置 - 令牌验证,High,Security,PASS,2024-01-16 15:20:00,120,alice@example.com,,
+TC-017,密码重置 - 令牌过期,High,Security,PASS,2024-01-16 15:23:00,90,alice@example.com,,
+TC-018,密码强度验证,High,Security,FAIL,2024-01-16 15:26:00,60,bob@example.com,BUG-124,"弱密码被接受, 密码强度验证规则未正确实施"
+TC-019,密码修改功能,Medium,Functional,PASS,2024-01-16 15:28:00,105,alice@example.com,,
+TC-020,账号激活功能,High,Functional,PASS,2024-01-16 15:31:00,135,bob@example.com,,
+TC-021,账号停用功能,Medium,Functional,PASS,2024-01-16 15:34:00,90,bob@example.com,,
+TC-022,用户资料更新,Medium,Functional,PASS,2024-01-16 15:36:00,110,alice@example.com,,
+TC-023,头像上传功能,Low,Functional,PASS,2024-01-16 15:39:00,180,alice@example.com,,
+TC-024,邮箱变更验证,High,Security,PASS,2024-01-16 15:43:00,200,bob@example.com,,
+TC-025,账号删除功能,High,Functional,PASS,2024-01-16 15:47:00,150,bob@example.com,,
+```
+
+---
+
+## 5. YAML 格式测试报告
+
+```yaml
+---
+testReport:
+  metadata:
+    reportId: TR-20240116-001
+    project: Awesome QA Platform
+    version: v1.2.3
+    environment: Staging
+    executionDate: 2024-01-16T14:30:00Z
+    completionDate: 2024-01-16T15:45:30Z
+    executor: QA Team
+    reportGeneratedAt: 2024-01-16T15:50:00Z
+
+  summary:
+    totalCases: 25
+    executed: 25
+    passed: 22
+    failed: 2
+    skipped: 1
+    blocked: 0
+    passRate: 88.0
+    totalDuration: 4530  # seconds
+    averageDuration: 181.2
+
+  testCases:
+    - id: TC-001
+      title: 用户登录功能 - 有效凭证
+      status: pass
+      priority: high
+      category: functional
+      executionTime: 2024-01-16T14:32:15Z
+      duration: 135
+      executor: alice@example.com
+      steps:
+        - stepNumber: 1
+          action: 打开登录页面
+          status: pass
+          actualResult: 页面正确加载
+          duration: 30
+        - stepNumber: 2
+          action: 输入有效用户名
+          status: pass
+          actualResult: 用户名输入成功
+          duration: 15
+        - stepNumber: 3
+          action: 输入有效密码
+          status: pass
+          actualResult: 密码输入成功
+          duration: 15
+        - stepNumber: 4
+          action: 点击登录按钮
+          status: pass
+          actualResult: 成功跳转到首页
+          duration: 75
+      attachments: []
+
+    - id: TC-005
+      title: 账号锁定通知功能
+      status: fail
+      priority: high
+      category: security
+      executionTime: 2024-01-16T14:45:30Z
+      duration: 320
+      executor: bob@example.com
+      defectId: BUG-123
+      defectUrl: https://jira.example.com/BUG-123
+      steps:
+        - stepNumber: 1
+          action: 触发账号锁定
+          status: pass
+          actualResult: 账号成功锁定
+          duration: 180
+        - stepNumber: 2
+          action: 验证邮件通知
+          status: fail
+          actualResult: 未收到邮件通知
+          expectedResult: 收到账号锁定通知邮件
+          duration: 140
+      errorMessage: |
+        预期收到邮件通知，但在5分钟内未收到任何邮件。
+        邮件服务日志显示: SMTP connection timeout
+      attachments:
+        - type: screenshot
+          path: screenshots/tc-005-fail.png
+          description: 失败时的截图
+        - type: log
+          path: logs/email-service.log
+          description: 邮件服务日志
+
+    - id: TC-010
+      title: 第三方登录 - Google OAuth
+      status: skip
+      priority: medium
+      category: integration
+      skipReason: Google OAuth 服务在测试环境不可用
+
+  failedTests:
+    - testCaseId: TC-005
+      title: 账号锁定通知功能
+      failureReason: 邮件通知未发送
+      defectId: BUG-123
+      assignedTo: Dev Team
+      severity: high
+
+    - testCaseId: TC-018
+      title: 密码强度验证
+      failureReason: 弱密码被接受
+      defectId: BUG-124
+      assignedTo: Dev Team
+      severity: medium
+
+  environment:
+    applicationVersion: v1.2.3
+    environment: Staging
+    url: https://staging.example.com
+    database: PostgreSQL 14.5
+    os: Ubuntu 22.04 LTS
+    browsers:
+      - Chrome 120
+      - Firefox 121
+      - Safari 17
+
+  trends:
+    recentExecutions:
+      - date: 2024-01-16
+        version: v1.2.3
+        passRate: 88.0
+        total: 25
+        passed: 22
+        failed: 2
+
+      - date: 2024-01-15
+        version: v1.2.2
+        passRate: 84.0
+        total: 25
+        passed: 21
+        failed: 3
+
+      - date: 2024-01-14
+        version: v1.2.1
+        passRate: 92.0
+        total: 25
+        passed: 23
+        failed: 2
+
+  recommendations:
+    highPriority:
+      - 修复 BUG-123: 邮件通知功能
+      - 修复 BUG-124: 密码强度验证
+
+    mediumPriority:
+      - 配置测试环境的 Google OAuth
+      - 优化测试执行时间
+
+    lowPriority:
+      - 增加更多边界条件测试
+      - 添加性能测试用例
+```
+
+---
+
+## 使用指南
+
+### 选择合适的格式
+
+| 格式 | 适用场景 | 优势 | 劣势 |
+|------|----------|------|------|
+| HTML | 人工查看、演示 | 可视化好、交互性强 | 不易解析 |
+| Markdown | 文档、Git | 易读、版本控制友好 | 格式有限 |
+| JSON | API集成、程序处理 | 结构化、易解析 | 不易人工阅读 |
+| XML | 企业工具集成 | 标准化、工具支持好 | 冗长 |
+| CSV | 数据分析、Excel | 简单、通用 | 结构扁平 |
+| YAML | CI/CD、配置 | 简洁、易读 | 解析器差异 |
+
+### 格式转换
+
+```bash
+# JSON 转 HTML
+node scripts/json-to-html.js report.json > report.html
+
+# XML 转 JSON
+xq . report.xml > report.json
+
+# CSV 转 JSON
+csvtojson report.csv > report.json
+
+# YAML 转 JSON
+yq eval -o=json report.yaml > report.json
+```
+
+### CI/CD 集成
+
+```yaml
+# .github/workflows/test.yml
+- name: Run Tests
+  run: npm test
+
+- name: Generate Reports
+  run: |
+    npm run test:report:html
+    npm run test:report:json
+    npm run test:report:junit
+
+- name: Upload Reports
+  uses: actions/upload-artifact@v2
+  with:
+    name: test-reports
+    path: |
+      reports/*.html
+      reports/*.json
+      reports/*.xml
+```
+
+## 最佳实践
+
+1. **多格式输出**: 同时生成多种格式满足不同需求
+2. **历史对比**: 包含趋势数据
+3. **详细信息**: 失败用例包含截图和日志
+4. **可操作性**: 提供明确的后续行动建议
+5. **自动化**: 集成到 CI/CD 流程
+6. **归档**: 保存历史报告用于分析
+7. **通知**: 自动发送报告给相关人员

@@ -1,0 +1,467 @@
+// Jenkins Pipeline 测试工作流配置
+
+pipeline {
+    agent any
+    
+    // 环境变量
+    environment {
+        NODE_VERSION = '18'
+        PYTHON_VERSION = '3.11'
+        JAVA_HOME = tool 'JDK17'
+        PATH = "${JAVA_HOME}/bin:${env.PATH}"
+        
+        // 数据库配置
+        DATABASE_URL = credentials('database-url')
+        REDIS_URL = credentials('redis-url')
+        
+        // 通知配置
+        SLACK_WEBHOOK = credentials('slack-webhook')
+        EMAIL_RECIPIENTS = 'team@example.com'
+    }
+    
+    // 参数
+    parameters {
+        choice(
+            name: 'TEST_SUITE',
+            choices: ['all', 'smoke', 'regression', 'integration'],
+            description: '选择要运行的测试套件'
+        )
+        booleanParam(
+            name: 'RUN_PERFORMANCE_TESTS',
+            defaultValue: false,
+            description: '是否运行性能测试'
+        )
+        booleanParam(
+            name: 'RUN_SECURITY_TESTS',
+            defaultValue: false,
+            description: '是否运行安全测试'
+        )
+    }
+    
+    // 触发器
+    triggers {
+        // 每天凌晨 2 点运行
+        cron('0 2 * * *')
+        // 轮询 SCM
+        pollSCM('H/5 * * * *')
+    }
+    
+    // 选项
+    options {
+        // 保留最近 10 次构建
+        buildDiscarder(logRotator(numToKeepStr: '10'))
+        // 超时设置
+        timeout(time: 1, unit: 'HOURS')
+        // 时间戳
+        timestamps()
+        // 禁止并发构建
+        disableConcurrentBuilds()
+    }
+    
+    stages {
+        stage('Checkout') {
+            steps {
+                echo '检出代码...'
+                checkout scm
+                
+                script {
+                    env.GIT_COMMIT_SHORT = sh(
+                        script: "git rev-parse --short HEAD",
+                        returnStdout: true
+                    ).trim()
+                }
+            }
+        }
+        
+        stage('Setup') {
+            steps {
+                echo '设置环境...'
+                sh '''
+                    node --version
+                    npm --version
+                '''
+            }
+        }
+        
+        stage('Install Dependencies') {
+            steps {
+                echo '安装依赖...'
+                sh 'npm ci'
+            }
+        }
+        
+        stage('Code Quality') {
+            parallel {
+                stage('Lint') {
+                    steps {
+                        echo '运行代码检查...'
+                        sh 'npm run lint'
+                    }
+                }
+                
+                stage('Format Check') {
+                    steps {
+                        echo '检查代码格式...'
+                        sh 'npm run format:check'
+                    }
+                }
+                
+                stage('Type Check') {
+                    steps {
+                        echo '运行类型检查...'
+                        sh 'npm run type-check'
+                    }
+                }
+            }
+        }
+        
+        stage('Unit Tests') {
+            steps {
+                echo '运行单元测试...'
+                sh 'npm run test:unit -- --coverage'
+            }
+            post {
+                always {
+                    // 发布测试结果
+                    junit 'test-results/junit.xml'
+                    // 发布覆盖率报告
+                    publishHTML([
+                        allowMissing: false,
+                        alwaysLinkToLastBuild: true,
+                        keepAll: true,
+                        reportDir: 'coverage',
+                        reportFiles: 'index.html',
+                        reportName: 'Coverage Report'
+                    ])
+                }
+            }
+        }
+        
+        stage('Integration Tests') {
+            steps {
+                echo '运行集成测试...'
+                script {
+                    docker.image('postgres:15').withRun('-e POSTGRES_PASSWORD=testpass -e POSTGRES_DB=testdb') { db ->
+                        docker.image('redis:7').withRun() { redis ->
+                            sh '''
+                                export DATABASE_URL="postgresql://postgres:testpass@${db.id}:5432/testdb"
+                                export REDIS_URL="redis://${redis.id}:6379"
+                                npm run db:migrate
+                                npm run test:integration
+                            '''
+                        }
+                    }
+                }
+            }
+            post {
+                always {
+                    junit 'test-results/integration-junit.xml'
+                }
+            }
+        }
+        
+        stage('E2E Tests') {
+            parallel {
+                stage('E2E - Chromium') {
+                    steps {
+                        echo '运行 E2E 测试 (Chromium)...'
+                        sh '''
+                            npm run build
+                            npm run start &
+                            npx wait-on http://localhost:3000
+                            npx playwright test --project=chromium
+                        '''
+                    }
+                }
+                
+                stage('E2E - Firefox') {
+                    steps {
+                        echo '运行 E2E 测试 (Firefox)...'
+                        sh '''
+                            npm run build
+                            npm run start &
+                            npx wait-on http://localhost:3000
+                            npx playwright test --project=firefox
+                        '''
+                    }
+                }
+            }
+            post {
+                always {
+                    // 发布 Playwright 报告
+                    publishHTML([
+                        allowMissing: false,
+                        alwaysLinkToLastBuild: true,
+                        keepAll: true,
+                        reportDir: 'playwright-report',
+                        reportFiles: 'index.html',
+                        reportName: 'Playwright Report'
+                    ])
+                    
+                    // 归档截图
+                    archiveArtifacts artifacts: 'test-results/**/*.png', allowEmptyArchive: true
+                }
+            }
+        }
+        
+        stage('API Tests') {
+            steps {
+                echo '运行 API 测试...'
+                sh '''
+                    npm run start:api &
+                    npx wait-on http://localhost:4000/health
+                    npm install -g newman newman-reporter-htmlextra
+                    newman run tests/api/collection.json \
+                        -e tests/api/environment.json \
+                        -r cli,htmlextra \
+                        --reporter-htmlextra-export test-results/api-report.html
+                '''
+            }
+            post {
+                always {
+                    publishHTML([
+                        allowMissing: false,
+                        alwaysLinkToLastBuild: true,
+                        keepAll: true,
+                        reportDir: 'test-results',
+                        reportFiles: 'api-report.html',
+                        reportName: 'API Test Report'
+                    ])
+                }
+            }
+        }
+        
+        stage('Security Tests') {
+            when {
+                expression { params.RUN_SECURITY_TESTS == true }
+            }
+            parallel {
+                stage('SAST') {
+                    steps {
+                        echo '运行静态安全扫描...'
+                        sh 'npm audit --audit-level=moderate'
+                    }
+                }
+                
+                stage('Dependency Check') {
+                    steps {
+                        echo '检查依赖漏洞...'
+                        sh '''
+                            npm install -g snyk
+                            snyk test --severity-threshold=high || true
+                        '''
+                    }
+                }
+                
+                stage('DAST') {
+                    steps {
+                        echo '运行动态安全扫描...'
+                        script {
+                            docker.image('owasp/zap2docker-stable').inside() {
+                                sh '''
+                                    zap-baseline.py -t http://localhost:3000 \
+                                        -r zap-report.html || true
+                                '''
+                            }
+                        }
+                    }
+                }
+            }
+            post {
+                always {
+                    publishHTML([
+                        allowMissing: true,
+                        alwaysLinkToLastBuild: true,
+                        keepAll: true,
+                        reportDir: '.',
+                        reportFiles: 'zap-report.html',
+                        reportName: 'Security Scan Report'
+                    ])
+                }
+            }
+        }
+        
+        stage('Performance Tests') {
+            when {
+                expression { params.RUN_PERFORMANCE_TESTS == true }
+            }
+            parallel {
+                stage('Load Test') {
+                    steps {
+                        echo '运行负载测试...'
+                        script {
+                            docker.image('grafana/k6:latest').inside() {
+                                sh '''
+                                    k6 run tests/performance/load-test.js \
+                                        --out json=test-results/k6-results.json
+                                '''
+                            }
+                        }
+                    }
+                }
+                
+                stage('Lighthouse') {
+                    steps {
+                        echo '运行 Lighthouse 测试...'
+                        sh '''
+                            npm run build
+                            npm run start &
+                            npx wait-on http://localhost:3000
+                            npm install -g @lhci/cli
+                            lhci autorun
+                        '''
+                    }
+                }
+            }
+            post {
+                always {
+                    archiveArtifacts artifacts: 'test-results/k6-results.json', allowEmptyArchive: true
+                    archiveArtifacts artifacts: '.lighthouseci/**/*', allowEmptyArchive: true
+                }
+            }
+        }
+        
+        stage('Build') {
+            steps {
+                echo '构建应用...'
+                sh 'npm run build'
+            }
+            post {
+                success {
+                    archiveArtifacts artifacts: 'dist/**/*', fingerprint: true
+                }
+            }
+        }
+        
+        stage('Deploy to Staging') {
+            when {
+                branch 'develop'
+            }
+            steps {
+                echo '部署到 Staging 环境...'
+                input message: '是否部署到 Staging?', ok: '部署'
+                
+                sh '''
+                    echo "Deploying to staging..."
+                    # 添加部署命令
+                '''
+            }
+            post {
+                success {
+                    echo '运行 Staging 冒烟测试...'
+                    sh 'npm run test:smoke -- --env=staging'
+                }
+            }
+        }
+        
+        stage('Deploy to Production') {
+            when {
+                branch 'main'
+            }
+            steps {
+                echo '部署到 Production 环境...'
+                input message: '是否部署到 Production?', ok: '部署', submitter: 'admin'
+                
+                sh '''
+                    echo "Deploying to production..."
+                    # 添加部署命令
+                '''
+            }
+            post {
+                success {
+                    echo '运行 Production 冒烟测试...'
+                    sh 'npm run test:smoke -- --env=production'
+                }
+            }
+        }
+    }
+    
+    post {
+        always {
+            echo '清理工作空间...'
+            cleanWs()
+        }
+        
+        success {
+            echo '构建成功！'
+            
+            // 发送 Slack 通知
+            script {
+                def message = """
+                    ✅ 构建成功
+                    
+                    项目: ${env.JOB_NAME}
+                    构建号: ${env.BUILD_NUMBER}
+                    分支: ${env.BRANCH_NAME}
+                    提交: ${env.GIT_COMMIT_SHORT}
+                    
+                    查看详情: ${env.BUILD_URL}
+                """
+                
+                sh """
+                    curl -X POST ${SLACK_WEBHOOK} \
+                        -H 'Content-Type: application/json' \
+                        -d '{"text":"${message}"}'
+                """
+            }
+            
+            // 发送邮件通知
+            emailext(
+                subject: "✅ 构建成功: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                body: """
+                    <h2>构建成功</h2>
+                    <p><strong>项目:</strong> ${env.JOB_NAME}</p>
+                    <p><strong>构建号:</strong> ${env.BUILD_NUMBER}</p>
+                    <p><strong>分支:</strong> ${env.BRANCH_NAME}</p>
+                    <p><strong>提交:</strong> ${env.GIT_COMMIT_SHORT}</p>
+                    <p><a href="${env.BUILD_URL}">查看详情</a></p>
+                """,
+                to: "${EMAIL_RECIPIENTS}",
+                mimeType: 'text/html'
+            )
+        }
+        
+        failure {
+            echo '构建失败！'
+            
+            // 发送 Slack 通知
+            script {
+                def message = """
+                    ❌ 构建失败
+                    
+                    项目: ${env.JOB_NAME}
+                    构建号: ${env.BUILD_NUMBER}
+                    分支: ${env.BRANCH_NAME}
+                    提交: ${env.GIT_COMMIT_SHORT}
+                    
+                    查看详情: ${env.BUILD_URL}
+                """
+                
+                sh """
+                    curl -X POST ${SLACK_WEBHOOK} \
+                        -H 'Content-Type: application/json' \
+                        -d '{"text":"${message}"}'
+                """
+            }
+            
+            // 发送邮件通知
+            emailext(
+                subject: "❌ 构建失败: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                body: """
+                    <h2>构建失败</h2>
+                    <p><strong>项目:</strong> ${env.JOB_NAME}</p>
+                    <p><strong>构建号:</strong> ${env.BUILD_NUMBER}</p>
+                    <p><strong>分支:</strong> ${env.BRANCH_NAME}</p>
+                    <p><strong>提交:</strong> ${env.GIT_COMMIT_SHORT}</p>
+                    <p><a href="${env.BUILD_URL}">查看详情</a></p>
+                """,
+                to: "${EMAIL_RECIPIENTS}",
+                mimeType: 'text/html'
+            )
+        }
+        
+        unstable {
+            echo '构建不稳定！'
+        }
+    }
+}

@@ -1,0 +1,29 @@
+{
+  "name": "bdd-cucumber-examples",
+  "version": "1.0.0",
+  "description": "BDD 测试示例 - 使用 Cucumber 和 Gherkin 语法",
+  "main": "index.js",
+  "scripts": {
+    "test": "cucumber-js",
+    "test:smoke": "cucumber-js --tags '@smoke'",
+    "test:regression": "cucumber-js --tags 'not @skip'",
+    "test:report": "cucumber-js --format html:reports/cucumber-report.html",
+    "test:json": "cucumber-js --format json:reports/cucumber-report.json"
+  },
+  "keywords": [
+    "bdd",
+    "cucumber",
+    "gherkin",
+    "testing",
+    "automation"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@cucumber/cucumber": "^10.0.0",
+    "selenium-webdriver": "^4.15.0"
+  },
+  "devDependencies": {
+    "chai": "^4.3.10"
+  }
+}

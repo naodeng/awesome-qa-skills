@@ -1,0 +1,396 @@
+# CircleCI 配置模板 - 测试自动化
+
+version: 2.1
+
+# 可重用的执行器定义
+executors:
+  node-executor:
+    docker:
+      - image: cimg/node:18.19
+    working_directory: ~/project
+    resource_class: medium
+  
+  python-executor:
+    docker:
+      - image: cimg/python:3.11
+    working_directory: ~/project
+    resource_class: medium
+  
+  browser-executor:
+    docker:
+      - image: cimg/node:18.19-browsers
+    working_directory: ~/project
+    resource_class: large
+
+# 可重用的命令
+commands:
+  install-dependencies:
+    description: "安装项目依赖"
+    parameters:
+      package-manager:
+        type: enum
+        enum: ["npm", "yarn", "pnpm"]
+        default: "npm"
+    steps:
+      - restore_cache:
+          keys:
+            - deps-v1-{{ .Branch }}-{{ checksum "package-lock.json" }}
+            - deps-v1-{{ .Branch }}-
+            - deps-v1-
+      
+      - run:
+          name: 安装依赖
+          command: |
+            case "<< parameters.package-manager >>" in
+              npm)
+                npm ci
+                ;;
+              yarn)
+                yarn install --frozen-lockfile
+                ;;
+              pnpm)
+                pnpm install --frozen-lockfile
+                ;;
+            esac
+      
+      - save_cache:
+          key: deps-v1-{{ .Branch }}-{{ checksum "package-lock.json" }}
+          paths:
+            - node_modules
+            - ~/.npm
+            - ~/.cache
+
+  run-tests:
+    description: "运行测试套件"
+    parameters:
+      test-command:
+        type: string
+        default: "npm test"
+      coverage:
+        type: boolean
+        default: true
+    steps:
+      - run:
+          name: 运行测试
+          command: << parameters.test-command >>
+          environment:
+            NODE_ENV: test
+      
+      - when:
+          condition: << parameters.coverage >>
+          steps:
+            - run:
+                name: 生成覆盖率报告
+                command: npm run test:coverage
+            
+            - store_artifacts:
+                path: coverage
+                destination: coverage-report
+            
+            - store_test_results:
+                path: test-results
+
+  install-browsers:
+    description: "安装浏览器驱动"
+    steps:
+      - run:
+          name: 安装 Playwright 浏览器
+          command: npx playwright install --with-deps chromium firefox
+
+# 作业定义
+jobs:
+  # 单元测试
+  unit-tests:
+    executor: node-executor
+    steps:
+      - checkout
+      - install-dependencies
+      - run-tests:
+          test-command: "npm run test:unit"
+          coverage: true
+      
+      - store_test_results:
+          path: test-results/unit
+      
+      - store_artifacts:
+          path: test-results/unit
+          destination: unit-test-results
+
+  # API 测试
+  api-tests:
+    executor: node-executor
+    steps:
+      - checkout
+      - install-dependencies
+      
+      - run:
+          name: 启动测试服务器
+          command: npm run start:test
+          background: true
+      
+      - run:
+          name: 等待服务器启动
+          command: |
+            for i in {1..30}; do
+              if curl -f http://localhost:3000/health; then
+                echo "服务器已启动"
+                exit 0
+              fi
+              echo "等待服务器启动... ($i/30)"
+              sleep 2
+            done
+            echo "服务器启动超时"
+            exit 1
+      
+      - run-tests:
+          test-command: "npm run test:api"
+      
+      - store_test_results:
+          path: test-results/api
+
+  # E2E 测试
+  e2e-tests:
+    executor: browser-executor
+    parallelism: 3
+    steps:
+      - checkout
+      - install-dependencies
+      - install-browsers
+      
+      - run:
+          name: 启动应用
+          command: npm run start:test
+          background: true
+      
+      - run:
+          name: 等待应用启动
+          command: npx wait-on http://localhost:3000 -t 60000
+      
+      - run:
+          name: 运行 E2E 测试
+          command: |
+            TESTFILES=$(circleci tests glob "e2e/**/*.spec.js" | circleci tests split --split-by=timings)
+            npm run test:e2e -- $TESTFILES
+      
+      - store_test_results:
+          path: test-results/e2e
+      
+      - store_artifacts:
+          path: test-results/e2e/screenshots
+          destination: e2e-screenshots
+      
+      - store_artifacts:
+          path: test-results/e2e/videos
+          destination: e2e-videos
+
+  # 性能测试
+  performance-tests:
+    executor: node-executor
+    steps:
+      - checkout
+      - install-dependencies
+      
+      - run:
+          name: 启动应用
+          command: npm run start:test
+          background: true
+      
+      - run:
+          name: 等待应用启动
+          command: npx wait-on http://localhost:3000 -t 60000
+      
+      - run:
+          name: 运行性能测试
+          command: npm run test:performance
+      
+      - store_artifacts:
+          path: performance-results
+          destination: performance-report
+
+  # 安全测试
+  security-tests:
+    executor: node-executor
+    steps:
+      - checkout
+      - install-dependencies
+      
+      - run:
+          name: 依赖安全扫描
+          command: npm audit --audit-level=moderate
+      
+      - run:
+          name: OWASP ZAP 扫描
+          command: |
+            docker run -t owasp/zap2docker-stable zap-baseline.py \
+              -t http://localhost:3000 \
+              -r zap-report.html
+      
+      - store_artifacts:
+          path: zap-report.html
+          destination: security-report
+
+  # 代码质量检查
+  code-quality:
+    executor: node-executor
+    steps:
+      - checkout
+      - install-dependencies
+      
+      - run:
+          name: ESLint 检查
+          command: npm run lint
+      
+      - run:
+          name: TypeScript 类型检查
+          command: npm run type-check
+      
+      - run:
+          name: 代码格式检查
+          command: npm run format:check
+
+  # 构建
+  build:
+    executor: node-executor
+    steps:
+      - checkout
+      - install-dependencies
+      
+      - run:
+          name: 构建应用
+          command: npm run build
+      
+      - persist_to_workspace:
+          root: .
+          paths:
+            - dist
+            - build
+      
+      - store_artifacts:
+          path: dist
+          destination: build-artifacts
+
+  # 部署到 Staging
+  deploy-staging:
+    executor: node-executor
+    steps:
+      - checkout
+      - attach_workspace:
+          at: .
+      
+      - run:
+          name: 部署到 Staging
+          command: |
+            echo "部署到 Staging 环境"
+            # 添加部署命令
+            # npm run deploy:staging
+
+  # 部署到 Production
+  deploy-production:
+    executor: node-executor
+    steps:
+      - checkout
+      - attach_workspace:
+          at: .
+      
+      - run:
+          name: 部署到 Production
+          command: |
+            echo "部署到 Production 环境"
+            # 添加部署命令
+            # npm run deploy:production
+
+# 工作流定义
+workflows:
+  version: 2
+  
+  # 主工作流 - 每次提交触发
+  test-and-deploy:
+    jobs:
+      # 并行运行代码质量检查和测试
+      - code-quality:
+          filters:
+            branches:
+              ignore: gh-pages
+      
+      - unit-tests:
+          filters:
+            branches:
+              ignore: gh-pages
+      
+      - api-tests:
+          filters:
+            branches:
+              ignore: gh-pages
+      
+      - e2e-tests:
+          filters:
+            branches:
+              ignore: gh-pages
+      
+      # 构建需要等待所有测试通过
+      - build:
+          requires:
+            - code-quality
+            - unit-tests
+            - api-tests
+            - e2e-tests
+          filters:
+            branches:
+              only:
+                - main
+                - develop
+      
+      # 部署到 Staging (develop 分支)
+      - deploy-staging:
+          requires:
+            - build
+          filters:
+            branches:
+              only: develop
+      
+      # 部署到 Production (main 分支，需要手动批准)
+      - hold-production:
+          type: approval
+          requires:
+            - build
+          filters:
+            branches:
+              only: main
+      
+      - deploy-production:
+          requires:
+            - hold-production
+          filters:
+            branches:
+              only: main
+  
+  # 夜间测试工作流 - 包含性能和安全测试
+  nightly-tests:
+    triggers:
+      - schedule:
+          cron: "0 2 * * *"  # 每天凌晨 2 点
+          filters:
+            branches:
+              only:
+                - main
+                - develop
+    jobs:
+      - unit-tests
+      - api-tests
+      - e2e-tests
+      - performance-tests
+      - security-tests
+
+# Orbs (可选的第三方集成)
+orbs:
+  slack: circleci/slack@4.12.0
+  codecov: codecov/codecov@3.2.4
+
+# 使用 Slack 通知的示例
+# jobs:
+#   notify-on-failure:
+#     executor: node-executor
+#     steps:
+#       - slack/notify:
+#           event: fail
+#           template: basic_fail_1

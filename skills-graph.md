@@ -43,12 +43,6 @@ graph TB
         AI[AI 辅助测试<br/>AI-Assisted Testing]
     end
     
-    subgraph "高级 Skills | Advanced Skills"
-        TSG[测试策略生成器<br/>Test Strategy Generator]
-        TMA[测试度量分析<br/>Test Metrics Analysis]
-        SO[Skills 编排器<br/>Skill Orchestrator]
-    end
-    
     %% 工作流依赖
     DW --> RA
     DW --> TS
@@ -95,28 +89,18 @@ graph TB
     AI --> AUTO
     AI --> BR
     
-    %% 高级 Skills 依赖
-    TSG --> RA
-    TSG --> TS
-    TMA --> TR
-    SO --> DW
-    SO --> SW
-    SO --> RW
-    
     %% 样式
     classDef workflow fill:#e1f5ff,stroke:#01579b,stroke-width:2px
     classDef core fill:#fff3e0,stroke:#e65100,stroke-width:2px
     classDef specialized fill:#f3e5f5,stroke:#4a148c,stroke-width:2px
     classDef management fill:#e8f5e9,stroke:#1b5e20,stroke-width:2px
     classDef ai fill:#fce4ec,stroke:#880e4f,stroke-width:2px
-    classDef advanced fill:#fff9c4,stroke:#f57f17,stroke-width:2px
     
     class DW,SW,RW workflow
     class FT,AT,AUTO,MT core
     class PT,ST,ACT,MOB specialized
     class TCW,TCR,BR,TR,TS,RA management
     class AI ai
-    class TSG,TMA,SO advanced
 ```
 
 ---
@@ -182,18 +166,15 @@ graph LR
     
     subgraph "Sprint 评审 | Sprint Review"
         TR2[测试报告]
-        TMA2[测试度量分析]
     end
     
     SW --> TS2
     SW --> RA2
     SW --> DW2
     SW --> TR2
-    SW --> TMA2
     
     TS2 --> DW2
     DW2 --> TR2
-    TR2 --> TMA2
 ```
 
 ### 发布测试工作流 | Release Testing Workflow
@@ -204,7 +185,6 @@ graph LR
     
     subgraph "发布规划 | Release Planning"
         TS3[测试策略]
-        TSG3[测试策略生成器]
     end
     
     subgraph "专项测试 | Specialized Testing"
@@ -220,18 +200,15 @@ graph LR
     
     subgraph "发布报告 | Release Reporting"
         TR3[测试报告]
-        TMA3[测试度量分析]
     end
     
     RW --> TS3
-    RW --> TSG3
     RW --> PT3
     RW --> ST3
     RW --> ACT3
     RW --> FT3
     RW --> AUTO3
     RW --> TR3
-    RW --> TMA3
 ```
 
 ---

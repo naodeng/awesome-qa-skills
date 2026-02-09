@@ -1,0 +1,699 @@
+# JSON 格式测试用例模板
+
+## 格式说明
+适用于 API 集成、自动化测试框架、测试管理工具的数据交换。
+
+## 模板结构
+
+```json
+{
+  "testSuite": {
+    "id": "TS-AUTH-001",
+    "name": "用户认证测试套件",
+    "description": "测试用户登录、注册、密码重置等认证功能",
+    "version": "1.0.0",
+    "created": "2024-01-15T10:00:00Z",
+    "updated": "2024-01-16T15:30:00Z",
+    "author": "QA Team",
+    "tags": ["authentication", "security", "smoke"],
+    "environment": {
+      "name": "Staging",
+      "url": "https://staging.example.com",
+      "database": "PostgreSQL 14.5",
+      "browsers": ["Chrome 120", "Firefox 121", "Safari 17"]
+    },
+    "testCases": [
+      {
+        "id": "TC-001",
+        "title": "用户登录功能 - 有效凭证",
+        "description": "验证用户使用有效的用户名和密码可以成功登录系统",
+        "priority": "high",
+        "category": "functional",
+        "status": "not_run",
+        "assignedTo": "alice@example.com",
+        "tags": ["login", "authentication", "smoke", "p0"],
+        "estimatedTime": 120,
+        "automationStatus": "automated",
+        "automationScript": "tests/auth/login.spec.js",
+        "preconditions": [
+          {
+            "id": "PRE-001",
+            "description": "用户已注册",
+            "required": true
+          },
+          {
+            "id": "PRE-002",
+            "description": "数据库中存在测试账号",
+            "required": true
+          },
+          {
+            "id": "PRE-003",
+            "description": "应用程序已启动",
+            "required": true
+          }
+        ],
+        "testSteps": [
+          {
+            "stepNumber": 1,
+            "action": "打开登录页面",
+            "data": {
+              "url": "https://example.com/login"
+            },
+            "expectedResult": "登录页面正确加载，显示用户名和密码输入框"
+          },
+          {
+            "stepNumber": 2,
+            "action": "在用户名输入框输入有效用户名",
+            "data": {
+              "selector": "#username",
+              "value": "testuser@example.com"
+            },
+            "expectedResult": "用户名输入框显示输入的值"
+          },
+          {
+            "stepNumber": 3,
+            "action": "在密码输入框输入有效密码",
+            "data": {
+              "selector": "#password",
+              "value": "Test@123",
+              "masked": true
+            },
+            "expectedResult": "密码输入框显示掩码字符"
+          },
+          {
+            "stepNumber": 4,
+            "action": "点击登录按钮",
+            "data": {
+              "selector": "#login-button"
+            },
+            "expectedResult": "提交登录请求"
+          }
+        ],
+        "expectedResults": [
+          {
+            "id": "ER-001",
+            "description": "页面跳转到首页",
+            "verification": {
+              "type": "url",
+              "value": "https://example.com/dashboard"
+            }
+          },
+          {
+            "id": "ER-002",
+            "description": "显示欢迎消息",
+            "verification": {
+              "type": "text",
+              "selector": ".welcome-message",
+              "value": "欢迎回来, Test User"
+            }
+          },
+          {
+            "id": "ER-003",
+            "description": "用户会话已创建",
+            "verification": {
+              "type": "cookie",
+              "name": "session_id",
+              "exists": true
+            }
+          },
+          {
+            "id": "ER-004",
+            "description": "导航栏显示用户信息",
+            "verification": {
+              "type": "element",
+              "selector": ".user-avatar",
+              "visible": true
+            }
+          }
+        ],
+        "testData": {
+          "username": "testuser@example.com",
+          "password": "Test@123",
+          "expectedUserId": "12345",
+          "expectedRole": "user",
+          "expectedSessionDuration": 3600
+        },
+        "dependencies": [
+          "database-service",
+          "email-service",
+          "session-service"
+        ],
+        "executionHistory": [
+          {
+            "date": "2024-01-15T14:30:00Z",
+            "executor": "alice@example.com",
+            "result": "pass",
+            "duration": 115,
+            "environment": "staging",
+            "buildNumber": "1.2.3",
+            "notes": "测试通过，所有验证点正常"
+          }
+        ],
+        "defects": []
+      },
+      {
+        "id": "TC-002",
+        "title": "用户登录功能 - 无效密码",
+        "description": "验证用户使用无效密码时系统正确处理并显示错误消息",
+        "priority": "high",
+        "category": "negative",
+        "status": "not_run",
+        "assignedTo": "bob@example.com",
+        "tags": ["login", "authentication", "negative", "p0"],
+        "estimatedTime": 90,
+        "automationStatus": "automated",
+        "automationScript": "tests/auth/login-invalid.spec.js",
+        "preconditions": [
+          {
+            "id": "PRE-001",
+            "description": "用户已注册",
+            "required": true
+          },
+          {
+            "id": "PRE-002",
+            "description": "数据库中存在测试账号",
+            "required": true
+          }
+        ],
+        "testSteps": [
+          {
+            "stepNumber": 1,
+            "action": "打开登录页面",
+            "data": {
+              "url": "https://example.com/login"
+            },
+            "expectedResult": "登录页面正确加载"
+          },
+          {
+            "stepNumber": 2,
+            "action": "输入有效用户名",
+            "data": {
+              "selector": "#username",
+              "value": "testuser@example.com"
+            },
+            "expectedResult": "用户名输入框显示输入的值"
+          },
+          {
+            "stepNumber": 3,
+            "action": "输入无效密码",
+            "data": {
+              "selector": "#password",
+              "value": "WrongPassword123"
+            },
+            "expectedResult": "密码输入框显示掩码字符"
+          },
+          {
+            "stepNumber": 4,
+            "action": "点击登录按钮",
+            "data": {
+              "selector": "#login-button"
+            },
+            "expectedResult": "提交登录请求"
+          }
+        ],
+        "expectedResults": [
+          {
+            "id": "ER-001",
+            "description": "显示错误消息",
+            "verification": {
+              "type": "text",
+              "selector": ".error-message",
+              "value": "用户名或密码错误"
+            }
+          },
+          {
+            "id": "ER-002",
+            "description": "错误消息样式正确",
+            "verification": {
+              "type": "css",
+              "selector": ".error-message",
+              "property": "color",
+              "value": "rgb(220, 38, 38)"
+            }
+          },
+          {
+            "id": "ER-003",
+            "description": "用户停留在登录页面",
+            "verification": {
+              "type": "url",
+              "value": "https://example.com/login"
+            }
+          },
+          {
+            "id": "ER-004",
+            "description": "密码输入框被清空",
+            "verification": {
+              "type": "value",
+              "selector": "#password",
+              "value": ""
+            }
+          },
+          {
+            "id": "ER-005",
+            "description": "用户名输入框保持原值",
+            "verification": {
+              "type": "value",
+              "selector": "#username",
+              "value": "testuser@example.com"
+            }
+          },
+          {
+            "id": "ER-006",
+            "description": "登录失败次数计数器增加",
+            "verification": {
+              "type": "api",
+              "endpoint": "/api/users/testuser@example.com/login-attempts",
+              "method": "GET",
+              "expectedValue": 1
+            }
+          }
+        ],
+        "testData": {
+          "username": "testuser@example.com",
+          "password": "WrongPassword123",
+          "expectedError": "用户名或密码错误"
+        },
+        "executionHistory": [
+          {
+            "date": "2024-01-15T14:35:00Z",
+            "executor": "bob@example.com",
+            "result": "pass",
+            "duration": 88,
+            "environment": "staging",
+            "buildNumber": "1.2.3",
+            "notes": "测试通过"
+          }
+        ],
+        "defects": []
+      },
+      {
+        "id": "TC-003",
+        "title": "用户登录功能 - SQL 注入测试",
+        "description": "验证系统能够防御 SQL 注入攻击",
+        "priority": "critical",
+        "category": "security",
+        "status": "not_run",
+        "assignedTo": "security-team@example.com",
+        "tags": ["login", "security", "sql-injection", "owasp", "p0"],
+        "estimatedTime": 300,
+        "automationStatus": "automated",
+        "automationScript": "tests/security/sql-injection.spec.js",
+        "preconditions": [
+          {
+            "id": "PRE-001",
+            "description": "应用程序已部署",
+            "required": true
+          },
+          {
+            "id": "PRE-002",
+            "description": "数据库连接正常",
+            "required": true
+          },
+          {
+            "id": "PRE-003",
+            "description": "安全日志已启用",
+            "required": true
+          }
+        ],
+        "testSteps": [
+          {
+            "stepNumber": 1,
+            "action": "测试基础 SQL 注入",
+            "data": {
+              "username": "admin' OR '1'='1",
+              "password": "' OR '1'='1"
+            },
+            "expectedResult": "登录失败，显示错误消息"
+          },
+          {
+            "stepNumber": 2,
+            "action": "测试注释注入",
+            "data": {
+              "username": "admin'--",
+              "password": "anything"
+            },
+            "expectedResult": "登录失败，显示错误消息"
+          },
+          {
+            "stepNumber": 3,
+            "action": "测试联合查询注入",
+            "data": {
+              "username": "' UNION SELECT NULL, NULL--",
+              "password": "anything"
+            },
+            "expectedResult": "登录失败，显示错误消息"
+          },
+          {
+            "stepNumber": 4,
+            "action": "测试时间盲注",
+            "data": {
+              "username": "admin' AND SLEEP(5)--",
+              "password": "anything"
+            },
+            "expectedResult": "登录失败，响应时间正常（<1秒）"
+          }
+        ],
+        "expectedResults": [
+          {
+            "id": "ER-001",
+            "description": "所有注入尝试都失败",
+            "verification": {
+              "type": "status",
+              "value": "fail"
+            }
+          },
+          {
+            "id": "ER-002",
+            "description": "显示通用错误消息",
+            "verification": {
+              "type": "text",
+              "selector": ".error-message",
+              "notContains": ["SQL", "database", "query", "syntax"]
+            }
+          },
+          {
+            "id": "ER-003",
+            "description": "系统记录安全事件",
+            "verification": {
+              "type": "log",
+              "file": "/var/log/app/security.log",
+              "contains": "SQL_INJECTION_ATTEMPT"
+            }
+          },
+          {
+            "id": "ER-004",
+            "description": "响应时间正常",
+            "verification": {
+              "type": "performance",
+              "metric": "response_time",
+              "threshold": 1000,
+              "unit": "ms"
+            }
+          },
+          {
+            "id": "ER-005",
+            "description": "使用参数化查询",
+            "verification": {
+              "type": "code_review",
+              "description": "检查代码使用 prepared statements"
+            }
+          }
+        ],
+        "testData": {
+          "injectionPayloads": [
+            "admin' OR '1'='1",
+            "admin'--",
+            "' UNION SELECT NULL, NULL--",
+            "admin' AND SLEEP(5)--",
+            "1' OR '1'='1' /*",
+            "' OR 1=1--",
+            "admin' OR 1=1#"
+          ]
+        },
+        "securityStandards": [
+          "OWASP Top 10 - A03:2021 Injection",
+          "CWE-89: SQL Injection"
+        ],
+        "executionHistory": [],
+        "defects": []
+      },
+      {
+        "id": "TC-004",
+        "title": "用户登录功能 - 账号锁定机制",
+        "description": "验证系统在多次登录失败后正确锁定账号",
+        "priority": "high",
+        "category": "security",
+        "status": "not_run",
+        "assignedTo": "alice@example.com",
+        "tags": ["login", "security", "account-lockout", "brute-force", "p1"],
+        "estimatedTime": 600,
+        "automationStatus": "automated",
+        "automationScript": "tests/security/account-lockout.spec.js",
+        "preconditions": [
+          {
+            "id": "PRE-001",
+            "description": "用户已注册",
+            "required": true
+          },
+          {
+            "id": "PRE-002",
+            "description": "账号锁定策略: 5次失败后锁定30分钟",
+            "required": true
+          },
+          {
+            "id": "PRE-003",
+            "description": "账号当前未被锁定",
+            "required": true
+          },
+          {
+            "id": "PRE-004",
+            "description": "邮件服务正常",
+            "required": true
+          }
+        ],
+        "testSteps": [
+          {
+            "stepNumber": 1,
+            "action": "使用错误密码尝试登录5次",
+            "data": {
+              "username": "testuser@example.com",
+              "password": "WrongPass123",
+              "attempts": 5
+            },
+            "expectedResult": "每次都显示 '用户名或密码错误'"
+          },
+          {
+            "stepNumber": 2,
+            "action": "第6次尝试登录（使用正确密码）",
+            "data": {
+              "username": "testuser@example.com",
+              "password": "Test@123"
+            },
+            "expectedResult": "显示账号锁定消息"
+          },
+          {
+            "stepNumber": 3,
+            "action": "等待30分钟",
+            "data": {
+              "waitTime": 1800
+            },
+            "expectedResult": "锁定时间到期"
+          },
+          {
+            "stepNumber": 4,
+            "action": "使用正确密码尝试登录",
+            "data": {
+              "username": "testuser@example.com",
+              "password": "Test@123"
+            },
+            "expectedResult": "登录成功"
+          }
+        ],
+        "expectedResults": [
+          {
+            "id": "ER-001",
+            "description": "前5次显示密码错误",
+            "verification": {
+              "type": "text",
+              "value": "用户名或密码错误"
+            }
+          },
+          {
+            "id": "ER-002",
+            "description": "第6次显示锁定消息",
+            "verification": {
+              "type": "text",
+              "value": "账号已被锁定，请30分钟后重试"
+            }
+          },
+          {
+            "id": "ER-003",
+            "description": "发送锁定通知邮件",
+            "verification": {
+              "type": "email",
+              "to": "testuser@example.com",
+              "subject": "账号安全警告",
+              "contains": "您的账号已被锁定"
+            }
+          },
+          {
+            "id": "ER-004",
+            "description": "记录锁定事件",
+            "verification": {
+              "type": "database",
+              "table": "audit_logs",
+              "where": {
+                "user_id": "12345",
+                "event_type": "ACCOUNT_LOCKED"
+              }
+            }
+          },
+          {
+            "id": "ER-005",
+            "description": "30分钟后可以登录",
+            "verification": {
+              "type": "status",
+              "value": "success"
+            }
+          },
+          {
+            "id": "ER-006",
+            "description": "锁定计数器重置",
+            "verification": {
+              "type": "api",
+              "endpoint": "/api/users/testuser@example.com/login-attempts",
+              "method": "GET",
+              "expectedValue": 0
+            }
+          }
+        ],
+        "testData": {
+          "username": "testuser@example.com",
+          "correctPassword": "Test@123",
+          "wrongPassword": "WrongPass123",
+          "lockoutThreshold": 5,
+          "lockoutDuration": 1800
+        },
+        "executionHistory": [
+          {
+            "date": "2024-01-15T15:00:00Z",
+            "executor": "alice@example.com",
+            "result": "fail",
+            "duration": 1850,
+            "environment": "staging",
+            "buildNumber": "1.2.3",
+            "notes": "邮件通知未发送",
+            "defectId": "BUG-123"
+          },
+          {
+            "date": "2024-01-16T10:00:00Z",
+            "executor": "alice@example.com",
+            "result": "pass",
+            "duration": 1820,
+            "environment": "staging",
+            "buildNumber": "1.2.4",
+            "notes": "BUG-123 已修复，测试通过"
+          }
+        ],
+        "defects": [
+          {
+            "id": "BUG-123",
+            "title": "账号锁定后未发送通知邮件",
+            "status": "fixed",
+            "severity": "medium",
+            "url": "https://jira.example.com/BUG-123"
+          }
+        ]
+      }
+    ],
+    "statistics": {
+      "totalCases": 4,
+      "executed": 3,
+      "passed": 3,
+      "failed": 0,
+      "blocked": 0,
+      "notRun": 1,
+      "passRate": 100,
+      "totalEstimatedTime": 1310,
+      "totalExecutionTime": 3873
+    }
+  }
+}
+```
+
+## Schema 定义
+
+```json
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "testSuite": {
+      "type": "object",
+      "required": ["id", "name", "testCases"],
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "version": { "type": "string" },
+        "created": { "type": "string", "format": "date-time" },
+        "updated": { "type": "string", "format": "date-time" },
+        "author": { "type": "string" },
+        "tags": { "type": "array", "items": { "type": "string" } },
+        "testCases": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "title", "priority", "category", "status"],
+            "properties": {
+              "id": { "type": "string" },
+              "title": { "type": "string" },
+              "description": { "type": "string" },
+              "priority": { "enum": ["critical", "high", "medium", "low"] },
+              "category": { "enum": ["functional", "negative", "security", "performance", "ui", "integration"] },
+              "status": { "enum": ["not_run", "pass", "fail", "blocked", "skip"] },
+              "assignedTo": { "type": "string" },
+              "tags": { "type": "array", "items": { "type": "string" } },
+              "estimatedTime": { "type": "integer" },
+              "automationStatus": { "enum": ["manual", "automated", "in_progress", "not_feasible"] },
+              "automationScript": { "type": "string" }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+## 使用示例
+
+### 1. 导入到测试框架
+```javascript
+// Jest/Vitest
+import testSuite from './test-cases.json';
+
+describe(testSuite.testSuite.name, () => {
+  testSuite.testSuite.testCases.forEach(testCase => {
+    test(testCase.title, async () => {
+      // 执行测试步骤
+      for (const step of testCase.testSteps) {
+        await executeStep(step);
+      }
+      
+      // 验证预期结果
+      for (const result of testCase.expectedResults) {
+        await verifyResult(result);
+      }
+    });
+  });
+});
+```
+
+### 2. API 集成
+```bash
+# 上传测试用例到测试管理系统
+curl -X POST https://testmanagement.example.com/api/v1/test-cases \
+  -H "Content-Type: application/json" \
+  -d @test-cases.json
+```
+
+### 3. 生成报告
+```javascript
+const testSuite = require('./test-cases.json');
+const stats = testSuite.testSuite.statistics;
+
+console.log(`通过率: ${stats.passRate}%`);
+console.log(`总用例: ${stats.totalCases}`);
+console.log(`已执行: ${stats.executed}`);
+```
+
+## 最佳实践
+
+1. **使用 JSON Schema 验证**: 确保数据格式正确
+2. **版本控制**: 使用 Git 管理 JSON 文件
+3. **自动化集成**: 与 CI/CD 流程集成
+4. **数据驱动**: 分离测试逻辑和测试数据
+5. **可扩展性**: 使用自定义字段扩展
+6. **文档化**: 添加详细的 description 字段
+7. **标准化**: 统一命名规范和枚举值

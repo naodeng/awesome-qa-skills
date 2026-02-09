@@ -1,10 +1,23 @@
 ---
 name: mobile-testing
 version: 2.0.0
+last-updated: 2026-02-06
 description: 设计移动端（iOS/Android）测试方案与用例，覆盖功能、兼容性、性能、网络、安全等。默认输出 Markdown，可请求 Excel/CSV/JSON。Use for 移动端测试 or mobile testing.
-tags: [mobile, testing, appium, android, ios, automation]
-difficulty: advanced
-last_updated: 2026-02-06
+category: testing-types
+level: advanced
+tags: [mobile, android, ios, appium, detox, espresso, xcuitest, automation]
+dependencies: [functional-testing]
+recommended-with: [automation-testing, performance-testing, accessibility-testing]
+context-aware: true
+context-patterns:
+  project-types: [mobile]
+  platforms: [android, ios, react-native, flutter, hybrid]
+  test-frameworks: [appium, detox, espresso, xcuitest, flutter-test]
+  test-types: [functional, compatibility, performance, network, battery, security]
+output-formats: [markdown, excel, csv, json, jira, testrail]
+examples-count: 1
+has-tutorial: false
+has-troubleshooting: true
 ---
 
 # 移动端测试（中文版）

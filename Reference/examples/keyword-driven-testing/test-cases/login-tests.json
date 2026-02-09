@@ -1,0 +1,182 @@
+{
+  "testSuite": "登录功能测试",
+  "description": "测试用户登录相关功能",
+  "parameters": {
+    "baseUrl": "https://example.com",
+    "loginUrl": "https://example.com/login"
+  },
+  "testCases": [
+    {
+      "id": "TC001",
+      "name": "管理员成功登录",
+      "priority": "high",
+      "tags": ["smoke", "login"],
+      "steps": [
+        {
+          "keyword": "navigateTo",
+          "args": ["${loginUrl}"],
+          "description": "打开登录页面"
+        },
+        {
+          "keyword": "waitForElement",
+          "args": ["#username", 5000],
+          "description": "等待用户名输入框"
+        },
+        {
+          "keyword": "inputText",
+          "args": ["#username", "admin"],
+          "description": "输入用户名"
+        },
+        {
+          "keyword": "inputText",
+          "args": ["#password", "admin123"],
+          "description": "输入密码"
+        },
+        {
+          "keyword": "clickElement",
+          "args": ["#loginButton"],
+          "description": "点击登录按钮"
+        },
+        {
+          "keyword": "waitForElement",
+          "args": [".welcome-message", 5000],
+          "description": "等待欢迎消息"
+        },
+        {
+          "keyword": "verifyText",
+          "args": [".welcome-message", "欢迎"],
+          "description": "验证欢迎消息"
+        },
+        {
+          "keyword": "verifyUrl",
+          "args": ["${baseUrl}/dashboard"],
+          "description": "验证跳转到首页"
+        }
+      ]
+    },
+    {
+      "id": "TC002",
+      "name": "用户名为空登录失败",
+      "priority": "high",
+      "tags": ["login", "negative"],
+      "steps": [
+        {
+          "keyword": "navigateTo",
+          "args": ["${loginUrl}"]
+        },
+        {
+          "keyword": "inputText",
+          "args": ["#username", ""]
+        },
+        {
+          "keyword": "inputText",
+          "args": ["#password", "password123"]
+        },
+        {
+          "keyword": "clickElement",
+          "args": ["#loginButton"]
+        },
+        {
+          "keyword": "verifyText",
+          "args": [".error-message", "请输入用户名"]
+        },
+        {
+          "keyword": "verifyUrl",
+          "args": ["${loginUrl}"]
+        }
+      ]
+    },
+    {
+      "id": "TC003",
+      "name": "密码为空登录失败",
+      "priority": "high",
+      "tags": ["login", "negative"],
+      "steps": [
+        {
+          "keyword": "navigateTo",
+          "args": ["${loginUrl}"]
+        },
+        {
+          "keyword": "inputText",
+          "args": ["#username", "admin"]
+        },
+        {
+          "keyword": "inputText",
+          "args": ["#password", ""]
+        },
+        {
+          "keyword": "clickElement",
+          "args": ["#loginButton"]
+        },
+        {
+          "keyword": "verifyText",
+          "args": [".error-message", "请输入密码"]
+        }
+      ]
+    },
+    {
+      "id": "TC004",
+      "name": "无效凭证登录失败",
+      "priority": "medium",
+      "tags": ["login", "negative"],
+      "steps": [
+        {
+          "keyword": "navigateTo",
+          "args": ["${loginUrl}"]
+        },
+        {
+          "keyword": "inputText",
+          "args": ["#username", "invalid"]
+        },
+        {
+          "keyword": "inputText",
+          "args": ["#password", "wrong"]
+        },
+        {
+          "keyword": "clickElement",
+          "args": ["#loginButton"]
+        },
+        {
+          "keyword": "verifyText",
+          "args": [".error-message", "用户名或密码错误"]
+        }
+      ]
+    },
+    {
+      "id": "TC005",
+      "name": "记住我功能",
+      "priority": "low",
+      "tags": ["login", "remember"],
+      "steps": [
+        {
+          "keyword": "navigateTo",
+          "args": ["${loginUrl}"]
+        },
+        {
+          "keyword": "inputText",
+          "args": ["#username", "admin"]
+        },
+        {
+          "keyword": "inputText",
+          "args": ["#password", "admin123"]
+        },
+        {
+          "keyword": "checkCheckbox",
+          "args": ["#rememberMe"]
+        },
+        {
+          "keyword": "clickElement",
+          "args": ["#loginButton"]
+        },
+        {
+          "keyword": "verifyElementVisible",
+          "args": [".welcome-message"]
+        },
+        {
+          "keyword": "verifyCookie",
+          "args": ["remember_token"]
+        }
+      ]
+    }
+  ]
+}

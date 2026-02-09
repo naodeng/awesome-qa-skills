@@ -1,0 +1,65 @@
+# Context Configuration for AI Testing Assistant Skills
+# AI 测试辅助技能合集 - 上下文配置
+
+version: "1.0.0"
+
+# 项目类型与推荐 Skills
+project_types:
+  web:
+    description: "Web 应用项目"
+    recommended_skills:
+      - functional-testing
+      - automation-testing
+      - accessibility-testing
+      - performance-testing
+
+  api:
+    description: "API/后端服务项目"
+    recommended_skills:
+      - api-testing
+      - automation-testing
+      - performance-testing
+      - security-testing
+
+  mobile:
+    description: "移动应用项目"
+    recommended_skills:
+      - mobile-testing
+      - functional-testing
+      - automation-testing
+      - performance-testing
+
+# 常用测试框架与对应 Skills
+test_frameworks:
+  playwright:
+    type: e2e
+    recommended_skills:
+      - functional-testing
+      - automation-testing
+
+  cypress:
+    type: e2e
+    recommended_skills:
+      - functional-testing
+      - automation-testing
+
+  postman:
+    type: api
+    recommended_skills:
+      - api-testing
+
+  k6:
+    type: performance
+    recommended_skills:
+      - performance-testing
+
+  appium:
+    type: mobile
+    recommended_skills:
+      - mobile-testing
+      - automation-testing
+
+  axe-core:
+    type: accessibility
+    recommended_skills:
+      - accessibility-testing

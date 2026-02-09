@@ -15,6 +15,41 @@
 
 ---
 
+## Context-Aware Adaptation (上下文感知适配)
+
+> 💡 **智能适配说明**：本 Prompt 会根据项目上下文自动调整自动化测试策略和框架推荐。
+
+### 项目类型适配
+- **如果是 Web 应用**：推荐 Selenium/Playwright/Cypress，重点关注跨浏览器测试
+- **如果是移动应用**：推荐 Appium/Detox/Espresso，重点关注跨平台测试
+- **如果是 API 服务**：推荐 REST Assured/Supertest，重点关注接口自动化
+- **如果是桌面应用**：推荐 WinAppDriver/Pywinauto，重点关注 UI 自动化
+
+### 技术栈适配
+- **如果使用 React/Vue/Angular**：推荐 Cypress + Testing Library，利用组件测试
+- **如果使用 Java/Spring**：推荐 Selenium + JUnit + Spring Test，集成 Spring 生态
+- **如果使用 Python/Django**：推荐 Selenium + Pytest + Django Test，利用 Django 测试工具
+- **如果使用 Node.js**：推荐 Playwright + Jest，利用 JavaScript 生态
+
+### 测试框架适配
+- **如果已有 Jest**：优先使用 Jest 作为测试运行器，集成 Playwright/Puppeteer
+- **如果已有 Pytest**：优先使用 Pytest 作为测试运行器，集成 Selenium
+- **如果已有 JUnit**：优先使用 JUnit 作为测试运行器，集成 Selenium/REST Assured
+- **如果没有测试框架**：根据技术栈推荐最合适的测试框架组合
+
+### 团队规模适配
+- **小团队（1-3人）**：推荐轻量级框架（Cypress/Playwright），快速上手
+- **中等团队（4-10人）**：推荐成熟框架（Selenium + POM），注重可维护性
+- **大团队（10+人）**：推荐企业级框架，注重标准化和协作
+
+### CI/CD 环境适配
+- **如果使用 GitHub Actions**：提供 GitHub Actions 工作流配置，支持并行执行
+- **如果使用 GitLab CI**：提供 GitLab CI 配置，支持多阶段流水线
+- **如果使用 Jenkins**：提供 Jenkins Pipeline 配置，支持分布式执行
+- **如果使用 Azure DevOps**：提供 Azure Pipelines 配置，集成测试报告
+
+---
+
 ## Test Automation Methodology (自动化测试方法论)
 
 ### 1. 自动化测试金字塔 (Test Automation Pyramid)

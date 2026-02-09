@@ -1,0 +1,340 @@
+# Markdown 格式缺陷报告模板
+
+## 格式说明
+适用于文档、Wiki、Confluence 等支持 Markdown 的平台。
+
+## 模板结构
+
+```markdown
+# 缺陷报告: BUG-123
+
+## 基本信息
+
+| 字段 | 值 |
+|------|-----|
+| **缺陷ID** | BUG-123 |
+| **标题** | 账号锁定后未发送通知邮件 |
+| **状态** | Open |
+| **优先级** | High |
+| **严重程度** | Major |
+| **类型** | Bug |
+| **组件** | Authentication |
+| **影响版本** | v1.2.3 |
+| **修复版本** | v1.2.4 (计划) |
+| **环境** | Staging |
+| **报告人** | Bob Chen (bob@example.com) |
+| **负责人** | Dev Team |
+| **报告日期** | 2024-01-16 15:00:00 |
+| **更新日期** | 2024-01-16 15:30:00 |
+
+## 问题描述
+
+在用户账号因多次登录失败被锁定后，系统未能发送通知邮件给用户。这是一个安全问题，用户无法及时知道账号被锁定，可能导致用户困惑和支持请求增加。
+
+### 业务影响
+- 用户体验差
+- 安全通知缺失
+- 可能增加客服工作量
+- 影响用户对系统安全性的信任
+
+## 重现步骤
+
+### 前置条件
+- 用户已注册: `testuser@example.com`
+- 账号锁定策略: 5次失败后锁定30分钟
+- 邮件服务已配置并运行
+
+### 详细步骤
+
+1. **打开登录页面**
+   ```
+   URL: https://staging.example.com/login
+   ```
+
+2. **输入登录信息**
+   - 用户名: `testuser@example.com`
+   - 密码: `WrongPassword123` (错误密码)
+
+3. **重复登录尝试**
+   - 重复步骤2共5次
+   - 每次都应该看到 "用户名或密码错误" 消息
+
+4. **观察账号锁定**
+   - 第6次尝试时应该看到: "账号已被锁定，请30分钟后重试"
+
+5. **检查邮箱**
+   - 登录邮箱: `testuser@example.com`
+   - 检查收件箱和垃圾邮件文件夹
+   - 等待5分钟
+
+6. **查看系统日志**
+   ```bash
+   tail -f /var/log/app/email-service.log
+   ```
+
+## 预期结果
+
+### 应该发生的事情
+
+1. ✓ **账号锁定**
+   - 账号在第5次失败后被锁定
+   - 显示锁定消息给用户
+   - 锁定事件记录到数据库
+
+2. ✓ **邮件通知**
+   - 用户收到一封通知邮件
+   - 邮件主题: "账号安全警告"
+   - 邮件内容包含:
+     - 锁定原因: "您的账号因多次登录失败已被锁定"
+     - 锁定时间: "2024-01-16 14:47:30"
+     - 解锁时间: "2024-01-16 15:17:30"
+     - 安全建议: "如果不是您本人操作，请立即修改密码"
+
+3. ✓ **时效性**
+   - 邮件在锁定后30秒内送达
+
+## 实际结果
+
+### 实际发生的事情
+
+1. ✓ **账号锁定** - 正常
+   - 账号成功锁定
+   - 锁定消息正确显示
+   - 数据库记录正确
+
+2. ✗ **邮件通知** - 失败
+   - 用户未收到任何邮件
+   - 邮件队列为空
+   - 邮件服务日志显示错误
+
+3. ✗ **错误信息**
+   ```
+   [2024-01-16 14:47:35] ERROR: SMTP connection timeout
+   [2024-01-16 14:47:35] ERROR: Failed to send email to testuser@example.com
+   [2024-01-16 14:47:35] ERROR: Retry attempt 1/3 failed
+   [2024-01-16 14:47:40] ERROR: Retry attempt 2/3 failed
+   [2024-01-16 14:47:45] ERROR: Retry attempt 3/3 failed
+   [2024-01-16 14:47:45] ERROR: Email sending abandoned after 3 retries
+   ```
+
+## 附件
+
+### 截图
+
+#### 1. 账号锁定界面
+![账号锁定界面](./screenshots/bug-123-locked-screen.png)
+
+#### 2. 邮件服务日志
+![邮件服务日志](./screenshots/bug-123-email-log.png)
+
+#### 3. 数据库记录
+![数据库记录](./screenshots/bug-123-db-record.png)
+
+### 日志文件
+- [email-service.log](./logs/email-service.log) - 邮件服务完整日志
+- [application.log](./logs/application.log) - 应用程序日志
+- [network-trace.har](./logs/network-trace.har) - 网络追踪
+
+### 测试数据
+```json
+{
+  "userId": "12345",
+  "username": "testuser@example.com",
+  "lockoutTime": "2024-01-16T14:47:30Z",
+  "unlockTime": "2024-01-16T15:17:30Z",
+  "failedAttempts": 5,
+  "lockoutReason": "MAX_LOGIN_ATTEMPTS_EXCEEDED"
+}
+```
+
+## 技术分析
+
+### 根本原因
+
+经过分析，发现以下问题:
+
+1. **SMTP 超时配置过短**
+   ```yaml
+   # config/email.yml
+   smtp:
+     timeout: 5  # 当前配置: 5秒
+     # 建议: 30秒
+   ```
+
+2. **高负载下连接失败**
+   - 在高负载情况下，SMTP 服务器响应时间超过5秒
+   - 导致连接超时
+
+3. **重试机制不完善**
+   - 虽然有3次重试，但重试间隔太短（5秒）
+   - 没有指数退避策略
+
+### 影响范围
+
+- **功能**: 所有需要发送邮件的功能
+- **用户**: 所有用户
+- **频率**: 高负载时期（约20%的邮件发送失败）
+- **环境**: Staging 和 Production
+
+### 相关代码
+
+```javascript
+// src/services/email-service.js (第45-60行)
+async function sendEmail(to, subject, body) {
+  const transporter = nodemailer.createTransport({
+    host: process.env.SMTP_HOST,
+    port: process.env.SMTP_PORT,
+    timeout: 5000, // ← 问题所在
+    auth: {
+      user: process.env.SMTP_USER,
+      pass: process.env.SMTP_PASS
+    }
+  });
+  
+  // 重试逻辑不完善
+  for (let i = 0; i < 3; i++) {
+    try {
+      await transporter.sendMail({ to, subject, html: body });
+      return true;
+    } catch (error) {
+      logger.error(`Email send failed: ${error.message}`);
+      await sleep(5000); // ← 固定间隔，应该使用指数退避
+    }
+  }
+  return false;
+}
+```
+
+## 建议修复方案
+
+### 方案1: 增加超时时间（推荐）
+
+```javascript
+// 修改 SMTP 超时配置
+const transporter = nodemailer.createTransporter({
+  host: process.env.SMTP_HOST,
+  port: process.env.SMTP_PORT,
+  timeout: 30000, // 增加到30秒
+  auth: {
+    user: process.env.SMTP_USER,
+    pass: process.env.SMTP_PASS
+  }
+});
+```
+
+**优点**: 简单、快速  
+**缺点**: 可能掩盖其他问题
+
+### 方案2: 改进重试机制（推荐）
+
+```javascript
+// 使用指数退避重试
+async function sendEmailWithRetry(to, subject, body) {
+  const maxRetries = 5;
+  const baseDelay = 1000;
+  
+  for (let i = 0; i < maxRetries; i++) {
+    try {
+      await transporter.sendMail({ to, subject, html: body });
+      return true;
+    } catch (error) {
+      const delay = baseDelay * Math.pow(2, i); // 指数退避
+      logger.error(`Retry ${i + 1}/${maxRetries} after ${delay}ms`);
+      await sleep(delay);
+    }
+  }
+  return false;
+}
+```
+
+**优点**: 更可靠  
+**缺点**: 实现复杂
+
+### 方案3: 异步队列（长期方案）
+
+使用消息队列（如 RabbitMQ、Redis Queue）异步处理邮件发送。
+
+**优点**: 最可靠、可扩展  
+**缺点**: 需要额外基础设施
+
+## 临时解决方案
+
+在修复之前，可以使用以下临时方案:
+
+```bash
+# 手动发送通知邮件
+curl -X POST https://staging.example.com/admin/send-notification \
+  -H "Authorization: Bearer $ADMIN_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "userId": "12345",
+    "type": "account_locked",
+    "email": "testuser@example.com"
+  }'
+```
+
+## 验证步骤
+
+修复后，按以下步骤验证:
+
+1. 部署修复版本到 Staging
+2. 重复 "重现步骤"
+3. 验证邮件在30秒内送达
+4. 检查邮件内容正确
+5. 验证日志无错误
+6. 进行负载测试（100个并发用户）
+
+## 相关信息
+
+### 关联问题
+- **Blocks**: PROJ-456 (发布测试)
+- **Related**: PROJ-123 (邮件服务优化)
+- **Duplicate**: 可能与 BUG-089 重复
+
+### 测试用例
+- TC-005: 账号锁定通知功能
+
+### 文档
+- [邮件服务配置文档](./docs/email-service.md)
+- [SMTP 故障排除指南](./docs/smtp-troubleshooting.md)
+
+## 时间线
+
+| 时间 | 事件 | 操作人 |
+|------|------|--------|
+| 2024-01-16 14:47:30 | 发现问题 | Bob Chen |
+| 2024-01-16 15:00:00 | 创建缺陷报告 | Bob Chen |
+| 2024-01-16 15:30:00 | 分配给开发团队 | QA Lead |
+| 2024-01-16 16:00:00 | 开始调查 | Dev Team |
+| 2024-01-16 17:00:00 | 确认根本原因 | Dev Team |
+| 2024-01-17 10:00:00 | 修复完成 | Dev Team |
+| 2024-01-17 14:00:00 | 部署到 Staging | DevOps |
+| 2024-01-17 15:00:00 | 验证通过 | QA Team |
+| 2024-01-18 10:00:00 | 部署到 Production | DevOps |
+
+## 评论
+
+### Bob Chen - 2024-01-16 15:00:00
+创建缺陷报告。这个问题影响用户体验，建议优先修复。
+
+### Dev Team - 2024-01-16 16:30:00
+已确认问题。SMTP 超时配置确实过短。计划在 v1.2.4 中修复。
+
+### QA Lead - 2024-01-17 15:30:00
+验证通过。邮件通知功能正常工作。建议部署到生产环境。
+
+---
+
+**状态更新**: Open → In Progress → Fixed → Verified → Closed
+```
+
+## 最佳实践
+
+1. **结构清晰**: 使用标题和表格组织信息
+2. **详细步骤**: 提供可重现的详细步骤
+3. **视觉辅助**: 使用截图和图表
+4. **代码示例**: 包含相关代码片段
+5. **时间线**: 记录问题处理过程
+6. **影响分析**: 说明业务影响
+7. **修复建议**: 提供具体的修复方案
+8. **验证步骤**: 说明如何验证修复

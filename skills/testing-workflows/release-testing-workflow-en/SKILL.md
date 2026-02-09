@@ -38,3 +38,314 @@ For each step: 1) Check [reference.md](reference.md) for the prompt file; 2) Ope
 - **prompts/** — English prompt files for this workflow (open the matching `.md` per step and use with context)
 
 **Related:** daily-testing-workflow-en, sprint-testing-workflow-en.
+
+
+---
+
+## T-14: Release Planning
+
+### ☑️ Planning Meeting Checklist
+
+- [ ] **Meeting preparation**
+  - [ ] Confirm participants (Product, Engineering, QA, DevOps)
+  - [ ] Prepare meeting agenda
+  - [ ] Use prompts: test-strategy, requirements-analysis
+
+- [ ] **Meeting agenda execution**
+  - [ ] Define release scope
+  - [ ] Identify high-risk features
+  - [ ] Define quality gates
+  - [ ] Develop test strategy
+
+### ☑️ Deliverables Completion Checklist
+
+- [ ] **Documentation delivery**
+  - [ ] Release test plan
+  - [ ] Risk assessment document
+  - [ ] Environment plan
+  - [ ] Regression test scope
+  - [ ] Performance test plan
+
+## T-10 to T-8: Test Preparation
+
+### ☑️ Environment Preparation Checklist
+
+- [ ] **Test environment setup**
+  - [ ] Set up pre-production environment
+  - [ ] Prepare production-like data
+  - [ ] Configure monitoring and logging
+  - [ ] Create test accounts
+  - [ ] Use prompts: automation-testing, test-strategy
+
+### ☑️ Test Suite Update Checklist
+
+- [ ] **Test suite updates**
+  - [ ] Update regression test suite
+  - [ ] Update performance test scripts
+  - [ ] Update security test scenarios
+  - [ ] Update accessibility tests
+  - [ ] Update visual test baselines
+
+### ☑️ Readiness Verification Checklist
+
+- [ ] **Readiness validation**
+  - [ ] Critical path automation ready
+  - [ ] Regression tests updated
+  - [ ] Performance test baseline set
+  - [ ] Visual test baseline set
+
+## T-7: Feature Freeze & Testing Acceleration
+
+### ☑️ Feature Freeze Rules Confirmation
+
+- [ ] **Freeze rules enforcement**
+  - [ ] Confirm no new features added
+  - [ ] Only allow defect fixes
+  - [ ] Non-critical code freeze
+
+### ☑️ Functional Testing Checklist
+
+- [ ] **New feature testing**
+  - [ ] Test new features
+  - [ ] Test modified features
+  - [ ] Test critical user journeys
+  - [ ] Test integration points
+  - [ ] Use prompts: functional-testing, test-case-writing
+
+### ☑️ Regression Testing Checklist
+
+- [ ] **Full regression execution**
+  - [ ] Execute full automated regression
+  - [ ] Execute critical path manual tests
+  - [ ] Cross-browser testing
+  - [ ] Mobile testing
+  - [ ] Use prompts: functional-testing, ai-assisted-testing
+
+### ☑️ End-to-End Testing Checklist
+
+- [ ] **E2E test execution**
+  - [ ] Test complete user journeys
+  - [ ] Test multi-system integration
+  - [ ] Verify data flows
+  - [ ] Test third-party integrations
+  - [ ] Use prompts: functional-testing
+
+## T-5 to T-4: Specialized Testing
+
+### ☑️ Performance Testing Checklist
+
+- [ ] **Performance test execution**
+  - [ ] Load testing
+  - [ ] Stress testing
+  - [ ] Spike testing
+  - [ ] Endurance testing (24h+)
+  - [ ] Use prompts: performance-testing
+
+- [ ] **Performance metrics analysis**
+  - [ ] Analyze P95/P99 response times
+  - [ ] Check throughput
+  - [ ] Analyze error rates
+  - [ ] Monitor resource usage
+
+### ☑️ Security Testing Checklist
+
+- [ ] **Security test execution**
+  - [ ] Vulnerability scanning
+  - [ ] Penetration testing
+  - [ ] Authentication/authorization testing
+  - [ ] Encryption verification
+  - [ ] Security headers check
+  - [ ] Use prompts: security-testing
+
+### ☑️ Accessibility Testing Checklist
+
+- [ ] **Accessibility test execution**
+  - [ ] Screen reader testing
+  - [ ] Keyboard navigation testing
+  - [ ] Contrast checking
+  - [ ] ARIA attribute verification
+  - [ ] Use prompts: accessibility-testing
+
+### ☑️ Visual Testing Checklist
+
+- [ ] **Visual test execution**
+  - [ ] Visual regression testing
+  - [ ] Cross-browser visual testing
+  - [ ] Responsive design testing
+  - [ ] UI consistency checking
+  - [ ] Use prompts: accessibility-testing
+
+## T-3: Release Candidate (RC) Testing
+
+### ☑️ RC Deployment Checklist
+
+- [ ] **Release candidate preparation**
+  - [ ] Deploy RC to pre-production
+  - [ ] Code freeze
+  - [ ] Tag version
+
+### ☑️ Smoke Testing Checklist
+
+- [ ] **Quick smoke test (1–2 hours)**
+  - [ ] Test critical features
+  - [ ] Confirm no critical defects
+  - [ ] Verify deployment success
+
+### ☑️ Final Regression Checklist
+
+- [ ] **Full regression execution**
+  - [ ] Execute full automated regression
+  - [ ] Execute manual critical path tests
+  - [ ] Execute exploratory testing
+  - [ ] Use prompts: manual-testing
+
+### ☑️ Defect Triage Checklist
+
+- [ ] **Defect handling decisions**
+  - [ ] Critical defects: must fix → retest → new RC
+  - [ ] High priority: assess risk
+  - [ ] Medium/low priority: move to next version
+
+## T-2: Quality Assessment
+
+### ☑️ Quality Metrics Review Checklist
+
+- [ ] **Test metrics review**
+  - [ ] Test execution rate
+  - [ ] Test pass rate
+  - [ ] Critical/high priority defect count
+  - [ ] Test coverage
+  - [ ] Performance benchmark achievement
+  - [ ] Use prompts: test-reporting, test-strategy
+
+### ☑️ Quality Gate Check Checklist
+
+- [ ] **Gate verification**
+  - [ ] Critical defects fixed
+  - [ ] Regression tests 100% passed
+  - [ ] Performance meets SLA
+  - [ ] Security scan passed
+  - [ ] No unresolved P1/P2 defects
+  - [ ] Accessibility compliance
+
+### ☑️ Risk Assessment Checklist
+
+- [ ] **Risk analysis**
+  - [ ] Known issues and workarounds
+  - [ ] Load test performance
+  - [ ] Third-party dependency risks
+  - [ ] Rollback plan readiness
+
+## T-1: Go/No-Go
+
+### ☑️ Go/No-Go Meeting Checklist
+
+- [ ] **Meeting preparation**
+  - [ ] Confirm participants (Product, Engineering, QA, DevOps, Leadership)
+  - [ ] Prepare meeting materials
+
+- [ ] **Meeting review content**
+  - [ ] Test summary
+  - [ ] Defect status and trends
+  - [ ] Performance test results
+  - [ ] Security test results
+  - [ ] Known risks
+  - [ ] Rollback plan
+
+### ☑️ GO Decision Criteria Check
+
+- [ ] **GO conditions verification**
+  - [ ] Quality gates passed
+  - [ ] No critical unresolved defects
+  - [ ] Performance acceptable
+  - [ ] Team confident
+  - [ ] Rollback plan ready
+
+### ☑️ NO-GO Risk Identification
+
+- [ ] **NO-GO conditions check**
+  - [ ] Are there critical defects
+  - [ ] Did quality gates fail
+  - [ ] Are there performance issues
+  - [ ] Are there high risks
+  - [ ] Does team lack confidence
+
+### ☑️ Pre-Release Checklist
+
+- [ ] **Release preparation verification**
+  - [ ] Release notes prepared
+  - [ ] Deployment runbook ready
+  - [ ] Monitoring configured
+  - [ ] Rollback plan tested
+  - [ ] Support team briefed
+  - [ ] Communication plan ready
+
+## T-Day: Release Day
+
+### ☑️ Pre-Deployment Checklist (2–4 hours before)
+
+- [ ] **Final preparation**
+  - [ ] RC final smoke test
+  - [ ] Deployment checklist confirmation
+  - [ ] Team on-call confirmation
+  - [ ] Communication channels ready
+
+### ☑️ During Deployment Monitoring Checklist
+
+- [ ] **Real-time monitoring**
+  - [ ] Monitor deployment progress
+  - [ ] Monitor error logs
+  - [ ] Monitor performance metrics
+  - [ ] Monitor user feedback
+
+### ☑️ Post-Deployment Verification Checklist (30–60 min)
+
+- [ ] **Production smoke test**
+  - [ ] Test critical user journeys
+  - [ ] Verify authentication/authorization
+  - [ ] Test payment functionality
+  - [ ] Verify third-party integrations
+  - [ ] Check performance
+
+### ☑️ First 24 Hours Monitoring Checklist
+
+- [ ] **Continuous monitoring**
+  - [ ] Monitor error rate
+  - [ ] Monitor response time
+  - [ ] Monitor traffic
+  - [ ] Monitor support tickets
+
+### ☑️ Rollback Conditions Check
+
+- [ ] **Rollback trigger conditions**
+  - [ ] Is critical functionality broken
+  - [ ] Is there severe performance degradation
+  - [ ] Is there data corruption
+  - [ ] Are there security vulnerabilities
+
+## T+1 to T+7: Post-Release
+
+### ☑️ Day 1 Checklist
+
+- [ ] **Intensive monitoring**
+  - [ ] Intensive system metrics monitoring
+  - [ ] Fast issue response
+  - [ ] Collect user feedback
+  - [ ] Record discovered issues
+
+### ☑️ Week 1 Checklist
+
+- [ ] **Continuous tracking**
+  - [ ] Fix post-release defects
+  - [ ] Monitor trend changes
+  - [ ] Collect user feedback
+  - [ ] Prepare hotfix if necessary
+
+### ☑️ Release Retrospective Checklist
+
+- [ ] **Retrospective meeting**
+  - [ ] Discuss what went well
+  - [ ] Identify improvement opportunities
+  - [ ] Analyze testing gaps
+  - [ ] Create process improvement plan
+  - [ ] Use prompts: test-reporting

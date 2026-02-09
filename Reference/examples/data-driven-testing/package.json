@@ -1,0 +1,32 @@
+{
+  "name": "data-driven-testing-examples",
+  "version": "1.0.0",
+  "description": "数据驱动测试示例 - CSV、JSON、Excel、数据库、API",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha tests/**/*.test.js --timeout 30000",
+    "test:csv": "mocha tests/csv-driven.test.js --timeout 30000",
+    "test:json": "mocha tests/json-driven.test.js --timeout 30000",
+    "test:excel": "mocha tests/excel-driven.test.js --timeout 30000"
+  },
+  "keywords": [
+    "data-driven",
+    "testing",
+    "automation",
+    "csv",
+    "json",
+    "excel"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "csv-parser": "^3.0.0",
+    "xlsx": "^0.18.5",
+    "sqlite3": "^5.1.6"
+  },
+  "devDependencies": {
+    "mocha": "^10.2.0",
+    "chai": "^4.3.10",
+    "axios": "^1.6.0"
+  }
+}

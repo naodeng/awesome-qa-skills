@@ -1,0 +1,361 @@
+# Markdown 格式测试用例模板
+
+## 格式说明
+适用于 GitHub、GitLab、Confluence 等支持 Markdown 的平台。
+
+## 模板结构
+
+```markdown
+# 测试用例文档
+
+## 测试套件: 用户认证
+
+### TC-001: 用户登录功能 - 有效凭证
+
+**优先级**: High  
+**类别**: Functional  
+**状态**: Not Run  
+**负责人**: QA Team  
+**标签**: `login` `authentication` `smoke`
+
+#### 前置条件
+1. 用户已注册
+2. 数据库中存在测试账号
+3. 应用程序已启动
+
+#### 测试步骤
+1. 打开登录页面 `https://example.com/login`
+2. 在用户名输入框输入: `testuser@example.com`
+3. 在密码输入框输入: `Test@123`
+4. 点击 "登录" 按钮
+
+#### 预期结果
+1. ✓ 页面跳转到首页 `https://example.com/dashboard`
+2. ✓ 显示欢迎消息: "欢迎回来, Test User"
+3. ✓ 用户会话已创建，Cookie 中包含 `session_id`
+4. ✓ 导航栏显示用户头像和用户名
+
+#### 测试数据
+```json
+{
+  "username": "testuser@example.com",
+  "password": "Test@123",
+  "expected_user_id": "12345",
+  "expected_role": "user"
+}
+```
+
+#### 附加信息
+- **执行时间**: 约 2 分钟
+- **自动化状态**: 已自动化
+- **自动化脚本**: `tests/auth/login.spec.js`
+- **依赖**: 数据库服务、邮件服务
+
+---
+
+### TC-002: 用户登录功能 - 无效密码
+
+**优先级**: High  
+**类别**: Negative  
+**状态**: Not Run  
+**负责人**: QA Team  
+**标签**: `login` `authentication` `negative`
+
+#### 前置条件
+1. 用户已注册
+2. 数据库中存在测试账号
+
+#### 测试步骤
+1. 打开登录页面
+2. 输入有效用户名: `testuser@example.com`
+3. 输入无效密码: `WrongPassword123`
+4. 点击 "登录" 按钮
+
+#### 预期结果
+1. ✓ 显示错误消息: "用户名或密码错误"
+2. ✓ 错误消息显示为红色，位于表单上方
+3. ✓ 用户停留在登录页面
+4. ✓ 密码输入框被清空
+5. ✓ 用户名输入框保持原值
+6. ✓ 登录失败次数计数器 +1
+
+#### 测试数据
+```json
+{
+  "username": "testuser@example.com",
+  "password": "WrongPassword123",
+  "expected_error": "用户名或密码错误"
+}
+```
+
+---
+
+### TC-003: 用户登录功能 - 空字段验证
+
+**优先级**: Medium  
+**类别**: Validation  
+**状态**: Not Run  
+**负责人**: QA Team  
+**标签**: `login` `validation` `negative`
+
+#### 前置条件
+1. 打开登录页面
+
+#### 测试步骤
+
+| 步骤 | 用户名 | 密码 | 操作 |
+|------|--------|------|------|
+| 1 | (空) | Test@123 | 点击登录 |
+| 2 | testuser@example.com | (空) | 点击登录 |
+| 3 | (空) | (空) | 点击登录 |
+
+#### 预期结果
+
+| 场景 | 预期行为 |
+|------|----------|
+| 空用户名 | 显示 "请输入用户名" |
+| 空密码 | 显示 "请输入密码" |
+| 全部为空 | 显示 "请输入用户名和密码" |
+| 所有场景 | 登录按钮保持禁用或不提交表单 |
+
+---
+
+### TC-004: 用户登录功能 - SQL 注入测试
+
+**优先级**: Critical  
+**类别**: Security  
+**状态**: Not Run  
+**负责人**: Security Team  
+**标签**: `login` `security` `sql-injection` `owasp`
+
+#### 前置条件
+1. 应用程序已部署
+2. 数据库连接正常
+
+#### 测试步骤
+
+测试以下 SQL 注入 payload:
+
+1. **基础注入**
+   - 用户名: `admin' OR '1'='1`
+   - 密码: `' OR '1'='1`
+
+2. **注释注入**
+   - 用户名: `admin'--`
+   - 密码: `anything`
+
+3. **联合查询注入**
+   - 用户名: `' UNION SELECT NULL, NULL--`
+   - 密码: `anything`
+
+4. **时间盲注**
+   - 用户名: `admin' AND SLEEP(5)--`
+   - 密码: `anything`
+
+#### 预期结果
+1. ✓ 所有注入尝试都应该失败
+2. ✓ 显示通用错误消息（不泄露数据库信息）
+3. ✓ 系统记录安全事件到日志
+4. ✓ 触发安全警报（如果配置）
+5. ✓ 响应时间正常（不受 SLEEP 影响）
+6. ✓ 数据库查询使用参数化查询
+
+#### 验证方法
+```bash
+# 检查日志
+grep "SQL_INJECTION_ATTEMPT" /var/log/app/security.log
+
+# 检查数据库查询
+# 应该看到参数化查询，而不是字符串拼接
+```
+
+---
+
+### TC-005: 用户登录功能 - 账号锁定机制
+
+**优先级**: High  
+**类别**: Security  
+**状态**: Not Run  
+**负责人**: QA Team  
+**标签**: `login` `security` `account-lockout` `brute-force`
+
+#### 前置条件
+1. 用户已注册
+2. 账号锁定策略: 5次失败后锁定30分钟
+3. 账号当前未被锁定
+
+#### 测试步骤
+1. 使用有效用户名和错误密码尝试登录（第1次）
+2. 重复步骤1（第2-5次）
+3. 第6次尝试登录（使用正确密码）
+4. 等待30分钟
+5. 使用正确密码尝试登录
+
+#### 预期结果
+
+| 尝试次数 | 预期行为 |
+|----------|----------|
+| 1-5 | 显示 "用户名或密码错误" |
+| 6 | 显示 "账号已被锁定，请30分钟后重试" |
+| 6（正确密码） | 仍然显示锁定消息 |
+| 30分钟后 | 登录成功 |
+
+**额外验证**:
+- ✓ 发送账号锁定通知邮件
+- ✓ 记录锁定事件到审计日志
+- ✓ 管理员可以手动解锁账号
+- ✓ 锁定计数器在成功登录后重置
+
+#### 测试数据
+```json
+{
+  "username": "testuser@example.com",
+  "correct_password": "Test@123",
+  "wrong_password": "WrongPass123",
+  "lockout_threshold": 5,
+  "lockout_duration": 1800
+}
+```
+
+---
+
+## 测试执行记录
+
+### 执行历史
+
+| 日期 | 执行人 | TC-001 | TC-002 | TC-003 | TC-004 | TC-005 | 备注 |
+|------|--------|--------|--------|--------|--------|--------|------|
+| 2024-01-15 | Alice | ✓ Pass | ✓ Pass | ✓ Pass | ✓ Pass | ✗ Fail | TC-005: 邮件未发送 |
+| 2024-01-16 | Bob | ✓ Pass | ✓ Pass | ✓ Pass | ✓ Pass | ✓ Pass | 所有测试通过 |
+
+### 缺陷关联
+
+| 测试用例 | 缺陷ID | 缺陷标题 | 状态 |
+|----------|--------|----------|------|
+| TC-005 | BUG-123 | 账号锁定后未发送通知邮件 | Fixed |
+
+---
+
+## 测试统计
+
+```
+总用例数: 5
+已执行: 5
+通过: 5
+失败: 0
+阻塞: 0
+通过率: 100%
+```
+
+---
+
+## 附录
+
+### 测试环境
+- **环境**: Staging
+- **URL**: https://staging.example.com
+- **数据库**: PostgreSQL 14.5
+- **浏览器**: Chrome 120, Firefox 121, Safari 17
+
+### 测试账号
+```json
+{
+  "valid_user": {
+    "username": "testuser@example.com",
+    "password": "Test@123",
+    "role": "user"
+  },
+  "admin_user": {
+    "username": "admin@example.com",
+    "password": "Admin@123",
+    "role": "admin"
+  }
+}
+```
+
+### 相关文档
+- [测试计划](./test-plan.md)
+- [测试策略](./test-strategy.md)
+- [缺陷报告](./bug-reports.md)
+```
+
+## 使用指南
+
+### 1. 创建新测试用例
+```markdown
+### TC-XXX: [功能名称] - [测试场景]
+
+**优先级**: [Critical/High/Medium/Low]  
+**类别**: [Functional/Negative/Security/Performance/UI]  
+**状态**: [Not Run/Pass/Fail/Blocked]  
+**负责人**: [团队/个人]  
+**标签**: `tag1` `tag2` `tag3`
+
+#### 前置条件
+1. 条件1
+2. 条件2
+
+#### 测试步骤
+1. 步骤1
+2. 步骤2
+
+#### 预期结果
+1. ✓ 结果1
+2. ✓ 结果2
+
+#### 测试数据
+\```json
+{
+  "key": "value"
+}
+\```
+```
+
+### 2. 更新测试状态
+使用 emoji 或符号标记:
+- ✓ Pass
+- ✗ Fail
+- ⊘ Blocked
+- ○ Not Run
+- ⟳ Retest
+
+### 3. 链接缺陷
+```markdown
+**关联缺陷**: [BUG-123](https://jira.example.com/BUG-123)
+```
+
+### 4. 添加截图
+```markdown
+#### 实际结果
+![错误截图](./screenshots/tc-001-error.png)
+```
+
+## 最佳实践
+
+1. **使用清晰的标题**: 功能 + 场景
+2. **保持步骤简洁**: 每个步骤一个操作
+3. **使用代码块**: 测试数据、命令、配置
+4. **添加表格**: 多场景测试、数据驱动
+5. **使用 Checklist**: 验证点列表
+6. **版本控制**: 使用 Git 管理测试用例
+7. **Code Review**: 测试用例也需要评审
+8. **持续更新**: 随功能变化更新用例
+
+## 模板变体
+
+### 简化版（快速测试）
+```markdown
+### TC-XXX: [标题]
+**步骤**: 1. xxx 2. xxx 3. xxx  
+**预期**: 1. xxx 2. xxx 3. xxx  
+**状态**: ○ Not Run
+```
+
+### 详细版（复杂场景）
+包含更多字段:
+- 测试目标
+- 测试范围
+- 风险评估
+- 回滚计划
+- 性能指标
+- 安全考虑

@@ -1,0 +1,609 @@
+# 输出格式配置文件
+# Output Format Configuration File
+# 
+# 此配置文件定义了不同测试管理工具的输出格式模板
+# This configuration file defines output format templates for different test management tools
+
+version: "1.0.0"
+last_updated: "2026-02-09"
+
+# 支持的输出格式
+# Supported output formats
+supported_formats:
+  - jira
+  - testrail
+  - azure_devops
+  - excel
+  - csv
+  - json
+  - markdown
+  - html
+
+# 默认输出格式
+# Default output format
+default_format: markdown
+
+# 格式检测规则
+# Format detection rules
+auto_detection:
+  enabled: true
+  rules:
+    - pattern: "jira|atlassian"
+      format: jira
+      confidence: 0.9
+    
+    - pattern: "testrail|gurock"
+      format: testrail
+      confidence: 0.9
+    
+    - pattern: "azure|devops|tfs"
+      format: azure_devops
+      confidence: 0.9
+    
+    - pattern: "\\.xlsx?$"
+      format: excel
+      confidence: 0.95
+    
+    - pattern: "\\.csv$"
+      format: csv
+      confidence: 0.95
+    
+    - pattern: "\\.json$"
+      format: json
+      confidence: 0.95
+    
+    - pattern: "\\.md$"
+      format: markdown
+      confidence: 0.95
+
+# Jira 格式配置
+# Jira format configuration
+jira:
+  name: "Jira"
+  description: "Atlassian Jira 测试用例格式"
+  file_extension: ".txt"
+  
+  # 字段映射
+  field_mapping:
+    test_case_id: "Test Case ID"
+    summary: "Summary"
+    description: "Description"
+    preconditions: "Preconditions"
+    test_steps: "Test Steps"
+    expected_result: "Expected Result"
+    priority: "Priority"
+    labels: "Labels"
+    components: "Components"
+    test_type: "Test Type"
+  
+  # 优先级映射
+  priority_mapping:
+    P0: "Highest"
+    P1: "High"
+    P2: "Medium"
+    P3: "Low"
+  
+  # 测试类型映射
+  test_type_mapping:
+    functional: "Functional"
+    api: "API"
+    performance: "Performance"
+    security: "Security"
+    automation: "Automation"
+  
+  # 模板路径
+  template_path: "templates/output-formats/jira-template.txt"
+
+# TestRail 格式配置
+# TestRail format configuration
+testrail:
+  name: "TestRail"
+  description: "Gurock TestRail 测试用例格式"
+  file_extension: ".csv"
+  
+  # 字段映射
+  field_mapping:
+    section: "Section"
+    title: "Title"
+    test_case_type: "Type"
+    priority: "Priority"
+    estimate: "Estimate"
+    references: "References"
+    automation_type: "Automation Type"
+    preconditions: "Preconditions"
+    steps: "Steps"
+    expected_result: "Expected Result"
+    steps_separated: "Steps (separated)"
+  
+  # 优先级映射
+  priority_mapping:
+    P0: "Critical"
+    P1: "High"
+    P2: "Medium"
+    P3: "Low"
+  
+  # 测试类型映射
+  test_type_mapping:
+    functional: "Functional"
+    api: "API"
+    performance: "Performance"
+    security: "Security"
+    automation: "Automated"
+  
+  # 自动化类型映射
+  automation_type_mapping:
+    manual: "None"
+    automated: "Automated"
+    to_be_automated: "To be automated"
+  
+  # 模板路径
+  template_path: "templates/output-formats/testrail-template.csv"
+
+# Azure DevOps 格式配置
+# Azure DevOps format configuration
+azure_devops:
+  name: "Azure DevOps"
+  description: "Microsoft Azure DevOps 测试用例格式"
+  file_extension: ".csv"
+  
+  # 字段映射
+  field_mapping:
+    work_item_type: "Work Item Type"
+    title: "Title"
+    assigned_to: "Assigned To"
+    state: "State"
+    priority: "Priority"
+    area_path: "Area Path"
+    iteration_path: "Iteration Path"
+    description: "Description"
+    acceptance_criteria: "Acceptance Criteria"
+    test_steps: "Steps"
+    automation_status: "Automation Status"
+  
+  # 工作项类型
+  work_item_type: "Test Case"
+  
+  # 状态映射
+  state_mapping:
+    new: "Design"
+    ready: "Ready"
+    active: "Active"
+    closed: "Closed"
+  
+  # 优先级映射
+  priority_mapping:
+    P0: "1"
+    P1: "2"
+    P2: "3"
+    P3: "4"
+  
+  # 自动化状态映射
+  automation_status_mapping:
+    manual: "Not Automated"
+    automated: "Automated"
+    planned: "Planned"
+  
+  # 模板路径
+  template_path: "templates/output-formats/azure-devops-template.csv"
+
+# Excel 格式配置
+# Excel format configuration
+excel:
+  name: "Excel"
+  description: "Microsoft Excel 测试用例格式"
+  file_extension: ".xlsx"
+  
+  # 工作表配置
+  sheets:
+    - name: "Test Cases"
+      columns:
+        - name: "Test Case ID"
+          width: 15
+          type: "text"
+        
+        - name: "Module"
+          width: 20
+          type: "text"
+        
+        - name: "Test Case Title"
+          width: 40
+          type: "text"
+        
+        - name: "Test Type"
+          width: 15
+          type: "dropdown"
+          options: ["Functional", "API", "Performance", "Security", "Automation"]
+        
+        - name: "Priority"
+          width: 10
+          type: "dropdown"
+          options: ["P0", "P1", "P2", "P3"]
+        
+        - name: "Preconditions"
+          width: 30
+          type: "text"
+        
+        - name: "Test Steps"
+          width: 50
+          type: "text"
+        
+        - name: "Expected Result"
+          width: 40
+          type: "text"
+        
+        - name: "Test Data"
+          width: 30
+          type: "text"
+        
+        - name: "Status"
+          width: 12
+          type: "dropdown"
+          options: ["Not Started", "In Progress", "Passed", "Failed", "Blocked"]
+        
+        - name: "Assigned To"
+          width: 15
+          type: "text"
+        
+        - name: "Execution Date"
+          width: 15
+          type: "date"
+        
+        - name: "Comments"
+          width: 40
+          type: "text"
+    
+    - name: "Test Summary"
+      columns:
+        - name: "Module"
+          width: 20
+        - name: "Total Cases"
+          width: 15
+        - name: "Passed"
+          width: 12
+        - name: "Failed"
+          width: 12
+        - name: "Blocked"
+          width: 12
+        - name: "Pass Rate"
+          width: 12
+  
+  # 样式配置
+  styles:
+    header:
+      font_bold: true
+      font_size: 11
+      bg_color: "#4472C4"
+      font_color: "#FFFFFF"
+    
+    priority_p0:
+      bg_color: "#FF0000"
+      font_color: "#FFFFFF"
+    
+    priority_p1:
+      bg_color: "#FFA500"
+    
+    status_passed:
+      bg_color: "#00FF00"
+    
+    status_failed:
+      bg_color: "#FF0000"
+      font_color: "#FFFFFF"
+  
+  # 模板路径
+  template_path: "templates/output-formats/excel-template.xlsx"
+
+# CSV 格式配置
+# CSV format configuration
+csv:
+  name: "CSV"
+  description: "逗号分隔值文件格式"
+  file_extension: ".csv"
+  
+  # CSV 配置
+  delimiter: ","
+  quote_char: "\""
+  encoding: "utf-8-sig"  # 支持中文的 UTF-8 with BOM
+  
+  # 列定义
+  columns:
+    - "Test Case ID"
+    - "Module"
+    - "Test Case Title"
+    - "Test Type"
+    - "Priority"
+    - "Preconditions"
+    - "Test Steps"
+    - "Expected Result"
+    - "Test Data"
+    - "Status"
+    - "Assigned To"
+    - "Execution Date"
+    - "Comments"
+  
+  # 模板路径
+  template_path: "templates/output-formats/csv-template.csv"
+
+# JSON 格式配置
+# JSON format configuration
+json:
+  name: "JSON"
+  description: "JSON 格式测试用例"
+  file_extension: ".json"
+  
+  # JSON Schema
+  schema:
+    type: "object"
+    properties:
+      test_suite:
+        type: "object"
+        properties:
+          name:
+            type: "string"
+          description:
+            type: "string"
+          version:
+            type: "string"
+          created_at:
+            type: "string"
+            format: "date-time"
+          test_cases:
+            type: "array"
+            items:
+              type: "object"
+              properties:
+                id:
+                  type: "string"
+                module:
+                  type: "string"
+                title:
+                  type: "string"
+                test_type:
+                  type: "string"
+                  enum: ["functional", "api", "performance", "security", "automation"]
+                priority:
+                  type: "string"
+                  enum: ["P0", "P1", "P2", "P3"]
+                preconditions:
+                  type: "array"
+                  items:
+                    type: "string"
+                test_steps:
+                  type: "array"
+                  items:
+                    type: "object"
+                    properties:
+                      step_number:
+                        type: "integer"
+                      action:
+                        type: "string"
+                      expected_result:
+                        type: "string"
+                test_data:
+                  type: "object"
+                tags:
+                  type: "array"
+                  items:
+                    type: "string"
+                status:
+                  type: "string"
+                  enum: ["not_started", "in_progress", "passed", "failed", "blocked"]
+  
+  # 格式化选项
+  formatting:
+    indent: 2
+    ensure_ascii: false
+    sort_keys: false
+  
+  # 模板路径
+  template_path: "templates/output-formats/json-template.json"
+
+# Markdown 格式配置
+# Markdown format configuration
+markdown:
+  name: "Markdown"
+  description: "Markdown 格式测试用例"
+  file_extension: ".md"
+  
+  # 模板结构
+  structure:
+    - section: "header"
+      content: "# Test Suite: {suite_name}\n\n"
+    
+    - section: "metadata"
+      content: |
+        **Version:** {version}
+        **Created:** {created_at}
+        **Total Cases:** {total_cases}
+        
+    - section: "test_case"
+      content: |
+        ## {test_case_id} - {title}
+        
+        **Module:** {module}
+        **Type:** {test_type}
+        **Priority:** {priority}
+        
+        ### Preconditions
+        {preconditions}
+        
+        ### Test Steps
+        {test_steps}
+        
+        ### Expected Result
+        {expected_result}
+        
+        ### Test Data
+        {test_data}
+        
+        ---
+        
+  # 模板路径
+  template_path: "templates/output-formats/markdown-template.md"
+
+# HTML 格式配置
+# HTML format configuration
+html:
+  name: "HTML"
+  description: "HTML 格式测试报告"
+  file_extension: ".html"
+  
+  # HTML 配置
+  include_css: true
+  include_js: true
+  responsive: true
+  
+  # 主题配置
+  theme:
+    primary_color: "#4472C4"
+    success_color: "#28a745"
+    danger_color: "#dc3545"
+    warning_color: "#ffc107"
+    info_color: "#17a2b8"
+  
+  # 模板路径
+  template_path: "templates/output-formats/html-template.html"
+
+# 自定义模板目录
+# Custom template directory
+custom_templates:
+  enabled: true
+  directory: "templates/custom-output-formats"
+  
+  # 自定义模板命名规则
+  naming_convention: "{tool_name}-{format_type}-template.{extension}"
+  
+  # 示例：
+  # - jira-test-case-template.txt
+  # - testrail-test-suite-template.csv
+  # - custom-bug-report-template.md
+
+# 输出选项
+# Output options
+output_options:
+  # 是否包含元数据
+  include_metadata: true
+  
+  # 是否包含统计信息
+  include_statistics: true
+  
+  # 是否包含时间戳
+  include_timestamp: true
+  
+  # 日期格式
+  date_format: "%Y-%m-%d"
+  
+  # 时间格式
+  datetime_format: "%Y-%m-%d %H:%M:%S"
+  
+  # 文件命名模式
+  file_naming_pattern: "{suite_name}_{format}_{timestamp}"
+  
+  # 输出目录
+  output_directory: "output/test-cases"
+
+# 验证规则
+# Validation rules
+validation:
+  enabled: true
+  
+  # 必填字段
+  required_fields:
+    - test_case_id
+    - title
+    - test_steps
+    - expected_result
+  
+  # 字段长度限制
+  field_length_limits:
+    title:
+      min: 10
+      max: 200
+    description:
+      max: 2000
+    test_steps:
+      min: 1
+  
+  # 优先级验证
+  valid_priorities:
+    - P0
+    - P1
+    - P2
+    - P3
+  
+  # 测试类型验证
+  valid_test_types:
+    - functional
+    - api
+    - performance
+    - security
+    - automation
+    - manual
+    - integration
+    - e2e
+
+# 转换规则
+# Conversion rules
+conversion:
+  # 从 Markdown 到其他格式的转换
+  from_markdown:
+    enabled: true
+    preserve_formatting: true
+    
+  # 从 JSON 到其他格式的转换
+  from_json:
+    enabled: true
+    flatten_nested: true
+  
+  # 批量转换
+  batch_conversion:
+    enabled: true
+    max_files: 100
+
+# 集成配置
+# Integration configuration
+integrations:
+  # Jira 集成
+  jira:
+    enabled: false
+    api_url: ""
+    project_key: ""
+    issue_type: "Test"
+  
+  # TestRail 集成
+  testrail:
+    enabled: false
+    api_url: ""
+    project_id: ""
+    suite_id: ""
+  
+  # Azure DevOps 集成
+  azure_devops:
+    enabled: false
+    organization: ""
+    project: ""
+    area_path: ""
+
+# 日志配置
+# Logging configuration
+logging:
+  enabled: true
+  level: "INFO"
+  log_file: "logs/output-format-converter.log"
+  max_size: "10MB"
+  backup_count: 5
+
+# 性能配置
+# Performance configuration
+performance:
+  # 缓存配置
+  cache:
+    enabled: true
+    ttl: 3600  # 秒
+  
+  # 并发处理
+  concurrent_processing:
+    enabled: true
+    max_workers: 4
+  
+  # 批处理大小
+  batch_size: 50

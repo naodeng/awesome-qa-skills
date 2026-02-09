@@ -1,0 +1,709 @@
+# XML 格式测试用例模板
+
+## 格式说明
+适用于 TestLink、HP ALM/QC、IBM RQM 等企业级测试管理工具。
+
+## 模板结构
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<testSuite>
+  <metadata>
+    <id>TS-AUTH-001</id>
+    <name>用户认证测试套件</name>
+    <description>测试用户登录、注册、密码重置等认证功能</description>
+    <version>1.0.0</version>
+    <created>2024-01-15T10:00:00Z</created>
+    <updated>2024-01-16T15:30:00Z</updated>
+    <author>QA Team</author>
+    <tags>
+      <tag>authentication</tag>
+      <tag>security</tag>
+      <tag>smoke</tag>
+    </tags>
+  </metadata>
+
+  <environment>
+    <name>Staging</name>
+    <url>https://staging.example.com</url>
+    <database>PostgreSQL 14.5</database>
+    <browsers>
+      <browser>Chrome 120</browser>
+      <browser>Firefox 121</browser>
+      <browser>Safari 17</browser>
+    </browsers>
+  </environment>
+
+  <testCases>
+    <!-- Test Case 1: 有效凭证登录 -->
+    <testCase id="TC-001" priority="high" category="functional">
+      <title>用户登录功能 - 有效凭证</title>
+      <description>验证用户使用有效的用户名和密码可以成功登录系统</description>
+      <status>not_run</status>
+      <assignedTo>alice@example.com</assignedTo>
+      <estimatedTime unit="seconds">120</estimatedTime>
+      <automation>
+        <status>automated</status>
+        <script>tests/auth/login.spec.js</script>
+      </automation>
+      
+      <tags>
+        <tag>login</tag>
+        <tag>authentication</tag>
+        <tag>smoke</tag>
+        <tag>p0</tag>
+      </tags>
+
+      <preconditions>
+        <precondition id="PRE-001" required="true">
+          <description>用户已注册</description>
+        </precondition>
+        <precondition id="PRE-002" required="true">
+          <description>数据库中存在测试账号</description>
+        </precondition>
+        <precondition id="PRE-003" required="true">
+          <description>应用程序已启动</description>
+        </precondition>
+      </preconditions>
+
+      <testSteps>
+        <step number="1">
+          <action>打开登录页面</action>
+          <data>
+            <parameter name="url">https://example.com/login</parameter>
+          </data>
+          <expectedResult>登录页面正确加载，显示用户名和密码输入框</expectedResult>
+        </step>
+        <step number="2">
+          <action>在用户名输入框输入有效用户名</action>
+          <data>
+            <parameter name="selector">#username</parameter>
+            <parameter name="value">testuser@example.com</parameter>
+          </data>
+          <expectedResult>用户名输入框显示输入的值</expectedResult>
+        </step>
+        <step number="3">
+          <action>在密码输入框输入有效密码</action>
+          <data>
+            <parameter name="selector">#password</parameter>
+            <parameter name="value" masked="true">Test@123</parameter>
+          </data>
+          <expectedResult>密码输入框显示掩码字符</expectedResult>
+        </step>
+        <step number="4">
+          <action>点击登录按钮</action>
+          <data>
+            <parameter name="selector">#login-button</parameter>
+          </data>
+          <expectedResult>提交登录请求</expectedResult>
+        </step>
+      </testSteps>
+
+      <expectedResults>
+        <result id="ER-001">
+          <description>页面跳转到首页</description>
+          <verification type="url">
+            <value>https://example.com/dashboard</value>
+          </verification>
+        </result>
+        <result id="ER-002">
+          <description>显示欢迎消息</description>
+          <verification type="text">
+            <selector>.welcome-message</selector>
+            <value>欢迎回来, Test User</value>
+          </verification>
+        </result>
+        <result id="ER-003">
+          <description>用户会话已创建</description>
+          <verification type="cookie">
+            <name>session_id</name>
+            <exists>true</exists>
+          </verification>
+        </result>
+        <result id="ER-004">
+          <description>导航栏显示用户信息</description>
+          <verification type="element">
+            <selector>.user-avatar</selector>
+            <visible>true</visible>
+          </verification>
+        </result>
+      </expectedResults>
+
+      <testData>
+        <data name="username">testuser@example.com</data>
+        <data name="password">Test@123</data>
+        <data name="expectedUserId">12345</data>
+        <data name="expectedRole">user</data>
+        <data name="expectedSessionDuration">3600</data>
+      </testData>
+
+      <dependencies>
+        <dependency>database-service</dependency>
+        <dependency>email-service</dependency>
+        <dependency>session-service</dependency>
+      </dependencies>
+
+      <executionHistory>
+        <execution>
+          <date>2024-01-15T14:30:00Z</date>
+          <executor>alice@example.com</executor>
+          <result>pass</result>
+          <duration unit="seconds">115</duration>
+          <environment>staging</environment>
+          <buildNumber>1.2.3</buildNumber>
+          <notes>测试通过，所有验证点正常</notes>
+        </execution>
+      </executionHistory>
+
+      <defects/>
+    </testCase>
+
+    <!-- Test Case 2: 无效密码 -->
+    <testCase id="TC-002" priority="high" category="negative">
+      <title>用户登录功能 - 无效密码</title>
+      <description>验证用户使用无效密码时系统正确处理并显示错误消息</description>
+      <status>not_run</status>
+      <assignedTo>bob@example.com</assignedTo>
+      <estimatedTime unit="seconds">90</estimatedTime>
+      <automation>
+        <status>automated</status>
+        <script>tests/auth/login-invalid.spec.js</script>
+      </automation>
+      
+      <tags>
+        <tag>login</tag>
+        <tag>authentication</tag>
+        <tag>negative</tag>
+        <tag>p0</tag>
+      </tags>
+
+      <preconditions>
+        <precondition id="PRE-001" required="true">
+          <description>用户已注册</description>
+        </precondition>
+        <precondition id="PRE-002" required="true">
+          <description>数据库中存在测试账号</description>
+        </precondition>
+      </preconditions>
+
+      <testSteps>
+        <step number="1">
+          <action>打开登录页面</action>
+          <data>
+            <parameter name="url">https://example.com/login</parameter>
+          </data>
+          <expectedResult>登录页面正确加载</expectedResult>
+        </step>
+        <step number="2">
+          <action>输入有效用户名</action>
+          <data>
+            <parameter name="selector">#username</parameter>
+            <parameter name="value">testuser@example.com</parameter>
+          </data>
+          <expectedResult>用户名输入框显示输入的值</expectedResult>
+        </step>
+        <step number="3">
+          <action>输入无效密码</action>
+          <data>
+            <parameter name="selector">#password</parameter>
+            <parameter name="value">WrongPassword123</parameter>
+          </data>
+          <expectedResult>密码输入框显示掩码字符</expectedResult>
+        </step>
+        <step number="4">
+          <action>点击登录按钮</action>
+          <data>
+            <parameter name="selector">#login-button</parameter>
+          </data>
+          <expectedResult>提交登录请求</expectedResult>
+        </step>
+      </testSteps>
+
+      <expectedResults>
+        <result id="ER-001">
+          <description>显示错误消息</description>
+          <verification type="text">
+            <selector>.error-message</selector>
+            <value>用户名或密码错误</value>
+          </verification>
+        </result>
+        <result id="ER-002">
+          <description>错误消息样式正确</description>
+          <verification type="css">
+            <selector>.error-message</selector>
+            <property>color</property>
+            <value>rgb(220, 38, 38)</value>
+          </verification>
+        </result>
+        <result id="ER-003">
+          <description>用户停留在登录页面</description>
+          <verification type="url">
+            <value>https://example.com/login</value>
+          </verification>
+        </result>
+        <result id="ER-004">
+          <description>密码输入框被清空</description>
+          <verification type="value">
+            <selector>#password</selector>
+            <value></value>
+          </verification>
+        </result>
+        <result id="ER-005">
+          <description>用户名输入框保持原值</description>
+          <verification type="value">
+            <selector>#username</selector>
+            <value>testuser@example.com</value>
+          </verification>
+        </result>
+        <result id="ER-006">
+          <description>登录失败次数计数器增加</description>
+          <verification type="api">
+            <endpoint>/api/users/testuser@example.com/login-attempts</endpoint>
+            <method>GET</method>
+            <expectedValue>1</expectedValue>
+          </verification>
+        </result>
+      </expectedResults>
+
+      <testData>
+        <data name="username">testuser@example.com</data>
+        <data name="password">WrongPassword123</data>
+        <data name="expectedError">用户名或密码错误</data>
+      </testData>
+
+      <executionHistory>
+        <execution>
+          <date>2024-01-15T14:35:00Z</date>
+          <executor>bob@example.com</executor>
+          <result>pass</result>
+          <duration unit="seconds">88</duration>
+          <environment>staging</environment>
+          <buildNumber>1.2.3</buildNumber>
+          <notes>测试通过</notes>
+        </execution>
+      </executionHistory>
+
+      <defects/>
+    </testCase>
+
+    <!-- Test Case 3: SQL 注入测试 -->
+    <testCase id="TC-003" priority="critical" category="security">
+      <title>用户登录功能 - SQL 注入测试</title>
+      <description>验证系统能够防御 SQL 注入攻击</description>
+      <status>not_run</status>
+      <assignedTo>security-team@example.com</assignedTo>
+      <estimatedTime unit="seconds">300</estimatedTime>
+      <automation>
+        <status>automated</status>
+        <script>tests/security/sql-injection.spec.js</script>
+      </automation>
+      
+      <tags>
+        <tag>login</tag>
+        <tag>security</tag>
+        <tag>sql-injection</tag>
+        <tag>owasp</tag>
+        <tag>p0</tag>
+      </tags>
+
+      <securityStandards>
+        <standard>OWASP Top 10 - A03:2021 Injection</standard>
+        <standard>CWE-89: SQL Injection</standard>
+      </securityStandards>
+
+      <preconditions>
+        <precondition id="PRE-001" required="true">
+          <description>应用程序已部署</description>
+        </precondition>
+        <precondition id="PRE-002" required="true">
+          <description>数据库连接正常</description>
+        </precondition>
+        <precondition id="PRE-003" required="true">
+          <description>安全日志已启用</description>
+        </precondition>
+      </preconditions>
+
+      <testSteps>
+        <step number="1">
+          <action>测试基础 SQL 注入</action>
+          <data>
+            <parameter name="username">admin' OR '1'='1</parameter>
+            <parameter name="password">' OR '1'='1</parameter>
+          </data>
+          <expectedResult>登录失败，显示错误消息</expectedResult>
+        </step>
+        <step number="2">
+          <action>测试注释注入</action>
+          <data>
+            <parameter name="username">admin'--</parameter>
+            <parameter name="password">anything</parameter>
+          </data>
+          <expectedResult>登录失败，显示错误消息</expectedResult>
+        </step>
+        <step number="3">
+          <action>测试联合查询注入</action>
+          <data>
+            <parameter name="username">' UNION SELECT NULL, NULL--</parameter>
+            <parameter name="password">anything</parameter>
+          </data>
+          <expectedResult>登录失败，显示错误消息</expectedResult>
+        </step>
+        <step number="4">
+          <action>测试时间盲注</action>
+          <data>
+            <parameter name="username">admin' AND SLEEP(5)--</parameter>
+            <parameter name="password">anything</parameter>
+          </data>
+          <expectedResult>登录失败，响应时间正常（&lt;1秒）</expectedResult>
+        </step>
+      </testSteps>
+
+      <expectedResults>
+        <result id="ER-001">
+          <description>所有注入尝试都失败</description>
+          <verification type="status">
+            <value>fail</value>
+          </verification>
+        </result>
+        <result id="ER-002">
+          <description>显示通用错误消息</description>
+          <verification type="text">
+            <selector>.error-message</selector>
+            <notContains>
+              <value>SQL</value>
+              <value>database</value>
+              <value>query</value>
+              <value>syntax</value>
+            </notContains>
+          </verification>
+        </result>
+        <result id="ER-003">
+          <description>系统记录安全事件</description>
+          <verification type="log">
+            <file>/var/log/app/security.log</file>
+            <contains>SQL_INJECTION_ATTEMPT</contains>
+          </verification>
+        </result>
+        <result id="ER-004">
+          <description>响应时间正常</description>
+          <verification type="performance">
+            <metric>response_time</metric>
+            <threshold unit="ms">1000</threshold>
+          </verification>
+        </result>
+        <result id="ER-005">
+          <description>使用参数化查询</description>
+          <verification type="code_review">
+            <description>检查代码使用 prepared statements</description>
+          </verification>
+        </result>
+      </expectedResults>
+
+      <testData>
+        <injectionPayloads>
+          <payload>admin' OR '1'='1</payload>
+          <payload>admin'--</payload>
+          <payload>' UNION SELECT NULL, NULL--</payload>
+          <payload>admin' AND SLEEP(5)--</payload>
+          <payload>1' OR '1'='1' /*</payload>
+          <payload>' OR 1=1--</payload>
+          <payload>admin' OR 1=1#</payload>
+        </injectionPayloads>
+      </testData>
+
+      <executionHistory/>
+      <defects/>
+    </testCase>
+
+    <!-- Test Case 4: 账号锁定机制 -->
+    <testCase id="TC-004" priority="high" category="security">
+      <title>用户登录功能 - 账号锁定机制</title>
+      <description>验证系统在多次登录失败后正确锁定账号</description>
+      <status>not_run</status>
+      <assignedTo>alice@example.com</assignedTo>
+      <estimatedTime unit="seconds">600</estimatedTime>
+      <automation>
+        <status>automated</status>
+        <script>tests/security/account-lockout.spec.js</script>
+      </automation>
+      
+      <tags>
+        <tag>login</tag>
+        <tag>security</tag>
+        <tag>account-lockout</tag>
+        <tag>brute-force</tag>
+        <tag>p1</tag>
+      </tags>
+
+      <preconditions>
+        <precondition id="PRE-001" required="true">
+          <description>用户已注册</description>
+        </precondition>
+        <precondition id="PRE-002" required="true">
+          <description>账号锁定策略: 5次失败后锁定30分钟</description>
+        </precondition>
+        <precondition id="PRE-003" required="true">
+          <description>账号当前未被锁定</description>
+        </precondition>
+        <precondition id="PRE-004" required="true">
+          <description>邮件服务正常</description>
+        </precondition>
+      </preconditions>
+
+      <testSteps>
+        <step number="1">
+          <action>使用错误密码尝试登录5次</action>
+          <data>
+            <parameter name="username">testuser@example.com</parameter>
+            <parameter name="password">WrongPass123</parameter>
+            <parameter name="attempts">5</parameter>
+          </data>
+          <expectedResult>每次都显示 '用户名或密码错误'</expectedResult>
+        </step>
+        <step number="2">
+          <action>第6次尝试登录（使用正确密码）</action>
+          <data>
+            <parameter name="username">testuser@example.com</parameter>
+            <parameter name="password">Test@123</parameter>
+          </data>
+          <expectedResult>显示账号锁定消息</expectedResult>
+        </step>
+        <step number="3">
+          <action>等待30分钟</action>
+          <data>
+            <parameter name="waitTime" unit="seconds">1800</parameter>
+          </data>
+          <expectedResult>锁定时间到期</expectedResult>
+        </step>
+        <step number="4">
+          <action>使用正确密码尝试登录</action>
+          <data>
+            <parameter name="username">testuser@example.com</parameter>
+            <parameter name="password">Test@123</parameter>
+          </data>
+          <expectedResult>登录成功</expectedResult>
+        </step>
+      </testSteps>
+
+      <expectedResults>
+        <result id="ER-001">
+          <description>前5次显示密码错误</description>
+          <verification type="text">
+            <value>用户名或密码错误</value>
+          </verification>
+        </result>
+        <result id="ER-002">
+          <description>第6次显示锁定消息</description>
+          <verification type="text">
+            <value>账号已被锁定，请30分钟后重试</value>
+          </verification>
+        </result>
+        <result id="ER-003">
+          <description>发送锁定通知邮件</description>
+          <verification type="email">
+            <to>testuser@example.com</to>
+            <subject>账号安全警告</subject>
+            <contains>您的账号已被锁定</contains>
+          </verification>
+        </result>
+        <result id="ER-004">
+          <description>记录锁定事件</description>
+          <verification type="database">
+            <table>audit_logs</table>
+            <where>
+              <condition field="user_id">12345</condition>
+              <condition field="event_type">ACCOUNT_LOCKED</condition>
+            </where>
+          </verification>
+        </result>
+        <result id="ER-005">
+          <description>30分钟后可以登录</description>
+          <verification type="status">
+            <value>success</value>
+          </verification>
+        </result>
+        <result id="ER-006">
+          <description>锁定计数器重置</description>
+          <verification type="api">
+            <endpoint>/api/users/testuser@example.com/login-attempts</endpoint>
+            <method>GET</method>
+            <expectedValue>0</expectedValue>
+          </verification>
+        </result>
+      </expectedResults>
+
+      <testData>
+        <data name="username">testuser@example.com</data>
+        <data name="correctPassword">Test@123</data>
+        <data name="wrongPassword">WrongPass123</data>
+        <data name="lockoutThreshold">5</data>
+        <data name="lockoutDuration">1800</data>
+      </testData>
+
+      <executionHistory>
+        <execution>
+          <date>2024-01-15T15:00:00Z</date>
+          <executor>alice@example.com</executor>
+          <result>fail</result>
+          <duration unit="seconds">1850</duration>
+          <environment>staging</environment>
+          <buildNumber>1.2.3</buildNumber>
+          <notes>邮件通知未发送</notes>
+          <defectId>BUG-123</defectId>
+        </execution>
+        <execution>
+          <date>2024-01-16T10:00:00Z</date>
+          <executor>alice@example.com</executor>
+          <result>pass</result>
+          <duration unit="seconds">1820</duration>
+          <environment>staging</environment>
+          <buildNumber>1.2.4</buildNumber>
+          <notes>BUG-123 已修复，测试通过</notes>
+        </execution>
+      </executionHistory>
+
+      <defects>
+        <defect id="BUG-123">
+          <title>账号锁定后未发送通知邮件</title>
+          <status>fixed</status>
+          <severity>medium</severity>
+          <url>https://jira.example.com/BUG-123</url>
+        </defect>
+      </defects>
+    </testCase>
+  </testCases>
+
+  <statistics>
+    <totalCases>4</totalCases>
+    <executed>3</executed>
+    <passed>3</passed>
+    <failed>0</failed>
+    <blocked>0</blocked>
+    <notRun>1</notRun>
+    <passRate>100</passRate>
+    <totalEstimatedTime unit="seconds">1310</totalEstimatedTime>
+    <totalExecutionTime unit="seconds">3873</totalExecutionTime>
+  </statistics>
+</testSuite>
+```
+
+## XSD Schema 定义
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="testSuite">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="metadata" type="MetadataType"/>
+        <xs:element name="environment" type="EnvironmentType" minOccurs="0"/>
+        <xs:element name="testCases" type="TestCasesType"/>
+        <xs:element name="statistics" type="StatisticsType" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="TestCaseType">
+    <xs:sequence>
+      <xs:element name="title" type="xs:string"/>
+      <xs:element name="description" type="xs:string" minOccurs="0"/>
+      <xs:element name="status" type="StatusType"/>
+      <xs:element name="assignedTo" type="xs:string" minOccurs="0"/>
+      <xs:element name="estimatedTime" type="TimeType" minOccurs="0"/>
+      <xs:element name="automation" type="AutomationType" minOccurs="0"/>
+      <xs:element name="tags" type="TagsType" minOccurs="0"/>
+      <xs:element name="preconditions" type="PreconditionsType" minOccurs="0"/>
+      <xs:element name="testSteps" type="TestStepsType"/>
+      <xs:element name="expectedResults" type="ExpectedResultsType"/>
+      <xs:element name="testData" type="TestDataType" minOccurs="0"/>
+      <xs:element name="executionHistory" type="ExecutionHistoryType" minOccurs="0"/>
+      <xs:element name="defects" type="DefectsType" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:string" use="required"/>
+    <xs:attribute name="priority" type="PriorityType" use="required"/>
+    <xs:attribute name="category" type="CategoryType" use="required"/>
+  </xs:complexType>
+
+  <xs:simpleType name="StatusType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="not_run"/>
+      <xs:enumeration value="pass"/>
+      <xs:enumeration value="fail"/>
+      <xs:enumeration value="blocked"/>
+      <xs:enumeration value="skip"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="PriorityType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="critical"/>
+      <xs:enumeration value="high"/>
+      <xs:enumeration value="medium"/>
+      <xs:enumeration value="low"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="CategoryType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="functional"/>
+      <xs:enumeration value="negative"/>
+      <xs:enumeration value="security"/>
+      <xs:enumeration value="performance"/>
+      <xs:enumeration value="ui"/>
+      <xs:enumeration value="integration"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+```
+
+## 导入到测试管理工具
+
+### TestLink
+```bash
+# 使用 TestLink XML-RPC API 导入
+php testlink-import.php --file=test-cases.xml --project="My Project"
+```
+
+### HP ALM/QC
+1. 打开 HP ALM
+2. 选择 "Test Plan" 模块
+3. 右键点击 "Import Tests"
+4. 选择 XML 文件
+5. 映射字段并导入
+
+### IBM RQM
+```bash
+# 使用 RQM CLI 导入
+java -jar rqm-cli.jar import \
+  --server=https://rqm.example.com \
+  --project="My Project" \
+  --file=test-cases.xml
+```
+
+## 最佳实践
+
+1. **使用 CDATA**: 对于包含特殊字符的内容
+```xml
+<description><![CDATA[测试 <script> 标签处理]]></description>
+```
+
+2. **命名空间**: 使用命名空间避免冲突
+```xml
+<testSuite xmlns="http://example.com/testcase/1.0">
+```
+
+3. **验证**: 使用 XSD 验证 XML 格式
+```bash
+xmllint --schema testcase.xsd test-cases.xml
+```
+
+4. **转换**: 使用 XSLT 转换为其他格式
+```bash
+xsltproc transform.xsl test-cases.xml > output.html
+```
+
+5. **版本控制**: 在 metadata 中记录版本信息
+
+6. **编码**: 始终使用 UTF-8 编码
+
+7. **格式化**: 保持良好的缩进和可读性

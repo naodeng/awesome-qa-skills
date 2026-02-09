@@ -1,0 +1,11 @@
+username,password,expected,description
+admin,admin123,success,管理员登录成功
+user1,user123,success,普通用户登录成功
+user2,pass456,success,用户2登录成功
+,password,error_username,用户名为空
+username,,error_password,密码为空
+invalid,wrong,error_credentials,无效的凭证
+test@example.com,test123,success,邮箱登录成功
+user with space,pass123,error_username,用户名包含空格
+admin,short,error_password,密码太短
+longusernamethatexceedslimit,pass123,error_username,用户名太长

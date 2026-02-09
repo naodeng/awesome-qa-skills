@@ -1,129 +1,168 @@
 <div align="right"><strong><a href="./README.md">🇨🇳中文</a></strong> | <strong>🇬🇧English</strong></div>
 
-# Awesome QA Skills
+# AI Testing Assistant Skills
 
-This repo provides **one set of QA workflow Skills** for **Cursor**, **Claude Code**, and **OpenCode**.  
-**Chinese and English are split at the directory level:** Chinese skill dirs (e.g. `daily-testing-workflow`), English skill dirs (e.g. `daily-testing-workflow-en`).  
-- **Workflow skills** live under **`skills/testing-workflows/`** (daily / sprint / release).  
-- **Testing-type skills** live under **`skills/testing-types/`** (15 types × CN/EN).  
-Copy the matching dir into your tool's skill location; no need to depend on the repo root.
+A comprehensive **testing skills library designed specifically for AI coding assistants**, transforming **Cursor**, **Claude Code**, **Kiro**, and other AI tools into your professional testing assistant.
 
----
+## 🎯 Project Core
 
-## The Three Workflows (`skills/testing-workflows/`)
+Provides **18 carefully designed testing Skills**:
+- ✅ **15 Testing Type Skills** - Covering functional, API, automation, performance, security, and more
+- ✅ **3 Workflow Skills** - Complete processes for daily testing, Sprint testing, and release testing
 
-| Workflow | Name | Summary |
-|----------|------|---------|
-| **Daily Testing** | Daily Testing Workflow | Morning routine, test case creation, automation, exploratory testing, bug reporting, afternoon review, wrap-up |
-| **Sprint Testing** | Sprint Testing Workflow | 2-week sprint: planning, setup & early testing, active testing, intensive regression, stabilization, review & demo, retrospective & next-sprint prep |
-| **Release Testing** | Release Testing Workflow | 1–2 weeks before release through post-release: T-14 planning, feature freeze, specialized testing (performance/security/accessibility/visual), RC, Go/No-Go, deployment, post-release monitoring & retro |
+Each Skill includes:
+- 📋 Structured prompts
+- 🎯 Best practices and usage guides
+- 🔄 Intelligent output format support
+- 🌐 Chinese and English versions
 
-Each workflow includes **When to Use**, **steps**, **How to Use the Prompts**, **Common Pitfalls**, **Best Practices**, and **Reference Files** so AI and testers can follow step-by-step.
+## 🚀 5 Minute Quick Start
 
----
+### 1. Clone the Project
 
-## Testing Type Skills (`skills/testing-types/`)
-
-Skills per **testing type**; **Chinese and English** are separate dirs (e.g. `functional-testing` / `functional-testing-en`).  
-
-**Output formats:** Default is **Markdown**; you can request **Excel** (tab-separated), **CSV**, or **JSON** by adding a short instruction at the **end** of your request. Each skill dir has **output-formats.md** with examples.
-
-Types: functional-testing, api-testing, automation-testing, bug-reporting, manual-testing, test-case-writing, test-reporting, test-strategy, requirements-analysis, performance-testing, security-testing, accessibility-testing, ai-assisted-testing, test-case-reviewer, mobile-testing (15 types × CN/EN). Prompts are bundled in each skill’s `prompts/`.
-
-See **[skills/testing-types/README.md](skills/testing-types/README.md)**.
-
----
-
-## Directory Layout
-
-All skills live under **`skills/`**, in two groups:
-
-- **`skills/testing-workflows/`** — The three workflows (daily / sprint / release), each with CN and EN dirs.
-- **`skills/testing-types/`** — Per–testing-type skills (15 types × CN/EN), with output format options.
-
-**Chinese skill:** e.g. `daily-testing-workflow` — Chinese `SKILL.md`, `reference.md`, and `prompts/` with Chinese prompts only (`xxx.md`).  
-**English skill:** e.g. `daily-testing-workflow-en` — English `SKILL.md`, `reference.md`, and `prompts/` with English prompts only (`xxx_EN.md`).  
-**Copy the dir for your language into your tool;** no dependency on the repo root `prompts/`.
-
-| Type | Chinese dir example | English dir example |
-|------|---------------------|---------------------|
-| Workflows | testing-workflows/daily-testing-workflow, sprint-testing-workflow, release-testing-workflow | testing-workflows/daily-testing-workflow-en, …-en |
-| Testing types | testing-types/functional-testing, api-testing, … | testing-types/functional-testing-en, …-en |
-
-```
-awesome-qa-skills/
-├── skills/
-│   ├── testing-workflows/            # Three workflows (CN/EN)
-│   │   ├── daily-testing-workflow/   # Daily (Chinese)
-│   │   │   ├── SKILL.md
-│   │   │   ├── reference.md
-│   │   │   └── prompts/              # Chinese .md only
-│   │   ├── daily-testing-workflow-en/
-│   │   ├── sprint-testing-workflow/
-│   │   ├── sprint-testing-workflow-en/
-│   │   ├── release-testing-workflow/
-│   │   └── release-testing-workflow-en/
-│   └── testing-types/                # Per–testing-type (CN/EN + output formats)
-│       ├── functional-testing/
-│       ├── functional-testing-en/
-│       ├── … 15 types × CN/EN
-│       └── README.md
-├── prompts/                          # Root prompt source (for maintenance)
-├── README.md
-└── README_EN.md
+```bash
+git clone https://github.com/your-repo/ai-testing-assistant-skills.git
+cd ai-testing-assistant-skills
 ```
 
----
+### 2. Install Skills to AI Tool
 
-## Usage by Tool
+```bash
+# Cursor example - Copy functional testing skill (English)
+cp -r skills/testing-types/functional-testing-en ~/.cursor/skills/
 
-Copy the matching skill dir from **`skills/testing-workflows/`** or **`skills/testing-types/`** into your tool’s skill directory. The same skill set works for all tools below.
+# Or copy daily testing workflow (English)
+cp -r skills/testing-workflows/daily-testing-workflow-en ~/.cursor/skills/
+```
+
+### 3. Use in AI Tool
+
+```
+@skill functional-testing-en
+Help me generate test cases for user login functionality
+```
+
+AI will automatically:
+- 📋 Analyze requirements and identify test scenarios
+- ✅ Generate structured test cases
+- 🔍 Identify boundary conditions and exception scenarios
+- 📊 Provide test data suggestions
+
+## 📦 Skills List
+
+### 🔄 Three Workflow Skills
+
+| Skill | Description | Directory |
+|-------|-------------|-----------|
+| **Daily Testing Workflow** | Daily test plans, test case writing, defect analysis, test reports | `skills/testing-workflows/daily-testing-workflow` |
+| **Sprint Testing Workflow** | Sprint planning, regression test prioritization, risk assessment | `skills/testing-workflows/sprint-testing-workflow` |
+| **Release Testing Workflow** | Release checklists, Go/No-Go decisions, rollback plans | `skills/testing-workflows/release-testing-workflow` |
+
+### 🧪 Fifteen Testing Type Skills
+
+| Skill | AI Capabilities | Directory |
+|-------|----------------|-----------|
+| **Functional Testing** | Auto-identify test scenarios, generate test cases, boundary value analysis | `skills/testing-types/functional-testing` |
+| **API Testing** | Generate test cases from API docs, auto-generate automation scripts | `skills/testing-types/api-testing` |
+| **Automation Testing** | POM pattern code generation, data-driven test design | `skills/testing-types/automation-testing` |
+| **Performance Testing** | Performance scenario design, load model generation, bottleneck analysis | `skills/testing-types/performance-testing` |
+| **Security Testing** | OWASP Top 10 checklists, security test case generation | `skills/testing-types/security-testing` |
+| **Mobile Testing** | Cross-platform test strategy, compatibility matrix generation | `skills/testing-types/mobile-testing` |
+| **Accessibility Testing** | WCAG compliance checks, accessibility test cases | `skills/testing-types/accessibility-testing` |
+| **Bug Reporting** | Intelligent defect classification, root cause analysis suggestions | `skills/testing-types/bug-reporting` |
+| **Test Case Writing** | Test case template generation, test data suggestions | `skills/testing-types/test-case-writing` |
+| **Test Reporting** | Automated report generation, data visualization suggestions | `skills/testing-types/test-reporting` |
+| **Test Strategy** | Risk assessment, test scope recommendations | `skills/testing-types/test-strategy` |
+| **Requirements Analysis** | Requirements decomposition, testability analysis | `skills/testing-types/requirements-analysis` |
+| **Manual Testing** | Exploratory testing charters, test path suggestions | `skills/testing-types/manual-testing` |
+| **Test Case Review** | Test case quality scoring, improvement suggestions | `skills/testing-types/test-case-reviewer` |
+| **AI-Assisted Testing** | Intelligent test data generation, defect prediction | `skills/testing-types/ai-assisted-testing` |
+
+> 💡 Each Skill has a corresponding English version with `-en` suffix in the directory name
+
+## 🛠️ Usage by Tool
 
 ### Cursor
 
-- **Project-level:** Copy into the project’s `.cursor/skills/`.
-  ```bash
-  # Workflow example
-  cp -r skills/testing-workflows/daily-testing-workflow /path/to/your/project/.cursor/skills/       # Chinese
-  cp -r skills/testing-workflows/daily-testing-workflow-en /path/to/your/project/.cursor/skills/   # English
-  ```
-- **User-level:** Copy to `~/.cursor/skills/`, again choosing by language.
+```bash
+# Project-level
+cp -r skills/testing-types/functional-testing-en /your/project/.cursor/skills/
+
+# User-level
+cp -r skills/testing-types/functional-testing-en ~/.cursor/skills/
+```
 
 ### Claude Code
 
-- Copy into the project’s `.claude/skills/`; dir name must match the skill `name`.
-  ```bash
-  mkdir -p .claude/skills
-  cp -r skills/testing-workflows/daily-testing-workflow .claude/skills/           # Chinese
-  cp -r skills/testing-workflows/daily-testing-workflow-en .claude/skills/       # English
-  ```
+```bash
+mkdir -p .claude/skills
+cp -r skills/testing-types/functional-testing-en .claude/skills/
+```
 
-### OpenCode
+### Kiro
 
-- **Project-level:** `.opencode/skills/<skill-name>/`
-- **Global:** `~/.config/opencode/skills/<skill-name>/`
-  ```bash
-  mkdir -p .opencode/skills
-  cp -r skills/testing-workflows/daily-testing-workflow .opencode/skills/         # Chinese
-  cp -r skills/testing-workflows/daily-testing-workflow-en .opencode/skills/   # English
-  ```
+```bash
+mkdir -p .kiro/skills
+cp -r skills/testing-types/functional-testing-en .kiro/skills/
+```
 
----
+## 📂 Project Structure
 
-## Prompts and reference (CN/EN)
+```
+ai-testing-assistant-skills/
+├── skills/                           # Core skills library
+│   ├── testing-workflows/            # 3 Workflow Skills
+│   │   ├── daily-testing-workflow/   # Chinese version
+│   │   ├── daily-testing-workflow-en/# English version
+│   │   └── ...
+│   └── testing-types/                # 15 Testing Type Skills
+│       ├── functional-testing/       # Chinese version
+│       ├── functional-testing-en/    # English version
+│       └── ...
+├── Reference/                        # Reference materials (optional)
+│   ├── examples/                     # Code examples
+│   └── templates/                    # Test templates
+└── README.md
+```
 
-- **Root `prompts/`:** Multiple prompt categories, each with **Chinese `xxx.md`** and **English `xxx_EN.md`** for maintenance and reference. Each skill dir’s `prompts/` matches the language: **Chinese skills** only `xxx.md`, **English skills** only `xxx_EN.md`. For a given step, open the corresponding file under that skill’s `prompts/` and use it with the AI.
-- **Each workflow’s `reference.md`:** Lists prompt types used, their role in the workflow, and a step→prompt mapping so you can look up and run “step → prompt” inside a single skill dir.
-- **“How to Use the Prompts” in SKILL.md:** Describes the three steps: check reference → open the matching file under this dir’s `prompts/` → run with context and the AI.
+## 🎯 Skill Features
 
----
+### 1. Intelligent Output Formats
 
-## Conventions
+Each Skill supports multiple output formats:
+- 📝 **Markdown** - Default format, suitable for documentation
+- 📊 **Excel** - Tab-separated, suitable for importing into test management tools
+- 📋 **CSV** - Universal format
+- 🔷 **JSON** - Structured data
+- 🎯 **Jira/TestRail/Azure DevOps** - Direct adaptation to mainstream tools
 
-- Skill `name` matches dir name; keep the dir name when copying into each tool.
+### 2. Context Awareness
 
----
+Skills can intelligently identify:
+- 🔍 Project type (Web/Mobile/API/Desktop)
+- 🎨 Tech stack (React/Vue/Angular/Flutter, etc.)
+- 🧪 Testing frameworks (Jest/Vitest/Pytest/JUnit)
+
+### 3. Bilingual Support
+
+All Skills provide complete Chinese and English versions for global teams.
+
+## 📊 Project Statistics
+
+- ✅ **18 AI Testing Skills** (15 testing types + 3 workflows)
+- ✅ **Bilingual Versions** (36 Skill directories total)
+- ✅ **60,000+ Lines of Carefully Designed Prompts and Documentation**
+
+## 🤝 Contributing
+
+Welcome to contribute new Skills or improve existing ones! Please check [CONTRIBUTING.md](CONTRIBUTING.md).
+
+## 📞 Related Links
+
+- 📖 [Skills Index](skills-index.md) - View all Skills by category
+- 🔗 [Skills Graph](skills-graph.md) - Skills dependency relationships
+- ❓ [FAQ](FAQ.md) - Usage help
 
 ## License
 
-This repo provides Skill packaging for AI tools only.
+This repository provides a testing assistant skills library designed specifically for AI tools.

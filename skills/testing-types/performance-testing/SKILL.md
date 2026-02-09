@@ -1,10 +1,23 @@
 ---
 name: performance-testing
 version: 2.0.0
-description: 默认输出 Markdown，可请求 Excel/CSV/JSON。Use for 性能测试 or performance-testing.
-tags: [performance, testing, load-testing, stress-testing, k6, jmeter]
-difficulty: advanced
-last_updated: 2026-02-06
+last-updated: 2026-02-06
+description: 设计性能测试方案，包括负载、压力、容量、稳定性测试。默认输出 Markdown，可请求 Excel/CSV/JSON。Use for 性能测试 or performance-testing.
+category: testing-types
+level: advanced
+tags: [performance, load, stress, capacity, scalability, k6, jmeter, gatling]
+dependencies: [automation-testing]
+recommended-with: [api-testing, test-strategy, test-reporting]
+context-aware: true
+context-patterns:
+  project-types: [api, web, mobile]
+  test-types: [load, stress, spike, endurance, scalability, volume]
+  test-frameworks: [k6, jmeter, gatling, locust, artillery]
+  metrics: [response-time, throughput, error-rate, resource-usage]
+output-formats: [markdown, excel, csv, json, html-report]
+examples-count: 1
+has-tutorial: false
+has-troubleshooting: true
 ---
 
 # 性能测试（中文版）

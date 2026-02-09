@@ -1,0 +1,179 @@
+{
+  "testSuite": "购物车功能测试",
+  "description": "测试购物车相关功能",
+  "parameters": {
+    "baseUrl": "https://example.com",
+    "productsUrl": "https://example.com/products",
+    "cartUrl": "https://example.com/cart"
+  },
+  "testCases": [
+    {
+      "id": "TC101",
+      "name": "添加商品到购物车",
+      "priority": "high",
+      "tags": ["smoke", "cart"],
+      "steps": [
+        {
+          "keyword": "navigateTo",
+          "args": ["${productsUrl}"]
+        },
+        {
+          "keyword": "waitForElement",
+          "args": [".product-list", 5000]
+        },
+        {
+          "keyword": "clickElement",
+          "args": [".product:first-child .add-to-cart"]
+        },
+        {
+          "keyword": "waitForElement",
+          "args": [".cart-notification", 3000]
+        },
+        {
+          "keyword": "verifyText",
+          "args": [".cart-count", "1"]
+        },
+        {
+          "keyword": "navigateTo",
+          "args": ["${cartUrl}"]
+        },
+        {
+          "keyword": "verifyElementVisible",
+          "args": [".cart-item"]
+        }
+      ]
+    },
+    {
+      "id": "TC102",
+      "name": "从购物车移除商品",
+      "priority": "high",
+      "tags": ["cart"],
+      "steps": [
+        {
+          "keyword": "navigateTo",
+          "args": ["${cartUrl}"]
+        },
+        {
+          "keyword": "waitForElement",
+          "args": [".cart-item", 5000]
+        },
+        {
+          "keyword": "clickElement",
+          "args": [".cart-item:first-child .remove-button"]
+        },
+        {
+          "keyword": "waitForElement",
+          "args": [".empty-cart-message", 3000]
+        },
+        {
+          "keyword": "verifyText",
+          "args": [".empty-cart-message", "购物车是空的"]
+        }
+      ]
+    },
+    {
+      "id": "TC103",
+      "name": "更新商品数量",
+      "priority": "medium",
+      "tags": ["cart"],
+      "steps": [
+        {
+          "keyword": "navigateTo",
+          "args": ["${cartUrl}"]
+        },
+        {
+          "keyword": "waitForElement",
+          "args": [".cart-item", 5000]
+        },
+        {
+          "keyword": "clearText",
+          "args": [".cart-item:first-child .quantity-input"]
+        },
+        {
+          "keyword": "inputText",
+          "args": [".cart-item:first-child .quantity-input", "3"]
+        },
+        {
+          "keyword": "clickElement",
+          "args": [".cart-item:first-child .update-button"]
+        },
+        {
+          "keyword": "waitForElement",
+          "args": [".update-success", 3000]
+        },
+        {
+          "keyword": "verifyText",
+          "args": [".cart-item:first-child .quantity-input", "3"]
+        }
+      ]
+    },
+    {
+      "id": "TC104",
+      "name": "应用优惠券",
+      "priority": "medium",
+      "tags": ["cart", "coupon"],
+      "steps": [
+        {
+          "keyword": "navigateTo",
+          "args": ["${cartUrl}"]
+        },
+        {
+          "keyword": "waitForElement",
+          "args": [".cart-item", 5000]
+        },
+        {
+          "keyword": "inputText",
+          "args": ["#coupon-code", "SAVE10"]
+        },
+        {
+          "keyword": "clickElement",
+          "args": ["#apply-coupon"]
+        },
+        {
+          "keyword": "waitForElement",
+          "args": [".coupon-success", 3000]
+        },
+        {
+          "keyword": "verifyText",
+          "args": [".coupon-success", "优惠券已应用"]
+        },
+        {
+          "keyword": "verifyElementVisible",
+          "args": [".discount-amount"]
+        }
+      ]
+    },
+    {
+      "id": "TC105",
+      "name": "结账流程",
+      "priority": "high",
+      "tags": ["cart", "checkout"],
+      "steps": [
+        {
+          "keyword": "navigateTo",
+          "args": ["${cartUrl}"]
+        },
+        {
+          "keyword": "waitForElement",
+          "args": [".cart-item", 5000]
+        },
+        {
+          "keyword": "clickElement",
+          "args": ["#checkout-button"]
+        },
+        {
+          "keyword": "waitForUrl",
+          "args": ["${baseUrl}/checkout", 5000]
+        },
+        {
+          "keyword": "verifyElementVisible",
+          "args": [".checkout-form"]
+        },
+        {
+          "keyword": "verifyElementVisible",
+          "args": [".order-summary"]
+        }
+      ]
+    }
+  ]
+}
