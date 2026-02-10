@@ -21,8 +21,8 @@ Each Skill includes:
 ### 1. Clone the Project
 
 ```bash
-git clone https://github.com/your-repo/ai-testing-assistant-skills.git
-cd ai-testing-assistant-skills
+git clone https://github.com/naodeng/awesome-qa-skills.git
+cd awesome-qa-skills
 ```
 
 ### 2. Install Skills to AI Tool

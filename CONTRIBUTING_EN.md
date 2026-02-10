@@ -14,7 +14,7 @@ Thank you for your interest in contributing to AI Testing Assistant Skills! We w
 
 If you find a bug or have suggestions:
 
-1. Search [Issues](https://github.com/your-repo/ai-testing-assistant-skills/issues) first
+1. Search [Issues](https://github.com/naodeng/awesome-qa-skills/issues) first
 2. Create a new Issue
 3. Provide detailed description, reproduction steps, and environment info
 

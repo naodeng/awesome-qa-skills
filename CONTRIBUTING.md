@@ -14,7 +14,7 @@
 
 如果您发现了 bug 或有改进建议：
 
-1. 先搜索 [Issues](https://github.com/your-repo/ai-testing-assistant-skills/issues) 确认问题未被报告
+1. 先搜索 [Issues](https://github.com/naodeng/awesome-qa-skills/issues) 确认问题未被报告
 2. 创建新的 Issue
 3. 提供详细的问题描述、复现步骤和环境信息
 
@@ -137,7 +137,7 @@ Thank you for your interest in contributing to AI Testing Assistant Skills! We w
 
 If you find a bug or have suggestions:
 
-1. Search [Issues](https://github.com/your-repo/ai-testing-assistant-skills/issues) first
+1. Search [Issues](https://github.com/naodeng/awesome-qa-skills/issues) first
 2. Create a new Issue
 3. Provide detailed description, reproduction steps, and environment info
 

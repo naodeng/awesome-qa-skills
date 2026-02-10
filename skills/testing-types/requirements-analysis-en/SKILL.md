@@ -242,7 +242,7 @@ Use comprehensive checklist:
 If the issue persists:
 1. Check [FAQ.md](../../../FAQ.md)
 2. Review example templates in examples/ directory
-3. Search [GitHub Issues](https://github.com/your-repo/awesome-qa-skills/issues)
+3. Search [GitHub Issues](https://github.com/naodeng/awesome-qa-skills/issues)
 4. Submit a new Issue with detailed information
 
 **Related skills:** test-case-writing-en, test-strategy-en, functional-testing-en.

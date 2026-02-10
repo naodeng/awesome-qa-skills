@@ -242,7 +242,7 @@ has-troubleshooting: true
 如果问题仍未解决：
 1. 查看 [FAQ.md](../../../FAQ.md)
 2. 查看示例的 README.md 文件
-3. 搜索 [GitHub Issues](https://github.com/your-repo/awesome-qa-skills/issues)
+3. 搜索 [GitHub Issues](https://github.com/naodeng/awesome-qa-skills/issues)
 4. 提交新的 Issue 并附上详细信息
 
 **相关技能：** api-testing、test-case-writing、test-strategy、automation-testing。

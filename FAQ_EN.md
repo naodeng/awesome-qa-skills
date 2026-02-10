@@ -22,7 +22,7 @@ A testing skills library designed specifically for AI coding assistants, contain
 
 ```bash
 # 1. Clone the project
-git clone https://github.com/your-repo/ai-testing-assistant-skills.git
+git clone https://github.com/naodeng/awesome-qa-skills.git
 
 # 2. Copy needed skill
 cp -r skills/testing-types/functional-testing-en ~/.cursor/skills/
@@ -249,7 +249,7 @@ See [CONTRIBUTING_EN.md](CONTRIBUTING_EN.md) for details.
 
 #### 27. How to report bugs?
 
-1. Search [Issues](https://github.com/your-repo/ai-testing-assistant-skills/issues)
+1. Search [Issues](https://github.com/naodeng/awesome-qa-skills/issues)
 2. If not reported, create new Issue
 3. Provide detailed information and reproduction steps
 
@@ -267,14 +267,14 @@ MIT License. You can freely use, modify, and distribute.
 
 1. Check this FAQ
 2. Check [README_EN.md](README_EN.md)
-3. Search [Issues](https://github.com/your-repo/ai-testing-assistant-skills/issues)
+3. Search [Issues](https://github.com/naodeng/awesome-qa-skills/issues)
 4. Ask in GitHub Issues
 
 ---
 
 ## Can't Find Your Answer?
 
-If your question isn't listed, please ask in [GitHub Issues](https://github.com/your-repo/ai-testing-assistant-skills/issues).
+If your question isn't listed, please ask in [GitHub Issues](https://github.com/naodeng/awesome-qa-skills/issues).
 
 ---
 

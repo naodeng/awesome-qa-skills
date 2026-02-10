@@ -21,8 +21,8 @@
 ### 1. 克隆项目
 
 ```bash
-git clone https://github.com/your-repo/ai-testing-assistant-skills.git
-cd ai-testing-assistant-skills
+git clone https://github.com/naodeng/awesome-qa-skills.git
+cd awesome-qa-skills
 ```
 
 ### 2. 安装 Skill 到 AI 工具

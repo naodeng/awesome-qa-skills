@@ -22,7 +22,7 @@
 
 ```bash
 # 1. Clone 项目
-git clone https://github.com/your-repo/ai-testing-assistant-skills.git
+git clone https://github.com/naodeng/awesome-qa-skills.git
 
 # 2. 复制需要的 skill
 cp -r skills/testing-types/functional-testing ~/.cursor/skills/
@@ -249,7 +249,7 @@ AI 会生成定制化的测试策略。
 
 #### 27. 如何报告 bug？
 
-1. 搜索 [Issues](https://github.com/your-repo/ai-testing-assistant-skills/issues)
+1. 搜索 [Issues](https://github.com/naodeng/awesome-qa-skills/issues)
 2. 如果未被报告，创建新 Issue
 3. 提供详细信息和复现步骤
 
@@ -267,7 +267,7 @@ MIT License。您可以自由使用、修改和分发。
 
 1. 查看本 FAQ
 2. 查看 [README.md](README.md)
-3. 搜索 [Issues](https://github.com/your-repo/ai-testing-assistant-skills/issues)
+3. 搜索 [Issues](https://github.com/naodeng/awesome-qa-skills/issues)
 4. 提问在 GitHub Issues
 
 ---
@@ -290,7 +290,7 @@ A testing skills library designed specifically for AI coding assistants, contain
 
 ```bash
 # 1. Clone the project
-git clone https://github.com/your-repo/ai-testing-assistant-skills.git
+git clone https://github.com/naodeng/awesome-qa-skills.git
 
 # 2. Copy needed skill
 cp -r skills/testing-types/functional-testing-en ~/.cursor/skills/
@@ -517,7 +517,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for details.
 
 #### 27. How to report bugs?
 
-1. Search [Issues](https://github.com/your-repo/ai-testing-assistant-skills/issues)
+1. Search [Issues](https://github.com/naodeng/awesome-qa-skills/issues)
 2. If not reported, create new Issue
 3. Provide detailed information and reproduction steps
 
@@ -535,16 +535,16 @@ MIT License. You can freely use, modify, and distribute.
 
 1. Check this FAQ
 2. Check [README.md](README.md)
-3. Search [Issues](https://github.com/your-repo/ai-testing-assistant-skills/issues)
+3. Search [Issues](https://github.com/naodeng/awesome-qa-skills/issues)
 4. Ask in GitHub Issues
 
 ---
 
 ## 没有找到答案？ | Can't Find Your Answer?
 
-如果您的问题未在此列出，请在 [GitHub Issues](https://github.com/your-repo/ai-testing-assistant-skills/issues) 提问。
+如果您的问题未在此列出，请在 [GitHub Issues](https://github.com/naodeng/awesome-qa-skills/issues) 提问。
 
-If your question isn't listed, please ask in [GitHub Issues](https://github.com/your-repo/ai-testing-assistant-skills/issues).
+If your question isn't listed, please ask in [GitHub Issues](https://github.com/naodeng/awesome-qa-skills/issues).
 
 ---
 

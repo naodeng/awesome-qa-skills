@@ -228,7 +228,7 @@ See [examples/](examples/) directory for more examples.
 If the issue persists:
 1. Check [FAQ.md](../../../FAQ.md)
 2. Check example README.md files
-3. Search [GitHub Issues](https://github.com/your-repo/awesome-qa-skills/issues)
+3. Search [GitHub Issues](https://github.com/naodeng/awesome-qa-skills/issues)
 4. Submit a new Issue with detailed information
 
 **Related:** api-testing-en, test-case-writing-en, test-strategy-en, automation-testing-en.
