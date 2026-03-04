@@ -1,29 +1,13 @@
 ---
 name: test-reporting-en
-version: 2.0.0
-last-updated: 2024-02-06
-description: Generate professional test reports with executive summary, metrics, defect analysis, risk assessment. Supports daily, weekly, release reports. Default output: Markdown, can request Excel/CSV/JSON/PDF. Use for test reporting.
-category: testing-types
-level: intermediate
-tags: [reporting, metrics, dashboard, summary, analysis]
-dependencies: []
-recommended-with: [test-strategy-en, bug-reporting-en, test-case-writing-en]
-context-aware: true
-context-patterns:
-  report-types: [daily, weekly, sprint, release, executive]
-  audiences: [team, management, stakeholders]
-  formats: [summary, detailed, dashboard]
-output-formats: [markdown, excel, csv, json, pdf, html]
-examples-count: 1
-has-tutorial: false
-has-troubleshooting: true
+description: Use this skill when you need to generate test reports with summary, metrics, defect analysis, and risk assessment; triggers include test reporting and QA status report.
 ---
 
 # Test Reporting
 
 **中文版：** 见技能 `test-reporting`。
 
-Prompts: see `prompts/test-reporting.md` in this directory.
+Prompts: see `prompts/test-reporting_EN.md` in this directory.
 
 ## When to Use
 
@@ -35,14 +19,20 @@ Prompts: see `prompts/test-reporting.md` in this directory.
 
 This skill **defaults to Markdown output**. For other formats, specify at the **end** of your request.
 
+## How to Use
+
+1. Open the relevant file in this directory's `prompts/` and copy the content below the dashed line.
+2. Append your requirements and context (business flow, environment, constraints, acceptance criteria).
+3. If you need non-Markdown output, append the request sentence from `output-formats.md` at the end.
+
 ## Reference Files
 
-- **[prompts/test-reporting.md](prompts/test-reporting.md)** — Test reporting prompts
+- **[prompts/test-reporting_EN.md](prompts/test-reporting_EN.md)** — Test reporting prompts
 - **[output-formats.md](output-formats.md)** — Format specifications
 
 ## Code Examples
 
-1. **[Test Report Templates](examples/test-report-templates/)** - Various test report templates
+1. **Test Report Templates (Planned)** - Various test report templates
 
 ## Common Pitfalls
 

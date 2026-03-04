@@ -1,6 +1,6 @@
 ---
 name: daily-testing-workflow-en
-description: Guides QA engineers through daily testing activities—morning review, test case creation, automation, exploratory testing, bug reporting, and end-of-day wrap-up. Use when planning or executing day-to-day testing or when the user asks about daily testing workflow.
+description: Use this skill when you need a day-by-day QA routine including planning, execution, bug reporting, and end-of-day wrap-up; triggers include daily testing workflow and daily QA routine.
 ---
 
 # Daily Testing Workflow
@@ -143,9 +143,11 @@ Use **this directory's `prompts/`**. Step→prompt mapping: [reference.md](refer
   - [ ] Plan tomorrow's work
   - [ ] Record incomplete items
 
-## How to Use the Prompts
+## How to Use
 
-For each step: 1) Check [reference.md](reference.md) for the prompt file for that step; 2) Open that file under this directory’s `prompts/`; 3) Combine the prompt content with the user’s context (requirements, environment, scope) and run with the AI.
+1. Check [reference.md](reference.md) to find the prompt file for the current step.
+2. Open the corresponding file in `prompts/`, then combine it with the current context (scope, environment, risks, constraints).
+3. Run step by step, and update priorities or gates based on outputs and blockers.
 
 ## Common Pitfalls
 

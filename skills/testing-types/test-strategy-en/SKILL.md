@@ -1,29 +1,13 @@
 ---
 name: test-strategy-en
-version: 2.0.0
-last-updated: 2024-02-06
-description: Develop comprehensive test strategy including test scope, methods, resources, risks. Supports agile, waterfall, and other development models. Default output: Markdown, can request Excel/CSV/JSON. Use for test strategy.
-category: testing-types
-level: advanced
-tags: [strategy, planning, management, risk, quality]
-dependencies: [requirements-analysis-en]
-recommended-with: [test-case-writing-en, test-reporting-en, functional-testing-en]
-context-aware: true
-context-patterns:
-  project-types: [web, mobile, desktop, api, embedded]
-  methodologies: [agile, waterfall, devops, continuous-testing]
-  team-sizes: [solo, small, medium, large]
-output-formats: [markdown, excel, csv, json, pdf]
-examples-count: 1
-has-tutorial: false
-has-troubleshooting: true
+description: Use this skill when you need to define a test strategy covering scope, methods, resources, risks, and quality gates; triggers include test strategy and QA planning.
 ---
 
 # Test Strategy
 
 **中文版：** 见技能 `test-strategy`。
 
-Prompts: see `prompts/test-strategy.md` in this directory.
+Prompts: see `prompts/test-strategy_EN.md` in this directory.
 
 ## When to Use
 
@@ -44,22 +28,22 @@ This skill **defaults to Markdown output** (consistent with Standard-version tem
 
 See **[output-formats.md](output-formats.md)** for detailed specifications and examples.
 
-## How to Use Prompts in This Skill
+## How to Use
 
-1. Open `prompts/test-strategy.md` in this directory, copy content below the dashed line to AI conversation.
-2. Attach your project information and requirements.
-3. For Excel/PDF/JSON, add the request sentence from output-formats.md at the end.
+1. Open the relevant file in this directory's `prompts/` and copy the content below the dashed line.
+2. Append your requirements and context (business flow, environment, constraints, acceptance criteria).
+3. If you need non-Markdown output, append the request sentence from `output-formats.md` at the end.
 
 ## Reference Files
 
-- **[prompts/test-strategy.md](prompts/test-strategy.md)** — Test strategy Standard-version prompts
+- **[prompts/test-strategy_EN.md](prompts/test-strategy_EN.md)** — Test strategy Standard-version prompts
 - **[output-formats.md](output-formats.md)** — Markdown / Excel / PDF / JSON request instructions
 
 ## Code Examples
 
 This skill provides the following real code examples:
 
-1. **[Test Strategy Template Collection](examples/test-strategy-templates/)** - Complete test strategy templates
+1. **[Test Strategy Template Collection](../../../Reference/templates/test-strategy-templates.md)** - Complete test strategy templates
    - Agile project test strategy
    - Waterfall project test strategy
    - Mobile app test strategy
@@ -71,7 +55,7 @@ This skill provides the following real code examples:
 2. **Strategy Generation Tools** (coming soon)
 3. **Risk Assessment Tools** (coming soon)
 
-Check [examples/](examples/) directory for more examples.
+See [Reference templates](../../../Reference/templates/test-strategy-templates.md) for practical templates.
 
 ## Common Pitfalls
 

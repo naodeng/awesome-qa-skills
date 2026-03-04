@@ -1,23 +1,6 @@
 ---
 name: automation-testing
-version: 2.0.0
-last-updated: 2026-02-06
-description: 设计自动化测试方案，包括 POM、数据驱动、BDD 等模式。默认输出 Markdown，可请求 Excel/CSV/JSON。Use for 自动化测试 or automation-testing.
-category: testing-types
-level: intermediate
-tags: [automation, selenium, playwright, cypress, pom, bdd, data-driven]
-dependencies: [functional-testing]
-recommended-with: [api-testing, functional-testing, test-case-writing]
-context-aware: true
-context-patterns:
-  project-types: [web, mobile, api]
-  frameworks: [selenium, playwright, cypress, appium, webdriverio]
-  test-frameworks: [pytest, junit, testng, jest, mocha]
-  patterns: [page-object-model, data-driven, bdd, keyword-driven]
-output-formats: [markdown, excel, csv, json, code]
-examples-count: 3
-has-tutorial: false
-has-troubleshooting: true
+description: Use this skill when you need to design automation testing approaches using patterns like POM, data-driven testing, or BDD; triggers include 自动化测试 and automation testing.
 ---
 
 # 自动化测试（中文版）
@@ -38,9 +21,9 @@ has-troubleshooting: true
 
 ## 如何使用
 
-1. 打开本目录 `prompts/automation-testing.md`，将虚线以下内容复制到 AI 对话。
-2. 附加你的具体需求。
-3. 若需 Excel/CSV/JSON，在末尾加上 output-formats.md 中的请求句。
+1. 打开本目录 `prompts/` 下对应提示词文件，复制虚线以下内容。
+2. 附加你的需求与上下文（业务流程、环境、约束、验收标准）。
+3. 若需非 Markdown 输出，在末尾追加 `output-formats.md` 中的请求句。
 
 ## 代码示例
 
@@ -138,112 +121,17 @@ class LoginPage:
         assert driver.find_element(By.ID, "welcome").is_displayed()
 ```
 
+## 常见误区 | Common Pitfalls
+
+- ❌ 先自动化不稳定或未收敛的需求 → ✅ 优先自动化稳定且高价值的核心流程
+- ❌ 大量使用脆弱定位器 → ✅ 使用稳定定位策略并统一定位规范
+- ❌ 在各用例重复环境准备逻辑 → ✅ 抽离公共 setup/teardown 与夹具
+- ❌ 忽略不稳定用例治理 → ✅ 记录 flaky 模式并先修复根因再扩覆盖
+
 ## 故障排除
 
-### 常见问题
-
-#### 1. 元素找不到 (NoSuchElementException)
-
-**问题：** 测试运行时找不到页面元素
-
-**解决方案：**
-```python
-# 使用显式等待
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-
-wait = WebDriverWait(driver, 20)
-element = wait.until(EC.presence_of_element_located((By.ID, "element")))
-
-# 或增加隐式等待时间
-driver.implicitly_wait(10)
-```
-
-#### 2. 元素不可点击 (ElementClickInterceptedException)
-
-**问题：** 元素被其他元素遮挡
-
-**解决方案：**
-```python
-# 等待元素可点击
-wait.until(EC.element_to_be_clickable((By.ID, "button"))).click()
-
-# 或使用 JavaScript 点击
-driver.execute_script("arguments[0].click();", element)
-
-# 或滚动到元素
-driver.execute_script("arguments[0].scrollIntoView(true);", element)
-```
-
-#### 3. StaleElementReferenceException
-
-**问题：** 页面刷新后元素引用失效
-
-**解决方案：**
-```python
-# 重新查找元素
-def safe_click(locator):
-    for _ in range(3):
-        try:
-            element = driver.find_element(*locator)
-            element.click()
-            break
-        except StaleElementReferenceException:
-            time.sleep(0.5)
-```
-
-#### 4. 浏览器驱动版本不匹配
-
-**问题：** `SessionNotCreatedException: session not created`
-
-**解决方案：**
-```bash
-# 使用 webdriver-manager 自动管理驱动
-pip install webdriver-manager
-
-# 在代码中使用
-from webdriver_manager.chrome import ChromeDriverManager
-driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
-```
-
-#### 5. 测试运行缓慢
-
-**问题：** 测试执行时间过长
-
-**解决方案：**
-- 使用无头模式：`options.add_argument("--headless")`
-- 并行运行测试：`pytest -n 4`
-- 减少不必要的等待时间
-- 优化定位器（优先使用 ID、Name）
-
-#### 6. 测试不稳定（Flaky Tests）
-
-**问题：** 测试有时通过有时失败
-
-**解决方案：**
-- 增加等待时间
-- 使用显式等待替代隐式等待
-- 检查测试数据依赖
-- 确保测试独立性
-- 添加重试机制：`@pytest.mark.flaky(reruns=3)`
-
-#### 7. 截图功能不工作
-
-**问题：** 测试失败时没有生成截图
-
-**解决方案：**
-```python
-# 在 conftest.py 中添加钩子
-@pytest.hookimpl(tryfirst=True, hookwrapper=True)
-def pytest_runtest_makereport(item, call):
-    outcome = yield
-    rep = outcome.get_result()
-    if rep.when == "call" and rep.failed:
-        driver = item.funcargs.get("driver")
-        if driver:
-            driver.save_screenshot(f"screenshots/{item.name}.png")
-```
-
+详细排障步骤已迁移到 [references/troubleshooting.md](references/troubleshooting.md)。
+按需加载该文件，避免主技能文档过长。
 ## 参考文件
 
 - **prompts/automation-testing.md** — 自动化测试 Standard-version 提示词

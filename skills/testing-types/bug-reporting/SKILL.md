@@ -1,22 +1,6 @@
 ---
 name: bug-reporting
-version: 2.0.0
-last-updated: 2024-02-06
-description: 编写高质量缺陷报告，包含复现步骤、环境信息、截图日志。默认输出 Markdown，可请求 Excel/CSV/JSON/Jira。Use for 缺陷上报 or bug reporting.
-category: testing-types
-level: basic
-tags: [bug, defect, issue, reporting, documentation]
-dependencies: []
-recommended-with: [manual-testing, test-case-writing, test-reporting]
-context-aware: true
-context-patterns:
-  project-types: [web, mobile, desktop, api]
-  frameworks: [any]
-  tools: [jira, bugzilla, github-issues, azure-devops]
-output-formats: [markdown, excel, csv, json, jira, github]
-examples-count: 1
-has-tutorial: false
-has-troubleshooting: true
+description: Use this skill when you need to write clear, reproducible bug reports with steps, environment details, and evidence; triggers include 缺陷上报 and bug reporting.
 ---
 
 # 缺陷上报（中文版）
@@ -46,11 +30,11 @@ has-troubleshooting: true
 
 详细说明与示例见本目录 **[output-formats.md](output-formats.md)**。
 
-## 如何使用本技能中的提示词
+## 如何使用
 
-1. 打开本目录 `prompts/bug-reporting.md`，将虚线以下内容复制到 AI 对话。
-2. 附加你发现的缺陷信息。
-3. 若需 Jira/GitHub/Excel/CSV/JSON，在末尾加上 output-formats.md 中的请求句。
+1. 打开本目录 `prompts/` 下对应提示词文件，复制虚线以下内容。
+2. 附加你的需求与上下文（业务流程、环境、约束、验收标准）。
+3. 若需非 Markdown 输出，在末尾追加 `output-formats.md` 中的请求句。
 
 ## 参考文件
 

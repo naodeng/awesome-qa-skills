@@ -1,22 +1,6 @@
 ---
 name: test-case-writing-en
-version: 2.0.0
-last-updated: 2024-02-06
-description: Write high-quality test cases covering normal, exception, and boundary scenarios. Support equivalence partitioning, boundary value, decision table methods. Default output Markdown; can request Excel/CSV/JSON. Use for test case writing.
-category: testing-types
-level: intermediate
-tags: [test-case, test-design, coverage, quality]
-dependencies: [requirements-analysis-en]
-recommended-with: [functional-testing-en, test-case-reviewer-en, test-strategy-en]
-context-aware: true
-context-patterns:
-  project-types: [web, mobile, desktop, api]
-  frameworks: [any]
-  methodologies: [equivalence-partitioning, boundary-value, decision-table, state-transition]
-output-formats: [markdown, excel, csv, json, testrail, xray]
-examples-count: 1
-has-tutorial: false
-has-troubleshooting: true
+description: Use this skill when you need to create high-quality test cases with normal, exception, and boundary scenarios; triggers include test case writing and test design.
 ---
 
 # Test Case Writing (English)
@@ -45,11 +29,11 @@ This skill **defaults to Markdown** (Standard-version template). To get another 
 
 Details and examples: **[output-formats.md](output-formats.md)** in this directory.
 
-## How to Use the Prompt
+## How to Use
 
-1. Open `prompts/test-case-writing_EN.md`, copy everything below the dashed line into the AI chat.
-2. Append your functional requirements or user stories.
-3. If you want Excel/CSV/JSON, append the relevant line from output-formats.md.
+1. Open the relevant file in this directory's `prompts/` and copy the content below the dashed line.
+2. Append your requirements and context (business flow, environment, constraints, acceptance criteria).
+3. If you need non-Markdown output, append the request sentence from `output-formats.md` at the end.
 
 ## Reference Files
 
@@ -60,7 +44,7 @@ Details and examples: **[output-formats.md](output-formats.md)** in this directo
 
 This skill provides the following real-world code examples:
 
-1. **[Test Case Design Patterns](../test-case-writing/examples/test-case-patterns/)** - Complete test case design examples
+1. **Test Case Design Patterns (Planned)** - Complete test case design examples
    - Equivalence partitioning examples (10+)
    - Boundary value analysis examples (8+)
    - Decision table testing examples (5+)
@@ -70,7 +54,7 @@ This skill provides the following real-world code examples:
 2. **Test Case Generation Tool** (Coming soon)
 3. **Test Case Quality Checker** (Coming soon)
 
-See [examples/](../test-case-writing/examples/) directory for more examples.
+Additional examples are planned in a future update.
 
 ## Common Pitfalls
 

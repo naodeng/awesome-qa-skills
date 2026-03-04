@@ -1,6 +1,6 @@
 ---
 name: release-testing-workflow
-description: Guides release testing from T-14 planning through Go/No-Go, deployment, and post-release. Covers functional, regression, performance, security, accessibility, and visual testing. Use when planning or executing 发布测试工作流程 or release testing workflow.
+description: Use this skill when you need release-phase QA workflow from T-14 planning to go/no-go and post-release monitoring; triggers include 发布测试工作流程 and release testing workflow.
 ---
 
 # 发布测试工作流程（中文版）
@@ -374,9 +374,11 @@ description: Guides release testing from T-14 planning through Go/No-Go, deploym
 
 ---
 
-## 如何使用本技能中的提示词
+## 如何使用
 
-执行某一步时：1）查 [reference.md](reference.md) 得到该步骤对应的提示词文件名；2）打开本目录 `prompts/` 下该文件；3）将提示词内容与当前发布上下文（范围、环境、门禁）结合后与 AI 协同执行。
+1. 先查看 [reference.md](reference.md)，定位当前步骤对应的提示词文件。
+2. 打开 `prompts/` 下对应文件，并结合当前上下文（范围、环境、风险、约束）一起使用。
+3. 按步骤推进执行，并根据产出与阻塞动态调整优先级或门禁条件。
 
 ## 常见误区
 

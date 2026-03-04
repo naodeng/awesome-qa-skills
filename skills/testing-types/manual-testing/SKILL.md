@@ -1,22 +1,6 @@
 ---
 name: manual-testing
-version: 2.0.0
-last-updated: 2024-02-06
-description: 设计手工测试和探索性测试方案，包含测试章程、启发式方法、会话记录。默认输出 Markdown，可请求 Excel/CSV/JSON。Use for 手动测试 or manual testing.
-category: testing-types
-level: intermediate
-tags: [manual, exploratory, charter, heuristic, session]
-dependencies: []
-recommended-with: [functional-testing, bug-reporting, test-case-writing]
-context-aware: true
-context-patterns:
-  project-types: [web, mobile, desktop, api]
-  approaches: [scripted, exploratory, session-based]
-  techniques: [tours, heuristics, personas]
-output-formats: [markdown, excel, csv, json]
-examples-count: 1
-has-tutorial: false
-has-troubleshooting: true
+description: Use this skill when you need to plan manual or exploratory testing with charters, heuristics, and session records; triggers include 手动测试 and exploratory testing.
 ---
 
 # 手动/探索性测试（中文版）
@@ -35,6 +19,12 @@ has-troubleshooting: true
 
 本技能**默认输出为 Markdown**。若需其他格式，请在需求**末尾**明确说明。
 
+## 如何使用
+
+1. 打开本目录 `prompts/` 下对应提示词文件，复制虚线以下内容。
+2. 附加你的需求与上下文（业务流程、环境、约束、验收标准）。
+3. 若需非 Markdown 输出，在末尾追加 `output-formats.md` 中的请求句。
+
 ## 参考文件
 
 - **[prompts/manual-testing.md](prompts/manual-testing.md)** — 手动测试提示词
@@ -42,7 +32,7 @@ has-troubleshooting: true
 
 ## 代码示例 | Code Examples
 
-1. **[探索性测试章程模板](examples/exploratory-testing-charters/)** - 测试章程和会话记录模板
+1. **探索性测试章程模板（计划中）** - 测试章程和会话记录模板
 
 ## 常见误区 | Common Pitfalls
 

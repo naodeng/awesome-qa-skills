@@ -1,6 +1,6 @@
 ---
 name: release-testing-workflow-en
-description: Guides release testing from T-14 planning through Go/No-Go, deployment, and post-release. Covers functional, regression, performance, security, accessibility. Use when planning or executing release testing.
+description: Use this skill when you need release-phase QA workflow from T-14 planning to go/no-go and post-release monitoring; triggers include release testing workflow and release readiness testing.
 ---
 
 # Release Testing Workflow
@@ -15,9 +15,11 @@ End-to-end release testing (1–2 weeks before release through post-release). Pr
 - Need timeline: T-14 planning → T-7 feature freeze → T-5–T-4 specialized testing → T-3 RC → T-2 quality assessment → T-1 Go/No-Go → T-day release → T+1–T+7 post-release
 - **Trigger:** e.g. “How do we schedule pre-release testing?” or “Go/No-Go checklist”
 
-## How to Use the Prompts
+## How to Use
 
-For each step: 1) Check [reference.md](reference.md) for the prompt file; 2) Open that file under this directory’s `prompts/`; 3) Combine the prompt with the current release context (scope, environment, gate criteria) and run with the AI.
+1. Check [reference.md](reference.md) to find the prompt file for the current step.
+2. Open the corresponding file in `prompts/`, then combine it with the current context (scope, environment, risks, constraints).
+3. Run step by step, and update priorities or gates based on outputs and blockers.
 
 ## Common Pitfalls
 

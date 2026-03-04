@@ -1,23 +1,6 @@
 ---
 name: performance-testing
-version: 2.0.0
-last-updated: 2026-02-06
-description: 设计性能测试方案，包括负载、压力、容量、稳定性测试。默认输出 Markdown，可请求 Excel/CSV/JSON。Use for 性能测试 or performance-testing.
-category: testing-types
-level: advanced
-tags: [performance, load, stress, capacity, scalability, k6, jmeter, gatling]
-dependencies: [automation-testing]
-recommended-with: [api-testing, test-strategy, test-reporting]
-context-aware: true
-context-patterns:
-  project-types: [api, web, mobile]
-  test-types: [load, stress, spike, endurance, scalability, volume]
-  test-frameworks: [k6, jmeter, gatling, locust, artillery]
-  metrics: [response-time, throughput, error-rate, resource-usage]
-output-formats: [markdown, excel, csv, json, html-report]
-examples-count: 1
-has-tutorial: false
-has-troubleshooting: true
+description: Use this skill when you need to design performance testing for load, stress, spike, endurance, or capacity objectives; triggers include 性能测试 and performance testing.
 ---
 
 # 性能测试（中文版）
@@ -38,9 +21,9 @@ has-troubleshooting: true
 
 ## 如何使用
 
-1. 打开本目录 `prompts/performance-testing.md`，将虚线以下内容复制到 AI 对话。
-2. 附加你的具体需求。
-3. 若需 Excel/CSV/JSON，在末尾加上 output-formats.md 中的请求句。
+1. 打开本目录 `prompts/` 下对应提示词文件，复制虚线以下内容。
+2. 附加你的需求与上下文（业务流程、环境、约束、验收标准）。
+3. 若需非 Markdown 输出，在末尾追加 `output-formats.md` 中的请求句。
 
 ## 代码示例
 
@@ -113,86 +96,17 @@ chmod +x run-tests.sh
 | Locust | Python 项目 | 易学、分布式 |
 | Artillery | Node.js 项目 | 配置简单、CI/CD 友好 |
 
+## 常见误区 | Common Pitfalls
+
+- ❌ 压测模型脱离真实业务流量 → ✅ 基于生产行为构建场景与负载配比
+- ❌ 只看平均响应时间 → ✅ 同时关注 p95/p99、错误率、吞吐与资源饱和
+- ❌ 跳过基线与预热阶段 → ✅ 先基线、后预热、再分阶段加压
+- ❌ 只看测试结果不看系统指标 → ✅ 关联 CPU/内存/IO/下游依赖做瓶颈定位
+
 ## 故障排除
 
-### 常见问题
-
-#### 1. 连接超时
-
-**问题：** `request timeout` 或 `connection timeout`
-
-**解决方案：**
-```javascript
-// K6 示例
-export const options = {
-  timeout: '60s',  // 增加超时时间
-};
-
-// 或检查网络连接和服务器状态
-```
-
-#### 2. 内存不足
-
-**问题：** K6 或 JMeter 占用内存过高
-
-**解决方案：**
-- 减少虚拟用户数
-- 使用 SharedArray 共享数据（K6）
-- 分布式测试
-- 增加测试机器内存
-
-#### 3. 证书验证错误
-
-**问题：** SSL certificate verification failed
-
-**解决方案：**
-```javascript
-// K6 示例
-export const options = {
-  insecureSkipTLSVerify: true,  // 跳过证书验证（仅测试环境）
-};
-```
-
-#### 4. 速率限制
-
-**问题：** 被服务器限流（429 Too Many Requests）
-
-**解决方案：**
-- 增加思考时间（sleep）
-- 使用随机延迟
-- 分阶段增加负载
-- 与服务器团队协调测试时间
-
-#### 5. 结果不稳定
-
-**问题：** 每次测试结果差异很大
-
-**解决方案：**
-- 确保测试环境稳定
-- 多次运行取平均值
-- 检查网络状况
-- 隔离其他干扰因素
-
-#### 6. 无法达到目标负载
-
-**问题：** 实际 RPS 远低于预期
-
-**解决方案：**
-- 检查客户端资源（CPU、网络）
-- 使用分布式测试
-- 优化测试脚本
-- 减少不必要的等待时间
-
-#### 7. 报告数据异常
-
-**问题：** 性能指标异常高或异常低
-
-**解决方案：**
-- 检查测试脚本逻辑
-- 验证阈值设置
-- 查看详细日志
-- 对比历史数据
-
+详细排障步骤已迁移到 [references/troubleshooting.md](references/troubleshooting.md)。
+按需加载该文件，避免主技能文档过长。
 ## 参考文件
 
 - **prompts/performance-testing.md** — 性能测试 Standard-version 提示词

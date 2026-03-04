@@ -1,6 +1,6 @@
 ---
 name: sprint-testing-workflow
-description: Guides QA and Scrum teams through a 2-week sprint testing cycle—planning, setup, execution, regression, stabilization, review, and retrospective. Use when planning or running sprint testing, 迭代测试工作流程, or when the user asks about sprint testing workflow.
+description: Use this skill when you need a sprint-based QA workflow from planning through review and retrospective; triggers include 迭代测试工作流程 and sprint testing workflow.
 ---
 
 # 迭代测试工作流程（中文版）
@@ -254,9 +254,11 @@ description: Guides QA and Scrum teams through a 2-week sprint testing cycle—p
 
 ---
 
-## 如何使用本技能中的提示词
+## 如何使用
 
-执行某一步时：1）查 [reference.md](reference.md) 得到该步骤对应的提示词文件名；2）打开本目录 `prompts/` 下该文件；3）将提示词内容与当前迭代上下文（故事、环境、范围）结合后与 AI 协同执行。
+1. 先查看 [reference.md](reference.md)，定位当前步骤对应的提示词文件。
+2. 打开 `prompts/` 下对应文件，并结合当前上下文（范围、环境、风险、约束）一起使用。
+3. 按步骤推进执行，并根据产出与阻塞动态调整优先级或门禁条件。
 
 ## 常见误区
 

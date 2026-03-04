@@ -1,23 +1,6 @@
 ---
 name: mobile-testing-en
-version: 2.0.0
-last-updated: 2024-02-06
-description: Design mobile (iOS/Android) test plans and cases covering functionality, compatibility, performance, network, security. Default output Markdown; can request Excel/CSV/JSON. Use for mobile testing.
-category: testing-types
-level: advanced
-tags: [mobile, android, ios, appium, detox, espresso, xcuitest, automation]
-dependencies: [functional-testing-en]
-recommended-with: [automation-testing-en, performance-testing-en, accessibility-testing-en]
-context-aware: true
-context-patterns:
-  project-types: [mobile]
-  platforms: [android, ios, react-native, flutter, hybrid]
-  test-frameworks: [appium, detox, espresso, xcuitest, flutter-test]
-  test-types: [functional, compatibility, performance, network, battery, security]
-output-formats: [markdown, excel, csv, json, jira, testrail]
-examples-count: 1
-has-tutorial: false
-has-troubleshooting: true
+description: Use this skill when you need to design mobile test plans for iOS or Android covering functionality, compatibility, performance, network, and security; triggers include mobile testing and app testing.
 ---
 
 # Mobile Testing (English)
@@ -38,9 +21,9 @@ Prompt: this directory's `prompts/mobile-testing_EN.md`.
 
 ## How to Use
 
-1. Open `prompts/mobile-testing_EN.md`, copy everything below the dashed line into the AI chat.
-2. Append mobile app requirements, platform features, or test objectives.
-3. For Excel/CSV/JSON, append the request line from output-formats.md.
+1. Open the relevant file in this directory's `prompts/` and copy the content below the dashed line.
+2. Append your requirements and context (business flow, environment, constraints, acceptance criteria).
+3. If you need non-Markdown output, append the request sentence from `output-formats.md` at the end.
 
 ## Code Examples
 
@@ -86,6 +69,13 @@ See: [examples/appium-android/README.md](../mobile-testing/examples/appium-andro
    - Automate core flows
    - Automate regression tests
    - Supplement with manual testing
+
+## Common Pitfalls
+
+- ❌ Testing on a single device model only → ✅ Validate representative device/OS/network matrix
+- ❌ Ignoring lifecycle interruptions → ✅ Cover calls, background/foreground switches, and permission prompts
+- ❌ Not testing degraded networks → ✅ Verify behavior under weak, unstable, and offline conditions
+- ❌ Overfocusing on UI flow → ✅ Include install/update, crash, battery, and performance checks
 
 ## Troubleshooting
 

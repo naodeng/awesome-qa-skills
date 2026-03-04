@@ -1,23 +1,6 @@
 ---
 name: security-testing
-version: 2.0.0
-last-updated: 2026-02-06
-description: 设计安全测试方案，包括 OWASP Top 10、渗透测试、漏洞扫描。默认输出 Markdown，可请求 Excel/CSV/JSON。Use for 安全测试 or security-testing.
-category: testing-types
-level: advanced
-tags: [security, owasp, penetration, vulnerability, zap, burp-suite, sql-injection, xss]
-dependencies: [api-testing]
-recommended-with: [automation-testing, test-strategy, test-reporting]
-context-aware: true
-context-patterns:
-  project-types: [api, web, mobile]
-  test-types: [vulnerability-scan, penetration, authentication, authorization, encryption, injection]
-  test-frameworks: [owasp-zap, burp-suite, nmap, metasploit]
-  standards: [owasp-top-10, pci-dss, gdpr, hipaa]
-output-formats: [markdown, excel, csv, json, html-report]
-examples-count: 1
-has-tutorial: false
-has-troubleshooting: true
+description: Use this skill when you need to design security testing around OWASP risks, vulnerability scanning, and penetration scenarios; triggers include 安全测试 and security testing.
 ---
 
 # 安全测试（中文版）
@@ -38,9 +21,9 @@ has-troubleshooting: true
 
 ## 如何使用
 
-1. 打开本目录 `prompts/security-testing.md`，将虚线以下内容复制到 AI 对话。
-2. 附加你的具体需求。
-3. 若需 Excel/CSV/JSON，在末尾加上 output-formats.md 中的请求句。
+1. 打开本目录 `prompts/` 下对应提示词文件，复制虚线以下内容。
+2. 附加你的需求与上下文（业务流程、环境、约束、验收标准）。
+3. 若需非 Markdown 输出，在末尾追加 `output-formats.md` 中的请求句。
 
 ## 代码示例
 
@@ -109,90 +92,17 @@ cd examples/owasp-zap-scan
 | SQLMap | SQL 注入 | 自动化注入测试 |
 | Nikto | Web 服务器 | 快速漏洞扫描 |
 
+## 常见误区 | Common Pitfalls
+
+- ❌ 只跑工具不做威胁建模 → ✅ 先识别资产、攻击面与风险优先级
+- ❌ 把扫描结果当最终结论 → ✅ 做漏洞分级、可利用性验证并过滤误报
+- ❌ 漏测认证鉴权绕过场景 → ✅ 增加越权、会话劫持、权限边界测试
+- ❌ 只在发版前做一次安全测试 → ✅ 在 CI 与发布门禁中持续执行安全检查
+
 ## 故障排除
 
-### 常见问题
-
-#### 1. ZAP 扫描超时
-
-**问题**: 扫描时间过长或超时
-
-**解决方案**:
-```bash
-# 增加超时时间
-zap-baseline.py -t http://example.com --timeout 300
-
-# 限制扫描深度
-zap-baseline.py -t http://example.com -m 3
-```
-
-#### 2. 误报过多
-
-**问题**: 扫描结果包含大量误报
-
-**解决方案**:
-- 使用自定义扫描策略
-- 排除已知的误报
-- 手动验证高危漏洞
-- 调整扫描级别
-
-#### 3. 无法扫描需要认证的页面
-
-**问题**: ZAP 无法访问登录后的页面
-
-**解决方案**:
-```bash
-# 配置认证
-zap-cli auth \
-  --auth-mode form \
-  --auth-url http://example.com/login \
-  --auth-username user \
-  --auth-password pass
-```
-
-#### 4. Docker 权限问题
-
-**问题**: 报告文件无法写入
-
-**解决方案**:
-```bash
-# 使用正确的权限
-docker run -u $(id -u):$(id -g) \
-  -v $(pwd):/zap/wrk/:rw \
-  owasp/zap2docker-stable \
-  zap-baseline.py -t http://example.com
-```
-
-#### 5. 证书验证错误
-
-**问题**: SSL certificate verification failed
-
-**解决方案**:
-```bash
-# 跳过证书验证（仅测试环境）
-zap-baseline.py -t https://example.com --hook-script skip-cert-check.py
-```
-
-#### 6. 扫描被 WAF 拦截
-
-**问题**: 请求被 Web 应用防火墙拦截
-
-**解决方案**:
-- 降低扫描速度
-- 使用随机 User-Agent
-- 与安全团队协调测试时间
-- 使用白名单 IP
-
-#### 7. 报告解读困难
-
-**问题**: 不理解扫描报告中的漏洞
-
-**解决方案**:
-- 查阅 OWASP 文档
-- 手动验证漏洞
-- 咨询安全专家
-- 参考 CVE 数据库
-
+详细排障步骤已迁移到 [references/troubleshooting.md](references/troubleshooting.md)。
+按需加载该文件，避免主技能文档过长。
 ## 参考文件
 
 - **prompts/security-testing.md** — 安全测试 Standard-version 提示词

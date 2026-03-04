@@ -1,29 +1,13 @@
 ---
 name: bug-reporting-en
-version: 2.0.0
-last-updated: 2024-02-06
-description: Write high-quality defect reports with reproduction steps, environment info, screenshots, and logs. Default output: Markdown, can request Excel/CSV/JSON/Jira. Use for bug reporting or defect reporting.
-category: testing-types
-level: basic
-tags: [bug, defect, issue, reporting, documentation]
-dependencies: []
-recommended-with: [manual-testing-en, test-case-writing-en, test-reporting-en]
-context-aware: true
-context-patterns:
-  project-types: [web, mobile, desktop, api]
-  frameworks: [any]
-  tools: [jira, bugzilla, github-issues, azure-devops]
-output-formats: [markdown, excel, csv, json, jira, github]
-examples-count: 1
-has-tutorial: false
-has-troubleshooting: true
+description: Use this skill when you need to write clear, reproducible bug reports with steps, environment details, and evidence; triggers include bug reporting and defect reporting.
 ---
 
 # Bug Reporting
 
 **中文版：** 见技能 `bug-reporting`。
 
-Prompts: see `prompts/bug-reporting.md` in this directory.
+Prompts: see `prompts/bug-reporting_EN.md` in this directory.
 
 ## When to Use
 
@@ -46,22 +30,22 @@ This skill **defaults to Markdown output** (consistent with Standard-version tem
 
 See **[output-formats.md](output-formats.md)** for detailed specifications and examples.
 
-## How to Use Prompts in This Skill
+## How to Use
 
-1. Open `prompts/bug-reporting.md` in this directory, copy content below the dashed line to AI conversation.
-2. Attach your discovered defect information.
-3. For Jira/GitHub/Excel/CSV/JSON, add the request sentence from output-formats.md at the end.
+1. Open the relevant file in this directory's `prompts/` and copy the content below the dashed line.
+2. Append your requirements and context (business flow, environment, constraints, acceptance criteria).
+3. If you need non-Markdown output, append the request sentence from `output-formats.md` at the end.
 
 ## Reference Files
 
-- **[prompts/bug-reporting.md](prompts/bug-reporting.md)** — Bug reporting Standard-version prompts
+- **[prompts/bug-reporting_EN.md](prompts/bug-reporting_EN.md)** — Bug reporting Standard-version prompts
 - **[output-formats.md](output-formats.md)** — Markdown / Jira / GitHub / Excel / CSV / JSON request instructions
 
 ## Code Examples
 
 This skill provides the following real code examples:
 
-1. **[Bug Report Templates and Examples](examples/bug-report-templates/)** - Complete defect report template collection
+1. **[Bug Report Templates and Examples](../bug-reporting/examples/bug-report-templates/)** - Complete defect report template collection
    - 10+ real bug report examples
    - Multiple format templates (Markdown, Jira, GitHub)
    - Best practices and anti-pattern comparisons
@@ -70,7 +54,7 @@ This skill provides the following real code examples:
 2. **Screenshot and Log Collection Tools** (coming soon)
 3. **Bug Report Quality Checker** (coming soon)
 
-Check [examples/](examples/) directory for more examples.
+Check [examples](../bug-reporting/examples/) directory for more examples.
 
 ## Common Pitfalls
 

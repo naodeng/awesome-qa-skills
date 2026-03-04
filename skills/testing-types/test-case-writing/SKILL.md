@@ -1,22 +1,6 @@
 ---
 name: test-case-writing
-version: 2.0.0
-last-updated: 2024-02-06
-description: 编写高质量测试用例，覆盖正常、异常、边界场景。支持等价类、边界值、决策表等设计方法。默认输出 Markdown，可请求 Excel/CSV/JSON。Use for 测试用例编写 or test case writing.
-category: testing-types
-level: intermediate
-tags: [test-case, test-design, coverage, quality]
-dependencies: [requirements-analysis]
-recommended-with: [functional-testing, test-case-reviewer, test-strategy]
-context-aware: true
-context-patterns:
-  project-types: [web, mobile, desktop, api]
-  frameworks: [any]
-  methodologies: [equivalence-partitioning, boundary-value, decision-table, state-transition]
-output-formats: [markdown, excel, csv, json, testrail, xray]
-examples-count: 1
-has-tutorial: false
-has-troubleshooting: true
+description: Use this skill when you need to create high-quality test cases with normal, exception, and boundary scenarios; triggers include 测试用例编写 and test case writing.
 ---
 
 # 测试用例编写（中文版）
@@ -45,11 +29,11 @@ has-troubleshooting: true
 
 详细说明与示例见本目录 **[output-formats.md](output-formats.md)**。
 
-## 如何使用本技能中的提示词
+## 如何使用
 
-1. 打开本目录 `prompts/test-case-writing.md`，将虚线以下内容复制到 AI 对话。
-2. 附加你的功能需求或用户故事。
-3. 若需 Excel/CSV/JSON，在末尾加上 output-formats.md 中的请求句。
+1. 打开本目录 `prompts/` 下对应提示词文件，复制虚线以下内容。
+2. 附加你的需求与上下文（业务流程、环境、约束、验收标准）。
+3. 若需非 Markdown 输出，在末尾追加 `output-formats.md` 中的请求句。
 
 ## 参考文件
 
@@ -60,7 +44,7 @@ has-troubleshooting: true
 
 本技能提供以下真实代码示例：
 
-1. **[测试用例设计模式](examples/test-case-patterns/)** - 完整的测试用例设计示例
+1. **测试用例设计模式（计划中）** - 完整的测试用例设计示例
    - 等价类划分示例（10+ 个）
    - 边界值分析示例（8+ 个）
    - 决策表测试示例（5+ 个）
@@ -70,7 +54,7 @@ has-troubleshooting: true
 2. **用例生成工具**（即将推出）
 3. **用例质量检查器**（即将推出）
 
-查看 [examples/](examples/) 目录获取更多示例。
+更多示例将在后续版本补充。
 
 ## 常见误区 | Common Pitfalls
 

@@ -1,29 +1,13 @@
 ---
 name: manual-testing-en
-version: 2.0.0
-last-updated: 2024-02-06
-description: Design manual and exploratory testing approaches with test charters, heuristic methods, session records. Default output: Markdown, can request Excel/CSV/JSON. Use for manual testing or exploratory testing.
-category: testing-types
-level: intermediate
-tags: [manual, exploratory, charter, heuristic, session]
-dependencies: []
-recommended-with: [functional-testing-en, bug-reporting-en, test-case-writing-en]
-context-aware: true
-context-patterns:
-  project-types: [web, mobile, desktop, api]
-  approaches: [scripted, exploratory, session-based]
-  techniques: [tours, heuristics, personas]
-output-formats: [markdown, excel, csv, json]
-examples-count: 1
-has-tutorial: false
-has-troubleshooting: true
+description: Use this skill when you need to plan manual or exploratory testing with charters, heuristics, and session records; triggers include manual testing and exploratory testing.
 ---
 
 # Manual/Exploratory Testing
 
 **中文版：** 见技能 `manual-testing`。
 
-Prompts: see `prompts/manual-testing.md` in this directory.
+Prompts: see `prompts/manual-testing_EN.md` in this directory.
 
 ## When to Use
 
@@ -35,14 +19,20 @@ Prompts: see `prompts/manual-testing.md` in this directory.
 
 This skill **defaults to Markdown output**. For other formats, specify at the **end** of your request.
 
+## How to Use
+
+1. Open the relevant file in this directory's `prompts/` and copy the content below the dashed line.
+2. Append your requirements and context (business flow, environment, constraints, acceptance criteria).
+3. If you need non-Markdown output, append the request sentence from `output-formats.md` at the end.
+
 ## Reference Files
 
-- **[prompts/manual-testing.md](prompts/manual-testing.md)** — Manual testing prompts
+- **[prompts/manual-testing_EN.md](prompts/manual-testing_EN.md)** — Manual testing prompts
 - **[output-formats.md](output-formats.md)** — Format specifications
 
 ## Code Examples
 
-1. **[Exploratory Testing Charter Templates](examples/exploratory-testing-charters/)** - Test charters and session record templates
+1. **Exploratory Testing Charter Templates (Planned)** - Test charters and session record templates
 
 ## Common Pitfalls
 

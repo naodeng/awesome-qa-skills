@@ -1,22 +1,6 @@
 ---
 name: test-strategy
-version: 2.0.0
-last-updated: 2024-02-06
-description: 制定全面的测试策略，包含测试范围、方法、资源、风险。支持敏捷、瀑布等不同开发模式。默认输出 Markdown，可请求 Excel/CSV/JSON。Use for 测试策略 or test strategy.
-category: testing-types
-level: advanced
-tags: [strategy, planning, management, risk, quality]
-dependencies: [requirements-analysis]
-recommended-with: [test-case-writing, test-reporting, functional-testing]
-context-aware: true
-context-patterns:
-  project-types: [web, mobile, desktop, api, embedded]
-  methodologies: [agile, waterfall, devops, continuous-testing]
-  team-sizes: [solo, small, medium, large]
-output-formats: [markdown, excel, csv, json, pdf]
-examples-count: 1
-has-tutorial: false
-has-troubleshooting: true
+description: Use this skill when you need to define a test strategy covering scope, methods, resources, risks, and quality gates; triggers include 测试策略 and test strategy.
 ---
 
 # 测试策略（中文版）
@@ -44,11 +28,11 @@ has-troubleshooting: true
 
 详细说明与示例见本目录 **[output-formats.md](output-formats.md)**。
 
-## 如何使用本技能中的提示词
+## 如何使用
 
-1. 打开本目录 `prompts/test-strategy.md`，将虚线以下内容复制到 AI 对话。
-2. 附加你的项目信息和需求。
-3. 若需 Excel/PDF/JSON，在末尾加上 output-formats.md 中的请求句。
+1. 打开本目录 `prompts/` 下对应提示词文件，复制虚线以下内容。
+2. 附加你的需求与上下文（业务流程、环境、约束、验收标准）。
+3. 若需非 Markdown 输出，在末尾追加 `output-formats.md` 中的请求句。
 
 ## 参考文件
 
@@ -59,7 +43,7 @@ has-troubleshooting: true
 
 本技能提供以下真实代码示例：
 
-1. **[测试策略模板集](examples/test-strategy-templates/)** - 完整的测试策略模板
+1. **[测试策略模板集](../../../Reference/templates/test-strategy-templates.md)** - 完整的测试策略模板
    - 敏捷项目测试策略
    - 瀑布项目测试策略
    - 移动应用测试策略
@@ -71,7 +55,7 @@ has-troubleshooting: true
 2. **策略生成工具**（即将推出）
 3. **风险评估工具**（即将推出）
 
-查看 [examples/](examples/) 目录获取更多示例。
+可参考 [模板库](../../../Reference/templates/test-strategy-templates.md) 获取可复用模板。
 
 ## 常见误区 | Common Pitfalls
 

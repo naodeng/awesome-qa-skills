@@ -1,22 +1,6 @@
 ---
 name: api-testing
-version: 2.0.0
-last-updated: 2026-02-06
-description: 设计 API 测试方案与用例，覆盖 REST/GraphQL/gRPC 接口。默认输出 Markdown，可请求 Excel/CSV/JSON。Use for API 测试 or api-testing.
-category: testing-types
-level: intermediate
-tags: [api, rest, graphql, grpc, postman, newman, integration]
-dependencies: []
-recommended-with: [automation-testing, performance-testing, security-testing]
-context-aware: true
-context-patterns:
-  project-types: [api, web, mobile]
-  frameworks: [express, nestjs, django, flask, fastapi, spring-boot, gin]
-  test-frameworks: [postman, rest-assured, supertest, pytest, junit]
-output-formats: [markdown, excel, csv, json, jira, testrail]
-examples-count: 3
-has-tutorial: false
-has-troubleshooting: true
+description: Use this skill when you need to design API test plans or cases for REST, GraphQL, or gRPC interfaces; triggers include API 测试 and api testing.
 ---
 
 # API 测试（中文版）
@@ -37,9 +21,9 @@ has-troubleshooting: true
 
 ## 如何使用
 
-1. 打开本目录 `prompts/api-testing.md`，将虚线以下内容复制到 AI 对话。
-2. 附加你的具体需求。
-3. 若需 Excel/CSV/JSON，在末尾加上 output-formats.md 中的请求句。
+1. 打开本目录 `prompts/` 下对应提示词文件，复制虚线以下内容。
+2. 附加你的需求与上下文（业务流程、环境、约束、验收标准）。
+3. 若需非 Markdown 输出，在末尾追加 `output-formats.md` 中的请求句。
 
 ## 代码示例
 
@@ -106,99 +90,17 @@ npm install -g newman
 | SuperTest | Node.js 项目 | 与 Express 集成好 |
 | GraphQL Playground | GraphQL API | 专为 GraphQL 设计 |
 
+## 常见误区 | Common Pitfalls
+
+- ❌ 只测成功路径 → ✅ 覆盖参数校验、异常处理、鉴权失败与边界场景
+- ❌ 契约校验不完整 → ✅ 同时校验状态码、Schema、业务字段与兼容性
+- ❌ 测试数据相互污染 → ✅ 使用可重复的种子数据并明确清理策略
+- ❌ 忽略环境差异 → ✅ 校验不同环境的地址、鉴权配置与依赖版本
+
 ## 故障排除
 
-### 常见问题
-
-#### 1. Newman 运行失败
-
-**问题：** `newman: command not found`
-
-**解决方案：**
-```bash
-# 全局安装 Newman
-npm install -g newman
-
-# 或使用 npx（无需全局安装）
-npx newman run collection.json
-```
-
-#### 2. 环境变量未生效
-
-**问题：** 测试中的变量显示为 `{{variable}}`
-
-**解决方案：**
-- 确保使用 `-e` 参数指定环境文件
-- 检查环境文件中变量名是否正确
-- 在 Postman 中验证变量是否正确设置
-
-```bash
-newman run collection.json -e environment.json
-```
-
-#### 3. 证书验证错误
-
-**问题：** `SSL certificate problem`
-
-**解决方案：**
-```bash
-# 开发环境可临时禁用 SSL 验证（不推荐生产环境）
-newman run collection.json --insecure
-
-# 或指定 CA 证书
-newman run collection.json --ssl-client-cert-list cert-list.json
-```
-
-#### 4. 请求超时
-
-**问题：** `Error: ETIMEDOUT` 或 `Error: ESOCKETTIMEDOUT`
-
-**解决方案：**
-```bash
-# 增加超时时间（毫秒）
-newman run collection.json --timeout-request 30000
-
-# 添加请求延迟
-newman run collection.json --delay-request 500
-```
-
-#### 5. 响应数据格式不匹配
-
-**问题：** JSON Schema 验证失败
-
-**解决方案：**
-- 使用 Postman 的 Schema 生成功能
-- 检查 API 文档确认数据结构
-- 使用 `pm.response.json()` 打印实际响应
-
-```javascript
-// 在 Tests 中添加调试信息
-console.log(pm.response.json());
-```
-
-#### 6. 动态数据依赖问题
-
-**问题：** 后续请求依赖前一个请求的数据
-
-**解决方案：**
-```javascript
-// 在第一个请求的 Tests 中保存数据
-pm.environment.set("userId", pm.response.json().id);
-
-// 在后续请求中使用
-// URL: {{baseUrl}}/users/{{userId}}
-```
-
-#### 7. 批量运行测试失败
-
-**问题：** 单个测试通过，批量运行失败
-
-**解决方案：**
-- 检查测试之间的数据依赖
-- 确保每个测试独立可运行
-- 添加适当的延迟：`--delay-request 200`
-- 使用 `--bail` 在首次失败时停止
-
+详细排障步骤已迁移到 [references/troubleshooting.md](references/troubleshooting.md)。
+按需加载该文件，避免主技能文档过长。
 ## 参考文件
 
 - **prompts/api-testing.md** — API 测试 Standard-version 提示词

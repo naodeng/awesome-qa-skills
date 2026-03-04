@@ -1,22 +1,6 @@
 ---
 name: requirements-analysis
-version: 2.0.0
-last-updated: 2024-02-06
-description: 分析需求文档，识别测试点、边界条件、依赖关系。支持用户故事、用例、PRD 等格式。默认输出 Markdown，可请求 Excel/CSV/JSON。Use for 需求分析 or requirements analysis.
-category: testing-types
-level: intermediate
-tags: [requirements, analysis, test-points, coverage, quality]
-dependencies: []
-recommended-with: [test-case-writing, test-strategy, functional-testing]
-context-aware: true
-context-patterns:
-  project-types: [web, mobile, desktop, api]
-  methodologies: [agile, waterfall, user-story, use-case]
-  formats: [prd, user-story, brd, frd]
-output-formats: [markdown, excel, csv, json, mindmap]
-examples-count: 1
-has-tutorial: false
-has-troubleshooting: true
+description: Use this skill when you need to analyze requirements, identify test points, boundaries, dependencies, and risks before test design; triggers include 需求分析 and requirements analysis.
 ---
 
 # 需求分析（中文版）
@@ -35,6 +19,12 @@ has-troubleshooting: true
 
 本技能**默认输出为 Markdown**。若需其他格式，请在需求**末尾**明确说明。
 
+## 如何使用
+
+1. 打开本目录 `prompts/` 下对应提示词文件，复制虚线以下内容。
+2. 附加你的需求与上下文（业务流程、环境、约束、验收标准）。
+3. 若需非 Markdown 输出，在末尾追加 `output-formats.md` 中的请求句。
+
 ## 参考文件
 
 - **[prompts/requirements-analysis.md](prompts/requirements-analysis.md)** — 需求分析提示词
@@ -42,7 +32,7 @@ has-troubleshooting: true
 
 ## 代码示例 | Code Examples
 
-1. **[需求分析模板](examples/requirements-analysis-templates/)** - 需求分析示例和模板
+1. **需求分析模板（计划中）** - 需求分析示例和模板
 
 ## 常见误区 | Common Pitfalls
 

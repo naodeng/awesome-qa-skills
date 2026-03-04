@@ -1,6 +1,6 @@
 ---
 name: daily-testing-workflow
-description: Guides QA engineers through daily testing activities—morning review, test case creation, automation, exploratory testing, bug reporting, and end-of-day wrap-up. Use when planning or executing day-to-day testing, daily test routines, or when the user asks about 日常测试工作流程 or daily testing workflow.
+description: Use this skill when you need a day-by-day QA routine including planning, execution, bug reporting, and end-of-day wrap-up; triggers include 日常测试工作流程 and daily testing workflow.
 ---
 
 # 日常测试工作流程（中文版）
@@ -142,9 +142,11 @@ description: Guides QA engineers through daily testing activities—morning revi
   - [ ] 规划明日工作
   - [ ] 记录未完成事项
 
-## 如何使用本技能中的提示词
+## 如何使用
 
-执行某一步时：1）查 [reference.md](reference.md) 得到该步骤对应的提示词文件名；2）打开本目录 `prompts/` 下该文件；3）将提示词内容与用户当前上下文（需求、环境、待测项）结合后与 AI 协同执行。
+1. 先查看 [reference.md](reference.md)，定位当前步骤对应的提示词文件。
+2. 打开 `prompts/` 下对应文件，并结合当前上下文（范围、环境、风险、约束）一起使用。
+3. 按步骤推进执行，并根据产出与阻塞动态调整优先级或门禁条件。
 
 ## 常见误区
 

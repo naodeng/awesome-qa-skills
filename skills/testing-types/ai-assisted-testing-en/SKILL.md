@@ -1,29 +1,13 @@
 ---
 name: ai-assisted-testing-en
-version: 2.0.0
-last-updated: 2024-02-06
-description: Leverage AI to assist testing activities including test data generation, defect root cause analysis, test prioritization, intelligent test recommendations. Default output: Markdown, can request Excel/CSV/JSON. Use for AI-assisted testing.
-category: testing-types
-level: advanced
-tags: [ai, ml, automation, intelligence, optimization]
-dependencies: []
-recommended-with: [test-case-writing-en, bug-reporting-en, test-strategy-en]
-context-aware: true
-context-patterns:
-  ai-capabilities: [generation, analysis, prediction, optimization]
-  use-cases: [test-data, root-cause, prioritization, recommendation]
-  tools: [gpt, copilot, ml-models]
-output-formats: [markdown, excel, csv, json]
-examples-count: 1
-has-tutorial: false
-has-troubleshooting: true
+description: Use this skill when you need AI-assisted testing workflows such as test data generation, root-cause analysis, and prioritization; triggers include AI-assisted testing and AI for QA.
 ---
 
 # AI-Assisted Testing
 
 **中文版：** 见技能 `ai-assisted-testing`。
 
-Prompts: see `prompts/ai-assisted-testing.md` in this directory.
+Prompts: see `prompts/ai-assisted-testing_EN.md` in this directory.
 
 ## When to Use
 
@@ -35,14 +19,20 @@ Prompts: see `prompts/ai-assisted-testing.md` in this directory.
 
 This skill **defaults to Markdown output**. For other formats, specify at the **end** of your request.
 
+## How to Use
+
+1. Open the relevant file in this directory's `prompts/` and copy the content below the dashed line.
+2. Append your requirements and context (business flow, environment, constraints, acceptance criteria).
+3. If you need non-Markdown output, append the request sentence from `output-formats.md` at the end.
+
 ## Reference Files
 
-- **[prompts/ai-assisted-testing.md](prompts/ai-assisted-testing.md)** — AI-assisted testing prompts
+- **[prompts/ai-assisted-testing_EN.md](prompts/ai-assisted-testing_EN.md)** — AI-assisted testing prompts
 - **[output-formats.md](output-formats.md)** — Format specifications
 
 ## Code Examples
 
-1. **[AI Testing Toolkit](examples/ai-testing-tools/)** - AI-assisted testing tools and scripts
+1. **AI Testing Toolkit (Planned)** - AI-assisted testing tools and scripts
 
 ## Common Pitfalls
 

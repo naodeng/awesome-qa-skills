@@ -1,28 +1,13 @@
 ---
 name: test-case-reviewer-en
-version: 2.0.0
-last-updated: 2024-02-06
-description: Multi-dimensional test case review with review reports, missing scenarios, and improvement suggestions. Covers completeness, clarity, maintainability. Default output: Markdown, can request Excel/CSV/JSON. Use for test case review.
-category: testing-types
-level: advanced
-tags: [review, quality, coverage, improvement, best-practices]
-dependencies: [test-case-writing-en]
-recommended-with: [test-strategy-en, requirements-analysis-en, functional-testing-en]
-context-aware: true
-context-patterns:
-  review-types: [completeness, clarity, maintainability, efficiency]
-  methodologies: [checklist, peer-review, walkthrough]
-output-formats: [markdown, excel, csv, json]
-examples-count: 1
-has-tutorial: false
-has-troubleshooting: true
+description: Use this skill when you need to review test cases for completeness, clarity, maintainability, and missing scenarios; triggers include test case review and test case QA.
 ---
 
 # Test Case Review
 
 **中文版：** 见技能 `test-case-reviewer`。
 
-Prompts: see `prompts/test-case-reviewer.md` in this directory.
+Prompts: see `prompts/test-case-reviewer_EN.md` in this directory.
 
 ## When to Use
 
@@ -34,14 +19,20 @@ Prompts: see `prompts/test-case-reviewer.md` in this directory.
 
 This skill **defaults to Markdown output**. For other formats, specify at the **end** of your request.
 
+## How to Use
+
+1. Open the relevant file in this directory's `prompts/` and copy the content below the dashed line.
+2. Append your requirements and context (business flow, environment, constraints, acceptance criteria).
+3. If you need non-Markdown output, append the request sentence from `output-formats.md` at the end.
+
 ## Reference Files
 
-- **[prompts/test-case-reviewer.md](prompts/test-case-reviewer.md)** — Test case review prompts
+- **[prompts/test-case-reviewer_EN.md](prompts/test-case-reviewer_EN.md)** — Test case review prompts
 - **[output-formats.md](output-formats.md)** — Format specifications
 
 ## Code Examples
 
-1. **[Test Case Review Standards](examples/test-case-review-standards/)** - Review checklists and standards
+1. **Test Case Review Standards (Planned)** - Review checklists and standards
 
 ## Common Pitfalls
 

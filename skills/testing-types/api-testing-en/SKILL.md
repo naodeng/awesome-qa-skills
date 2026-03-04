@@ -1,22 +1,6 @@
 ---
 name: api-testing-en
-version: 2.0.0
-last-updated: 2024-02-06
-description: Design API test plans and cases for REST/GraphQL/gRPC interfaces. Default output Markdown; can request Excel, CSV, or JSON. Use for API testing.
-category: testing-types
-level: intermediate
-tags: [api, rest, graphql, grpc, postman, newman, integration]
-dependencies: []
-recommended-with: [automation-testing-en, performance-testing-en, security-testing-en]
-context-aware: true
-context-patterns:
-  project-types: [api, web, mobile]
-  frameworks: [express, nestjs, django, flask, fastapi, spring-boot, gin]
-  test-frameworks: [postman, rest-assured, supertest, pytest, junit]
-output-formats: [markdown, excel, csv, json, jira, testrail]
-examples-count: 3
-has-tutorial: false
-has-troubleshooting: true
+description: Use this skill when you need to design API test plans or cases for REST, GraphQL, or gRPC interfaces; triggers include API testing and API test cases.
 ---
 
 # API Testing (English)
@@ -37,9 +21,9 @@ Prompt: this directory's `prompts/api-testing_EN.md`.
 
 ## How to Use
 
-1. Open `prompts/api-testing_EN.md`, copy everything below the dashed line into the AI chat.
-2. Append your specific input.
-3. For Excel/CSV/JSON, append the request line from output-formats.md.
+1. Open the relevant file in this directory's `prompts/` and copy the content below the dashed line.
+2. Append your requirements and context (business flow, environment, constraints, acceptance criteria).
+3. If you need non-Markdown output, append the request sentence from `output-formats.md` at the end.
 
 ## Code Examples
 
@@ -69,7 +53,7 @@ npm install -g newman
 - Response time validation
 - Data format validation
 
-See: [examples/postman-rest-api/README.md](examples/postman-rest-api/README.md)
+See: [examples/postman-rest-api/README.md](../api-testing/examples/postman-rest-api/README.md)
 
 ### 2. REST Assured (Java)
 
@@ -118,99 +102,17 @@ Coming soon - Node.js API testing with SuperTest framework.
 | SuperTest | Node.js projects | Good integration with Express |
 | GraphQL Playground | GraphQL API | Designed specifically for GraphQL |
 
+## Common Pitfalls
+
+- ❌ Testing only happy paths → ✅ Cover validation, error handling, auth failures, and edge cases
+- ❌ Weak contract checks → ✅ Assert status, schema, business fields, and backward compatibility
+- ❌ Not isolating test data → ✅ Use deterministic seed data and clear teardown rules
+- ❌ Ignoring environment parity → ✅ Validate base URL, auth config, and dependency versions per environment
+
 ## Troubleshooting
 
-### Common Issues
-
-#### 1. Newman Run Failure
-
-**Problem:** `newman: command not found`
-
-**Solution:**
-```bash
-# Install Newman globally
-npm install -g newman
-
-# Or use npx (no global installation needed)
-npx newman run collection.json
-```
-
-#### 2. Environment Variables Not Working
-
-**Problem:** Variables in tests show as `{{variable}}`
-
-**Solution:**
-- Ensure using `-e` parameter to specify environment file
-- Check if variable names in environment file are correct
-- Verify variables are correctly set in Postman
-
-```bash
-newman run collection.json -e environment.json
-```
-
-#### 3. Certificate Verification Error
-
-**Problem:** `SSL certificate problem`
-
-**Solution:**
-```bash
-# Temporarily disable SSL verification for dev environment (not recommended for production)
-newman run collection.json --insecure
-
-# Or specify CA certificate
-newman run collection.json --ssl-client-cert-list cert-list.json
-```
-
-#### 4. Request Timeout
-
-**Problem:** `Error: ETIMEDOUT` or `Error: ESOCKETTIMEDOUT`
-
-**Solution:**
-```bash
-# Increase timeout (milliseconds)
-newman run collection.json --timeout-request 30000
-
-# Add request delay
-newman run collection.json --delay-request 500
-```
-
-#### 5. Response Data Format Mismatch
-
-**Problem:** JSON Schema validation fails
-
-**Solution:**
-- Use Postman's Schema generation feature
-- Check API documentation to confirm data structure
-- Use `pm.response.json()` to print actual response
-
-```javascript
-// Add debug info in Tests
-console.log(pm.response.json());
-```
-
-#### 6. Dynamic Data Dependency Issues
-
-**Problem:** Subsequent requests depend on data from previous request
-
-**Solution:**
-```javascript
-// Save data in first request's Tests
-pm.environment.set("userId", pm.response.json().id);
-
-// Use in subsequent requests
-// URL: {{baseUrl}}/users/{{userId}}
-```
-
-#### 7. Batch Test Run Failures
-
-**Problem:** Individual tests pass, batch run fails
-
-**Solution:**
-- Check data dependencies between tests
-- Ensure each test can run independently
-- Add appropriate delays: `--delay-request 200`
-- Use `--bail` to stop on first failure
-
+Detailed troubleshooting steps were moved to [references/troubleshooting.md](references/troubleshooting.md).
+Load it on demand to keep the main skill concise.
 ## Reference Files
 
 - **prompts/api-testing_EN.md** — API testing Standard-version prompt

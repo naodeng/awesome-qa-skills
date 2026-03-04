@@ -1,6 +1,6 @@
 ---
 name: sprint-testing-workflow-en
-description: Guides QA and Scrum teams through a 2-week sprint testing cycle—planning, setup, execution, regression, stabilization, review, retrospective. Use when planning or running sprint testing.
+description: Use this skill when you need a sprint-based QA workflow from planning through review and retrospective; triggers include sprint testing workflow and sprint QA flow.
 ---
 
 # Sprint Testing Workflow
@@ -220,9 +220,11 @@ Complete testing workflow for a 2-week sprint. Prompts: see [reference.md](refer
 
 ---
 
-## How to Use the Prompts
+## How to Use
 
-For each step: 1) Check [reference.md](reference.md) for the prompt file; 2) Open that file under this directory’s `prompts/`; 3) Combine the prompt with the current sprint context (stories, environment, scope) and run with the AI.
+1. Check [reference.md](reference.md) to find the prompt file for the current step.
+2. Open the corresponding file in `prompts/`, then combine it with the current context (scope, environment, risks, constraints).
+3. Run step by step, and update priorities or gates based on outputs and blockers.
 
 ## Common Pitfalls
 

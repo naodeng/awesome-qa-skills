@@ -1,23 +1,6 @@
 ---
 name: mobile-testing
-version: 2.0.0
-last-updated: 2026-02-06
-description: 设计移动端（iOS/Android）测试方案与用例，覆盖功能、兼容性、性能、网络、安全等。默认输出 Markdown，可请求 Excel/CSV/JSON。Use for 移动端测试 or mobile testing.
-category: testing-types
-level: advanced
-tags: [mobile, android, ios, appium, detox, espresso, xcuitest, automation]
-dependencies: [functional-testing]
-recommended-with: [automation-testing, performance-testing, accessibility-testing]
-context-aware: true
-context-patterns:
-  project-types: [mobile]
-  platforms: [android, ios, react-native, flutter, hybrid]
-  test-frameworks: [appium, detox, espresso, xcuitest, flutter-test]
-  test-types: [functional, compatibility, performance, network, battery, security]
-output-formats: [markdown, excel, csv, json, jira, testrail]
-examples-count: 1
-has-tutorial: false
-has-troubleshooting: true
+description: Use this skill when you need to design mobile test plans for iOS or Android covering functionality, compatibility, performance, network, and security; triggers include 移动端测试 and mobile testing.
 ---
 
 # 移动端测试（中文版）
@@ -38,9 +21,9 @@ has-troubleshooting: true
 
 ## 如何使用
 
-1. 打开本目录 `prompts/mobile-testing.md`，将虚线以下内容复制到 AI 对话。
-2. 附加移动应用需求、平台特性或测试目标。
-3. 若需 Excel/CSV/JSON，在末尾加上 output-formats.md 中的请求句。
+1. 打开本目录 `prompts/` 下对应提示词文件，复制虚线以下内容。
+2. 附加你的需求与上下文（业务流程、环境、约束、验收标准）。
+3. 若需非 Markdown 输出，在末尾追加 `output-formats.md` 中的请求句。
 
 ## 代码示例
 
@@ -86,6 +69,13 @@ pytest
    - 核心流程自动化
    - 回归测试自动化
    - 手工测试补充
+
+## 常见误区 | Common Pitfalls
+
+- ❌ 只在单一机型上验证 → ✅ 覆盖关键机型/系统版本/网络组合矩阵
+- ❌ 忽略生命周期中断场景 → ✅ 覆盖来电、切后台、权限弹窗等干扰流程
+- ❌ 不测试弱网与离线场景 → ✅ 验证弱网、抖动、断网下的容错行为
+- ❌ 只关注页面流程 → ✅ 同时覆盖安装升级、崩溃、耗电与性能指标
 
 ## 故障排除
 

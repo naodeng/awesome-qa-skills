@@ -1,23 +1,6 @@
 ---
 name: automation-testing-en
-version: 2.0.0
-last-updated: 2024-02-06
-description: Design automation test plans including POM, data-driven, BDD patterns. Default output Markdown; can request Excel/CSV/JSON. Use for automation testing.
-category: testing-types
-level: intermediate
-tags: [automation, selenium, playwright, cypress, pom, bdd, data-driven]
-dependencies: [functional-testing-en]
-recommended-with: [api-testing-en, functional-testing-en, test-case-writing-en]
-context-aware: true
-context-patterns:
-  project-types: [web, mobile, api]
-  frameworks: [selenium, playwright, cypress, appium, webdriverio]
-  test-frameworks: [pytest, junit, testng, jest, mocha]
-  patterns: [page-object-model, data-driven, bdd, keyword-driven]
-output-formats: [markdown, excel, csv, json, code]
-examples-count: 3
-has-tutorial: false
-has-troubleshooting: true
+description: Use this skill when you need to design automation testing approaches using patterns like POM, data-driven testing, or BDD; triggers include automation testing and test automation strategy.
 ---
 
 # Automation Testing (English)
@@ -38,9 +21,9 @@ Prompt: this directory's `prompts/automation-testing_EN.md`.
 
 ## How to Use
 
-1. Open `prompts/automation-testing_EN.md`, copy everything below the dashed line into the AI chat.
-2. Append your specific input.
-3. For Excel/CSV/JSON, append the request line from output-formats.md.
+1. Open the relevant file in this directory's `prompts/` and copy the content below the dashed line.
+2. Append your requirements and context (business flow, environment, constraints, acceptance criteria).
+3. If you need non-Markdown output, append the request sentence from `output-formats.md` at the end.
 
 ## Code Examples
 
@@ -146,112 +129,17 @@ class LoginPage:
         assert driver.find_element(By.ID, "welcome").is_displayed()
 ```
 
+## Common Pitfalls
+
+- ❌ Automating unstable or unclear requirements first → ✅ Prioritize stable, high-value workflows for automation
+- ❌ Overusing brittle UI selectors → ✅ Prefer resilient locators and shared selector conventions
+- ❌ Mixing test logic with environment setup everywhere → ✅ Centralize setup/teardown and reusable fixtures
+- ❌ Ignoring flaky-test tracking → ✅ Record flaky patterns and fix root causes before scaling coverage
+
 ## Troubleshooting
 
-### Common Issues
-
-#### 1. Element Not Found (NoSuchElementException)
-
-**Problem:** Cannot find page element during test execution
-
-**Solution:**
-```python
-# Use explicit wait
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-
-wait = WebDriverWait(driver, 20)
-element = wait.until(EC.presence_of_element_located((By.ID, "element")))
-
-# Or increase implicit wait time
-driver.implicitly_wait(10)
-```
-
-#### 2. Element Not Clickable (ElementClickInterceptedException)
-
-**Problem:** Element is obscured by other elements
-
-**Solution:**
-```python
-# Wait for element to be clickable
-wait.until(EC.element_to_be_clickable((By.ID, "button"))).click()
-
-# Or use JavaScript click
-driver.execute_script("arguments[0].click();", element)
-
-# Or scroll to element
-driver.execute_script("arguments[0].scrollIntoView(true);", element)
-```
-
-#### 3. StaleElementReferenceException
-
-**Problem:** Element reference becomes stale after page refresh
-
-**Solution:**
-```python
-# Re-find the element
-def safe_click(locator):
-    for _ in range(3):
-        try:
-            element = driver.find_element(*locator)
-            element.click()
-            break
-        except StaleElementReferenceException:
-            time.sleep(0.5)
-```
-
-#### 4. Browser Driver Version Mismatch
-
-**Problem:** `SessionNotCreatedException: session not created`
-
-**Solution:**
-```bash
-# Use webdriver-manager to auto-manage drivers
-pip install webdriver-manager
-
-# Use in code
-from webdriver_manager.chrome import ChromeDriverManager
-driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
-```
-
-#### 5. Slow Test Execution
-
-**Problem:** Tests take too long to execute
-
-**Solution:**
-- Use headless mode: `options.add_argument("--headless")`
-- Run tests in parallel: `pytest -n 4`
-- Reduce unnecessary wait times
-- Optimize locators (prioritize ID, Name)
-
-#### 6. Flaky Tests
-
-**Problem:** Tests sometimes pass, sometimes fail
-
-**Solution:**
-- Increase wait times
-- Use explicit waits instead of implicit waits
-- Check test data dependencies
-- Ensure test independence
-- Add retry mechanism: `@pytest.mark.flaky(reruns=3)`
-
-#### 7. Screenshot Functionality Not Working
-
-**Problem:** No screenshots generated when tests fail
-
-**Solution:**
-```python
-# Add hook in conftest.py
-@pytest.hookimpl(tryfirst=True, hookwrapper=True)
-def pytest_runtest_makereport(item, call):
-    outcome = yield
-    rep = outcome.get_result()
-    if rep.when == "call" and rep.failed:
-        driver = item.funcargs.get("driver")
-        if driver:
-            driver.save_screenshot(f"screenshots/{item.name}.png")
-```
-
+Detailed troubleshooting steps were moved to [references/troubleshooting.md](references/troubleshooting.md).
+Load it on demand to keep the main skill concise.
 ## Reference Files
 
 - **prompts/automation-testing_EN.md** — Automation testing Standard-version prompt

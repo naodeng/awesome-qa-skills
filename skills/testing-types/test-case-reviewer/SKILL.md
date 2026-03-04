@@ -1,21 +1,6 @@
 ---
 name: test-case-reviewer
-version: 2.0.0
-last-updated: 2024-02-06
-description: 对测试用例进行多维度评审，输出评审报告、缺失场景与改进建议。评审覆盖完整性、清晰度、可维护性等。默认输出 Markdown，可请求 Excel/CSV/JSON。Use for 测试用例评审 or test case review.
-category: testing-types
-level: advanced
-tags: [review, quality, coverage, improvement, best-practices]
-dependencies: [test-case-writing]
-recommended-with: [test-strategy, requirements-analysis, functional-testing]
-context-aware: true
-context-patterns:
-  review-types: [completeness, clarity, maintainability, efficiency]
-  methodologies: [checklist, peer-review, walkthrough]
-output-formats: [markdown, excel, csv, json]
-examples-count: 1
-has-tutorial: false
-has-troubleshooting: true
+description: Use this skill when you need to review test cases for completeness, clarity, maintainability, and missing scenarios; triggers include 测试用例评审 and test case review.
 ---
 
 # 测试用例评审（中文版）
@@ -34,6 +19,12 @@ has-troubleshooting: true
 
 本技能**默认输出为 Markdown**。若需其他格式，请在需求**末尾**明确说明。
 
+## 如何使用
+
+1. 打开本目录 `prompts/` 下对应提示词文件，复制虚线以下内容。
+2. 附加你的需求与上下文（业务流程、环境、约束、验收标准）。
+3. 若需非 Markdown 输出，在末尾追加 `output-formats.md` 中的请求句。
+
 ## 参考文件
 
 - **[prompts/test-case-reviewer.md](prompts/test-case-reviewer.md)** — 测试用例评审提示词
@@ -41,7 +32,7 @@ has-troubleshooting: true
 
 ## 代码示例 | Code Examples
 
-1. **[用例评审标准](examples/test-case-review-standards/)** - 评审检查清单和标准
+1. **用例评审标准（计划中）** - 评审检查清单和标准
 
 ## 常见误区 | Common Pitfalls
 

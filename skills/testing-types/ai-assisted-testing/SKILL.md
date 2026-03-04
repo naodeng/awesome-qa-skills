@@ -1,22 +1,6 @@
 ---
 name: ai-assisted-testing
-version: 2.0.0
-last-updated: 2024-02-06
-description: 利用 AI 辅助测试活动，包括测试数据生成、缺陷根因分析、测试优先级排序、智能测试推荐。默认输出 Markdown，可请求 Excel/CSV/JSON。Use for AI 辅助测试 or AI assisted testing.
-category: testing-types
-level: advanced
-tags: [ai, ml, automation, intelligence, optimization]
-dependencies: []
-recommended-with: [test-case-writing, bug-reporting, test-strategy]
-context-aware: true
-context-patterns:
-  ai-capabilities: [generation, analysis, prediction, optimization]
-  use-cases: [test-data, root-cause, prioritization, recommendation]
-  tools: [gpt, copilot, ml-models]
-output-formats: [markdown, excel, csv, json]
-examples-count: 1
-has-tutorial: false
-has-troubleshooting: true
+description: Use this skill when you need AI-assisted testing workflows such as test data generation, root-cause analysis, and prioritization; triggers include AI 辅助测试 and AI-assisted testing.
 ---
 
 # AI 辅助测试（中文版）
@@ -35,6 +19,12 @@ has-troubleshooting: true
 
 本技能**默认输出为 Markdown**。若需其他格式，请在需求**末尾**明确说明。
 
+## 如何使用
+
+1. 打开本目录 `prompts/` 下对应提示词文件，复制虚线以下内容。
+2. 附加你的需求与上下文（业务流程、环境、约束、验收标准）。
+3. 若需非 Markdown 输出，在末尾追加 `output-formats.md` 中的请求句。
+
 ## 参考文件
 
 - **[prompts/ai-assisted-testing.md](prompts/ai-assisted-testing.md)** — AI 辅助测试提示词
@@ -42,7 +32,7 @@ has-troubleshooting: true
 
 ## 代码示例 | Code Examples
 
-1. **[AI 测试工具集](examples/ai-testing-tools/)** - AI 辅助测试工具和脚本
+1. **AI 测试工具集（计划中）** - AI 辅助测试工具和脚本
 
 ## 常见误区 | Common Pitfalls
 

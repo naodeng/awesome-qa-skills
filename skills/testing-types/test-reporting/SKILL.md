@@ -1,22 +1,6 @@
 ---
 name: test-reporting
-version: 2.0.0
-last-updated: 2024-02-06
-description: 生成专业的测试报告，包含执行摘要、度量指标、缺陷分析、风险评估。支持日报、周报、发布报告等。默认输出 Markdown，可请求 Excel/CSV/JSON/PDF。Use for 测试报告 or test reporting.
-category: testing-types
-level: intermediate
-tags: [reporting, metrics, dashboard, summary, analysis]
-dependencies: []
-recommended-with: [test-strategy, bug-reporting, test-case-writing]
-context-aware: true
-context-patterns:
-  report-types: [daily, weekly, sprint, release, executive]
-  audiences: [team, management, stakeholders]
-  formats: [summary, detailed, dashboard]
-output-formats: [markdown, excel, csv, json, pdf, html]
-examples-count: 1
-has-tutorial: false
-has-troubleshooting: true
+description: Use this skill when you need to generate test reports with summary, metrics, defect analysis, and risk assessment; triggers include 测试报告 and test reporting.
 ---
 
 # 测试报告（中文版）
@@ -35,6 +19,12 @@ has-troubleshooting: true
 
 本技能**默认输出为 Markdown**。若需其他格式，请在需求**末尾**明确说明。
 
+## 如何使用
+
+1. 打开本目录 `prompts/` 下对应提示词文件，复制虚线以下内容。
+2. 附加你的需求与上下文（业务流程、环境、约束、验收标准）。
+3. 若需非 Markdown 输出，在末尾追加 `output-formats.md` 中的请求句。
+
 ## 参考文件
 
 - **[prompts/test-reporting.md](prompts/test-reporting.md)** — 测试报告提示词
@@ -42,7 +32,7 @@ has-troubleshooting: true
 
 ## 代码示例 | Code Examples
 
-1. **[测试报告模板](examples/test-report-templates/)** - 各类测试报告模板
+1. **测试报告模板（计划中）** - 各类测试报告模板
 
 ## 常见误区 | Common Pitfalls
 
