@@ -517,3 +517,46 @@ TC-001: 登录成功并验证用户信息
 4. 咨询团队的测试负责人
 
 **相关技能：** requirements-analysis、functional-testing、test-case-reviewer、test-strategy。
+
+## 目标受众
+
+- 在真实项目中执行该测试域工作的 QA 与开发人员
+- 需要结构化、可复用测试交付物的测试负责人
+- 需要快速生成可落地测试产出的 AI 使用者
+
+## 不适用场景
+
+- 无测试范围上下文的纯线上应急处置
+- 需要法律/合规最终裁定但缺少专家复核的决策
+- 缺少最小输入（范围、环境、期望行为）的请求
+
+## 关键成功因素
+
+- 先明确范围、环境与验收标准，再生成测试内容
+- 生成结果必须结合真实系统约束做二次校验
+- 保持产物可追踪（需求 -> 测试点 -> 缺陷 -> 决策）
+
+## 输出模板与解析脚本
+
+- 模板目录：`output-templates/`
+  - `template-word.md`（Word 友好结构）
+  - `template-excel.tsv`（Excel 可直接粘贴）
+  - `template-xmind.md`（XMind 结构化大纲）
+  - `template-json.json`
+  - `template-csv.csv`
+  - `template-markdown.md`
+- 解析脚本目录：`scripts/`
+  - 解析通用：`parse_output_formats.py`
+  - 解析按格式：`parse_word.py`、`parse_excel.py`、`parse_xmind.py`、`parse_json.py`、`parse_csv.py`、`parse_markdown.py`
+  - 转换通用：`convert_output_formats.py`
+  - 转换按格式：`convert_to_word.py`、`convert_to_excel.py`、`convert_to_xmind.py`、`convert_to_json.py`、`convert_to_csv.py`、`convert_to_markdown.py`
+  - 批量转换：`batch_convert_templates.py`（批量输出到 `artifacts/`）
+
+示例：
+```bash
+python3 scripts/parse_json.py output-templates/template-json.json
+python3 scripts/parse_markdown.py output-templates/template-markdown.md
+python3 scripts/convert_to_json.py output-templates/template-markdown.md
+python3 scripts/convert_output_formats.py output-templates/template-json.json --to csv
+python3 scripts/batch_convert_templates.py --skip-same
+```

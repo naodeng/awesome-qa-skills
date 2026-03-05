@@ -15,6 +15,7 @@ Quick reference to find and locate needed skills.
 | 日常测试工作流 | [daily-testing-workflow](skills/testing-workflows/daily-testing-workflow/) | [daily-testing-workflow-en](skills/testing-workflows/daily-testing-workflow-en/) | 每日测试活动指导 | Intermediate | #daily #workflow #routine |
 | 迭代测试工作流 | [sprint-testing-workflow](skills/testing-workflows/sprint-testing-workflow/) | [sprint-testing-workflow-en](skills/testing-workflows/sprint-testing-workflow-en/) | 2周迭代测试流程 | Intermediate | #sprint #agile #iteration |
 | 发布测试工作流 | [release-testing-workflow](skills/testing-workflows/release-testing-workflow/) | [release-testing-workflow-en](skills/testing-workflows/release-testing-workflow-en/) | 发布前后测试流程 | Advanced | #release #deployment #production |
+| 测试技能发现与路由 | [discover-testing](skills/testing-workflows/discover-testing/) | [discover-testing](skills/testing-workflows/discover-testing/) | 测试请求到技能的快速选型与路由 | Intermediate | #discovery #routing #gateway |
 
 ### 测试类型 Skills | Testing Type Skills
 
@@ -158,6 +159,7 @@ Quick reference to find and locate needed skills.
 - [daily-testing-workflow](skills/testing-workflows/daily-testing-workflow/)
 - [sprint-testing-workflow](skills/testing-workflows/sprint-testing-workflow/)
 - [release-testing-workflow](skills/testing-workflows/release-testing-workflow/)
+- [discover-testing](skills/testing-workflows/discover-testing/)
 
 ### #beginner
 - [manual-testing](skills/testing-types/manual-testing/)
@@ -250,6 +252,7 @@ Quick reference to find and locate needed skills.
 ### 我想...
 
 - **学习测试基础** → [manual-testing](skills/testing-types/manual-testing/), [test-case-writing](skills/testing-types/test-case-writing/)
+- **先选对测试技能** → [discover-testing](skills/testing-workflows/discover-testing/)
 - **设计测试用例** → [test-case-writing](skills/testing-types/test-case-writing/), [functional-testing](skills/testing-types/functional-testing/)
 - **编写自动化测试** → [automation-testing](skills/testing-types/automation-testing/)
 - **测试 API** → [api-testing](skills/testing-types/api-testing/)

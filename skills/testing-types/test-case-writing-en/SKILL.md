@@ -517,3 +517,46 @@ If the issue persists:
 4. Consult team's test lead
 
 **Related skills:** requirements-analysis-en, functional-testing-en, test-case-reviewer-en, test-strategy-en.
+
+## Target Audience
+
+- QA engineers and developers executing this testing domain in real projects
+- Team leads who need structured, reproducible testing outputs
+- AI users who need fast, format-ready deliverables for execution and reporting
+
+## Not Recommended For
+
+- Pure production incident response without test scope/context
+- Decisions requiring legal/compliance sign-off without expert review
+- Requests lacking minimum inputs (scope, environment, expected behavior)
+
+## Critical Success Factors
+
+- Provide clear scope, environment, and acceptance criteria before generation
+- Validate generated outputs against real system constraints before execution
+- Keep artifacts traceable (requirements -> test points -> defects -> decisions)
+
+## Output Templates and Parsing Scripts
+
+- Template directory: `output-templates/`
+  - `template-word.md` (Word-friendly structure)
+  - `template-excel.tsv` (Excel paste-ready)
+  - `template-xmind.md` (XMind-friendly outline)
+  - `template-json.json`
+  - `template-csv.csv`
+  - `template-markdown.md`
+- Parser scripts directory: `scripts/`
+  - Parse (generic): `parse_output_formats.py`
+  - Parse (per-format): `parse_word.py`, `parse_excel.py`, `parse_xmind.py`, `parse_json.py`, `parse_csv.py`, `parse_markdown.py`
+  - Convert (generic): `convert_output_formats.py`
+  - Convert (per-format): `convert_to_word.py`, `convert_to_excel.py`, `convert_to_xmind.py`, `convert_to_json.py`, `convert_to_csv.py`, `convert_to_markdown.py`
+  - Batch convert: `batch_convert_templates.py` (outputs into `artifacts/`)
+
+Examples:
+```bash
+python3 scripts/parse_json.py output-templates/template-json.json
+python3 scripts/parse_markdown.py output-templates/template-markdown.md
+python3 scripts/convert_to_json.py output-templates/template-markdown.md
+python3 scripts/convert_output_formats.py output-templates/template-json.json --to csv
+python3 scripts/batch_convert_templates.py --skip-same
+```

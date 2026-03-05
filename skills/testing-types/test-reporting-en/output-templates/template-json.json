@@ -1,0 +1,24 @@
+{
+  "meta": {
+    "skill": "",
+    "scope": "",
+    "environment": "",
+    "priority": ""
+  },
+  "inputs": {
+    "requirement": "",
+    "constraints": [],
+    "risks": []
+  },
+  "execution": [
+    { "step": 1, "action": "", "expected": "" }
+  ],
+  "results": {
+    "status": "",
+    "evidence": [],
+    "defects": []
+  },
+  "next_actions": [
+    { "owner": "", "eta": "", "action": "" }
+  ]
+}
