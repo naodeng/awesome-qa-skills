@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "testcase-writer-plus"
+interface:
+  display_name: "TestcaseWriter Plus"
+  short_description: "Parse multi-format requirements and analysis results, then generate test cases in Markdown/Word/JSON/Excel."
+  default_prompt: "Use testcase-writer-plus to parse requirement and analysis files, generate test cases, and output in the requested format."
+policy:
+  allow_implicit_invocation: true
