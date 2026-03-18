@@ -1,0 +1,3 @@
+name: test-case-reviewer-plus
+model: gpt-5
+purpose: Review test cases against multi-source project documents and output actionable review results.
