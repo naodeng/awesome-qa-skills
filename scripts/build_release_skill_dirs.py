@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import shutil
+import time
 from pathlib import Path
 
 
@@ -26,6 +27,24 @@ def copy_skill(src: Path, dst: Path) -> None:
     shutil.copytree(src, dst, ignore=_ignore)
 
 
+def remove_path(path: Path) -> None:
+    if not path.exists():
+        return
+    if path.is_dir():
+        last_err: Exception | None = None
+        for _ in range(3):
+            try:
+                shutil.rmtree(path)
+                return
+            except OSError as err:
+                last_err = err
+                time.sleep(0.05)
+        if path.exists() and last_err is not None:
+            raise last_err
+    else:
+        path.unlink(missing_ok=True)
+
+
 def main() -> int:
     zh_root = RELEASE_ROOT / "skills-zh"
     en_root = RELEASE_ROOT / "skills-en"
@@ -35,10 +54,7 @@ def main() -> int:
     # fresh rebuild for deterministic release output
     for root in (zh_root, en_root):
         for child in list(root.iterdir()):
-            if child.is_dir():
-                shutil.rmtree(child)
-            else:
-                child.unlink(missing_ok=True)
+            remove_path(child)
 
     for section in ("testing-types", "testing-workflows"):
         src_section = SKILLS / section
