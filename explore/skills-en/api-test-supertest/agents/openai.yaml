@@ -1,0 +1,10 @@
+version: 1
+metadata:
+  key: "api-test-supertest"
+  last_verified: "2026-03-23"
+interface:
+  display_name: "API Test Supertest"
+  short_description: "Parse API sources and generate Supertest-based API automation tests."
+  default_prompt: "Use api-test-supertest to complete the task with local scripts, prompts, and examples in this skill folder."
+policy:
+  allow_implicit_invocation: true

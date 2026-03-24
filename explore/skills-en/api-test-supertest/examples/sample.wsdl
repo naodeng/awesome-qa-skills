@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions
+  xmlns="http://schemas.xmlsoap.org/wsdl/"
+  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+  targetNamespace="http://example.com/soap">
+  <service name="UserService">
+    <port name="UserPort" binding="tns:UserBinding" xmlns:tns="http://example.com/soap">
+      <soap:address location="https://api.example.com/soap/user"/>
+    </port>
+  </service>
+  <portType name="UserPortType">
+    <operation name="GetUser"/>
+    <operation name="CreateUser"/>
+  </portType>
+</definitions>

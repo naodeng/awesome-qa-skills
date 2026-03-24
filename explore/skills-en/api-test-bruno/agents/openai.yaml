@@ -1,0 +1,10 @@
+version: 1
+metadata:
+  key: "api-test-bruno"
+  last_verified: "2026-03-23"
+interface:
+  display_name: "API Test Bruno"
+  short_description: "Parse API sources and generate Bruno collections for API regression."
+  default_prompt: "Use api-test-bruno to complete the task with local scripts, prompts, and examples in this skill folder."
+policy:
+  allow_implicit_invocation: true

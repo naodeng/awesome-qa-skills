@@ -1,0 +1,25 @@
+{
+  "campaign": {
+    "name": "JD gift flash-sale",
+    "start_time": "2026-03-20T20:00:00+08:00",
+    "end_time": "2026-03-20T20:10:00+08:00"
+  },
+  "rules": {
+    "membership_required": "PLUS",
+    "last_30d_spend_min": 199,
+    "gift_limit_per_user": 1,
+    "status_sync_seconds": 3
+  },
+  "non_functional": {
+    "peak_qps": 50000,
+    "p95_response_ms": 300,
+    "security": [
+      "anti-replay",
+      "request-signature"
+    ]
+  },
+  "open_questions": [
+    "Enterprise and personal account limit sharing is TBD",
+    "Polling interval under weak network is TBD"
+  ]
+}

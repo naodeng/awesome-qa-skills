@@ -1,0 +1,31 @@
+name: API Supertest CI
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - "explore/api-test-supertest/**"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: explore/api-test-supertest/scripts/templates/supertest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install deps
+        run: npm ci || npm install
+
+      - name: Run tests
+        env:
+          BASE_URL: ${{ secrets.API_BASE_URL }}
+          API_TOKEN: ${{ secrets.API_TOKEN }}
+        run: npm test

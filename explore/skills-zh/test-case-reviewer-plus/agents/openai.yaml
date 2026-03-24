@@ -1,0 +1,10 @@
+version: 1
+metadata:
+  key: "test-case-reviewer-plus"
+  last_verified: "2026-03-23"
+interface:
+  display_name: "测试用例评审加强版"
+  short_description: "基于需求与项目文档输出可执行测试用例评审结果。"
+  default_prompt: "使用 test-case-reviewer-plus 完成任务，优先使用本技能目录中的脚本、提示词和示例。"
+policy:
+  allow_implicit_invocation: true

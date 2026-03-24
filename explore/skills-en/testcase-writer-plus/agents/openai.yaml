@@ -1,0 +1,10 @@
+version: 1
+metadata:
+  key: "testcase-writer-plus"
+  last_verified: "2026-03-23"
+interface:
+  display_name: "Testcase Writer Plus"
+  short_description: "Generate structured test cases from requirement and analysis documents in multiple formats."
+  default_prompt: "Use testcase-writer-plus to complete the task with local scripts, prompts, and examples in this skill folder."
+policy:
+  allow_implicit_invocation: true

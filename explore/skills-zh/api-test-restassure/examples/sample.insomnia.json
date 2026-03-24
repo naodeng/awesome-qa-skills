@@ -1,0 +1,22 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2026-03-23T00:00:00.000Z",
+  "__export_source": "insomnia.desktop.app:v9.0.0",
+  "resources": [
+    {
+      "_id": "req_1",
+      "_type": "request",
+      "name": "List Products",
+      "method": "GET",
+      "url": "https://api.example.com/v1/products"
+    },
+    {
+      "_id": "req_2",
+      "_type": "request",
+      "name": "Create Product",
+      "method": "POST",
+      "url": "https://api.example.com/v1/products"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "info": {
+    "name": "Sample API Collection",
+    "_postman_id": "d89a0d30-4444-4444-9999-111133335555",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get Users",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "https://api.example.com/v1/users",
+          "path": [
+            "v1",
+            "users"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Create User",
+      "request": {
+        "method": "POST",
+        "url": {
+          "raw": "https://api.example.com/v1/users",
+          "path": [
+            "v1",
+            "users"
+          ]
+        }
+      }
+    }
+  ]
+}

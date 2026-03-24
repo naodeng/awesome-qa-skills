@@ -1,0 +1,10 @@
+version: 1
+metadata:
+  key: "performance-test-k6"
+  last_verified: "2026-03-23"
+interface:
+  display_name: "Performance Test k6"
+  short_description: "Design and run k6-based performance tests for load, stress, spike, and soak objectives."
+  default_prompt: "Use performance-test-k6 to complete the task with local scripts, prompts, and examples in this skill folder."
+policy:
+  allow_implicit_invocation: true

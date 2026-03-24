@@ -1,0 +1,38 @@
+pipeline {
+  agent any
+
+  environment {
+    BASE_URL = credentials('api-base-url')
+    API_TOKEN = credentials('api-token')
+  }
+
+  stages {
+    stage('Checkout') {
+      steps {
+        checkout scm
+      }
+    }
+
+    stage('Install') {
+      steps {
+        dir('explore/api-test-pytest/scripts/templates/pytest') {
+          sh 'python3 -m pip install -r requirements.txt'
+        }
+      }
+    }
+
+    stage('Test') {
+      steps {
+        dir('explore/api-test-pytest/scripts/templates/pytest') {
+          sh 'pytest -q --junitxml=pytest-report.xml'
+        }
+      }
+    }
+  }
+
+  post {
+    always {
+      archiveArtifacts artifacts: 'explore/api-test-pytest/scripts/templates/pytest/pytest-report.xml', fingerprint: true
+    }
+  }
+}

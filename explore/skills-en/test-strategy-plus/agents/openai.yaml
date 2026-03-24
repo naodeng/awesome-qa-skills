@@ -1,0 +1,10 @@
+version: 1
+metadata:
+  key: "test-strategy-plus"
+  last_verified: "2026-03-23"
+interface:
+  display_name: "Test Strategy Plus"
+  short_description: "Generate practical test strategy from requirement, analysis, technical, and planning documents."
+  default_prompt: "Use test-strategy-plus to complete the task with local scripts, prompts, and examples in this skill folder."
+policy:
+  allow_implicit_invocation: true

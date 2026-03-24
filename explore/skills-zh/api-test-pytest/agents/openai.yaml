@@ -1,0 +1,10 @@
+version: 1
+metadata:
+  key: "api-test-pytest"
+  last_verified: "2026-03-23"
+interface:
+  display_name: "Pytest 接口自动化"
+  short_description: "解析接口来源并生成 Pytest 接口自动化测试。"
+  default_prompt: "使用 api-test-pytest 完成任务，优先使用本技能目录中的脚本、提示词和示例。"
+policy:
+  allow_implicit_invocation: true

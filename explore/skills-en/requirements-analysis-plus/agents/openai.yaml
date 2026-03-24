@@ -1,0 +1,10 @@
+version: 1
+metadata:
+  key: "requirements-analysis-plus"
+  last_verified: "2026-03-23"
+interface:
+  display_name: "Requirements Analysis Plus"
+  short_description: "Parse multi-format requirement files and produce structured requirement analysis output."
+  default_prompt: "Use requirements-analysis-plus to complete the task with local scripts, prompts, and examples in this skill folder."
+policy:
+  allow_implicit_invocation: true

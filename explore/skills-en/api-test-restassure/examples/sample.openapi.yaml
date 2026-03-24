@@ -1,0 +1,15 @@
+openapi: 3.0.3
+info:
+  title: Sample API
+  version: 1.0.0
+paths:
+  /v1/users:
+    get:
+      summary: list users
+    post:
+      summary: create user
+  /v1/users/{id}:
+    get:
+      summary: get user
+    delete:
+      summary: delete user

@@ -1,0 +1,10 @@
+version: 1
+metadata:
+  key: "testcase-writer-plus"
+  last_verified: "2026-03-23"
+interface:
+  display_name: "测试用例编写加强版"
+  short_description: "基于需求和分析结果生成结构化测试用例。"
+  default_prompt: "使用 testcase-writer-plus 完成任务，优先使用本技能目录中的脚本、提示词和示例。"
+policy:
+  allow_implicit_invocation: true

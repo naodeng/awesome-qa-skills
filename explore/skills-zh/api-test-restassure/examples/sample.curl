@@ -1,0 +1,2 @@
+curl -X GET "https://api.example.com/v1/users?page=1" -H "Authorization: Bearer token"
+curl -X POST "https://api.example.com/v1/login" -H "Content-Type: application/json" -d '{"username":"qa","password":"pass"}'

@@ -1,0 +1,15 @@
+{
+  "name": "OpenCollection Sample",
+  "requests": [
+    {
+      "name": "Get Orders",
+      "method": "GET",
+      "path": "/v1/orders"
+    },
+    {
+      "name": "Create Order",
+      "method": "POST",
+      "path": "/v1/orders"
+    }
+  ]
+}

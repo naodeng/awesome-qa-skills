@@ -1,0 +1,36 @@
+pipeline {
+  agent any
+
+  environment {
+    BASE_URL = credentials('api-base-url')
+    API_TOKEN = credentials('api-token')
+  }
+
+  stages {
+    stage('Checkout') {
+      steps {
+        checkout scm
+      }
+    }
+
+    stage('Install Bruno') {
+      steps {
+        sh 'npm i -g @usebruno/cli'
+      }
+    }
+
+    stage('Run') {
+      steps {
+        dir('explore/api-test-bruno/scripts') {
+          sh './run-tests.sh ./templates/bruno staging'
+        }
+      }
+    }
+  }
+
+  post {
+    always {
+      archiveArtifacts artifacts: 'explore/api-test-bruno/reports/**/*', fingerprint: true
+    }
+  }
+}

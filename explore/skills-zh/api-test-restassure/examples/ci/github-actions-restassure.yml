@@ -1,0 +1,37 @@
+name: API RestAssured CI
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - "explore/api-test-restassure/**"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: explore/api-test-restassure/scripts/templates/restassured
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+          cache: maven
+
+      - name: Run tests
+        env:
+          BASE_URL: ${{ secrets.API_BASE_URL }}
+          API_TOKEN: ${{ secrets.API_TOKEN }}
+        run: mvn -q test
+
+      - name: Upload surefire reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: surefire-reports
+          path: explore/api-test-restassure/scripts/templates/restassured/target/surefire-reports/**

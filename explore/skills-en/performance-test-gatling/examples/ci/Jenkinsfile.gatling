@@ -1,0 +1,37 @@
+pipeline {
+  agent any
+
+  parameters {
+    choice(name: 'TEST_TYPE', choices: ['smoke', 'load', 'stress', 'spike', 'soak'], description: 'Gatling test type')
+  }
+
+  environment {
+    PERF_BASE_URL = credentials('perf-base-url')
+    ENV = "jenkins"
+  }
+
+  stages {
+    stage('Checkout') {
+      steps {
+        checkout scm
+      }
+    }
+
+    stage('Run Gatling') {
+      steps {
+        dir('explore/performance-test-gatling/scripts') {
+          sh '''
+            export BASE_URL="${PERF_BASE_URL}"
+            ./run-tests.sh "${TEST_TYPE}"
+          '''
+        }
+      }
+    }
+  }
+
+  post {
+    always {
+      archiveArtifacts artifacts: 'explore/performance-test-gatling/reports/**/*', fingerprint: true
+    }
+  }
+}

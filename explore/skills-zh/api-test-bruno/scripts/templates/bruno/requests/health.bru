@@ -1,0 +1,20 @@
+meta {
+  name: health-check
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/health
+  body: none
+}
+
+headers {
+  Authorization: Bearer {{token}}
+}
+
+tests {
+  test("status should be 200", function() {
+    expect(res.getStatus()).to.equal(200);
+  });
+}

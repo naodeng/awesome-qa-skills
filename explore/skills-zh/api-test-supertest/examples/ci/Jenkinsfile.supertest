@@ -1,0 +1,32 @@
+pipeline {
+  agent any
+
+  environment {
+    BASE_URL = credentials('api-base-url')
+    API_TOKEN = credentials('api-token')
+  }
+
+  stages {
+    stage('Checkout') {
+      steps {
+        checkout scm
+      }
+    }
+
+    stage('Install') {
+      steps {
+        dir('explore/api-test-supertest/scripts/templates/supertest') {
+          sh 'npm ci || npm install'
+        }
+      }
+    }
+
+    stage('Test') {
+      steps {
+        dir('explore/api-test-supertest/scripts/templates/supertest') {
+          sh 'npm test'
+        }
+      }
+    }
+  }
+}

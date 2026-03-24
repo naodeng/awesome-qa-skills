@@ -1,0 +1,35 @@
+pipeline {
+  agent any
+
+  environment {
+    BASE_URL = credentials('api-base-url')
+    API_TOKEN = credentials('api-token')
+  }
+
+  tools {
+    jdk 'jdk17'
+    maven 'maven3'
+  }
+
+  stages {
+    stage('Checkout') {
+      steps {
+        checkout scm
+      }
+    }
+
+    stage('Test') {
+      steps {
+        dir('explore/api-test-restassure/scripts/templates/restassured') {
+          sh 'mvn -q test'
+        }
+      }
+    }
+  }
+
+  post {
+    always {
+      archiveArtifacts artifacts: 'explore/api-test-restassure/scripts/templates/restassured/target/surefire-reports/**/*', fingerprint: true
+    }
+  }
+}

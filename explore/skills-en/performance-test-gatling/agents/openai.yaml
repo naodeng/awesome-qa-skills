@@ -1,0 +1,10 @@
+version: 1
+metadata:
+  key: "performance-test-gatling"
+  last_verified: "2026-03-23"
+interface:
+  display_name: "Performance Test Gatling"
+  short_description: "Design and run Gatling-based performance tests for load, stress, spike, and soak objectives."
+  default_prompt: "Use performance-test-gatling to complete the task with local scripts, prompts, and examples in this skill folder."
+policy:
+  allow_implicit_invocation: true

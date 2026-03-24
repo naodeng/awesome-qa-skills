@@ -1,3 +1,0 @@
-name: test-strategy-plus
-model: gpt-5
-purpose: Generate test strategy from multi-format, multi-source project documents.

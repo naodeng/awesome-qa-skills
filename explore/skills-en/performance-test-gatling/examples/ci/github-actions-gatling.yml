@@ -1,0 +1,34 @@
+name: Gatling Performance
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 18 * * *"
+
+jobs:
+  gatling-smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Gatling
+        run: |
+          curl -fsSL https://repo1.maven.org/maven2/io/gatling/highcharts/gatling-charts-highcharts-bundle/3.12.0/gatling-charts-highcharts-bundle-3.12.0-bundle.zip -o gatling.zip
+          unzip -q gatling.zip
+          echo "$PWD/gatling-charts-highcharts-bundle-3.12.0/bin" >> "$GITHUB_PATH"
+
+      - name: Run smoke simulation
+        working-directory: explore/performance-test-gatling/scripts
+        env:
+          BASE_URL: ${{ secrets.PERF_BASE_URL }}
+          ENV: ci
+        run: ./run-tests.sh smoke
+
+      - name: Archive reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gatling-reports
+          path: |
+            explore/performance-test-gatling/reports/**
