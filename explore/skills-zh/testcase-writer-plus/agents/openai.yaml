@@ -1,7 +1,7 @@
 version: 1
 metadata:
   key: "testcase-writer-plus"
-  last_verified: "2026-03-23"
+  last_verified: "2026-03-24"
 interface:
   display_name: "测试用例编写加强版"
   short_description: "基于需求和分析结果生成结构化测试用例。"

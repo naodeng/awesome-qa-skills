@@ -12,7 +12,7 @@
 
 ## 基准提示词正文（原文）
 
-> **英文版**：[test-case-writing_EN.md](test-case-writing_EN.md)
+> **英文版**：[test-case-writing_EN.md](../references/local/test-case-writing.md)
 
 ---
 # 测试用例编写 Prompt

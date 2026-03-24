@@ -1,7 +1,7 @@
 version: 1
 metadata:
   key: "testcase-writer-plus"
-  last_verified: "2026-03-23"
+  last_verified: "2026-03-24"
 interface:
   display_name: "Testcase Writer Plus"
   short_description: "Generate structured test cases from requirement and analysis documents in multiple formats."

@@ -60,5 +60,5 @@ python3 scripts/run_writer.py --requirement examples/requirement-sample.md --ana
 
 ## 审计信息
 
-- 最近验证时间：2026-03-23
+- 最近验证时间：2026-03-24
 - 技能文档版本：1.1.0

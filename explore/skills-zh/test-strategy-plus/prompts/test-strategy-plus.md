@@ -12,7 +12,7 @@
 
 ## 基准提示词正文（原文）
 
-> **英文版**：[test-strategy_EN.md](test-strategy_EN.md)
+> **英文版**：[test-strategy_EN.md](../references/local/test-strategy.md)
 
 ---
 # 测试策略 Prompt

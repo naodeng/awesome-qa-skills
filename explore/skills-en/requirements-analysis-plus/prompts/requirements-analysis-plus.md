@@ -11,7 +11,7 @@ Usage rule: apply the Plus enhancement constraints first, then use the full base
 
 ## Baseline Prompt Body (Original)
 
-**中文版 / Chinese:** [requirements-analysis.md](requirements-analysis.md)
+**中文版 / Chinese:** [requirements-analysis.md](../references/local/requirements-analysis_EN.md)
 
 ---
 

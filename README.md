@@ -11,10 +11,13 @@
 - ✅ **3 个工作流 Skills** - 日常测试、Sprint 测试、发布测试完整流程
 
 每个 Skill 都包含：
-- � 结构化的提示词（Prompts）
+- 📋 结构化的提示词（Prompts）
 - 🎯 最佳实践和使用指南
 - 🔄 智能输出格式支持
 - 🌐 中英文双语版本
+
+> 目录说明：核心技能目录仍使用 `-en` 区分英文版本（如 `functional-testing-en`）。
+> `skills/skills-en` 是英文浏览视图，名称已去掉 `-en`，用于按语言浏览，不是新的核心目录。
 
 ## 🚀 5 分钟快速开始
 
@@ -50,7 +53,7 @@ AI 将自动：
 
 ## 📦 Skills 列表
 
-### � 三个工作流 Skills
+### 🔄 三个工作流 Skills
 
 | Skill | 说明 | 目录 |
 |-------|------|------|
@@ -81,6 +84,18 @@ AI 将自动：
 > 💡 每个 Skill 都有对应的英文版本，目录名后缀为 `-en`
 
 ## 🛠️ 各工具使用方式
+
+### 一键安装（推荐）
+
+```bash
+# macOS / Linux：安装到全部工具（中英文）
+bash scripts/install-skills-mac.sh --tool all --lang all
+
+# Windows PowerShell：安装到全部工具（中英文）
+powershell -ExecutionPolicy Bypass -File .\scripts\install-skills-windows.ps1 -Tool all -Lang all
+```
+
+更多参数说明见：[scripts/INSTALL_SKILLS.md](scripts/INSTALL_SKILLS.md)
 
 ### Cursor
 
@@ -119,11 +134,22 @@ ai-testing-assistant-skills/
 │       ├── functional-testing/       # 中文版
 │       ├── functional-testing-en/    # 英文版
 │       └── ...
+│   ├── skills-zh/                    # 中文分区视图（软链接）
+│   ├── skills-en/                    # 英文分区视图（软链接，名称不带 -en）
+│   └── release/                      # 发布打包目录（非软链接，脚本生成）
 ├── Reference/                        # 参考资料（可选）
 │   ├── examples/                     # 代码示例
 │   └── templates/                    # 测试模板
 └── README.md
 ```
+
+## 🗂️ 目录选择建议
+
+- 日常开发与维护：使用 `skills/testing-types` 与 `skills/testing-workflows`
+- 按语言浏览：使用 `skills/skills-zh` 与 `skills/skills-en`
+- 对外发布/分发：使用 `skills/release`（由 `scripts/build_release_skill_dirs.py` 生成）
+
+目录治理与一键整理见：`skills/DIRECTORY_GUIDE.md`（可运行 `python3 scripts/organize_project_dirs.py` 自动修复/重建目录映射）。
 
 ## 🎯 Skill 特性
 

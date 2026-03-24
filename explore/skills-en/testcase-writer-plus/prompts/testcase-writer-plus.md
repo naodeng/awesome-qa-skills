@@ -12,7 +12,7 @@ Usage rule: apply the Plus enhancement constraints first, then use the full base
 
 ## Baseline Prompt Body (Original)
 
-**中文版 / Chinese:** [test-case-writing.md](test-case-writing.md)
+**中文版 / Chinese:** [test-case-writing.md](../references/local/test-case-writing_EN.md)
 
 ---
 

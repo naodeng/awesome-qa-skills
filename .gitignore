@@ -1,0 +1,76 @@
+# =========================
+# OS / File Explorer
+# =========================
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# =========================
+# Editor / IDE
+# =========================
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+*.pyd
+.python-version
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+.venv/
+venv/
+env/
+ENV/
+
+# =========================
+# Node.js
+# =========================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# =========================
+# Build / Temp / Logs
+# =========================
+*.log
+*.tmp
+*.temp
+*.bak
+*.sqlite
+*.db
+
+# local temp outputs
+/tmp-skill-review-*
+/temp/
+
+# =========================
+# QA Performance Generated Reports
+# Keep report docs, ignore runtime artifacts
+# =========================
+**/reports/*.json
+**/reports/*.log
+**/reports/*.csv
+**/reports/*.html
+!**/reports/README.md
+
+# =========================
+# Archives
+# =========================
+*.zip
+*.tar
+*.gz
+*.7z

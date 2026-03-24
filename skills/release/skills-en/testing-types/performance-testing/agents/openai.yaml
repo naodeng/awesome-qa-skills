@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "performance-testing"
+interface:
+  display_name: "性能测试（中文版）"
+  short_description: "Use this skill when you need to design performance testing for load, stress, spike, endurance, or capacity objectives; triggers include 性..."
+  default_prompt: "Use the performance-testing skill to complete this testing task with structured outputs and practical next steps."
+policy:
+  allow_implicit_invocation: true

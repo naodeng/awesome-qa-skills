@@ -1,7 +1,7 @@
 version: 1
 metadata:
   key: "requirements-analysis-plus"
-  last_verified: "2026-03-23"
+  last_verified: "2026-03-24"
 interface:
   display_name: "需求分析加强版"
   short_description: "解析多格式需求文档并输出结构化需求分析结论。"

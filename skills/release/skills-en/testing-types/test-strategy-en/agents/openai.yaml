@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "test-strategy-en"
+interface:
+  display_name: "Test Strategy"
+  short_description: "Use this skill when you need to define a test strategy covering scope, methods, resources, risks, and quality gates; triggers include tes..."
+  default_prompt: "Use the test-strategy-en skill to complete this testing task with structured outputs and practical next steps."
+policy:
+  allow_implicit_invocation: true

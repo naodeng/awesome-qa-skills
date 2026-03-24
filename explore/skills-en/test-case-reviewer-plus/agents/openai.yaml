@@ -1,7 +1,7 @@
 version: 1
 metadata:
   key: "test-case-reviewer-plus"
-  last_verified: "2026-03-23"
+  last_verified: "2026-03-24"
 interface:
   display_name: "Test Case Reviewer Plus"
   short_description: "Review test cases against requirement and project documents and output actionable findings."

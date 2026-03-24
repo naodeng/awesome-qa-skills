@@ -11,7 +11,7 @@
 
 ## 基准提示词正文（原文）
 
-> **英文版**：[performance-testing_EN.md](performance-testing_EN.md)
+> **英文版**：[performance-testing_EN.md](../references/local/performance-testing.md)
 
 ---
 # 性能测试 Prompt

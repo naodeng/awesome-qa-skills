@@ -11,7 +11,7 @@
 
 ## 基准提示词正文（原文）
 
-> **英文版**：[requirements-analysis_EN.md](requirements-analysis_EN.md)
+> **英文版**：[requirements-analysis_EN.md](../references/local/requirements-analysis.md)
 
 ---
 # 需求分析 Prompt

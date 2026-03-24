@@ -1,6 +1,6 @@
 # Explore Skills Deep Audit Report (EN)
 
-- Audit Date: 2026-03-23
+- Audit Date: 2026-03-24
 - Scope: `explore/skills-zh`, `explore/skills-en`
 - Method: structure audit + consistency audit + runtime validation + metadata standards audit
 
@@ -33,7 +33,7 @@ Issue: `SKILL.md` files did not include verification date/doc version.
 Fix:
 - Added `Review Metadata` to all EN skills
 - Added `审计信息` to all ZH skills
-- Set date to `2026-03-23` and doc version to `1.1.0`
+- Set date to `2026-03-24` and doc version to `1.1.0`
 
 ### 3. Outdated top-level EN folder description (Medium)
 
@@ -68,3 +68,20 @@ Passed:
 - Updated: 20 `agents/openai.yaml` files (ZH+EN)
 - Updated: 4 top-level index/readme docs (ZH+EN)
 - Added: 2 audit reports (ZH+EN)
+
+## 2026-03-24 Follow-up Review (This Round)
+
+### New Findings and Fixes
+
+1. Broken prompt cross-links (High)
+- Issue: 18 prompts in `explore` retained original relative links that no longer resolved in current folders.
+- Fix: rewired links to actual baseline files under `skills/testing-types/.../prompts/...`.
+- Result: local markdown link check reports `broken 0`.
+
+2. Historical run artifacts mixed into report folders (Medium)
+- Issue: `performance-test-k6/reports` contained historical `smoke-*.json`, causing ZH/EN file-set drift.
+- Fix: removed historical artifacts and added `reports/.gitignore` (k6/gatling, both ZH and EN) to prevent recurrence.
+- Result: ZH/EN skill file sets are aligned again.
+
+3. Verification timestamps not refreshed after re-audit (Low)
+- Fix: updated all `SKILL.md` and `agents/openai.yaml` verification dates to `2026-03-24`.

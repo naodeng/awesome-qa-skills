@@ -1,7 +1,7 @@
 version: 1
 metadata:
   key: "api-test-bruno"
-  last_verified: "2026-03-23"
+  last_verified: "2026-03-24"
 interface:
   display_name: "API Test Bruno"
   short_description: "Parse API sources and generate Bruno collections for API regression."

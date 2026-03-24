@@ -11,7 +11,7 @@
 
 ## 基准提示词正文（原文）
 
-> **英文版**：[api-testing_EN.md](api-testing_EN.md)
+> **英文版**：[api-testing_EN.md](../references/local/api-testing.md)
 
 ---
 # API测试 Prompt

@@ -1,7 +1,7 @@
 version: 1
 metadata:
   key: "performance-test-k6"
-  last_verified: "2026-03-23"
+  last_verified: "2026-03-24"
 interface:
   display_name: "k6 性能测试"
   short_description: "设计并执行 k6 负载、压力、尖峰和稳定性性能测试。"

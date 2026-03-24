@@ -1,0 +1,6 @@
+# Keep docs, ignore generated performance outputs
+*.json
+*.log
+*.html
+*.csv
+!README.md

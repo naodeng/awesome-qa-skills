@@ -1,0 +1,216 @@
+---
+name: daily-testing-workflow
+description: Use this skill when you need a day-by-day QA routine including planning, execution, bug reporting, and end-of-day wrap-up; triggers include 日常测试工作流程 and daily testing workflow.
+---
+
+# 日常测试工作流程（中文版）
+
+**英文版：** 见技能 `daily-testing-workflow-en`。
+
+提示词使用**本目录 `prompts/`**，步骤与提示词对照见 [reference.md](reference.md)。
+
+## 何时使用
+
+- 用户提到「日常测试」「每日测试」「今日测试计划」
+- 需要规划或执行一天的测试活动
+
+---
+
+## 早晨例行（5–25 分钟）
+
+### ☑️ 步骤追踪清单
+
+- [ ] **审查测试计划（5–10 分钟）**
+  - [ ] 审查当日用户故事和任务
+  - [ ] 确认测试优先级
+  - [ ] 识别潜在阻碍和依赖
+  - [ ] 使用提示词：需求分析、测试策略
+
+- [ ] **设置测试环境（10–15 分钟）**
+  - [ ] 验证测试环境可用性
+  - [ ] 准备测试数据
+  - [ ] 更新本地自动化脚本
+  - [ ] 检查 CI/CD 流水线状态
+  - [ ] 使用提示词：自动化测试、测试策略
+
+## 测试用例创建（30–60 分钟）
+
+### ☑️ 步骤追踪清单
+
+- [ ] **新功能测试用例**
+  - [ ] 分析需求和验收标准
+  - [ ] 识别边界值和等价类
+  - [ ] 编写功能测试用例
+  - [ ] 记录到测试管理工具
+  - [ ] 使用提示词：测试用例编写、需求分析、功能测试
+
+- [ ] **缺陷修复验证用例**
+  - [ ] 编写缺陷验证用例
+  - [ ] 创建防回归测试用例
+  - [ ] 更新回归测试套件
+  - [ ] 使用提示词：功能测试
+
+## 测试自动化（1–2 小时）
+
+### ☑️ 步骤追踪清单
+
+- [ ] **新自动化测试开发**
+  - [ ] 选择合适的测试框架（Selenium/Playwright/API）
+  - [ ] 生成自动化测试脚本
+  - [ ] 代码审查和优化
+  - [ ] 本地运行验证
+  - [ ] 提交代码到版本控制
+  - [ ] 使用提示词：automation-testing、api-testing
+
+- [ ] **自动化测试维护**
+  - [ ] 修复不稳定测试用例
+  - [ ] 更新元素定位器
+  - [ ] 重构测试代码
+  - [ ] 优化测试执行时间
+  - [ ] 使用提示词：automation-testing、ai-assisted-testing
+
+## 探索性测试（30–45 分钟）
+
+### ☑️ 步骤追踪清单
+
+- [ ] **探索性测试执行**
+  - [ ] 创建测试章程（任务、持续时间、区域）
+  - [ ] 应用启发式方法（SFDPOT、FEW HICCUPS）
+  - [ ] 限时执行（60–90 分钟）
+  - [ ] 记录发现和观察
+  - [ ] 报告发现的缺陷
+  - [ ] 使用提示词：manual-testing
+
+## 缺陷上报（15–30 分钟）
+
+### ☑️ 步骤追踪清单
+
+- [ ] **缺陷记录**
+  - [ ] 编写清晰的缺陷标题
+  - [ ] 记录详细重现步骤
+  - [ ] 描述预期 vs 实际结果
+  - [ ] 添加环境信息
+  - [ ] 附加截图和日志
+  - [ ] 记录到问题跟踪器
+  - [ ] 使用提示词：bug-reporting
+
+## 可选：可视化与 E2E（30 分钟–2 小时）
+
+### ☑️ 步骤追踪清单
+
+- [ ] **可访问性和视觉测试**
+  - [ ] 执行可访问性测试
+  - [ ] 进行视觉回归测试
+  - [ ] 使用提示词：accessibility-testing
+
+- [ ] **端到端测试**
+  - [ ] 测试关键用户旅程
+  - [ ] 验证系统集成点
+  - [ ] 使用提示词：functional-testing
+
+## 下午审查（约 30 分钟）
+
+### ☑️ 步骤追踪清单
+
+- [ ] **CI/CD 结果审查**
+  - [ ] 检查流水线执行结果
+  - [ ] 分析失败的测试用例
+  - [ ] 记录需要修复的问题
+
+- [ ] **质量指标审查**
+  - [ ] 审查测试覆盖率
+  - [ ] 分析缺陷指标
+  - [ ] 更新质量仪表板
+  - [ ] 使用提示词：test-reporting、test-strategy
+
+- [ ] **团队同步**
+  - [ ] 分享测试进展
+  - [ ] 讨论阻碍和风险
+  - [ ] 协调明日计划
+
+## 每日结束（约 15 分钟）
+
+### ☑️ 步骤追踪清单
+
+- [ ] **代码和文档**
+  - [ ] 提交所有代码更改
+  - [ ] 更新测试文档
+  - [ ] 记录工作时间
+
+- [ ] **任务管理**
+  - [ ] 更新任务状态
+  - [ ] 规划明日工作
+  - [ ] 记录未完成事项
+
+## 如何使用
+
+1. 先查看 [reference.md](reference.md)，定位当前步骤对应的提示词文件。
+2. 打开 `prompts/` 下对应文件，并结合当前上下文（范围、环境、风险、约束）一起使用。
+3. 按步骤推进执行，并根据产出与阻塞动态调整优先级或门禁条件。
+
+## 常见误区
+
+- ❌ 跳过早晨审查直接写用例 → ✅ 先明确当日故事与优先级，再写用例
+- ❌ 探索性测试无章程、无时间盒 → ✅ 使用手动测试提示词写章程，限时 60–90 分钟
+- ❌ 缺陷只口头描述不落单 → ✅ 用缺陷上报提示词生成标题、步骤、预期 vs 实际、环境
+
+## 最佳实践
+
+- 早晨先看 [reference.md](reference.md) 再选「审查」「环境」对应提示词
+- 新功能先做需求分析/边界值，再写具体用例
+- 自动化脚本生成后务必本地跑通再提交
+- 下午审查用测试报告 + 测试策略做覆盖率与缺陷指标
+
+## 问题应对
+
+流水线失败 → 检查自动化/CI、调试、修复重跑。不稳定测试 → 维护策略 + 等待/重试。被阻塞 → 记录阻碍、替代区域、重排优先级。
+
+## 参考文件
+
+- **[reference.md](reference.md)** — 步骤与提示词文件对照表
+- **prompts/** — 本工作流所需中文提示词（每步打开对应 `.md` 与上下文结合使用）
+
+**相关技能**：sprint-testing-workflow、release-testing-workflow。
+
+## 目标受众
+
+- 在真实项目中执行该测试域工作的 QA 与开发人员
+- 需要结构化、可复用测试交付物的测试负责人
+- 需要快速生成可落地测试产出的 AI 使用者
+
+## 不适用场景
+
+- 无测试范围上下文的纯线上应急处置
+- 需要法律/合规最终裁定但缺少专家复核的决策
+- 缺少最小输入（范围、环境、期望行为）的请求
+
+## 关键成功因素
+
+- 先明确范围、环境与验收标准，再生成测试内容
+- 生成结果必须结合真实系统约束做二次校验
+- 保持产物可追踪（需求 -> 测试点 -> 缺陷 -> 决策）
+
+## 输出模板与解析脚本
+
+- 模板目录：`output-templates/`
+  - `template-word.md`（Word 友好结构）
+  - `template-excel.tsv`（Excel 可直接粘贴）
+  - `template-xmind.md`（XMind 结构化大纲）
+  - `template-json.json`
+  - `template-csv.csv`
+  - `template-markdown.md`
+- 解析脚本目录：`scripts/`
+  - 解析通用：`parse_output_formats.py`
+  - 解析按格式：`parse_word.py`、`parse_excel.py`、`parse_xmind.py`、`parse_json.py`、`parse_csv.py`、`parse_markdown.py`
+  - 转换通用：`convert_output_formats.py`
+  - 转换按格式：`convert_to_word.py`、`convert_to_excel.py`、`convert_to_xmind.py`、`convert_to_json.py`、`convert_to_csv.py`、`convert_to_markdown.py`
+  - 批量转换：`batch_convert_templates.py`（批量输出到 `artifacts/`）
+
+示例：
+```bash
+python3 scripts/parse_json.py output-templates/template-json.json
+python3 scripts/parse_markdown.py output-templates/template-markdown.md
+python3 scripts/convert_to_json.py output-templates/template-markdown.md
+python3 scripts/convert_output_formats.py output-templates/template-json.json --to csv
+python3 scripts/batch_convert_templates.py --skip-same
+```

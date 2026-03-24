@@ -12,7 +12,7 @@ Usage rule: apply the Plus enhancement constraints first, then use the full base
 
 ## Baseline Prompt Body (Original)
 
-**中文版 / Chinese:** [test-strategy.md](test-strategy.md)
+**中文版 / Chinese:** [test-strategy.md](../references/local/test-strategy_EN.md)
 
 ---
 

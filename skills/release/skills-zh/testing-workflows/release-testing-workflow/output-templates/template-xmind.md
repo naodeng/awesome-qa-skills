@@ -1,0 +1,24 @@
+# QA Output Mindmap
+
+- QA Output
+  - Meta
+    - Skill
+    - Scope
+    - Environment
+    - Priority
+  - Inputs
+    - Requirement
+    - Constraints
+    - Risks
+  - Execution
+    - Step 1
+    - Step 2
+    - Step 3
+  - Results
+    - Status
+    - Evidence
+    - Defects
+  - Next Actions
+    - Owner
+    - ETA
+    - Action

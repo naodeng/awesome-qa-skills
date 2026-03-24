@@ -1,7 +1,7 @@
 version: 1
 metadata:
   key: "api-test-supertest"
-  last_verified: "2026-03-23"
+  last_verified: "2026-03-24"
 interface:
   display_name: "Supertest 接口自动化"
   short_description: "解析接口来源并生成 Supertest 接口自动化测试。"

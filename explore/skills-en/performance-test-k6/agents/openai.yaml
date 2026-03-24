@@ -1,7 +1,7 @@
 version: 1
 metadata:
   key: "performance-test-k6"
-  last_verified: "2026-03-23"
+  last_verified: "2026-03-24"
 interface:
   display_name: "Performance Test k6"
   short_description: "Design and run k6-based performance tests for load, stress, spike, and soak objectives."

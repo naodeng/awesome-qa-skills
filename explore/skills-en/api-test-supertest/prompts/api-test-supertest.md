@@ -11,7 +11,7 @@ Usage rule: apply the Plus enhancement constraints first, then use the full base
 
 ## Baseline Prompt Body (Original)
 
-**中文版 / Chinese:** [api-testing.md](api-testing.md)
+**中文版 / Chinese:** [api-testing.md](../references/local/api-testing_EN.md)
 
 ---
 

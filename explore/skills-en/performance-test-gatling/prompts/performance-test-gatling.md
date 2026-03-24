@@ -11,7 +11,7 @@ Usage rule: apply the Plus enhancement constraints first, then use the full base
 
 ## Baseline Prompt Body (Original)
 
-**中文版 / Chinese:** [performance-testing.md](performance-testing.md)
+**中文版 / Chinese:** [performance-testing.md](../references/local/performance-testing_EN.md)
 
 ---
 

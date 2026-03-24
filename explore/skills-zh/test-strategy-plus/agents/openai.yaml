@@ -1,7 +1,7 @@
 version: 1
 metadata:
   key: "test-strategy-plus"
-  last_verified: "2026-03-23"
+  last_verified: "2026-03-24"
 interface:
   display_name: "测试策略加强版"
   short_description: "基于需求与项目文档生成可执行测试策略。"

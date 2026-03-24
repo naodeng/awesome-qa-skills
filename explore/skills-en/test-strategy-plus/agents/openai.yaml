@@ -1,7 +1,7 @@
 version: 1
 metadata:
   key: "test-strategy-plus"
-  last_verified: "2026-03-23"
+  last_verified: "2026-03-24"
 interface:
   display_name: "Test Strategy Plus"
   short_description: "Generate practical test strategy from requirement, analysis, technical, and planning documents."
