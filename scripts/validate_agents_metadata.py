@@ -10,8 +10,10 @@ from typing import List
 
 ROOT = Path(__file__).resolve().parents[1]
 SKILL_DIRS = sorted(
-    [p for p in (ROOT / "skills").glob("testing-types/*") if p.is_dir()]
-    + [p for p in (ROOT / "skills").glob("testing-workflows/*") if p.is_dir()]
+    [p for p in (ROOT / "skills").glob("zh/testing-types/*") if p.is_dir()]
+    + [p for p in (ROOT / "skills").glob("zh/testing-workflows/*") if p.is_dir()]
+    + [p for p in (ROOT / "skills").glob("en/testing-types/*") if p.is_dir()]
+    + [p for p in (ROOT / "skills").glob("en/testing-workflows/*") if p.is_dir()]
 )
 
 
@@ -58,13 +60,6 @@ def read_openai_yaml(path: Path) -> dict[str, str]:
 
 def validate() -> List[Finding]:
     findings: List[Finding] = []
-
-    symlink_types = ROOT / ".agents" / "skills" / "testing-types"
-    symlink_workflows = ROOT / ".agents" / "skills" / "testing-workflows"
-    if not symlink_types.exists():
-        findings.append(Finding("high", "GLOBAL", symlink_types, "Missing .agents/skills/testing-types"))
-    if not symlink_workflows.exists():
-        findings.append(Finding("high", "GLOBAL", symlink_workflows, "Missing .agents/skills/testing-workflows"))
 
     for d in SKILL_DIRS:
         skill_md = d / "SKILL.md"

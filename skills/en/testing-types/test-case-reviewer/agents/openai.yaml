@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "test-case-reviewer"
+interface:
+  display_name: "Test Case Review"
+  short_description: "Use this skill when you need to review test cases for completeness, clarity, maintainability, and missing scenarios; triggers include tes..."
+  default_prompt: "Use the test-case-reviewer skill to complete this testing task with structured outputs and practical next steps."
+policy:
+  allow_implicit_invocation: true

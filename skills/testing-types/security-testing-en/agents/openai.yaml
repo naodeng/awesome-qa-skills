@@ -1,9 +1,0 @@
-version: 1
-metadata:
-  key: "security-testing-en"
-interface:
-  display_name: "Security Testing (English)"
-  short_description: "Use this skill when you need to design security testing around OWASP risks, vulnerability scanning, and penetration scenarios; triggers i..."
-  default_prompt: "Use the security-testing-en skill to complete this testing task with structured outputs and practical next steps."
-policy:
-  allow_implicit_invocation: true

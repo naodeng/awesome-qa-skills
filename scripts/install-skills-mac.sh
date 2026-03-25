@@ -19,14 +19,14 @@ Usage:
 Options:
   --tool       Target AI tool: claude | cursor | codex | kiro | opencode | all
   --lang       Skills language: zh | en | all
-  --skill      Install only one skill directory name (e.g. functional-testing, functional-testing-en)
+  --skill      Install only one skill directory name (e.g. functional-testing)
   --dest       Custom install destination (overrides tool default path)
   --dry-run    Preview operations without writing files
   -h, --help   Show help
 
 Examples:
   scripts/install-skills-mac.sh --tool codex --lang zh
-  scripts/install-skills-mac.sh --tool codex --lang all --skill functional-testing-en
+  scripts/install-skills-mac.sh --tool codex --lang all --skill functional-testing
   scripts/install-skills-mac.sh --tool all --lang all
   scripts/install-skills-mac.sh --tool cursor --lang en --dry-run
 EOF
@@ -56,29 +56,16 @@ default_dest_for_tool() {
 }
 
 collect_skill_dirs() {
-  local section="$1"
-  local dir="$SKILLS_ROOT/$section"
+  local lang="$1"
+  local section="$2"
+  local dir="$SKILLS_ROOT/$lang/$section"
   [[ -d "$dir" ]] || return 0
   for s in "$dir"/*; do
     [[ -d "$s" ]] || continue
     local name
     name="$(basename "$s")"
-    if [[ "$LANGUAGE" == "zh" ]]; then
-      if [[ "$name" != *-en ]]; then
-        if [[ "$SKILL" == "all" || "$SKILL" == "$name" ]]; then
-          echo "$s"
-        fi
-      fi
-    elif [[ "$LANGUAGE" == "en" ]]; then
-      if [[ "$name" == *-en ]]; then
-        if [[ "$SKILL" == "all" || "$SKILL" == "$name" ]]; then
-          echo "$s"
-        fi
-      fi
-    else
-      if [[ "$SKILL" == "all" || "$SKILL" == "$name" ]]; then
-        echo "$s"
-      fi
+    if [[ "$SKILL" == "all" || "$SKILL" == "$name" ]]; then
+      echo "$s"
     fi
   done
 }
@@ -117,20 +104,30 @@ install_for_tool() {
   echo "    Language: $LANGUAGE"
 
   local src
-  while IFS= read -r src; do
-    [[ -n "$src" ]] || continue
-    local section name dst
-    section="$(basename "$(dirname "$src")")"
-    name="$(basename "$src")"
-    dst="$target/$section/$name"
-    sync_dir "$src" "$dst"
-  done < <(
-    collect_skill_dirs "testing-types"
-    collect_skill_dirs "testing-workflows"
-  )
+  local langs=()
+  if [[ "$LANGUAGE" == "all" ]]; then
+    langs=(zh en)
+  else
+    langs=("$LANGUAGE")
+  fi
+
+  local lang src
+  for lang in "${langs[@]}"; do
+    while IFS= read -r src; do
+      [[ -n "$src" ]] || continue
+      local section name dst
+      section="$(basename "$(dirname "$src")")"
+      name="$(basename "$src")"
+      dst="$target/$lang/$section/$name"
+      sync_dir "$src" "$dst"
+    done < <(
+      collect_skill_dirs "$lang" "testing-types"
+      collect_skill_dirs "$lang" "testing-workflows"
+    )
+  done
 }
 
-if [[ ! -d "$SKILLS_ROOT/testing-types" || ! -d "$SKILLS_ROOT/testing-workflows" ]]; then
+if [[ ! -d "$SKILLS_ROOT/zh" || ! -d "$SKILLS_ROOT/en" ]]; then
   echo "skills source not found under: $SKILLS_ROOT" >&2
   exit 1
 fi

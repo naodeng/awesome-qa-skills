@@ -37,14 +37,14 @@ def rewrite_cross_language_prompt_links() -> int:
             if skill_dir.endswith("-en"):
                 target_skill = skill_dir[:-3]
                 current_name = p.name
-                target_name = current_name.replace("_EN.md", ".md")
+                target_name = current_name.replace(".md", ".md")
                 target = f"../../{target_skill}/prompts/{target_name}"
                 return f"[{label}]({target})"
             else:
                 target_skill = f"{skill_dir}-en"
                 current_name = p.name
-                if current_name.endswith(".md") and not current_name.endswith("_EN.md"):
-                    target_name = current_name[:-3] + "_EN.md"
+                if current_name.endswith(".md") and not current_name.endswith(".md"):
+                    target_name = current_name[:-3] + ".md"
                 else:
                     target_name = current_name
                 target = f"../../{target_skill}/prompts/{target_name}"

@@ -1,9 +1,0 @@
-version: 1
-metadata:
-  key: "accessibility-testing-en"
-interface:
-  display_name: "Accessibility Testing (English)"
-  short_description: "Use this skill when you need to design accessibility testing against WCAG, keyboard navigation, and assistive technology scenarios; trigg..."
-  default_prompt: "Use the accessibility-testing-en skill to complete this testing task with structured outputs and practical next steps."
-policy:
-  allow_implicit_invocation: true

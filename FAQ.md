@@ -34,7 +34,7 @@ cp -r skills/testing-types/functional-testing ~/.cursor/skills/
 
 #### 4. 中文和英文版本有什么区别？
 
-功能完全相同，只是语言不同。中文 skill 目录名如 `functional-testing`，英文为 `functional-testing-en`。
+功能完全相同，只是语言不同。中文 skill 目录名如 `functional-testing`，英文为 `functional-testing`。
 
 #### 5. 可以同时使用多个 skills 吗？
 
@@ -293,16 +293,16 @@ A testing skills library designed specifically for AI coding assistants, contain
 git clone https://github.com/naodeng/awesome-qa-skills.git
 
 # 2. Copy needed skill
-cp -r skills/testing-types/functional-testing-en ~/.cursor/skills/
+cp -r skills/testing-types/functional-testing ~/.cursor/skills/
 
 # 3. Use in AI tool
-@skill functional-testing-en
+@skill functional-testing
 Help me generate test cases for user login functionality
 ```
 
 #### 4. What's the difference between Chinese and English versions?
 
-Functionally identical, just different languages. Chinese skill directories like `functional-testing`, English as `functional-testing-en`.
+Functionally identical, just different languages. Chinese skill directories like `functional-testing`, English as `functional-testing`.
 
 #### 5. Can I use multiple skills together?
 
@@ -316,17 +316,17 @@ Yes! Skills are designed to be composable. Check [skills-graph.md](skills-graph.
 
 ```bash
 # Project level (recommended)
-cp -r skills/testing-types/functional-testing-en /path/to/your/project/.cursor/skills/
+cp -r skills/testing-types/functional-testing /path/to/your/project/.cursor/skills/
 
 # User level (global)
-cp -r skills/testing-types/functional-testing-en ~/.cursor/skills/
+cp -r skills/testing-types/functional-testing ~/.cursor/skills/
 ```
 
 #### 7. How to install to Claude Code?
 
 ```bash
 mkdir -p .claude/skills
-cp -r skills/testing-types/functional-testing-en .claude/skills/
+cp -r skills/testing-types/functional-testing .claude/skills/
 ```
 
 #### 8. How to install to Kiro?
@@ -334,11 +334,11 @@ cp -r skills/testing-types/functional-testing-en .claude/skills/
 ```bash
 # Project level
 mkdir -p .kiro/skills
-cp -r skills/testing-types/functional-testing-en .kiro/skills/
+cp -r skills/testing-types/functional-testing .kiro/skills/
 
 # Global
 mkdir -p ~/.kiro/skills
-cp -r skills/testing-types/functional-testing-en ~/.kiro/skills/
+cp -r skills/testing-types/functional-testing ~/.kiro/skills/
 ```
 
 #### 9. How to update skills?
@@ -349,7 +349,7 @@ cd ai-testing-assistant-skills
 git pull origin main
 
 # 2. Re-copy skills
-cp -r skills/testing-types/functional-testing-en /path/to/your/project/.cursor/skills/
+cp -r skills/testing-types/functional-testing /path/to/your/project/.cursor/skills/
 ```
 
 #### 10. How to customize skills?
@@ -367,7 +367,7 @@ cp -r skills/testing-types/functional-testing-en /path/to/your/project/.cursor/s
 In AI tool's chat:
 
 ```
-@skill functional-testing-en
+@skill functional-testing
 Requirement: User login functionality
 ```
 
@@ -376,7 +376,7 @@ Requirement: User login functionality
 Specify at the end of requirement:
 
 ```
-@skill functional-testing-en
+@skill functional-testing
 Requirement: User login functionality
 Please output as tab-separated table for Excel
 ```
@@ -386,7 +386,7 @@ Supported formats: Markdown (default), Excel, CSV, JSON, Jira, TestRail.
 #### 13. How to use workflows?
 
 ```
-@skill daily-testing-workflow-en
+@skill daily-testing-workflow
 Today I need to test user login and registration features
 ```
 
@@ -415,7 +415,7 @@ Three ways:
 #### 16. How to generate test cases?
 
 ```
-@skill test-case-writing-en
+@skill test-case-writing
 Requirement: User login functionality, support email and phone login
 ```
 
@@ -424,7 +424,7 @@ AI will automatically generate test cases including normal, exception, and bound
 #### 17. How to generate automation test code?
 
 ```
-@skill automation-testing-en
+@skill automation-testing
 Requirement: Generate Playwright automation test code for login functionality
 ```
 
@@ -433,7 +433,7 @@ AI will generate runnable test code.
 #### 18. How to analyze requirements?
 
 ```
-@skill requirements-analysis-en
+@skill requirements-analysis
 Requirement: Users can login to the system via email or phone number
 ```
 
@@ -442,7 +442,7 @@ AI will analyze requirements and extract test points.
 #### 19. How to create test strategy?
 
 ```
-@skill test-strategy-en
+@skill test-strategy
 Project info:
 - Type: Web application
 - Tech stack: React + Node.js
@@ -457,11 +457,11 @@ Refer to recommended combinations in [skills-graph.md](skills-graph.md), for exa
 
 **New Feature Testing Flow**:
 ```
-1. @skill requirements-analysis-en
-2. @skill test-strategy-en
-3. @skill test-case-writing-en
-4. @skill functional-testing-en
-5. @skill automation-testing-en
+1. @skill requirements-analysis
+2. @skill test-strategy
+3. @skill test-case-writing
+4. @skill functional-testing
+5. @skill automation-testing
 ```
 
 ---

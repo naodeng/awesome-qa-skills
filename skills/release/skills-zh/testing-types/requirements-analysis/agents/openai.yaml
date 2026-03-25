@@ -1,9 +1,0 @@
-version: 1
-metadata:
-  key: "requirements-analysis"
-interface:
-  display_name: "需求分析（中文版）"
-  short_description: "Use this skill when you need to analyze requirements, identify test points, boundaries, dependencies, and risks before test design; trigg..."
-  default_prompt: "Use the requirements-analysis skill to complete this testing task with structured outputs and practical next steps."
-policy:
-  allow_implicit_invocation: true

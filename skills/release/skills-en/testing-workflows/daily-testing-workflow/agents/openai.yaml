@@ -1,9 +1,0 @@
-version: 1
-metadata:
-  key: "daily-testing-workflow"
-interface:
-  display_name: "日常测试工作流程（中文版）"
-  short_description: "Use this skill when you need a day-by-day QA routine including planning, execution, bug reporting, and end-of-day wrap-up; triggers inclu..."
-  default_prompt: "Use the daily-testing-workflow skill to complete this testing task with structured outputs and practical next steps."
-policy:
-  allow_implicit_invocation: true

@@ -22,20 +22,16 @@ class Finding:
 
 def discover_skill_dirs(repo_root: Path) -> list[Path]:
     bases = [
-        repo_root / "skills" / "testing-types",
-        repo_root / "skills" / "testing-workflows",
-        repo_root / "explore" / "skills-en",
-        repo_root / "explore" / "skills-zh",
-        repo_root / "skills" / "release" / "skills-en" / "testing-types",
-        repo_root / "skills" / "release" / "skills-en" / "testing-workflows",
-        repo_root / "skills" / "release" / "skills-zh" / "testing-types",
-        repo_root / "skills" / "release" / "skills-zh" / "testing-workflows",
+        repo_root / "skills" / "zh" / "testing-types",
+        repo_root / "skills" / "zh" / "testing-workflows",
+        repo_root / "skills" / "en" / "testing-types",
+        repo_root / "skills" / "en" / "testing-workflows",
     ]
     result: list[Path] = []
     for b in bases:
         if not b.exists():
             continue
-        for d in sorted([p for p in b.iterdir() if p.is_dir()]):
+        for d in sorted([p for p in b.iterdir() if p.is_dir() and not p.is_symlink()]):
             result.append(d.resolve())
     # de-dup while preserving order
     seen: set[str] = set()
@@ -72,6 +68,10 @@ def _is_allowed_cross_language_prompt_link(source: Path, target: Path) -> bool:
         return False
     s_name = sid[1]
     t_name = tid[1]
+    # New canonical layout: same skill name under zh/en folders.
+    if s_name == t_name:
+        return True
+    # Legacy layout: language split by -en suffix.
     if s_name.endswith("-en"):
         return s_name[:-3] == t_name
     if t_name.endswith("-en"):
@@ -90,6 +90,16 @@ def scan_skill(skill_dir: Path, repo_root: Path) -> list[Finding]:
     prompts = skill_dir / "prompts"
     if not prompts.exists() or not any(prompts.glob("*.md")):
         findings.append(Finding("high", "missing", rel_skill, rel_skill, "Missing prompts/*.md"))
+    if (prompts / "zh").exists() or (prompts / "en").exists():
+        findings.append(
+            Finding(
+                "medium",
+                "layout",
+                rel_skill,
+                rel_skill,
+                "prompts/ should not contain zh/ or en/ subdirectories",
+            )
+        )
 
     scripts = skill_dir / "scripts"
     if not scripts.exists() or not any(scripts.iterdir()):

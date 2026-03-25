@@ -1,9 +1,0 @@
-version: 1
-metadata:
-  key: "sprint-testing-workflow"
-interface:
-  display_name: "迭代测试工作流程（中文版）"
-  short_description: "Use this skill when you need a sprint-based QA workflow from planning through review and retrospective; triggers include 迭代测试工作流程 and spr..."
-  default_prompt: "Use the sprint-testing-workflow skill to complete this testing task with structured outputs and practical next steps."
-policy:
-  allow_implicit_invocation: true

@@ -1,55 +1,30 @@
 # Skills Directory Guide
 
-This repository has three layers of skill directories:
+Current structure uses one skills root with language partitions:
 
-## 1) Core source (edit here)
+- `skills/zh/testing-types`
+- `skills/zh/testing-workflows`
+- `skills/en/testing-types`
+- `skills/en/testing-workflows`
 
-- `skills/testing-types`
-- `skills/testing-workflows`
+Each skill directory now follows the same lightweight layout:
 
-These are the canonical source directories used by install scripts and validations.
+- `SKILL.md`: short entry file
+- `prompts/`: main prompt files
+- `reference.md`: workflow mapping when needed
+- `output-formats.md`: optional format guidance when supported
+- `references/`: deeper notes loaded only when needed
+- `examples/`: sample inputs or outputs when useful
+- `scripts/`: helper tooling when needed
 
-## 2) Language views (browse here)
-
-- `skills/skills-zh`
-- `skills/skills-en`
-
-These are symlink-based views:
-
-- `skills-zh` maps to Chinese core skills (same names as source).
-- `skills-en` maps to English core skills, but view names remove the `-en` suffix.
-
-Example:
-
-- `skills/skills-en/testing-types/functional-testing`
-  -> `skills/testing-types/functional-testing-en`
-
-## 3) Release package output (distribute here)
-
-- `skills/release`
-
-This is a non-symlink release build output for distribution.
-
-## One-command directory maintenance
-
-Run:
+Maintenance:
 
 ```bash
 python3 scripts/organize_project_dirs.py
 ```
 
-What it does:
-
-1. Repairs missing core directories from `skills/release` when possible.
-2. Rebuilds language views (`skills-zh`, `skills-en`) to keep mappings consistent.
-3. Validates structure and fails fast on broken links.
-
-## All-skills integrity check
-
-To enforce independence and completeness for all skills in this project:
+Quality check:
 
 ```bash
-python3 scripts/validate_skills_integrity.py --fail-on-findings --report-md /tmp/skills-integrity-check.md
+bash scripts/check_skills_quality.sh
 ```
-
-This includes core, explore, and release skills.

@@ -1,9 +1,0 @@
-version: 1
-metadata:
-  key: "test-case-writing"
-interface:
-  display_name: "测试用例编写（中文版）"
-  short_description: "Use this skill when you need to create high-quality test cases with normal, exception, and boundary scenarios; triggers include 测试用例编写 an..."
-  default_prompt: "Use the test-case-writing skill to complete this testing task with structured outputs and practical next steps."
-policy:
-  allow_implicit_invocation: true

@@ -32,17 +32,12 @@ function Get-DefaultDestForTool {
 
 function Get-SkillDirs {
   param(
+    [string]$LangName,
     [string]$SectionDir,
     [string]$LangFilter
   )
   if (-not (Test-Path $SectionDir)) { return @() }
   $dirs = Get-ChildItem -Path $SectionDir -Directory
-  if ($LangFilter -eq "zh") {
-    $dirs = $dirs | Where-Object { $_.Name -notlike "*-en" }
-  }
-  elseif ($LangFilter -eq "en") {
-    $dirs = $dirs | Where-Object { $_.Name -like "*-en" }
-  }
   if ($Skill -ne "all") {
     $dirs = $dirs | Where-Object { $_.Name -eq $Skill }
   }
@@ -84,17 +79,26 @@ function Install-ForTool {
   Write-Host "    Language: $Lang"
 
   $sections = @("testing-types", "testing-workflows")
-  foreach ($section in $sections) {
-    $sectionDir = Join-Path $SkillsRoot $section
-    $skillDirs = Get-SkillDirs -SectionDir $sectionDir -LangFilter $Lang
-    foreach ($skillDir in $skillDirs) {
-      $dst = Join-Path (Join-Path $targetRoot $section) $skillDir.Name
-      Sync-SkillDir -Source $skillDir.FullName -Target $dst
+  $langs = @()
+  if ($Lang -eq "all") {
+    $langs = @("zh", "en")
+  } else {
+    $langs = @($Lang)
+  }
+
+  foreach ($langName in $langs) {
+    foreach ($section in $sections) {
+      $sectionDir = Join-Path (Join-Path $SkillsRoot $langName) $section
+      $skillDirs = Get-SkillDirs -LangName $langName -SectionDir $sectionDir -LangFilter $Lang
+      foreach ($skillDir in $skillDirs) {
+        $dst = Join-Path (Join-Path (Join-Path $targetRoot $langName) $section) $skillDir.Name
+        Sync-SkillDir -Source $skillDir.FullName -Target $dst
+      }
     }
   }
 }
 
-if (-not (Test-Path (Join-Path $SkillsRoot "testing-types")) -or -not (Test-Path (Join-Path $SkillsRoot "testing-workflows"))) {
+if (-not (Test-Path (Join-Path $SkillsRoot "zh")) -or -not (Test-Path (Join-Path $SkillsRoot "en"))) {
   throw "skills source not found under: $SkillsRoot"
 }
 

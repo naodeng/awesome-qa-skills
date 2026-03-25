@@ -23,7 +23,7 @@ bash scripts/install-skills-mac.sh --tool codex --lang zh
 bash scripts/install-skills-mac.sh --tool cursor --lang en --dry-run
 
 # install only one skill
-bash scripts/install-skills-mac.sh --tool codex --lang all --skill functional-testing-en
+bash scripts/install-skills-mac.sh --tool codex --lang all --skill functional-testing
 
 # install to custom path
 bash scripts/install-skills-mac.sh --tool claude --lang all --dest /path/to/skills
@@ -45,7 +45,7 @@ powershell -ExecutionPolicy Bypass -File .\scripts\install-skills-windows.ps1 -T
 powershell -ExecutionPolicy Bypass -File .\scripts\install-skills-windows.ps1 -Tool cursor -Lang en -DryRun
 
 # install only one skill
-powershell -ExecutionPolicy Bypass -File .\scripts\install-skills-windows.ps1 -Tool codex -Lang all -Skill functional-testing-en
+powershell -ExecutionPolicy Bypass -File .\scripts\install-skills-windows.ps1 -Tool codex -Lang all -Skill functional-testing
 
 # install to custom path
 powershell -ExecutionPolicy Bypass -File .\scripts\install-skills-windows.ps1 -Tool claude -Lang all -Dest C:\skills
@@ -62,13 +62,14 @@ powershell -ExecutionPolicy Bypass -File .\scripts\install-skills-windows.ps1 -T
 ## Notes
 
 - Source directories:
-  - `skills/testing-types`
-  - `skills/testing-workflows`
-- `--skill` uses core directory names from source directories.
+  - `skills/zh/testing-types`
+  - `skills/zh/testing-workflows`
+  - `skills/en/testing-types`
+  - `skills/en/testing-workflows`
+- `--skill` uses canonical skill names from language directories.
   - Chinese example: `functional-testing`
-  - English example: `functional-testing-en`
-  - `skills/skills-en` view names without `-en` are for browsing and should not be passed to installer `--skill`.
-- Language filter:
-  - `zh`: directories without `-en`
-  - `en`: directories with `-en`
-  - `all`: all directories
+  - English example: `functional-testing`
+- Install target layout:
+  - `.../skills/zh/testing-types/...`
+  - `.../skills/en/testing-types/...`
+  - (same for `testing-workflows`)

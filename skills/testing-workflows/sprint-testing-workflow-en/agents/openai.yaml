@@ -1,9 +1,0 @@
-version: 1
-metadata:
-  key: "sprint-testing-workflow-en"
-interface:
-  display_name: "Sprint Testing Workflow"
-  short_description: "Use this skill when you need a sprint-based QA workflow from planning through review and retrospective; triggers include sprint testing w..."
-  default_prompt: "Use the sprint-testing-workflow-en skill to complete this testing task with structured outputs and practical next steps."
-policy:
-  allow_implicit_invocation: true

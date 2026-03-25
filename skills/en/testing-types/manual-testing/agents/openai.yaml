@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "manual-testing"
+interface:
+  display_name: "Manual/Exploratory Testing"
+  short_description: "Use this skill when you need to plan manual or exploratory testing with charters, heuristics, and session records; triggers include manua..."
+  default_prompt: "Use the manual-testing skill to complete this testing task with structured outputs and practical next steps."
+policy:
+  allow_implicit_invocation: true

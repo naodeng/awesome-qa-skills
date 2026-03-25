@@ -1,9 +1,0 @@
-version: 1
-metadata:
-  key: "functional-testing"
-interface:
-  display_name: "功能测试（中文版）"
-  short_description: "Use this skill when you need to design functional test plans or cases for business flows, UI, data, and integrations; triggers include 功能..."
-  default_prompt: "Use the functional-testing skill to complete this testing task with structured outputs and practical next steps."
-policy:
-  allow_implicit_invocation: true

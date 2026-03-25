@@ -8,139 +8,91 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SKILLS_ROOT = ROOT / "skills"
-CORE_TYPES = SKILLS_ROOT / "testing-types"
-CORE_WORKFLOWS = SKILLS_ROOT / "testing-workflows"
-RELEASE_ZH = SKILLS_ROOT / "release" / "skills-zh"
-RELEASE_EN = SKILLS_ROOT / "release" / "skills-en"
-VIEW_ZH = SKILLS_ROOT / "skills-zh"
-VIEW_EN = SKILLS_ROOT / "skills-en"
+CANON_EN = SKILLS_ROOT / "en"
+CANON_ZH = SKILLS_ROOT / "zh"
 
 
-def copy_dir_if_exists(src: Path, dst: Path) -> int:
-    copied = 0
-    if not src.exists():
-        return copied
-    dst.mkdir(parents=True, exist_ok=True)
-    for child in sorted([p for p in src.iterdir() if p.is_dir()]):
-        target = dst / child.name
-        if not target.exists():
-            shutil.copytree(child, target)
-            copied += 1
-    return copied
+def ensure_canonical_layout() -> None:
+    for lang in (CANON_EN, CANON_ZH):
+        (lang / "testing-types").mkdir(parents=True, exist_ok=True)
+        (lang / "testing-workflows").mkdir(parents=True, exist_ok=True)
 
 
-def ensure_core_from_release() -> tuple[int, int]:
-    CORE_TYPES.mkdir(parents=True, exist_ok=True)
-    CORE_WORKFLOWS.mkdir(parents=True, exist_ok=True)
-
-    copied_types = 0
-    copied_workflows = 0
-    copied_types += copy_dir_if_exists(RELEASE_ZH / "testing-types", CORE_TYPES)
-    copied_workflows += copy_dir_if_exists(RELEASE_ZH / "testing-workflows", CORE_WORKFLOWS)
-    copied_types += copy_dir_if_exists(RELEASE_EN / "testing-types", CORE_TYPES)
-    copied_workflows += copy_dir_if_exists(RELEASE_EN / "testing-workflows", CORE_WORKFLOWS)
-    return copied_types, copied_workflows
+def sync_canonical() -> tuple[int, int]:
+    ensure_canonical_layout()
+    # No external source to sync from.
+    return (0, 0)
 
 
-def safe_symlink(target_rel: Path, link_path: Path) -> None:
-    if link_path.exists() or link_path.is_symlink():
-        if link_path.is_dir() and not link_path.is_symlink():
-            shutil.rmtree(link_path)
-        else:
-            link_path.unlink()
-    try:
-        link_path.symlink_to(target_rel)
-    except FileExistsError:
-        # Make operation idempotent even if a path appears between checks.
-        if link_path.is_dir() and not link_path.is_symlink():
-            shutil.rmtree(link_path)
-        elif link_path.exists() or link_path.is_symlink():
-            link_path.unlink()
-        link_path.symlink_to(target_rel)
-
-
-def rebuild_language_views() -> tuple[int, int]:
-    # Create symlink view directories if missing
-    for view in (VIEW_ZH, VIEW_EN):
-        (view / "testing-types").mkdir(parents=True, exist_ok=True)
-        (view / "testing-workflows").mkdir(parents=True, exist_ok=True)
-
-    zh_count = 0
-    en_count = 0
-
-    # zh view: map non -en names directly
+def cleanup_en_suffix_aliases() -> int:
+    removed = 0
     for section in ("testing-types", "testing-workflows"):
-        src_base = SKILLS_ROOT / section
-        view_base = VIEW_ZH / section
-        for s in sorted([p for p in src_base.iterdir() if p.is_dir() and not p.name.endswith("-en")]):
-            rel_target = Path("..") / ".." / section / s.name
-            safe_symlink(rel_target, view_base / s.name)
-            zh_count += 1
-
-    # en view: map *-en source to names without -en
-    for section in ("testing-types", "testing-workflows"):
-        src_base = SKILLS_ROOT / section
-        view_base = VIEW_EN / section
-        for s in sorted([p for p in src_base.iterdir() if p.is_dir() and p.name.endswith("-en")]):
-            alias_name = s.name[:-3]
-            rel_target = Path("..") / ".." / section / s.name
-            safe_symlink(rel_target, view_base / alias_name)
-            en_count += 1
-
-    return zh_count, en_count
+        for root in (CANON_ZH / section, CANON_EN / section):
+            if not root.exists():
+                continue
+            for p in sorted(root.iterdir()):
+                if p.name.endswith("-en") and p.is_symlink():
+                    p.unlink()
+                    removed += 1
+    return removed
 
 
 def validate_structure() -> list[str]:
     issues: list[str] = []
-    if not CORE_TYPES.exists():
-        issues.append("missing skills/testing-types")
-    if not CORE_WORKFLOWS.exists():
-        issues.append("missing skills/testing-workflows")
+    for path in (
+        CANON_ZH / "testing-types",
+        CANON_ZH / "testing-workflows",
+        CANON_EN / "testing-types",
+        CANON_EN / "testing-workflows",
+    ):
+        if not path.exists():
+            issues.append(f"missing {path.relative_to(ROOT)}")
 
-    # Check language view links resolve
-    for view in (VIEW_ZH / "testing-types", VIEW_ZH / "testing-workflows", VIEW_EN / "testing-types", VIEW_EN / "testing-workflows"):
-        if not view.exists():
-            issues.append(f"missing {view.relative_to(ROOT)}")
-            continue
-        for p in sorted([x for x in view.iterdir() if x.is_symlink()]):
-            if not p.exists():
-                issues.append(f"broken symlink: {p.relative_to(ROOT)}")
+    # Check aliases resolve
+    for section in ("testing-types", "testing-workflows"):
+        for root in (CANON_ZH / section, CANON_EN / section):
+            if not root.exists():
+                continue
+            for p in sorted([x for x in root.iterdir() if x.is_symlink()]):
+                if not p.exists():
+                    issues.append(f"broken symlink: {p.relative_to(ROOT)}")
+
+    for lang_root, lang in ((CANON_ZH, "zh"), (CANON_EN, "en")):
+        for section in ("testing-types", "testing-workflows"):
+            base = lang_root / section
+            if not base.exists():
+                continue
+            for skill_dir in sorted([p for p in base.iterdir() if p.is_dir() and not p.is_symlink()]):
+                prompts = skill_dir / "prompts"
+                if not prompts.exists():
+                    continue
+                if not any(prompts.glob("*.md")):
+                    issues.append(f"missing prompt files: {prompts.relative_to(ROOT)}")
+                if (prompts / "zh").exists() or (prompts / "en").exists():
+                    issues.append(f"unexpected language prompt dir: {prompts.relative_to(ROOT)}")
+
     return issues
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Organize and optimize project skill directories.")
-    parser.add_argument(
-        "--repair-core-from-release",
-        action="store_true",
-        help="Recover missing core skill dirs from skills/release if needed",
-    )
-    parser.add_argument(
-        "--rebuild-language-views",
-        action="store_true",
-        help="Rebuild symlink views under skills/skills-zh and skills/skills-en",
-    )
-    parser.add_argument(
-        "--check",
-        action="store_true",
-        help="Validate structure and return non-zero if issues found",
-    )
+    parser.add_argument("--sync-canonical", action="store_true", help="Ensure canonical language directories exist")
+    parser.add_argument("--rebuild-language-views", action="store_true", help="Cleanup legacy alias links")
+    parser.add_argument("--check", action="store_true", help="Validate structure and return non-zero if issues found")
     args = parser.parse_args()
 
-    # default behavior: do all
-    do_repair = args.repair_core_from_release or not (args.repair_core_from_release or args.rebuild_language_views or args.check)
-    do_rebuild = args.rebuild_language_views or not (args.repair_core_from_release or args.rebuild_language_views or args.check)
-    do_check = args.check or not (args.repair_core_from_release or args.rebuild_language_views or args.check)
+    do_sync = args.sync_canonical or not (args.sync_canonical or args.rebuild_language_views or args.check)
+    do_rebuild = args.rebuild_language_views or not (args.sync_canonical or args.rebuild_language_views or args.check)
+    do_check = args.check or not (args.sync_canonical or args.rebuild_language_views or args.check)
 
-    if do_repair:
-        copied_types, copied_workflows = ensure_core_from_release()
-        print(f"core_repair_copied_types={copied_types}")
-        print(f"core_repair_copied_workflows={copied_workflows}")
+    if do_sync:
+        copied_types, copied_workflows = sync_canonical()
+        print(f"canonical_sync_copied_types={copied_types}")
+        print(f"canonical_sync_copied_workflows={copied_workflows}")
 
     if do_rebuild:
-        zh_count, en_count = rebuild_language_views()
-        print(f"rebuilt_view_links_zh={zh_count}")
-        print(f"rebuilt_view_links_en={en_count}")
+        removed_aliases = cleanup_en_suffix_aliases()
+        print(f"removed_legacy_en_suffix_aliases={removed_aliases}")
 
     if do_check:
         issues = validate_structure()

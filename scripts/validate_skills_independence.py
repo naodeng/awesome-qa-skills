@@ -45,6 +45,10 @@ def _is_allowed_cross_language_prompt_link(source: Path, target: Path) -> bool:
         return False
     s_name = sid[1]
     t_name = tid[1]
+    # New canonical layout: same skill name across zh/en folders.
+    if s_name == t_name:
+        return True
+    # Legacy layout: zh/en distinguished by -en suffix.
     if s_name.endswith("-en"):
         return s_name[:-3] == t_name
     if t_name.endswith("-en"):
@@ -53,11 +57,21 @@ def _is_allowed_cross_language_prompt_link(source: Path, target: Path) -> bool:
 
 
 def iter_skill_markdown(skills_root: Path):
-    for section in ("testing-types", "testing-workflows"):
-        base = skills_root / section
+    canonical_bases = [
+        skills_root / "zh" / "testing-types",
+        skills_root / "zh" / "testing-workflows",
+        skills_root / "en" / "testing-types",
+        skills_root / "en" / "testing-workflows",
+    ]
+    if any(b.exists() for b in canonical_bases):
+        bases = canonical_bases
+    else:
+        bases = [skills_root / "testing-types", skills_root / "testing-workflows"]
+
+    for base in bases:
         if not base.exists():
             continue
-        for skill_dir in sorted([p for p in base.iterdir() if p.is_dir()]):
+        for skill_dir in sorted([p for p in base.iterdir() if p.is_dir() and not p.is_symlink()]):
             for md in skill_dir.rglob("*.md"):
                 if "node_modules" in md.parts:
                     continue

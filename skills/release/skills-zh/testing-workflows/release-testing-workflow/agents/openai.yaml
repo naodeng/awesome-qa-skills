@@ -1,9 +1,0 @@
-version: 1
-metadata:
-  key: "release-testing-workflow"
-interface:
-  display_name: "发布测试工作流程（中文版）"
-  short_description: "Use this skill when you need release-phase QA workflow from T-14 planning to go/no-go and post-release monitoring; triggers include 发布测试工..."
-  default_prompt: "Use the release-testing-workflow skill to complete this testing task with structured outputs and practical next steps."
-policy:
-  allow_implicit_invocation: true

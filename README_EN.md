@@ -2,193 +2,131 @@
 
 # AI Testing Assistant Skills
 
-A comprehensive **testing skills library designed specifically for AI coding assistants**, transforming **Cursor**, **Claude Code**, **Kiro**, and other AI tools into your professional testing assistant.
+This repository is a language-first AI testing skills library for tools such as Cursor, Claude Code, and Kiro.
 
-## 🎯 Project Core
+## Current Layout
 
-Provides **18 carefully designed testing Skills**:
-- ✅ **15 Testing Type Skills** - Covering functional, API, automation, performance, security, and more
-- ✅ **3 Workflow Skills** - Complete processes for daily testing, Sprint testing, and release testing
+- Chinese skills: `skills/zh`
+- English skills: `skills/en`
+- Workflow skills: `testing-workflows`
+- Testing-type skills: `testing-types`
 
-Each Skill includes:
-- 📋 Structured prompts
-- 🎯 Best practices and usage guides
-- 🔄 Intelligent output format support
-- 🌐 Chinese and English versions
+The repository currently includes:
+- 4 workflow skills
+- 25 testing-type skills
+- Chinese and English versions
 
-> Directory note: core skill directories still use `-en` for English variants (for example `functional-testing-en`).
-> `skills/skills-en` is an English browsing view where names drop the `-en` suffix; it is not a new core source.
+## 5-Minute Start
 
-## 🚀 5 Minute Quick Start
-
-### 1. Clone the Project
+### 1. Clone the repository
 
 ```bash
 git clone https://github.com/naodeng/awesome-qa-skills.git
 cd awesome-qa-skills
 ```
 
-### 2. Install Skills to AI Tool
+### 2. Copy one skill into your AI tool
 
 ```bash
-# Cursor example - Copy functional testing skill (English)
-cp -r skills/testing-types/functional-testing-en ~/.cursor/skills/
+# Example: copy the English functional testing skill into Cursor
+cp -r skills/en/testing-types/functional-testing ~/.cursor/skills/
 
-# Or copy daily testing workflow (English)
-cp -r skills/testing-workflows/daily-testing-workflow-en ~/.cursor/skills/
+# Example: copy the Chinese daily testing workflow into Cursor
+cp -r skills/zh/testing-workflows/daily-testing-workflow ~/.cursor/skills/
 ```
 
-### 3. Use in AI Tool
+### 3. Call it in your AI tool
 
-```
-@skill functional-testing-en
+```text
+@skill functional-testing
 Help me generate test cases for user login functionality
 ```
 
-AI will automatically:
-- 📋 Analyze requirements and identify test scenarios
-- ✅ Generate structured test cases
-- 🔍 Identify boundary conditions and exception scenarios
-- 📊 Provide test data suggestions
+## Recommended Entry Points
 
-## 📦 Skills List
+### English Workflow Skills
 
-### 🔄 Three Workflow Skills
+- `skills/en/testing-workflows/daily-testing-workflow`
+- `skills/en/testing-workflows/sprint-testing-workflow`
+- `skills/en/testing-workflows/release-testing-workflow`
+- `skills/en/testing-workflows/discover-testing`
 
-| Skill | Description | Directory |
-|-------|-------------|-----------|
-| **Daily Testing Workflow** | Daily test plans, test case writing, defect analysis, test reports | `skills/testing-workflows/daily-testing-workflow` |
-| **Sprint Testing Workflow** | Sprint planning, regression test prioritization, risk assessment | `skills/testing-workflows/sprint-testing-workflow` |
-| **Release Testing Workflow** | Release checklists, Go/No-Go decisions, rollback plans | `skills/testing-workflows/release-testing-workflow` |
+### English Testing-Type Skills
 
-### 🧪 Fifteen Testing Type Skills
+- `skills/en/testing-types/functional-testing`
+- `skills/en/testing-types/api-testing`
+- `skills/en/testing-types/automation-testing`
+- `skills/en/testing-types/manual-testing`
+- `skills/en/testing-types/performance-testing`
+- `skills/en/testing-types/security-testing`
+- `skills/en/testing-types/mobile-testing`
+- `skills/en/testing-types/accessibility-testing`
+- `skills/en/testing-types/bug-reporting`
+- `skills/en/testing-types/test-case-writing`
+- `skills/en/testing-types/test-case-reviewer`
+- `skills/en/testing-types/test-reporting`
+- `skills/en/testing-types/test-strategy`
+- `skills/en/testing-types/requirements-analysis`
+- `skills/en/testing-types/ai-assisted-testing`
 
-| Skill | AI Capabilities | Directory |
-|-------|----------------|-----------|
-| **Functional Testing** | Auto-identify test scenarios, generate test cases, boundary value analysis | `skills/testing-types/functional-testing` |
-| **API Testing** | Generate test cases from API docs, auto-generate automation scripts | `skills/testing-types/api-testing` |
-| **Automation Testing** | POM pattern code generation, data-driven test design | `skills/testing-types/automation-testing` |
-| **Performance Testing** | Performance scenario design, load model generation, bottleneck analysis | `skills/testing-types/performance-testing` |
-| **Security Testing** | OWASP Top 10 checklists, security test case generation | `skills/testing-types/security-testing` |
-| **Mobile Testing** | Cross-platform test strategy, compatibility matrix generation | `skills/testing-types/mobile-testing` |
-| **Accessibility Testing** | WCAG compliance checks, accessibility test cases | `skills/testing-types/accessibility-testing` |
-| **Bug Reporting** | Intelligent defect classification, root cause analysis suggestions | `skills/testing-types/bug-reporting` |
-| **Test Case Writing** | Test case template generation, test data suggestions | `skills/testing-types/test-case-writing` |
-| **Test Reporting** | Automated report generation, data visualization suggestions | `skills/testing-types/test-reporting` |
-| **Test Strategy** | Risk assessment, test scope recommendations | `skills/testing-types/test-strategy` |
-| **Requirements Analysis** | Requirements decomposition, testability analysis | `skills/testing-types/requirements-analysis` |
-| **Manual Testing** | Exploratory testing charters, test path suggestions | `skills/testing-types/manual-testing` |
-| **Test Case Review** | Test case quality scoring, improvement suggestions | `skills/testing-types/test-case-reviewer` |
-| **AI-Assisted Testing** | Intelligent test data generation, defect prediction | `skills/testing-types/ai-assisted-testing` |
+### English Specialized Skills
 
-> 💡 Each Skill has a corresponding English version with `-en` suffix in the directory name
+- `skills/en/testing-types/api-test-bruno`
+- `skills/en/testing-types/api-test-pytest`
+- `skills/en/testing-types/api-test-restassure`
+- `skills/en/testing-types/api-test-supertest`
+- `skills/en/testing-types/performance-test-k6`
+- `skills/en/testing-types/performance-test-gatling`
+- `skills/en/testing-types/requirements-analysis-plus`
+- `skills/en/testing-types/test-case-reviewer-plus`
+- `skills/en/testing-types/test-strategy-plus`
+- `skills/en/testing-types/testcase-writer-plus`
 
-## 🛠️ Usage by Tool
+> Chinese and English now use the same skill names under different language folders.
 
-### One-Click Install (Recommended)
+## One-Click Install
 
 ```bash
-# macOS / Linux: install to all tools (ZH + EN)
+# macOS / Linux
 bash scripts/install-skills-mac.sh --tool all --lang all
 
-# Windows PowerShell: install to all tools (ZH + EN)
+# Windows PowerShell
 powershell -ExecutionPolicy Bypass -File .\scripts\install-skills-windows.ps1 -Tool all -Lang all
 ```
 
-For all options, see: [scripts/INSTALL_SKILLS.md](scripts/INSTALL_SKILLS.md)
+For all options, see [scripts/INSTALL_SKILLS.md](scripts/INSTALL_SKILLS.md).
 
-### Cursor
+## Project Structure
 
-```bash
-# Project-level
-cp -r skills/testing-types/functional-testing-en /your/project/.cursor/skills/
-
-# User-level
-cp -r skills/testing-types/functional-testing-en ~/.cursor/skills/
+```text
+awesome-qa-skills/
+├── skills/
+│   ├── zh/
+│   │   ├── testing-workflows/
+│   │   └── testing-types/
+│   └── en/
+│       ├── testing-workflows/
+│       └── testing-types/
+├── scripts/
+├── README.md
+├── README_EN.md
+└── skills-index.md
 ```
 
-### Claude Code
+## Rules
 
-```bash
-mkdir -p .claude/skills
-cp -r skills/testing-types/functional-testing-en .claude/skills/
-```
+- Language is separated by `skills/zh` and `skills/en`
+- Each skill keeps its prompts directly under `prompts/`
+- English prompt filenames do not use `_EN`
+- Chinese and English skill names are aligned and no longer use `-en`
 
-### Kiro
+## Useful Documents
 
-```bash
-mkdir -p .kiro/skills
-cp -r skills/testing-types/functional-testing-en .kiro/skills/
-```
-
-## 📂 Project Structure
-
-```
-ai-testing-assistant-skills/
-├── skills/                           # Core skills library
-│   ├── testing-workflows/            # 3 Workflow Skills
-│   │   ├── daily-testing-workflow/   # Chinese version
-│   │   ├── daily-testing-workflow-en/# English version
-│   │   └── ...
-│   └── testing-types/                # 15 Testing Type Skills
-│       ├── functional-testing/       # Chinese version
-│       ├── functional-testing-en/    # English version
-│       └── ...
-│   ├── skills-zh/                    # Chinese language view (symlinks)
-│   ├── skills-en/                    # English language view (symlinks, names without -en)
-│   └── release/                      # Release package output (non-symlink, generated by script)
-├── Reference/                        # Reference materials (optional)
-│   ├── examples/                     # Code examples
-│   └── templates/                    # Test templates
-└── README.md
-```
-
-## 🗂️ Which Directory To Use
-
-- Day-to-day editing and maintenance: `skills/testing-types` and `skills/testing-workflows`
-- Language-based browsing: `skills/skills-zh` and `skills/skills-en`
-- External distribution/release package: `skills/release` (generated by `scripts/build_release_skill_dirs.py`)
-
-For directory governance and one-command maintenance, see `skills/DIRECTORY_GUIDE.md` (run `python3 scripts/organize_project_dirs.py`).
-
-## 🎯 Skill Features
-
-### 1. Intelligent Output Formats
-
-Each Skill supports multiple output formats:
-- 📝 **Markdown** - Default format, suitable for documentation
-- 📊 **Excel** - Tab-separated, suitable for importing into test management tools
-- 📋 **CSV** - Universal format
-- 🔷 **JSON** - Structured data
-- 🎯 **Jira/TestRail/Azure DevOps** - Direct adaptation to mainstream tools
-
-### 2. Context Awareness
-
-Skills can intelligently identify:
-- 🔍 Project type (Web/Mobile/API/Desktop)
-- 🎨 Tech stack (React/Vue/Angular/Flutter, etc.)
-- 🧪 Testing frameworks (Jest/Vitest/Pytest/JUnit)
-
-### 3. Bilingual Support
-
-All Skills provide complete Chinese and English versions for global teams.
-
-## 📊 Project Statistics
-
-- ✅ **18 AI Testing Skills** (15 testing types + 3 workflows)
-- ✅ **Bilingual Versions** (36 Skill directories total)
-- ✅ **60,000+ Lines of Carefully Designed Prompts and Documentation**
-
-## 🤝 Contributing
-
-Welcome to contribute new Skills or improve existing ones! Please check [CONTRIBUTING.md](CONTRIBUTING.md).
-
-## 📞 Related Links
-
-- 📖 [Skills Index](skills-index.md) - View all Skills by category
-- 🔗 [Skills Graph](skills-graph.md) - Skills dependency relationships
-- ❓ [FAQ](FAQ.md) - Usage help
+- [skills-index.md](skills-index.md): full skill index
+- [skills/DIRECTORY_GUIDE.md](skills/DIRECTORY_GUIDE.md): directory rules
+- [scripts/INSTALL_SKILLS.md](scripts/INSTALL_SKILLS.md): installation guide
+- [FAQ.md](FAQ.md): common questions
 
 ## License
 
-This repository provides a testing assistant skills library designed specifically for AI tools.
+This repository provides an AI-oriented testing skills library for direct team reuse and extension.
