@@ -1,5 +1,5 @@
 param(
-  [ValidateSet("claude", "cursor", "codex", "kiro", "opencode", "all")]
+  [ValidateSet("claude", "claudecode", "cursor", "codex", "kiro", "opencode", "trae", "all")]
   [string]$Tool = "all",
 
   [ValidateSet("zh", "en", "all")]
@@ -21,11 +21,13 @@ $SkillsRoot = Join-Path $RepoRoot "skills"
 function Get-DefaultDestForTool {
   param([string]$ToolName)
   switch ($ToolName) {
-    "claude"  { return (Join-Path $HOME ".claude\skills") }
-    "cursor"  { return (Join-Path $HOME ".cursor\skills") }
-    "codex"   { return (Join-Path $HOME ".codex\skills") }
-    "kiro"    { return (Join-Path $HOME ".kiro\skills") }
-    "opencode"{ return (Join-Path $HOME ".opencode\skills") }
+    "claude"      { return (Join-Path $HOME ".claude\skills") }
+    "claudecode"  { return (Join-Path $HOME ".claude\skills") }
+    "cursor"      { return (Join-Path $HOME ".cursor\skills") }
+    "codex"       { return (Join-Path $HOME ".codex\skills") }
+    "kiro"        { return (Join-Path $HOME ".kiro\skills") }
+    "opencode"    { return (Join-Path $HOME ".opencode\skills") }
+    "trae"        { return (Join-Path $HOME ".trae\skills") }
     default   { throw "Unsupported tool: $ToolName" }
   }
 }
@@ -69,6 +71,10 @@ function Sync-SkillDir {
 function Install-ForTool {
   param([string]$ToolName)
 
+  if ($ToolName -eq "claudecode") {
+    $ToolName = "claude"
+  }
+
   $targetRoot = $Dest
   if ([string]::IsNullOrWhiteSpace($targetRoot)) {
     $targetRoot = Get-DefaultDestForTool -ToolName $ToolName
@@ -104,7 +110,7 @@ if (-not (Test-Path (Join-Path $SkillsRoot "zh")) -or -not (Test-Path (Join-Path
 
 $tools = @()
 if ($Tool -eq "all") {
-  $tools = @("claude", "cursor", "codex", "kiro", "opencode")
+  $tools = @("claude", "cursor", "codex", "kiro", "opencode", "trae")
 } else {
   $tools = @($Tool)
 }

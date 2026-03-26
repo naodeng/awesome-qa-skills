@@ -5,7 +5,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 SKILLS_ROOT="$REPO_ROOT/skills"
 
-TOOL="${TOOL:-all}"           # claude|cursor|codex|kiro|opencode|all
+TOOL="${TOOL:-all}"           # claude|claudecode|cursor|codex|kiro|opencode|trae|all
 LANGUAGE="${LANGUAGE:-all}"   # zh|en|all
 DEST="${DEST:-}"              # optional custom destination
 DRY_RUN="${DRY_RUN:-0}"       # 1 for preview only
@@ -17,7 +17,7 @@ Usage:
   scripts/install-skills-mac.sh [--tool TOOL] [--lang LANG] [--skill NAME] [--dest PATH] [--dry-run]
 
 Options:
-  --tool       Target AI tool: claude | cursor | codex | kiro | opencode | all
+  --tool       Target AI tool: claude | claudecode | cursor | codex | kiro | opencode | trae | all
   --lang       Skills language: zh | en | all
   --skill      Install only one skill directory name (e.g. functional-testing)
   --dest       Custom install destination (overrides tool default path)
@@ -46,11 +46,12 @@ done
 
 default_dest_for_tool() {
   case "$1" in
-    claude) echo "$HOME/.claude/skills" ;;
+    claude|claudecode) echo "$HOME/.claude/skills" ;;
     cursor) echo "$HOME/.cursor/skills" ;;
     codex) echo "$HOME/.codex/skills" ;;
     kiro) echo "$HOME/.kiro/skills" ;;
     opencode) echo "$HOME/.opencode/skills" ;;
+    trae) echo "$HOME/.trae/skills" ;;
     *) return 1 ;;
   esac
 }
@@ -90,6 +91,9 @@ sync_dir() {
 
 install_for_tool() {
   local tool="$1"
+  if [[ "$tool" == "claudecode" ]]; then
+    tool="claude"
+  fi
   local target="$DEST"
   if [[ -z "$target" ]]; then
     target="$(default_dest_for_tool "$tool")"
@@ -134,7 +138,7 @@ fi
 
 TOOLS=()
 if [[ "$TOOL" == "all" ]]; then
-  TOOLS=(claude cursor codex kiro opencode)
+  TOOLS=(claude cursor codex kiro opencode trae)
 else
   TOOLS=("$TOOL")
 fi

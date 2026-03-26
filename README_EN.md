@@ -2,7 +2,7 @@
 
 # AI Testing Assistant Skills
 
-This repository is a language-first AI testing skills library for tools such as Cursor, Claude Code, and Kiro.
+This repository is a language-first AI testing skills library for tools such as Codex, Cursor, Claude Code, Kiro, OpenCode, and Trae.
 
 ## Current Layout
 
@@ -88,13 +88,20 @@ Help me generate test cases for user login functionality
 
 ```bash
 # macOS / Linux
-bash scripts/install-skills-mac.sh --tool all --lang all
+bash ./install-skills-mac.sh --tool all --lang all
 
 # Windows PowerShell
-powershell -ExecutionPolicy Bypass -File .\scripts\install-skills-windows.ps1 -Tool all -Lang all
+powershell -ExecutionPolicy Bypass -File .\install-skills-windows.ps1 -Tool all -Lang all
 ```
 
 For all options, see [scripts/INSTALL_SKILLS.md](scripts/INSTALL_SKILLS.md).
+
+If you want a one-click installer for a single skill, use the generated shortcut folders, for example:
+
+```bash
+# Install the English functional-testing skill into Codex
+bash installers/en/functional-testing/mac/codex.sh
+```
 
 ## Project Structure
 

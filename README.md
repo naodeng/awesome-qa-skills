@@ -2,7 +2,7 @@
 
 # AI 测试辅助技能合集
 
-这是一个按语言分区整理好的 AI 测试技能库，适合放到 Cursor、Claude Code、Kiro 等工具里直接使用。
+这是一个按语言分区整理好的 AI 测试技能库，适合放到 Codex、Cursor、Claude Code、Kiro、OpenCode、Trae 等工具里直接使用。
 
 ## 当前结构
 
@@ -88,13 +88,20 @@ cp -r skills/en/testing-workflows/daily-testing-workflow ~/.cursor/skills/
 
 ```bash
 # macOS / Linux
-bash scripts/install-skills-mac.sh --tool all --lang all
+bash ./install-skills-mac.sh --tool all --lang all
 
 # Windows PowerShell
-powershell -ExecutionPolicy Bypass -File .\scripts\install-skills-windows.ps1 -Tool all -Lang all
+powershell -ExecutionPolicy Bypass -File .\install-skills-windows.ps1 -Tool all -Lang all
 ```
 
 更多说明见：[scripts/INSTALL_SKILLS.md](scripts/INSTALL_SKILLS.md)
+
+如果你想直接安装某一个 skill，也可以用已经生成好的分目录脚本，例如：
+
+```bash
+# 安装中文 functional-testing 到 Codex
+bash installers/zh/functional-testing/mac/codex.sh
+```
 
 ## 项目结构
 
