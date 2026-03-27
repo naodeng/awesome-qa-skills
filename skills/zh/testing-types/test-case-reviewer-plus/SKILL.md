@@ -3,7 +3,7 @@ name: test-case-reviewer-plus
 description: 基于需求、策略和测试用例文档生成测试用例评审结果。
 ---
 
-# test-case-reviewer-plus（中文）
+# 测试用例评审增强版（中文版）
 
 **英文版：** 见对应英文技能。
 

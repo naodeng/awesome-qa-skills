@@ -3,7 +3,7 @@ name: api-test-bruno
 description: 解析多格式接口定义，生成 Bruno 请求集合并可执行回归。
 ---
 
-# api-test-bruno（中文）
+# API 测试（Bruno）（中文版）
 
 **英文版：** 见对应英文技能。
 

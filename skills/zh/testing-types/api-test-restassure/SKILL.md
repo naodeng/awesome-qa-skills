@@ -3,7 +3,7 @@ name: api-test-restassure
 description: 解析多格式接口定义，生成 Rest Assured 接口自动化测试类。
 ---
 
-# api-test-restassure（中文）
+# API 测试（Rest Assured）（中文版）
 
 **英文版：** 见对应英文技能。
 

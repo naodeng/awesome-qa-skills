@@ -3,7 +3,7 @@ name: requirements-analysis-plus
 description: 解析 Word/HTML/JSON/Markdown/Excel 需求文档，并输出结构化需求分析结论。
 ---
 
-# requirements-analysis-plus（中文）
+# 需求分析增强版（中文版）
 
 **英文版：** 见对应英文技能。
 

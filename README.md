@@ -4,17 +4,21 @@
 
 这是一个按语言分区整理好的 AI 测试技能库，适合放到 Codex、Cursor、Claude Code、Kiro、OpenCode、Trae 等工具里直接使用。
 
-## 当前结构
+在线访问地址：https://inaodeng.com/qaskills/
+
+## 你会在这里得到什么
+
+- 中文与英文双版本技能
+- 4 个工作流技能
+- 25 个测试类型技能
+- 可直接复制到常见 AI 工具中使用
+
+## 核心目录
 
 - 中文技能：`skills/zh`
 - 英文技能：`skills/en`
 - 工作流技能：`testing-workflows`
 - 测试类型技能：`testing-types`
-
-现在仓库里包含：
-- 4 个工作流技能
-- 25 个测试类型技能
-- 中英文双版本
 
 ## 5 分钟开始
 
@@ -42,47 +46,48 @@ cp -r skills/en/testing-workflows/daily-testing-workflow ~/.cursor/skills/
 帮我为用户登录功能生成测试用例
 ```
 
-## 推荐入口
+## 推荐技能入口（中文）
 
-### 中文工作流技能
+### 工作流技能
 
-- `skills/zh/testing-workflows/daily-testing-workflow`
-- `skills/zh/testing-workflows/sprint-testing-workflow`
-- `skills/zh/testing-workflows/release-testing-workflow`
-- `skills/zh/testing-workflows/discover-testing`
+| 中文名称 | 目录 |
+| --- | --- |
+| 日常测试工作流程 | `skills/zh/testing-workflows/daily-testing-workflow` |
+| 迭代测试工作流程 | `skills/zh/testing-workflows/sprint-testing-workflow` |
+| 发布测试工作流程 | `skills/zh/testing-workflows/release-testing-workflow` |
+| 测试技能路由 | `skills/zh/testing-workflows/discover-testing` |
 
-### 中文测试类型技能
+### 测试类型技能
 
-- `skills/zh/testing-types/functional-testing`
-- `skills/zh/testing-types/api-testing`
-- `skills/zh/testing-types/automation-testing`
-- `skills/zh/testing-types/manual-testing`
-- `skills/zh/testing-types/performance-testing`
-- `skills/zh/testing-types/security-testing`
-- `skills/zh/testing-types/mobile-testing`
-- `skills/zh/testing-types/accessibility-testing`
-- `skills/zh/testing-types/bug-reporting`
-- `skills/zh/testing-types/test-case-writing`
-- `skills/zh/testing-types/test-case-reviewer`
-- `skills/zh/testing-types/test-reporting`
-- `skills/zh/testing-types/test-strategy`
-- `skills/zh/testing-types/requirements-analysis`
-- `skills/zh/testing-types/ai-assisted-testing`
+| 中文名称 | 目录 |
+| --- | --- |
+| 功能测试 | `skills/zh/testing-types/functional-testing` |
+| API 测试 | `skills/zh/testing-types/api-testing` |
+| 自动化测试 | `skills/zh/testing-types/automation-testing` |
+| 手动/探索性测试 | `skills/zh/testing-types/manual-testing` |
+| 性能测试 | `skills/zh/testing-types/performance-testing` |
+| 安全测试 | `skills/zh/testing-types/security-testing` |
+| 移动端测试 | `skills/zh/testing-types/mobile-testing` |
+| 可访问性测试 | `skills/zh/testing-types/accessibility-testing` |
+| 缺陷上报 | `skills/zh/testing-types/bug-reporting` |
+| 测试用例编写 | `skills/zh/testing-types/test-case-writing` |
+| 测试用例评审 | `skills/zh/testing-types/test-case-reviewer` |
+| 测试报告 | `skills/zh/testing-types/test-reporting` |
+| 测试策略 | `skills/zh/testing-types/test-strategy` |
+| 需求分析 | `skills/zh/testing-types/requirements-analysis` |
+| AI 辅助测试 | `skills/zh/testing-types/ai-assisted-testing` |
+| API 测试（Bruno） | `skills/zh/testing-types/api-test-bruno` |
+| API 测试（Pytest） | `skills/zh/testing-types/api-test-pytest` |
+| API 测试（Rest Assured） | `skills/zh/testing-types/api-test-restassure` |
+| API 测试（Supertest） | `skills/zh/testing-types/api-test-supertest` |
+| 性能测试（k6） | `skills/zh/testing-types/performance-test-k6` |
+| 性能测试（Gatling） | `skills/zh/testing-types/performance-test-gatling` |
+| 需求分析增强版 | `skills/zh/testing-types/requirements-analysis-plus` |
+| 测试用例评审增强版 | `skills/zh/testing-types/test-case-reviewer-plus` |
+| 测试策略增强版 | `skills/zh/testing-types/test-strategy-plus` |
+| 测试用例编写增强版 | `skills/zh/testing-types/testcase-writer-plus` |
 
-### 中文增强型技能
-
-- `skills/zh/testing-types/api-test-bruno`
-- `skills/zh/testing-types/api-test-pytest`
-- `skills/zh/testing-types/api-test-restassure`
-- `skills/zh/testing-types/api-test-supertest`
-- `skills/zh/testing-types/performance-test-k6`
-- `skills/zh/testing-types/performance-test-gatling`
-- `skills/zh/testing-types/requirements-analysis-plus`
-- `skills/zh/testing-types/test-case-reviewer-plus`
-- `skills/zh/testing-types/test-strategy-plus`
-- `skills/zh/testing-types/testcase-writer-plus`
-
-> 对应英文版本位于 `skills/en/...`，目录名和技能名都与中文保持一致。
+> 对应英文版本位于 `skills/en/...`，目录名和技能名保持一致。
 
 ## 一键安装
 

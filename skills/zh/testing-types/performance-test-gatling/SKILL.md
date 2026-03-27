@@ -3,7 +3,7 @@ name: performance-test-gatling
 description: 提供 Gatling 性能测试范围、仿真脚本样例和执行入口。
 ---
 
-# performance-test-gatling（中文）
+# 性能测试（Gatling）（中文版）
 
 **英文版：** 见对应英文技能。
 

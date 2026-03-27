@@ -3,7 +3,7 @@ name: api-test-pytest
 description: 解析多格式接口定义，生成 Pytest 接口自动化脚本。
 ---
 
-# api-test-pytest（中文）
+# API 测试（Pytest）（中文版）
 
 **英文版：** 见对应英文技能。
 

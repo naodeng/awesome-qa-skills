@@ -3,7 +3,7 @@ name: performance-test-k6
 description: 提供 k6 性能测试范围、脚本样例和执行入口，覆盖负载/压力/尖峰/稳定性。
 ---
 
-# performance-test-k6（中文）
+# 性能测试（k6）（中文版）
 
 **英文版：** 见对应英文技能。
 

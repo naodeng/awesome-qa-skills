@@ -3,7 +3,7 @@ name: test-strategy-plus
 description: 基于需求、分析、技术文档、计划文档等输入生成测试策略。
 ---
 
-# test-strategy-plus（中文）
+# 测试策略增强版（中文版）
 
 **英文版：** 见对应英文技能。
 

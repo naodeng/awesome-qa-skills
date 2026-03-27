@@ -4,17 +4,21 @@
 
 This repository is a language-first AI testing skills library for tools such as Codex, Cursor, Claude Code, Kiro, OpenCode, and Trae.
 
-## Current Layout
+Online URL: https://inaodeng.com/qaskills/
+
+## What You Get
+
+- Chinese and English skill sets
+- 4 workflow skills
+- 25 testing-type skills
+- Ready-to-copy folders for major AI tools
+
+## Core Layout
 
 - Chinese skills: `skills/zh`
 - English skills: `skills/en`
 - Workflow skills: `testing-workflows`
 - Testing-type skills: `testing-types`
-
-The repository currently includes:
-- 4 workflow skills
-- 25 testing-type skills
-- Chinese and English versions
 
 ## 5-Minute Start
 
@@ -42,47 +46,48 @@ cp -r skills/zh/testing-workflows/daily-testing-workflow ~/.cursor/skills/
 Help me generate test cases for user login functionality
 ```
 
-## Recommended Entry Points
+## Recommended Skill Entry Points (English)
 
-### English Workflow Skills
+### Workflow Skills
 
-- `skills/en/testing-workflows/daily-testing-workflow`
-- `skills/en/testing-workflows/sprint-testing-workflow`
-- `skills/en/testing-workflows/release-testing-workflow`
-- `skills/en/testing-workflows/discover-testing`
+| Skill | Path |
+| --- | --- |
+| Daily Testing Workflow | `skills/en/testing-workflows/daily-testing-workflow` |
+| Sprint Testing Workflow | `skills/en/testing-workflows/sprint-testing-workflow` |
+| Release Testing Workflow | `skills/en/testing-workflows/release-testing-workflow` |
+| Discover Testing Router | `skills/en/testing-workflows/discover-testing` |
 
-### English Testing-Type Skills
+### Testing-Type Skills
 
-- `skills/en/testing-types/functional-testing`
-- `skills/en/testing-types/api-testing`
-- `skills/en/testing-types/automation-testing`
-- `skills/en/testing-types/manual-testing`
-- `skills/en/testing-types/performance-testing`
-- `skills/en/testing-types/security-testing`
-- `skills/en/testing-types/mobile-testing`
-- `skills/en/testing-types/accessibility-testing`
-- `skills/en/testing-types/bug-reporting`
-- `skills/en/testing-types/test-case-writing`
-- `skills/en/testing-types/test-case-reviewer`
-- `skills/en/testing-types/test-reporting`
-- `skills/en/testing-types/test-strategy`
-- `skills/en/testing-types/requirements-analysis`
-- `skills/en/testing-types/ai-assisted-testing`
+| Skill | Path |
+| --- | --- |
+| Functional Testing | `skills/en/testing-types/functional-testing` |
+| API Testing | `skills/en/testing-types/api-testing` |
+| Automation Testing | `skills/en/testing-types/automation-testing` |
+| Manual / Exploratory Testing | `skills/en/testing-types/manual-testing` |
+| Performance Testing | `skills/en/testing-types/performance-testing` |
+| Security Testing | `skills/en/testing-types/security-testing` |
+| Mobile Testing | `skills/en/testing-types/mobile-testing` |
+| Accessibility Testing | `skills/en/testing-types/accessibility-testing` |
+| Bug Reporting | `skills/en/testing-types/bug-reporting` |
+| Test Case Writing | `skills/en/testing-types/test-case-writing` |
+| Test Case Review | `skills/en/testing-types/test-case-reviewer` |
+| Test Reporting | `skills/en/testing-types/test-reporting` |
+| Test Strategy | `skills/en/testing-types/test-strategy` |
+| Requirements Analysis | `skills/en/testing-types/requirements-analysis` |
+| AI-Assisted Testing | `skills/en/testing-types/ai-assisted-testing` |
+| API Test (Bruno) | `skills/en/testing-types/api-test-bruno` |
+| API Test (Pytest) | `skills/en/testing-types/api-test-pytest` |
+| API Test (Rest Assured) | `skills/en/testing-types/api-test-restassure` |
+| API Test (Supertest) | `skills/en/testing-types/api-test-supertest` |
+| Performance Test (k6) | `skills/en/testing-types/performance-test-k6` |
+| Performance Test (Gatling) | `skills/en/testing-types/performance-test-gatling` |
+| Requirements Analysis Plus | `skills/en/testing-types/requirements-analysis-plus` |
+| Test Case Reviewer Plus | `skills/en/testing-types/test-case-reviewer-plus` |
+| Test Strategy Plus | `skills/en/testing-types/test-strategy-plus` |
+| Testcase Writer Plus | `skills/en/testing-types/testcase-writer-plus` |
 
-### English Specialized Skills
-
-- `skills/en/testing-types/api-test-bruno`
-- `skills/en/testing-types/api-test-pytest`
-- `skills/en/testing-types/api-test-restassure`
-- `skills/en/testing-types/api-test-supertest`
-- `skills/en/testing-types/performance-test-k6`
-- `skills/en/testing-types/performance-test-gatling`
-- `skills/en/testing-types/requirements-analysis-plus`
-- `skills/en/testing-types/test-case-reviewer-plus`
-- `skills/en/testing-types/test-strategy-plus`
-- `skills/en/testing-types/testcase-writer-plus`
-
-> Chinese and English now use the same skill names under different language folders.
+> Chinese versions are available under `skills/zh/...` with the same folder names.
 
 ## One-Click Install
 

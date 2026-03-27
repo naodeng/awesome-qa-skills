@@ -3,7 +3,7 @@ name: api-test-supertest
 description: 解析多格式接口定义，生成并执行 Supertest 自动化脚本。
 ---
 
-# api-test-supertest（中文）
+# API 测试（Supertest）（中文版）
 
 **英文版：** 见对应英文技能。
 

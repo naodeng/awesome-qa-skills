@@ -3,7 +3,7 @@ name: testcase-writer-plus
 description: 解析需求文档和需求分析结果，生成高质量测试用例。
 ---
 
-# testcase-writer-plus（中文）
+# 测试用例编写增强版（中文版）
 
 **英文版：** 见对应英文技能。
 
