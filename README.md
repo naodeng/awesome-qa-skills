@@ -120,6 +120,7 @@ awesome-qa-skills/
 │       ├── testing-workflows/
 │       └── testing-types/
 ├── scripts/
+├── AGENTS.md
 ├── README.md
 ├── README_EN.md
 └── skills-index.md
@@ -134,6 +135,7 @@ awesome-qa-skills/
 
 ## 常用文档
 
+- [AGENTS.md](AGENTS.md)：面向 coding agent 的项目约定与质量检查
 - [skills-index.md](skills-index.md)：技能总索引
 - [skills/DIRECTORY_GUIDE.md](skills/DIRECTORY_GUIDE.md)：目录规则说明
 - [scripts/INSTALL_SKILLS.md](scripts/INSTALL_SKILLS.md)：安装说明

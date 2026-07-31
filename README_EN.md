@@ -120,6 +120,7 @@ awesome-qa-skills/
 │       ├── testing-workflows/
 │       └── testing-types/
 ├── scripts/
+├── AGENTS.md
 ├── README.md
 ├── README_EN.md
 └── skills-index.md
@@ -134,6 +135,7 @@ awesome-qa-skills/
 
 ## Useful Documents
 
+- [AGENTS.md](AGENTS.md): project conventions and quality checks for coding agents
 - [skills-index.md](skills-index.md): full skill index
 - [skills/DIRECTORY_GUIDE.md](skills/DIRECTORY_GUIDE.md): directory rules
 - [scripts/INSTALL_SKILLS.md](scripts/INSTALL_SKILLS.md): installation guide
