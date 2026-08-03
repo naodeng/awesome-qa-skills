@@ -1,0 +1,26 @@
+id: basic-success
+title: Test strategy: risk-based coverage and tradeoffs
+description: |
+  With scope and risks, return priorities, approach, and explicit tradeoffs.
+
+input:
+  prompt: |
+    Use test-strategy.
+    Project: ecommerce order release; flow place order → pay → ship; known risk: intermittent payment-callback timeout.
+    2 QA, SIT available, one-week window. Produce a risk-based strategy with coverage and tradeoffs.
+
+expect:
+  must_contain:
+    - "priority"
+    - "tradeoff"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "risk"
+          - "coverage"

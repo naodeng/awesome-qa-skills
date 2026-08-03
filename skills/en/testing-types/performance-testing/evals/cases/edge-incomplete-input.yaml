@@ -1,0 +1,25 @@
+id: edge-incomplete-input
+title: Performance testing: draft without SLA/traffic
+description: |
+  Without baselines, do not invent capacity certainty; mark assumptions and gaps.
+
+input:
+  prompt: |
+    Use performance-testing. Product only says 'please performance test' with no SLA or traffic history.
+    System: points redemption. Draft a plan; mark numeric targets as assumptions; list gaps.
+
+expect:
+  must_contain:
+    - "assumption"
+    - "gap"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "assumption"
+          - "gap"

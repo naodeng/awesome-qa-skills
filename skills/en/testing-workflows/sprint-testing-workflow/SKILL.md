@@ -1,56 +1,49 @@
 ---
 name: sprint-testing-workflow
-description: Use this skill when you need a sprint-based QA workflow from planning through review and retrospective; triggers include sprint testing workflow and sprint QA flow.
+description: Use this skill when you need a sprint-based QA workflow from planning through review and retrospective; triggers include sprint testing workflow and iteration QA workflow.
 ---
 
 # Sprint Testing Workflow
 
-**中文版：** 见对应中文技能。
+**中文版：** See the corresponding Chinese skill.
 
 ## When to Use
 
-- Need a structured sprint testing workflow flow instead of a single testing task.
-- Need to move step by step across a testing phase with the matching prompts.
+- Need a sprint cadence: planning → setup → execution → regression → stabilize → review.
+- Need iteration gates and DoD with handoffs to type skills—not a one-off testing task.
 
-## Output Format Options
+## Workflow
 
-Markdown by default unless the request explicitly asks for another format.
+1. Read and follow `prompts/sprint-testing-workflow.md` (stages, gates, DoD, handoffs).
+2. Add sprint goal, story scope, capacity, and carryover defects that change the plan.
+3. After locating the stage, optionally read matching files under `prompts/`; name other skills by name only.
+4. If input is incomplete, draft a usable sprint test plan and mark assumptions and gaps.
 
-## How to Use
+## Core Constraints
 
-1. Check [reference.md](reference.md) first and find the prompt file for the current step.
-2. Open the matching file under `prompts/` and add only the context that matters: scope, environment, risks, constraints, and expected output.
-3. Run step by step, and adjust priorities when blockers, risks, or scope changes appear.
+- Own iteration phases and exit evidence; hand full artifacts to type skills.
+- Gates and DoD must be checkable.
+- On scope change, re-rank and state gate impact.
+- No relative-path links to other skill files.
 
-## Workflow Steps
+## Progressive Disclosure
 
-- `accessibility-testing.md`
-- `ai-assisted-testing.md`
-- `api-testing.md`
-- `automation-testing.md`
-- `bug-reporting.md`
-- `functional-testing.md`
-- `manual-testing.md`
-- `requirements-analysis.md`
-- `test-case-writing.md`
-- `test-reporting.md`
-- `test-strategy.md`
+- Before producing output, read and follow `prompts/sprint-testing-workflow.md`.
+- For step mapping: read `reference.md`.
+- For stage deep-dives: read matching `prompts/*.md` in this skill.
+- Templates: `output-templates/`.
 
-## Reference Files
+## Pre-delivery Checklist
 
-- `prompts/`: prompt files used by this skill.
-- `reference.md`: step-to-prompt mapping and workflow routing.
-- `references/`: supporting notes loaded only when needed.
-- `scripts/`: helper scripts or converters for this skill.
+- [ ] Followed the main prompt’s output structure
+- [ ] Includes stage position, gate board, exit-criteria check, next skill
+- [ ] High-risk items have priority and Owner
+- [ ] Did not invent details the user did not provide
+- [ ] Assumptions, tradeoffs, and carryover are marked
 
 ## Common Pitfalls
 
-- Do not jump into execution before confirming the current step.
-- Do not try to run the whole workflow with one giant prompt.
-- Do not ignore blockers and reprioritization.
-
-## Best Practices
-
-- Start from the prompt file, then add only the context that matters.
-- Keep the output risk-driven and executable.
-- If the request is incomplete, return a usable first version and mark gaps.
+- Do not write a day diary with no gates.
+- Do not dump full case bodies during planning.
+- Do not claim regression passed while development is still open-ended.
+- Do not replace exit evidence with “we tested a lot”.

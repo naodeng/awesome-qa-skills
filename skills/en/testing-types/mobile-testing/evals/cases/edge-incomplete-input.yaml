@@ -1,0 +1,25 @@
+id: edge-incomplete-input
+title: Mobile: draft without a device list
+description: |
+  Missing models/OS versions must be marked as assumptions/gaps.
+
+input:
+  prompt: |
+    Use mobile-testing. Product says 'test points redemption on mobile' with no device list, OS versions, or permissions.
+    Draft a plan and list device/environment questions to confirm.
+
+expect:
+  must_contain:
+    - "assumption"
+    - "gap"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "assumption"
+          - "device"

@@ -1,0 +1,29 @@
+id: edge-bad-or-neighbor
+title: RestAssured: broken YAML or pytest neighbor
+description: |
+  With broken YAML input or a pytest neighbor request, correct and stay on REST Assured.
+
+input:
+  prompt: |
+    I activated api-test-restassure. Input is incomplete YAML (not a valid OpenAPI):
+      paths:
+        /orders:
+          post:
+    And I also asked: write a pytest suite too.
+    Call out the incomplete input, still draft a REST Assured plan, and explain why pytest is out of this skill.
+
+expect:
+  must_contain:
+    - "REST Assured"
+    - "pytest"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "REST Assured"
+          - "Open Questions"

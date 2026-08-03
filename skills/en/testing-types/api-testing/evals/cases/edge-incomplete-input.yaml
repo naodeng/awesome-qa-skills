@@ -1,0 +1,25 @@
+id: edge-incomplete-input
+title: API testing: draft without OpenAPI
+description: |
+  Missing docs should still yield a draft and gaps.
+
+input:
+  prompt: |
+    Use api-testing. I only know there is a points-redemption API; path and fields unknown.
+    Give a usable draft plan and list missing information.
+
+expect:
+  must_contain:
+    - "assumption"
+    - "gap"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "assumption"
+          - "gap"

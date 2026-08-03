@@ -1,0 +1,25 @@
+id: edge-incomplete-input
+title: 手工测试：需求一句仍给清单草稿
+description: |
+  信息不足时给初版清单并标待确认。
+
+input:
+  prompt: |
+    用 manual-testing。需求：支持积分兑换。没有用例、没有环境说明。
+    请先给可执行的手工清单草稿，并列出待确认问题。
+
+expect:
+  must_contain:
+    - "假设"
+    - "待确认"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "假设"
+          - "缺口"

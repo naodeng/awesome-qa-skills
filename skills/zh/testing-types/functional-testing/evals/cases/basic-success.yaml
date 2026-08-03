@@ -1,0 +1,28 @@
+id: basic-success
+title: 功能测试：完整上下文产出可执行方案
+description: |
+  有业务流程与角色时，应输出带优先级的功能覆盖与场景。
+
+input:
+  prompt: |
+    请使用 functional-testing 技能。
+    背景：电商「下单→支付→发货」即将发版。
+    环境：SIT；角色：买家、卖家运营、仓配。
+    已知风险：支付回调偶发超时。
+    请给出聚焦高风险路径的功能测试方案，并标明假设与信息缺口。
+
+expect:
+  must_contain:
+    - "优先级"
+    - "支付"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "任务理解"
+          - "风险"

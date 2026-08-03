@@ -1,0 +1,26 @@
+id: basic-success
+title: AI-assisted: split work and human gates
+description: |
+  Return AI/human split, high-risk human gates, and pre-use checks.
+
+input:
+  prompt: |
+    Use ai-assisted-testing.
+    Task: in two days, draft points-redemption cases plus an exploration checklist; team may use AI drafts.
+    Provide AI vs human split, high-risk human gates, suggested draft artifacts, and checks before final use.
+
+expect:
+  must_contain:
+    - "human"
+    - "review"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Task Understanding"
+          - "High-Risk"

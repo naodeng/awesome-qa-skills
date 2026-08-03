@@ -1,42 +1,49 @@
 ---
 name: discover-testing
-description: Use this skill when you need to quickly route a request to the best testing-type or testing-workflow skill.
+description: Use this skill when you need to route a request to the right testing skill before execution; triggers include discover testing, testing skill router, and which testing skill.
 ---
 
 # Testing Skill Discovery (English)
 
-**中文版：** 见对应中文技能。
+**中文版：** See the corresponding Chinese skill.
 
 ## When to Use
 
 - Need to decide which testing skill should be used before execution.
 - The request mixes multiple testing directions or phases.
 
-## Output Format Options
+## Workflow
 
-Markdown by default. If you need Excel, CSV, JSON, Word, or other supported formats, append the format request at the end and check [output-formats.md](output-formats.md).
+1. Read the user request and identify the primary testing goal and stage.
+2. Follow the routing prompt under `prompts/`: pick 1 primary skill; add at most 1 helper only when needed.
+3. Hand the request to the target skill; do not execute the full testing work inside this router skill.
 
-## How to Use
+## Core Constraints
 
-1. Read the user request and identify the main testing goal.
-2. Use the routing prompt under `prompts/` to choose one primary skill and, only if needed, one supporting skill.
-3. Pass the request to the selected skill instead of trying to do the whole task here.
+- Recommend few skills — avoid menu dumping.
+- If the target skill is already obvious, say so directly.
+- Make the route actionable: name the skill and the reason.
 
-## Reference Files
+## Progressive Disclosure
 
-- `prompts/discover-testing.md`: main prompt for this skill.
-- `reference.md`: step-to-prompt mapping and workflow routing.
-- `output-formats.md`: optional output format instructions.
-- `scripts/`: helper scripts or converters for this skill.
+- Before producing output, read and follow `prompts/discover-testing.md` (minimum coverage, output structure, quality bar).
+- When Excel/CSV/JSON/Word is requested: read `output-formats.md` and honor the format.
+- When a ready-made template fits: use matching files under `output-templates/`.
+- For format conversion or helper checks: prefer existing `scripts/` over reinventing.
+- For evaluating/regressing this skill: use `evals/` with skill-up.
+- For step ↔ prompt mapping: read `reference.md`.
+
+## Pre-delivery Checklist
+
+- [ ] Followed the main prompt's output structure
+- [ ] Minimum coverage focus: main goal, best-fit primary skill, optional supporting skill, why this choice fits, next step to continue work (details in main prompt)
+- [ ] Covered the minimum checklist, or explained omissions
+- [ ] High-risk items have explicit priority
+- [ ] Did not invent details the user did not provide
+- [ ] Assumptions and gaps are marked
 
 ## Common Pitfalls
 
 - Do not recommend many skills at once.
-- Do not use this skill when the target skill is already obvious.
-- Do not turn routing into execution.
-
-## Best Practices
-
-- Start from the prompt file, then add only the context that matters.
-- Keep the output risk-driven and executable.
-- If the request is incomplete, return a usable first version and mark gaps.
+- Do not turn skill selection into full test execution.
+- Do not pretend a route is complete when information is insufficient.

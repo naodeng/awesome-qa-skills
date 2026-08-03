@@ -1,0 +1,25 @@
+id: edge-incomplete-input
+title: 用例评审：无需求文档仍可审结构
+description: |
+  缺少完整需求时仍应评审可执行性并列出待确认项。
+
+input:
+  prompt: |
+    用 test-case-reviewer。只有用例标题列表「兑换成功/失败」，没有需求与步骤详情。
+    请给评审初版：能指出的结构/清晰度问题，以及必须补齐才能继续审的信息。
+
+expect:
+  must_contain:
+    - "缺口"
+    - "确认"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "评审"
+          - "缺口"

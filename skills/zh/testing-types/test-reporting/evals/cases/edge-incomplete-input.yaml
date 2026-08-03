@@ -1,0 +1,25 @@
+id: edge-incomplete-input
+title: 测试报告：只有通过率仍要标缺口
+description: |
+  缺缺陷详情与未测范围时，不得用通过率粉饰，应标假设与缺口。
+
+input:
+  prompt: |
+    用 test-reporting。同事只说「通过率 95%」，没有失败用例、缺陷单与未测范围。
+    请写报告初版，明确不能据此放行的原因，并列出必须补齐的信息。
+
+expect:
+  must_contain:
+    - "假设"
+    - "缺口"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "通过率"
+          - "风险"

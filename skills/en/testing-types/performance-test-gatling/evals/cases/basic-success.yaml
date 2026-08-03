@@ -1,0 +1,26 @@
+id: basic-success
+title: Gatling: tool-fit scenarios and load model
+description: |
+  Return Gatling scenarios, load model, and thresholds—not generic fluff.
+
+input:
+  prompt: |
+    Use performance-test-gatling.
+    Goal: protect checkout POST /orders in a promo. Target P95 < 400ms; error rate < 0.1%.
+    Peak ~300 RPS now, maybe 1000 RPS in promo. Propose a Gatling scenario plan (no long code) and mark assumptions.
+
+expect:
+  must_contain:
+    - "Gatling"
+    - "threshold"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Scenario"
+          - "Load Model"

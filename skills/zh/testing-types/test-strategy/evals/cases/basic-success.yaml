@@ -1,0 +1,26 @@
+id: basic-success
+title: 测试策略：按风险给出覆盖与取舍
+description: |
+  有范围与风险时，应输出优先级、推荐方案与覆盖取舍。
+
+input:
+  prompt: |
+    请使用 test-strategy。
+    项目：电商订单发版；核心链路下单→支付→发货；已知风险：支付回调偶发超时。
+    团队 2 名 QA，SIT 可用，一周窗口。请给出基于风险的测试策略，写清覆盖与取舍。
+
+expect:
+  must_contain:
+    - "优先级"
+    - "取舍"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "风险"
+          - "覆盖"

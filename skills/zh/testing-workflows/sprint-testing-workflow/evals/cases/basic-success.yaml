@@ -1,0 +1,27 @@
+id: basic-success
+title: 迭代工作流：产出 Sprint 阶段与关键产出
+description: |
+  有迭代目标与窗口时，应给出规划→执行→评审的阶段产出与优先级。
+
+input:
+  prompt: |
+    请使用 sprint-testing-workflow。
+    背景：两周迭代；目标：订单支付稳定性 + 优惠券改造。
+    第 1 天规划，中段执行，末段评审与回顾。
+    请给出本 Sprint 测试工作流的阶段产出（规划/设置/执行/评审），并按风险排优先级。
+
+expect:
+  must_contain:
+    - "规划"
+    - "优先级"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "执行"
+          - "评审"

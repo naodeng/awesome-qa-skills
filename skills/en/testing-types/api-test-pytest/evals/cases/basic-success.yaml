@@ -1,0 +1,31 @@
+id: basic-success
+title: Pytest: OpenAPI/curl yields suite structure
+description: |
+  With a short OpenAPI and curl snippet, produce pytest + requests layout/fixture/case structure.
+
+input:
+  prompt: |
+    Use api-test-pytest.
+    Env: SIT. Auth: Bearer {{token}} (do not hardcode real tokens).
+    OpenAPI snippet:
+      POST /v1/payments/callback
+      GET /v1/orders/{id}
+    Desensitized curl:
+      curl -X POST https://api.example.com/v1/payments/callback -H "Content-Type: application/json" -d '{"orderId":"ORD-1","status":"PAID"}'
+    Produce a pytest plan: tests/ layout, conftest fixtures, parametrization and assertion focus; highlight callback idempotency. Avoid long code dumps.
+
+expect:
+  must_contain:
+    - "pytest"
+    - "fixture"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Task Understanding"
+          - "pytest"

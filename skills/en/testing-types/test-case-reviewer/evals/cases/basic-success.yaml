@@ -1,0 +1,27 @@
+id: basic-success
+title: Test case review: missing scenarios and weak expects
+description: |
+  Review existing cases for high-priority findings and missing scenarios.
+
+input:
+  prompt: |
+    Use test-case-reviewer.
+    Requirement: block submit when points insufficient; payment callback failures must be retryable.
+    Existing cases: only two happy paths with expected result 'success'. No exception/boundary.
+    Review and return high-priority findings, missing scenarios, and fix order.
+
+expect:
+  must_contain:
+    - "missing"
+    - "priority"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Review"
+          - "scenario"

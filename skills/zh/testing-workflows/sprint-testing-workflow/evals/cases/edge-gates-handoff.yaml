@@ -1,0 +1,26 @@
+id: edge-gates-handoff
+title: 迭代工作流：进出标准与执行 skill 交接
+description: |
+  应写清 Sprint 阶段进出标准/门禁，并用文案说明如何交接给策略、用例、缺陷等执行类 skill。
+
+input:
+  prompt: |
+    使用 sprint-testing-workflow。
+    场景：未完成规划门禁不得进入大规模执行；评审日未完成质量摘要不得宣称迭代测试完成。
+    请写清各阶段进出标准/门禁，并说明如何交接给执行类 skill（如 test-strategy、test-case-writing、bug-reporting、test-reporting——只写 skill 名与交接要点，不要给其他 skill 的文件路径链接）。
+
+expect:
+  must_contain:
+    - "进出标准"
+    - "交接"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "门禁"
+          - "交接"

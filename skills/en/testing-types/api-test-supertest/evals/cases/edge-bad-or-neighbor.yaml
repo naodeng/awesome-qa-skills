@@ -1,0 +1,25 @@
+id: edge-bad-or-neighbor
+title: Supertest: redirect Postman/Playwright neighbor requests
+description: |
+  When the user asks for Postman/Playwright under the Supertest skill, stay on Supertest or clarify the boundary.
+
+input:
+  prompt: |
+    I activated api-test-supertest, but I asked: export a Postman collection and also do Playwright E2E.
+    Endpoint: GET /health. Correct the scope: deliver a Supertest + Jest API plan and explain why Postman/Playwright are out of this skill.
+
+expect:
+  must_contain:
+    - "Supertest"
+    - "Postman"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Supertest"
+          - "Open Questions"

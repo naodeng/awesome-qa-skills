@@ -1,0 +1,26 @@
+id: basic-success
+title: 用例编写：高风险路径优先
+description: |
+  应输出具体用例并带优先级，而不是空泛清单。
+
+input:
+  prompt: |
+    请使用 test-case-writing。
+    需求：下单后可用积分抵扣；积分不足时不能提交；支付回调失败要可重试。
+    请编写聚焦高风险的测试用例，并标明优先级与待确认项。
+
+expect:
+  must_contain:
+    - "优先级"
+    - "积分"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "用例"
+          - "风险"

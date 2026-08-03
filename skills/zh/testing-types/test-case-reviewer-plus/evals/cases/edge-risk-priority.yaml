@@ -1,0 +1,25 @@
+id: edge-risk-priority
+title: 用例评审增强：用业务影响压缩修复队列
+description: |
+  短窗口下修复队列必须按严重度与业务影响排序，不能平均改。
+
+input:
+  prompt: |
+    使用 test-case-reviewer-plus。发现问题包括：报表文案错、搜索无边界用例、支付回调无重试覆盖。
+    半天只能修最关键项。请按业务影响排出修改优先级和补测顺序，明确可延后项。
+
+expect:
+  must_contain:
+    - "支付"
+    - "补测"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "业务影响"
+          - "严重"

@@ -1,0 +1,25 @@
+id: edge-incomplete-input
+title: 用例编写增强：缺 AC 仍出可追踪草稿
+description: |
+  无验收标准时仍应出草稿用例，追踪项标假设，并列出缺口。
+
+input:
+  prompt: |
+    用 testcase-writer-plus。只有「支持积分兑换」一句话与一张字段不全的 Excel。
+    请给增强版用例草稿：标出假设、可追踪性暂用临时 ID，并列出必须向产品确认的问题。
+
+expect:
+  must_contain:
+    - "假设"
+    - "缺口"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "追踪"
+          - "优先级"

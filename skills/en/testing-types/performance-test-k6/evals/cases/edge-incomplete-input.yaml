@@ -1,0 +1,25 @@
+id: edge-incomplete-input
+title: k6: mark numeric goals as assumptions
+description: |
+  Without baselines, do not invent capacity certainty.
+
+input:
+  prompt: |
+    Use performance-test-k6. Product says 'please performance test' with no SLA or traffic history.
+    System: points redemption API. Draft a plan and mark every numeric target as an assumption.
+
+expect:
+  must_contain:
+    - "assumption"
+    - "gap"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "assumption"
+          - "k6"

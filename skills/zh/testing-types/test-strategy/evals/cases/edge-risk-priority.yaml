@@ -1,0 +1,25 @@
+id: edge-risk-priority
+title: 测试策略：半天窗口强制砍范围
+description: |
+  功能很多时必须明确 P0 与暂不覆盖项。
+
+input:
+  prompt: |
+    使用 test-strategy。功能：登录、搜索、下单、支付、优惠券、积分、工单、报表。
+    发版窗口半天。请只保留最关键测试策略，并说明哪些抽样/暂不覆盖。
+
+expect:
+  must_contain:
+    - "P0"
+    - "覆盖"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "取舍"
+          - "优先级"

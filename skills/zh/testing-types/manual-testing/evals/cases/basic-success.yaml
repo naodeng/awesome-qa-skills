@@ -1,0 +1,26 @@
+id: basic-success
+title: 手工测试：可执行清单与探索重点
+description: |
+  应给出优先级、执行清单与探索性重点。
+
+input:
+  prompt: |
+    请使用 manual-testing。
+    范围：SIT 下单→支付→发货。已知风险：支付成功订单仍待支付（偶发）。
+    账号：buyer_sit_01（无真实密码）。请给手工测试优先级、执行清单与探索重点。
+
+expect:
+  must_contain:
+    - "手工"
+    - "探索"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "任务理解"
+          - "执行清单"

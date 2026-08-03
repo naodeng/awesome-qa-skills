@@ -1,0 +1,25 @@
+id: edge-incomplete-input
+title: Test reporting: pass rate alone is not enough
+description: |
+  Without failures/untested scope, do not greenwash; mark assumptions and gaps.
+
+input:
+  prompt: |
+    Use test-reporting. Colleague only says '95% pass rate' with no failures, defects, or untested scope.
+    Draft a report explaining why that is insufficient to ship, and list required follow-ups.
+
+expect:
+  must_contain:
+    - "assumption"
+    - "gap"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "pass"
+          - "risk"

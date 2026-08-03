@@ -1,0 +1,28 @@
+id: basic-success
+title: Functional testing: executable plan with context
+description: |
+  With flows and roles, return prioritized functional coverage.
+
+input:
+  prompt: |
+    Use the functional-testing skill.
+    Context: ecommerce place-order → pay → ship release.
+    Env: SIT; roles: buyer, seller ops, warehouse.
+    Known risk: payment callback timeouts.
+    Produce a risk-focused functional test plan and mark assumptions/gaps.
+
+expect:
+  must_contain:
+    - "priority"
+    - "payment"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Task Understanding"
+          - "Risk"

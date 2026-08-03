@@ -1,0 +1,25 @@
+id: edge-domain-boundary
+title: Automation: never recommend 100% automation
+description: |
+  Flaky/exploratory paths belong in not-yet—not a full-coverage slogan.
+
+input:
+  prompt: |
+    Use automation-testing. Stakeholders demand 100% automation from login to reports, including flaky payment state and exploratory UX.
+    Explicitly separate automate-first vs not-yet and explain why full automation is wrong.
+
+expect:
+  must_contain:
+    - "Not to Automate"
+    - "risk"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "What to Automate"
+          - "Guardrail"

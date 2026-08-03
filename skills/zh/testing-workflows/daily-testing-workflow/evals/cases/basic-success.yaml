@@ -1,0 +1,27 @@
+id: basic-success
+title: 日常工作流：产出当日节奏与阶段产出
+description: |
+  有故事与环境时，应给出早晨审查到下午收尾的可执行当日计划，并标出优先级。
+
+input:
+  prompt: |
+    请使用 daily-testing-workflow。
+    背景：电商订单模块；今日故事：支付回调重试修复 + 优惠券展示。
+    环境：SIT；上午有冒烟窗口，下午要汇总缺陷。
+    请给出当日测试节奏（早晨审查→执行→下午审查）的阶段产出，并按风险排优先级。
+
+expect:
+  must_contain:
+    - "当日"
+    - "优先级"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "早晨"
+          - "下午"

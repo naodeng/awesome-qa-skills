@@ -1,0 +1,26 @@
+id: basic-success
+title: Test case writing: prioritize high-risk paths
+description: |
+  Return concrete cases with priority, not vague lists.
+
+input:
+  prompt: |
+    Use test-case-writing.
+    Requirement: orders can use points; cannot submit if points insufficient; payment callback failure must be retryable.
+    Write risk-focused test cases with priorities and open questions.
+
+expect:
+  must_contain:
+    - "priority"
+    - "points"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Priority"
+          - "risk"

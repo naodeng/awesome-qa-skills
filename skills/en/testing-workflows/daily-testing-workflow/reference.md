@@ -1,6 +1,7 @@
 # Daily Testing Workflow — Step → Prompt
 
-Use files in **this directory's `prompts/`** for each step. Mapping below.
+Orchestration prompt: `prompts/daily-testing-workflow.md` (stage goals, gates, handoffs).  
+For stage deep-dives, use files in **this directory's `prompts/`**. Mapping below.
 
 | Step | Prompt files | Use |
 |------|--------------|-----|

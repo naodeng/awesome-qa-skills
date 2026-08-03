@@ -1,0 +1,25 @@
+id: edge-domain-boundary
+title: 手工测试：不要改写成全面自动化方案
+description: |
+  用户要立刻全自动时，应坚持手工会话价值并划清边界。
+
+input:
+  prompt: |
+    使用 manual-testing。经理说：别手工了，直接把所有检查写成自动化脚本一夜上线。
+    发版窗口半天，且支付偶发问题需要探索。请给本轮手工优先级与探索重点，并说明哪些暂不适合自动化。
+
+expect:
+  must_contain:
+    - "手工"
+    - "自动化"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "探索"
+          - "优先级"

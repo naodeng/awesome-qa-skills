@@ -1,0 +1,25 @@
+id: edge-risk-priority
+title: API testing: half-day window keeps core chain
+description: |
+  Many endpoints must be ranked by business risk.
+
+input:
+  prompt: |
+    Use api-testing. Endpoints span login, search, checkout, payment callback, coupons, points, tickets, report export.
+    Half-day window. Keep only P0 API checks and explain deferrals.
+
+expect:
+  must_contain:
+    - "P0"
+    - "payment"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "P0"
+          - "defer"

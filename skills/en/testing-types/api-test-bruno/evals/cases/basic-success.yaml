@@ -1,0 +1,31 @@
+id: basic-success
+title: Bruno: OpenAPI/curl yields collection plan
+description: |
+  With a short OpenAPI and curl snippet, produce Bruno collection/env/assertion structure.
+
+input:
+  prompt: |
+    Use api-test-bruno.
+    Env: SIT. Auth: Bearer {{token}} (do not invent real tokens).
+    OpenAPI snippet:
+      POST /v1/orders
+      GET /v1/orders/{id}
+    Desensitized curl:
+      curl -X POST https://api.example.com/v1/orders -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" -d '{"sku":"A1","qty":1}'
+    Produce a Bruno collection structure plan (.bru / folders / env vars), priority requests and assertion focus. Avoid long code dumps.
+
+expect:
+  must_contain:
+    - "Bruno"
+    - "collection"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Task Understanding"
+          - "Bruno"

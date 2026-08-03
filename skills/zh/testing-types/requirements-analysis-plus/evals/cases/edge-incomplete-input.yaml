@@ -1,0 +1,25 @@
+id: edge-incomplete-input
+title: 需求分析增强：多格式残缺仍给结构化初版
+description: |
+  Word/HTML/JSON 残缺时仍应产出结构化分析，并标明各来源缺口。
+
+input:
+  prompt: |
+    用 requirements-analysis-plus。手头有：半页 Word 需求摘要、一段 HTML 原型说明、一份字段不全的 JSON 样例。
+    都未写异常与边界。请给结构化需求分析初版，并按来源列出缺口与假设。
+
+expect:
+  must_contain:
+    - "假设"
+    - "缺口"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "来源"
+          - "缺口"

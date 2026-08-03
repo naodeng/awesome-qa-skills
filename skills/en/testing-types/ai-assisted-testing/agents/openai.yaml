@@ -3,7 +3,7 @@ metadata:
   key: "ai-assisted-testing"
 interface:
   display_name: "AI-Assisted Testing"
-  short_description: "Use this skill when you need AI-assisted testing workflows such as test data generation, root-cause analysis, and prioritization; trigger..."
+  short_description: "Use this skill when you need AI-assisted testing workflows such as test data generation, root-cause analysis, and prioritization; triggers include AI-assisted…"
   default_prompt: "Use the ai-assisted-testing skill to complete this testing task with structured outputs and practical next steps."
 policy:
   allow_implicit_invocation: true

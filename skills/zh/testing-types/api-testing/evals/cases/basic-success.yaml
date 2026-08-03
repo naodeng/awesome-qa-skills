@@ -1,0 +1,27 @@
+id: basic-success
+title: API 测试：按风险设计接口方案
+description: |
+  有核心接口与已知风险时，应给出优先级与鉴权/异常覆盖。
+
+input:
+  prompt: |
+    请使用 api-testing。
+    系统：订单 REST API。关键接口：POST /orders、POST /payments/callback、GET /orders/{id}。
+    已知风险：支付回调重试与幂等。
+    环境：SIT。请给出可执行 API 测试方案，标出冒烟与发布阻塞项。
+
+expect:
+  must_contain:
+    - "优先级"
+    - "幂等"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "任务理解"
+          - "风险"

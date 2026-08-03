@@ -1,0 +1,26 @@
+id: basic-success
+title: AI 辅助：分工与人工把关点
+description: |
+  应给出 AI/人工分工、高风险人工点与使用前检查。
+
+input:
+  prompt: |
+    请使用 ai-assisted-testing。
+    任务：两天内完成积分兑换相关用例草稿 + 一轮探索清单；团队可用 AI 生成草稿。
+    请给出 AI 与人工分工、必须人工把关的高风险点、建议草稿产物与正式使用前检查项。
+
+expect:
+  must_contain:
+    - "人工"
+    - "复核"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "任务理解"
+          - "高风险"

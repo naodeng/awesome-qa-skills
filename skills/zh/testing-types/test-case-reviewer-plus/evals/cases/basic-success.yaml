@@ -1,0 +1,27 @@
+id: basic-success
+title: 用例评审增强：问题必须带等级与补测顺序
+description: |
+  相对基础版，增强点是严重度分级、业务影响与明确补测顺序。
+
+input:
+  prompt: |
+    请使用 test-case-reviewer-plus。
+    材料：需求、策略摘要、现有用例。
+    需求要求覆盖积分不足拒绝提交与支付回调重试；用例只有正向成功路径，预期含糊。
+    请输出严重问题/一般问题、高风险缺失场景，以及修改优先级和补测顺序（每项带业务影响）。
+
+expect:
+  must_contain:
+    - "严重"
+    - "补测"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "业务影响"
+          - "优先级"

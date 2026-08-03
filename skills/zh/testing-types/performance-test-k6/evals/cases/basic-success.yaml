@@ -1,0 +1,27 @@
+id: basic-success
+title: k6：按目标选择场景而非全做
+description: |
+  应给出贴合 k6 的场景、阈值与假设。
+
+input:
+  prompt: |
+    请使用 performance-test-k6。
+    目标：订单查询 GET /orders/{id} 在促销期保活。
+    期望：P95 < 300ms，错误率 < 0.1%。当前峰值约 200 RPS，促销可能到 800 RPS。
+    请给出 k6 场景方案（不必输出完整脚本），并标明假设。
+
+expect:
+  must_contain:
+    - "k6"
+    - "P95"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "场景"
+          - "假设"

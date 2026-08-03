@@ -1,0 +1,27 @@
+id: basic-success
+title: Daily workflow: day cadence and stage outputs
+description: |
+  With stories and env, produce an executable morning-to-afternoon plan with priorities.
+
+input:
+  prompt: |
+    Use daily-testing-workflow.
+    Context: ecommerce orders; today's stories: payment callback retry fix + coupon display.
+    Env: SIT; morning smoke window; afternoon need a defect wrap-up.
+    Produce today's cadence (morning review → execution → afternoon review) with stage outputs and risk priority.
+
+expect:
+  must_contain:
+    - "today"
+    - "priority"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "morning"
+          - "afternoon"

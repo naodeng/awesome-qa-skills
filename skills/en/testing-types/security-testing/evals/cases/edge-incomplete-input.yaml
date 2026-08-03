@@ -1,0 +1,25 @@
+id: edge-incomplete-input
+title: Security testing: draft when scope is thin
+description: |
+  Without architecture, still draft and list gaps; do not overclaim coverage.
+
+input:
+  prompt: |
+    Use security-testing. Product says 'security-test points redemption' with no architecture, auth model, or data flow.
+    Give a usable draft and explicitly list gaps and assumptions.
+
+expect:
+  must_contain:
+    - "assumption"
+    - "gap"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "assumption"
+          - "gap"

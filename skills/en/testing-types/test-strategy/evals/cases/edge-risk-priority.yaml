@@ -1,0 +1,25 @@
+id: edge-risk-priority
+title: Test strategy: half-day forces cut scope
+description: |
+  Many features require explicit P0 vs not-covered items.
+
+input:
+  prompt: |
+    Use test-strategy. Features: login, search, checkout, payment, coupons, points, tickets, reports.
+    Half-day window. Keep only the critical strategy and state what is sampled or deferred.
+
+expect:
+  must_contain:
+    - "P0"
+    - "coverage"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "tradeoff"
+          - "priority"

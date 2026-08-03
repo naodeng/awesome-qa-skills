@@ -1,0 +1,26 @@
+id: edge-incomplete-input
+title: 日常工作流：信息不全仍给初版
+description: |
+  缺少环境与故事细节时，仍应给出当日节奏初版，并显式标假设与缺口。
+
+input:
+  prompt: |
+    请用 daily-testing-workflow。
+    我只知道「今天要测一下新功能」，没有故事列表、环境、阻塞项。
+    请先给可用的当日节奏初版，并列出必须补齐的信息。
+
+expect:
+  must_contain:
+    - "假设"
+    - "缺口"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "假设"
+          - "缺口"

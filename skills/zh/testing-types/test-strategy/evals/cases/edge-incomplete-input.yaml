@@ -1,0 +1,25 @@
+id: edge-incomplete-input
+title: 测试策略：缺团队/环境信息仍给初版
+description: |
+  缺少资源与环境细节时仍应给策略初版并标假设。
+
+input:
+  prompt: |
+    用 test-strategy。产品只说「积分兑换要测一下」，没有团队人数、环境与质量目标。
+    请给策略初版，并把资源/环境相关项标为假设或缺口。
+
+expect:
+  must_contain:
+    - "假设"
+    - "缺口"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "假设"
+          - "范围"

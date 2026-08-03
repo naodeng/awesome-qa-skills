@@ -1,0 +1,25 @@
+id: edge-risk-priority
+title: 需求分析：短窗口只盯高风险缺口
+description: |
+  功能很多时必须按业务风险排缺口优先级，而不是平均分析。
+
+input:
+  prompt: |
+    使用 requirements-analysis。范围含登录、搜索、下单、支付、优惠券、积分、工单、报表。
+    发版窗口半天。请只保留对发布阻塞影响最大的需求缺口与风险，说明其余可后置。
+
+expect:
+  must_contain:
+    - "P0"
+    - "风险"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "优先级"
+          - "缺口"

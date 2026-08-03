@@ -1,0 +1,27 @@
+id: edge-risk-priority
+title: Bug reporting: severity needs business impact
+description: |
+  Severity/priority must be justified, not emotional.
+
+input:
+  prompt: |
+    Use bug-reporting.
+    Issue A: admin report export is ~20s slower but still succeeds.
+    Issue B: payment succeeds but double-charges (intermittent).
+    Give two short bug summaries and explain why severity differs.
+
+expect:
+  must_contain:
+    - "severity"
+    - "payment"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "priority"
+          - "impact"

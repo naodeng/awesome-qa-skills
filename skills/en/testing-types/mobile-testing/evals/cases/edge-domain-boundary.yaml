@@ -1,0 +1,25 @@
+id: edge-domain-boundary
+title: Mobile: not desktop-web cases copy-pasted
+description: |
+  If given a desktop suite, emphasize mobile-only risks that must be added.
+
+input:
+  prompt: |
+    Use mobile-testing. A teammate hands a desktop web functional suite and says run it as-is on the app.
+    Explain why that is insufficient and list must-add mobile high-risk checks (network interrupt, permissions, push/deeplink).
+
+expect:
+  must_contain:
+    - "mobile"
+    - "network"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Device Matrix"
+          - "High-Risk"

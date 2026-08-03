@@ -1,0 +1,26 @@
+id: basic-success
+title: 无障碍：关键流程障碍与修复优先级
+description: |
+  应围绕键盘/读屏等给出检查项与优先级，而非标准科普。
+
+input:
+  prompt: |
+    请使用 accessibility-testing。
+    页面：结算页（地址表单 + 支付按钮）。目标：键盘与读屏可用；参考 WCAG 思路但不做标准课。
+    平台：Web Chrome/Safari。请给出无障碍测试方案与修复优先级。
+
+expect:
+  must_contain:
+    - "键盘"
+    - "读屏"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "任务理解"
+          - "修复优先级"

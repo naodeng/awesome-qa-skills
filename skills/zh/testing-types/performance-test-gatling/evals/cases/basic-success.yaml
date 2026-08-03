@@ -1,0 +1,26 @@
+id: basic-success
+title: Gatling：贴合工具的场景与负载模型
+description: |
+  应给出 Gatling 场景、负载模型与阈值，而非通用空话。
+
+input:
+  prompt: |
+    请使用 performance-test-gatling。
+    目标：促销期保护下单 POST /orders。期望 P95 < 400ms，错误率 < 0.1%。
+    当前峰值约 300 RPS，促销可能 1000 RPS。请给 Gatling 场景方案（不必长代码），标假设。
+
+expect:
+  must_contain:
+    - "Gatling"
+    - "阈值"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "场景"
+          - "负载模型"

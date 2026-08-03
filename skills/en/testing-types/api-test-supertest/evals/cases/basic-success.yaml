@@ -1,0 +1,31 @@
+id: basic-success
+title: Supertest: OpenAPI/curl yields suite structure
+description: |
+  With a short OpenAPI and curl snippet, produce Supertest + Jest layout/env/assertion structure.
+
+input:
+  prompt: |
+    Use api-test-supertest.
+    Env: SIT. Auth: Bearer {{token}} (do not hardcode real tokens). Runtime: Node.js + Jest.
+    OpenAPI snippet:
+      POST /v1/users
+      GET /v1/users/{id}
+    Desensitized curl:
+      curl -X POST https://api.example.com/v1/users -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" -d '{"email":"u@example.com"}'
+    Produce a Supertest plan: tests/ layout, app/request helpers, priority cases and assertion focus. Avoid long code dumps.
+
+expect:
+  must_contain:
+    - "Supertest"
+    - "Jest"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Task Understanding"
+          - "Supertest"

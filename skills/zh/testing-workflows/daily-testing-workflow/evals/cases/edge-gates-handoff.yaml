@@ -1,0 +1,26 @@
+id: edge-gates-handoff
+title: 日常工作流：进出标准与执行 skill 交接
+description: |
+  应写清当日进出标准/门禁，并用文案说明何时交给用例编写、缺陷上报等执行类 skill（勿硬链文件）。
+
+input:
+  prompt: |
+    使用 daily-testing-workflow。
+    场景：上午冒烟未过则不进入探索；下午必须有缺陷汇总才能收工。
+    请写清当日进出标准/门禁，并说明各阶段如何交接给执行类 skill（例如用例编写、缺陷上报、测试报告——只写 skill 名与交接要点，不要给其他 skill 的文件路径链接）。
+
+expect:
+  must_contain:
+    - "进出标准"
+    - "交接"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "门禁"
+          - "交接"

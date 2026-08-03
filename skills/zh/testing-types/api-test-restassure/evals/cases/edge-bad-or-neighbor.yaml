@@ -1,0 +1,29 @@
+id: edge-bad-or-neighbor
+title: RestAssured：输入残缺或误要 pytest 时纠正
+description: |
+  错误格式输入或近邻工具误用时，应纠正并坚持 REST Assured 边界。
+
+input:
+  prompt: |
+    我激活了 api-test-restassure。输入是一段残缺 YAML（不成 OpenAPI）：
+      paths:
+        /orders:
+          post:
+    并且我说：顺便用 pytest 写一份。
+    请：指出输入不完整处，仍给出 REST Assured 初版方案，并说明不在本 skill 交付 pytest。
+
+expect:
+  must_contain:
+    - "REST Assured"
+    - "pytest"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "REST Assured"
+          - "待确认"

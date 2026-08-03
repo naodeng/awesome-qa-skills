@@ -1,0 +1,25 @@
+id: edge-incomplete-input
+title: Requirements analysis: one-line requirement still drafts
+description: |
+  Thin input still yields a draft with assumptions and gaps.
+
+input:
+  prompt: |
+    Use requirements-analysis. Requirement is only: new release adds points redemption. No AC or prototype.
+    Provide a first-draft analysis and list information that must be filled in.
+
+expect:
+  must_contain:
+    - "assumption"
+    - "gap"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "assumption"
+          - "gap"

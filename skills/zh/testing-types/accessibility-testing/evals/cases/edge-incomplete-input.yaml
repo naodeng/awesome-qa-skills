@@ -1,0 +1,25 @@
+id: edge-incomplete-input
+title: 无障碍：无原型时仍列缺口与初版
+description: |
+  只有一句话时仍给初版检查方向并标信息缺口。
+
+input:
+  prompt: |
+    用 accessibility-testing。只有一句：新活动页要过无障碍。没有设计稿、没有辅助技术范围。
+    请给初版检查清单，并列出必须补齐的信息。
+
+expect:
+  must_contain:
+    - "缺口"
+    - "假设"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "信息缺口"
+          - "假设"

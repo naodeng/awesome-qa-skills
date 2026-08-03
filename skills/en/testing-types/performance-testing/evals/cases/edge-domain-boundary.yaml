@@ -1,0 +1,25 @@
+id: edge-domain-boundary
+title: Performance testing: not a security penetration list
+description: |
+  When security asks are mixed in, stay performance-focused and clarify boundaries.
+
+input:
+  prompt: |
+    Use performance-testing. Leadership wants load testing and also SQL injection / weak-password scans.
+    Half-day window. Deliver an executable performance scope and explicitly call out what belongs to security testing.
+
+expect:
+  must_contain:
+    - "performance"
+    - "security"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "scenario"
+          - "scope"

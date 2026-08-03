@@ -1,0 +1,26 @@
+id: basic-success
+title: 用例编写增强：优先级分组 + 可追踪性
+description: |
+  相对基础 test-case-writing，增强点是多来源输入下的追踪/分组与更严结构。
+
+input:
+  prompt: |
+    请使用 testcase-writer-plus。
+    来源：需求 REQ-01（积分抵扣）、分析结论（不足须拒绝）、接口说明（回调可重试）。
+    请编写按优先级分组的测试用例，每条含前置条件、步骤、预期与数据；并给出追踪或分组说明（用例↔需求/风险）。
+
+expect:
+  must_contain:
+    - "优先级"
+    - "追踪"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "前置条件"
+          - "预期"

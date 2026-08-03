@@ -138,6 +138,7 @@ awesome-qa-skills/
 - [AGENTS.md](AGENTS.md)：面向 coding agent 的项目约定与质量检查
 - [skills-index.md](skills-index.md)：技能总索引
 - [skills/DIRECTORY_GUIDE.md](skills/DIRECTORY_GUIDE.md)：目录规则说明
+- [skills/SKILL_AUTHORING.md](skills/SKILL_AUTHORING.md)：Skill 编写与 skill-up 评测约定
 - [scripts/INSTALL_SKILLS.md](scripts/INSTALL_SKILLS.md)：安装说明
 - [FAQ.md](FAQ.md)：常见问题
 

@@ -1,0 +1,26 @@
+id: basic-success
+title: 移动端：设备矩阵与高风险检查
+description: |
+  应给出设备矩阵、中断/网络等移动端特有风险。
+
+input:
+  prompt: |
+    请使用 mobile-testing。
+    App：买家下单；平台 iOS/Android。已知风险：弱网下支付回调后状态不同步；deeplink 从推送打开偶发丢参。
+    请给移动端测试方案：设备矩阵、高风险检查与执行顺序。
+
+expect:
+  must_contain:
+    - "设备"
+    - "deeplink"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "任务理解"
+          - "设备矩阵"

@@ -1,0 +1,26 @@
+id: edge-incomplete-input
+title: Functional testing: draft despite missing docs
+description: |
+  One-line requirements should still yield a draft with gaps.
+
+input:
+  prompt: |
+    Use functional-testing.
+    Requirement: new release adds points redemption. No prototype or API docs.
+    Give a usable first draft and list must-have information.
+
+expect:
+  must_contain:
+    - "assumption"
+    - "gap"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "assumption"
+          - "gap"

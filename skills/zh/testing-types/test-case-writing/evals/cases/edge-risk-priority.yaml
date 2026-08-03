@@ -1,0 +1,25 @@
+id: edge-risk-priority
+title: 用例编写：时间不够时砍非关键用例
+description: |
+  用例很多时必须标 P0 与可延后。
+
+input:
+  prompt: |
+    使用 test-case-writing。模块：登录、搜索、下单、支付、优惠券、积分、工单、报表。
+    只有半天测试时间。请只保留 P0 用例清单，并说明其余如何降级。
+
+expect:
+  must_contain:
+    - "P0"
+    - "优先级"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "P0"
+          - "降级"

@@ -1,0 +1,25 @@
+id: edge-risk-priority
+title: 测试策略增强：短窗口用门槛做砍范围依据
+description: |
+  半天窗口下应用质量门槛与责任边界说明暂不覆盖项。
+
+input:
+  prompt: |
+    使用 test-strategy-plus。模块很多：登录、搜索、下单、支付、优惠券、积分、工单、报表。
+    半天必须给出能否上线建议。请用风险优先级 + 质量门槛保留 P0，写清责任与可延后项。
+
+expect:
+  must_contain:
+    - "质量门槛"
+    - "P0"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "责任"
+          - "里程碑"

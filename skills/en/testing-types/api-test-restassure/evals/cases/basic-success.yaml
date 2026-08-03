@@ -1,0 +1,31 @@
+id: basic-success
+title: RestAssured: OpenAPI/curl yields suite structure
+description: |
+  With a short OpenAPI and curl snippet, produce REST Assured Java suite/base setup/assertion structure.
+
+input:
+  prompt: |
+    Use api-test-restassure.
+    Env: SIT. Auth: Bearer {{token}} (do not hardcode real tokens). Stack: Java + Maven.
+    OpenAPI snippet:
+      POST /v1/orders
+      GET /v1/orders/{id}
+    Desensitized curl:
+      curl -X GET https://api.example.com/v1/orders/ORD-1 -H "Authorization: Bearer $TOKEN"
+    Produce a REST Assured plan: package layout, BaseApiTest/common setup, priority cases and assertion focus. Avoid long code dumps.
+
+expect:
+  must_contain:
+    - "REST Assured"
+    - "BaseApiTest"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Task Understanding"
+          - "REST Assured"

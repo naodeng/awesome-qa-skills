@@ -1,0 +1,25 @@
+id: edge-bad-or-neighbor
+title: Pytest：用户其实要 Bruno/RestAssured 时纠正
+description: |
+  近邻框架误用时，应坚持 pytest 交付或澄清边界。
+
+input:
+  prompt: |
+    我激活了 api-test-pytest，但我说：按 RestAssured Java 类写，或者直接导出 Bruno .bru。
+    接口：GET /v1/health。请纠正：仍按 pytest + requests 给出方案，并说明为何不在本 skill 交付 RestAssured/Bruno 资产。
+
+expect:
+  must_contain:
+    - "pytest"
+    - "RestAssured"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "pytest"
+          - "待确认"

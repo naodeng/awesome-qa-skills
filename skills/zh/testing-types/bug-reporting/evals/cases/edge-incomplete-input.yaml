@@ -1,0 +1,25 @@
+id: edge-incomplete-input
+title: 缺陷报告：证据不全时标明不确定性
+description: |
+  信息不完整时仍应结构化描述，并标明待确认项。
+
+input:
+  prompt: |
+    用 bug-reporting。用户只说：积分兑换有时候会失败。没有截图、日志、环境。
+    请先写一版缺陷报告草稿，并明确列出待确认信息。
+
+expect:
+  must_contain:
+    - "待确认"
+    - "复现"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "待确认"
+          - "假设"

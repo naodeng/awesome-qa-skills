@@ -1,0 +1,27 @@
+id: basic-success
+title: Requirements analysis: gaps and risks from stories
+description: |
+  With partial AC, return understanding, gaps/ambiguities, and test impact—not a restatement.
+
+input:
+  prompt: |
+    Use requirements-analysis.
+    Story: buyers can redeem points at checkout; insufficient points must block submit; payment callback failures must be retryable.
+    AC only covers 'points redemption succeeds'.
+    Analyze from a QA lens: gaps, testability risks, and questions to resolve.
+
+expect:
+  must_contain:
+    - "gap"
+    - "risk"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Understanding"
+          - "Questions"

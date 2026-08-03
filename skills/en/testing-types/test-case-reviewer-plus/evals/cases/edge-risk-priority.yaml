@@ -1,0 +1,25 @@
+id: edge-risk-priority
+title: Test case review plus: business impact compresses the queue
+description: |
+  Short window ranks the fix queue by severity and business impact.
+
+input:
+  prompt: |
+    Use test-case-reviewer-plus. Findings: report typo, missing search boundary cases, no payment-callback retry coverage.
+    Half a day to fix. Rank fix priority and retest order by business impact; state deferrals.
+
+expect:
+  must_contain:
+    - "payment"
+    - "retest"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "impact"
+          - "critical"

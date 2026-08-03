@@ -1,0 +1,31 @@
+id: basic-success
+title: Bruno：有 OpenAPI/curl 时给出 collection 结构
+description: |
+  提供简短 OpenAPI 与 curl 时，应产出 Bruno collection/环境/断言结构说明。
+
+input:
+  prompt: |
+    请使用 api-test-bruno。
+    环境：SIT。认证：Bearer {{token}}（勿编造真实 token）。
+    OpenAPI 片段：
+      POST /v1/orders
+      GET /v1/orders/{id}
+    curl 示例（已脱敏）：
+      curl -X POST https://api.example.com/v1/orders -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" -d '{"sku":"A1","qty":1}'
+    请给出 Bruno collection 结构方案（.bru / 文件夹 / 环境变量），标出高优先级请求与断言重点，不必输出超长代码。
+
+expect:
+  must_contain:
+    - "Bruno"
+    - "collection"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "任务理解"
+          - "Bruno"

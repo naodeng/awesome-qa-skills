@@ -1,0 +1,25 @@
+id: edge-incomplete-input
+title: 测试策略增强：缺计划文档仍起草门槛假设
+description: |
+  缺发布计划时仍应起草策略，并把里程碑/门槛标为假设。
+
+input:
+  prompt: |
+    用 test-strategy-plus。只有需求分析结论「积分兑换高风险」，没有项目计划与资源表。
+    请给增强版策略初版；凡里程碑与质量门槛数字均标为假设，并列出缺口。
+
+expect:
+  must_contain:
+    - "假设"
+    - "缺口"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "里程碑"
+          - "假设"

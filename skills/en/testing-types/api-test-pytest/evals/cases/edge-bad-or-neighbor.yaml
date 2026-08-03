@@ -1,0 +1,25 @@
+id: edge-bad-or-neighbor
+title: Pytest: redirect RestAssured/Bruno neighbor requests
+description: |
+  When the user asks for RestAssured/Bruno under the pytest skill, stay on pytest or clarify the boundary.
+
+input:
+  prompt: |
+    I activated api-test-pytest, but I asked: write RestAssured Java classes, or export Bruno .bru files.
+    Endpoint: GET /v1/health. Correct the scope: deliver a pytest + requests plan and explain why RestAssured/Bruno assets are out of this skill.
+
+expect:
+  must_contain:
+    - "pytest"
+    - "RestAssured"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "pytest"
+          - "Open Questions"

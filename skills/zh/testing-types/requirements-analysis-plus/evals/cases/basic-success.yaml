@@ -1,0 +1,28 @@
+id: basic-success
+title: 需求分析增强：跨文档冲突必须点出
+description: |
+  多来源材料冲突时，应做交叉对照并输出冲突/跨来源缺口（相对基础版的增强点）。
+
+input:
+  prompt: |
+    请使用 requirements-analysis-plus。
+    材料 A（需求 Word）：积分不足时仍允许提交订单，后台事后扣减。
+    材料 B（接口 Markdown）：积分不足返回 400，禁止创建订单。
+    材料 C（Excel 范围表）：本迭代仅含「积分抵扣成功路径」。
+    请交叉检查来源一致性，输出冲突、可测性风险与应优先澄清的问题。
+
+expect:
+  must_contain:
+    - "冲突"
+    - "来源"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "跨来源"
+          - "风险"

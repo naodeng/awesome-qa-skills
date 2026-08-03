@@ -1,0 +1,26 @@
+id: basic-success
+title: Automation: what first vs not yet
+description: |
+  Separate automate-first vs not-yet; include approach and guardrails.
+
+input:
+  prompt: |
+    Use automation-testing.
+    Current: Playwright; CI can run smoke. Candidates: login, search, checkout, payment-callback checks, admin report export.
+    Goal: stable smoke in two weeks. Return automate-first scope, not-yet scope, and guardrails.
+
+expect:
+  must_contain:
+    - "Automate First"
+    - "Not to Automate"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Task Understanding"
+          - "What to Automate"

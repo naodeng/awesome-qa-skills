@@ -1,6 +1,6 @@
 ---
 name: discover-testing
-description: 当你需要快速判断一个需求应该使用哪个测试技能时，使用这个技能进行路由和选择。
+description: Use this skill when you need to route a request to the right testing skill before execution; triggers include 测试技能路由、discover testing and which testing skill.
 ---
 
 # 测试技能路由（中文版）
@@ -12,31 +12,38 @@ description: 当你需要快速判断一个需求应该使用哪个测试技能�
 - 需要在执行前先判断应该用哪个测试 skill。
 - 一个请求同时涉及多个测试方向或多个阶段。
 
-## 输出格式选项
+## 执行流程
 
-默认使用 Markdown。若需要 Excel、CSV、JSON、Word 等支持格式，请在需求末尾补充格式要求，并查看 [output-formats.md](output-formats.md)。
+1. 先读用户请求，识别主要测试目标与阶段。
+2. 阅读并遵循 `prompts/` 路由规范：先选 1 个主 skill；仅必要时再补 1 个辅助 skill。
+3. 输出路由结论后，把请求交给目标 skill；不要在本 skill 内把整件事执行完。
 
-## 如何使用
+## 核心约束
 
-1. 先读用户请求，识别主要测试目标。
-2. 使用 `prompts/` 下的路由提示词，先选 1 个主 skill；只有必要时再补 1 个辅助 skill。
-3. 选出 skill 之后，把请求交给目标 skill，不要在这里把整件事做完。
+- 一次只推荐少量 skill，避免菜单式罗列。
+- 目标 skill 已经很明显时，直接指出，不要无效绕路。
+- 路由结果要可执行：写清推荐 skill 名与理由。
 
-## 参考文件
+## 按需加载
 
-- `prompts/discover-testing.md`：本技能的主提示词。
-- `reference.md`：步骤与提示词的对应关系。
-- `output-formats.md`：可选输出格式说明。
-- `scripts/`：本技能相关的辅助脚本或转换脚本。
+- 产出前必须阅读并遵循 `prompts/discover-testing.md`（最低覆盖清单、输出结构、质量要求）。
+- 需要 Excel/CSV/JSON/Word 等格式时：读 `output-formats.md`，并按用户格式要求输出。
+- 需要套用现成模板时：读 `output-templates/` 中匹配的模板，不要自创冲突结构。
+- 需要格式转换或辅助校验时：优先使用 `scripts/` 中已有脚本，而不是重写一遍。
+- 需要评测/回归本 skill 时：使用 `evals/`，并用 skill-up 校验与运行。
+- 需要步骤与提示词映射时：读 `reference.md`。
+
+## 交付前自检
+
+- [ ] 已遵循主提示词的输出结构
+- [ ] 最低覆盖关注：主要目标、最适合的主 skill、可选辅助 skill、为什么这么选、下一步怎么接着做（细节以主提示词为准）
+- [ ] 已覆盖最低清单，或标明为何省略
+- [ ] 高风险项有明确优先级
+- [ ] 未编造用户未提供的细节
+- [ ] 假设与信息缺口已标明
 
 ## 常见误区
 
 - 不要一次推荐很多 skill。
-- 目标 skill 已经很明显时，不要绕一圈再路由。
-- 不要把技能选择写成具体执行。
-
-## 最佳实践
-
-- 先从提示词正文出发，再补真正影响结果的上下文。
-- 结果要按风险聚焦，而且能直接执行。
-- 如果信息不全，先给可用初版，并把缺口标出来。
+- 不要把技能选择写成具体测试执行。
+- 不要在信息不足时假装已经选定且可落地。

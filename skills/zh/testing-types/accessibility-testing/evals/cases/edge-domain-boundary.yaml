@@ -1,0 +1,25 @@
+id: edge-domain-boundary
+title: 无障碍：不等于功能回归清单
+description: |
+  用户要功能用例时，应坚持无障碍视角并澄清边界。
+
+input:
+  prompt: |
+    使用 accessibility-testing。测试同学把需求写成「把结算页所有功能点回归一遍，顺便看看无障碍」。
+    请只产出无障碍高风险检查与修复优先级，并说明哪些属于功能测试、不应混进本方案。
+
+expect:
+  must_contain:
+    - "无障碍"
+    - "功能"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "键盘"
+          - "修复优先级"

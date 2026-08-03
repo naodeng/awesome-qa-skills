@@ -1,0 +1,25 @@
+id: edge-domain-boundary
+title: Security testing: not a performance load plan
+description: |
+  When the ask is RPS soak, clarify security boundaries and keep security checks.
+
+input:
+  prompt: |
+    Use security-testing. The ask: see if payment callback survives 2000 RPS, and also check permissions.
+    Lead with security priority checks and state that pure load/capacity validation is out of this skill's scope.
+
+expect:
+  must_contain:
+    - "security"
+    - "permission"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Priority"
+          - "scope"

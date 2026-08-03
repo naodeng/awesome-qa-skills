@@ -1,0 +1,25 @@
+id: edge-risk-priority
+title: Requirements analysis: short window focuses blocking gaps
+description: |
+  Many features require risk-ranked gaps, not equal analysis.
+
+input:
+  prompt: |
+    Use requirements-analysis. Scope: login, search, checkout, payment, coupons, points, tickets, reports.
+    Half-day window. Keep only release-blocking requirement gaps/risks and say what can wait.
+
+expect:
+  must_contain:
+    - "P0"
+    - "risk"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "priority"
+          - "gap"

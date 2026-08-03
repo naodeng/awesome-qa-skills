@@ -1,0 +1,25 @@
+id: edge-domain-boundary
+title: 安全测试：不要做成性能测试
+description: |
+  用户要压测 RPS 时，应澄清安全边界并坚持安全检查项。
+
+input:
+  prompt: |
+    使用 security-testing。需求写成：测一下支付回调能不能扛住 2000 RPS，顺便看看权限。
+    请以安全测试为主给出优先检查项，并说明纯负载/容量验证不属于本 skill 范围。
+
+expect:
+  must_contain:
+    - "安全"
+    - "权限"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "优先检查"
+          - "范围"

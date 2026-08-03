@@ -1,0 +1,25 @@
+id: edge-domain-boundary
+title: Manual testing: not an overnight full-automation rewrite
+description: |
+  When asked to automate everything now, keep manual session value and boundaries.
+
+input:
+  prompt: |
+    Use manual-testing. Manager says skip manual work and automate every check overnight.
+    Half-day release window; payment flake needs exploration. Give this round's manual priorities and exploratory focus, and what should not be automated yet.
+
+expect:
+  must_contain:
+    - "Manual"
+    - "automat"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Exploratory"
+          - "priority"

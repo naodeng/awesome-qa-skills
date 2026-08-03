@@ -1,0 +1,27 @@
+id: basic-success
+title: Bug reporting: reproducible defect report
+description: |
+  With symptoms and env, write steps, actual/expected, severity rationale.
+
+input:
+  prompt: |
+    Use bug-reporting.
+    Symptom: on SIT, Chrome buyer pays successfully but order stays Pending Payment.
+    Account: buyer_sit_01. Happens about 1 of 3 times.
+    Write a reproducible bug report; separate facts from guesses; justify severity.
+
+expect:
+  must_contain:
+    - "Steps"
+    - "Expected"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Actual"
+          - "Severity"

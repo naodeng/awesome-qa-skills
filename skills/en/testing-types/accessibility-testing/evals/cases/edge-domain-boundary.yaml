@@ -1,0 +1,25 @@
+id: edge-domain-boundary
+title: Accessibility: not a functional regression suite
+description: |
+  When asked for full functional cases, stay a11y-focused and clarify the boundary.
+
+input:
+  prompt: |
+    Use accessibility-testing. A tester rewrote the ask as 'regress every checkout functional point, and glance at a11y'.
+    Deliver only high-risk accessibility checks and fix priority; call out what belongs to functional testing.
+
+expect:
+  must_contain:
+    - "accessibility"
+    - "functional"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "keyboard"
+          - "Priority"

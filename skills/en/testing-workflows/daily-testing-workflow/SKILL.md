@@ -5,52 +5,45 @@ description: Use this skill when you need a day-by-day QA routine including plan
 
 # Daily Testing Workflow
 
-**中文版：** 见对应中文技能。
+**中文版：** See the corresponding Chinese skill.
 
 ## When to Use
 
-- Need a structured daily testing workflow flow instead of a single testing task.
-- Need to move step by step across a testing phase with the matching prompts.
+- Need a one-day QA cadence: morning plan, execution, defects, EOD wrap-up.
+- Need stage gates and handoffs to type skills—not a single isolated testing task.
 
-## Output Format Options
+## Workflow
 
-Markdown by default unless the request explicitly asks for another format.
+1. Read and follow `prompts/daily-testing-workflow.md` (stages, gates, handoffs, output structure).
+2. Add only context that changes the result: day scope, environment, constraints, risks, carryover defects.
+3. After locating the stage, optionally read matching stage files under `prompts/`; name other skills by name only.
+4. If input is incomplete, draft a usable day plan and mark assumptions and gaps.
 
-## How to Use
+## Core Constraints
 
-1. Check [reference.md](reference.md) first and find the prompt file for the current step.
-2. Open the matching file under `prompts/` and add only the context that matters: scope, environment, risks, constraints, and expected output.
-3. Run step by step, and adjust priorities when blockers, risks, or scope changes appear.
+- Own phases and gates; hand full cases/strategy/reports to type skills.
+- Prioritize by risk; gates must be checkable.
+- Separate confirmed facts from assumptions.
+- Do not invent missing details; no relative-path links to other skill files.
 
-## Workflow Steps
+## Progressive Disclosure
 
-- `accessibility-testing.md`
-- `ai-assisted-testing.md`
-- `api-testing.md`
-- `automation-testing.md`
-- `bug-reporting.md`
-- `functional-testing.md`
-- `manual-testing.md`
-- `requirements-analysis.md`
-- `test-case-writing.md`
-- `test-reporting.md`
-- `test-strategy.md`
+- Before producing output, read and follow `prompts/daily-testing-workflow.md`.
+- For step ↔ stage prompt mapping: read `reference.md`.
+- When deep-diving a stage: read the matching file under this skill’s `prompts/` (e.g. `bug-reporting.md`).
+- When a template fits: use matching files under `output-templates/`.
 
-## Reference Files
+## Pre-delivery Checklist
 
-- `prompts/`: prompt files used by this skill.
-- `reference.md`: step-to-prompt mapping and workflow routing.
-- `references/`: supporting notes loaded only when needed.
-- `scripts/`: helper scripts or converters for this skill.
+- [ ] Followed the main prompt’s output structure
+- [ ] Includes today’s scope/won’t-do, gate status, priority queue, next skill
+- [ ] High-risk items have explicit priority
+- [ ] Did not invent details the user did not provide
+- [ ] Assumptions and gaps are marked
 
 ## Common Pitfalls
 
-- Do not jump into execution before confirming the current step.
-- Do not try to run the whole workflow with one giant prompt.
-- Do not ignore blockers and reprioritization.
-
-## Best Practices
-
-- Start from the prompt file, then add only the context that matters.
-- Keep the output risk-driven and executable.
-- If the request is incomplete, return a usable first version and mark gaps.
+- Do not turn the daily workflow into a functional-testing encyclopedia.
+- Do not leave work forever “in progress” without exit criteria.
+- Do not hand off multiple equal primary skills at once.
+- Do not pretend execution succeeded on a red environment.

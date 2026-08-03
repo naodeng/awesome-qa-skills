@@ -4,7 +4,7 @@ metadata:
   last_verified: "2026-03-24"
 interface:
   display_name: "k6 性能测试"
-  short_description: "设计并执行 k6 负载、压力、尖峰和稳定性性能测试。"
+  short_description: "Use this skill when you need k6 load/stress/spike/soak scope, scripts, or runnable entry points; triggers include k6、k6 性能测试 and k6 performance testing."
   default_prompt: "使用 performance-test-k6 完成任务，优先使用本技能目录中的脚本、提示词和示例。"
 policy:
   allow_implicit_invocation: true

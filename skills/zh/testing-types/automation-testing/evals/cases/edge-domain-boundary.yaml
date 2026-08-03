@@ -1,0 +1,25 @@
+id: edge-domain-boundary
+title: 自动化：禁止建议全部自动化
+description: |
+  探索性/不稳定路径应进入暂不自动化，而不是全覆盖口号。
+
+input:
+  prompt: |
+    使用 automation-testing。干系人要求：登录到报表「全部场景 100% 自动化」，含偶发支付状态与探索性体验。
+    请明确优先自动化与暂不自动化，并解释为何不能全部自动化。
+
+expect:
+  must_contain:
+    - "暂不自动化"
+    - "风险"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "优先自动化"
+          - "防护"

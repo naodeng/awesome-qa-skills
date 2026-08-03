@@ -1,0 +1,25 @@
+id: edge-bad-or-neighbor
+title: Supertest：用户其实要 Postman/Playwright 时纠正
+description: |
+  近邻工具误用时，应坚持 Supertest 交付或澄清边界。
+
+input:
+  prompt: |
+    我激活了 api-test-supertest，但我说：导出 Postman collection，再用 Playwright 做 E2E。
+    接口：GET /health。请纠正：仍按 Supertest + Jest 给出 API 方案，并说明为何不在本 skill 交付 Postman/Playwright。
+
+expect:
+  must_contain:
+    - "Supertest"
+    - "Postman"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Supertest"
+          - "待确认"

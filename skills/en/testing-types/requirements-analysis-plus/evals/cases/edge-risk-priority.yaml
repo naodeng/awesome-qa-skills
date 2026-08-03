@@ -1,0 +1,25 @@
+id: edge-risk-priority
+title: Requirements analysis plus: conflicts outrank polish
+description: |
+  Short window prioritizes cross-source conflicts that block delivery.
+
+input:
+  prompt: |
+    Use requirements-analysis-plus. PRD and tech docs contradict each other on payment-callback idempotency; other modules look complete.
+    Half a day to decide test entry. Rank high-priority risks and conflicts that must be clarified first.
+
+expect:
+  must_contain:
+    - "conflict"
+    - "priority"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "High-Priority"
+          - "clarif"

@@ -55,11 +55,20 @@ description: Use this skill when ...; triggers include 中文触发词 and Engli
 要求：
 
 - `name`：小写、数字、连字符；与目录名、`agents/openai.yaml` 的 `metadata.key` 一致。
-- `description`：第三人称；同时写清 **做什么** 与 **何时用**；包含触发词；宜短于 1024 字符。
-- 正文保持精简：步骤、输出期望、常见误区；细节放到 `prompts/`、`references/`、`examples/`。
+- `description`：第三人称祈使（`Use this skill when...`）；同时写清 **做什么** 与 **何时用**；包含触发词；宜短于 1024 字符。
+- 正文保持精简，并包含：执行流程、核心约束、**按需加载**（写清何时读 `prompts/` / `references/` / `examples/` / `scripts/`）、交付前自检、常见误区。
+- `prompts/` 仍是完整执行规范；`SKILL.md` 不要做成只有「打开 prompts」的空壳。
 - 默认输出 Markdown；需要 Excel/CSV/JSON/Word 时指向 `output-formats.md`。
+- 关键 skill 可增加 `evals/`（skill-up：`eval.yaml` + `cases/`），详见 [skills/SKILL_AUTHORING.md](skills/SKILL_AUTHORING.md)。
 
 参考现有 skill（如 `skills/zh/testing-types/functional-testing/`），不要照搬 [CONTRIBUTING.md](CONTRIBUTING.md) 里较旧的「basic/intermediate/advanced」三层 prompt 结构——当前以单主 prompt + 可选增强版 skill 为准。
+
+批量优化 / 脚手架：
+
+```bash
+python3 scripts/optimize_skills_skillup.py
+python3 scripts/scaffold_skill_evals.py --pilot   # 或 --skill <path> / --all-missing
+```
 
 ## agents/openai.yaml
 

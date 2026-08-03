@@ -1,0 +1,25 @@
+id: edge-risk-priority
+title: Test case review: short window targets blockers
+description: |
+  Time pressure prioritizes payment/money gaps over wording nits.
+
+input:
+  prompt: |
+    Use test-case-reviewer. Many inconsistent cases; known prod risk: payment succeeds but order stays pending.
+    Only one fix pass possible. Keep blocking high-priority findings and defer the rest.
+
+expect:
+  must_contain:
+    - "payment"
+    - "priority"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "High-Priority"
+          - "risk"

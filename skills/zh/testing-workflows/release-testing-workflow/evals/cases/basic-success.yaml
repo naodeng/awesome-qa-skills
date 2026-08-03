@@ -1,0 +1,26 @@
+id: basic-success
+title: 发布工作流：产出 T-14 到 Go/No-Go 阶段产出
+description: |
+  有发布窗口与范围时，应给出 T-14→专项→RC→Go/No-Go 的阶段产出与优先级。
+
+input:
+  prompt: |
+    请使用 release-testing-workflow。
+    背景：订单服务两周后发版；范围含支付回调修复与优惠券；需性能与安全抽查。
+    请给出从 T-14 规划到 T-1 Go/No-Go 的发布测试阶段产出，并按风险排优先级。
+
+expect:
+  must_contain:
+    - "T-14"
+    - "Go/No-Go"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "T-14"
+          - "优先级"

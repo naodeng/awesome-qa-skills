@@ -1,0 +1,25 @@
+id: edge-risk-priority
+title: 用例评审：短窗口只盯阻塞级漏测
+description: |
+  时间紧时应优先支付/资金相关漏测，而不是文案问题。
+
+input:
+  prompt: |
+    使用 test-case-reviewer。用例很多且格式不统一；已知支付成功但订单仍待支付的线上风险。
+    半天内只能改一轮。请只保留阻塞级高优先级发现，并说明其余可后置。
+
+expect:
+  must_contain:
+    - "支付"
+    - "优先级"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "高优先级"
+          - "风险"

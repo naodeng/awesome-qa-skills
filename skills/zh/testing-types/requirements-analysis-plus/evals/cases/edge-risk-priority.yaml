@@ -1,0 +1,25 @@
+id: edge-risk-priority
+title: 需求分析增强：冲突项优先于文案润色
+description: |
+  短窗口下应优先处理跨来源冲突与交付阻塞，而不是平均总结。
+
+input:
+  prompt: |
+    使用 requirements-analysis-plus。PRD 与技术文档在支付回调幂等上互相矛盾；其余模块描述完整。
+    半天内要决定能否提测。请按业务影响排出高优先级风险与必须先澄清的冲突项。
+
+expect:
+  must_contain:
+    - "冲突"
+    - "优先级"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "高优先级"
+          - "澄清"

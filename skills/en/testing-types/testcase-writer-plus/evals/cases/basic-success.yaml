@@ -1,0 +1,26 @@
+id: basic-success
+title: Testcase writer plus: priority groups and traceability
+description: |
+  Plus differentiator vs test-case-writing: multi-source traceability/grouping and stricter structure.
+
+input:
+  prompt: |
+    Use testcase-writer-plus.
+    Sources: REQ-01 (points redemption), analysis (insufficient points must reject), API note (callback retryable).
+    Write priority-grouped cases with preconditions, steps, expected results, and data; include traceability or grouping notes (case ↔ requirement/risk).
+
+expect:
+  must_contain:
+    - "priority"
+    - "trace"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "precondition"
+          - "expected"

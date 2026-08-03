@@ -4,7 +4,7 @@ metadata:
   last_verified: "2026-03-24"
 interface:
   display_name: "Bruno 接口自动化"
-  short_description: "解析接口来源并生成 Bruno 回归集合。"
+  short_description: "Use this skill when you need to parse multi-format API definitions and generate Bruno collections for executable regression; triggers include Bruno、Bruno 集合 an…"
   default_prompt: "使用 api-test-bruno 完成任务，优先使用本技能目录中的脚本、提示词和示例。"
 policy:
   allow_implicit_invocation: true

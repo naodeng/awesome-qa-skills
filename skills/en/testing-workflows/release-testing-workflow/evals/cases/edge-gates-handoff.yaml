@@ -1,0 +1,26 @@
+id: edge-gates-handoff
+title: Release workflow: entry/exit gates and handoff
+description: |
+  Define freeze/RC/Go-No-Go gates and handoff to execution skills by name (no hard links).
+
+input:
+  prompt: |
+    Use release-testing-workflow.
+    Scenario: no RC until feature-freeze gate passes; no Go with open blockers; specialized tests due T-5–T-4.
+    Write clear entry/exit criteria (gates) and how to hand off to execution skills (e.g. performance-testing, security-testing, test-reporting—names and handoff points only; no file-path links to other skills).
+
+expect:
+  must_contain:
+    - "entry"
+    - "handoff"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "gate"
+          - "handoff"

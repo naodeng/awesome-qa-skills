@@ -1,0 +1,25 @@
+id: edge-incomplete-input
+title: Accessibility: draft gaps without prototypes
+description: |
+  One-line asks still get a draft checklist plus information gaps.
+
+input:
+  prompt: |
+    Use accessibility-testing. Only sentence: new campaign page needs accessibility. No designs, no AT scope.
+    Give a first-pass checklist and list must-have information.
+
+expect:
+  must_contain:
+    - "gap"
+    - "assumption"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Information Gaps"
+          - "assumption"

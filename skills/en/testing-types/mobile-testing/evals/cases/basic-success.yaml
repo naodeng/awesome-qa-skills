@@ -1,0 +1,26 @@
+id: basic-success
+title: Mobile: device matrix and high-risk checks
+description: |
+  Return device matrix and mobile-specific risks (network, deeplink, etc.).
+
+input:
+  prompt: |
+    Use mobile-testing.
+    App: buyer checkout on iOS/Android. Risks: weak-network payment status drift; push deeplink sometimes drops params.
+    Produce a mobile plan: device matrix, high-risk checks, execution order.
+
+expect:
+  must_contain:
+    - "device"
+    - "deeplink"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Task Understanding"
+          - "Device Matrix"

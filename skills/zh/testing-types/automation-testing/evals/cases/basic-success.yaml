@@ -1,0 +1,26 @@
+id: basic-success
+title: 自动化：先自动化什么/暂不自动化
+description: |
+  应区分优先自动化与暂不自动化，并给方案与风险。
+
+input:
+  prompt: |
+    请使用 automation-testing。
+    现状：有 Playwright，CI 可跑冒烟。候选：登录、搜索、下单、支付回调校验、后台报表导出。
+    目标：两周内稳定冒烟。请给出优先自动化范围、暂不自动化范围与防护建议。
+
+expect:
+  must_contain:
+    - "自动化"
+    - "暂不"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "任务理解"
+          - "优先自动化"

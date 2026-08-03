@@ -1,0 +1,25 @@
+id: edge-risk-priority
+title: Test strategy plus: gates justify scope cuts
+description: |
+  Half-day window uses gates and ownership to keep P0 only.
+
+input:
+  prompt: |
+    Use test-strategy-plus. Modules: login, search, checkout, payment, coupons, points, tickets, reports.
+    Must advise go/no-go within half a day. Use risk priority + quality gates to keep P0; clarify ownership and deferrals.
+
+expect:
+  must_contain:
+    - "gate"
+    - "P0"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "ownership"
+          - "milestone"

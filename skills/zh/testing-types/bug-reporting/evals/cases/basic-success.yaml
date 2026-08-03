@@ -1,0 +1,27 @@
+id: basic-success
+title: 缺陷报告：可复现的完整缺陷单
+description: |
+  有现象与环境时，应写出可复现步骤、实际/预期与优先级依据。
+
+input:
+  prompt: |
+    请使用 bug-reporting 写缺陷报告。
+    现象：SIT 环境，买家用 Chrome 支付成功后订单仍显示「待支付」。
+    账号：buyer_sit_01。大约 3 次里出现 1 次。
+    请写出可复现缺陷报告，事实与猜测分开，并给出严重程度依据。
+
+expect:
+  must_contain:
+    - "复现"
+    - "预期"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "实际"
+          - "严重"

@@ -1,6 +1,7 @@
 # Release Testing Workflow — Step → Prompt
 
-Use files in **this directory's `prompts/`** for each step. Mapping below.
+Orchestration prompt: `prompts/release-testing-workflow.md` (T-windows, release gates, Go/No-Go, handoffs).  
+For stage deep-dives, use files in **this directory's `prompts/`**. Mapping below.
 
 | Step / Phase | Prompt files | Use |
 |--------------|--------------|-----|

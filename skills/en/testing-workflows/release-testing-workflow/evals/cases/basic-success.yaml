@@ -1,0 +1,26 @@
+id: basic-success
+title: Release workflow: T-14 through Go/No-Go outputs
+description: |
+  With a release window and scope, produce T-14 → specialized → RC → Go/No-Go stage outputs with priorities.
+
+input:
+  prompt: |
+    Use release-testing-workflow.
+    Context: order service ships in two weeks; scope includes payment callback fix and coupons; need performance and security spot-checks.
+    Produce release-testing stage outputs from T-14 planning to T-1 Go/No-Go, prioritized by risk.
+
+expect:
+  must_contain:
+    - "T-14"
+    - "Go/No-Go"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "T-14"
+          - "priority"

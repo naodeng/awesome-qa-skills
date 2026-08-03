@@ -1,0 +1,25 @@
+id: edge-incomplete-input
+title: Gatling：无流量数据时写清假设
+description: |
+  缺少 feeder/流量数据时仍给初版并标缺口。
+
+input:
+  prompt: |
+    用 performance-test-gatling。只有「要做 Gatling 压测」，没有 SLA、没有历史 RPS、没有现有工程。
+    链路：积分兑换。请给初版，数字目标标假设，并列出待确认问题。
+
+expect:
+  must_contain:
+    - "假设"
+    - "缺口"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "假设"
+          - "Gatling"

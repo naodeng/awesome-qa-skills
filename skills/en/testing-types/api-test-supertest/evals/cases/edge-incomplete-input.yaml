@@ -1,0 +1,25 @@
+id: edge-incomplete-input
+title: Supertest: one-line ask still yields draft
+description: |
+  With only one sentence and no schema, still draft Supertest structure and list gaps/assumptions.
+
+input:
+  prompt: |
+    Use api-test-supertest. I only know: automate the points redemption API. No path, fields, or existing Jest layout.
+    Give a usable Supertest draft structure and list required gaps and assumptions.
+
+expect:
+  must_contain:
+    - "assumption"
+    - "gap"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "assumption"
+          - "Supertest"

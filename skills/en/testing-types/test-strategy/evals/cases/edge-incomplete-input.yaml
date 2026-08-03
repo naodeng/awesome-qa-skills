@@ -1,0 +1,25 @@
+id: edge-incomplete-input
+title: Test strategy: draft despite missing team/env
+description: |
+  Missing resources/env still yields a draft with assumptions.
+
+input:
+  prompt: |
+    Use test-strategy. Product only says 'please test points redemption' with no team size, env, or quality goals.
+    Draft a strategy and mark resource/env items as assumptions or gaps.
+
+expect:
+  must_contain:
+    - "assumption"
+    - "gap"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "assumption"
+          - "scope"

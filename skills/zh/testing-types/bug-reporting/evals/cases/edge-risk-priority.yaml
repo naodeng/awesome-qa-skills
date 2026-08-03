@@ -1,0 +1,27 @@
+id: edge-risk-priority
+title: 缺陷报告：严重程度必须有业务依据
+description: |
+  避免情绪化定级；严重程度/优先级要写清影响。
+
+input:
+  prompt: |
+    使用 bug-reporting。
+    问题：后台报表导出比平时慢约 20 秒，业务仍能导出成功。
+    同时另有：支付成功但扣款翻倍（偶发）。
+    请分别给出两份简版缺陷摘要，并解释严重程度为何不同。
+
+expect:
+  must_contain:
+    - "严重"
+    - "支付"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "优先级"
+          - "影响"

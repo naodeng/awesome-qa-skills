@@ -1,0 +1,27 @@
+id: basic-success
+title: 测试策略增强：必须含里程碑与质量门槛
+description: |
+  相对基础版，增强点是里程碑、质量门槛与责任安排，而不只是方法列表。
+
+input:
+  prompt: |
+    请使用 test-strategy-plus。
+    输入材料：需求摘要、技术说明、发布计划（周五上线）。
+    范围：下单→支付→发货；风险：支付回调超时；QA 2 人。
+    请输出可执行策略，必须包含里程碑、质量门槛、资源与责任说明。
+
+expect:
+  must_contain:
+    - "里程碑"
+    - "质量门槛"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "责任"
+          - "优先级"

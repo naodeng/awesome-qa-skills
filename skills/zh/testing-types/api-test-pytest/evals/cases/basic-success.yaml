@@ -1,0 +1,31 @@
+id: basic-success
+title: Pytest：有 OpenAPI/curl 时给出套件结构
+description: |
+  提供简短 OpenAPI 与 curl 时，应产出 pytest + requests 目录/fixture/用例结构说明。
+
+input:
+  prompt: |
+    请使用 api-test-pytest。
+    环境：SIT。认证：Bearer {{token}}（勿硬编码真实 token）。
+    OpenAPI 片段：
+      POST /v1/payments/callback
+      GET /v1/orders/{id}
+    curl（脱敏）：
+      curl -X POST https://api.example.com/v1/payments/callback -H "Content-Type: application/json" -d '{"orderId":"ORD-1","status":"PAID"}'
+    请给出 pytest 方案：tests/ 结构、conftest fixture、参数化与断言重点；强调回调幂等。不必输出超长代码。
+
+expect:
+  must_contain:
+    - "pytest"
+    - "fixture"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "任务理解"
+          - "pytest"

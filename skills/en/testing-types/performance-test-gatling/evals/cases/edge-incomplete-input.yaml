@@ -1,0 +1,25 @@
+id: edge-incomplete-input
+title: Gatling: mark assumptions without traffic data
+description: |
+  Missing feeder/traffic data still yields a draft with gaps.
+
+input:
+  prompt: |
+    Use performance-test-gatling. Only ask: 'do Gatling load testing'—no SLA, no historical RPS, no existing project.
+    Flow: points redemption. Draft a plan; mark numeric goals as assumptions; list open questions.
+
+expect:
+  must_contain:
+    - "assumption"
+    - "gap"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "assumption"
+          - "Gatling"

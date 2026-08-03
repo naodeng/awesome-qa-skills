@@ -1,0 +1,25 @@
+id: edge-risk-priority
+title: Test case writing: cut non-critical cases
+description: |
+  Mark P0 vs deferrable when time is short.
+
+input:
+  prompt: |
+    Use test-case-writing. Modules: login, search, checkout, payment, coupons, points, tickets, reports.
+    Only half a day to test. Keep a P0 case list and explain deferrals.
+
+expect:
+  must_contain:
+    - "P0"
+    - "priority"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "P0"
+          - "defer"

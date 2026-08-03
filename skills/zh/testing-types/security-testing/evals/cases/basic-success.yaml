@@ -1,0 +1,27 @@
+id: basic-success
+title: 安全测试：按资产与攻击面排优先级
+description: |
+  有认证与敏感数据流时，应给出高风险与优先检查项。
+
+input:
+  prompt: |
+    请使用 security-testing。
+    系统：订单 API + 买家后台。认证：Bearer token（示例用 ${TOKEN} 占位）。
+    敏感数据：支付状态、收货地址。已知关注：越权读他人订单。
+    请给出安全测试方案，区分已确认风险与待验证项，勿给利用教程。
+
+expect:
+  must_contain:
+    - "鉴权"
+    - "风险"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "任务理解"
+          - "优先检查"

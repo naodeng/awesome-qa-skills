@@ -1,0 +1,25 @@
+id: edge-domain-boundary
+title: Gatling: do not deliver a k6 script plan
+description: |
+  If the user asks for k6, stay Gatling-oriented and explain the mismatch.
+
+input:
+  prompt: |
+    Use performance-test-gatling. A teammate asks for 'a ready k6 script with VUs and thresholds'.
+    Endpoint: GET /orders/{id}. Provide a Gatling-ready scenario and load model, and explain why this skill does not output k6.
+
+expect:
+  must_contain:
+    - "Gatling"
+    - "k6"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Load Model"
+          - "threshold"

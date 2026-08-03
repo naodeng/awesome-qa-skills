@@ -1,0 +1,25 @@
+id: edge-incomplete-input
+title: 自动化：无框架信息仍给初版
+description: |
+  缺少框架/CI 细节时标假设与缺口。
+
+input:
+  prompt: |
+    用 automation-testing。只说「想把回归自动化」，不知道现有框架、语言、CI。
+    业务是积分兑换。请给初版建议，并列出必须确认的信息。
+
+expect:
+  must_contain:
+    - "假设"
+    - "缺口"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "假设"
+          - "缺口"

@@ -1,0 +1,25 @@
+id: edge-incomplete-input
+title: Test strategy plus: draft gates as assumptions
+description: |
+  Without a project plan, still draft strategy and mark milestones/gates as assumptions.
+
+input:
+  prompt: |
+    Use test-strategy-plus. Only analysis note 'points redemption is high risk'; no project plan or staffing sheet.
+    Draft a plus strategy; mark every milestone/gate number as an assumption and list gaps.
+
+expect:
+  must_contain:
+    - "assumption"
+    - "gap"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "milestone"
+          - "assumption"

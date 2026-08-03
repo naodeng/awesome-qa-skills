@@ -1,0 +1,25 @@
+id: edge-domain-boundary
+title: Gatling：拒绝写成 k6 脚本方案
+description: |
+  用户要 k6 时，应说明本 skill 面向 Gatling，并给出 Gatling 等价结构。
+
+input:
+  prompt: |
+    使用 performance-test-gatling。同事说「直接给我一份 k6 script，VU 和 thresholds 都写好」。
+    目标接口 GET /orders/{id}。请用 Gatling 视角给可落地场景与负载模型，并说明为何不按 k6 产出。
+
+expect:
+  must_contain:
+    - "Gatling"
+    - "k6"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "负载模型"
+          - "阈值"

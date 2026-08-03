@@ -1,0 +1,25 @@
+id: edge-risk-priority
+title: API 测试：半天窗口只保核心链路
+description: |
+  接口很多时必须按业务风险排序，而不是平均覆盖。
+
+input:
+  prompt: |
+    使用 api-testing。接口很多：登录、搜索、下单、支付回调、优惠券、积分、工单、报表导出。
+    发版窗口半天。请只保留 P0 API 检查，并说明其余如何降级。
+
+expect:
+  must_contain:
+    - "P0"
+    - "支付"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "P0"
+          - "降级"

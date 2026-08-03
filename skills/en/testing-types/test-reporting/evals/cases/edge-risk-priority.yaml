@@ -1,0 +1,25 @@
+id: edge-risk-priority
+title: Test reporting: high pass rate must not hide money risk
+description: |
+  Strong metrics with a payment blocker still require a cautious recommendation.
+
+input:
+  prompt: |
+    Use test-reporting. Pass rate 98%, but one intermittent double-charge payment defect remains; report export is 20s slower.
+    Write the report: separate critical vs minor issues and give a clear release recommendation with confidence.
+
+expect:
+  must_contain:
+    - "payment"
+    - "recommendation"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "risk"
+          - "blocker"

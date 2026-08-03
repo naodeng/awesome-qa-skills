@@ -1,0 +1,27 @@
+id: basic-success
+title: k6: choose scenarios intentionally
+description: |
+  Return k6-fit scenarios, thresholds, and assumptions.
+
+input:
+  prompt: |
+    Use performance-test-k6.
+    Goal: keep GET /orders/{id} healthy in a promo.
+    Target: P95 < 300ms, error rate < 0.1%. Peak ~200 RPS now, maybe 800 RPS in promo.
+    Propose k6 scenarios (full scripts not required) and mark assumptions.
+
+expect:
+  must_contain:
+    - "k6"
+    - "P95"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "scenario"
+          - "assumption"

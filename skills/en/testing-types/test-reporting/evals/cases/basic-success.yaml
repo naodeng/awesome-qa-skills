@@ -1,0 +1,27 @@
+id: basic-success
+title: Test reporting: actionable release recommendation
+description: |
+  With results and defects, return summary, key risks, and a clear release recommendation.
+
+input:
+  prompt: |
+    Use test-reporting.
+    Scope: checkout→payment tested; shipping not tested. 40 cases run, 36 pass, 4 fail.
+    Blocker: payment succeeds but order stays pending (intermittent). Env: SIT.
+    Write a test report with release recommendation and next actions.
+
+expect:
+  must_contain:
+    - "recommendation"
+    - "blocker"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "risk"
+          - "summary"

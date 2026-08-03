@@ -9,13 +9,16 @@ Current structure uses one skills root with language partitions:
 
 Each skill directory now follows the same lightweight layout:
 
-- `SKILL.md`: short entry file
-- `prompts/`: main prompt files
+- `SKILL.md`: short activation entry (workflow, constraints, progressive disclosure, pre-delivery checklist)
+- `prompts/`: full execution spec (required)
+- `evals/`: optional skill-up eval suite (`eval.yaml` + `cases/`)
 - `reference.md`: workflow mapping when needed
 - `output-formats.md`: optional format guidance when supported
 - `references/`: deeper notes loaded only when needed
 - `examples/`: sample inputs or outputs when useful
 - `scripts/`: helper tooling when needed
+
+Authoring / evaluation conventions: [SKILL_AUTHORING.md](SKILL_AUTHORING.md)（对齐 [alibaba/skill-up](https://github.com/alibaba/skill-up)）。
 
 Maintenance:
 

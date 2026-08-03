@@ -1,0 +1,25 @@
+id: edge-incomplete-input
+title: Test case review: titles-only still reviews structure
+description: |
+  Without full requirements, still review clarity and list confirmations needed.
+
+input:
+  prompt: |
+    Use test-case-reviewer. Only case titles 'redeem success/fail'—no requirements or steps.
+    Draft a review: structural/clarity issues you can already see, plus info required to continue.
+
+expect:
+  must_contain:
+    - "gap"
+    - "confirm"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Review"
+          - "gap"

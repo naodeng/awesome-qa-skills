@@ -1,0 +1,25 @@
+id: edge-incomplete-input
+title: Test case writing: draft from one-line requirement
+description: |
+  Thin requirements still get draft cases plus confirmation questions.
+
+input:
+  prompt: |
+    Use test-case-writing. Requirement: support points redemption. No acceptance criteria.
+    Provide draft cases and list questions for product.
+
+expect:
+  must_contain:
+    - "assumption"
+    - "confirm"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "gap"
+          - "Priority"

@@ -3,7 +3,7 @@ metadata:
   key: "test-case-writing"
 interface:
   display_name: "Test Case Writing (English)"
-  short_description: "Use this skill when you need to create high-quality test cases with normal, exception, and boundary scenarios; triggers include test case..."
+  short_description: "Use this skill when you need to create high-quality test cases with normal, exception, and boundary scenarios; triggers include test case writing and test desi…"
   default_prompt: "Use the test-case-writing skill to complete this testing task with structured outputs and practical next steps."
 policy:
   allow_implicit_invocation: true

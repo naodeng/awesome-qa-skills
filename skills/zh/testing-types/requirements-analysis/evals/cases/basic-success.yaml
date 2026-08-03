@@ -1,0 +1,27 @@
+id: basic-success
+title: 需求分析：从用户故事提炼缺口与风险
+description: |
+  有验收标准时，应输出需求理解、缺口/歧义与测试影响，而不是复述原文。
+
+input:
+  prompt: |
+    请使用 requirements-analysis。
+    用户故事：买家下单可用积分抵扣；积分不足不可提交；支付回调失败需可重试。
+    验收标准只写了「积分抵扣成功」，未写不足与回调失败。
+    请从 QA 角度做需求分析，标出缺口、可测性风险与待澄清问题。
+
+expect:
+  must_contain:
+    - "缺口"
+    - "风险"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "需求理解"
+          - "待澄清"

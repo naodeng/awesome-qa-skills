@@ -1,0 +1,25 @@
+id: edge-risk-priority
+title: 测试报告：高通过率不能掩盖资金风险
+description: |
+  指标好看但存在支付类阻塞时，发布建议必须偏谨慎。
+
+input:
+  prompt: |
+    使用 test-reporting。通过率 98%，但有 1 个支付双扣费偶发缺陷未解；报表导出慢 20s。
+    请写报告：区分关键风险与次要问题，给出明确发布建议（含信心说明）。
+
+expect:
+  must_contain:
+    - "支付"
+    - "发布建议"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "风险"
+          - "阻塞"

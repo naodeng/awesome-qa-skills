@@ -1,0 +1,25 @@
+id: edge-domain-boundary
+title: AI 辅助：AI 不能替代验证结论
+description: |
+  用户想让 AI 直接签发布时，应坚持人工把关边界。
+
+input:
+  prompt: |
+    使用 ai-assisted-testing。负责人说：AI 生成用例并执行后，可以直接签发布，人工不用看。
+    请纠正边界：哪些可由 AI 起草，哪些必须人工把关，并给出正式使用前检查项。
+
+expect:
+  must_contain:
+    - "人工"
+    - "AI"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "高风险"
+          - "检查"

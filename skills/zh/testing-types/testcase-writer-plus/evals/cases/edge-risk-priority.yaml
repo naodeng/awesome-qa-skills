@@ -1,0 +1,25 @@
+id: edge-risk-priority
+title: 用例编写增强：短窗口只保 P0 追踪集
+description: |
+  功能很多时只输出 P0 用例集，并说明追踪范围内外项。
+
+input:
+  prompt: |
+    使用 testcase-writer-plus。模块：登录、搜索、下单、支付、优惠券、积分、工单、报表。
+    半天可执行。请只输出 P0 用例，附追踪/分组说明，并标明哪些需求点本轮不追踪。
+
+expect:
+  must_contain:
+    - "P0"
+    - "追踪"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "优先级"
+          - "缺口"

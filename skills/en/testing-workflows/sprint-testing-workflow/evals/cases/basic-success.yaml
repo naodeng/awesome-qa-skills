@@ -1,0 +1,27 @@
+id: basic-success
+title: Sprint workflow: phase outputs across the iteration
+description: |
+  With sprint goals and a window, produce plan → execute → review outputs with priorities.
+
+input:
+  prompt: |
+    Use sprint-testing-workflow.
+    Context: two-week sprint; goals: payment stability + coupon redesign.
+    Day 1 planning, mid-sprint execution, end review/retro.
+    Produce this sprint's testing workflow stage outputs (planning / setup / execution / review) with risk priorities.
+
+expect:
+  must_contain:
+    - "planning"
+    - "priority"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "execution"
+          - "review"

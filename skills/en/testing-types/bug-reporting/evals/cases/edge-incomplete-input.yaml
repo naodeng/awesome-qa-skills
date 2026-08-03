@@ -1,0 +1,25 @@
+id: edge-incomplete-input
+title: Bug reporting: mark uncertainty when evidence is thin
+description: |
+  Incomplete info still gets a structured draft with open questions.
+
+input:
+  prompt: |
+    Use bug-reporting. User says: points redemption sometimes fails. No screenshot, logs, or environment.
+    Write a draft bug report and explicitly list what must be confirmed.
+
+expect:
+  must_contain:
+    - "confirm"
+    - "Steps"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "confirm"
+          - "assumption"

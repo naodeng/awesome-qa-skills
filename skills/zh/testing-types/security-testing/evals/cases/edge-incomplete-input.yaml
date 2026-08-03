@@ -1,0 +1,25 @@
+id: edge-incomplete-input
+title: 安全测试：范围不清仍给初版
+description: |
+  无架构图时仍产出初版并列出缺口，不夸大覆盖。
+
+input:
+  prompt: |
+    用 security-testing。产品说「积分兑换要做安全测试」，没有架构、没有鉴权说明、没有数据流。
+    请给可用初版，并明确信息缺口与假设。
+
+expect:
+  must_contain:
+    - "假设"
+    - "缺口"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "假设"
+          - "缺口"

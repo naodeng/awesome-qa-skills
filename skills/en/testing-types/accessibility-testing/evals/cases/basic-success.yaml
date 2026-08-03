@@ -1,0 +1,26 @@
+id: basic-success
+title: Accessibility: barriers and fix priority on critical journeys
+description: |
+  Return keyboard/screen-reader focused checks and fix priority—not a WCAG lecture.
+
+input:
+  prompt: |
+    Use accessibility-testing.
+    Page: checkout (address form + pay button). Goal: keyboard and screen-reader usable; WCAG-minded but practical.
+    Platform: Web Chrome/Safari. Produce an a11y plan with fix priority.
+
+expect:
+  must_contain:
+    - "keyboard"
+    - "screen reader"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Task Understanding"
+          - "Priority"

@@ -1,0 +1,26 @@
+id: edge-narrow-recommendation
+title: 路由：不要一次推荐一堆 skill
+description: |
+  即使用户点名很多类型，也只给 1 个主 skill + 最多 1 个辅助，并说明为何不铺菜单。
+
+input:
+  prompt: |
+    使用 discover-testing。
+    用户说：功能、API、性能、安全、无障碍全都要测，请把相关 skill 全列出来。
+    要求：只推荐 1 个主 skill，最多再加 1 个辅助；解释为什么不一次推荐一长串，并给出下一步。
+
+expect:
+  must_contain:
+    - "主推荐"
+    - "辅助"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "主推荐"
+          - "下一步"

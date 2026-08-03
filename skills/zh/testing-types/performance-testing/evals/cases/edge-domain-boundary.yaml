@@ -1,0 +1,25 @@
+id: edge-domain-boundary
+title: 性能测试：不要做成安全渗透清单
+description: |
+  用户混入安全诉求时，应坚持性能视角并澄清边界。
+
+input:
+  prompt: |
+    使用 performance-testing。老板说：既要压测，也顺便扫一下 SQL 注入和弱口令。
+    窗口半天。请只给可执行的性能测试范围，并明确哪些属于安全测试、不应塞进本方案。
+
+expect:
+  must_contain:
+    - "性能"
+    - "安全"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "场景"
+          - "范围"

@@ -9,47 +9,41 @@ description: Use this skill when you need release-phase QA workflow from T-14 pl
 
 ## 何时使用
 
-- 需要按 release testing workflow 的节奏推进，而不是只做单个测试任务。
-- 需要按步骤使用对应提示词完成一个测试阶段。
+- 需要按发布窗口推进：T-N 规划 → 专项 → RC → Go/No-Go → 发布后观察。
+- 需要发布门禁与放行证据包，并向类型 skill 交接专项执行。
 
-## 输出格式选项
+## 执行流程
 
-默认使用 Markdown，除非需求明确要求其他格式。
+1. 阅读并遵循 `prompts/release-testing-workflow.md`（时间线、门禁、Go/No-Go、交接）。
+2. 补充发布日、范围、冻结规则、候选版本、已知缺陷等上下文。
+3. 定位 T 窗口后按需读本目录阶段 `prompts/`；专项执行点名对应类型 skill。
+4. 信息不全时仍给门禁看板初版，并标假设；**禁止编造测试通过结果**。
 
-## 如何使用
+## 核心约束
 
-1. 先看 [reference.md](reference.md)，找到当前步骤对应的提示词。
-2. 打开 `prompts/` 下对应文件，只补充真正重要的上下文：范围、环境、风险、限制和期望产出。
-3. 按步骤推进；遇到阻塞、风险变化或范围变化时，及时调整优先级。
+- 管发布时间线与放行决策；专项报告交给 `performance-testing` / `security-testing` 等。
+- 门禁可压缩时间，不可删除判据。
+- Go/No-Go 必须基于证据；条件放行必须可验证。
+- 禁止相对路径链到其他 skill 文件。
 
-## 工作流步骤
+## 按需加载
 
-- `accessibility-testing.md`
-- `ai-assisted-testing.md`
-- `automation-testing.md`
-- `functional-testing.md`
-- `manual-testing.md`
-- `performance-testing.md`
-- `requirements-analysis.md`
-- `security-testing.md`
-- `test-case-writing.md`
-- `test-reporting.md`
-- `test-strategy.md`
+- 产出前必须阅读并遵循 `prompts/release-testing-workflow.md`。
+- 步骤对照：读 `reference.md`。
+- 阶段/专项深做：再读本目录对应 `prompts/*.md`。
+- 模板：`output-templates/`。
 
-## 参考文件
+## 交付前自检
 
-- `prompts/`：本技能使用的提示词文件目录。
-- `reference.md`：步骤与提示词的对应关系。
-- `scripts/`：本技能相关的辅助脚本或转换脚本。
+- [ ] 已遵循主提示词的输出结构
+- [ ] 含范围/排除项、T 窗口、门禁看板、证据缺口、下一跳 skill
+- [ ] 若到决策点：Go / No-Go / 条件放行有依据
+- [ ] 未编造通过结果或未提供的缺陷状态
+- [ ] 假设与开放问题已标明
 
 ## 常见误区
 
-- 不要在没确认当前步骤前就直接开始执行。
-- 不要试图用一个超长提示词跑完整个工作流。
-- 不要忽略阻塞项和重新排优先级。
-
-## 最佳实践
-
-- 先从提示词正文出发，再补真正影响结果的上下文。
-- 结果要按风险聚焦，而且能直接执行。
-- 如果信息不全，先给可用初版，并把缺口标出来。
+- 不要删门禁只压缩日程。
+- 不要在未冻结时宣称 RC 完成。
+- 不要在本 skill 内代写完整专项长报告。
+- 不要用空泛「继续观察」代替条件放行条款。

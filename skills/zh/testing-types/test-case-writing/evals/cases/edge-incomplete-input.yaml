@@ -1,0 +1,25 @@
+id: edge-incomplete-input
+title: 用例编写：需求一句时仍给草稿
+description: |
+  信息不足时给草稿用例并列出缺口。
+
+input:
+  prompt: |
+    用 test-case-writing。需求：支持积分兑换。无验收标准。
+    请先给用例草稿，并列出必须向产品确认的问题。
+
+expect:
+  must_contain:
+    - "假设"
+    - "确认"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "缺口"
+          - "用例"

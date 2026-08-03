@@ -1,0 +1,25 @@
+id: edge-incomplete-input
+title: API 测试：无 OpenAPI 时仍给初版
+description: |
+  缺少完整文档时仍应产出初版并列出缺口。
+
+input:
+  prompt: |
+    用 api-testing。我只知道有一个「积分兑换」接口，路径和字段都不清楚。
+    请给可用初版方案，并列出必须补齐的信息。
+
+expect:
+  must_contain:
+    - "假设"
+    - "缺口"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "假设"
+          - "缺口"

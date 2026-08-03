@@ -1,0 +1,25 @@
+id: edge-risk-priority
+title: 功能测试：发版窗口短必须砍范围
+description: |
+  功能很多但窗口很短时，必须突出 P0 并说明可降级项。
+
+input:
+  prompt: |
+    使用 functional-testing。功能包含：登录、搜索、下单、支付、优惠券、积分、客服工单、后台报表。
+    发版窗口只有半天。请只保留最关键路径，并说明为什么其他项可降级。
+
+expect:
+  must_contain:
+    - "P0"
+    - "优先级"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "P0"
+          - "降级"

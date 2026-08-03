@@ -4,7 +4,7 @@ metadata:
   last_verified: "2026-03-24"
 interface:
   display_name: "需求分析加强版"
-  short_description: "解析多格式需求文档并输出结构化需求分析结论。"
+  short_description: "Use this skill when you need to parse Word/HTML/JSON/Markdown/Excel requirements and produce a structured analysis; triggers include 需求分析增强、requirements analys…"
   default_prompt: "使用 requirements-analysis-plus 完成任务，优先使用本技能目录中的脚本、提示词和示例。"
 policy:
   allow_implicit_invocation: true

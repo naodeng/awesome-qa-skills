@@ -9,47 +9,41 @@ description: Use this skill when you need a day-by-day QA routine including plan
 
 ## 何时使用
 
-- 需要按 daily testing workflow 的节奏推进，而不是只做单个测试任务。
-- 需要按步骤使用对应提示词完成一个测试阶段。
+- 需要按「一日 QA」节奏推进：晨间计划、执行、缺陷、日终收口。
+- 需要阶段门禁与向类型 skill 的交接，而不是只做单一测试任务。
 
-## 输出格式选项
+## 执行流程
 
-默认使用 Markdown，除非需求明确要求其他格式。
+1. 阅读并遵循 `prompts/daily-testing-workflow.md`（阶段、门禁、交接、输出结构）。
+2. 只补充真正影响结果的项目上下文：当日范围、环境、限制、风险、遗留缺陷。
+3. 定位当前阶段后，按需读 `prompts/` 下对应阶段模板；跨技能协作只点名 skill 名。
+4. 信息不全时先给可用日计划，并显式标出假设与信息缺口。
 
-## 如何使用
+## 核心约束
 
-1. 先看 [reference.md](reference.md)，找到当前步骤对应的提示词。
-2. 打开 `prompts/` 下对应文件，只补充真正重要的上下文：范围、环境、风险、限制和期望产出。
-3. 按步骤推进；遇到阻塞、风险变化或范围变化时，及时调整优先级。
+- 管阶段与门禁；完整用例/策略/报告交给类型 skill。
+- 按风险排优先级；门禁必须可检查。
+- 把「已确认事实」和「当前假设」分开写。
+- 不要编造用户未提供的细节；禁止相对路径链到其他 skill 文件。
 
-## 工作流步骤
+## 按需加载
 
-- `accessibility-testing.md`
-- `ai-assisted-testing.md`
-- `api-testing.md`
-- `automation-testing.md`
-- `bug-reporting.md`
-- `functional-testing.md`
-- `manual-testing.md`
-- `requirements-analysis.md`
-- `test-case-writing.md`
-- `test-reporting.md`
-- `test-strategy.md`
+- 产出前必须阅读并遵循 `prompts/daily-testing-workflow.md`。
+- 需要步骤与阶段提示词对照时：读 `reference.md`。
+- 进入某阶段深做时：再读本目录 `prompts/` 中对应阶段文件（如 `bug-reporting.md`）。
+- 需要套用模板时：读 `output-templates/` 中匹配文件。
 
-## 参考文件
+## 交付前自检
 
-- `prompts/`：本技能使用的提示词文件目录。
-- `reference.md`：步骤与提示词的对应关系。
-- `scripts/`：本技能相关的辅助脚本或转换脚本。
+- [ ] 已遵循主提示词的输出结构
+- [ ] 含今日范围/不做清单、门禁状态、优先队列、下一跳 skill
+- [ ] 高风险项有明确优先级
+- [ ] 未编造用户未提供的细节
+- [ ] 假设与信息缺口已标明
 
 ## 常见误区
 
-- 不要在没确认当前步骤前就直接开始执行。
-- 不要试图用一个超长提示词跑完整个工作流。
-- 不要忽略阻塞项和重新排优先级。
-
-## 最佳实践
-
-- 先从提示词正文出发，再补真正影响结果的上下文。
-- 结果要按风险聚焦，而且能直接执行。
-- 如果信息不全，先给可用初版，并把缺口标出来。
+- 不要把日常工作流写成功能测试百科。
+- 不要无退出标准地让任务永远「进行中」。
+- 不要一次交接多个同等主 skill。
+- 不要在红环境上假装执行完成。

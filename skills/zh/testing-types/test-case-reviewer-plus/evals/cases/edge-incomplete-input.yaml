@@ -1,0 +1,25 @@
+id: edge-incomplete-input
+title: 用例评审增强：材料不全仍先定严重度
+description: |
+  缺技术文档时仍应按可判定证据给出问题等级，并标假设。
+
+input:
+  prompt: |
+    用 test-case-reviewer-plus。只有用例表与半页需求，没有技术文档与缺陷历史。
+    请给增强版评审初版：能定级的先定级，无法定级的标假设/缺口，并给临时补测顺序。
+
+expect:
+  must_contain:
+    - "假设"
+    - "缺口"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "严重"
+          - "补测"

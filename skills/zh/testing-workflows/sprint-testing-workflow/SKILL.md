@@ -9,47 +9,41 @@ description: Use this skill when you need a sprint-based QA workflow from planni
 
 ## 何时使用
 
-- 需要按 sprint testing workflow 的节奏推进，而不是只做单个测试任务。
-- 需要按步骤使用对应提示词完成一个测试阶段。
+- 需要按冲刺/迭代节奏推进：规划 → 设置 → 执行 → 回归 → 稳定 → 评审。
+- 需要迭代门禁与 DoD，并向类型 skill 交接，而不是只做单次测试任务。
 
-## 输出格式选项
+## 执行流程
 
-默认使用 Markdown，除非需求明确要求其他格式。
+1. 阅读并遵循 `prompts/sprint-testing-workflow.md`（阶段、门禁、DoD、交接）。
+2. 补充迭代目标、故事范围、容量、遗留缺陷等关键上下文。
+3. 定位阶段后按需读本目录 `prompts/` 阶段模板；跨技能只点名 skill 名。
+4. 信息不全时先给可用迭代测试计划，并标假设与缺口。
 
-## 如何使用
+## 核心约束
 
-1. 先看 [reference.md](reference.md)，找到当前步骤对应的提示词。
-2. 打开 `prompts/` 下对应文件，只补充真正重要的上下文：范围、环境、风险、限制和期望产出。
-3. 按步骤推进；遇到阻塞、风险变化或范围变化时，及时调整优先级。
+- 管迭代阶段与退出证据；完整产物交给类型 skill。
+- 门禁与 DoD 必须可检查。
+- 范围变更时重算优先级并写明对门禁的影响。
+- 禁止相对路径链到其他 skill 文件。
 
-## 工作流步骤
+## 按需加载
 
-- `accessibility-testing.md`
-- `ai-assisted-testing.md`
-- `api-testing.md`
-- `automation-testing.md`
-- `bug-reporting.md`
-- `functional-testing.md`
-- `manual-testing.md`
-- `requirements-analysis.md`
-- `test-case-writing.md`
-- `test-reporting.md`
-- `test-strategy.md`
+- 产出前必须阅读并遵循 `prompts/sprint-testing-workflow.md`。
+- 步骤对照：读 `reference.md`。
+- 阶段深做：再读本目录对应 `prompts/*.md`。
+- 模板：`output-templates/`。
 
-## 参考文件
+## 交付前自检
 
-- `prompts/`：本技能使用的提示词文件目录。
-- `reference.md`：步骤与提示词的对应关系。
-- `scripts/`：本技能相关的辅助脚本或转换脚本。
+- [ ] 已遵循主提示词的输出结构
+- [ ] 含阶段定位、门禁看板、退出标准对照、下一跳 skill
+- [ ] 高风险项有明确优先级与 Owner
+- [ ] 未编造用户未提供的细节
+- [ ] 假设、取舍与遗留已标明
 
 ## 常见误区
 
-- 不要在没确认当前步骤前就直接开始执行。
-- 不要试图用一个超长提示词跑完整个工作流。
-- 不要忽略阻塞项和重新排优先级。
-
-## 最佳实践
-
-- 先从提示词正文出发，再补真正影响结果的上下文。
-- 结果要按风险聚焦，而且能直接执行。
-- 如果信息不全，先给可用初版，并把缺口标出来。
+- 不要写成无门禁的逐日流水账。
+- 不要在规划阶段倾倒全量用例正文。
+- 不要在开发未收敛时宣称回归已通过。
+- 不要用「测了很多」代替退出证据。

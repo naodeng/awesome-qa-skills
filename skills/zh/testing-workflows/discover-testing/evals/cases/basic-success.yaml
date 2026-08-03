@@ -1,0 +1,26 @@
+id: basic-success
+title: 路由：明确请求指向正确类型 skill
+description: |
+  用户目标已是 API 鉴权/幂等覆盖时，应主推 api-testing，并给出下一步，而不是执行整套测试。
+
+input:
+  prompt: |
+    请使用 discover-testing。
+    用户请求：已有 OpenAPI，要覆盖订单接口的鉴权、幂等与异常码。
+    请只做技能路由：给出主推荐 skill、可选辅助、理由与下一步；不要在本 skill 内写完整测试方案。
+
+expect:
+  must_contain:
+    - "主推荐"
+    - "api-testing"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "主推荐"
+          - "下一步"

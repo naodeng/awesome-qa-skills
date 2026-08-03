@@ -1,0 +1,25 @@
+id: edge-incomplete-input
+title: Automation: draft without framework details
+description: |
+  Missing framework/CI details still yield a draft with gaps.
+
+input:
+  prompt: |
+    Use automation-testing. Ask is only 'automate regression' with unknown framework, language, and CI.
+    Domain: points redemption. Draft recommendations and list must-confirm information.
+
+expect:
+  must_contain:
+    - "assumption"
+    - "gap"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "assumption"
+          - "gap"

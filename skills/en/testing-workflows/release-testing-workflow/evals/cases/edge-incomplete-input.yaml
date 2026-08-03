@@ -1,0 +1,26 @@
+id: edge-incomplete-input
+title: Release workflow: incomplete input still yields a draft
+description: |
+  Missing exact date/SLA should still yield a release cadence draft with assumptions and gaps.
+
+input:
+  prompt: |
+    Use release-testing-workflow.
+    I only know "we're about to release—help plan release testing"—no date, change list, environment, or acceptance criteria.
+    Give a usable first draft of the release testing cadence and list the information we must fill in.
+
+expect:
+  must_contain:
+    - "assumption"
+    - "gap"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "assumption"
+          - "gap"

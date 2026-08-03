@@ -1,0 +1,25 @@
+id: edge-bad-or-neighbor
+title: Bruno：用户其实要 Postman/k6 时纠正边界
+description: |
+  近邻工具误用时，应坚持 Bruno 交付或澄清边界，而不是改写成 Postman/k6。
+
+input:
+  prompt: |
+    我激活了 api-test-bruno，但我说：帮我生成 Postman collection，顺便写个 k6 压测脚本。
+    接口：GET /health。请纠正范围：仍按 Bruno 给出可执行方案，并说明为何不在本 skill 交付 Postman/k6。
+
+expect:
+  must_contain:
+    - "Bruno"
+    - "Postman"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Bruno"
+          - "待确认"

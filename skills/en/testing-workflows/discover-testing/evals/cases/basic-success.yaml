@@ -1,0 +1,26 @@
+id: basic-success
+title: Routing: clear request maps to the right type skill
+description: |
+  When the goal is API auth/idempotency coverage, recommend api-testing and a next step—do not execute full testing here.
+
+input:
+  prompt: |
+    Use discover-testing.
+    Request: we have OpenAPI and need auth, idempotency, and error-code coverage for order APIs.
+    Route only: primary skill, optional supporting skill, why, and next step. Do not produce a full test plan in this skill.
+
+expect:
+  must_contain:
+    - "Primary Recommendation"
+    - "api-testing"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Primary Recommendation"
+          - "Next Step"

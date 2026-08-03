@@ -1,0 +1,25 @@
+id: edge-incomplete-input
+title: Pytest：无 schema 仍给初版
+description: |
+  只有一句话、无 schema 时仍应给 pytest 初版并显式缺口/假设。
+
+input:
+  prompt: |
+    用 api-test-pytest。需求只有一句：新接口要测积分兑换。没有路径、字段和鉴权说明。
+    请先给可用的 pytest 初版结构（目录 + fixture 思路），并列出必须补齐的信息与假设。
+
+expect:
+  must_contain:
+    - "假设"
+    - "缺口"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "假设"
+          - "pytest"

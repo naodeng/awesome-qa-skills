@@ -1,0 +1,26 @@
+id: edge-incomplete-input
+title: 路由：信息模糊时先澄清
+description: |
+  仅有「帮我测一下」时，应澄清范围/类型/阶段，不要假装已选定可落地的 skill。
+
+input:
+  prompt: |
+    请用 discover-testing。
+    用户只说：「帮我测一下新功能。」没有范围、测试类型、当前阶段。
+    请先澄清必问项；在信息不足时不要假装已经选定且可落地。
+
+expect:
+  must_contain:
+    - "澄清"
+    - "缺口"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "澄清"
+          - "缺口"

@@ -1,0 +1,25 @@
+id: edge-incomplete-input
+title: RestAssured：无 schema 仍给初版
+description: |
+  只有一句话、无 schema 时仍应给 RestAssured 初版并显式缺口/假设。
+
+input:
+  prompt: |
+    用 api-test-restassure。需求只有一句：积分兑换要自动化。没有 OpenAPI、没有 Maven 现有结构说明。
+    请先给可用的 REST Assured 初版结构，并列出必须补齐的信息与假设。
+
+expect:
+  must_contain:
+    - "假设"
+    - "缺口"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "假设"
+          - "REST Assured"

@@ -1,0 +1,26 @@
+id: basic-success
+title: Manual testing: executable checklist and exploration
+description: |
+  Return priorities, session checklist, and exploratory focus.
+
+input:
+  prompt: |
+    Use manual-testing.
+    Scope: SIT place-order → pay → ship. Risk: paid orders sometimes stay Pending Payment.
+    Account: buyer_sit_01 (no real password). Provide manual priorities, checklist, and exploratory focus.
+
+expect:
+  must_contain:
+    - "Manual"
+    - "Exploratory"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Task Understanding"
+          - "Checklist"

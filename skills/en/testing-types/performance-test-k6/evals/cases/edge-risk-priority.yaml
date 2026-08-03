@@ -1,0 +1,26 @@
+id: edge-risk-priority
+title: k6: short window keeps critical load only
+description: |
+  Do not default to baseline+load+stress+spike+soak.
+
+input:
+  prompt: |
+    Use performance-test-k6. Need a release recommendation within half a day.
+    Flows: browse, search, checkout, payment callback, report export.
+    Pick only the most critical 1-2 k6 scenarios and explain what can wait.
+
+expect:
+  must_contain:
+    - "scenario"
+    - "defer"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "payment"
+          - "priority"

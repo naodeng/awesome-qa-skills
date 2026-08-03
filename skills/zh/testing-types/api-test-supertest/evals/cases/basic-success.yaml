@@ -1,0 +1,31 @@
+id: basic-success
+title: Supertest：有 OpenAPI/curl 时给出套件结构
+description: |
+  提供简短 OpenAPI 与 curl 时，应产出 Supertest + Jest 目录/环境/断言结构说明。
+
+input:
+  prompt: |
+    请使用 api-test-supertest。
+    环境：SIT。认证：Bearer {{token}}（勿硬编码真实 token）。运行时：Node.js + Jest。
+    OpenAPI 片段：
+      POST /v1/users
+      GET /v1/users/{id}
+    curl（脱敏）：
+      curl -X POST https://api.example.com/v1/users -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" -d '{"email":"u@example.com"}'
+    请给出 Supertest 方案：tests/ 结构、app/request 封装、高优先级用例与断言重点。不必输出超长代码。
+
+expect:
+  must_contain:
+    - "Supertest"
+    - "Jest"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "任务理解"
+          - "Supertest"

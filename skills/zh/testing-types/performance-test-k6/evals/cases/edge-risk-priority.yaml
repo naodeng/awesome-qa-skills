@@ -1,0 +1,26 @@
+id: edge-risk-priority
+title: k6：窗口短时只做关键负载
+description: |
+  不要默认基线+负载+压力+尖峰+稳定性全做。
+
+input:
+  prompt: |
+    使用 performance-test-k6。半天内要给出发版建议。
+    链路：浏览、搜索、下单、支付回调、报表导出。
+    请只选最关键的 1-2 个 k6 场景，并说明为什么其他可延后。
+
+expect:
+  must_contain:
+    - "场景"
+    - "延后"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "支付"
+          - "优先级"

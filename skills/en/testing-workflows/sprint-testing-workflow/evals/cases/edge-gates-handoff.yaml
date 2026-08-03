@@ -1,0 +1,26 @@
+id: edge-gates-handoff
+title: Sprint workflow: entry/exit gates and handoff
+description: |
+  Define sprint-phase entry/exit criteria and handoff to execution skills by name (no hard links).
+
+input:
+  prompt: |
+    Use sprint-testing-workflow.
+    Scenario: no broad execution until planning gate passes; do not claim sprint testing done without a quality summary on review day.
+    Write clear entry/exit criteria (gates) and how to hand off to execution skills (e.g. test-strategy, test-case-writing, bug-reporting, test-reporting—names and handoff points only; no file-path links to other skills).
+
+expect:
+  must_contain:
+    - "entry"
+    - "handoff"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "gate"
+          - "handoff"

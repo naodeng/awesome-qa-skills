@@ -1,0 +1,27 @@
+id: basic-success
+title: Test strategy plus: milestones and quality gates
+description: |
+  Plus differentiator: milestones, quality gates, and ownership—not method lists alone.
+
+input:
+  prompt: |
+    Use test-strategy-plus.
+    Inputs: requirement summary, tech notes, release plan (ship Friday).
+    Scope: place order → pay → ship; risk: payment-callback timeout; 2 QA.
+    Produce an executable strategy that includes milestones, quality gates, and ownership/resource notes.
+
+expect:
+  must_contain:
+    - "milestone"
+    - "gate"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "ownership"
+          - "priority"

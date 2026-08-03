@@ -1,0 +1,28 @@
+id: basic-success
+title: Requirements analysis plus: cross-source conflicts
+description: |
+  Plus differentiator: cross-check multi-format sources and surface conflicts/consistency.
+
+input:
+  prompt: |
+    Use requirements-analysis-plus.
+    Source A (Word PRD): allow order submit when points are insufficient; deduct later.
+    Source B (API Markdown): return 400 and block order creation when points are insufficient.
+    Source C (Excel scope): this sprint only covers the happy-path points redemption.
+    Cross-check source consistency; output conflicts, testability risks, and questions to resolve first.
+
+expect:
+  must_contain:
+    - "conflict"
+    - "source"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Cross-Source"
+          - "risk"

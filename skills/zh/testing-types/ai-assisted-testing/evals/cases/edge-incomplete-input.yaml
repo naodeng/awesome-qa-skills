@@ -1,0 +1,25 @@
+id: edge-incomplete-input
+title: AI 辅助：目标不清仍给分工初版
+description: |
+  范围模糊时仍给初版分工并标限制与假设。
+
+input:
+  prompt: |
+    用 ai-assisted-testing。同事说「用 AI 把测试都做了」，没有具体模块、没有质量门槛。
+    请给可用初版分工建议，并列出限制、假设与必须确认的信息。
+
+expect:
+  must_contain:
+    - "假设"
+    - "限制"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "人工"
+          - "假设"

@@ -1,0 +1,27 @@
+id: basic-success
+title: 性能测试：按风险选测试类型与阈值
+description: |
+  有流量目标与关键交易时，应给出场景方案与退出标准。
+
+input:
+  prompt: |
+    请使用 performance-testing。
+    系统：订单查询与下单。促销峰值约 800 RPS，目标 P95 < 500ms，错误率 < 0.1%。
+    已知风险：支付回调排队导致延迟。环境：SIT，有 APM。
+    请给出性能测试方案（基线/负载等按需选择），标明假设。
+
+expect:
+  must_contain:
+    - "场景"
+    - "阈值"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "任务理解"
+          - "性能风险"

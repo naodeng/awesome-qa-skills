@@ -1,0 +1,25 @@
+id: edge-incomplete-input
+title: Test case review plus: grade what evidence allows
+description: |
+  Missing tech docs still assigns severity where possible and marks assumptions.
+
+input:
+  prompt: |
+    Use test-case-reviewer-plus. Only a case sheet and half-page requirements; no tech docs or defect history.
+    Draft a plus review: grade what you can, mark assumptions/gaps otherwise, and give a provisional retest order.
+
+expect:
+  must_contain:
+    - "assumption"
+    - "gap"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "critical"
+          - "retest"

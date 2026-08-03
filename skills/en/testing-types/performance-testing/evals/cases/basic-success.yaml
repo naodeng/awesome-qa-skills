@@ -1,0 +1,27 @@
+id: basic-success
+title: Performance testing: choose types and thresholds by risk
+description: |
+  With traffic targets and critical transactions, return scenarios and exit criteria.
+
+input:
+  prompt: |
+    Use performance-testing.
+    System: order query and checkout. Promo peak ~800 RPS; target P95 < 500ms; error rate < 0.1%.
+    Known risk: payment-callback queueing adds latency. Env: SIT with APM.
+    Propose a performance plan (baseline/load as needed) and mark assumptions.
+
+expect:
+  must_contain:
+    - "scenario"
+    - "threshold"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Task Understanding"
+          - "Performance Risk"

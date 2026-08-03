@@ -1,0 +1,27 @@
+id: basic-success
+title: Security testing: prioritize assets and attack surface
+description: |
+  With auth and sensitive flows, return top risks and priority checks.
+
+input:
+  prompt: |
+    Use security-testing.
+    System: order API + buyer admin. Auth: Bearer token (use ${TOKEN} placeholder only).
+    Sensitive data: payment status, shipping address. Concern: IDOR reading others' orders.
+    Produce a security plan; separate confirmed risks vs needs-validation; no exploit how-to.
+
+expect:
+  must_contain:
+    - "auth"
+    - "risk"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Task Understanding"
+          - "Priority"

@@ -1,0 +1,26 @@
+id: edge-incomplete-input
+title: 发布工作流：信息不全仍给初版
+description: |
+  缺少确切发布日与 SLA 时，仍应给出发布节奏初版并标明假设与缺口。
+
+input:
+  prompt: |
+    请用 release-testing-workflow。
+    我只知道「快要发版了，帮我安排发布测试」，没有确切日期、变更列表、环境与验收标准。
+    请先给可用的发布测试节奏初版，并列出必须补齐的信息。
+
+expect:
+  must_contain:
+    - "假设"
+    - "缺口"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "假设"
+          - "缺口"

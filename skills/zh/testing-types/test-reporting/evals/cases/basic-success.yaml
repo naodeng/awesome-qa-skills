@@ -1,0 +1,27 @@
+id: basic-success
+title: 测试报告：结论与发布建议可决策
+description: |
+  有结果与缺陷时，应输出结论摘要、关键风险与明确发布建议。
+
+input:
+  prompt: |
+    请使用 test-reporting。
+    范围：下单→支付已测；发货未测。执行 40 条，通过 36，失败 4。
+    阻塞缺陷：支付成功订单仍待支付（偶发）。环境：SIT。
+    请写测试报告，给出发布建议与下一步动作。
+
+expect:
+  must_contain:
+    - "发布建议"
+    - "阻塞"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "风险"
+          - "结论"

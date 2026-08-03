@@ -1,0 +1,25 @@
+id: edge-domain-boundary
+title: 移动端：不要只按桌面 Web 功能测
+description: |
+  用户按桌面清单测 App 时，应强调移动端特有风险。
+
+input:
+  prompt: |
+    使用 mobile-testing。同事给了一份桌面 Web 功能用例，要求原样在 App 上跑一遍就交差。
+    请说明为何不够，并给出必须补的移动端高风险检查（网络中断、权限、推送/deeplink 等）。
+
+expect:
+  must_contain:
+    - "移动"
+    - "网络"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "设备矩阵"
+          - "高风险"

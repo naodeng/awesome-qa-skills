@@ -1,0 +1,27 @@
+id: basic-success
+title: API testing: risk-ranked interface plan
+description: |
+  With key endpoints and known risks, cover auth/errors/priority.
+
+input:
+  prompt: |
+    Use api-testing.
+    System: order REST API. Endpoints: POST /orders, POST /payments/callback, GET /orders/{id}.
+    Risk: callback retries and idempotency. Env: SIT.
+    Produce an executable API plan with smoke and release blockers.
+
+expect:
+  must_contain:
+    - "priority"
+    - "idempotency"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Task Understanding"
+          - "Risk"

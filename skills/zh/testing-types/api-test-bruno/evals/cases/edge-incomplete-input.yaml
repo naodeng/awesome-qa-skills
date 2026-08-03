@@ -1,0 +1,25 @@
+id: edge-incomplete-input
+title: Bruno：无一句话以外的 schema 仍给初版
+description: |
+  只有一句话、无 schema 时仍应给 Bruno 初版并显式缺口/假设。
+
+input:
+  prompt: |
+    用 api-test-bruno。需求只有一句：要测一下积分兑换接口。没有 OpenAPI、没有字段、没有路径。
+    请先给可用的 Bruno collection 初版结构，并列出必须补齐的信息与假设。
+
+expect:
+  must_contain:
+    - "假设"
+    - "缺口"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "假设"
+          - "Bruno"

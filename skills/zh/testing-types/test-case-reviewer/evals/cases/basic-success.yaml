@@ -1,0 +1,27 @@
+id: basic-success
+title: 用例评审：指出漏测与弱预期
+description: |
+  有现成用例时，应指出高优先级发现与缺失场景，而不是只夸格式。
+
+input:
+  prompt: |
+    请使用 test-case-reviewer。
+    需求：积分不足不可提交；支付回调失败可重试。
+    现有用例仅 2 条正向：① 积分足够抵扣成功 ② 订单创建成功。无异常/边界，预期只写「成功」。
+    请评审并给出高优先级发现、缺失场景与修改顺序。
+
+expect:
+  must_contain:
+    - "缺失"
+    - "优先级"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "评审"
+          - "场景"

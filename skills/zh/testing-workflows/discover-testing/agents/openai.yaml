@@ -3,7 +3,7 @@ metadata:
   key: "discover-testing"
 interface:
   display_name: "Testing Skill Discovery"
-  short_description: "Use this skill when you need to route a testing request to the right testing-type or testing-workflow skill quickly; triggers include tes..."
+  short_description: "Use this skill when you need to route a request to the right testing skill before execution; triggers include 测试技能路由、discover testing and which testing skill."
   default_prompt: "Use the discover-testing skill to complete this testing task with structured outputs and practical next steps."
 policy:
   allow_implicit_invocation: true

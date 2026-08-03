@@ -1,0 +1,25 @@
+id: edge-bad-or-neighbor
+title: Bruno: redirect Postman/k6 neighbor requests
+description: |
+  When the user asks for Postman/k6 under the Bruno skill, stay on Bruno or clarify the boundary.
+
+input:
+  prompt: |
+    I activated api-test-bruno, but I asked: generate a Postman collection and a k6 load script.
+    Endpoint: GET /health. Correct the scope: deliver a Bruno plan and explain why Postman/k6 are out of this skill's deliverable.
+
+expect:
+  must_contain:
+    - "Bruno"
+    - "Postman"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Bruno"
+          - "Open Questions"

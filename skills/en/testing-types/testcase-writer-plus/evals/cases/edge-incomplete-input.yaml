@@ -1,0 +1,25 @@
+id: edge-incomplete-input
+title: Testcase writer plus: draft traceable cases without AC
+description: |
+  Without AC, still draft cases with temporary trace IDs and list gaps.
+
+input:
+  prompt: |
+    Use testcase-writer-plus. Only 'support points redemption' plus an incomplete Excel sheet.
+    Draft plus cases: mark assumptions, use temporary IDs for traceability, and list product questions.
+
+expect:
+  must_contain:
+    - "assumption"
+    - "gap"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "trace"
+          - "priority"

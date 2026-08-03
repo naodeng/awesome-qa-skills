@@ -1,0 +1,27 @@
+id: basic-success
+title: Test case review plus: severity grades and retest order
+description: |
+  Plus differentiator: severity levels, business impact, and explicit retest order.
+
+input:
+  prompt: |
+    Use test-case-reviewer-plus.
+    Materials: requirements, strategy notes, existing cases.
+    Requirements require insufficient-points rejection and payment-callback retry; cases are happy-path only with vague expects.
+    Return critical/major findings, missing high-risk scenarios, plus fix priority and retest order (with business impact).
+
+expect:
+  must_contain:
+    - "critical"
+    - "retest"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "impact"
+          - "priority"
