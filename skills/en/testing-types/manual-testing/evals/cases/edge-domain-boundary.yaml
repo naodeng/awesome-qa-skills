@@ -1,5 +1,5 @@
 id: edge-domain-boundary
-title: Manual testing: not an overnight full-automation rewrite
+title: "Manual testing: not an overnight full-automation rewrite"
 description: |
   When asked to automate everything now, keep manual session value and boundaries.
 

@@ -1,5 +1,5 @@
 id: basic-success
-title: Test case writing: prioritize high-risk paths
+title: "Test case writing: prioritize high-risk paths"
 description: |
   Return concrete cases with priority, not vague lists.
 

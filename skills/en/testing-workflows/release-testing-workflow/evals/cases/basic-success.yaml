@@ -1,5 +1,5 @@
 id: basic-success
-title: Release workflow: T-14 through Go/No-Go outputs
+title: "Release workflow: T-14 through Go/No-Go outputs"
 description: |
   With a release window and scope, produce T-14 → specialized → RC → Go/No-Go stage outputs with priorities.
 

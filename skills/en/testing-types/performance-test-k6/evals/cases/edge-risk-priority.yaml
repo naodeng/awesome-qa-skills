@@ -1,5 +1,5 @@
 id: edge-risk-priority
-title: k6: short window keeps critical load only
+title: "k6: short window keeps critical load only"
 description: |
   Do not default to baseline+load+stress+spike+soak.
 

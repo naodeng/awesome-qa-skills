@@ -1,5 +1,5 @@
 id: edge-risk-priority
-title: Testcase writer plus: keep P0 traced set only
+title: "Testcase writer plus: keep P0 traced set only"
 description: |
   Many modules → only P0 cases with in/out-of-trace notes.
 

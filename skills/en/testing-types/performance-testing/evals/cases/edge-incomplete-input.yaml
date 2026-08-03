@@ -1,5 +1,5 @@
 id: edge-incomplete-input
-title: Performance testing: draft without SLA/traffic
+title: "Performance testing: draft without SLA/traffic"
 description: |
   Without baselines, do not invent capacity certainty; mark assumptions and gaps.
 
@@ -11,7 +11,7 @@ input:
 expect:
   must_contain:
     - "assumption"
-    - "gap"
+    - "Open Questions"
   must_not_contain:
     - "TODO"
     - "I cannot"
@@ -22,4 +22,4 @@ judge:
     - output_contains:
         all:
           - "assumption"
-          - "gap"
+          - "Open Questions"

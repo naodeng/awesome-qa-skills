@@ -74,14 +74,39 @@ python3 scripts/scaffold_skill_evals.py --skill skills/zh/testing-types/function
 python3 scripts/scaffold_skill_evals.py --all-missing --lang zh
 ```
 
-本地运行（需已安装 skill-up 与对应 Agent Engine / API Key）：
+本地运行（需已安装 skill-up 与对应 Agent Engine；本机可用已登录的 Codex / Claude）：
 
 ```bash
-skill-up validate skills/zh/testing-types/functional-testing/evals/eval.yaml
-skill-up run skills/zh/testing-types/functional-testing/evals/eval.yaml
+# 安装 CLI
+curl -fsSL https://raw.githubusercontent.com/alibaba/skill-up/main/install.sh | bash
+
+# 仅校验 YAML（不消耗模型，已接入 check_skills_quality.sh）
+bash scripts/validate_skill_evals.sh
+
+# 实跑（示例：用 Codex 引擎跑单个 case；产物放到仓库外的工作区，避免污染 skills/）
+mkdir -p .skill-up-workspaces
+skill-up run skills/zh/testing-types/functional-testing/evals/eval.yaml \
+  --engine codex \
+  --include-case-name "basic-success" \
+  --output-dir .skill-up-workspaces/functional-testing
+
+# Claude Code 需先完成非交互登录 / 配置 ANTHROPIC_API_KEY
+skill-up run skills/zh/testing-types/functional-testing/evals/eval.yaml --engine claude_code
 ```
 
+注意：
+
+- `title` 等含英文冒号 `:` 的字段必须加引号，否则 `skill-up validate` 会失败。
+- 信息不完整类用例优先断言 prompt 输出结构词（如中文「待确认」、英文 `Open Questions`），避免过脆的同义词。
+- 运行产物在 `<skill>-workspace/`（已 gitignore），不要提交。
+
 演进闭环（推荐配合上游 [skill-upper](https://github.com/alibaba/skill-up/tree/main/skills/skill-upper)）：评测 → 诊断失败 → 修 SKILL/prompt 或修 eval → 补回归用例 → 再跑。
+
+安装 skill-upper（可选）：
+
+```bash
+npx skills add https://github.com/alibaba/skill-up/tree/main/skills/skill-upper -g -a codex -y
+```
 
 ## description 优化提示
 

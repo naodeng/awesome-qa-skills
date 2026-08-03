@@ -1,5 +1,5 @@
 id: edge-incomplete-input
-title: Daily workflow: incomplete input still yields a draft
+title: "Daily workflow: incomplete input still yields a draft"
 description: |
   Missing stories/env should still yield a day-cadence draft with explicit assumptions and gaps.
 
@@ -12,7 +12,7 @@ input:
 expect:
   must_contain:
     - "assumption"
-    - "gap"
+    - "Open Questions"
   must_not_contain:
     - "TODO"
     - "I cannot"
@@ -23,4 +23,4 @@ judge:
     - output_contains:
         all:
           - "assumption"
-          - "gap"
+          - "Open Questions"

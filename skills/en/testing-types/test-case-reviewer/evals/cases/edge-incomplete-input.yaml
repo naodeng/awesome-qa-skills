@@ -1,5 +1,5 @@
 id: edge-incomplete-input
-title: Test case review: titles-only still reviews structure
+title: "Test case review: titles-only still reviews structure"
 description: |
   Without full requirements, still review clarity and list confirmations needed.
 
@@ -10,7 +10,7 @@ input:
 
 expect:
   must_contain:
-    - "gap"
+    - "Open Questions"
     - "confirm"
   must_not_contain:
     - "TODO"
@@ -22,4 +22,4 @@ judge:
     - output_contains:
         all:
           - "Review"
-          - "gap"
+          - "Open Questions"

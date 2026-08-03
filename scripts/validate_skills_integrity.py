@@ -32,6 +32,9 @@ def discover_skill_dirs(repo_root: Path) -> list[Path]:
         if not b.exists():
             continue
         for d in sorted([p for p in b.iterdir() if p.is_dir() and not p.is_symlink()]):
+            # skill-up default output dirs sit beside skills; never treat as skills
+            if d.name.endswith("-workspace"):
+                continue
             result.append(d.resolve())
     # de-dup while preserving order
     seen: set[str] = set()

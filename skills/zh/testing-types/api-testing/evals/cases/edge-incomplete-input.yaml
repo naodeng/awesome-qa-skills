@@ -11,7 +11,7 @@ input:
 expect:
   must_contain:
     - "假设"
-    - "缺口"
+    - "待确认"
   must_not_contain:
     - "TODO"
     - "我无法"
@@ -22,4 +22,4 @@ judge:
     - output_contains:
         all:
           - "假设"
-          - "缺口"
+          - "待确认"

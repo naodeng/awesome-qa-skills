@@ -1,5 +1,5 @@
 id: edge-incomplete-input
-title: Test strategy: draft despite missing team/env
+title: "Test strategy: draft despite missing team/env"
 description: |
   Missing resources/env still yields a draft with assumptions.
 
@@ -11,7 +11,7 @@ input:
 expect:
   must_contain:
     - "assumption"
-    - "gap"
+    - "Open Questions"
   must_not_contain:
     - "TODO"
     - "I cannot"

@@ -68,6 +68,12 @@ pnpm-debug.log*
 !**/reports/README.md
 
 # =========================
+# skill-up runtime workspaces
+# =========================
+**/*-workspace/
+.skill-up-workspaces/
+
+# =========================
 # Archives
 # =========================
 *.zip

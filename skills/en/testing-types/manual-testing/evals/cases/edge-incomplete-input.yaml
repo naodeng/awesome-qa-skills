@@ -1,5 +1,5 @@
 id: edge-incomplete-input
-title: Manual testing: draft checklist from one line
+title: "Manual testing: draft checklist from one line"
 description: |
   Thin requirements still get a draft checklist plus open questions.
 
@@ -22,4 +22,4 @@ judge:
     - output_contains:
         all:
           - "assumption"
-          - "gap"
+          - "Open Questions"

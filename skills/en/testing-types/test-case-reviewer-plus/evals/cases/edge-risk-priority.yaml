@@ -1,5 +1,5 @@
 id: edge-risk-priority
-title: Test case review plus: business impact compresses the queue
+title: "Test case review plus: business impact compresses the queue"
 description: |
   Short window ranks the fix queue by severity and business impact.
 

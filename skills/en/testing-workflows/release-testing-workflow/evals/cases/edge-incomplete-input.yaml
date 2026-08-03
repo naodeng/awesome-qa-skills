@@ -1,5 +1,5 @@
 id: edge-incomplete-input
-title: Release workflow: incomplete input still yields a draft
+title: "Release workflow: incomplete input still yields a draft"
 description: |
   Missing exact date/SLA should still yield a release cadence draft with assumptions and gaps.
 
@@ -12,7 +12,7 @@ input:
 expect:
   must_contain:
     - "assumption"
-    - "gap"
+    - "Open Questions"
   must_not_contain:
     - "TODO"
     - "I cannot"
@@ -23,4 +23,4 @@ judge:
     - output_contains:
         all:
           - "assumption"
-          - "gap"
+          - "Open Questions"

@@ -1,5 +1,5 @@
 id: edge-domain-boundary
-title: Security testing: not a performance load plan
+title: "Security testing: not a performance load plan"
 description: |
   When the ask is RPS soak, clarify security boundaries and keep security checks.
 

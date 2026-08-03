@@ -1,5 +1,5 @@
 id: edge-incomplete-input
-title: Test strategy plus: draft gates as assumptions
+title: "Test strategy plus: draft gates as assumptions"
 description: |
   Without a project plan, still draft strategy and mark milestones/gates as assumptions.
 
@@ -11,7 +11,7 @@ input:
 expect:
   must_contain:
     - "assumption"
-    - "gap"
+    - "Open Questions"
   must_not_contain:
     - "TODO"
     - "I cannot"

@@ -1,5 +1,5 @@
 id: basic-success
-title: Routing: clear request maps to the right type skill
+title: "Routing: clear request maps to the right type skill"
 description: |
   When the goal is API auth/idempotency coverage, recommend api-testing and a next step—do not execute full testing here.
 

@@ -1,5 +1,5 @@
 id: basic-success
-title: Gatling: tool-fit scenarios and load model
+title: "Gatling: tool-fit scenarios and load model"
 description: |
   Return Gatling scenarios, load model, and thresholds—not generic fluff.
 

@@ -1,5 +1,5 @@
 id: basic-success
-title: Bruno: OpenAPI/curl yields collection plan
+title: "Bruno: OpenAPI/curl yields collection plan"
 description: |
   With a short OpenAPI and curl snippet, produce Bruno collection/env/assertion structure.
 

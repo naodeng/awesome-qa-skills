@@ -1,5 +1,5 @@
 id: edge-domain-boundary
-title: Automation: never recommend 100% automation
+title: "Automation: never recommend 100% automation"
 description: |
   Flaky/exploratory paths belong in not-yet—not a full-coverage slogan.
 

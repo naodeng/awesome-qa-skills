@@ -1,5 +1,5 @@
 id: edge-incomplete-input
-title: Testcase writer plus: draft traceable cases without AC
+title: "Testcase writer plus: draft traceable cases without AC"
 description: |
   Without AC, still draft cases with temporary trace IDs and list gaps.
 
@@ -11,7 +11,7 @@ input:
 expect:
   must_contain:
     - "assumption"
-    - "gap"
+    - "Open Questions"
   must_not_contain:
     - "TODO"
     - "I cannot"

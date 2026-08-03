@@ -1,5 +1,5 @@
 id: basic-success
-title: Mobile: device matrix and high-risk checks
+title: "Mobile: device matrix and high-risk checks"
 description: |
   Return device matrix and mobile-specific risks (network, deeplink, etc.).
 

@@ -72,6 +72,8 @@ def iter_skill_markdown(skills_root: Path):
         if not base.exists():
             continue
         for skill_dir in sorted([p for p in base.iterdir() if p.is_dir() and not p.is_symlink()]):
+            if skill_dir.name.endswith("-workspace"):
+                continue
             for md in skill_dir.rglob("*.md"):
                 if "node_modules" in md.parts:
                     continue

@@ -1,5 +1,5 @@
 id: edge-incomplete-input
-title: Sprint workflow: incomplete input still yields a draft
+title: "Sprint workflow: incomplete input still yields a draft"
 description: |
   Missing stories/env/DoD should still yield a sprint cadence draft with assumptions and gaps.
 
@@ -12,7 +12,7 @@ input:
 expect:
   must_contain:
     - "assumption"
-    - "gap"
+    - "Open Questions"
   must_not_contain:
     - "TODO"
     - "I cannot"
@@ -23,4 +23,4 @@ judge:
     - output_contains:
         all:
           - "assumption"
-          - "gap"
+          - "Open Questions"

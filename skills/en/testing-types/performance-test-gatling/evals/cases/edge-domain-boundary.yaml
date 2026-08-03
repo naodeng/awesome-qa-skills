@@ -1,5 +1,5 @@
 id: edge-domain-boundary
-title: Gatling: do not deliver a k6 script plan
+title: "Gatling: do not deliver a k6 script plan"
 description: |
   If the user asks for k6, stay Gatling-oriented and explain the mismatch.
 

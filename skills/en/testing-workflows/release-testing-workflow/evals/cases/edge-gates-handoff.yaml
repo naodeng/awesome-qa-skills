@@ -1,5 +1,5 @@
 id: edge-gates-handoff
-title: Release workflow: entry/exit gates and handoff
+title: "Release workflow: entry/exit gates and handoff"
 description: |
   Define freeze/RC/Go-No-Go gates and handoff to execution skills by name (no hard links).
 

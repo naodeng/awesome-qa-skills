@@ -1,5 +1,5 @@
 id: edge-risk-priority
-title: API testing: half-day window keeps core chain
+title: "API testing: half-day window keeps core chain"
 description: |
   Many endpoints must be ranked by business risk.
 

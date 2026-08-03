@@ -1,5 +1,5 @@
 id: edge-risk-priority
-title: Requirements analysis plus: conflicts outrank polish
+title: "Requirements analysis plus: conflicts outrank polish"
 description: |
   Short window prioritizes cross-source conflicts that block delivery.
 

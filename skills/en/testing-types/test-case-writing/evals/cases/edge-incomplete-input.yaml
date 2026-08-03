@@ -1,5 +1,5 @@
 id: edge-incomplete-input
-title: Test case writing: draft from one-line requirement
+title: "Test case writing: draft from one-line requirement"
 description: |
   Thin requirements still get draft cases plus confirmation questions.
 
@@ -21,5 +21,5 @@ judge:
   success:
     - output_contains:
         all:
-          - "gap"
+          - "Open Questions"
           - "Priority"

@@ -1,5 +1,5 @@
 id: edge-incomplete-input
-title: Accessibility: draft gaps without prototypes
+title: "Accessibility: draft gaps without prototypes"
 description: |
   One-line asks still get a draft checklist plus information gaps.
 
@@ -10,7 +10,7 @@ input:
 
 expect:
   must_contain:
-    - "gap"
+    - "Open Questions"
     - "assumption"
   must_not_contain:
     - "TODO"

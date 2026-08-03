@@ -1,5 +1,5 @@
 id: basic-success
-title: Security testing: prioritize assets and attack surface
+title: "Security testing: prioritize assets and attack surface"
 description: |
   With auth and sensitive flows, return top risks and priority checks.
 

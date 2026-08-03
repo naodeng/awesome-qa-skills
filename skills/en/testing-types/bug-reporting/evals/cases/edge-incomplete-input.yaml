@@ -1,5 +1,5 @@
 id: edge-incomplete-input
-title: Bug reporting: mark uncertainty when evidence is thin
+title: "Bug reporting: mark uncertainty when evidence is thin"
 description: |
   Incomplete info still gets a structured draft with open questions.
 

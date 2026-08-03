@@ -1,5 +1,5 @@
 id: basic-success
-title: Test case review: missing scenarios and weak expects
+title: "Test case review: missing scenarios and weak expects"
 description: |
   Review existing cases for high-priority findings and missing scenarios.
 

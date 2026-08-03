@@ -1,5 +1,5 @@
 id: edge-incomplete-input
-title: Functional testing: draft despite missing docs
+title: "Functional testing: draft despite missing docs"
 description: |
   One-line requirements should still yield a draft with gaps.
 
@@ -12,7 +12,7 @@ input:
 expect:
   must_contain:
     - "assumption"
-    - "gap"
+    - "Open Questions"
   must_not_contain:
     - "TODO"
     - "I cannot"
@@ -23,4 +23,4 @@ judge:
     - output_contains:
         all:
           - "assumption"
-          - "gap"
+          - "Open Questions"

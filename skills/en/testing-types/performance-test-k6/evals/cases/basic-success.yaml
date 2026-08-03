@@ -1,5 +1,5 @@
 id: basic-success
-title: k6: choose scenarios intentionally
+title: "k6: choose scenarios intentionally"
 description: |
   Return k6-fit scenarios, thresholds, and assumptions.
 

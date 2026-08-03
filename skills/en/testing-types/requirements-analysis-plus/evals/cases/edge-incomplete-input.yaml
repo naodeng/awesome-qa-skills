@@ -1,5 +1,5 @@
 id: edge-incomplete-input
-title: Requirements analysis plus: partial multi-format inputs
+title: "Requirements analysis plus: partial multi-format inputs"
 description: |
   Incomplete Word/HTML/JSON still gets structured analysis with per-source gaps.
 
@@ -11,7 +11,7 @@ input:
 expect:
   must_contain:
     - "assumption"
-    - "gap"
+    - "Open Questions"
   must_not_contain:
     - "TODO"
     - "I cannot"
@@ -22,4 +22,4 @@ judge:
     - output_contains:
         all:
           - "source"
-          - "gap"
+          - "Open Questions"

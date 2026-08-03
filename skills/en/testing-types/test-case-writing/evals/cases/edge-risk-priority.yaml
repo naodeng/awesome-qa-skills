@@ -1,5 +1,5 @@
 id: edge-risk-priority
-title: Test case writing: cut non-critical cases
+title: "Test case writing: cut non-critical cases"
 description: |
   Mark P0 vs deferrable when time is short.
 

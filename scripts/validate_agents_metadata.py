@@ -10,10 +10,16 @@ from typing import List
 
 ROOT = Path(__file__).resolve().parents[1]
 SKILL_DIRS = sorted(
-    [p for p in (ROOT / "skills").glob("zh/testing-types/*") if p.is_dir()]
-    + [p for p in (ROOT / "skills").glob("zh/testing-workflows/*") if p.is_dir()]
-    + [p for p in (ROOT / "skills").glob("en/testing-types/*") if p.is_dir()]
-    + [p for p in (ROOT / "skills").glob("en/testing-workflows/*") if p.is_dir()]
+    [
+        p
+        for p in (
+            list((ROOT / "skills").glob("zh/testing-types/*"))
+            + list((ROOT / "skills").glob("zh/testing-workflows/*"))
+            + list((ROOT / "skills").glob("en/testing-types/*"))
+            + list((ROOT / "skills").glob("en/testing-workflows/*"))
+        )
+        if p.is_dir() and not p.name.endswith("-workspace")
+    ]
 )
 
 

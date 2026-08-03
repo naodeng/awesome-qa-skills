@@ -1,5 +1,5 @@
 id: edge-domain-boundary
-title: Accessibility: not a functional regression suite
+title: "Accessibility: not a functional regression suite"
 description: |
   When asked for full functional cases, stay a11y-focused and clarify the boundary.
 

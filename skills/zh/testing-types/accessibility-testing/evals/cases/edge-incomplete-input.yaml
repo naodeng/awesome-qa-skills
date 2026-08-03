@@ -10,7 +10,7 @@ input:
 
 expect:
   must_contain:
-    - "缺口"
+    - "待确认"
     - "假设"
   must_not_contain:
     - "TODO"

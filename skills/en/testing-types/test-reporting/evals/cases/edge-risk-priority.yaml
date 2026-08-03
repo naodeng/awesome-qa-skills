@@ -1,5 +1,5 @@
 id: edge-risk-priority
-title: Test reporting: high pass rate must not hide money risk
+title: "Test reporting: high pass rate must not hide money risk"
 description: |
   Strong metrics with a payment blocker still require a cautious recommendation.
 

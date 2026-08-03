@@ -1,5 +1,5 @@
 id: edge-incomplete-input
-title: Test case review plus: grade what evidence allows
+title: "Test case review plus: grade what evidence allows"
 description: |
   Missing tech docs still assigns severity where possible and marks assumptions.
 
@@ -11,7 +11,7 @@ input:
 expect:
   must_contain:
     - "assumption"
-    - "gap"
+    - "Open Questions"
   must_not_contain:
     - "TODO"
     - "I cannot"

@@ -1,5 +1,5 @@
 id: edge-bad-or-neighbor
-title: Bruno: redirect Postman/k6 neighbor requests
+title: "Bruno: redirect Postman/k6 neighbor requests"
 description: |
   When the user asks for Postman/k6 under the Bruno skill, stay on Bruno or clarify the boundary.
 

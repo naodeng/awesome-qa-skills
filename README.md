@@ -142,6 +142,17 @@ awesome-qa-skills/
 - [scripts/INSTALL_SKILLS.md](scripts/INSTALL_SKILLS.md)：安装说明
 - [FAQ.md](FAQ.md)：常见问题
 
+## 用 skill-up 评测本仓库（可选）
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/alibaba/skill-up/main/install.sh | bash
+bash scripts/validate_skill_evals.sh   # 校验全部 evals YAML
+skill-up run skills/zh/testing-types/functional-testing/evals/eval.yaml --engine codex \
+  --output-dir .skill-up-workspaces/functional-testing
+```
+
+推荐试点：`functional-testing`、`api-testing`、`api-test-bruno`。详见 [skills/SKILL_AUTHORING.md](skills/SKILL_AUTHORING.md)。
+
 ## 许可证
 
 本仓库提供面向 AI 工具的测试技能库，便于团队直接复用和扩展。

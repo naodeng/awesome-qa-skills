@@ -190,9 +190,13 @@ def default_cases(lang: str, skill_name: str) -> list[dict]:
 
 def write_case(path: Path, case: dict, lang: str) -> None:
     tmpl = CASE_ZH if lang == "zh" else CASE_EN
+    # Quote title when it contains ':' to keep skill-up YAML valid
+    title = case["title"]
+    if ":" in title and not (title.startswith('"') or title.startswith("'")):
+        title = '"' + title.replace("\\", "\\\\").replace('"', '\\"') + '"'
     text = tmpl.format(
         case_id=case["case_id"],
-        title=case["title"],
+        title=title,
         description=case["description"],
         prompt=indent_block(case["prompt"], 4),
         must_contain=yaml_list(case["must_contain"], 4),

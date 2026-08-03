@@ -1,5 +1,5 @@
 id: edge-incomplete-input
-title: AI-assisted: draft split when goals are vague
+title: "AI-assisted: draft split when goals are vague"
 description: |
   Vague scope still gets a draft split with limits and assumptions.
 

@@ -1,5 +1,5 @@
 id: edge-incomplete-input
-title: Requirements analysis: one-line requirement still drafts
+title: "Requirements analysis: one-line requirement still drafts"
 description: |
   Thin input still yields a draft with assumptions and gaps.
 
@@ -11,7 +11,7 @@ input:
 expect:
   must_contain:
     - "assumption"
-    - "gap"
+    - "Open Questions"
   must_not_contain:
     - "TODO"
     - "I cannot"
@@ -22,4 +22,4 @@ judge:
     - output_contains:
         all:
           - "assumption"
-          - "gap"
+          - "Open Questions"

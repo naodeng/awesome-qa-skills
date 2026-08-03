@@ -1,5 +1,5 @@
 id: basic-success
-title: RestAssured: OpenAPI/curl yields suite structure
+title: "RestAssured: OpenAPI/curl yields suite structure"
 description: |
   With a short OpenAPI and curl snippet, produce REST Assured Java suite/base setup/assertion structure.
 

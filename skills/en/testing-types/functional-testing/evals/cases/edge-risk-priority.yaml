@@ -1,5 +1,5 @@
 id: edge-risk-priority
-title: Functional testing: cut scope for a short window
+title: "Functional testing: cut scope for a short window"
 description: |
   Many features + short window => P0 focus and deferrals.
 

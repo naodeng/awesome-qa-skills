@@ -10,7 +10,7 @@ input:
 
 expect:
   must_contain:
-    - "缺口"
+    - "待确认"
     - "确认"
   must_not_contain:
     - "TODO"
@@ -22,4 +22,4 @@ judge:
     - output_contains:
         all:
           - "评审"
-          - "缺口"
+          - "待确认"

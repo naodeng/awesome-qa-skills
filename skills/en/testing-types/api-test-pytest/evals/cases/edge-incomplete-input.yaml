@@ -1,5 +1,5 @@
 id: edge-incomplete-input
-title: Pytest: one-line ask still yields draft
+title: "Pytest: one-line ask still yields draft"
 description: |
   With only one sentence and no schema, still draft pytest structure and list gaps/assumptions.
 
@@ -11,7 +11,7 @@ input:
 expect:
   must_contain:
     - "assumption"
-    - "gap"
+    - "Open Questions"
   must_not_contain:
     - "TODO"
     - "I cannot"

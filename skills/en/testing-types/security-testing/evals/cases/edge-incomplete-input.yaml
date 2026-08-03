@@ -1,5 +1,5 @@
 id: edge-incomplete-input
-title: Security testing: draft when scope is thin
+title: "Security testing: draft when scope is thin"
 description: |
   Without architecture, still draft and list gaps; do not overclaim coverage.
 
@@ -11,7 +11,7 @@ input:
 expect:
   must_contain:
     - "assumption"
-    - "gap"
+    - "Open Questions"
   must_not_contain:
     - "TODO"
     - "I cannot"
@@ -22,4 +22,4 @@ judge:
     - output_contains:
         all:
           - "assumption"
-          - "gap"
+          - "Open Questions"

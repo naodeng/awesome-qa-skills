@@ -1,5 +1,5 @@
 id: edge-incomplete-input
-title: Gatling: mark assumptions without traffic data
+title: "Gatling: mark assumptions without traffic data"
 description: |
   Missing feeder/traffic data still yields a draft with gaps.
 
@@ -11,7 +11,7 @@ input:
 expect:
   must_contain:
     - "assumption"
-    - "gap"
+    - "Open Questions"
   must_not_contain:
     - "TODO"
     - "I cannot"

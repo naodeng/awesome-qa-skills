@@ -1,5 +1,5 @@
 id: edge-narrow-recommendation
-title: Routing: do not recommend a pile of skills
+title: "Routing: do not recommend a pile of skills"
 description: |
   Even if the user lists many types, recommend one primary and at most one supporting skill, and explain why not a menu.
 

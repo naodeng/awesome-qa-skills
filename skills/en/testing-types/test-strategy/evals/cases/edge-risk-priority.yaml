@@ -1,5 +1,5 @@
 id: edge-risk-priority
-title: Test strategy: half-day forces cut scope
+title: "Test strategy: half-day forces cut scope"
 description: |
   Many features require explicit P0 vs not-covered items.
 

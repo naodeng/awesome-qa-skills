@@ -1,5 +1,5 @@
 id: edge-incomplete-input
-title: Routing: clarify when the request is vague
+title: "Routing: clarify when the request is vague"
 description: |
   With only "please test the new feature", clarify scope/type/phase instead of pretending a skill is ready to execute.
 
@@ -12,7 +12,7 @@ input:
 expect:
   must_contain:
     - "clarif"
-    - "gap"
+    - "Open Questions"
   must_not_contain:
     - "TODO"
     - "I cannot"
@@ -23,4 +23,4 @@ judge:
     - output_contains:
         all:
           - "clarif"
-          - "gap"
+          - "Open Questions"

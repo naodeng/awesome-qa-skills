@@ -1,5 +1,5 @@
 id: basic-success
-title: Bug reporting: reproducible defect report
+title: "Bug reporting: reproducible defect report"
 description: |
   With symptoms and env, write steps, actual/expected, severity rationale.
 

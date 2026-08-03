@@ -1,5 +1,5 @@
 id: edge-bad-or-neighbor
-title: RestAssured: broken YAML or pytest neighbor
+title: "RestAssured: broken YAML or pytest neighbor"
 description: |
   With broken YAML input or a pytest neighbor request, correct and stay on REST Assured.
 

@@ -1,5 +1,5 @@
 id: edge-risk-priority
-title: Requirements analysis: short window focuses blocking gaps
+title: "Requirements analysis: short window focuses blocking gaps"
 description: |
   Many features require risk-ranked gaps, not equal analysis.
 

@@ -22,4 +22,4 @@ judge:
     - output_contains:
         all:
           - "假设"
-          - "缺口"
+          - "待确认"
