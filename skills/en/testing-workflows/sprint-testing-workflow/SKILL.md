@@ -16,7 +16,7 @@ description: Use this skill when you need a sprint-based QA workflow from planni
 
 1. Read and follow `prompts/sprint-testing-workflow.md` (stages, gates, DoD, handoffs).
 2. Add sprint goal, story scope, capacity, and carryover defects that change the plan.
-3. After locating the stage, optionally read matching files under `prompts/`; name other skills by name only.
+3. After locating the stage, hand off by skill name per `reference.md`; no relative-path links to other skill internals.
 4. If input is incomplete, draft a usable sprint test plan and mark assumptions and gaps.
 
 ## Core Constraints
@@ -29,8 +29,8 @@ description: Use this skill when you need a sprint-based QA workflow from planni
 ## Progressive Disclosure
 
 - Before producing output, read and follow `prompts/sprint-testing-workflow.md`.
-- For step mapping: read `reference.md`.
-- For stage deep-dives: read matching `prompts/*.md` in this skill.
+- For step ↔ handoff mapping: read `reference.md`.
+- For stage deep-dives: invoke the matching type skill; do not expand full artifacts here.
 - Templates: `output-templates/`.
 
 ## Pre-delivery Checklist

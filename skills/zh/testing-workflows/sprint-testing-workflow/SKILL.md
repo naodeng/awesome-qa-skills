@@ -16,7 +16,7 @@ description: Use this skill when you need a sprint-based QA workflow from planni
 
 1. 阅读并遵循 `prompts/sprint-testing-workflow.md`（阶段、门禁、DoD、交接）。
 2. 补充迭代目标、故事范围、容量、遗留缺陷等关键上下文。
-3. 定位阶段后按需读本目录 `prompts/` 阶段模板；跨技能只点名 skill 名。
+3. 定位阶段后按 `reference.md` 点名交接类型 skill；禁止相对路径链到其他 skill 内部文件。
 4. 信息不全时先给可用迭代测试计划，并标假设与缺口。
 
 ## 核心约束
@@ -29,8 +29,8 @@ description: Use this skill when you need a sprint-based QA workflow from planni
 ## 按需加载
 
 - 产出前必须阅读并遵循 `prompts/sprint-testing-workflow.md`。
-- 步骤对照：读 `reference.md`。
-- 阶段深做：再读本目录对应 `prompts/*.md`。
+- 步骤与交接对照：读 `reference.md`。
+- 阶段深做：调用对应类型 skill，不要在本 skill 内展开完整产物。
 - 模板：`output-templates/`。
 
 ## 交付前自检

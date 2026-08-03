@@ -1,7 +1,7 @@
 id: edge-risk-priority
 title: 缺陷报告：严重程度必须有业务依据
 description: |
-  避免情绪化定级；严重程度/优先级要写清影响。
+  避免情绪化定级；用语义 judge 检查两份缺陷的严重程度区分是否合理。
 
 input:
   prompt: |
@@ -19,9 +19,10 @@ expect:
     - "我无法"
 
 judge:
-  type: rule_based
-  success:
-    - output_contains:
-        all:
-          - "优先级"
-          - "影响"
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "分别覆盖「报表变慢」与「扣款翻倍」两类问题，而不是混成一条"
+    - "扣款翻倍的严重程度明显高于报表变慢，并给出业务影响依据"
+    - "事实与猜测/根因推测分开，没有编造未提供的日志或账号细节"
+  pass_threshold: 0.67

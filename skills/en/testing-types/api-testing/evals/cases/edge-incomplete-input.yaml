@@ -1,4 +1,4 @@
-id: edge-incomplete-input
+id: "edge-incomplete-input"
 title: "API testing: draft without OpenAPI"
 description: |
   Missing docs should still yield a draft and gaps.
@@ -11,7 +11,7 @@ input:
 expect:
   must_contain:
     - "assumption"
-    - "Open Questions"
+    - "Gaps"
   must_not_contain:
     - "TODO"
     - "I cannot"
@@ -22,4 +22,4 @@ judge:
     - output_contains:
         all:
           - "assumption"
-          - "Open Questions"
+          - "Gaps"

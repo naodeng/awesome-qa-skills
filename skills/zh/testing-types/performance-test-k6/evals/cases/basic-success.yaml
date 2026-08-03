@@ -1,14 +1,23 @@
 id: basic-success
 title: k6：按目标选择场景而非全做
 description: |
-  应给出贴合 k6 的场景、阈值与假设。
+  结合 load-profile fixture，给出贴合 k6 的场景、阈值与假设。
+
+context:
+  files:
+    "evals/fixtures/load-profile.md": |
+      # Desensitized load profile fixture
+      - Endpoint: `GET ${BASE_URL}/orders/{id}`
+      - Auth: `Authorization: Bearer ${API_TOKEN}` (placeholder only)
+      - Observed peak (assumed): 200 RPS
+      - Promo peak (assumed): 800 RPS
+      - Candidate SLO (assumed): P95 < 300ms, error rate < 0.1%
 
 input:
   prompt: |
     请使用 performance-test-k6。
-    目标：订单查询 GET /orders/{id} 在促销期保活。
-    期望：P95 < 300ms，错误率 < 0.1%。当前峰值约 200 RPS，促销可能到 800 RPS。
-    请给出 k6 场景方案（不必输出完整脚本），并标明假设。
+    工作区已放入 evals/fixtures/load-profile.md，请先阅读。
+    基于该 profile 给出 k6 场景方案（不必输出完整脚本）：选哪些场景、为何不选其他、阈值与假设。
 
 expect:
   must_contain:

@@ -1,31 +1,87 @@
 id: basic-success
 title: Bruno：有 OpenAPI/curl 时给出 collection 结构
 description: |
-  提供简短 OpenAPI 与 curl 时，应产出 Bruno collection/环境/断言结构说明。
+  使用脱敏 OpenAPI/curl 夹具，产出 Bruno collection/环境/断言结构说明。
+
+context:
+  files:
+    "evals/fixtures/openapi-orders.yaml": |
+      openapi: 3.0.3
+      info:
+        title: Sample Orders API (desensitized fixture)
+        version: 0.1.0
+      paths:
+        /orders:
+          post:
+            summary: Create order
+            security:
+              - bearerAuth: []
+            requestBody:
+              required: true
+              content:
+                application/json:
+                  schema:
+                    type: object
+                    required: [skuId, qty]
+                    properties:
+                      skuId: { type: string }
+                      qty: { type: integer, minimum: 1 }
+            responses:
+              "201":
+                description: Created
+        /payments/callback:
+          post:
+            summary: Payment callback
+            responses:
+              "200":
+                description: OK
+        /orders/{id}:
+          get:
+            summary: Get order
+            security:
+              - bearerAuth: []
+            parameters:
+              - name: id
+                in: path
+                required: true
+                schema: { type: string }
+            responses:
+              "200":
+                description: OK
+      components:
+        securitySchemes:
+          bearerAuth:
+            type: http
+            scheme: bearer
+    "evals/fixtures/sample-curls.sh": |
+      curl -sS -X POST "${BASE_URL}/orders" \
+        -H "Authorization: Bearer ${API_TOKEN}" \
+        -H "Content-Type: application/json" \
+        -d '{"skuId":"SKU-1001","qty":1}'
+      curl -sS -X POST "${BASE_URL}/payments/callback" \
+        -H "Content-Type: application/json" \
+        -d '{"orderId":"ORD-PLACEHOLDER","result":"SUCCESS"}'
+      curl -sS "${BASE_URL}/orders/ORD-PLACEHOLDER" \
+        -H "Authorization: Bearer ${API_TOKEN}"
 
 input:
   prompt: |
     请使用 api-test-bruno。
-    环境：SIT。认证：Bearer {{token}}（勿编造真实 token）。
-    OpenAPI 片段：
-      POST /v1/orders
-      GET /v1/orders/{id}
-    curl 示例（已脱敏）：
-      curl -X POST https://api.example.com/v1/orders -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" -d '{"sku":"A1","qty":1}'
-    请给出 Bruno collection 结构方案（.bru / 文件夹 / 环境变量），标出高优先级请求与断言重点，不必输出超长代码。
+    工作区已放入夹具：
+      - evals/fixtures/openapi-orders.yaml
+      - evals/fixtures/sample-curls.sh
+    请先读取这两个文件，再给出 Bruno collection 结构方案（.bru / 文件夹 / 环境变量）。
+    环境：SIT。认证只用 {{token}} / ${API_TOKEN} 占位，禁止编造真实 token。
+    标出高优先级请求与断言重点，不必输出超长代码。
 
 expect:
   must_contain:
     - "Bruno"
-    - "collection"
+    - ".bru"
   must_not_contain:
     - "TODO"
     - "我无法"
 
 judge:
-  type: rule_based
-  success:
-    - output_contains:
-        all:
-          - "任务理解"
-          - "Bruno"
+  type: script
+  script_path: evals/fixtures/scripts/check_bruno_output.sh

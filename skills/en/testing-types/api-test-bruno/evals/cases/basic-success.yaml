@@ -1,31 +1,86 @@
-id: basic-success
-title: "Bruno: OpenAPI/curl yields collection plan"
+id: "basic-success"
+title: "Bruno: OpenAPI/curl yields collection structure"
 description: |
-  With a short OpenAPI and curl snippet, produce Bruno collection/env/assertion structure.
+  Use desensitized OpenAPI/curl fixtures to propose a Bruno collection structure.
+
+context:
+  files:
+    "evals/fixtures/openapi-orders.yaml": |
+      openapi: 3.0.3
+      info:
+        title: Sample Orders API (desensitized fixture)
+        version: 0.1.0
+      paths:
+        /orders:
+          post:
+            summary: Create order
+            security:
+              - bearerAuth: []
+            requestBody:
+              required: true
+              content:
+                application/json:
+                  schema:
+                    type: object
+                    required: [skuId, qty]
+                    properties:
+                      skuId: { type: string }
+                      qty: { type: integer, minimum: 1 }
+            responses:
+              "201":
+                description: Created
+        /payments/callback:
+          post:
+            summary: Payment callback
+            responses:
+              "200":
+                description: OK
+        /orders/{id}:
+          get:
+            summary: Get order
+            security:
+              - bearerAuth: []
+            parameters:
+              - name: id
+                in: path
+                required: true
+                schema: { type: string }
+            responses:
+              "200":
+                description: OK
+      components:
+        securitySchemes:
+          bearerAuth:
+            type: http
+            scheme: bearer
+    "evals/fixtures/sample-curls.sh": |
+      curl -sS -X POST "${BASE_URL}/orders" \
+        -H "Authorization: Bearer ${API_TOKEN}" \
+        -H "Content-Type: application/json" \
+        -d '{"skuId":"SKU-1001","qty":1}'
+      curl -sS -X POST "${BASE_URL}/payments/callback" \
+        -H "Content-Type: application/json" \
+        -d '{"orderId":"ORD-PLACEHOLDER","result":"SUCCESS"}'
+      curl -sS "${BASE_URL}/orders/ORD-PLACEHOLDER" \
+        -H "Authorization: Bearer ${API_TOKEN}"
 
 input:
   prompt: |
     Use api-test-bruno.
-    Env: SIT. Auth: Bearer {{token}} (do not invent real tokens).
-    OpenAPI snippet:
-      POST /v1/orders
-      GET /v1/orders/{id}
-    Desensitized curl:
-      curl -X POST https://api.example.com/v1/orders -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" -d '{"sku":"A1","qty":1}'
-    Produce a Bruno collection structure plan (.bru / folders / env vars), priority requests and assertion focus. Avoid long code dumps.
+    Fixtures are already in the workspace:
+      - evals/fixtures/openapi-orders.yaml
+      - evals/fixtures/sample-curls.sh
+    Read both files, then propose a Bruno collection structure (.bru / folders / env vars).
+    Env: SIT. Auth only via {{token}} / ${API_TOKEN}. No real tokens. No huge code dumps.
 
 expect:
   must_contain:
     - "Bruno"
-    - "collection"
+    - ".bru"
   must_not_contain:
     - "TODO"
     - "I cannot"
 
 judge:
-  type: rule_based
-  success:
-    - output_contains:
-        all:
-          - "Task Understanding"
-          - "Bruno"
+  type: script
+  script_path: evals/fixtures/scripts/check_bruno_output.sh

@@ -16,7 +16,7 @@ description: Use this skill when you need release-phase QA workflow from T-14 pl
 
 1. 阅读并遵循 `prompts/release-testing-workflow.md`（时间线、门禁、Go/No-Go、交接）。
 2. 补充发布日、范围、冻结规则、候选版本、已知缺陷等上下文。
-3. 定位 T 窗口后按需读本目录阶段 `prompts/`；专项执行点名对应类型 skill。
+3. 定位 T 窗口后按 `reference.md` 点名交接类型 skill；专项执行只点名 skill 名。
 4. 信息不全时仍给门禁看板初版，并标假设；**禁止编造测试通过结果**。
 
 ## 核心约束
@@ -29,8 +29,8 @@ description: Use this skill when you need release-phase QA workflow from T-14 pl
 ## 按需加载
 
 - 产出前必须阅读并遵循 `prompts/release-testing-workflow.md`。
-- 步骤对照：读 `reference.md`。
-- 阶段/专项深做：再读本目录对应 `prompts/*.md`。
+- 步骤与交接对照：读 `reference.md`。
+- 阶段/专项深做：调用对应类型 skill，不要在本 skill 内展开完整专项报告。
 - 模板：`output-templates/`。
 
 ## 交付前自检

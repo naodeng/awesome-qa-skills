@@ -99,12 +99,23 @@ Closes #123
 
 提交前请检查：
 
-- [ ] Skill 符合目录结构规范
-- [ ] SKILL.md 元数据完整
-- [ ] 中英文版本同步（如适用）
-- [ ] 提示词清晰易懂
-- [ ] 文档链接有效
-- [ ] 没有拼写错误
+- [ ] Skill 符合目录结构规范（见 [skills/DIRECTORY_GUIDE.md](skills/DIRECTORY_GUIDE.md)、[skills/SKILL_AUTHORING.md](skills/SKILL_AUTHORING.md)）
+- [ ] `SKILL.md` 的 `name` / `description`（含 `Use this skill when...` 与触发词）完整
+- [ ] 中英文版本同步（目录名一致；除非明确只要单语）
+- [ ] 提示词清晰易懂；无真实 token/密钥
+- [ ] 文档链接有效；不跨 skill 硬链内部文件
+- [ ] **若改了 skill / evals：** 本地通过 `bash scripts/check_skills_quality.sh`（含 `skill-up validate`；需已安装 [skill-up](https://github.com/alibaba/skill-up)）
+- [ ] 推荐用 `bash scripts/run_skill_eval.sh <skill>/evals/eval.yaml` 实跑关键 case（产物写入 `.skill-up-workspaces/`）
+
+```bash
+# 改 skill 后最低要求
+bash scripts/check_skills_quality.sh
+
+# 可选：安装 skill-up / skill-upper 后实跑与演进
+curl -fsSL https://raw.githubusercontent.com/alibaba/skill-up/main/install.sh | bash
+# Codex：npx skills add https://github.com/alibaba/skill-up/tree/main/skills/skill-upper -g -a codex -y
+bash scripts/run_skill_eval.sh skills/zh/testing-types/functional-testing/evals/eval.yaml --include-case-name "basic-success"
+```
 
 ### 行为准则
 
@@ -222,12 +233,13 @@ Documentation contributions are equally important! You can:
 
 Before submitting, check:
 
-- [ ] Skill follows directory structure standards
-- [ ] SKILL.md metadata is complete
-- [ ] Chinese and English versions are in sync (if applicable)
-- [ ] Prompts are clear and understandable
-- [ ] Documentation links are valid
-- [ ] No spelling errors
+- [ ] Skill follows [DIRECTORY_GUIDE](skills/DIRECTORY_GUIDE.md) / [SKILL_AUTHORING](skills/SKILL_AUTHORING.md)
+- [ ] `SKILL.md` `name` / `description` (`Use this skill when...` + triggers) are complete
+- [ ] zh/en stay in sync (same directory names) unless single-language is intentional
+- [ ] Prompts are clear; no real tokens/secrets
+- [ ] Links are valid; no hard links into other skills' internal files
+- [ ] **If you touched a skill / evals:** `bash scripts/check_skills_quality.sh` passes (includes `skill-up validate` when skill-up is installed)
+- [ ] Prefer `bash scripts/run_skill_eval.sh <skill>/evals/eval.yaml` for real runs (outputs go under `.skill-up-workspaces/`)
 
 ### Code of Conduct
 

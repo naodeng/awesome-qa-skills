@@ -1,0 +1,78 @@
+openapi: 3.0.3
+info:
+  title: Sample Orders API (desensitized fixture)
+  version: 0.1.0
+paths:
+  /orders:
+    post:
+      summary: Create order
+      operationId: createOrder
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [skuId, qty]
+              properties:
+                skuId:
+                  type: string
+                qty:
+                  type: integer
+                  minimum: 1
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  orderId:
+                    type: string
+                  status:
+                    type: string
+        "401":
+          description: Unauthorized
+  /payments/callback:
+    post:
+      summary: Payment callback
+      operationId: paymentCallback
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [orderId, result]
+              properties:
+                orderId:
+                  type: string
+                result:
+                  type: string
+                  enum: [SUCCESS, FAIL]
+      responses:
+        "200":
+          description: OK
+  /orders/{id}:
+    get:
+      summary: Get order
+      operationId: getOrder
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer

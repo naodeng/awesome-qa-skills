@@ -1,14 +1,23 @@
-id: basic-success
+id: "basic-success"
 title: "k6: choose scenarios intentionally"
 description: |
-  Return k6-fit scenarios, thresholds, and assumptions.
+  Use the load-profile fixture to propose k6 scenarios, thresholds, and assumptions.
+
+context:
+  files:
+    "evals/fixtures/load-profile.md": |
+      # Desensitized load profile fixture
+      - Endpoint: `GET ${BASE_URL}/orders/{id}`
+      - Auth: `Authorization: Bearer ${API_TOKEN}` (placeholder only)
+      - Observed peak (assumed): 200 RPS
+      - Promo peak (assumed): 800 RPS
+      - Candidate SLO (assumed): P95 < 300ms, error rate < 0.1%
 
 input:
   prompt: |
     Use performance-test-k6.
-    Goal: keep GET /orders/{id} healthy in a promo.
-    Target: P95 < 300ms, error rate < 0.1%. Peak ~200 RPS now, maybe 800 RPS in promo.
-    Propose k6 scenarios (full scripts not required) and mark assumptions.
+    Fixture already in workspace: evals/fixtures/load-profile.md — read it first.
+    Propose k6 scenarios (full scripts not required): which to run, what to defer, thresholds, assumptions.
 
 expect:
   must_contain:

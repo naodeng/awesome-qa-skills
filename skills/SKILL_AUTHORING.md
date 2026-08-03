@@ -62,10 +62,13 @@ description: Use this skill when ...; triggers include 中文触发词 and Engli
 建议：
 
 - 每个 skill 先从 **2–3** 个真实用例起步（成功路径 + 信息不全 + 边界/近邻误用）。
-- 优先 `judge.type: rule_based`；语义强、难写关键字时再用 `agent_judge`。
+- 优先 `judge.type: rule_based`；可执行产物可用 `script`（见 `api-test-bruno`）；语义分级少量用 `agent_judge`。
+- 试点可开 `benchmark.enabled: true` 做 with/without skill 对比。
+- 工具类 skill 在 `evals/fixtures/` 放脱敏 OpenAPI/curl/负载画像；触发词可另存 `evals/trigger_queries.json`（description 触发评测用）。
 - `environment.type: none` 适合纯文本 QA skill；需要跑脚本/沙箱再换 `opensandbox` / `docker`。
 - 用例语言与 skill 语言一致（中文 skill → 中文 prompt/断言；英文 skill → 英文）。
 - 不要为了让用例通过而削弱合理断言。
+- `title` 含英文冒号时必须加引号。
 
 生成脚手架：
 
@@ -83,16 +86,26 @@ curl -fsSL https://raw.githubusercontent.com/alibaba/skill-up/main/install.sh | 
 # 仅校验 YAML（不消耗模型，已接入 check_skills_quality.sh）
 bash scripts/validate_skill_evals.sh
 
-# 实跑（示例：用 Codex 引擎跑单个 case；产物放到仓库外的工作区，避免污染 skills/）
+# 推荐入口：固定把产物写到 .skill-up-workspaces/，避免污染 skills/
+bash scripts/run_skill_eval.sh skills/zh/testing-types/functional-testing/evals/eval.yaml \
+  --include-case-name "basic-success"
+
+# 等价手写（勿省略 --output-dir）
 mkdir -p .skill-up-workspaces
 skill-up run skills/zh/testing-types/functional-testing/evals/eval.yaml \
   --engine codex \
   --include-case-name "basic-success" \
   --output-dir .skill-up-workspaces/functional-testing
-
-# Claude Code 需先完成非交互登录 / 配置 ANTHROPIC_API_KEY
-skill-up run skills/zh/testing-types/functional-testing/evals/eval.yaml --engine claude_code
 ```
+
+skill-upper（演进对话，可选）：
+
+```bash
+npx skills add https://github.com/alibaba/skill-up/tree/main/skills/skill-upper -g -a codex -y
+# 然后在对话中：用 skill-upper 评测/修复某个 skill
+```
+
+本机若已安装，Codex 技能目录通常为 `~/.codex/skills/skill-upper`。
 
 注意：
 

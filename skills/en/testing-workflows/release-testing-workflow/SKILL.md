@@ -16,7 +16,7 @@ description: Use this skill when you need release-phase QA workflow from T-14 pl
 
 1. Read and follow `prompts/release-testing-workflow.md` (timeline, gates, Go/No-Go, handoffs).
 2. Add release date, scope, freeze rules, candidate build, and known defects that change decisions.
-3. After locating the T window, optionally read stage files under `prompts/`; invoke specialty type skills by name.
+3. After locating the T window, hand off by skill name per `reference.md`; invoke specialty type skills by name only.
 4. If input is incomplete, still draft a gate board and mark assumptions—**never invent pass results**.
 
 ## Core Constraints
@@ -29,8 +29,8 @@ description: Use this skill when you need release-phase QA workflow from T-14 pl
 ## Progressive Disclosure
 
 - Before producing output, read and follow `prompts/release-testing-workflow.md`.
-- For step mapping: read `reference.md`.
-- For stage/specialty deep-dives: read matching `prompts/*.md` in this skill.
+- For step ↔ handoff mapping: read `reference.md`.
+- For stage/specialty deep-dives: invoke the matching type skill; do not expand full specialty reports here.
 - Templates: `output-templates/`.
 
 ## Pre-delivery Checklist

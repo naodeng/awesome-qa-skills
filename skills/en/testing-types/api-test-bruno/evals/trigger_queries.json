@@ -1,0 +1,12 @@
+[
+  {"query": "Generate a Bruno collection from this OpenAPI for SIT with token vars", "should_trigger": true},
+  {"query": "Organize these curls into a Bruno collection with assertions", "should_trigger": true},
+  {"query": "How should I structure Bruno folders for orders and payment callback?", "should_trigger": true},
+  {"query": "Use Bruno for smoke coverage on auth-related APIs", "should_trigger": true},
+  {"query": "Parse swagger into an executable API collection — we use Bruno", "should_trigger": true},
+  {"query": "Load test /orders with k6, P95 under 300ms", "should_trigger": false},
+  {"query": "Write Pytest API automation, not Bruno", "should_trigger": false},
+  {"query": "Write functional test cases for checkout and shipping", "should_trigger": false},
+  {"query": "File a bug report for double charging", "should_trigger": false},
+  {"query": "Playwright E2E for login SSO", "should_trigger": false}
+]

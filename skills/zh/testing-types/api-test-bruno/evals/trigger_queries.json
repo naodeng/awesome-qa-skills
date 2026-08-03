@@ -1,0 +1,16 @@
+[
+  {"query": "帮我根据这段 OpenAPI 生成 Bruno 集合，环境用 SIT，token 走变量", "should_trigger": true},
+  {"query": "把这些 curl 整理成 Bruno collection，顺便写回归断言", "should_trigger": true},
+  {"query": "Bruno 里怎么组织 orders 和 payment callback 的文件夹？", "should_trigger": true},
+  {"query": "用 Bruno 跑一下登录相关接口冒烟", "should_trigger": true},
+  {"query": "解析 swagger 出可执行的 API 集合，我们组在用 Bruno", "should_trigger": true},
+  {"query": "hey can you turn this openapi into a Bruno collection for regression?", "should_trigger": true},
+  {"query": "接口文档有了，想做成 Bruno 方便手测和CI", "should_trigger": true},
+  {"query": "用 k6 压一下 /orders 接口，P95 要小于 300ms", "should_trigger": false},
+  {"query": "帮我写 Pytest 接口自动化，不要 Bruno", "should_trigger": false},
+  {"query": "写一份功能测试用例：下单支付发货", "should_trigger": false},
+  {"query": "这个支付翻倍的缺陷帮我写成 bug report", "should_trigger": false},
+  {"query": "用 Playwright 做登录 E2E", "should_trigger": false},
+  {"query": "帮我评审一下测试策略文档结构", "should_trigger": false},
+  {"query": "把 Excel 需求转成测试策略里程碑", "should_trigger": false}
+]

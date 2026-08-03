@@ -48,8 +48,6 @@ Default pass criteria (customize per project, but state them):
 
 Workflow output should include “Next: invoke `<skill-name>` with …”, not a full case set/long strategy inside this skill.
 
-Same-named files under this skill’s `prompts/` may be used as stage prompt templates; for cross-skill collaboration, use skill names only.
-
 ## What to do
 
 1. Identify today’s stage focus (multi-stage OK, but mark the focus).

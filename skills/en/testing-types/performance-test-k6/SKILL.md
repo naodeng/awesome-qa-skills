@@ -22,9 +22,10 @@ description: Use this skill when you need k6 load/stress/spike/soak scope, scrip
 ## Core Constraints
 
 - Prioritize by risk / business impact — do not treat everything equally.
-- Separate confirmed facts from current assumptions.
-- Do not invent endpoints, fields, environments, or root causes the user did not provide.
+- Separate confirmed facts from current assumptions; with no SLA/traffic, label every number as Assumption and list Open Questions.
+- Do not invent endpoints, fields, environments, or root causes the user did not provide; secrets are placeholders / `__ENV` only — never real tokens.
 - Keep output executable: concrete scenarios, clear priority, clear next steps.
+- Default to only the most critical 1–2 scenario types — do not run baseline/load/stress/spike/soak all by default.
 
 ## Progressive Disclosure
 

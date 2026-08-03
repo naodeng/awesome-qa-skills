@@ -28,5 +28,8 @@ cases:
         - "TODO"
         - "I cannot"
 
+benchmark:
+  enabled: true
+
 report:
   formats: [json]

@@ -16,7 +16,7 @@ description: Use this skill when you need a day-by-day QA routine including plan
 
 1. 阅读并遵循 `prompts/daily-testing-workflow.md`（阶段、门禁、交接、输出结构）。
 2. 只补充真正影响结果的项目上下文：当日范围、环境、限制、风险、遗留缺陷。
-3. 定位当前阶段后，按需读 `prompts/` 下对应阶段模板；跨技能协作只点名 skill 名。
+3. 定位当前阶段后，按 `reference.md` 点名交接类型 skill；禁止相对路径链到其他 skill 内部文件。
 4. 信息不全时先给可用日计划，并显式标出假设与信息缺口。
 
 ## 核心约束
@@ -29,8 +29,8 @@ description: Use this skill when you need a day-by-day QA routine including plan
 ## 按需加载
 
 - 产出前必须阅读并遵循 `prompts/daily-testing-workflow.md`。
-- 需要步骤与阶段提示词对照时：读 `reference.md`。
-- 进入某阶段深做时：再读本目录 `prompts/` 中对应阶段文件（如 `bug-reporting.md`）。
+- 需要步骤与交接 skill 对照时：读 `reference.md`。
+- 进入某阶段深做时：调用对应类型 skill（如 `bug-reporting`），不要在本 skill 内展开完整产物。
 - 需要套用模板时：读 `output-templates/` 中匹配文件。
 
 ## 交付前自检

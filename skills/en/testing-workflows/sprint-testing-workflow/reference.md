@@ -1,13 +1,13 @@
-# Sprint Testing Workflow — Step → Prompt
+# Sprint Testing Workflow — Stage Handoff Map
 
 Orchestration prompt: `prompts/sprint-testing-workflow.md` (stage goals, gates, DoD, handoffs).  
-For stage deep-dives, use files in **this directory's `prompts/`**. Mapping below.
+For stage deep-dives, hand off to the matching **type skill** (skill names only—no relative-path links to other skill internals).
 
-| Step / Phase | Prompt files | Use |
-|--------------|--------------|-----|
-| Day 1 Planning | test-strategy.md, requirements-analysis.md | Strategy, scope, risk, test data |
-| Days 2–3 Setup | automation-testing.md, test-strategy.md, test-case-writing.md | Environment, CI/CD, early cases |
-| Days 4–8 Execution | manual-testing.md, bug-reporting.md, automation-testing.md, api-testing.md | Exploratory, bugs, automation, API |
-| Days 9–10 Intensive | functional-testing.md, ai-assisted-testing.md, api-testing.md, accessibility-testing.md | Regression, E2E, selection, visual |
-| Day 11 Stabilization | manual-testing.md | Exploratory blitz |
-| Day 12 Review | test-reporting.md, test-strategy.md | Summary, metrics, dashboard |
+| Step / Phase | Handoff skill | Use |
+|--------------|---------------|-----|
+| Day 1 Planning | `test-strategy`, `requirements-analysis` | Strategy, scope, risk, test data |
+| Days 2–3 Setup | `automation-testing`, `test-strategy`, `test-case-writing` | Environment, CI/CD, early cases |
+| Days 4–8 Execution | `manual-testing`, `bug-reporting`, `automation-testing`, `api-testing` | Exploratory, bugs, automation, API |
+| Days 9–10 Intensive | `functional-testing`, `ai-assisted-testing`, `api-testing`, `accessibility-testing` | Regression, E2E, selection, visual |
+| Day 11 Stabilization | `manual-testing` | Exploratory blitz |
+| Day 12 Review | `test-reporting`, `test-strategy` | Summary, metrics, dashboard |

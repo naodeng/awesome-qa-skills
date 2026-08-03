@@ -16,7 +16,7 @@ description: Use this skill when you need a day-by-day QA routine including plan
 
 1. Read and follow `prompts/daily-testing-workflow.md` (stages, gates, handoffs, output structure).
 2. Add only context that changes the result: day scope, environment, constraints, risks, carryover defects.
-3. After locating the stage, optionally read matching stage files under `prompts/`; name other skills by name only.
+3. After locating the stage, hand off by skill name per `reference.md`; no relative-path links to other skill internals.
 4. If input is incomplete, draft a usable day plan and mark assumptions and gaps.
 
 ## Core Constraints
@@ -29,8 +29,8 @@ description: Use this skill when you need a day-by-day QA routine including plan
 ## Progressive Disclosure
 
 - Before producing output, read and follow `prompts/daily-testing-workflow.md`.
-- For step ↔ stage prompt mapping: read `reference.md`.
-- When deep-diving a stage: read the matching file under this skill’s `prompts/` (e.g. `bug-reporting.md`).
+- For step ↔ handoff skill mapping: read `reference.md`.
+- When deep-diving a stage: invoke the matching type skill (e.g. `bug-reporting`); do not expand full artifacts here.
 - When a template fits: use matching files under `output-templates/`.
 
 ## Pre-delivery Checklist

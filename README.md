@@ -147,8 +147,7 @@ awesome-qa-skills/
 ```bash
 curl -fsSL https://raw.githubusercontent.com/alibaba/skill-up/main/install.sh | bash
 bash scripts/validate_skill_evals.sh   # 校验全部 evals YAML
-skill-up run skills/zh/testing-types/functional-testing/evals/eval.yaml --engine codex \
-  --output-dir .skill-up-workspaces/functional-testing
+bash scripts/run_skill_eval.sh skills/zh/testing-types/functional-testing/evals/eval.yaml
 ```
 
 推荐试点：`functional-testing`、`api-testing`、`api-test-bruno`。详见 [skills/SKILL_AUTHORING.md](skills/SKILL_AUTHORING.md)。
