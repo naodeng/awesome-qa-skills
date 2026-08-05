@@ -1,0 +1,25 @@
+id: edge-incomplete-input
+title: 代码审查：Diff 不全时标明缺口
+description: |
+  只有口头描述、没有代码时，仍应给出结构化初版，并显式列出假设与待补充信息。
+
+input:
+  prompt: |
+    用 code-review。用户只说：改了一下积分兑换接口，感觉可能有并发问题。没有 Diff、没有文件路径。
+    请先给一版审查草稿，并明确信息缺口与假设。
+
+expect:
+  must_contain:
+    - "缺口"
+    - "假设"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "假设"
+          - "风险"

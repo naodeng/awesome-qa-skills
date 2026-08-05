@@ -1,0 +1,28 @@
+id: basic-success
+title: "Code review: ranked findings from a clear diff"
+description: |
+  With a clear diff and business goal, return risk rating, P0/P1 severity, and actionable fixes.
+
+input:
+  prompt: |
+    Use code-review.
+    Business goal: mark order paid after successful payment callback.
+    Diff: callback calls orderService.markPaid(orderId) with no idempotency key and no current-state check.
+    Stack: Java Spring + MySQL.
+    Produce a severity-ranked review; separate facts from assumptions.
+
+expect:
+  must_contain:
+    - "P0"
+    - "idempot"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Risk"
+          - "Fix"

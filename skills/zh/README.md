@@ -2,7 +2,7 @@
 
 语言根目录：`skills/zh`
 
-本目录与 `skills/en` **同名对齐**：工作流 4 个 + 测试类型 25 个。安装、约定与评测见仓库根 [README.md](../../README.md)、[AGENTS.md](../../AGENTS.md)、[skills/SKILL_AUTHORING.md](../SKILL_AUTHORING.md)。
+本目录与 `skills/en` **同名对齐**：工作流 4 个 + 测试类型 26 个。安装、约定与评测见仓库根 [README.md](../../README.md)、[AGENTS.md](../../AGENTS.md)、[skills/SKILL_AUTHORING.md](../SKILL_AUTHORING.md)。
 
 ## testing-workflows（工作流）
 
@@ -36,6 +36,7 @@
 | `test-strategy` | 测试策略 |
 | `test-case-writing` | 测试用例编写 |
 | `test-case-reviewer` | 测试用例评审 |
+| `code-review` | 代码审查 |
 | `bug-reporting` | 缺陷上报 |
 | `test-reporting` | 测试报告 |
 | `ai-assisted-testing` | AI 辅助测试 |

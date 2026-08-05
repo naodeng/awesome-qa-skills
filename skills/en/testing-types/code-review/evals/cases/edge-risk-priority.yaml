@@ -1,0 +1,28 @@
+id: edge-risk-priority
+title: "Code review: P0 vs P2 must reflect business impact"
+description: |
+  When a financial-loss issue and a style-only change coexist, severities must differ and style must not be P0.
+
+input:
+  prompt: |
+    Use code-review.
+    Change A: refund API may double-refund on retry (no idempotency).
+    Change B: same PR renames a private local from tmp to data with no behavior change.
+    Rank them separately and explain why severity differs; do not mark B as P0.
+
+expect:
+  must_contain:
+    - "P0"
+    - "refund"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "Covers both double-refund and rename-with-no-behavior-change as separate findings"
+    - "Double-refund severity is clearly higher than rename, with financial/business rationale"
+    - "Does not mark pure naming/style as P0; separates facts from assumptions"
+  pass_threshold: 0.67

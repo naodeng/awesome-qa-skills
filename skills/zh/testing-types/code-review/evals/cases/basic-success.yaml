@@ -1,0 +1,28 @@
+id: basic-success
+title: 代码审查：有 Diff 时给出分级发现
+description: |
+  提供明确 Diff 与业务目标时，应输出风险评级、P0/P1 分级与可落地修复建议。
+
+input:
+  prompt: |
+    请使用 code-review 审查。
+    业务目标：支付成功回调后将订单标为已支付。
+    Diff：回调接口直接调用 orderService.markPaid(orderId)，没有幂等键，也没有校验当前订单状态。
+    技术栈：Java Spring + MySQL。
+    请给出分级审查报告，事实与假设分开。
+
+expect:
+  must_contain:
+    - "P0"
+    - "幂等"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "风险"
+          - "修复"

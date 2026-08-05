@@ -36,6 +36,7 @@
 | 测试策略/范围深度/门禁 | `test-strategy`；要里程碑门槛与 Owner → `test-strategy-plus` |
 | 编写用例 | `test-case-writing`；多源+追踪矩阵 → `testcase-writer-plus` |
 | 评审用例 | `test-case-reviewer`；要严重级别+补测顺序 → `test-case-reviewer-plus` |
+| 代码 / PR 审查 | `code-review` |
 | 功能/业务路径覆盖 | `functional-testing` |
 | 接口测试方案 | `api-testing`；已定 Bruno/pytest/RestAssured/Supertest → 对应 `api-test-*` |
 | 性能 | `performance-testing`；已定 k6/Gatling → `performance-test-k6` / `performance-test-gatling` |

@@ -36,6 +36,7 @@ Pick by **main intent** (do not list multiple primaries):
 | Strategy / depth / gates | `test-strategy`; milestones, owners, checkable gates → `test-strategy-plus` |
 | Write cases | `test-case-writing`; multi-source + traceability matrix → `testcase-writer-plus` |
 | Review cases | `test-case-reviewer`; severities + retest order → `test-case-reviewer-plus` |
+| Code / PR review | `code-review` |
 | Business/feature path coverage | `functional-testing` |
 | API test plan | `api-testing`; Bruno/pytest/RestAssured/Supertest already chosen → matching `api-test-*` |
 | Performance | `performance-testing`; k6/Gatling chosen → `performance-test-k6` / `performance-test-gatling` |

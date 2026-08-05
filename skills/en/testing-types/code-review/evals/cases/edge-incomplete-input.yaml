@@ -1,0 +1,25 @@
+id: edge-incomplete-input
+title: "Code review: mark gaps when diff is missing"
+description: |
+  With only a verbal hint and no code, still return a structured draft and list assumptions/gaps.
+
+input:
+  prompt: |
+    Use code-review. User says: we changed the points redemption API and there might be concurrency issues. No diff, no file paths.
+    Draft a review and clearly list information gaps and assumptions.
+
+expect:
+  must_contain:
+    - "gap"
+    - "assumption"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "assumption"
+          - "risk"

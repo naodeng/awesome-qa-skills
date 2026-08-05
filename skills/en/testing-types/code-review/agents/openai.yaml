@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "code-review"
+interface:
+  display_name: "Code Review"
+  short_description: "Risk-driven PR/diff code review with P0/P1/P2 findings and actionable fixes; triggers include code review and PR review."
+  default_prompt: "Use the code-review skill to review this change with P0/P1/P2 findings and actionable fixes."
+policy:
+  allow_implicit_invocation: true

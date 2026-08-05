@@ -90,7 +90,7 @@ cp -r skills/zh/testing-types/functional-testing ~/.cursor/skills/
 
 ## 技能目录
 
-单语合计 **29** 个技能（4 工作流 + 25 测试类型）；中英双语共 **58** 个目录。完整索引见 [skills-index.md](skills-index.md)。
+单语合计 **30** 个技能（4 工作流 + 26 测试类型）；中英双语共 **60** 个目录。完整索引见 [skills-index.md](skills-index.md)。
 
 ### 工作流技能
 
@@ -124,6 +124,7 @@ cp -r skills/zh/testing-types/functional-testing ~/.cursor/skills/
 | 测试策略 | [`test-strategy`](skills/zh/testing-types/test-strategy/) |
 | 测试用例编写 | [`test-case-writing`](skills/zh/testing-types/test-case-writing/) |
 | 测试用例评审 | [`test-case-reviewer`](skills/zh/testing-types/test-case-reviewer/) |
+| 代码审查 | [`code-review`](skills/zh/testing-types/code-review/) |
 | 缺陷上报 | [`bug-reporting`](skills/zh/testing-types/bug-reporting/) |
 | 测试报告 | [`test-reporting`](skills/zh/testing-types/test-reporting/) |
 | AI 辅助测试 | [`ai-assisted-testing`](skills/zh/testing-types/ai-assisted-testing/) |

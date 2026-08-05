@@ -10,6 +10,7 @@
 - 缺陷报告编写 -> `bug-reporting` / `bug-reporting`
 - 测试用例编写 -> `test-case-writing` / `test-case-writing`
 - 测试用例评审 -> `test-case-reviewer` / `test-case-reviewer`
+- 代码 / PR 审查 -> `code-review` / `code-review`
 - 指标与测试报告输出 -> `test-reporting` / `test-reporting`
 - 测试策略与质量治理 -> `test-strategy` / `test-strategy`
 - 性能测试范围 -> `performance-testing` / `performance-testing`
@@ -44,6 +45,7 @@
 - Defect report authoring -> `bug-reporting` / `bug-reporting`
 - Test case authoring -> `test-case-writing` / `test-case-writing`
 - Test case quality review -> `test-case-reviewer` / `test-case-reviewer`
+- Code / PR review -> `code-review` / `code-review`
 - Metrics and report outputs -> `test-reporting` / `test-reporting`
 - Strategy and governance -> `test-strategy` / `test-strategy`
 - Performance scope -> `performance-testing` / `performance-testing`

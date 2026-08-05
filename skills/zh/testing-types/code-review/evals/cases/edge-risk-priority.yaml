@@ -1,0 +1,28 @@
+id: edge-risk-priority
+title: 代码审查：P0/P2 必须区分业务后果
+description: |
+  同时存在资损级问题与风格类意见时，严重程度必须可区分，且不以风格问题抬高优先级。
+
+input:
+  prompt: |
+    使用 code-review。
+    变更 A：退款接口在重试时可能重复退款（无幂等）。
+    变更 B：同一 PR 里某个私有方法变量名从 tmp 改成 data，无行为变化。
+    请分别给出分级，并解释为何严重程度不同；不要把 B 写成 P0。
+
+expect:
+  must_contain:
+    - "P0"
+    - "退款"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "分别覆盖「重复退款」与「重命名无行为变化」两类发现，而不是混成一条"
+    - "重复退款的优先级明显高于变量重命名，并给出业务/资损依据"
+    - "没有把纯命名/风格问题标成 P0；事实与假设分开"
+  pass_threshold: 0.67

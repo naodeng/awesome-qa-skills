@@ -2,7 +2,7 @@
 
 Canonical language root: `skills/en`
 
-This tree mirrors `skills/zh` with the **same folder names**: 4 workflows + 25 testing types. For install, conventions, and evals, see the root [README_EN.md](../../README_EN.md), [AGENTS.md](../../AGENTS.md), and [skills/SKILL_AUTHORING.md](../SKILL_AUTHORING.md).
+This tree mirrors `skills/zh` with the **same folder names**: 4 workflows + 26 testing types. For install, conventions, and evals, see the root [README_EN.md](../../README_EN.md), [AGENTS.md](../../AGENTS.md), and [skills/SKILL_AUTHORING.md](../SKILL_AUTHORING.md).
 
 ## testing-workflows
 
@@ -36,6 +36,7 @@ This tree mirrors `skills/zh` with the **same folder names**: 4 workflows + 25 t
 | `test-strategy` | Test Strategy |
 | `test-case-writing` | Test Case Writing |
 | `test-case-reviewer` | Test Case Review |
+| `code-review` | Code Review |
 | `bug-reporting` | Bug Reporting |
 | `test-reporting` | Test Reporting |
 | `ai-assisted-testing` | AI-Assisted Testing |

@@ -90,7 +90,7 @@ I need a pre-release regression — which skills should I use?
 
 ## Skill catalog
 
-**29** skills per language (4 workflows + 25 testing types); **58** directories with zh/en parity. Full index: [skills-index.md](skills-index.md).
+**30** skills per language (4 workflows + 26 testing types); **60** directories with zh/en parity. Full index: [skills-index.md](skills-index.md).
 
 ### Workflow skills
 
@@ -124,6 +124,7 @@ I need a pre-release regression — which skills should I use?
 | Test Strategy | [`test-strategy`](skills/en/testing-types/test-strategy/) |
 | Test Case Writing | [`test-case-writing`](skills/en/testing-types/test-case-writing/) |
 | Test Case Review | [`test-case-reviewer`](skills/en/testing-types/test-case-reviewer/) |
+| Code Review | [`code-review`](skills/en/testing-types/code-review/) |
 | Bug Reporting | [`bug-reporting`](skills/en/testing-types/bug-reporting/) |
 | Test Reporting | [`test-reporting`](skills/en/testing-types/test-reporting/) |
 | AI-Assisted Testing | [`ai-assisted-testing`](skills/en/testing-types/ai-assisted-testing/) |
