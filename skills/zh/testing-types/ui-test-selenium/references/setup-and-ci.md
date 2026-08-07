@@ -1,4 +1,4 @@
-# UI 自动化测试 Selenium安装与 CI 说明
+# Selenium UI 自动化测试安装与 CI 说明
 
 ## 本地设置
 

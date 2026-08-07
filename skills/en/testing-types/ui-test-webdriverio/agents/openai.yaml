@@ -3,7 +3,7 @@ metadata:
   key: "ui-test-webdriverio"
   last_verified: "2026-08-07"
 interface:
-  display_name: "UI Test WebdriverIO"
+  display_name: "WebdriverIO UI Testing"
   short_description: "Design WebdriverIO suites with config, services, runner behavior, Page Objects, capabilities, and reporters."
   default_prompt: "Use ui-test-webdriverio to complete the task with local prompts, references, and examples in this skill folder."
 policy:

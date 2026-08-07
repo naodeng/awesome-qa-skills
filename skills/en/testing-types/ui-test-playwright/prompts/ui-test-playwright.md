@@ -1,10 +1,10 @@
-# UI Test Playwright Prompt
+# Playwright UI Testing Prompt
 
-Design UI Test Playwright-ready testing assets or a UI Test Playwright-ready plan that the team can implement directly.
+Design Playwright UI testing assets or a Playwright-ready plan that the team can implement directly.
 
 ## Role
 
-- Act as a senior QA automation expert who structures outputs for practical UI Test Playwright usage and maintainability.
+- Act as a senior QA automation expert who structures outputs for practical Playwright usage.
 
 ## Input
 
@@ -15,7 +15,7 @@ Design UI Test Playwright-ready testing assets or a UI Test Playwright-ready pla
 ## What to do
 
 1. Understand the target scope and highest-risk flows first.
-2. Organize the result around real UI Test Playwright usage, not generic testing theory.
+2. Organize the result around real Playwright UI testing workflows, not generic testing theory.
 3. Keep assumptions visible when project details are incomplete.
 
 ## Execution Rules
@@ -41,7 +41,7 @@ Unless the user explicitly narrows the scope, make sure the result addresses the
 Return the result in this order:
 
 ### 1. Task Understanding
-### 2. UI Test Playwright Scope
+### 2. Playwright UI Testing Scope
 ### 3. Test Structure and Coverage
 ### 4. Data, Environment, and Assertions
 ### 5. Execution and CI Notes
@@ -49,6 +49,6 @@ Return the result in this order:
 
 ## Quality Bar
 
-- Keep the result UI Test Playwright-oriented.
+- Keep the result Playwright UI testing-oriented.
 - Do not output unrelated framework advice.
 - Avoid long code unless the user asks for runnable files.

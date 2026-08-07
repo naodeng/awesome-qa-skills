@@ -1,4 +1,4 @@
-# UI Test WebdriverIO Setup and CI Notes
+# WebdriverIO UI Testing Setup and CI Notes
 
 ## Local Setup
 

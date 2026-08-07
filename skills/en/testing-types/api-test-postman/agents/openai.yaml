@@ -3,7 +3,7 @@ metadata:
   key: "api-test-postman"
   last_verified: "2026-08-07"
 interface:
-  display_name: "API Test Postman"
+  display_name: "Postman API Testing"
   short_description: "Design Postman collections, environments, scripts, and Newman-ready API regression plans."
   default_prompt: "Use api-test-postman to complete the task with local prompts, references, and examples in this skill folder."
 policy:

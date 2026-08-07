@@ -1,4 +1,4 @@
-# UI Test Cypress Framework Notes
+# Cypress UI Testing Framework Notes
 
 ## Primary Focus
 
@@ -17,6 +17,6 @@
 
 ## Decision Rules
 
-- Use this skill when UI Test Cypress is the chosen or likely tool.
+- Use this skill when Cypress is the chosen or likely tool.
 - Use the generic parent testing skill when the tool is still undecided.
 - Call out constraints that make another tool a better fit.

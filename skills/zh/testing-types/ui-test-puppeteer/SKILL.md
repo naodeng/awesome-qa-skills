@@ -1,15 +1,15 @@
 ---
 name: ui-test-puppeteer
-description: Use this skill when you need design Puppeteer automation for Chromium-driven checks, screenshots, PDFs, network interception, and CDP use cases.; triggers include UI Test Puppeteer, UI automation testing, and ui-test-puppeteer.
+description: Use this skill when you need to design Puppeteer automation for Chromium-driven checks, screenshots, PDFs, network interception, and CDP use cases; triggers include Puppeteer UI testing, UI automation testing, and ui-test-puppeteer.
 ---
 
-# UI 自动化测试 Puppeteer
+# Puppeteer UI 自动化测试
 
 **English version:** see the matching English skill.
 
 ## 何时使用
 
-- 需要输出面向 UI 自动化测试 Puppeteer 工作流的测试方案或自动化设计。
+- 需要输出面向 Puppeteer UI 自动化测试工作流的测试方案或自动化设计。
 - 项目已经使用相关工具，或希望得到可直接落地的工具专项方案。
 
 ## 输出格式选项

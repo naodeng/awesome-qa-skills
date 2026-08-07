@@ -1,15 +1,15 @@
 ---
 name: ui-test-selenium
-description: Use this skill when you need design Selenium WebDriver UI automation plans with stable locators, waits, Page Objects, Grid, and CI execution.; triggers include UI Test Selenium, UI automation testing, and ui-test-selenium.
+description: Use this skill when you need to design Selenium WebDriver UI automation plans with stable locators, waits, Page Objects, Grid, and CI execution; triggers include Selenium UI testing, UI automation testing, and ui-test-selenium.
 ---
 
-# UI Test Selenium (EN)
+# Selenium UI Testing (EN)
 
 **中文版：** 见对应中文技能。
 
 ## When to Use
 
-- Need outputs that should land in a UI Test Selenium-oriented workflow.
+- Need outputs that should land in a Selenium UI testing workflow.
 - The project already uses Selenium or wants Selenium-ready planning.
 
 ## Output Format Options

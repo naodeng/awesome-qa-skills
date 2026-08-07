@@ -3,7 +3,7 @@ metadata:
   key: "ui-test-selenium"
   last_verified: "2026-08-07"
 interface:
-  display_name: "UI 自动化测试 Selenium"
+  display_name: "Selenium UI 自动化测试"
   short_description: "设计 Selenium WebDriver UI 自动化方案，覆盖稳定定位、等待、Page Object、Grid 和 CI 执行。"
   default_prompt: "Use ui-test-selenium to complete the task with local prompts, references, and examples in this skill folder."
 policy:

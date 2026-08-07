@@ -14,6 +14,9 @@ class SkillSpec:
     skill_id: str
     display_en: str
     display_zh: str
+    workflow_en: str
+    workflow_zh: str
+    tool_en: str
     short_en: str
     short_zh: str
     category_en: str
@@ -30,8 +33,11 @@ class SkillSpec:
 SKILLS = [
     SkillSpec(
         skill_id="api-test-postman",
-        display_en="API Test Postman",
-        display_zh="API 测试 Postman",
+        display_en="Postman API Testing",
+        display_zh="Postman API 测试",
+        workflow_en="Postman API testing",
+        workflow_zh="Postman API 测试",
+        tool_en="Postman",
         short_en="Design Postman collections, environments, scripts, and Newman-ready API regression plans.",
         short_zh="设计 Postman 集合、环境、脚本和可用 Newman 执行的 API 回归方案。",
         category_en="API testing",
@@ -46,8 +52,11 @@ SKILLS = [
     ),
     SkillSpec(
         skill_id="ui-test-selenium",
-        display_en="UI Test Selenium",
-        display_zh="UI 自动化测试 Selenium",
+        display_en="Selenium UI Testing",
+        display_zh="Selenium UI 自动化测试",
+        workflow_en="Selenium UI testing",
+        workflow_zh="Selenium UI 自动化测试",
+        tool_en="Selenium",
         short_en="Design Selenium WebDriver UI automation plans with stable locators, waits, Page Objects, Grid, and CI execution.",
         short_zh="设计 Selenium WebDriver UI 自动化方案，覆盖稳定定位、等待、Page Object、Grid 和 CI 执行。",
         category_en="UI automation testing",
@@ -62,8 +71,11 @@ SKILLS = [
     ),
     SkillSpec(
         skill_id="ui-test-playwright",
-        display_en="UI Test Playwright",
-        display_zh="UI 自动化测试 Playwright",
+        display_en="Playwright UI Testing",
+        display_zh="Playwright UI 自动化测试",
+        workflow_en="Playwright UI testing",
+        workflow_zh="Playwright UI 自动化测试",
+        tool_en="Playwright",
         short_en="Design Playwright Test suites with fixtures, projects, traces, screenshots, API plus UI coverage, and CI reporting.",
         short_zh="设计 Playwright Test 套件，覆盖 fixtures、projects、trace、截图、API+UI 组合和 CI 报告。",
         category_en="UI automation testing",
@@ -78,8 +90,11 @@ SKILLS = [
     ),
     SkillSpec(
         skill_id="ui-test-testcafe",
-        display_en="UI Test TestCafe",
-        display_zh="UI 自动化测试 TestCafe",
+        display_en="TestCafe UI Testing",
+        display_zh="TestCafe UI 自动化测试",
+        workflow_en="TestCafe UI testing",
+        workflow_zh="TestCafe UI 自动化测试",
+        tool_en="TestCafe",
         short_en="Design TestCafe UI automation with fixtures, selectors, roles, browser matrix execution, and reports.",
         short_zh="设计 TestCafe UI 自动化方案，覆盖 fixture、selector、role、浏览器矩阵和报告。",
         category_en="UI automation testing",
@@ -94,8 +109,11 @@ SKILLS = [
     ),
     SkillSpec(
         skill_id="ui-test-cypress",
-        display_en="UI Test Cypress",
-        display_zh="UI 自动化测试 Cypress",
+        display_en="Cypress UI Testing",
+        display_zh="Cypress UI 自动化测试",
+        workflow_en="Cypress UI testing",
+        workflow_zh="Cypress UI 自动化测试",
+        tool_en="Cypress",
         short_en="Design Cypress e2e and component testing plans with commands, fixtures, network stubbing, and CI reporting.",
         short_zh="设计 Cypress e2e 与组件测试方案，覆盖 commands、fixtures、网络桩和 CI 报告。",
         category_en="UI automation testing",
@@ -110,8 +128,11 @@ SKILLS = [
     ),
     SkillSpec(
         skill_id="ui-test-puppeteer",
-        display_en="UI Test Puppeteer",
-        display_zh="UI 自动化测试 Puppeteer",
+        display_en="Puppeteer UI Testing",
+        display_zh="Puppeteer UI 自动化测试",
+        workflow_en="Puppeteer UI testing",
+        workflow_zh="Puppeteer UI 自动化测试",
+        tool_en="Puppeteer",
         short_en="Design Puppeteer automation for Chromium-driven checks, screenshots, PDFs, network interception, and CDP use cases.",
         short_zh="设计 Puppeteer 自动化方案，覆盖 Chromium 检查、截图、PDF、网络拦截和 CDP 场景。",
         category_en="UI automation testing",
@@ -126,8 +147,11 @@ SKILLS = [
     ),
     SkillSpec(
         skill_id="ui-test-webdriverio",
-        display_en="UI Test WebdriverIO",
-        display_zh="UI 自动化测试 WebdriverIO",
+        display_en="WebdriverIO UI Testing",
+        display_zh="WebdriverIO UI 自动化测试",
+        workflow_en="WebdriverIO UI testing",
+        workflow_zh="WebdriverIO UI 自动化测试",
+        tool_en="WebdriverIO",
         short_en="Design WebdriverIO suites with config, services, runner behavior, Page Objects, capabilities, and reporters.",
         short_zh="设计 WebdriverIO 套件，覆盖配置、services、runner、Page Object、capabilities 和 reporters。",
         category_en="UI automation testing",
@@ -142,8 +166,11 @@ SKILLS = [
     ),
     SkillSpec(
         skill_id="performance-test-jmeter",
-        display_en="Performance Test JMeter",
-        display_zh="性能测试 JMeter",
+        display_en="JMeter Performance Testing",
+        display_zh="JMeter 性能测试",
+        workflow_en="JMeter performance testing",
+        workflow_zh="JMeter 性能测试",
+        tool_en="JMeter",
         short_en="Design JMeter test plans with Thread Groups, samplers, data sets, assertions, timers, CLI runs, and HTML reports.",
         short_zh="设计 JMeter 测试计划，覆盖 Thread Group、Sampler、数据集、断言、Timer、CLI 执行和 HTML 报告。",
         category_en="performance testing",
@@ -163,11 +190,19 @@ def bullet(items: list[str]) -> str:
     return "\n".join(f"- {item}" for item in items)
 
 
+def lower_first(text: str) -> str:
+    return text[:1].lower() + text[1:]
+
+
+def strip_period(text: str) -> str:
+    return text[:-1] if text.endswith(".") else text
+
+
 def skill_md(spec: SkillSpec, lang: str) -> str:
     if lang == "en":
         return f"""---
 name: {spec.skill_id}
-description: Use this skill when you need {spec.short_en[0].lower() + spec.short_en[1:]}; triggers include {spec.display_en}, {spec.category_en}, and {spec.skill_id}.
+description: Use this skill when you need to {strip_period(lower_first(spec.short_en))}; triggers include {spec.workflow_en}, {spec.category_en}, and {spec.skill_id}.
 ---
 
 # {spec.display_en} (EN)
@@ -176,8 +211,8 @@ description: Use this skill when you need {spec.short_en[0].lower() + spec.short
 
 ## When to Use
 
-- Need outputs that should land in a {spec.display_en}-oriented workflow.
-- The project already uses {spec.display_en.split()[-1]} or wants {spec.display_en.split()[-1]}-ready planning.
+- Need outputs that should land in a {spec.workflow_en} workflow.
+- The project already uses {spec.tool_en} or wants {spec.tool_en}-ready planning.
 
 ## Output Format Options
 
@@ -211,7 +246,7 @@ Markdown by default unless the request explicitly asks for another format.
 """
     return f"""---
 name: {spec.skill_id}
-description: Use this skill when you need {spec.short_en[0].lower() + spec.short_en[1:]}; triggers include {spec.display_en}, {spec.category_en}, and {spec.skill_id}.
+description: Use this skill when you need to {strip_period(lower_first(spec.short_en))}; triggers include {spec.workflow_en}, {spec.category_en}, and {spec.skill_id}.
 ---
 
 # {spec.display_zh}
@@ -220,7 +255,7 @@ description: Use this skill when you need {spec.short_en[0].lower() + spec.short
 
 ## 何时使用
 
-- 需要输出面向 {spec.display_zh} 工作流的测试方案或自动化设计。
+- 需要输出面向 {spec.workflow_zh}工作流的测试方案或自动化设计。
 - 项目已经使用相关工具，或希望得到可直接落地的工具专项方案。
 
 ## 输出格式选项
@@ -259,11 +294,11 @@ def prompt_md(spec: SkillSpec, lang: str) -> str:
     if lang == "en":
         return f"""# {spec.display_en} Prompt
 
-Design {spec.display_en}-ready testing assets or a {spec.display_en}-ready plan that the team can implement directly.
+Design {spec.workflow_en} assets or a {spec.tool_en}-ready plan that the team can implement directly.
 
 ## Role
 
-- Act as a senior QA automation expert who structures outputs for practical {spec.display_en} usage and maintainability.
+- Act as a senior QA automation expert who structures outputs for practical {spec.tool_en} usage.
 
 ## Input
 
@@ -272,7 +307,7 @@ Design {spec.display_en}-ready testing assets or a {spec.display_en}-ready plan 
 ## What to do
 
 1. Understand the target scope and highest-risk flows first.
-2. Organize the result around real {spec.display_en} usage, not generic testing theory.
+2. Organize the result around real {spec.workflow_en} workflows, not generic testing theory.
 3. Keep assumptions visible when project details are incomplete.
 
 ## Execution Rules
@@ -302,17 +337,17 @@ Return the result in this order:
 
 ## Quality Bar
 
-- Keep the result {spec.display_en}-oriented.
+- Keep the result {spec.workflow_en}-oriented.
 - Do not output unrelated framework advice.
 - Avoid long code unless the user asks for runnable files.
 """
     return f"""# {spec.display_zh}提示词
 
-设计可直接落地的 {spec.display_zh} 测试资产或测试方案。
+设计可直接落地的 {spec.workflow_zh}资产或方案。
 
 ## 角色定位
 
-- 你是资深 QA 自动化专家，擅长把输出组织成可维护、可执行的 {spec.display_zh} 方案。
+- 你是资深 QA 自动化专家，擅长把输出组织成可维护、可执行的 {spec.tool_en} 方案。
 
 ## 输入
 
@@ -321,7 +356,7 @@ Return the result in this order:
 ## 你要做的事
 
 1. 先理解目标范围和最高风险流程。
-2. 围绕真实 {spec.display_zh} 使用方式组织输出，不写泛泛测试理论。
+2. 围绕真实 {spec.workflow_zh}工作流组织输出，不写泛泛测试理论。
 3. 当项目信息不完整时，明确标出假设和缺失信息。
 
 ## 执行规则
@@ -343,7 +378,7 @@ Return the result in this order:
 按以下顺序输出：
 
 ### 1. 任务理解
-### 2. {spec.display_zh} 范围
+### 2. {spec.display_zh}范围
 ### 3. 测试结构与覆盖
 ### 4. 数据、环境与断言
 ### 5. 执行与 CI 说明
@@ -351,7 +386,7 @@ Return the result in this order:
 
 ## 质量要求
 
-- 输出必须围绕 {spec.display_zh}。
+- 输出必须围绕 {spec.workflow_zh}。
 - 不输出无关框架建议。
 - 除非用户要求可运行文件，否则避免长代码。
 """
@@ -422,7 +457,7 @@ def framework_spec(spec: SkillSpec, lang: str) -> str:
 
 ## Decision Rules
 
-- Use this skill when {spec.display_en} is the chosen or likely tool.
+- Use this skill when {spec.tool_en} is the chosen or likely tool.
 - Use the generic parent testing skill when the tool is still undecided.
 - Call out constraints that make another tool a better fit.
 """
@@ -441,7 +476,7 @@ def framework_spec(spec: SkillSpec, lang: str) -> str:
 
 ## 决策规则
 
-- 当项目已选择或倾向使用 {spec.display_zh} 时使用本技能。
+- 当项目已选择或倾向使用 {spec.tool_en} 时使用本技能。
 - 工具尚未确定时，先使用通用父级测试技能。
 - 如果其他工具更适合，要明确说明约束和原因。
 """

@@ -1,15 +1,15 @@
 ---
 name: performance-test-jmeter
-description: Use this skill when you need design JMeter test plans with Thread Groups, samplers, data sets, assertions, timers, CLI runs, and HTML reports.; triggers include Performance Test JMeter, performance testing, and performance-test-jmeter.
+description: Use this skill when you need to design JMeter test plans with Thread Groups, samplers, data sets, assertions, timers, CLI runs, and HTML reports; triggers include JMeter performance testing, performance testing, and performance-test-jmeter.
 ---
 
-# Performance Test JMeter (EN)
+# JMeter Performance Testing (EN)
 
 **中文版：** 见对应中文技能。
 
 ## When to Use
 
-- Need outputs that should land in a Performance Test JMeter-oriented workflow.
+- Need outputs that should land in a JMeter performance testing workflow.
 - The project already uses JMeter or wants JMeter-ready planning.
 
 ## Output Format Options

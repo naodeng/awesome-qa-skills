@@ -1,4 +1,4 @@
-# UI Test Selenium Setup and CI Notes
+# Selenium UI Testing Setup and CI Notes
 
 ## Local Setup
 

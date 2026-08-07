@@ -1,4 +1,4 @@
-# Performance Test JMeter Setup and CI Notes
+# JMeter Performance Testing Setup and CI Notes
 
 ## Local Setup
 

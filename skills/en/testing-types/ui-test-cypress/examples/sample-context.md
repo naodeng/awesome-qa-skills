@@ -4,7 +4,7 @@ Use `@skill ui-test-cypress` to design coverage for a release-critical login and
 
 Project context:
 
-- Tool: UI Test Cypress
+- Tool: Cypress UI Testing
 - Environment: staging
 - Priority: protect the release smoke path and the highest-risk regression cases
 - Constraints: keep the first version maintainable and CI-friendly

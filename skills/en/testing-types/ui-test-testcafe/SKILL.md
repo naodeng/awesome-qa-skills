@@ -1,15 +1,15 @@
 ---
 name: ui-test-testcafe
-description: Use this skill when you need design TestCafe UI automation with fixtures, selectors, roles, browser matrix execution, and reports.; triggers include UI Test TestCafe, UI automation testing, and ui-test-testcafe.
+description: Use this skill when you need to design TestCafe UI automation with fixtures, selectors, roles, browser matrix execution, and reports; triggers include TestCafe UI testing, UI automation testing, and ui-test-testcafe.
 ---
 
-# UI Test TestCafe (EN)
+# TestCafe UI Testing (EN)
 
 **中文版：** 见对应中文技能。
 
 ## When to Use
 
-- Need outputs that should land in a UI Test TestCafe-oriented workflow.
+- Need outputs that should land in a TestCafe UI testing workflow.
 - The project already uses TestCafe or wants TestCafe-ready planning.
 
 ## Output Format Options

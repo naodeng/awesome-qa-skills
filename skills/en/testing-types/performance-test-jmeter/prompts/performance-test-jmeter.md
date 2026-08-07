@@ -1,10 +1,10 @@
-# Performance Test JMeter Prompt
+# JMeter Performance Testing Prompt
 
-Design Performance Test JMeter-ready testing assets or a Performance Test JMeter-ready plan that the team can implement directly.
+Design JMeter performance testing assets or a JMeter-ready plan that the team can implement directly.
 
 ## Role
 
-- Act as a senior QA automation expert who structures outputs for practical Performance Test JMeter usage and maintainability.
+- Act as a senior QA automation expert who structures outputs for practical JMeter usage.
 
 ## Input
 
@@ -15,7 +15,7 @@ Design Performance Test JMeter-ready testing assets or a Performance Test JMeter
 ## What to do
 
 1. Understand the target scope and highest-risk flows first.
-2. Organize the result around real Performance Test JMeter usage, not generic testing theory.
+2. Organize the result around real JMeter performance testing workflows, not generic testing theory.
 3. Keep assumptions visible when project details are incomplete.
 
 ## Execution Rules
@@ -41,7 +41,7 @@ Unless the user explicitly narrows the scope, make sure the result addresses the
 Return the result in this order:
 
 ### 1. Task Understanding
-### 2. Performance Test JMeter Scope
+### 2. JMeter Performance Testing Scope
 ### 3. Test Structure and Coverage
 ### 4. Data, Environment, and Assertions
 ### 5. Execution and CI Notes
@@ -49,6 +49,6 @@ Return the result in this order:
 
 ## Quality Bar
 
-- Keep the result Performance Test JMeter-oriented.
+- Keep the result JMeter performance testing-oriented.
 - Do not output unrelated framework advice.
 - Avoid long code unless the user asks for runnable files.

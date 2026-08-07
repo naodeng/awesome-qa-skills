@@ -1,4 +1,4 @@
-# API Test Postman Setup and CI Notes
+# Postman API Testing Setup and CI Notes
 
 ## Local Setup
 

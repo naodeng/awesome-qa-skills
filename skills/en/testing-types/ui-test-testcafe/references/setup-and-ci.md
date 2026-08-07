@@ -1,4 +1,4 @@
-# UI Test TestCafe Setup and CI Notes
+# TestCafe UI Testing Setup and CI Notes
 
 ## Local Setup
 

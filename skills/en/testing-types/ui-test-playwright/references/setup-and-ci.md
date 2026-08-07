@@ -1,4 +1,4 @@
-# UI Test Playwright Setup and CI Notes
+# Playwright UI Testing Setup and CI Notes
 
 ## Local Setup
 

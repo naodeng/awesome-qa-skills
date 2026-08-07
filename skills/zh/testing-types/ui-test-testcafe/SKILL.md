@@ -1,15 +1,15 @@
 ---
 name: ui-test-testcafe
-description: Use this skill when you need design TestCafe UI automation with fixtures, selectors, roles, browser matrix execution, and reports.; triggers include UI Test TestCafe, UI automation testing, and ui-test-testcafe.
+description: Use this skill when you need to design TestCafe UI automation with fixtures, selectors, roles, browser matrix execution, and reports; triggers include TestCafe UI testing, UI automation testing, and ui-test-testcafe.
 ---
 
-# UI 自动化测试 TestCafe
+# TestCafe UI 自动化测试
 
 **English version:** see the matching English skill.
 
 ## 何时使用
 
-- 需要输出面向 UI 自动化测试 TestCafe 工作流的测试方案或自动化设计。
+- 需要输出面向 TestCafe UI 自动化测试工作流的测试方案或自动化设计。
 - 项目已经使用相关工具，或希望得到可直接落地的工具专项方案。
 
 ## 输出格式选项

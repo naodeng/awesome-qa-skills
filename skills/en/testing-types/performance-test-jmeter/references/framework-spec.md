@@ -1,4 +1,4 @@
-# Performance Test JMeter Framework Notes
+# JMeter Performance Testing Framework Notes
 
 ## Primary Focus
 
@@ -17,6 +17,6 @@
 
 ## Decision Rules
 
-- Use this skill when Performance Test JMeter is the chosen or likely tool.
+- Use this skill when JMeter is the chosen or likely tool.
 - Use the generic parent testing skill when the tool is still undecided.
 - Call out constraints that make another tool a better fit.

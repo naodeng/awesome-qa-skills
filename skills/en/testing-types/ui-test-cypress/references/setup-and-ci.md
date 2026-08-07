@@ -1,4 +1,4 @@
-# UI Test Cypress Setup and CI Notes
+# Cypress UI Testing Setup and CI Notes
 
 ## Local Setup
 

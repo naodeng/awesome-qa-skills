@@ -3,7 +3,7 @@ metadata:
   key: "ui-test-playwright"
   last_verified: "2026-08-07"
 interface:
-  display_name: "UI Test Playwright"
+  display_name: "Playwright UI Testing"
   short_description: "Design Playwright Test suites with fixtures, projects, traces, screenshots, API plus UI coverage, and CI reporting."
   default_prompt: "Use ui-test-playwright to complete the task with local prompts, references, and examples in this skill folder."
 policy:

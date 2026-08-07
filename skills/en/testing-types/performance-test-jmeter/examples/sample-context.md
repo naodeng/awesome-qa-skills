@@ -4,7 +4,7 @@ Use `@skill performance-test-jmeter` to design coverage for a release-critical l
 
 Project context:
 
-- Tool: Performance Test JMeter
+- Tool: JMeter Performance Testing
 - Environment: staging
 - Priority: protect the release smoke path and the highest-risk regression cases
 - Constraints: keep the first version maintainable and CI-friendly

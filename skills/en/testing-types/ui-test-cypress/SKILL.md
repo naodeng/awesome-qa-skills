@@ -1,15 +1,15 @@
 ---
 name: ui-test-cypress
-description: Use this skill when you need design Cypress e2e and component testing plans with commands, fixtures, network stubbing, and CI reporting.; triggers include UI Test Cypress, UI automation testing, and ui-test-cypress.
+description: Use this skill when you need to design Cypress e2e and component testing plans with commands, fixtures, network stubbing, and CI reporting; triggers include Cypress UI testing, UI automation testing, and ui-test-cypress.
 ---
 
-# UI Test Cypress (EN)
+# Cypress UI Testing (EN)
 
 **中文版：** 见对应中文技能。
 
 ## When to Use
 
-- Need outputs that should land in a UI Test Cypress-oriented workflow.
+- Need outputs that should land in a Cypress UI testing workflow.
 - The project already uses Cypress or wants Cypress-ready planning.
 
 ## Output Format Options

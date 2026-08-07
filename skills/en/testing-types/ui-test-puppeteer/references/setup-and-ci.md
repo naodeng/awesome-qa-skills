@@ -1,4 +1,4 @@
-# UI Test Puppeteer Setup and CI Notes
+# Puppeteer UI Testing Setup and CI Notes
 
 ## Local Setup
 

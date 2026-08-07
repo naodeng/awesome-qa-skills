@@ -3,7 +3,7 @@ metadata:
   key: "ui-test-testcafe"
   last_verified: "2026-08-07"
 interface:
-  display_name: "UI 自动化测试 TestCafe"
+  display_name: "TestCafe UI 自动化测试"
   short_description: "设计 TestCafe UI 自动化方案，覆盖 fixture、selector、role、浏览器矩阵和报告。"
   default_prompt: "Use ui-test-testcafe to complete the task with local prompts, references, and examples in this skill folder."
 policy:

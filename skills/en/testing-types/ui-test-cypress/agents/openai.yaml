@@ -3,7 +3,7 @@ metadata:
   key: "ui-test-cypress"
   last_verified: "2026-08-07"
 interface:
-  display_name: "UI Test Cypress"
+  display_name: "Cypress UI Testing"
   short_description: "Design Cypress e2e and component testing plans with commands, fixtures, network stubbing, and CI reporting."
   default_prompt: "Use ui-test-cypress to complete the task with local prompts, references, and examples in this skill folder."
 policy:

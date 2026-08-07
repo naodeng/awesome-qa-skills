@@ -3,7 +3,7 @@ metadata:
   key: "ui-test-playwright"
   last_verified: "2026-08-07"
 interface:
-  display_name: "UI 自动化测试 Playwright"
+  display_name: "Playwright UI 自动化测试"
   short_description: "设计 Playwright Test 套件，覆盖 fixtures、projects、trace、截图、API+UI 组合和 CI 报告。"
   default_prompt: "Use ui-test-playwright to complete the task with local prompts, references, and examples in this skill folder."
 policy:

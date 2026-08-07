@@ -4,7 +4,7 @@ Use `@skill ui-test-puppeteer` to design coverage for a release-critical login a
 
 Project context:
 
-- Tool: UI Test Puppeteer
+- Tool: Puppeteer UI Testing
 - Environment: staging
 - Priority: protect the release smoke path and the highest-risk regression cases
 - Constraints: keep the first version maintainable and CI-friendly

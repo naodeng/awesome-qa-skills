@@ -3,7 +3,7 @@ metadata:
   key: "ui-test-cypress"
   last_verified: "2026-08-07"
 interface:
-  display_name: "UI 自动化测试 Cypress"
+  display_name: "Cypress UI 自动化测试"
   short_description: "设计 Cypress e2e 与组件测试方案，覆盖 commands、fixtures、网络桩和 CI 报告。"
   default_prompt: "Use ui-test-cypress to complete the task with local prompts, references, and examples in this skill folder."
 policy:

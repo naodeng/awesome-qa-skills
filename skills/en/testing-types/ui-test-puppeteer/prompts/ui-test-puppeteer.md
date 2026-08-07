@@ -1,10 +1,10 @@
-# UI Test Puppeteer Prompt
+# Puppeteer UI Testing Prompt
 
-Design UI Test Puppeteer-ready testing assets or a UI Test Puppeteer-ready plan that the team can implement directly.
+Design Puppeteer UI testing assets or a Puppeteer-ready plan that the team can implement directly.
 
 ## Role
 
-- Act as a senior QA automation expert who structures outputs for practical UI Test Puppeteer usage and maintainability.
+- Act as a senior QA automation expert who structures outputs for practical Puppeteer usage.
 
 ## Input
 
@@ -15,7 +15,7 @@ Design UI Test Puppeteer-ready testing assets or a UI Test Puppeteer-ready plan 
 ## What to do
 
 1. Understand the target scope and highest-risk flows first.
-2. Organize the result around real UI Test Puppeteer usage, not generic testing theory.
+2. Organize the result around real Puppeteer UI testing workflows, not generic testing theory.
 3. Keep assumptions visible when project details are incomplete.
 
 ## Execution Rules
@@ -41,7 +41,7 @@ Unless the user explicitly narrows the scope, make sure the result addresses the
 Return the result in this order:
 
 ### 1. Task Understanding
-### 2. UI Test Puppeteer Scope
+### 2. Puppeteer UI Testing Scope
 ### 3. Test Structure and Coverage
 ### 4. Data, Environment, and Assertions
 ### 5. Execution and CI Notes
@@ -49,6 +49,6 @@ Return the result in this order:
 
 ## Quality Bar
 
-- Keep the result UI Test Puppeteer-oriented.
+- Keep the result Puppeteer UI testing-oriented.
 - Do not output unrelated framework advice.
 - Avoid long code unless the user asks for runnable files.

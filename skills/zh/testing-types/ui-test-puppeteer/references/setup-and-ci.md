@@ -1,4 +1,4 @@
-# UI 自动化测试 Puppeteer安装与 CI 说明
+# Puppeteer UI 自动化测试安装与 CI 说明
 
 ## 本地设置
 

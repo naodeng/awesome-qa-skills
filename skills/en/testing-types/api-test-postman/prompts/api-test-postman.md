@@ -1,10 +1,10 @@
-# API Test Postman Prompt
+# Postman API Testing Prompt
 
-Design API Test Postman-ready testing assets or a API Test Postman-ready plan that the team can implement directly.
+Design Postman API testing assets or a Postman-ready plan that the team can implement directly.
 
 ## Role
 
-- Act as a senior QA automation expert who structures outputs for practical API Test Postman usage and maintainability.
+- Act as a senior QA automation expert who structures outputs for practical Postman usage.
 
 ## Input
 
@@ -15,7 +15,7 @@ Design API Test Postman-ready testing assets or a API Test Postman-ready plan th
 ## What to do
 
 1. Understand the target scope and highest-risk flows first.
-2. Organize the result around real API Test Postman usage, not generic testing theory.
+2. Organize the result around real Postman API testing workflows, not generic testing theory.
 3. Keep assumptions visible when project details are incomplete.
 
 ## Execution Rules
@@ -41,7 +41,7 @@ Unless the user explicitly narrows the scope, make sure the result addresses the
 Return the result in this order:
 
 ### 1. Task Understanding
-### 2. API Test Postman Scope
+### 2. Postman API Testing Scope
 ### 3. Test Structure and Coverage
 ### 4. Data, Environment, and Assertions
 ### 5. Execution and CI Notes
@@ -49,6 +49,6 @@ Return the result in this order:
 
 ## Quality Bar
 
-- Keep the result API Test Postman-oriented.
+- Keep the result Postman API testing-oriented.
 - Do not output unrelated framework advice.
 - Avoid long code unless the user asks for runnable files.

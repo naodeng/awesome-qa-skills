@@ -1,4 +1,4 @@
-# API 测试 Postman安装与 CI 说明
+# Postman API 测试安装与 CI 说明
 
 ## 本地设置
 

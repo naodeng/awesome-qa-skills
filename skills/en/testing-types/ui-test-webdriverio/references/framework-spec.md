@@ -1,4 +1,4 @@
-# UI Test WebdriverIO Framework Notes
+# WebdriverIO UI Testing Framework Notes
 
 ## Primary Focus
 
@@ -17,6 +17,6 @@
 
 ## Decision Rules
 
-- Use this skill when UI Test WebdriverIO is the chosen or likely tool.
+- Use this skill when WebdriverIO is the chosen or likely tool.
 - Use the generic parent testing skill when the tool is still undecided.
 - Call out constraints that make another tool a better fit.

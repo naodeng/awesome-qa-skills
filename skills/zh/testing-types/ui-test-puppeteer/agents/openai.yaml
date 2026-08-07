@@ -3,7 +3,7 @@ metadata:
   key: "ui-test-puppeteer"
   last_verified: "2026-08-07"
 interface:
-  display_name: "UI 自动化测试 Puppeteer"
+  display_name: "Puppeteer UI 自动化测试"
   short_description: "设计 Puppeteer 自动化方案，覆盖 Chromium 检查、截图、PDF、网络拦截和 CDP 场景。"
   default_prompt: "Use ui-test-puppeteer to complete the task with local prompts, references, and examples in this skill folder."
 policy:

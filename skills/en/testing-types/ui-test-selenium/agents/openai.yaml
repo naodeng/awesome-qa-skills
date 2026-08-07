@@ -3,7 +3,7 @@ metadata:
   key: "ui-test-selenium"
   last_verified: "2026-08-07"
 interface:
-  display_name: "UI Test Selenium"
+  display_name: "Selenium UI Testing"
   short_description: "Design Selenium WebDriver UI automation plans with stable locators, waits, Page Objects, Grid, and CI execution."
   default_prompt: "Use ui-test-selenium to complete the task with local prompts, references, and examples in this skill folder."
 policy:

@@ -4,7 +4,7 @@ Use `@skill api-test-postman` to design coverage for a release-critical login an
 
 Project context:
 
-- Tool: API Test Postman
+- Tool: Postman API Testing
 - Environment: staging
 - Priority: protect the release smoke path and the highest-risk regression cases
 - Constraints: keep the first version maintainable and CI-friendly

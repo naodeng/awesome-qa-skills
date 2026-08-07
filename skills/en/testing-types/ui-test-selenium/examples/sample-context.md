@@ -4,7 +4,7 @@ Use `@skill ui-test-selenium` to design coverage for a release-critical login an
 
 Project context:
 
-- Tool: UI Test Selenium
+- Tool: Selenium UI Testing
 - Environment: staging
 - Priority: protect the release smoke path and the highest-risk regression cases
 - Constraints: keep the first version maintainable and CI-friendly

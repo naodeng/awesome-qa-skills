@@ -1,4 +1,4 @@
-# UI 自动化测试 TestCafe安装与 CI 说明
+# TestCafe UI 自动化测试安装与 CI 说明
 
 ## 本地设置
 

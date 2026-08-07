@@ -3,7 +3,7 @@ metadata:
   key: "performance-test-jmeter"
   last_verified: "2026-08-07"
 interface:
-  display_name: "Performance Test JMeter"
+  display_name: "JMeter Performance Testing"
   short_description: "Design JMeter test plans with Thread Groups, samplers, data sets, assertions, timers, CLI runs, and HTML reports."
   default_prompt: "Use performance-test-jmeter to complete the task with local prompts, references, and examples in this skill folder."
 policy:
