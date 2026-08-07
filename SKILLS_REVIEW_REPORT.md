@@ -36,7 +36,7 @@
    - 工作流层作为编排层的定位准确
 
 2. **完善的依赖管理**
-   - `.kiro/skills-graph.yaml` 提供了完整的依赖关系定义
+   - `skills-graph.md` 提供了完整的依赖关系定义
    - `skills-graph.md` 提供了可视化的依赖图
    - 推荐组合（recommended_combinations）设计合理
 
@@ -265,7 +265,6 @@ awesome-qa-skills/
 │   └── advanced/           # 空目录 ⚠️
 ├── prompts/                # 18 个 prompts (36 个文件)
 ├── Reference/              # 参考资料（未被 Skills 引用）⚠️
-├── .kiro/                  # Kiro 配置
 ├── README.md
 ├── FAQ.md
 └── CONTRIBUTING.md
@@ -302,7 +301,6 @@ awesome-qa-skills/
 ├── tools/                  # 工具脚本
 │   ├── cli/               # CLI 工具
 │   └── validators/        # 验证工具
-├── .kiro/
 ├── README.md
 ├── FAQ.md
 └── CONTRIBUTING.md
