@@ -1,0 +1,29 @@
+id: basic-success
+title: "Cypress：输出风险驱动且可执行的方案"
+description: |
+  在有真实范围和约束时，输出可落地的 Cypress 方案，覆盖结构、数据、断言、执行和 CI。
+
+input:
+  prompt: |
+    请使用 ui-test-cypress。
+    范围：staging 环境下发布关键的登录和下单覆盖。
+    工具：Cypress。
+    约束：第一版要可维护、适合 CI，并聚焦最高风险回归路径。
+    请输出测试结构、数据/环境需求、断言、执行命令说明和待确认问题。
+
+expect:
+  must_contain:
+    - "Cypress"
+    - "CI"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "范围"
+          - "断言"
+          - "待确认"

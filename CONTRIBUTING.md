@@ -31,15 +31,15 @@
 ##### 3.1 Skill 目录结构
 
 ```
-skills/testing-types/your-skill/
+skills/zh/testing-types/your-skill/
 ├── SKILL.md              # Skill 元数据和说明
 ├── quick-start.md        # 快速开始指南
 ├── output-formats.md     # 输出格式说明
 ├── prompts/              # 提示词目录
-│   ├── basic.md          # 基础层提示词
-│   ├── intermediate.md   # 中级层提示词
-│   └── advanced.md       # 高级层提示词
-└── reference.md          # 参考文档（可选）
+│   └── your-skill.md     # 主提示词
+├── agents/openai.yaml    # OpenAI / Codex 元数据
+├── evals/                # skill-up 评测用例
+└── references/           # 深度参考资料（可选）
 ```
 
 ##### 3.2 SKILL.md 元数据规范
@@ -165,15 +165,15 @@ If you have ideas for new Skills:
 ##### 3.1 Skill Directory Structure
 
 ```
-skills/testing-types/your-skill/
+skills/en/testing-types/your-skill/
 ├── SKILL.md              # Skill metadata and description
 ├── quick-start.md        # Quick start guide
 ├── output-formats.md     # Output format documentation
 ├── prompts/              # Prompts directory
-│   ├── basic.md          # Basic level prompts
-│   ├── intermediate.md   # Intermediate level prompts
-│   └── advanced.md       # Advanced level prompts
-└── reference.md          # Reference documentation (optional)
+│   └── your-skill.md     # Primary prompt
+├── agents/openai.yaml    # OpenAI / Codex metadata
+├── evals/                # skill-up eval cases
+└── references/           # Deep reference materials (optional)
 ```
 
 ##### 3.2 SKILL.md Metadata Standards

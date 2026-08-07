@@ -2,10 +2,10 @@
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-SOURCE_REPO="/Users/nao.deng/awsomeCode/awesome-qa-skills"
 
 if [[ -x "$SCRIPT_DIR/scripts/install-skills-mac.sh" ]]; then
   exec bash "$SCRIPT_DIR/scripts/install-skills-mac.sh" "$@"
 fi
 
-exec bash "$SOURCE_REPO/scripts/install-skills-mac.sh" "$@"
+echo "Installer implementation not found: $SCRIPT_DIR/scripts/install-skills-mac.sh" >&2
+exit 1

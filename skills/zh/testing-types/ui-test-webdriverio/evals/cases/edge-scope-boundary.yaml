@@ -1,0 +1,27 @@
+id: edge-scope-boundary
+title: "WebdriverIO：保持当前工具边界"
+description: |
+  当用户在本技能下同时要求相邻工具产物时，输出应聚焦 WebdriverIO，并说明边界。
+
+input:
+  prompt: |
+    我启用了 ui-test-webdriverio，但同时要求完整 Postman collection、Playwright suite 和 JMeter test plan。
+    目标流程：登录和下单。
+    请修正本技能范围：先交付 WebdriverIO 方案，说明哪些内容超出本技能范围，并列出应另行使用的相邻技能/工具。
+
+expect:
+  must_contain:
+    - "WebdriverIO"
+    - "范围"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "回答聚焦已启用的 WebdriverIO 技能，而不是混杂所有相邻工具产物"
+    - "说明哪些请求产物超出范围或应交给其他技能处理"
+    - "仍然给出有用的第一版方案和待确认问题"
+  pass_threshold: 0.67

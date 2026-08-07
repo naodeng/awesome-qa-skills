@@ -260,47 +260,47 @@
 ```
 awesome-qa-skills/
 ├── skills/
-│   ├── testing-types/      # 15 个测试类型 (30 个目录)
-│   ├── testing-workflows/  # 3 个工作流 (6 个目录)
-│   └── advanced/           # 空目录 ⚠️
-├── prompts/                # 18 个 prompts (36 个文件)
-├── Reference/              # 参考资料（未被 Skills 引用）⚠️
+│   ├── zh/
+│   │   ├── testing-types/      # 中文测试类型技能
+│   │   └── testing-workflows/  # 中文工作流技能
+│   └── en/
+│       ├── testing-types/      # 英文测试类型技能
+│       └── testing-workflows/  # 英文工作流技能
+├── legacy-prompts/         # 旧版根级 prompts（正式入口在 skill 内 prompts/）
+├── resources/              # 公共参考素材池（非 skill 安装源）
 ├── README.md
 ├── FAQ.md
 └── CONTRIBUTING.md
 ```
 
 #### 问题:
-1. **`skills/advanced/` 目录为空**
-   - 建议删除或填充内容
-   - 如果保留，建议明确其用途
+1. **公共参考素材已迁移到 `resources/`**
+   - `resources/` 作为公共素材池保留
+   - 不作为 skill 独立安装的一部分
 
-2. **`Reference/` 目录未被使用**
-   - Skills 中没有引用 Reference 目录
-   - 建议整合到 Skills 中或删除
-
-3. **`prompts/` 目录与 Skills 分离**
+2. **`legacy-prompts/` 目录与 Skills 分离**
    - 每个 Skill 内部也有 prompts 目录
-   - 存在重复，建议统一管理
+   - 保留为旧版根级提示词对照，正式入口以 skill 内 `prompts/` 为准
+
+3. **Skills 已按语言分区**
+   - 正式 skill 来源为 `skills/zh/...` 和 `skills/en/...`
+   - 中英文同名 skill 应保持结构、metadata 和核心流程对齐
 
 #### 建议的优化结构:
 ```
 awesome-qa-skills/
 ├── skills/
-│   ├── testing-types/      # 15 个测试类型
-│   │   └── [skill-name]/
-│   │       ├── SKILL.md
-│   │       ├── prompts/
-│   │       ├── examples/
-│   │       └── templates/
-│   └── testing-workflows/  # 3 个工作流
+│   ├── zh/
+│   │   ├── testing-types/
+│   │   └── testing-workflows/
+│   └── en/
+│       ├── testing-types/
+│       └── testing-workflows/
+├── legacy-prompts/         # 旧版根级提示词归档
+├── resources/              # 公共参考素材池
 ├── docs/                   # 项目文档
-│   ├── guides/            # 使用指南
-│   ├── tutorials/         # 教程
-│   └── api/               # API 文档
-├── tools/                  # 工具脚本
-│   ├── cli/               # CLI 工具
-│   └── validators/        # 验证工具
+├── scripts/                # 安装、校验、生成脚本
+├── installers/             # 生成的一键安装器
 ├── README.md
 ├── FAQ.md
 └── CONTRIBUTING.md
@@ -312,9 +312,9 @@ awesome-qa-skills/
 
 ### P0 - 必须完成（1-2 周）
 
-1. **删除或填充空目录**
-   - [ ] 删除 `skills/advanced/` 或明确其用途
-   - [ ] 整合或删除 `Reference/` 目录
+1. **完成公共素材与旧版提示词整理**
+   - [ ] 按需整合 `resources/` 中仍有价值的素材
+   - [ ] 明确 `legacy-prompts/` 的保留周期或归档策略
 
 2. **补充关键代码示例**
    - [ ] test-case-writing: 增加 3-5 个用例模板
@@ -322,8 +322,8 @@ awesome-qa-skills/
    - [ ] ai-assisted-testing: 增加 2 个 AI 集成示例
 
 3. **统一 prompts 管理**
-   - [ ] 决定保留根目录 prompts 还是 Skills 内部 prompts
-   - [ ] 删除重复内容
+   - [ ] 正式入口统一以 skill 内 `prompts/` 为准
+   - [ ] 按计划清理或归档 `legacy-prompts/` 中的重复内容
 
 ### P1 - 重要（2-4 周）
 

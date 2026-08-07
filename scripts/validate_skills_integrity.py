@@ -116,6 +116,14 @@ def scan_skill(skill_dir: Path, repo_root: Path) -> list[Finding]:
     if not (skill_dir / "agents" / "openai.yaml").exists():
         findings.append(Finding("medium", "missing", rel_skill, rel_skill, "Missing agents/openai.yaml"))
 
+    evals = skill_dir / "evals"
+    eval_yaml = evals / "eval.yaml"
+    eval_cases = evals / "cases"
+    if not eval_yaml.exists():
+        findings.append(Finding("high", "missing", rel_skill, rel_skill, "Missing evals/eval.yaml"))
+    if not eval_cases.exists() or not any(eval_cases.glob("*.yaml")):
+        findings.append(Finding("high", "missing", rel_skill, rel_skill, "Missing evals/cases/*.yaml"))
+
     # Independence checks for markdown links
     for md in skill_dir.rglob("*.md"):
         if "node_modules" in md.parts:

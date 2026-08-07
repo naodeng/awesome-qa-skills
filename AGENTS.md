@@ -13,7 +13,8 @@
 | 工作流 | `testing-workflows/`（日常 / 迭代 / 发布 / 路由） |
 | 测试类型 | `testing-types/`（功能、API、性能、安全等） |
 | 安装脚本 | 根目录 `install-skills-*.sh` + `scripts/` + `installers/` |
-| 参考素材 | `Reference/`（勿与 skill 内 `references/` 混淆） |
+| 参考素材 | `resources/`（公共素材池，勿与 skill 内 `references/` 混淆） |
+| 旧版提示词 | `legacy-prompts/`（兼容旧根级提示词；正式入口以 skill 内 `prompts/` 为准） |
 
 在线站点：https://inaodeng.com/qaskills/
 
@@ -26,6 +27,7 @@ skills/{zh|en}/{testing-types|testing-workflows}/<skill-name>/
 ├── SKILL.md                 # 必需：入口 + YAML frontmatter
 ├── prompts/                 # 必需：主提示词
 ├── agents/openai.yaml       # 必需：OpenAI / Codex 元数据
+├── evals/                   # 必需：skill-up 评测用例
 ├── output-formats.md        # 可选
 ├── quick-start.md           # 可选
 ├── reference.md             # 可选（工作流映射等）
@@ -60,7 +62,7 @@ description: Use this skill when ...; triggers include 中文触发词 and Engli
 - `prompts/` 仍是完整执行规范；`SKILL.md` 不要做成只有「打开 prompts」的空壳。
 - 入口文件保持轻量、直接、可执行；深度规则、长示例、故障排查优先放到 `references/` 或 `examples/`。
 - 默认输出 Markdown；需要 Excel/CSV/JSON/Word 时指向 `output-formats.md`。
-- 关键 skill 可增加 `evals/`（skill-up：`eval.yaml` + `cases/`），详见 [skills/SKILL_AUTHORING.md](skills/SKILL_AUTHORING.md)。
+- 每个新增或修改的 skill 都必须配置并维护 `evals/`（skill-up：`eval.yaml` + `cases/*.yaml`）；至少覆盖成功路径、信息不完整、范围/风险边界三类用例。详见 [skills/SKILL_AUTHORING.md](skills/SKILL_AUTHORING.md)。
 
 参考现有 skill（如 `skills/zh/testing-types/functional-testing/`），不要照搬 [CONTRIBUTING.md](CONTRIBUTING.md) 里较旧的「basic/intermediate/advanced」三层 prompt 结构——当前以单主 prompt + 可选增强版 skill 为准。
 
@@ -136,10 +138,11 @@ bash scripts/setup-git-hooks.sh
 
 1. 在 `skills/zh/...` 与（通常）`skills/en/...` 建立同名目录。
 2. 写 `SKILL.md`、`prompts/<name>.md`、`agents/openai.yaml`。
-3. 按需补 `output-formats.md`、`examples/`、`scripts/`。
-4. 更新索引文档：`skills-index.md`、`skills/zh/README.md` / `skills/en/...`、根 `README.md`（若新增对外入口）。
-5. 若影响安装入口，检查 `scripts/` 与 `installers/`。
-6. 跑 `bash scripts/check_skills_quality.sh` 并修到绿。
+3. 补齐 `evals/eval.yaml` 和 `evals/cases/*.yaml`，新增 skill 不允许没有测试用例。
+4. 按需补 `output-formats.md`、`examples/`、`scripts/`。
+5. 更新索引文档：`skills-index.md`、`skills/zh/README.md` / `skills/en/...`、根 `README.md`（若新增对外入口）。
+6. 若影响安装入口，检查 `scripts/` 与 `installers/`。
+7. 跑 `bash scripts/check_skills_quality.sh` 并修到绿。
 
 增强版 skill（如 `*-plus`）视为独立 skill，仍遵循同一目录与元数据规范。
 
@@ -149,7 +152,7 @@ bash scripts/setup-git-hooks.sh
 - 示例 curl / 配置必须脱敏。
 - Prompt 与文档默认中文优先写 `skills/zh`，英文写 `skills/en`；术语（k6、Playwright、API）可保留英文。
 - 不要大范围重写无关 skill；改动范围只服务当前需求。
-- 不要把 `Reference/` 下的大段示例无必要地复制进多个 skill。
+- 不要把 `resources/` 下的大段示例无必要地复制进多个 skill。
 
 ## Commit & PR instructions
 

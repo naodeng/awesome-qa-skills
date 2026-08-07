@@ -1,0 +1,29 @@
+id: basic-success
+title: "Puppeteer: produce a risk-driven, executable plan"
+description: |
+  With realistic scope and constraints, produce a Puppeteer-ready plan with structure, data, assertions, execution, and CI notes.
+
+input:
+  prompt: |
+    Use ui-test-puppeteer.
+    Scope: release-critical login and checkout coverage for staging.
+    Tool: Puppeteer.
+    Constraints: keep the first version maintainable, CI-friendly, and focused on highest-risk regression paths.
+    Produce a plan with test structure, data/environment needs, assertions, execution command notes, and open questions.
+
+expect:
+  must_contain:
+    - "Puppeteer"
+    - "CI"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Scope"
+          - "Assertions"
+          - "Open Questions"

@@ -31,15 +31,15 @@ If you have ideas for new Skills:
 ##### 3.1 Skill Directory Structure
 
 ```
-skills/testing-types/your-skill/
+skills/en/testing-types/your-skill/
 ├── SKILL.md              # Skill metadata and description
 ├── quick-start.md        # Quick start guide
 ├── output-formats.md     # Output format documentation
 ├── prompts/              # Prompts directory
-│   ├── basic.md          # Basic level prompts
-│   ├── intermediate.md   # Intermediate level prompts
-│   └── advanced.md       # Advanced level prompts
-└── reference.md          # Reference documentation (optional)
+│   └── your-skill.md     # Primary prompt
+├── agents/openai.yaml    # OpenAI / Codex metadata
+├── evals/                # skill-up eval cases
+└── references/           # Deep reference materials (optional)
 ```
 
 ##### 3.2 SKILL.md Metadata Standards

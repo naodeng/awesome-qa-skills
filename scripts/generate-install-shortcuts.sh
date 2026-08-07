@@ -5,7 +5,6 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 SKILLS_ROOT="$REPO_ROOT/skills"
 TARGET_ROOT="$REPO_ROOT/installers"
-SOURCE_REPO="$REPO_ROOT"
 
 TOOLS=(codex cursor claudecode kiro opencode trae)
 LANGS=(zh en)
@@ -24,13 +23,13 @@ set -euo pipefail
 
 SCRIPT_DIR="\$(cd "\$(dirname "\${BASH_SOURCE[0]}")" && pwd)"
 LOCAL_REPO_ROOT="\$(cd "\$SCRIPT_DIR/../../../../" && pwd)"
-SOURCE_REPO="$SOURCE_REPO"
 
 if [[ -x "\$LOCAL_REPO_ROOT/install-skills-mac.sh" ]]; then
   exec bash "\$LOCAL_REPO_ROOT/install-skills-mac.sh" --tool "$tool" --lang "$lang" --skill "$skill" "\$@"
 fi
 
-exec bash "\$SOURCE_REPO/install-skills-mac.sh" --tool "$tool" --lang "$lang" --skill "$skill" "\$@"
+echo "Installer wrapper not found: \$LOCAL_REPO_ROOT/install-skills-mac.sh" >&2
+exit 1
 EOF
   chmod +x "$file"
 }
@@ -43,7 +42,6 @@ write_windows_script() {
 
   cat >"$file" <<EOF
 \$ScriptDir = Split-Path -Parent \$MyInvocation.MyCommand.Path
-\$SourceRepo = "$SOURCE_REPO"
 \$LocalRepoRoot = Resolve-Path (Join-Path \$ScriptDir "..\..\..\..") -ErrorAction SilentlyContinue
 \$LocalScript = if (\$LocalRepoRoot) { Join-Path \$LocalRepoRoot "install-skills-windows.ps1" } else { \$null }
 
@@ -52,8 +50,8 @@ if (\$LocalScript -and (Test-Path \$LocalScript)) {
   exit \$LASTEXITCODE
 }
 
-& (Join-Path \$SourceRepo "install-skills-windows.ps1") -Tool "$tool" -Lang "$lang" -Skill "$skill" @args
-exit \$LASTEXITCODE
+Write-Error "Installer wrapper not found: \$LocalScript"
+exit 1
 EOF
 }
 
@@ -82,6 +80,8 @@ cat >"$TARGET_ROOT/README.md" <<EOF
 # Skill Installers
 
 This directory contains one-click installers for every skill.
+
+Generated directory: edit `scripts/generate-install-shortcuts.sh`, then regenerate this directory instead of hand-editing installer files.
 
 Structure:
 

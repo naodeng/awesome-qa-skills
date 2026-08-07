@@ -1,0 +1,36 @@
+schema_version: v1alpha1
+
+environment:
+  type: none
+
+skills:
+  - source: local_path
+    path: .
+
+engine:
+  name: claude_code
+  # model is optional; omit to use engine default
+  # model:
+  #   provider: anthropic
+  #   name: claude-sonnet-4-6
+
+cases:
+  files:
+    - evals/cases/basic-success.yaml
+    - evals/cases/edge-incomplete-input.yaml
+    - evals/cases/edge-scope-boundary.yaml
+  defaults:
+    timeout_seconds: 180
+    max_turns: 8
+    expect:
+      exit_code: 0
+      must_not_contain:
+        - "TODO"
+        - "I cannot"
+        - "我无法"
+
+benchmark:
+  enabled: true
+
+report:
+  formats: [json]

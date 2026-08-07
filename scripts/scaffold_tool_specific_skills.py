@@ -622,6 +622,230 @@ Expected output:
 """
 
 
+def eval_yaml() -> str:
+    return """schema_version: v1alpha1
+
+environment:
+  type: none
+
+skills:
+  - source: local_path
+    path: .
+
+engine:
+  name: claude_code
+  # model is optional; omit to use engine default
+  # model:
+  #   provider: anthropic
+  #   name: claude-sonnet-4-6
+
+cases:
+  files:
+    - evals/cases/basic-success.yaml
+    - evals/cases/edge-incomplete-input.yaml
+    - evals/cases/edge-scope-boundary.yaml
+  defaults:
+    timeout_seconds: 180
+    max_turns: 8
+    expect:
+      exit_code: 0
+      must_not_contain:
+        - "TODO"
+        - "I cannot"
+        - "我无法"
+
+benchmark:
+  enabled: true
+
+report:
+  formats: [json]
+"""
+
+
+def eval_basic_success(spec: SkillSpec, lang: str) -> str:
+    if lang == "en":
+        return f"""id: basic-success
+title: "{spec.tool_en}: produce a risk-driven, executable plan"
+description: |
+  With realistic scope and constraints, produce a {spec.tool_en}-ready plan with structure, data, assertions, execution, and CI notes.
+
+input:
+  prompt: |
+    Use {spec.skill_id}.
+    Scope: release-critical login and checkout coverage for staging.
+    Tool: {spec.tool_en}.
+    Constraints: keep the first version maintainable, CI-friendly, and focused on highest-risk regression paths.
+    Produce a plan with test structure, data/environment needs, assertions, execution command notes, and open questions.
+
+expect:
+  must_contain:
+    - "{spec.tool_en}"
+    - "CI"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Scope"
+          - "Assertions"
+          - "Open Questions"
+"""
+    return f"""id: basic-success
+title: "{spec.tool_en}：输出风险驱动且可执行的方案"
+description: |
+  在有真实范围和约束时，输出可落地的 {spec.tool_en} 方案，覆盖结构、数据、断言、执行和 CI。
+
+input:
+  prompt: |
+    请使用 {spec.skill_id}。
+    范围：staging 环境下发布关键的登录和下单覆盖。
+    工具：{spec.tool_en}。
+    约束：第一版要可维护、适合 CI，并聚焦最高风险回归路径。
+    请输出测试结构、数据/环境需求、断言、执行命令说明和待确认问题。
+
+expect:
+  must_contain:
+    - "{spec.tool_en}"
+    - "CI"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "范围"
+          - "断言"
+          - "待确认"
+"""
+
+
+def eval_incomplete_input(spec: SkillSpec, lang: str) -> str:
+    if lang == "en":
+        return f"""id: edge-incomplete-input
+title: "{spec.tool_en}: mark assumptions when input is incomplete"
+description: |
+  With vague scope and missing environment details, still return a usable first version and list gaps.
+
+input:
+  prompt: |
+    Use {spec.skill_id}.
+    We want to add {spec.tool_en} tests soon, but we only know that checkout is risky.
+    No environment, auth, data, browser/load model, or CI details are confirmed.
+    Draft the first usable version and clearly separate assumptions from missing information.
+
+expect:
+  must_contain:
+    - "assumption"
+    - "missing"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Open Questions"
+          - "{spec.tool_en}"
+"""
+    return f"""id: edge-incomplete-input
+title: "{spec.tool_en}：输入不完整时标出假设"
+description: |
+  当范围模糊且环境信息缺失时，仍输出可用第一版，并列出缺口。
+
+input:
+  prompt: |
+    请使用 {spec.skill_id}。
+    我们准备补 {spec.tool_en} 测试，但目前只知道下单链路风险较高。
+    环境、鉴权、数据、浏览器/负载模型和 CI 细节都未确认。
+    请给出可用第一版，并清楚区分假设和缺失信息。
+
+expect:
+  must_contain:
+    - "假设"
+    - "缺失"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "待确认"
+          - "{spec.tool_en}"
+"""
+
+
+def eval_scope_boundary(spec: SkillSpec, lang: str) -> str:
+    if lang == "en":
+        return f"""id: edge-scope-boundary
+title: "{spec.tool_en}: stay inside the selected tool boundary"
+description: |
+  When neighboring tools are requested under this skill, keep the deliverable centered on {spec.tool_en} and explain the boundary.
+
+input:
+  prompt: |
+    I activated {spec.skill_id}, but also asked for a complete Postman collection, Playwright suite, and JMeter test plan at the same time.
+    Target flow: login and checkout.
+    Correct the scope for this skill: deliver the {spec.tool_en} plan first, explain what is out of scope, and list neighbor skills/tools to use separately.
+
+expect:
+  must_contain:
+    - "{spec.tool_en}"
+    - "scope"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "Centers the answer on the activated {spec.tool_en} skill instead of mixing all neighboring tool deliverables"
+    - "Explains which requested outputs are out of scope or should be handled by separate skills"
+    - "Still provides a useful first plan and open questions"
+  pass_threshold: 0.67
+"""
+    return f"""id: edge-scope-boundary
+title: "{spec.tool_en}：保持当前工具边界"
+description: |
+  当用户在本技能下同时要求相邻工具产物时，输出应聚焦 {spec.tool_en}，并说明边界。
+
+input:
+  prompt: |
+    我启用了 {spec.skill_id}，但同时要求完整 Postman collection、Playwright suite 和 JMeter test plan。
+    目标流程：登录和下单。
+    请修正本技能范围：先交付 {spec.tool_en} 方案，说明哪些内容超出本技能范围，并列出应另行使用的相邻技能/工具。
+
+expect:
+  must_contain:
+    - "{spec.tool_en}"
+    - "范围"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "回答聚焦已启用的 {spec.tool_en} 技能，而不是混杂所有相邻工具产物"
+    - "说明哪些请求产物超出范围或应交给其他技能处理"
+    - "仍然给出有用的第一版方案和待确认问题"
+  pass_threshold: 0.67
+"""
+
+
 def run_script(spec: SkillSpec) -> str:
     return f"""#!/usr/bin/env bash
 set -euo pipefail
@@ -659,6 +883,10 @@ def main() -> int:
             write(base / "references" / "framework-spec.md", framework_spec(spec, lang))
             write(base / "references" / "setup-and-ci.md", setup_ci(spec, lang))
             write(base / "scripts" / "run-tests.sh", run_script(spec), executable=True)
+            write(base / "evals" / "eval.yaml", eval_yaml())
+            write(base / "evals" / "cases" / "basic-success.yaml", eval_basic_success(spec, lang))
+            write(base / "evals" / "cases" / "edge-incomplete-input.yaml", eval_incomplete_input(spec, lang))
+            write(base / "evals" / "cases" / "edge-scope-boundary.yaml", eval_scope_boundary(spec, lang))
     print(f"scaffolded_skills={len(SKILLS) * 2}")
     return 0
 

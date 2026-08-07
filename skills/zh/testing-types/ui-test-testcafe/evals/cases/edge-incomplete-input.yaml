@@ -1,0 +1,27 @@
+id: edge-incomplete-input
+title: "TestCafe：输入不完整时标出假设"
+description: |
+  当范围模糊且环境信息缺失时，仍输出可用第一版，并列出缺口。
+
+input:
+  prompt: |
+    请使用 ui-test-testcafe。
+    我们准备补 TestCafe 测试，但目前只知道下单链路风险较高。
+    环境、鉴权、数据、浏览器/负载模型和 CI 细节都未确认。
+    请给出可用第一版，并清楚区分假设和缺失信息。
+
+expect:
+  must_contain:
+    - "假设"
+    - "缺失"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "待确认"
+          - "TestCafe"

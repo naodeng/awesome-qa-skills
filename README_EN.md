@@ -172,6 +172,8 @@ awesome-qa-skills/
 │   └── en/                      # English skills (same shape)
 ├── scripts/                     # Install, validate, and eval helpers
 ├── installers/                  # Generated per-skill / per-tool shortcuts
+├── resources/                   # Shared reference materials, not an install source
+├── legacy-prompts/              # Legacy root prompts; official prompts live inside skills
 ├── AGENTS.md                    # Conventions for coding agents
 ├── skills-index.md              # Full skill index
 ├── README.md / README_EN.md

@@ -2,9 +2,11 @@
 
 This directory contains one-click installers for every skill.
 
+Generated directory: edit `scripts/generate-install-shortcuts.sh`, then regenerate this directory instead of hand-editing installer files.
+
 Structure:
 
-```
+```text
 installers/{lang}/{skill-name}/{os}/{tool-script}
 ```
 
@@ -29,5 +31,5 @@ Supported systems:
 - mac
 - windows
 
-Generated skills: 74
-Generated scripts: 888
+Generated skills: 76
+Generated scripts: 912

@@ -151,5 +151,5 @@ skills/{zh|en}/.../<skill>/
 ## 不在本计划范围
 
 - 强制接入 GitHub Action 跑 skill-up（需密钥与 runner 镜像，另开 PR）
-- 重写 `Reference/` 或安装器大改
+- 重写 `resources/` 或安装器大改
 - 把 prompts 合并进 SKILL.md 导致失去 `prompts/` 校验约定

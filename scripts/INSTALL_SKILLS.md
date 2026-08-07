@@ -89,7 +89,7 @@ powershell -ExecutionPolicy Bypass -File .\scripts\install-skills-windows.ps1 -T
 - Per-skill one-click installers are generated under:
   - `installers/{lang}/{skill-name}/mac/{tool}.sh`
   - `installers/{lang}/{skill-name}/windows/{tool}.ps1`
-  - These shortcut installers can still run after being copied outside the repository.
+  - These shortcut installers are generated files and should be run from this repository checkout so they can resolve `skills/{lang}/...` by relative path. Use the root scripts when you need a custom destination or a portable command.
 - `--skill` uses canonical skill names from language directories.
   - Chinese example: `functional-testing`
   - English example: `functional-testing`

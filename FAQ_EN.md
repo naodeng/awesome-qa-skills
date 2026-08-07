@@ -25,7 +25,7 @@ A testing skills library designed specifically for AI coding assistants, contain
 git clone https://github.com/naodeng/awesome-qa-skills.git
 
 # 2. Copy needed skill
-cp -r skills/testing-types/functional-testing ~/.cursor/skills/
+cp -r skills/en/testing-types/functional-testing ~/.cursor/skills/
 
 # 3. Use in AI tool
 @skill functional-testing
@@ -48,17 +48,17 @@ Yes! Skills are designed to be composable. Check [skills-graph.md](skills-graph.
 
 ```bash
 # Project level (recommended)
-cp -r skills/testing-types/functional-testing /path/to/your/project/.cursor/skills/
+cp -r skills/en/testing-types/functional-testing /path/to/your/project/.cursor/skills/
 
 # User level (global)
-cp -r skills/testing-types/functional-testing ~/.cursor/skills/
+cp -r skills/en/testing-types/functional-testing ~/.cursor/skills/
 ```
 
 #### 7. How to install to Claude Code?
 
 ```bash
 mkdir -p .claude/skills
-cp -r skills/testing-types/functional-testing .claude/skills/
+cp -r skills/en/testing-types/functional-testing .claude/skills/
 ```
 
 #### 8. How to install to Kiro?
@@ -66,11 +66,11 @@ cp -r skills/testing-types/functional-testing .claude/skills/
 ```bash
 # Project level
 mkdir -p .kiro/skills
-cp -r skills/testing-types/functional-testing .kiro/skills/
+cp -r skills/en/testing-types/functional-testing .kiro/skills/
 
 # Global
 mkdir -p ~/.kiro/skills
-cp -r skills/testing-types/functional-testing ~/.kiro/skills/
+cp -r skills/en/testing-types/functional-testing ~/.kiro/skills/
 ```
 
 #### 9. How to update skills?
@@ -81,7 +81,7 @@ cd ai-testing-assistant-skills
 git pull origin main
 
 # 2. Re-copy skills
-cp -r skills/testing-types/functional-testing /path/to/your/project/.cursor/skills/
+cp -r skills/en/testing-types/functional-testing /path/to/your/project/.cursor/skills/
 ```
 
 #### 10. How to customize skills?

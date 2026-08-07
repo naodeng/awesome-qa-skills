@@ -1,0 +1,27 @@
+id: edge-scope-boundary
+title: "Postman: stay inside the selected tool boundary"
+description: |
+  When neighboring tools are requested under this skill, keep the deliverable centered on Postman and explain the boundary.
+
+input:
+  prompt: |
+    I activated api-test-postman, but also asked for a complete Postman collection, Playwright suite, and JMeter test plan at the same time.
+    Target flow: login and checkout.
+    Correct the scope for this skill: deliver the Postman plan first, explain what is out of scope, and list neighbor skills/tools to use separately.
+
+expect:
+  must_contain:
+    - "Postman"
+    - "scope"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "Centers the answer on the activated Postman skill instead of mixing all neighboring tool deliverables"
+    - "Explains which requested outputs are out of scope or should be handled by separate skills"
+    - "Still provides a useful first plan and open questions"
+  pass_threshold: 0.67

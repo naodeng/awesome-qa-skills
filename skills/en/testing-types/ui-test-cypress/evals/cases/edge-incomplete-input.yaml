@@ -1,0 +1,27 @@
+id: edge-incomplete-input
+title: "Cypress: mark assumptions when input is incomplete"
+description: |
+  With vague scope and missing environment details, still return a usable first version and list gaps.
+
+input:
+  prompt: |
+    Use ui-test-cypress.
+    We want to add Cypress tests soon, but we only know that checkout is risky.
+    No environment, auth, data, browser/load model, or CI details are confirmed.
+    Draft the first usable version and clearly separate assumptions from missing information.
+
+expect:
+  must_contain:
+    - "assumption"
+    - "missing"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Open Questions"
+          - "Cypress"

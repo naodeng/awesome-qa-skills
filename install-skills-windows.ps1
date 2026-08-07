@@ -1,5 +1,4 @@
 $ScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
-$SourceRepo = "/Users/nao.deng/awsomeCode/awesome-qa-skills"
 $LocalScript = Join-Path $ScriptDir "scripts\install-skills-windows.ps1"
 
 if (Test-Path $LocalScript) {
@@ -7,5 +6,5 @@ if (Test-Path $LocalScript) {
   exit $LASTEXITCODE
 }
 
-& (Join-Path $SourceRepo "scripts\install-skills-windows.ps1") @args
-exit $LASTEXITCODE
+Write-Error "Installer implementation not found: $LocalScript"
+exit 1

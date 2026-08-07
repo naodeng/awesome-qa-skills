@@ -172,6 +172,8 @@ awesome-qa-skills/
 │   └── en/                      # 英文技能（结构同上）
 ├── scripts/                     # 安装、校验、评测辅助脚本
 ├── installers/                  # 按 skill / 工具生成的安装快捷脚本
+├── resources/                   # 公共参考素材池（非 skill 安装源）
+├── legacy-prompts/              # 旧版根级提示词（正式入口见各 skill 内 prompts/）
 ├── AGENTS.md                    # Coding Agent 操作约定
 ├── skills-index.md              # 全量技能索引
 ├── README.md / README_EN.md
