@@ -1,7 +1,6 @@
 # Skill Installers
 
 This directory contains one-click installers for every skill.
-These installers can run both inside the repository and after being copied elsewhere.
 
 Structure:
 
@@ -30,5 +29,5 @@ Supported systems:
 - mac
 - windows
 
-Generated skills: 58
-Generated scripts: 696
+Generated skills: 74
+Generated scripts: 888
