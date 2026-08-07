@@ -58,6 +58,7 @@ description: Use this skill when ...; triggers include 中文触发词 and Engli
 - `description`：第三人称祈使（`Use this skill when...`）；同时写清 **做什么** 与 **何时用**；包含触发词；宜短于 1024 字符。
 - 正文保持精简，并包含：执行流程、核心约束、**按需加载**（写清何时读 `prompts/` / `references/` / `examples/` / `scripts/`）、交付前自检、常见误区。
 - `prompts/` 仍是完整执行规范；`SKILL.md` 不要做成只有「打开 prompts」的空壳。
+- 入口文件保持轻量、直接、可执行；深度规则、长示例、故障排查优先放到 `references/` 或 `examples/`。
 - 默认输出 Markdown；需要 Excel/CSV/JSON/Word 时指向 `output-formats.md`。
 - 关键 skill 可增加 `evals/`（skill-up：`eval.yaml` + `cases/`），详见 [skills/SKILL_AUTHORING.md](skills/SKILL_AUTHORING.md)。
 
@@ -121,6 +122,8 @@ bash scripts/install-skills-mac.sh --tool cursor --lang zh --dry-run
 bash scripts/generate-install-shortcuts.sh   # 若改了安装器生成逻辑
 ```
 
+改脚本、安装器或目录生成逻辑后，至少跑一次相关命令做基本验证，确认没有改坏安装路径、语言分区或工具名。
+
 启用 git hook（可选）：
 
 ```bash
@@ -161,7 +164,7 @@ bash scripts/setup-git-hooks.sh
 | 问题 | 文档 |
 | --- | --- |
 | 怎么用 / 装 skill | [README.md](README.md)、[scripts/INSTALL_SKILLS.md](scripts/INSTALL_SKILLS.md) |
-| 目录规范 | [skills/DIRECTORY_GUIDE.md](skills/DIRECTORY_GUIDE.md) |
+| 目录规范 | [skills/DIRECTORY_GUIDE.md](skills/DIRECTORY_GUIDE.md)、[skills/SKILL_STYLE_GUIDE.md](skills/SKILL_STYLE_GUIDE.md) |
 | 贡献流程 | [CONTRIBUTING.md](CONTRIBUTING.md) |
 | 常见问题 | [FAQ.md](FAQ.md) |
 | 技能总览 | [skills-index.md](skills-index.md) |
