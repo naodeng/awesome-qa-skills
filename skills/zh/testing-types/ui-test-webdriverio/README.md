@@ -1,18 +1,18 @@
 # ui-test-webdriverio (ZH)
 
-## Skill Overview
+## Skill 介绍
 
 设计 WebdriverIO 套件，覆盖配置、services、runner、Page Object、capabilities 和 reporters。
 
-## How to Use
+## 如何使用
 
-1. Open `SKILL.md` in this folder and confirm this skill fits your task.
-2. In your AI tool, call `@skill ui-test-webdriverio`, then add your real project context and goal.
-3. If you need a specific output shape, include it directly in your request.
+1. 打开当前目录下的 `SKILL.md`，先确认这个技能是否匹配你的任务。
+2. 在 AI 工具里调用 `@skill ui-test-webdriverio`，再补充你的真实业务背景和目标。
+3. 如果你有格式要求（如表格、清单、报告），把要求直接写在需求里。
 
-## One-Click Install Script
+## 一键安装脚本
 
-Run from the repository root:
+在仓库根目录执行：
 
 ### macOS / Linux
 

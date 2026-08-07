@@ -393,14 +393,40 @@ Return the result in this order:
 
 
 def readme_md(spec: SkillSpec, lang: str) -> str:
-    title = f"{spec.skill_id} ({'EN' if lang == 'en' else 'ZH'})"
-    overview = spec.short_en if lang == "en" else spec.short_zh
-    install_lang = "en" if lang == "en" else "zh"
-    return f"""# {title}
+    if lang == "zh":
+        return f"""# {spec.skill_id} (ZH)
+
+## Skill 介绍
+
+{spec.short_zh}
+
+## 如何使用
+
+1. 打开当前目录下的 `SKILL.md`，先确认这个技能是否匹配你的任务。
+2. 在 AI 工具里调用 `@skill {spec.skill_id}`，再补充你的真实业务背景和目标。
+3. 如果你有格式要求（如表格、清单、报告），把要求直接写在需求里。
+
+## 一键安装脚本
+
+在仓库根目录执行：
+
+### macOS / Linux
+
+```bash
+bash ./scripts/install-skills-mac.sh --tool codex --lang zh --skill {spec.skill_id}
+```
+
+### Windows PowerShell
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\\scripts\\install-skills-windows.ps1 -Tool codex -Lang zh -Skill {spec.skill_id}
+```
+"""
+    return f"""# {spec.skill_id} (EN)
 
 ## Skill Overview
 
-{overview}
+{spec.short_en}
 
 ## How to Use
 
@@ -415,13 +441,13 @@ Run from the repository root:
 ### macOS / Linux
 
 ```bash
-bash ./scripts/install-skills-mac.sh --tool codex --lang {install_lang} --skill {spec.skill_id}
+bash ./scripts/install-skills-mac.sh --tool codex --lang en --skill {spec.skill_id}
 ```
 
 ### Windows PowerShell
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File .\\scripts\\install-skills-windows.ps1 -Tool codex -Lang {install_lang} -Skill {spec.skill_id}
+powershell -ExecutionPolicy Bypass -File .\\scripts\\install-skills-windows.ps1 -Tool codex -Lang en -Skill {spec.skill_id}
 ```
 """
 
