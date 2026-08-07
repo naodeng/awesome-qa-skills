@@ -5,9 +5,9 @@
 按语言分区的 **AI 测试辅助技能库**（Agent Skills）。面向 Codex、Cursor、Claude Code、Kiro、OpenCode、Trae 等工具，提供可独立安装、可组合调用的测试工作流与测试类型技能。
 
 [![License: GPL-3.0](https://img.shields.io/badge/License-GPL%203.0-blue.svg)](./LICENSE)
-[![Skills](https://img.shields.io/badge/skills-74%20(zh%2Ben)-0A7EA4)](./skills-index.md)
+[![Skills](https://img.shields.io/badge/skills-76%20(zh%2Ben)-0A7EA4)](./skills-index.md)
 [![Workflows](https://img.shields.io/badge/workflows-4-informational)](./skills/zh/testing-workflows/)
-[![Testing types](https://img.shields.io/badge/testing%20types-33-informational)](./skills/zh/testing-types/)
+[![Testing types](https://img.shields.io/badge/testing%20types-34-informational)](./skills/zh/testing-types/)
 
 **在线站点：** [https://inaodeng.com/qaskills/](https://inaodeng.com/qaskills/)
 
@@ -19,7 +19,7 @@
 | --- | --- |
 | 双语对齐 | `skills/zh` 与 `skills/en` 同名目录、同结构，团队可按语言选用 |
 | 覆盖完整测试链 | 从需求分析、策略、用例、执行到缺陷与报告 |
-| 工作流 + 类型技能 | 日常 / 迭代 / 发布工作流，配合 33 类专项技能按需组合 |
+| 工作流 + 类型技能 | 日常 / 迭代 / 发布工作流，配合 34 类专项技能按需组合 |
 | 开箱即装 | 支持一键安装与单 skill 安装脚本 |
 | 可评测可演进 | 全量 skill 附带 `evals/`，可用 [skill-up](https://github.com/alibaba/skill-up) 校验与实跑 |
 
@@ -90,7 +90,7 @@ cp -r skills/zh/testing-types/functional-testing ~/.cursor/skills/
 
 ## 技能目录
 
-单语合计 **37** 个技能（4 工作流 + 33 测试类型）；中英双语共 **74** 个目录。完整索引见 [skills-index.md](skills-index.md)。
+单语合计 **38** 个技能（4 工作流 + 34 测试类型）；中英双语共 **76** 个目录。完整索引见 [skills-index.md](skills-index.md)。
 
 ### 工作流技能
 

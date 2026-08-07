@@ -5,9 +5,9 @@
 A language-partitioned **AI testing skills library** (Agent Skills) for Codex, Cursor, Claude Code, Kiro, OpenCode, Trae, and similar tools. It ships independently installable, composable skills for testing workflows and testing types.
 
 [![License: GPL-3.0](https://img.shields.io/badge/License-GPL%203.0-blue.svg)](./LICENSE)
-[![Skills](https://img.shields.io/badge/skills-74%20(zh%2Ben)-0A7EA4)](./skills-index.md)
+[![Skills](https://img.shields.io/badge/skills-76%20(zh%2Ben)-0A7EA4)](./skills-index.md)
 [![Workflows](https://img.shields.io/badge/workflows-4-informational)](./skills/en/testing-workflows/)
-[![Testing types](https://img.shields.io/badge/testing%20types-33-informational)](./skills/en/testing-types/)
+[![Testing types](https://img.shields.io/badge/testing%20types-34-informational)](./skills/en/testing-types/)
 
 **Online site:** [https://inaodeng.com/qaskills/](https://inaodeng.com/qaskills/)
 
@@ -19,7 +19,7 @@ A language-partitioned **AI testing skills library** (Agent Skills) for Codex, C
 | --- | --- |
 | Bilingual parity | `skills/zh` and `skills/en` share the same folder names and layout |
 | Full testing chain | From requirements and strategy through cases, execution, defects, and reporting |
-| Workflows + type skills | Daily / sprint / release workflows, composed with 33 specialized type skills |
+| Workflows + type skills | Daily / sprint / release workflows, composed with 34 specialized type skills |
 | Ready to install | One-click installers plus per-skill shortcut scripts |
 | Evaluable & evolvable | Every skill includes `evals/`; validate and run with [skill-up](https://github.com/alibaba/skill-up) |
 
@@ -90,7 +90,7 @@ I need a pre-release regression — which skills should I use?
 
 ## Skill catalog
 
-**37** skills per language (4 workflows + 33 testing types); **74** directories with zh/en parity. Full index: [skills-index.md](skills-index.md).
+**38** skills per language (4 workflows + 34 testing types); **76** directories with zh/en parity. Full index: [skills-index.md](skills-index.md).
 
 ### Workflow skills
 
