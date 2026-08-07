@@ -30,6 +30,9 @@
 - 需要报告输出 -> 加 `test-reporting` / `test-reporting`
 - 需要范围与优先级强化 -> 加 `test-strategy` / `test-strategy`
 - 需要缺陷产物质量提升 -> 加 `bug-reporting` / `bug-reporting`
+- API 已确定使用 Postman -> 加 `api-test-postman` / `api-test-postman`
+- UI 自动化已确定工具 -> 按工具加 `ui-test-selenium`、`ui-test-playwright`、`ui-test-testcafe`、`ui-test-cypress`、`ui-test-puppeteer` 或 `ui-test-webdriverio`
+- 性能测试已确定使用 JMeter -> 加 `performance-test-jmeter` / `performance-test-jmeter`
 
 ---
 
@@ -65,3 +68,6 @@
 - Need report output -> add `test-reporting` / `test-reporting`
 - Need stronger scope definition -> add `test-strategy` / `test-strategy`
 - Need defect artifact quality -> add `bug-reporting` / `bug-reporting`
+- Postman is the chosen API tool -> add `api-test-postman` / `api-test-postman`
+- UI automation tool is already chosen -> add `ui-test-selenium`, `ui-test-playwright`, `ui-test-testcafe`, `ui-test-cypress`, `ui-test-puppeteer`, or `ui-test-webdriverio`
+- JMeter is the chosen performance tool -> add `performance-test-jmeter` / `performance-test-jmeter`
