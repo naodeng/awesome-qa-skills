@@ -12,6 +12,9 @@ expect:
   must_contain:
     - "P0"
     - "优先级"
+    - "关键路径"
+    - "降级"
+    - "风险"
   must_not_contain:
     - "TODO"
     - "我无法"
@@ -23,3 +26,4 @@ judge:
         all:
           - "P0"
           - "降级"
+          - "关键路径"

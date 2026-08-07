@@ -14,6 +14,8 @@ expect:
   must_contain:
     - "priority"
     - "idempotency"
+    - "auth"
+    - "status code"
   must_not_contain:
     - "TODO"
     - "I cannot"
@@ -25,3 +27,5 @@ judge:
         all:
           - "Task Understanding"
           - "Risk"
+          - "auth"
+          - "status code"

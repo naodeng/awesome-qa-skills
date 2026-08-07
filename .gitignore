@@ -72,6 +72,9 @@ pnpm-debug.log*
 # =========================
 **/*-workspace/
 .skill-up-workspaces/
+/archive/
+/output.json
+/pytest_html_report.html
 
 # =========================
 # Archives

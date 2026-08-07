@@ -12,6 +12,9 @@ expect:
   must_contain:
     - "assumption"
     - "Open Questions"
+    - "gaps"
+    - "assumptions"
+    - "confirm"
   must_not_contain:
     - "TODO"
     - "I cannot"
@@ -23,3 +26,5 @@ judge:
         all:
           - "assumption"
           - "Open Questions"
+          - "gaps"
+          - "assumptions"

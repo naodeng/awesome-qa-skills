@@ -13,6 +13,8 @@ expect:
   must_contain:
     - "键盘"
     - "读屏"
+    - "WCAG"
+    - "屏幕阅读器"
   must_not_contain:
     - "TODO"
     - "我无法"
@@ -24,3 +26,5 @@ judge:
         all:
           - "任务理解"
           - "修复优先级"
+          - "WCAG"
+          - "键盘"

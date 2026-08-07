@@ -13,6 +13,9 @@ expect:
   must_contain:
     - "Manual"
     - "Exploratory"
+    - "exploratory"
+    - "notes"
+    - "risk"
   must_not_contain:
     - "TODO"
     - "I cannot"
@@ -24,3 +27,5 @@ judge:
         all:
           - "Task Understanding"
           - "Checklist"
+          - "exploratory"
+          - "notes"

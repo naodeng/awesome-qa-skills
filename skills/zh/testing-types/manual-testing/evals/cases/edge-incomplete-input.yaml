@@ -12,6 +12,8 @@ expect:
   must_contain:
     - "假设"
     - "待确认"
+    - "信息缺口"
+    - "需确认"
   must_not_contain:
     - "TODO"
     - "我无法"
@@ -23,3 +25,4 @@ judge:
         all:
           - "假设"
           - "待确认"
+          - "信息缺口"

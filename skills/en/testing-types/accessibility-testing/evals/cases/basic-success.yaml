@@ -13,6 +13,7 @@ expect:
   must_contain:
     - "keyboard"
     - "screen reader"
+    - "WCAG"
   must_not_contain:
     - "TODO"
     - "I cannot"
@@ -24,3 +25,5 @@ judge:
         all:
           - "Task Understanding"
           - "Priority"
+          - "WCAG"
+          - "keyboard"

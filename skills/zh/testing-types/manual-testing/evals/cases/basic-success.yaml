@@ -13,6 +13,8 @@ expect:
   must_contain:
     - "手工"
     - "探索"
+    - "记录"
+    - "风险"
   must_not_contain:
     - "TODO"
     - "我无法"
@@ -24,3 +26,5 @@ judge:
         all:
           - "任务理解"
           - "执行清单"
+          - "探索"
+          - "记录"

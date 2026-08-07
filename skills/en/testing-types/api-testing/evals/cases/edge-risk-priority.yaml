@@ -12,6 +12,9 @@ expect:
   must_contain:
     - "P0"
     - "payment"
+    - "error code"
+    - "priority"
+    - "regression"
   must_not_contain:
     - "TODO"
     - "I cannot"
@@ -23,3 +26,5 @@ judge:
         all:
           - "P0"
           - "defer"
+          - "error code"
+          - "priority"

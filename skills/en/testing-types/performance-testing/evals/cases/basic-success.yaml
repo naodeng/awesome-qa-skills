@@ -14,6 +14,9 @@ expect:
   must_contain:
     - "scenario"
     - "threshold"
+    - "metric"
+    - "load model"
+    - "bottleneck"
   must_not_contain:
     - "TODO"
     - "I cannot"
@@ -25,3 +28,5 @@ judge:
         all:
           - "Task Understanding"
           - "Performance Risk"
+          - "metric"
+          - "load model"

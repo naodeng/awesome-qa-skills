@@ -15,6 +15,9 @@ expect:
   must_contain:
     - "priority"
     - "payment"
+    - "boundary"
+    - "negative"
+    - "assumption"
   must_not_contain:
     - "TODO"
     - "I cannot"
@@ -26,3 +29,5 @@ judge:
         all:
           - "Task Understanding"
           - "Risk"
+          - "boundary"
+          - "negative"

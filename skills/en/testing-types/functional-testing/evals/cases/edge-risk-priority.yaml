@@ -12,6 +12,9 @@ expect:
   must_contain:
     - "P0"
     - "priority"
+    - "critical path"
+    - "defer"
+    - "risk"
   must_not_contain:
     - "TODO"
     - "I cannot"
@@ -23,3 +26,4 @@ judge:
         all:
           - "P0"
           - "defer"
+          - "critical path"

@@ -14,6 +14,8 @@ expect:
   must_contain:
     - "优先级"
     - "幂等"
+    - "鉴权"
+    - "状态码"
   must_not_contain:
     - "TODO"
     - "我无法"
@@ -25,3 +27,5 @@ judge:
         all:
           - "任务理解"
           - "风险"
+          - "鉴权"
+          - "状态码"

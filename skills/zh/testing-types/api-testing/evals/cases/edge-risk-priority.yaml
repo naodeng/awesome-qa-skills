@@ -12,6 +12,9 @@ expect:
   must_contain:
     - "P0"
     - "支付"
+    - "异常码"
+    - "优先级"
+    - "回归"
   must_not_contain:
     - "TODO"
     - "我无法"
@@ -23,3 +26,5 @@ judge:
         all:
           - "P0"
           - "降级"
+          - "异常码"
+          - "优先级"

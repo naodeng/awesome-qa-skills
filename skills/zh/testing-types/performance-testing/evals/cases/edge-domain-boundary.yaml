@@ -12,6 +12,9 @@ expect:
   must_contain:
     - "性能"
     - "安全"
+    - "范围"
+    - "基线"
+    - "不归因"
   must_not_contain:
     - "TODO"
     - "我无法"
@@ -23,3 +26,4 @@ judge:
         all:
           - "场景"
           - "范围"
+          - "基线"

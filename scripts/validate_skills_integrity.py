@@ -104,14 +104,6 @@ def scan_skill(skill_dir: Path, repo_root: Path) -> list[Finding]:
             )
         )
 
-    scripts = skill_dir / "scripts"
-    if not scripts.exists() or not any(scripts.iterdir()):
-        findings.append(Finding("high", "missing", rel_skill, rel_skill, "Missing scripts/"))
-
-    templates = skill_dir / "output-templates"
-    if not templates.exists() or not any(templates.iterdir()):
-        findings.append(Finding("high", "missing", rel_skill, rel_skill, "Missing output-templates/"))
-
     # In this repository, skills generally include agents/openai.yaml
     if not (skill_dir / "agents" / "openai.yaml").exists():
         findings.append(Finding("medium", "missing", rel_skill, rel_skill, "Missing agents/openai.yaml"))

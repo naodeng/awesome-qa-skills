@@ -1,437 +1,76 @@
-# QA Skills 专业评审报告
+# QA Skills 项目评审报告
 
-**评审日期**: 2026-02-10  
-**评审人**: QA 专家 & Skill 架构师  
-**项目**: AI Testing Assistant Skills (awesome-qa-skills)
-
----
-
-## 📊 执行摘要
-
-### 整体评分: ⭐⭐⭐⭐☆ (4.2/5.0)
-
-**项目优势**:
-- ✅ 完整的测试类型覆盖（15 个测试类型 + 3 个工作流）
-- ✅ 中英文双语支持，国际化完善
-- ✅ 结构化的 Skill 设计，元数据规范
-- ✅ 丰富的代码示例和最佳实践
-- ✅ 清晰的依赖关系和推荐组合
-
-**需要改进**:
-- ⚠️ 部分 Skills 缺少实际代码示例
-- ⚠️ 工作流 Skills 与测试类型 Skills 的集成度可提升
-- ⚠️ 缺少 Skills 使用效果的度量机制
-- ⚠️ 部分高级特性（AI 辅助）内容较薄弱
+**评审日期**：2026-08-07
+**项目**：awesome-qa-skills
+**范围**：仓库结构、skill 双语对齐、eval 覆盖、质量脚本、文档治理
 
 ---
 
-## 🔍 详细评审
+## 当前状态
 
-### 1. 架构设计评审 ⭐⭐⭐⭐⭐ (5/5)
+- 当前仓库包含 76 个 skill 目录：中文 38 个、英文 38 个。
+- 单语技能包含 34 个测试类型与 4 个测试工作流。
+- `skills/zh` 与 `skills/en` 的 skill 目录名保持成对一致。
+- 每个 skill 均配置 `evals/eval.yaml` 与 `evals/cases/*.yaml`。
+- 本地质量门禁 `bash scripts/check_skills_quality.sh` 当前可通过。
 
-#### 优点:
-1. **清晰的分层架构**
-   - Level 0-6 的依赖层级设计合理
-   - 基础层 → 核心层 → 执行层 → 高级层的递进关系清晰
-   - 工作流层作为编排层的定位准确
+## 已完成优化
 
-2. **完善的依赖管理**
-   - `skills-graph.md` 提供了完整的依赖关系定义
-   - `skills-graph.md` 提供了可视化的依赖图
-   - 推荐组合（recommended_combinations）设计合理
+1. 核心 8 个测试类型 skill 的 eval 断言已增强：
+   - `functional-testing`
+   - `api-testing`
+   - `automation-testing`
+   - `manual-testing`
+   - `performance-testing`
+   - `security-testing`
+   - `mobile-testing`
+   - `accessibility-testing`
 
-3. **模块化设计**
-   - 每个 Skill 独立可用
-   - 支持灵活组合
-   - 避免了循环依赖
+2. 完整性校验规则已与项目文档对齐：
+   - `SKILL.md`、`prompts/`、`agents/openai.yaml`、`evals/` 继续作为必需项。
+   - `scripts/`、`output-templates/` 作为支持目录，不再被当作所有 skill 的硬性必需项。
+   - 已新增回归测试覆盖该规则。
 
-#### 建议:
-- 考虑添加 Skill 版本兼容性管理机制
-- 建议增加 Skill 之间的数据传递规范
+3. 旧版 2026-02-10 评审报告已归档到：
+   - `docs/archive/SKILLS_REVIEW_REPORT-2026-02-10.md`
 
----
+## 后续建议
 
-### 2. Skills 内容质量评审 ⭐⭐⭐⭐☆ (4/5)
+### P1：把质量门禁搬到 CI
 
-#### 2.1 测试类型 Skills (15个)
+当前 `.github` 目录没有质量 workflow，本地 pre-commit 需要开发者主动安装。建议新增 GitHub Actions，至少运行：
 
-##### 核心测试 Skills ⭐⭐⭐⭐⭐ (5/5)
-- **functional-testing**: 内容完整，包含代码示例、最佳实践、故障排除
-- **api-testing**: 提供 Postman/Newman 完整示例，工具选择指南清晰
-- **automation-testing**: Selenium + POM 示例完整，POM 最佳实践详细
-- **manual-testing**: 探索性测试指导完善
-
-**优点**:
-- 提供真实可运行的代码示例
-- 最佳实践部分详细且实用
-- 故障排除章节覆盖常见问题
-- 输出格式支持多样化（Markdown/Excel/CSV/JSON）
-
-##### 专项测试 Skills ⭐⭐⭐⭐☆ (4/5)
-- **performance-testing**: K6 示例完整，测试类型覆盖全面
-- **security-testing**: OWASP Top 10 覆盖完整，工具链完善
-- **accessibility-testing**: WCAG 标准覆盖详细，axe-core 集成示例完整
-- **mobile-testing**: Appium 示例完整，跨平台测试策略清晰
-
-**优点**:
-- 专业深度足够
-- 工具链推荐合理
-- 标准和规范引用准确
-
-**改进建议**:
-- **performance-testing**: 建议增加性能基线建立和性能回归测试的指导
-- **security-testing**: 建议增加安全测试报告模板和漏洞修复验证流程
-- **mobile-testing**: 建议增加真机测试 vs 模拟器测试的对比指导
-
-##### 测试管理 Skills ⭐⭐⭐⭐☆ (4/5)
-- **requirements-analysis**: 5W1H 框架完善，测试点识别方法清晰
-- **test-case-writing**: 用例模板规范，编写指导详细
-- **test-case-reviewer**: 评审维度完整，评分标准清晰
-- **bug-reporting**: 缺陷分类合理，根因分析方法实用
-- **test-reporting**: 报告类型覆盖全面，可视化建议实用
-- **test-strategy**: 风险评估方法完善，测试范围划分清晰
-
-**优点**:
-- 覆盖测试管理全生命周期
-- 提供实用的模板和检查清单
-- 方法论和最佳实践结合紧密
-
-**改进建议**:
-- **test-case-reviewer**: 建议增加自动化评审工具的集成指导
-- **test-reporting**: 建议增加测试度量指标的计算方法和基准值
-- **test-strategy**: 建议增加测试策略与项目阶段的匹配指导
-
-##### AI 辅助 Skills ⭐⭐⭐☆☆ (3/5)
-- **ai-assisted-testing**: 概念清晰，但实际应用案例较少
-
-**改进建议**:
-- 增加 AI 辅助测试数据生成的实际示例
-- 增加 AI 辅助缺陷预测的模型训练指导
-- 增加 AI 辅助测试用例优先级排序的算法说明
-- 增加与主流 AI 工具（ChatGPT、GitHub Copilot）的集成示例
-
-#### 2.2 工作流 Skills (3个) ⭐⭐⭐⭐☆ (4/5)
-
-- **daily-testing-workflow**: 日常活动覆盖完整，时间分配合理
-- **sprint-testing-workflow**: 敏捷迭代流程清晰，里程碑定义明确
-- **release-testing-workflow**: 发布检查清单完善，Go/No-Go 决策标准清晰
-
-**优点**:
-- 提供清晰的步骤追踪清单
-- 时间估算合理
-- 与测试类型 Skills 的关联明确
-
-**改进建议**:
-- 建议增加工作流执行的度量指标（如完成率、效率指标）
-- 建议增加工作流的自动化编排示例
-- 建议增加工作流的异常处理和回滚机制
-- 建议增加工作流与 CI/CD 的集成指导
-
----
-
-### 3. Prompts 质量评审 ⭐⭐⭐⭐⭐ (5/5)
-
-#### 优点:
-1. **结构化设计**
-   - Role-Context-Task 结构清晰
-   - 方法论部分详细且专业
-   - 输出格式规范明确
-
-2. **专业深度**
-   - 测试方法论覆盖全面（等价类、边界值、决策表等）
-   - 测试分类清晰（核心业务、UI、数据流等）
-   - 最佳实践实用性强
-
-3. **易用性**
-   - 使用说明清晰
-   - 复制即用，无需修改
-   - 支持多种输出格式
-
-#### 建议:
-- 考虑增加 Prompt 版本管理
-- 建议增加 Prompt 效果评估机制
-
----
-
-### 4. 代码示例评审 ⭐⭐⭐⭐☆ (4/5)
-
-#### 已有示例质量评估:
-
-| Skill | 示例 | 质量评分 | 评价 |
-|-------|------|---------|------|
-| functional-testing | Playwright 登录测试 | ⭐⭐⭐⭐⭐ | 完整、可运行、最佳实践完善 |
-| api-testing | Postman + Newman | ⭐⭐⭐⭐⭐ | 10个用例、文档详细、CI/CD 集成 |
-| automation-testing | Selenium + POM | ⭐⭐⭐⭐⭐ | 15+用例、架构清晰、截图功能完善 |
-| performance-testing | K6 负载测试 | ⭐⭐⭐⭐⭐ | 4种测试类型、自动化脚本、报告完善 |
-| security-testing | OWASP ZAP | ⭐⭐⭐⭐☆ | 基础示例完整，建议增加高级场景 |
-| accessibility-testing | axe + Playwright | ⭐⭐⭐⭐⭐ | WCAG 覆盖完整、报告详细 |
-| mobile-testing | Appium Android | ⭐⭐⭐⭐☆ | 基础示例完整，建议增加 iOS 示例 |
-
-#### 缺失示例:
-- **test-case-writing**: 缺少实际的测试用例模板示例
-- **test-case-reviewer**: 缺少评审工具的实现示例
-- **bug-reporting**: 缺少缺陷报告模板和工具集成示例
-- **test-reporting**: 缺少报告生成工具的实现示例
-- **test-strategy**: 缺少测试策略文档模板
-- **requirements-analysis**: 缺少需求分析工具的实现示例
-- **manual-testing**: 缺少探索性测试记录工具示例
-- **ai-assisted-testing**: 缺少 AI 工具集成的实际示例
-
-#### 建议:
-1. **优先级 P0（必须）**:
-   - 为 test-case-writing 增加 3-5 个不同场景的用例模板
-   - 为 bug-reporting 增加缺陷报告模板和 Jira/GitHub Issues 集成示例
-   - 为 ai-assisted-testing 增加至少 2 个实际的 AI 集成示例
-
-2. **优先级 P1（重要）**:
-   - 为 test-reporting 增加自动化报告生成工具（如 Allure、HTML Report）
-   - 为 test-strategy 增加测试策略文档模板（Word/Markdown）
-   - 为 manual-testing 增加探索性测试记录工具（如 Session-Based Testing）
-
-3. **优先级 P2（可选）**:
-   - 为 requirements-analysis 增加需求分析工具（如思维导图、追溯矩阵）
-   - 为 test-case-reviewer 增加自动化评审工具（如 Linter）
-
----
-
-### 5. 文档一致性评审 ⭐⭐⭐⭐⭐ (5/5)
-
-#### 优点:
-1. **元数据规范**
-   - 所有 Skills 的 YAML front matter 格式统一
-   - 版本号、更新日期、依赖关系标注清晰
-   - 标签系统完善
-
-2. **中英文同步**
-   - 36 个 Skill 目录（18 个中文 + 18 个英文）
-   - 内容完整同步
-   - 翻译质量高
-
-3. **文档结构**
-   - 所有 Skills 遵循统一的文档结构
-   - 章节标题一致
-   - 导航清晰
-
-#### 建议:
-- 建议增加文档版本控制和变更日志
-- 建议增加文档自动化检查工具（如 Markdown Linter）
-
----
-
-### 6. 可用性评审 ⭐⭐⭐⭐☆ (4/5)
-
-#### 优点:
-1. **快速上手**
-   - README 提供 5 分钟快速开始指南
-   - 安装步骤清晰
-   - 使用示例直观
-
-2. **多工具支持**
-   - 支持 Cursor、Claude Code、Kiro
-   - 提供不同工具的安装方法
-   - 兼容性好
-
-3. **FAQ 完善**
-   - 覆盖常见问题
-   - 中英文双语
-   - 解决方案详细
-
-#### 改进建议:
-1. **新手引导**
-   - 建议增加交互式教程（如 Getting Started Wizard）
-   - 建议增加视频教程链接
-   - 建议增加常见使用场景的快速模板
-
-2. **工具集成**
-   - 建议提供 VS Code Extension
-   - 建议提供 CLI 工具用于 Skill 管理
-   - 建议提供 Web UI 用于 Skill 浏览和搜索
-
-3. **社区支持**
-   - 建议增加 Discord/Slack 社区链接
-   - 建议增加贡献者指南的详细说明
-   - 建议增加 Skill 使用统计和反馈机制
-
----
-
-### 7. 项目结构评审 ⭐⭐⭐⭐☆ (4/5)
-
-#### 当前结构:
-```
-awesome-qa-skills/
-├── skills/
-│   ├── zh/
-│   │   ├── testing-types/      # 中文测试类型技能
-│   │   └── testing-workflows/  # 中文工作流技能
-│   └── en/
-│       ├── testing-types/      # 英文测试类型技能
-│       └── testing-workflows/  # 英文工作流技能
-├── legacy-prompts/         # 旧版根级 prompts（正式入口在 skill 内 prompts/）
-├── resources/              # 公共参考素材池（非 skill 安装源）
-├── README.md
-├── FAQ.md
-└── CONTRIBUTING.md
+```bash
+bash scripts/check_skills_quality.sh
+pytest tests/test_validate_skills_integrity.py -q
 ```
 
-#### 问题:
-1. **公共参考素材已迁移到 `resources/`**
-   - `resources/` 作为公共素材池保留
-   - 不作为 skill 独立安装的一部分
+### P1：让 skill-up eval 校验在 CI 中强制执行
 
-2. **`legacy-prompts/` 目录与 Skills 分离**
-   - 每个 Skill 内部也有 prompts 目录
-   - 保留为旧版根级提示词对照，正式入口以 skill 内 `prompts/` 为准
+当前 `skill-up` 不在 PATH 时，`scripts/validate_skill_evals.sh` 会提示跳过并返回成功。建议增加 CI 模式：
 
-3. **Skills 已按语言分区**
-   - 正式 skill 来源为 `skills/zh/...` 和 `skills/en/...`
-   - 中英文同名 skill 应保持结构、metadata 和核心流程对齐
-
-#### 建议的优化结构:
-```
-awesome-qa-skills/
-├── skills/
-│   ├── zh/
-│   │   ├── testing-types/
-│   │   └── testing-workflows/
-│   └── en/
-│       ├── testing-types/
-│       └── testing-workflows/
-├── legacy-prompts/         # 旧版根级提示词归档
-├── resources/              # 公共参考素材池
-├── docs/                   # 项目文档
-├── scripts/                # 安装、校验、生成脚本
-├── installers/             # 生成的一键安装器
-├── README.md
-├── FAQ.md
-└── CONTRIBUTING.md
+```bash
+REQUIRE_SKILL_UP=1 bash scripts/validate_skill_evals.sh
 ```
 
----
+当 `REQUIRE_SKILL_UP=1` 且 `skill-up` 缺失时应返回失败。
 
-## 🎯 优先级改进建议
+### P2：继续提升 eval 质量
 
-### P0 - 必须完成（1-2 周）
+核心 8 个 skill 已增强关键词断言。下一步建议把同样方法推广到工具专项 skill，并补充更接近真实产物质量的规则，例如：
 
-1. **完成公共素材与旧版提示词整理**
-   - [ ] 按需整合 `resources/` 中仍有价值的素材
-   - [ ] 明确 `legacy-prompts/` 的保留周期或归档策略
+- 是否区分确认事实、假设与信息缺口。
+- 是否避免编造接口、字段、环境和根因。
+- 是否给出优先级、范围边界和可交付物。
+- 是否覆盖边界、异常、安全、性能、兼容性等关键测试维度。
 
-2. **补充关键代码示例**
-   - [ ] test-case-writing: 增加 3-5 个用例模板
-   - [ ] bug-reporting: 增加缺陷报告模板和工具集成
-   - [ ] ai-assisted-testing: 增加 2 个 AI 集成示例
+### P2：治理生成物漂移
 
-3. **统一 prompts 管理**
-   - [ ] 正式入口统一以 skill 内 `prompts/` 为准
-   - [ ] 按计划清理或归档 `legacy-prompts/` 中的重复内容
+`installers/` 下存在大量由脚本生成的安装器文件。建议在 CI 中加入生成物漂移检查：
 
-### P1 - 重要（2-4 周）
+```bash
+bash scripts/generate-install-shortcuts.sh
+git diff --exit-code installers/
+```
 
-1. **增强工作流 Skills**
-   - [ ] 增加工作流执行度量指标
-   - [ ] 增加工作流自动化编排示例
-   - [ ] 增加工作流与 CI/CD 集成指导
-
-2. **完善 AI 辅助功能**
-   - [ ] 增加 AI 测试数据生成实例
-   - [ ] 增加 AI 缺陷预测模型
-   - [ ] 增加 AI 工具集成指南
-
-3. **增加工具支持**
-   - [ ] 开发 CLI 工具用于 Skill 管理
-   - [ ] 提供 VS Code Extension
-   - [ ] 提供 Web UI 用于 Skill 浏览
-
-### P2 - 可选（1-2 月）
-
-1. **增强社区功能**
-   - [ ] 建立 Discord/Slack 社区
-   - [ ] 增加 Skill 使用统计
-   - [ ] 增加用户反馈机制
-
-2. **增加高级特性**
-   - [ ] Skill 版本兼容性管理
-   - [ ] Skill 数据传递规范
-   - [ ] Skill 效果评估机制
-
-3. **完善文档**
-   - [ ] 增加视频教程
-   - [ ] 增加交互式教程
-   - [ ] 增加 API 文档
-
----
-
-## 📈 质量度量建议
-
-### 建议增加以下度量指标:
-
-1. **Skill 使用度量**
-   - Skill 使用次数
-   - Skill 使用时长
-   - Skill 成功率
-
-2. **Skill 质量度量**
-   - 代码示例完整性（有/无）
-   - 文档完整性评分（1-5）
-   - 用户满意度评分（1-5）
-
-3. **项目健康度量**
-   - 文档覆盖率（100%）
-   - 代码示例覆盖率（当前约 50%）
-   - 中英文同步率（100%）
-   - 依赖关系完整性（100%）
-
----
-
-## 🏆 最佳实践亮点
-
-1. **完整的测试类型覆盖**
-   - 15 个测试类型覆盖了 QA 工作的方方面面
-   - 从基础到高级，从手动到自动化，从功能到非功能
-
-2. **工作流驱动的设计**
-   - 3 个工作流 Skills 提供了实际工作场景的指导
-   - 将测试类型 Skills 串联成完整的工作流程
-
-3. **中英文双语支持**
-   - 36 个 Skill 目录，完整的中英文版本
-   - 适配全球团队使用
-
-4. **丰富的代码示例**
-   - 7 个高质量的代码示例
-   - 覆盖主流测试框架和工具
-
-5. **清晰的依赖关系**
-   - 依赖层级清晰（Level 0-6）
-   - 推荐组合合理
-   - 可视化依赖图完善
-
----
-
-## 📝 总结
-
-**awesome-qa-skills** 是一个**高质量、结构完整、专业深度足够**的 AI 测试辅助技能库。项目在架构设计、内容质量、文档规范方面表现优秀，特别是在测试类型覆盖、中英文双语支持、代码示例质量方面达到了行业领先水平。
-
-**主要优势**:
-- ✅ 完整的测试类型覆盖（15 个测试类型 + 3 个工作流）
-- ✅ 高质量的代码示例（7 个可运行示例）
-- ✅ 专业的测试方法论和最佳实践
-- ✅ 完善的中英文双语支持
-- ✅ 清晰的依赖关系和推荐组合
-
-**改进方向**:
-- 补充缺失的代码示例（特别是测试管理类 Skills）
-- 增强 AI 辅助功能的实际应用案例
-- 优化项目结构，删除冗余目录
-- 增加工具支持（CLI、VS Code Extension、Web UI）
-- 建立社区和反馈机制
-
-**推荐行动**:
-1. 立即执行 P0 优先级改进（1-2 周）
-2. 规划 P1 优先级改进（2-4 周）
-3. 长期规划 P2 优先级改进（1-2 月）
-
----
-
-**评审完成日期**: 2026-02-10  
-**下次评审建议**: 2026-03-10（1 个月后）
+这样可以避免手工修改生成文件后忘记同步生成脚本。

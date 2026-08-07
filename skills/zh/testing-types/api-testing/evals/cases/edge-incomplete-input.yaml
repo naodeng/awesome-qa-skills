@@ -12,6 +12,7 @@ expect:
   must_contain:
     - "假设"
     - "信息缺口"
+    - "需确认"
   must_not_contain:
     - "TODO"
     - "我无法"

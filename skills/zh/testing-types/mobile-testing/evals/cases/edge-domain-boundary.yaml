@@ -12,6 +12,9 @@ expect:
   must_contain:
     - "移动"
     - "网络"
+    - "范围"
+    - "真机"
+    - "模拟器"
   must_not_contain:
     - "TODO"
     - "我无法"
@@ -23,3 +26,5 @@ judge:
         all:
           - "设备矩阵"
           - "高风险"
+          - "范围"
+          - "真机"

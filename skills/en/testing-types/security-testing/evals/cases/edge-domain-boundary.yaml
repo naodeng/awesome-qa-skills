@@ -12,6 +12,9 @@ expect:
   must_contain:
     - "security"
     - "permission"
+    - "scope"
+    - "exploit"
+    - "validation"
   must_not_contain:
     - "TODO"
     - "I cannot"
@@ -23,3 +26,4 @@ judge:
         all:
           - "Priority"
           - "scope"
+          - "exploit"

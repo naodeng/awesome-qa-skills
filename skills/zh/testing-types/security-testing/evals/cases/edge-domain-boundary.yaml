@@ -12,6 +12,9 @@ expect:
   must_contain:
     - "安全"
     - "权限"
+    - "范围"
+    - "漏洞利用"
+    - "验证"
   must_not_contain:
     - "TODO"
     - "我无法"
@@ -23,3 +26,4 @@ judge:
         all:
           - "优先检查"
           - "范围"
+          - "漏洞利用"

@@ -12,6 +12,9 @@ expect:
   must_contain:
     - "mobile"
     - "network"
+    - "scope"
+    - "real device"
+    - "simulator"
   must_not_contain:
     - "TODO"
     - "I cannot"
@@ -23,3 +26,5 @@ judge:
         all:
           - "Device Matrix"
           - "High-Risk"
+          - "scope"
+          - "real device"
