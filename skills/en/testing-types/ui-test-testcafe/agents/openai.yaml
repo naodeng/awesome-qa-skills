@@ -1,0 +1,10 @@
+version: 1
+metadata:
+  key: "ui-test-testcafe"
+  last_verified: "2026-08-07"
+interface:
+  display_name: "UI Test TestCafe"
+  short_description: "Design TestCafe UI automation with fixtures, selectors, roles, browser matrix execution, and reports."
+  default_prompt: "Use ui-test-testcafe to complete the task with local prompts, references, and examples in this skill folder."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,10 @@
+version: 1
+metadata:
+  key: "performance-test-jmeter"
+  last_verified: "2026-08-07"
+interface:
+  display_name: "性能测试 JMeter"
+  short_description: "设计 JMeter 测试计划，覆盖 Thread Group、Sampler、数据集、断言、Timer、CLI 执行和 HTML 报告。"
+  default_prompt: "Use performance-test-jmeter to complete the task with local prompts, references, and examples in this skill folder."
+policy:
+  allow_implicit_invocation: true
