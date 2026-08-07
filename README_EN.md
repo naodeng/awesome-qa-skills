@@ -5,9 +5,9 @@
 A language-partitioned **AI testing skills library** (Agent Skills) for Codex, Cursor, Claude Code, Kiro, OpenCode, Trae, and similar tools. It ships independently installable, composable skills for testing workflows and testing types.
 
 [![License: GPL-3.0](https://img.shields.io/badge/License-GPL%203.0-blue.svg)](./LICENSE)
-[![Skills](https://img.shields.io/badge/skills-58%20(zh%2Ben)-0A7EA4)](./skills-index.md)
+[![Skills](https://img.shields.io/badge/skills-74%20(zh%2Ben)-0A7EA4)](./skills-index.md)
 [![Workflows](https://img.shields.io/badge/workflows-4-informational)](./skills/en/testing-workflows/)
-[![Testing types](https://img.shields.io/badge/testing%20types-25-informational)](./skills/en/testing-types/)
+[![Testing types](https://img.shields.io/badge/testing%20types-33-informational)](./skills/en/testing-types/)
 
 **Online site:** [https://inaodeng.com/qaskills/](https://inaodeng.com/qaskills/)
 
@@ -19,7 +19,7 @@ A language-partitioned **AI testing skills library** (Agent Skills) for Codex, C
 | --- | --- |
 | Bilingual parity | `skills/zh` and `skills/en` share the same folder names and layout |
 | Full testing chain | From requirements and strategy through cases, execution, defects, and reporting |
-| Workflows + type skills | Daily / sprint / release workflows, composed with 25 specialized type skills |
+| Workflows + type skills | Daily / sprint / release workflows, composed with 33 specialized type skills |
 | Ready to install | One-click installers plus per-skill shortcut scripts |
 | Evaluable & evolvable | Every skill includes `evals/`; validate and run with [skill-up](https://github.com/alibaba/skill-up) |
 
@@ -90,7 +90,7 @@ I need a pre-release regression — which skills should I use?
 
 ## Skill catalog
 
-**30** skills per language (4 workflows + 26 testing types); **60** directories with zh/en parity. Full index: [skills-index.md](skills-index.md).
+**37** skills per language (4 workflows + 33 testing types); **74** directories with zh/en parity. Full index: [skills-index.md](skills-index.md).
 
 ### Workflow skills
 
@@ -134,11 +134,19 @@ I need a pre-release regression — which skills should I use?
 | Skill | Path |
 | --- | --- |
 | API Test (Bruno) | [`api-test-bruno`](skills/en/testing-types/api-test-bruno/) |
+| API Test (Postman) | [`api-test-postman`](skills/en/testing-types/api-test-postman/) |
 | API Test (Pytest) | [`api-test-pytest`](skills/en/testing-types/api-test-pytest/) |
 | API Test (Rest Assured) | [`api-test-restassure`](skills/en/testing-types/api-test-restassure/) |
 | API Test (Supertest) | [`api-test-supertest`](skills/en/testing-types/api-test-supertest/) |
+| UI Test (Selenium) | [`ui-test-selenium`](skills/en/testing-types/ui-test-selenium/) |
+| UI Test (Playwright) | [`ui-test-playwright`](skills/en/testing-types/ui-test-playwright/) |
+| UI Test (TestCafe) | [`ui-test-testcafe`](skills/en/testing-types/ui-test-testcafe/) |
+| UI Test (Cypress) | [`ui-test-cypress`](skills/en/testing-types/ui-test-cypress/) |
+| UI Test (Puppeteer) | [`ui-test-puppeteer`](skills/en/testing-types/ui-test-puppeteer/) |
+| UI Test (WebdriverIO) | [`ui-test-webdriverio`](skills/en/testing-types/ui-test-webdriverio/) |
 | Performance Test (k6) | [`performance-test-k6`](skills/en/testing-types/performance-test-k6/) |
 | Performance Test (Gatling) | [`performance-test-gatling`](skills/en/testing-types/performance-test-gatling/) |
+| Performance Test (JMeter) | [`performance-test-jmeter`](skills/en/testing-types/performance-test-jmeter/) |
 
 #### Plus variants
 
