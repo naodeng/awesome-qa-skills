@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "qa-quality-perspective"
+interface:
+  display_name: "QA 质量视角"
+  short_description: "在质量各阶段基于证据评估可测试性、风险驱动覆盖、缺陷风险与质量结论边界。"
+  default_prompt: "Use the qa-quality-perspective skill with a valid stage and available evidence to produce a standalone QA quality report."
+policy:
+  allow_implicit_invocation: true

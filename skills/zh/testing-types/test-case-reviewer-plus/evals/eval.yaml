@@ -17,6 +17,7 @@ engine:
 cases:
   files:
     - evals/cases/basic-success.yaml
+    - evals/cases/edge-human-decision-boundary.yaml
     - evals/cases/edge-incomplete-input.yaml
     - evals/cases/edge-risk-priority.yaml
   defaults:

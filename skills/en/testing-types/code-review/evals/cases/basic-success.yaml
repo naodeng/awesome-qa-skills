@@ -6,8 +6,18 @@ description: |
 input:
   prompt: |
     Use code-review.
+    Code identity: repository payments-api, PR #317, commit a91c2e4, baseline main@81fb730.
     Business goal: mark order paid after successful payment callback.
-    Diff: callback calls orderService.markPaid(orderId) with no idempotency key and no current-state check.
+    This is the reviewable patch from the baseline to the commit:
+    ```diff
+    diff --git a/src/PaymentCallbackHandler.java b/src/PaymentCallbackHandler.java
+    @@ public void onPaymentSuccess(String callbackId, long orderId) {
+    -  if (!callbackLog.tryInsert(callbackId)) return;
+    -  Order order = orderRepository.get(orderId);
+    -  if (order.status() != OrderStatus.PENDING) return;
+       orderService.markPaid(orderId);
+    }
+    ```
     Stack: Java Spring + MySQL.
     Produce a severity-ranked review; separate facts from assumptions.
 
@@ -20,9 +30,11 @@ expect:
     - "I cannot"
 
 judge:
-  type: rule_based
-  success:
-    - output_contains:
-        all:
-          - "Risk"
-          - "Fix"
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "The finding is grounded in the `PaymentCallbackHandler.java` patch: `callbackLog.tryInsert(callbackId)` and the `PENDING` state guard were removed before `markPaid`, rather than relying on an oral risk summary outside the patch."
+    - "It ranks duplicate callback/state-transition risk as P0 and explains duplicate processing, state corruption, or financial impact without inventing whether `markPaid` has internal protection."
+    - "Fix guidance addresses the removed idempotency and state gates, such as restoring/replacing atomic callback registration and conditional state transition, while noting that transaction boundaries still require verification."
+    - "Facts and assumptions are separate, and the finding, location, impact, and fix remain evidence-traceable."
+  pass_threshold: 0.8

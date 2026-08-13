@@ -1,0 +1,18 @@
+id: basic-test-reporting
+title: 技术视角：根据版本化执行证据报告技术风险
+description: |
+  技术报告应只将已提供的执行与缺陷证据关联到技术维度。
+input:
+  prompt: |
+    请使用 technical-quality-perspective。
+    stage: test-reporting
+    build rc9 的执行记录 RUN-304 v2：API 合同 30/30 通过，数据恢复 7/8 通过；失败用例 TC-304-8 在主库切换后丢失最后一条更新。缺陷 DB-304 为 Open P1，未提供性能或安全记录。
+    请输出技术质量报告，区分已执行结果、缺失证据、影响和行动。
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "保留 rc9、RUN-304 v2、30/30、7/8、TC-304-8 和 DB-304 Open P1 的来源与状态。"
+    - "将主库切换丢失更新关联到数据一致性/恢复风险，并给出复测、修复或取证行动。"
+    - "明确性能和安全证据缺失，不推断这些维度已通过，不批准发布。"
+  pass_threshold: 0.8

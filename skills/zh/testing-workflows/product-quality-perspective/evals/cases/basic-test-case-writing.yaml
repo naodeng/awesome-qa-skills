@@ -1,0 +1,18 @@
+id: basic-test-case-writing
+title: 产品视角：为业务旅程提供可追溯场景
+description: |
+  产品视角应输出有需求来源的核心路径、规则和验收场景候选。
+input:
+  prompt: |
+    请使用 product-quality-perspective。
+    stage: test-case-writing
+    需求 REQ-45：仅订单所有者可在发货前取消；取消成功后状态为 Cancelled 并退回库存；已发货订单不可取消。
+    请给出产品视角的场景候选、风险和待确认问题，保留需求来源，不声称用例已执行。
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "候选场景覆盖订单所有者/非所有者、发货前/已发货和取消后状态与库存结果中的核心规则。"
+    - "每项建议可追溯到 REQ-45，并把未提供的退款、并发或错误文案等内容标为问题而非事实。"
+    - "不把场景候选写成已执行、已通过的测试结果。"
+  pass_threshold: 0.8

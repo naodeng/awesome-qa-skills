@@ -1,0 +1,18 @@
+id: basic-test-strategy-review
+title: "Product perspective: review strategy coverage of a critical business risk"
+description: |
+  The product perspective should check whether the strategy protects user value, business rules, and unacceptable risks.
+input:
+  prompt: |
+    Use product-quality-perspective.
+    stage: test-strategy-review
+    Requirement REQ-21 says a customer may cancel before shipment and receive a full refund. Strategy STR-21 covers ordering and payment but excludes cancellation and refund because of schedule pressure, with no recorded risk acceptance.
+    Produce a product-quality report with traceable strategy gaps, business impact, and revision actions.
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "Treats pre-shipment cancellation with a full refund as a supplied critical business rule and directly relates it to the exclusion in STR-21."
+    - "Explains the user-value and acceptance impact of omitting cancellation/refund, and requests coverage or a risk decision from an authorized role."
+    - "Does not claim tests ran or passed, or that final review approval occurred."
+  pass_threshold: 0.8

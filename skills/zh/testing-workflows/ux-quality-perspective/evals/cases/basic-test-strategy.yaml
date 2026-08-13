@@ -1,0 +1,18 @@
+id: basic-test-strategy
+title: UX 视角：为可追溯体验风险提供策略覆盖
+description: |
+  有 UI/UX 影响时，UX 应将用户任务、设备、输入方式和无障碍风险映射到策略。
+input:
+  prompt: |
+    请使用 ux-quality-perspective。
+    stage: test-strategy
+    产品材料 UX-201：结账页支持 320px 窄屏、桌面键盘操作和读屏；支付失败时错误摘要应获得焦点，已提供移动/桌面原型。
+    请输出 UX 质量报告，给出有证据的体验验证范围、方法、风险和行动。
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "将 320px 窄屏、键盘、读屏和失败后焦点行为映射到可执行的 UX 策略覆盖。"
+    - "保留 UX-201 和原型为证据来源，区分已知、假设和待确认的设备/辅助技术组合。"
+    - "不声称体验测试已执行或已通过。"
+  pass_threshold: 0.8

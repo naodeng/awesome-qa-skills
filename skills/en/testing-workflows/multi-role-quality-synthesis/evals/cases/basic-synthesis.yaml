@@ -1,0 +1,44 @@
+id: basic-synthesis
+title: "Multi-role synthesis: merges equivalent findings and preserves every source"
+description: |
+  Equivalent role findings should become one traceable normalized finding that retains every contributing source and states that no disagreements exist.
+
+input:
+  prompt: |
+    Prepare a requirements-analysis stage quality synthesis from the following two role reports.
+
+    Report 1:
+    source_id: SRC-PROD-001
+    stage: requirements-analysis
+    source_role: product
+    facts: The requirement says only "After registration, enter the home page."
+    evidence: PRD-17 section 3 has no user path after an email-verification failure.
+    findings: [P1] The acceptance path after an email-verification failure is undefined.
+    risks: A user may be unable to complete registration.
+    gaps: Failure-state acceptance criteria are missing.
+    questions: Can the user retry, or must they contact support?
+    actions: Product should add the failure path and acceptance criteria.
+    confidence: high
+
+    Report 2:
+    source_id: SRC-QA-001
+    stage: requirements-analysis
+    source_role: qa
+    facts: The current acceptance criteria cover only successful registration.
+    evidence: AC-REG-01 through AC-REG-03 are all success scenarios.
+    findings: [P1] The email-verification failure scenario has no testable acceptance criteria.
+    risks: The failure path cannot be tested.
+    gaps: Error states and retry rules are missing.
+    questions: What are the error message and retry limit?
+    actions: Add failure-scenario acceptance criteria before completing test design.
+    confidence: high
+
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "Merges the equivalent findings about missing email-verification-failure acceptance criteria into one normalized finding rather than listing them as unrelated duplicates."
+    - "The normalized finding cites both SRC-PROD-001 and SRC-QA-001 and retains product and qa as contributing roles; every other synthesized finding cites at least one input source_id."
+    - "Clearly separates Consensus, Disagreements, Blockers, Open Questions, and Actions; it includes a Disagreements section that explicitly says none exist when there is no material disagreement."
+    - "Does not introduce facts, evidence, severity, or a quality conclusion absent from the input reports."
+  pass_threshold: 0.8

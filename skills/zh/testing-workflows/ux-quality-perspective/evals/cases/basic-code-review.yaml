@@ -1,0 +1,18 @@
+id: basic-code-review
+title: UX 视角：根据 UI diff 评审交互与无障碍状态
+description: |
+  变更有可追溯 UI 影响时，UX 应根据代码证据限定发现。
+input:
+  prompt: |
+    请使用 ux-quality-perspective。
+    stage: code-review
+    PR #203 的 UI diff 在提交期间给按钮增加 `.disabled` 样式，但按钮仍可聚焦和触发，也没有 `disabled` 或 `aria-disabled`。要求 UX-203 说明提交期间必须防止重复操作并向辅助技术传达状态。
+    请输出 UX 质量报告，不扩展为后端安全或整体代码正确性结论。
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "基于 PR #203 和 UX-203 识别只有视觉 disabled 样式但仍可聚焦/触发且无无障碍状态的交互风险。"
+    - "说明重复操作与辅助技术用户影响，提出状态语义和验证方向。"
+    - "不断言后端、安全、整体代码或测试结果已被验证。"
+  pass_threshold: 0.8

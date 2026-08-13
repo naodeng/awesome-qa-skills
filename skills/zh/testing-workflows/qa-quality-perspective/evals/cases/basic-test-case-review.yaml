@@ -1,0 +1,18 @@
+id: basic-test-case-review
+title: QA 视角：评审用例的可执行性和追溯
+description: |
+  QA 应识别用例在步骤、预期、数据和风险覆盖上的具体缺口。
+input:
+  prompt: |
+    请使用 qa-quality-perspective。
+    stage: test-case-review
+    需求 REQ-105 要求三次登录失败后锁定。用例 TC-105 只写“多次输入错误密码，确认系统正常”，没有账号状态、次数、操作步骤或可观察预期。
+    请输出 QA 评审报告和可执行修订行动。
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "具体指出 TC-105 缺少锁定前置/账号状态、准确三次操作和可观察锁定预期。"
+    - "将发现追溯到 REQ-105，说明可执行性和误判风险，给出修订方向。"
+    - "不从用例文本推断代码实现或实际测试结果。"
+  pass_threshold: 0.8

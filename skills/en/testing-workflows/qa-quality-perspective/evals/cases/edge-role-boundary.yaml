@@ -1,0 +1,20 @@
+id: edge-role-boundary
+title: "QA quality perspective: do not invent product intent or implementation facts"
+description: |
+  QA can identify testability and quality risk, but must not present unprovided product intent, code behavior, or implementation details as fact.
+
+input:
+  prompt: |
+    Use qa-quality-perspective.
+    stage: code-review
+    Project materials: The requirement only says, "add a faster way to sign in." No target users, acceptance criteria, PR, diff, code, API contract, design specification, test record, or run result is supplied.
+    Produce a QA quality report. State what can and cannot be concluded; list the product-intent questions and implementation/testing evidence needed. Do not infer a specific sign-in method, code behavior, implementation quality, or test-pass status.
+
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "The report treats the specific sign-in method, target users, acceptance criteria, code behavior, and implementation quality as unknown or requiring confirmation, rather than inventing any of them as fact."
+    - "The report says that implementation behavior, code correctness, test execution, and test-pass status cannot be verified without a PR, diff, code, API contract, test record, and run result; limitation wording is acceptable."
+    - "The report asks QA-boundary questions and names needed evidence, and may identify risk, but it does not decide product intent, assume implementation details, or claim testing passed or quality was verified."
+  pass_threshold: 0.8

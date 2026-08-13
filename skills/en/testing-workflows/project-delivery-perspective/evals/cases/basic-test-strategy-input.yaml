@@ -1,0 +1,31 @@
+id: basic-test-strategy-input
+title: "Project delivery: test strategy turns supplied constraints into attributable planning input"
+description: |
+  The project-delivery perspective records schedule, capacity, dependencies, milestones, owners, and action status as attributable constraints; it does not create a quality verdict.
+
+input:
+  prompt: |
+    Use project-delivery-perspective.
+    stage: test-strategy
+    Project delivery facts: Release candidate is due 20 September (source: release plan v3); QA capacity is two engineers for five working days (source: QA manager, 1 September); payment sandbox access is pending from Platform (owner: Chen; source: dependency register); the strategy review milestone is 12 September (source: delivery calendar); test-data refresh is an open action owned by Maya, due 8 September (source: action log).
+    Produce project-constraint input for the test strategy. Separate attributed project constraints and action tracking from quality facts. Do not determine defect status, test execution status, quality status, or release approval.
+
+expect:
+  must_contain:
+    - "Project constraints"
+    - "Action tracking"
+    - "release plan v3"
+    - "QA manager"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Project constraints"
+          - "Action tracking"
+          - "release plan v3"
+          - "QA manager"

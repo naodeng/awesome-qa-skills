@@ -1,0 +1,18 @@
+id: basic-test-case-writing
+title: UX 视角：编写有证据的用户任务与状态用例建议
+description: |
+  UX 用例候选应只使用已提供的任务、界面、状态和输入方式证据。
+input:
+  prompt: |
+    请使用 ux-quality-perspective。
+    stage: test-case-writing
+    原型 UX-204 显示一个带标签的邮箱字段、“保存”按钮和行内错误区；需求说明 Tab 可到达所有控件，保存失败时聚焦错误摘要，320px 宽度不得水平滚动。
+    请输出 UX 用例候选、风险和证据需求。
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "用例候选覆盖标签关联/Tab 顺序、保存失败焦点和 320px 无水平滚动。"
+    - "使用 UX-204 作为来源，只写证据支持的前置、步骤和预期，未提供设备/读屏细节列为缺口。"
+    - "不把候选用例写成已执行结果。"
+  pass_threshold: 0.8

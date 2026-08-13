@@ -1,0 +1,18 @@
+id: basic-test-case-writing
+title: "Product perspective: provide traceable business-journey scenarios"
+description: |
+  The product perspective should provide requirement-sourced critical journeys, rules, and acceptance-scenario candidates.
+input:
+  prompt: |
+    Use product-quality-perspective.
+    stage: test-case-writing
+    Requirement REQ-45 says only the order owner may cancel before shipment; successful cancellation sets status to Cancelled and restores inventory; a shipped order cannot be cancelled.
+    Provide product-perspective scenario candidates, risks, and questions with requirement traceability. Do not claim the cases were executed.
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "Covers owner/non-owner, pre-shipment/shipped, and post-cancellation status and inventory outcomes among the scenario candidates."
+    - "Traces suggestions to REQ-45 and labels unsupplied refund, concurrency, or error-copy details as questions rather than facts."
+    - "Does not describe scenario candidates as executed or passed tests."
+  pass_threshold: 0.8

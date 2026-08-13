@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "product-quality-perspective"
+interface:
+  display_name: "Product Quality Perspective"
+  short_description: "Identify user value, business rules, acceptance gaps, and decision risks across product quality stages."
+  default_prompt: "Use the product-quality-perspective skill with a valid stage and the available project materials to produce an evidence-based product quality report."
+policy:
+  allow_implicit_invocation: true

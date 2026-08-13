@@ -1,6 +1,6 @@
 # Skills Index
 
-按当前仓库实际目录整理的技能索引。
+按当前仓库实际目录整理的技能索引：每种语言 10 个工作流 Skill + 36 个测试类型 Skill，共 92 个中英文目录。
 
 ## Workflow Skills
 
@@ -8,15 +8,27 @@
 
 - [daily-testing-workflow](skills/zh/testing-workflows/daily-testing-workflow/)
 - [discover-testing](skills/zh/testing-workflows/discover-testing/)
+- [multi-role-quality-synthesis](skills/zh/testing-workflows/multi-role-quality-synthesis/)
+- [product-quality-perspective](skills/zh/testing-workflows/product-quality-perspective/)
+- [project-delivery-perspective](skills/zh/testing-workflows/project-delivery-perspective/)
+- [qa-quality-perspective](skills/zh/testing-workflows/qa-quality-perspective/)
 - [release-testing-workflow](skills/zh/testing-workflows/release-testing-workflow/)
 - [sprint-testing-workflow](skills/zh/testing-workflows/sprint-testing-workflow/)
+- [technical-quality-perspective](skills/zh/testing-workflows/technical-quality-perspective/)
+- [ux-quality-perspective](skills/zh/testing-workflows/ux-quality-perspective/)
 
 ### English
 
 - [daily-testing-workflow](skills/en/testing-workflows/daily-testing-workflow/)
 - [discover-testing](skills/en/testing-workflows/discover-testing/)
+- [multi-role-quality-synthesis](skills/en/testing-workflows/multi-role-quality-synthesis/)
+- [product-quality-perspective](skills/en/testing-workflows/product-quality-perspective/)
+- [project-delivery-perspective](skills/en/testing-workflows/project-delivery-perspective/)
+- [qa-quality-perspective](skills/en/testing-workflows/qa-quality-perspective/)
 - [release-testing-workflow](skills/en/testing-workflows/release-testing-workflow/)
 - [sprint-testing-workflow](skills/en/testing-workflows/sprint-testing-workflow/)
+- [technical-quality-perspective](skills/en/testing-workflows/technical-quality-perspective/)
+- [ux-quality-perspective](skills/en/testing-workflows/ux-quality-perspective/)
 
 ## Testing-Type Skills
 
@@ -46,9 +58,11 @@
 - [test-case-reviewer](skills/zh/testing-types/test-case-reviewer/)
 - [test-case-reviewer-plus](skills/zh/testing-types/test-case-reviewer-plus/)
 - [test-case-writing](skills/zh/testing-types/test-case-writing/)
+- [test-report-review](skills/zh/testing-types/test-report-review/)
 - [test-reporting](skills/zh/testing-types/test-reporting/)
 - [test-strategy](skills/zh/testing-types/test-strategy/)
 - [test-strategy-plus](skills/zh/testing-types/test-strategy-plus/)
+- [test-strategy-review](skills/zh/testing-types/test-strategy-review/)
 - [testcase-writer-plus](skills/zh/testing-types/testcase-writer-plus/)
 - [ui-test-cypress](skills/zh/testing-types/ui-test-cypress/)
 - [ui-test-playwright](skills/zh/testing-types/ui-test-playwright/)
@@ -83,9 +97,11 @@
 - [test-case-reviewer](skills/en/testing-types/test-case-reviewer/)
 - [test-case-reviewer-plus](skills/en/testing-types/test-case-reviewer-plus/)
 - [test-case-writing](skills/en/testing-types/test-case-writing/)
+- [test-report-review](skills/en/testing-types/test-report-review/)
 - [test-reporting](skills/en/testing-types/test-reporting/)
 - [test-strategy](skills/en/testing-types/test-strategy/)
 - [test-strategy-plus](skills/en/testing-types/test-strategy-plus/)
+- [test-strategy-review](skills/en/testing-types/test-strategy-review/)
 - [testcase-writer-plus](skills/en/testing-types/testcase-writer-plus/)
 - [ui-test-cypress](skills/en/testing-types/ui-test-cypress/)
 - [ui-test-playwright](skills/en/testing-types/ui-test-playwright/)

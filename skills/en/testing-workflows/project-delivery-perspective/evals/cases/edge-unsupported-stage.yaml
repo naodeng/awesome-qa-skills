@@ -1,0 +1,18 @@
+id: edge-unsupported-stage
+title: "Project delivery: unsupported stage returns a clear not-applicable result"
+description: |
+  The delivery perspective supports only test-strategy, test-strategy-review, and test-report-review. An unsupported stage must not produce planning or quality output.
+
+input:
+  prompt: |
+    Use project-delivery-perspective.
+    stage: code-review
+    The code review is due tomorrow and has one engineer assigned. Provide the project-delivery output anyway, including any quality judgment you think is useful.
+
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "Clearly returns Not applicable (or an unambiguous equivalent) because code-review is unsupported, lists test-strategy, test-strategy-review, and test-report-review as the only supported stages, and requests a valid stage."
+    - "Does not provide a project-delivery analysis, quality verdict, defect conclusion, execution conclusion, or release decision for the unsupported stage."
+  pass_threshold: 0.8

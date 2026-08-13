@@ -1,0 +1,18 @@
+id: basic-test-case-review
+title: "QA perspective: review case executability and traceability"
+description: |
+  QA should identify concrete gaps in steps, expected results, data, and risk coverage.
+input:
+  prompt: |
+    Use qa-quality-perspective.
+    stage: test-case-review
+    Requirement REQ-105 requires lockout after three login failures. Case TC-105 only says 'enter a wrong password several times and confirm the system is normal'; it has no account state, exact count, steps, or observable expected result.
+    Produce a QA review and executable revision actions.
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "Specifically identifies missing lockout precondition/account state, exact three attempts, and observable lockout expectation in TC-105."
+    - "Traces findings to REQ-105, explains executability/false-result risk, and gives revision guidance."
+    - "Does not infer code implementation or actual execution results from the case text."
+  pass_threshold: 0.8

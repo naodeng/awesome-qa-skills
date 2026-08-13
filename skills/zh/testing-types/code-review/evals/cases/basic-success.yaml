@@ -6,8 +6,18 @@ description: |
 input:
   prompt: |
     请使用 code-review 审查。
+    代码身份：仓库 payments-api，PR #317，提交 a91c2e4，基线 main@81fb730。
     业务目标：支付成功回调后将订单标为已支付。
-    Diff：回调接口直接调用 orderService.markPaid(orderId)，没有幂等键，也没有校验当前订单状态。
+    这是提交相对基线的可审查 Patch：
+    ```diff
+    diff --git a/src/PaymentCallbackHandler.java b/src/PaymentCallbackHandler.java
+    @@ public void onPaymentSuccess(String callbackId, long orderId) {
+    -  if (!callbackLog.tryInsert(callbackId)) return;
+    -  Order order = orderRepository.get(orderId);
+    -  if (order.status() != OrderStatus.PENDING) return;
+       orderService.markPaid(orderId);
+    }
+    ```
     技术栈：Java Spring + MySQL。
     请给出分级审查报告，事实与假设分开。
 
@@ -20,9 +30,11 @@ expect:
     - "我无法"
 
 judge:
-  type: rule_based
-  success:
-    - output_contains:
-        all:
-          - "风险"
-          - "修复"
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "发现明确落在 `PaymentCallbackHandler.java` 的 Patch：删除 `callbackLog.tryInsert(callbackId)` 与 `PENDING` 状态检查后直接调用 `markPaid`，而不是复述输入外的口头风险。"
+    - "将重复回调/重复状态迁移风险列为 P0，并用支付重复处理、状态污染或资损后果说明严重度；不得编造 `markPaid` 内部已经存在或不存在的保护。"
+    - "修复建议对应被删除的幂等与状态门槛，例如恢复/替代原子幂等登记和条件状态迁移，并说明仍需核对事务边界。"
+    - "事实与假设分开，发现、位置、影响与修复方向保持证据可追溯。"
+  pass_threshold: 0.8

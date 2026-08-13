@@ -1,0 +1,18 @@
+id: basic-test-case-review
+title: 技术视角：评审用例的合同与恢复覆盖
+description: |
+  技术视角应将待评审用例与已声明 API 和失败恢复约束比对。
+input:
+  prompt: |
+    请使用 technical-quality-perspective。
+    stage: test-case-review
+    合同 API-303 要求客户端在 429 时遵循 `Retry-After`，最多重试 2 次，且每次重试必须保持同一 request ID。用例 TC-303 只验证 200 响应。
+    请输出技术评审报告和补测行动。
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "识别 TC-303 缺失 429、Retry-After、最多 2 次重试和 request ID 保持覆盖，追溯到 API-303。"
+    - "说明限流恢复、过度重试或可观测性影响，给出可执行补测与证据建议。"
+    - "不根据用例缺口断言实现已违约或测试已失败。"
+  pass_threshold: 0.8

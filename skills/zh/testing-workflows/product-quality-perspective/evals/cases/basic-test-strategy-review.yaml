@@ -1,0 +1,18 @@
+id: basic-test-strategy-review
+title: 产品视角：评审策略对核心业务风险的覆盖
+description: |
+  产品视角应核对策略是否保护用户价值、业务规则和不可接受风险。
+input:
+  prompt: |
+    请使用 product-quality-perspective。
+    stage: test-strategy-review
+    需求 REQ-21：用户在发货前可取消订单并全额退款。策略 STR-21 覆盖下单与支付，但把取消和退款列为“时间不足，本轮不测”，没有风险接受记录。
+    请输出产品质量报告，指出可追溯的策略缺口、业务影响和修订行动。
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "把发货前取消并全额退款识别为已提供的核心业务规则，并将其与 STR-21 的排除直接关联。"
+    - "说明未覆盖取消/退款对用户价值和业务验收的影响，并要求补充覆盖或由有权角色记录风险取舍。"
+    - "不声称测试已执行、已通过或最终评审已批准。"
+  pass_threshold: 0.8

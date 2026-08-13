@@ -1,0 +1,18 @@
+id: basic-test-strategy-review
+title: "UX perspective: review experience-coverage gaps"
+description: |
+  UX should identify strategy omissions only from supplied interface and accessibility requirements.
+input:
+  prompt: |
+    Use ux-quality-perspective.
+    stage: test-strategy-review
+    UX requirement UX-202 requires keyboard completion, errors associated with fields, and 320px/768px breakpoints. Strategy STR-202 schedules only the desktop mouse happy path.
+    Produce a UX review with evidenced omissions, impact, and revision actions.
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "Identifies keyboard completion, error association, and 320px/768px as traceable STR-202 gaps against UX-202."
+    - "Explains user-task, keyboard/screen-reader, or responsive impact and gives concrete revisions."
+    - "Invents no unsupplied pages, components, or execution results."
+  pass_threshold: 0.8

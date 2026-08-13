@@ -1,0 +1,18 @@
+id: basic-test-case-review
+title: "Technical perspective: review contract and recovery coverage"
+description: |
+  Engineering should compare proposed cases with declared API and failure-recovery constraints.
+input:
+  prompt: |
+    Use technical-quality-perspective.
+    stage: test-case-review
+    Contract API-303 requires clients to obey `Retry-After` on 429, retry at most twice, and retain the same request ID. Case TC-303 checks only a 200 response.
+    Produce a technical review and coverage actions.
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "Identifies missing 429, Retry-After, two-retry limit, and request-ID retention coverage in TC-303, traced to API-303."
+    - "Explains rate-limit recovery, excessive retry, or observability impact and gives executable coverage/evidence actions."
+    - "Does not infer that implementation already violates the contract or that tests failed."
+  pass_threshold: 0.8

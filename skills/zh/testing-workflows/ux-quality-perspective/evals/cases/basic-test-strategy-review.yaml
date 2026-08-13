@@ -1,0 +1,18 @@
+id: basic-test-strategy-review
+title: UX 视角：评审体验覆盖缺口
+description: |
+  UX 应仅根据已提供的界面与无障碍要求指出策略遗漏。
+input:
+  prompt: |
+    请使用 ux-quality-perspective。
+    stage: test-strategy-review
+    体验要求 UX-202 要求表单支持键盘完成、错误与字段关联并覆盖 320px/768px 断点。策略 STR-202 只安排桌面鼠标正常路径。
+    请输出 UX 评审报告，指出可证明的遗漏、影响和修订行动。
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "把键盘完成、错误关联及 320px/768px 断点识别为 STR-202 相对 UX-202 的可追溯缺口。"
+    - "说明对用户任务、键盘/读屏使用者或响应式行为的影响，给出具体修订行动。"
+    - "不编造未提供页面、组件或已执行结果。"
+  pass_threshold: 0.8

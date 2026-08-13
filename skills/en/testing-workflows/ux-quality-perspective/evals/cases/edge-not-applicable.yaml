@@ -1,0 +1,20 @@
+id: edge-not-applicable
+title: "UX perspective: backend-only conditional stage is not applicable"
+description: |
+  A conditional stage with only backend change evidence and no UI impact should return not applicable first, explaining reason, facts, gaps, and needed material without filler UX findings.
+
+input:
+  prompt: |
+    Use ux-quality-perspective.
+    stage: code-review
+    Project materials: The PR only changes the database connection-pool cap for an inventory-sync job from 20 to 40. The change note explicitly says “no API contract, screen, copy, component, user-flow, responsive, or accessibility impact.” No prototype or UI-test record is supplied.
+    Provide the UX quality output. If it is not applicable, explain the reason, known facts, gaps, and material required to reassess; do not invent UI issues, accessibility defects, or cross-device risks.
+
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "Identifies code-review as not applicable on the current backend-only evidence, or clearly states that there is no UX/UI impact available to review."
+    - "Explains known facts, gaps, and UI/flow/component impact evidence that would trigger reassessment instead of producing filler UX findings."
+    - "Does not fabricate screens, copy, components, user flows, accessibility defects, or cross-device problems."
+  pass_threshold: 0.8

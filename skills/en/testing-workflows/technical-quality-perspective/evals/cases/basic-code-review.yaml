@@ -1,0 +1,27 @@
+id: basic-code-review
+title: "Technical quality perspective: evidence-backed code review findings"
+description: |
+  The technical quality perspective must use an identified, reviewable change to produce traceable code findings, impact, severity, and actions rather than generic advice.
+
+input:
+  prompt: |
+    Use technical-quality-perspective.
+    stage: code-review
+    Architecture: An HTTP API forwards requests to a service layer, which writes user data.
+    PR: #184; commit: 8a2c4d1; file: src/api/users.ts.
+    Diff:
+      export async function updateUser(req, res) {
+        await db.query(`UPDATE users SET email = '${req.body.email}' WHERE id = ${req.params.id}`);
+        res.status(204).end();
+      }
+    API contract: PUT /users/{id} requires an authenticated administrator; email is required and must be a valid email address.
+    Produce a technical quality report using only supplied material as fact. Include findings, impact, severity, missing evidence, and actions.
+
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "The report cites PR #184, commit 8a2c4d1, src/api/users.ts, or the supplied diff as code identity and evidence, and distinguishes supplied content from inference."
+    - "The report identifies at least one high-impact technical risk supported by the diff, such as SQL injection from interpolated SQL, absent visible authentication or authorization validation, or absent visible email-contract validation; it does not state unprovided implementation details as fact."
+    - "Each significant finding, or at least the principal finding, includes impact and a high, medium, or low severity. The report lists security, error-handling, testing, performance, or observability evidence still needed and actionable next steps."
+  pass_threshold: 0.8

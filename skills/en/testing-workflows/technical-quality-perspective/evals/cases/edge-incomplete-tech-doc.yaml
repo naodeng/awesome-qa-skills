@@ -1,0 +1,20 @@
+id: edge-incomplete-tech-doc
+title: "Technical quality perspective: qualified conclusions for incomplete technical documentation"
+description: |
+  Incomplete architecture or API documentation can support only qualified risks and gaps; it must not be expanded into unprovided implementation, capacity, or security facts.
+
+input:
+  prompt: |
+    Use technical-quality-perspective.
+    stage: test-strategy
+    Technical documentation: The system has one web frontend and one API; the client calls the API to retrieve orders. No architecture diagram, authentication scheme, data model, API fields or error codes, dependency versions, compatibility information, performance targets, logs, metrics, traces, capacity, or test-execution records are supplied.
+    Produce a technical quality report. State which conclusions can and cannot be made, then give the evidence needed and next actions.
+
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "The report treats the web frontend, API, and order-retrieval relationship as limited facts, and explicitly identifies gaps in architecture, authentication, data, API contract, compatibility, performance, observability, and execution evidence."
+    - "The report gives only qualified technical findings or risks, such as inability to assess authentication, data consistency, error handling, performance targets, or observability; it does not invent actual implementation, performance metrics, vulnerabilities, capacity, or test results."
+    - "The report includes missing information, questions, and actionable actions, and expresses uncertainty or limited confidence in its conclusions."
+  pass_threshold: 0.8

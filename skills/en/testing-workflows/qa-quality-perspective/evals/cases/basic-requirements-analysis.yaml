@@ -1,0 +1,18 @@
+id: basic-requirements-analysis
+title: "QA perspective: identify requirement testability and boundaries"
+description: |
+  QA should turn supplied behavior, boundaries, and observable outcomes into testability findings.
+input:
+  prompt: |
+    Use qa-quality-perspective.
+    stage: requirements-analysis
+    Requirement REQ-101 says a verification code is valid for five minutes, three consecutive failures lock the account for 15 minutes, and success displays 'Verification successful'. It does not say whether the attempt count is shared across devices.
+    Produce a QA-quality report on testability, boundaries, gaps, and risk priority.
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "Covers the five-minute expiry, three failures, 15-minute lock, and observable success message as acceptance or boundary points."
+    - "Marks cross-device counting as unknown or needing clarification rather than deciding the business rule."
+    - "Provides risk-driven QA questions and actions without claiming implementation or test results were verified."
+  pass_threshold: 0.8

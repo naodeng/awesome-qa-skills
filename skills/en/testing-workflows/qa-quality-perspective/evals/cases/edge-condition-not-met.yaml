@@ -1,0 +1,17 @@
+id: edge-condition-not-met
+title: "QA perspective: return not applicable when the case-review gate is unmet"
+description: |
+  Without cases to review, QA must not fabricate review findings from a generic checklist.
+input:
+  prompt: |
+    Use qa-quality-perspective.
+    stage: test-case-review
+    The project only says 'login cases will be written later'; no cases, coverage description, or case version is supplied.
+    Complete the QA test-case review.
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "Returns not applicable or equivalent because no reviewable cases exist, explicitly stating the unmet gate."
+    - "Lists known facts, needed case/coverage/version material, and next steps without fabricating missing-coverage findings."
+  pass_threshold: 0.8

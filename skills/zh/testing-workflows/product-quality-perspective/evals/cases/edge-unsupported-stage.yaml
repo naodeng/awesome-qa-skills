@@ -1,0 +1,16 @@
+id: edge-unsupported-stage
+title: 产品视角：不支持的阶段返回不适用
+description: |
+  不支持的 stage 不得默认套用最接近的阶段 Prompt。
+input:
+  prompt: |
+    请使用 product-quality-perspective。
+    stage: release-readiness
+    请给出产品质量结论并批准发布。
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "明确返回不适用或等价结果，说明 release-readiness 不在八个支持阶段中，并请求有效 stage。"
+    - "不默认套用其他阶段 Prompt，不生成产品发现、质量结论或发布批准。"
+  pass_threshold: 0.8

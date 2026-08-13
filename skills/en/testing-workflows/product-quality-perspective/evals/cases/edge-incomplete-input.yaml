@@ -1,0 +1,20 @@
+id: edge-incomplete-input
+title: "Product perspective: distinguish facts from gaps when input is incomplete"
+description: |
+  When materials are insufficient, do not invent business rules. State known facts, information gaps, clarification questions, and affected actions.
+
+input:
+  prompt: |
+    Use product-quality-perspective.
+    stage: test-strategy
+    Project materials: A new “coupon” capability is scheduled for release next week.
+    No requirements, scope, rules, user groups, technical design, or historical data are provided. Produce a product-quality report: treat “a new coupon capability is scheduled for release next week” as the only known fact; explicitly state that business rules, eligible users, spend threshold, expiry, and stacking rules are not provided; and ask clarification questions. Do not present any unprovided coupon rule as a fact or conclusion; you may frame it as a clarification question.
+
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "Treats only the new coupon capability and its next-week release timing as supplied facts; it does not present any unsupported coupon business rule as fact."
+    - "Clearly separates facts from information gaps, identifies missing business rules, eligible users, spend threshold, expiry, and stacking rules, and asks useful clarification questions."
+    - "Does not invent or assert coupon eligibility, use restrictions, thresholds, expiry, stacking, or any other business rule. It is acceptable to identify such items as unknown or ask about them."
+  pass_threshold: 0.8

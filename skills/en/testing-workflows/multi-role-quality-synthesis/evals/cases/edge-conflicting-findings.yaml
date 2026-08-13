@@ -1,0 +1,44 @@
+id: edge-conflicting-findings
+title: "Multi-role synthesis: exposes severity conflicts and retains a minority high-risk view"
+description: |
+  Conflicting role conclusions must not be silently averaged or overwritten; a minority P0/P1 view remains visible and traceable.
+
+input:
+  prompt: |
+    Prepare a test-report-review stage quality synthesis from the following two role reports.
+
+    Report 1:
+    source_id: SRC-QA-101
+    stage: test-report-review
+    source_role: qa
+    facts: Payment regression executed 120 checks and 4 failed.
+    evidence: RUN-889; all failures involve duplicate-charge protection.
+    findings: [P0] The current release candidate must be blocked.
+    risks: Duplicate charges.
+    gaps: Failure root cause is not identified.
+    questions: Is a fixed build available?
+    actions: Block release and diagnose the failures.
+    confidence: high
+
+    Report 2:
+    source_id: SRC-PROD-101
+    stage: test-report-review
+    source_role: product
+    facts: One successful payment completed in the demo environment.
+    evidence: DEMO-24 recording.
+    findings: [P2] The core payment path was demonstrated, so accept the risk and release on schedule.
+    risks: Failure-scenario experience is unknown.
+    gaps: Regression details were not reviewed.
+    questions: Do the failed cases affect primary users?
+    actions: Monitor complaints after release.
+    confidence: medium
+
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "Explicitly presents the conflict between SRC-QA-101 and SRC-PROD-101 about release acceptability, accurately retaining each source's evidence and position."
+    - "Keeps QA's minority P0 blocking view visible as a finding or blocker, cites SRC-QA-101, and neither averages P0 and P2 into an unexplained middle severity nor lets a vote or product view overwrite it."
+    - "If a synthesized severity is selected, explains the deterministic rule and source basis while preserving the original P0/P2 disagreement."
+    - "Every synthesized finding cites at least one input source_id, and the output contains an explicit Disagreements section."
+  pass_threshold: 0.8

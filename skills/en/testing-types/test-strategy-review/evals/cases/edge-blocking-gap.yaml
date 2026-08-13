@@ -1,0 +1,25 @@
+id: edge-blocking-gap
+title: "Test strategy review: rejects an uncovered critical business risk"
+description: |
+  When an unacceptable business risk has neither coverage nor revision ownership, the AI should list a blocker and recommend reject.
+
+input:
+  prompt: |
+    Review the instant-transfer test strategy.
+
+    Requirement PAY-77: a user can transfer money to a contact. A network timeout must not cause a duplicate charge, and ledger and balance must eventually agree. Product marks duplicate charging and ledger imbalance as unacceptable risks.
+    Technical constraints: transfer crosses a payment gateway and ledger service with an idempotency key and asynchronous compensation. The test environment can reliably simulate successful requests only; fault-injection availability is unconfirmed.
+    Project constraints: QA Sun Yue; payment-gateway owner Gao Feng; candidate build freezes in two weeks.
+
+    Strategy PAY-STRAT-2 schedules only successful-transfer UI tests, amount boundaries, and contact validation. Its exit gate is 95% of planned tests passing and no P0. It contains no timeout retry, duplicate callback, idempotency, asynchronous compensation, or ledger reconciliation testing, and no related environment, data, dependency fallback, or owner. It says "exception paths will be added next release," but the requirement does not exclude them.
+
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "Gives an explicit AI-assisted recommendation of reject and states that the final reject/pass decision remains with a Human reviewer."
+    - "Identifies missing timeout retry, duplicate callback/charge, idempotency, asynchronous compensation, and ledger-consistency coverage as concrete blockers tied to unacceptable business risks and outside any valid exclusion."
+    - "Separates blockers from non-blockers and does not downplay missing environment, data, dependency, and ownership as optional polish or invent fault-injection capability."
+    - "Revision requests assign Sun Yue to update risk coverage/gates, ask Gao Feng or the known technical owner to confirm gateway fault support, and request assignment of environment/data/dependency owners without inventing names."
+    - "The review explicitly addresses business coverage, test depth, feasibility, environments, data, quality gates, dependencies, and exclusions."
+  pass_threshold: 0.8

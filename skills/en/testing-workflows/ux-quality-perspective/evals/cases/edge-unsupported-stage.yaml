@@ -1,0 +1,16 @@
+id: edge-unsupported-stage
+title: "UX perspective: do not generate findings for an unsupported stage"
+description: |
+  UX must not choose a nearby prompt for an unsupported stage.
+input:
+  prompt: |
+    Use ux-quality-perspective.
+    stage: deployment
+    Give a UX-quality conclusion for deployment.
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "Returns not applicable or equivalent, says deployment is unsupported, and requests a valid stage."
+    - "Does not silently use reporting or another prompt, and produces no UX findings or deployment approval."
+  pass_threshold: 0.8

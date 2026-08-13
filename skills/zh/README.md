@@ -2,7 +2,7 @@
 
 语言根目录：`skills/zh`
 
-本目录与 `skills/en` **同名对齐**：工作流 4 个 + 测试类型 26 个。安装、约定与评测见仓库根 [README.md](../../README.md)、[AGENTS.md](../../AGENTS.md)、[skills/SKILL_AUTHORING.md](../SKILL_AUTHORING.md)。
+本目录与 `skills/en` **同名对齐**：工作流 10 个 + 测试类型 36 个。安装、约定与评测见仓库根 [README.md](../../README.md)、[AGENTS.md](../../AGENTS.md)、[skills/SKILL_AUTHORING.md](../SKILL_AUTHORING.md)。
 
 ## testing-workflows（工作流）
 
@@ -12,6 +12,12 @@
 | `sprint-testing-workflow` | 迭代测试工作流程 | Sprint 规划、增量验收、迭代风险 |
 | `release-testing-workflow` | 发布测试工作流程 | 发布门禁、回归范围、上线检查 |
 | `discover-testing` | 测试技能路由 | 按目标推荐应调用的 skill |
+| `product-quality-perspective` | 产品质量视角 | 分析用户价值、业务规则、范围、验收与发布风险 |
+| `qa-quality-perspective` | QA 质量视角 | 评估可测试性、风险驱动覆盖、缺陷风险与证据边界 |
+| `ux-quality-perspective` | UX 质量视角 | 识别信息架构、交互状态、一致性、响应式与无障碍风险 |
+| `technical-quality-perspective` | 技术质量视角 | 基于架构、代码、安全、性能与可观测性证据分析技术质量 |
+| `project-delivery-perspective` | 项目交付视角 | 记录带来源的交付约束和行动，不改变质量事实 |
+| `multi-role-quality-synthesis` | 多角色质量汇总 | 汇总同阶段角色报告并保留来源、分歧和质量边界 |
 
 ## testing-types（测试类型）
 
@@ -34,11 +40,13 @@
 | --- | --- |
 | `requirements-analysis` | 需求分析 |
 | `test-strategy` | 测试策略 |
+| `test-strategy-review` | 测试策略评审 |
 | `test-case-writing` | 测试用例编写 |
 | `test-case-reviewer` | 测试用例评审 |
 | `code-review` | 代码审查 |
 | `bug-reporting` | 缺陷上报 |
 | `test-reporting` | 测试报告 |
+| `test-report-review` | 测试报告评审 |
 | `ai-assisted-testing` | AI 辅助测试 |
 
 ### 工具专项
@@ -46,11 +54,19 @@
 | 目录名 | 中文名称 |
 | --- | --- |
 | `api-test-bruno` | API 测试（Bruno） |
+| `api-test-postman` | API 测试（Postman） |
 | `api-test-pytest` | API 测试（Pytest） |
 | `api-test-restassure` | API 测试（Rest Assured） |
 | `api-test-supertest` | API 测试（Supertest） |
+| `ui-test-selenium` | UI 自动化测试（Selenium） |
+| `ui-test-playwright` | UI 自动化测试（Playwright） |
+| `ui-test-testcafe` | UI 自动化测试（TestCafe） |
+| `ui-test-cypress` | UI 自动化测试（Cypress） |
+| `ui-test-puppeteer` | UI 自动化测试（Puppeteer） |
+| `ui-test-webdriverio` | UI 自动化测试（WebdriverIO） |
 | `performance-test-k6` | 性能测试（k6） |
 | `performance-test-gatling` | 性能测试（Gatling） |
+| `performance-test-jmeter` | 性能测试（JMeter） |
 
 ### 增强版（Plus）
 

@@ -1,0 +1,45 @@
+id: edge-missing-optional-role
+title: 多角色汇总：可选角色缺席时降级但不补造
+description: |
+  可选角色没有报告时仍应汇总现有输入，明确缺席及影响，并且不得生成该角色的发现。
+
+input:
+  prompt: |
+    请根据以下两份角色报告，给出一份 test-strategy 阶段质量汇总。
+    阶段上下文：UI/UX 是本阶段可选角色，本次未提供 UI/UX 报告。
+
+    报告 1：
+    source_id: SRC-QA-201
+    stage: test-strategy
+    source_role: qa
+    facts: 范围包含 Web 结账主路径。
+    evidence: STRAT-8 范围表。
+    findings: [P1] 缺少失败支付的回归覆盖。
+    risks: 支付失败回归未被发现。
+    gaps: 失败支付数据未准备。
+    questions: 谁提供失败支付测试数据？
+    actions: 添加失败支付覆盖并准备数据。
+    confidence: high
+
+    报告 2：
+    source_id: SRC-TECH-201
+    stage: test-strategy
+    source_role: technical
+    facts: 支付沙箱支持可配置失败码。
+    evidence: API-SANDBOX-3。
+    findings: [P2] 可用沙箱失败码构造异常场景。
+    risks: 沙箱与生产响应可能不同。
+    gaps: 生产错误码映射未提供。
+    questions: 是否有生产错误码契约？
+    actions: 获取错误码契约并映射测试数据。
+    confidence: medium
+
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "使用 SRC-QA-201 与 SRC-TECH-201 完成可追溯汇总，不因可选 UI/UX 角色缺席而拒绝处理已有报告。"
+    - "明确说明 UI/UX 报告未提供，并把其可能造成的视角覆盖限制标为信息缺口或信心限制，而不是质量事实。"
+    - "不虚构 UI/UX 事实、证据、发现、风险或结论；每条汇总发现至少引用一个实际输入 source_id。"
+    - "输出显式的分歧部分；没有实质冲突时明确说明无分歧。"
+  pass_threshold: 0.8

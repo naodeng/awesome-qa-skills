@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "multi-role-quality-synthesis"
+interface:
+  display_name: "Multi-Role Quality Synthesis"
+  short_description: "Combine role reports into a source-preserving quality synthesis"
+  default_prompt: "Use $multi-role-quality-synthesis to combine these role quality reports while preserving all sources and disagreements."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,29 @@
+schema_version: v1alpha1
+
+environment:
+  type: none
+
+skills:
+  - source: local_path
+    path: .
+
+engine:
+  name: claude_code
+
+cases:
+  files:
+    - evals/cases/basic-pass.yaml
+    - evals/cases/basic-conditional-pass.yaml
+    - evals/cases/edge-blocking-gap.yaml
+    - evals/cases/edge-incomplete-input.yaml
+    - evals/cases/edge-conflicting-input.yaml
+  defaults:
+    timeout_seconds: 180
+    max_turns: 8
+    expect:
+      exit_code: 0
+      must_not_contain:
+        - "TODO"
+
+report:
+  formats: [json]

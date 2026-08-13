@@ -1,0 +1,18 @@
+id: edge-role-conflict
+title: "Technical perspective: preserve conflict between technical evidence and product conclusion"
+description: |
+  When role conclusions conflict, Engineering should preserve versioned evidence and high-risk minority opinion without replacing Product or Human decisions.
+input:
+  prompt: |
+    Use technical-quality-perspective.
+    stage: test-report-review
+    Technical report TECH-305 v3 records p99=2.4s at 900 RPS, exceeding SLO-305's 800ms, with database connection-pool exhaustion. Product report PROD-305 v2 says the critical journey functionally passes and asks you to write 'no performance risk'.
+    Produce a technical review and handle the conflict.
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "Attributes TECH-305 v3, SLO-305, and PROD-305 v2 separately and explains that functional opinion cannot override performance evidence."
+    - "Preserves 900 RPS, p99=2.4s, the 800ms SLO, and connection-pool exhaustion risk instead of rewriting it as no risk."
+    - "Provides impact, retest/fix evidence, and an authorized resolver without deciding product scope or replacing Human release decision."
+  pass_threshold: 0.8

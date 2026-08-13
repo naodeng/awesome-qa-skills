@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "test-strategy-review"
+interface:
+  display_name: "测试策略评审"
+  short_description: "基于证据评审测试策略，区分阻塞项与条件项并给出 Human 待决的 AI 建议"
+  default_prompt: "使用 $test-strategy-review 评审这份测试策略，列出证据、阻塞项、非阻塞项和修订责任，并保留 Human 最终决定权。"
+policy:
+  allow_implicit_invocation: true

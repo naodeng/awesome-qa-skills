@@ -1,0 +1,20 @@
+id: edge-not-applicable
+title: UX 视角：仅后端变更的条件阶段返回不适用
+description: |
+  对仅含后端变更且没有 UI 影响证据的条件阶段，应先返回不适用，并说明原因、事实、缺口与所需材料，不能填充 UX 发现。
+
+input:
+  prompt: |
+    请使用 ux-quality-perspective。
+    stage: code-review
+    项目材料：PR 只把库存同步任务的数据库连接池上限从 20 调整到 40。变更说明明确写“无 API 合约、页面、文案、组件、用户流程、响应式或无障碍影响”。没有原型或 UI 测试记录。
+    给出 UX 质量输出。若不适用，说明原因、已知事实、缺口和重新评估所需材料；不要捏造界面问题、无障碍缺陷或跨设备风险。
+
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "将 code-review 识别为在当前后端限定证据下不适用，或清楚说明没有可评审的 UX/UI 影响。"
+    - "说明已知事实、缺口和触发重新评估所需的 UI/流程/组件影响证据，而非生成填充式 UX 发现。"
+    - "不杜撰页面、文案、组件、用户流程、无障碍缺陷或跨设备问题。"
+  pass_threshold: 0.8

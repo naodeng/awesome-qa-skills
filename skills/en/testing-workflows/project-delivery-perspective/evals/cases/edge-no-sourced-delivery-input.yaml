@@ -1,0 +1,18 @@
+id: edge-no-sourced-delivery-input
+title: "Project delivery perspective: report gaps when no attributable delivery input exists"
+description: |
+  With no sourced date, capacity, dependency, or action at strategy review, PM conditional input is not triggered and must not invent a plan.
+input:
+  prompt: |
+    Use project-delivery-perspective.
+    stage: test-strategy-review
+    The strategy under review only says 'finish testing as soon as possible'. No dates, capacity, dependencies, milestones, owners, action states, or sources are supplied.
+    Provide project-delivery input without guessing dates, staffing, owners, or a quality conclusion.
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "Recognizes test-strategy-review as supported but that no attributable delivery facts trigger substantive PM input, so it reports only known facts, gaps, questions, and evidence actions."
+    - "Explicitly identifies missing dates, capacity, dependencies, milestones, owners, action states, and sources, inventing none."
+    - "Does not judge strategy quality, test status, or release and does not turn 'as soon as possible' into a concrete commitment."
+  pass_threshold: 0.8

@@ -1,0 +1,18 @@
+id: basic-test-strategy-review
+title: QA 视角：评审策略的覆盖和门槛
+description: |
+  QA 应检查风险是否追溯到范围、方法、环境与退出门槛。
+input:
+  prompt: |
+    请使用 qa-quality-perspective。
+    stage: test-strategy-review
+    策略 STR-102 覆盖登录成功和密码错误，但需求中还有账号锁定和验证码重放风险。策略未列测试数据、环境就绪检查或退出证据。
+    请输出 QA 评审报告，列出可追溯缺口、风险和修订行动。
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "识别账号锁定和验证码重放未被 STR-102 覆盖，并说明与需求风险的追溯关系。"
+    - "指出数据、环境就绪和退出证据缺口，给出有优先级的修订行动。"
+    - "不把策略评审写成已执行测试或 Human 最终决定。"
+  pass_threshold: 0.8

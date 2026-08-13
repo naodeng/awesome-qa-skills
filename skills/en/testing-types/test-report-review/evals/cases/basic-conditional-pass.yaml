@@ -1,0 +1,25 @@
+id: basic-conditional-pass
+title: "Refund-status test report review"
+description: |
+  Review a report whose core evidence aligns while bounded retest and archive work remains open.
+
+input:
+  prompt: |
+    Review refund-status test report TR-REF-8 v2.0.
+
+    Requirement REQ-REF-8 v3.0: Web and Android users can see refund pending, success, and failure states, with convergence within 24 hours. iOS is outside the approved scope. Test strategy STRAT-REF-8 v1.6 requires API state-machine, Web/Android critical-path, timeout, and duplicate-notification coverage. Its exit gates are zero P0/P1, all critical paths passing, and every fix retested on the candidate build.
+    Test report TR-REF-8 v2.0: on build-refund-rc5, 92 planned, 92 executed, 91 passed, and one awaits post-fix retest. Untested scope is iOS, an approved exclusion. P2-882's UI time copy is fixed in rc6, but the report has no rc6 retest record. The report recommends conditional pass if rc6 retest and evidence archiving finish before the release meeting.
+    Execution evidence EXEC-REF-8 v1.9 contains all 92 rc5 records. The API state machine, timeout, duplicate notifications, and Web/Android critical paths pass; the case for P2-882 fails. Qian Yu owns the evidence archive.
+    Defect evidence DEF-REF-8 v1.4 lists P2-882 with severity P2, status fixed_in_rc6, and retest pending; there is no P0/P1. Luo Chen is the development owner.
+    Role reports QA-REF v1.2 and TECH-REF v1.1 say the core gates are met but P2-882 must be retested on rc6 before the release meeting. PRODUCT-REF v1.0 says the copy issue does not affect refund amount or state convergence. UX-REF v1.0 requires a retest screenshot.
+    Project action ACTION-REF v1.3 says Luo Chen delivered rc6 and Qian Yu will retest and archive logs and screenshots before the release meeting; status is open. A Human decides whether to accept residual risk.
+
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "Gives an explicit AI-assisted `recommendation: conditional_pass`, outputs `human_final_decision: pending`, and does not present the recommendation as final approval."
+    - "Makes rc6 retest of P2-882 and log/screenshot archiving explicit conditions, preserving Luo Chen, Qian Yu, and the supplied release-meeting closure gate."
+    - "States the verification evidence and impact if conditions remain open, recognizes iOS as an approved exclusion rather than hidden scope, and never marks the pending retest as passed."
+    - "Lists report/source differences or contradictions, residual risk, open actions, and every key source version, separating zero P0/P1 from the pending P2 retest."
+  pass_threshold: 0.8

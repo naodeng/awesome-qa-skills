@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "qa-quality-perspective"
+interface:
+  display_name: "QA quality perspective"
+  short_description: "Assesses testability, risk-based coverage, defect risk, and evidence-bound quality conclusions across QA stages."
+  default_prompt: "Use the qa-quality-perspective skill with a valid stage and available evidence to produce a standalone QA quality report."
+policy:
+  allow_implicit_invocation: true

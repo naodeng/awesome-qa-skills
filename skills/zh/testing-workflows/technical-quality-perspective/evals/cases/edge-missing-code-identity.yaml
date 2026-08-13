@@ -1,0 +1,21 @@
+id: edge-missing-code-identity
+title: "技术质量视角：没有代码身份时阻断代码评审"
+description: |
+  代码评审必须有可识别的代码版本和可审查变更。本用例提供代码片段但没有 PR、提交、分支或版本，因此必须阻断并指出身份缺失。
+
+input:
+  prompt: |
+    使用 technical-quality-perspective。
+    stage: code-review
+    项目材料：提供一段粘贴代码：
+      await db.query(`UPDATE users SET email = '${req.body.email}' WHERE id = ${req.params.id}`);
+    没有 PR、提交、分支、发布版本、仓库修订号或其他代码版本身份。请完成技术代码评审并告诉我是否可以合并。
+
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "报告明确阻断、拒绝开始或标记代码评审不适用，原因是尽管提供了可审查代码片段，仍缺少代码身份；等价的明确限制表述均可。"
+    - "报告具体索要代码版本身份，如 PR、提交、分支、仓库修订号或版本；不得错误地说缺少可审查代码或变更材料。"
+    - "报告不声称已经完成代码评审、不把发现伪装成已完成评审结果、不建议合并，也不确认代码正确、测试通过或发布获批。"
+  pass_threshold: 0.8

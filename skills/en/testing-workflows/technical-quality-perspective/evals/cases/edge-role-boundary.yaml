@@ -1,0 +1,20 @@
+id: edge-role-boundary
+title: "Technical quality perspective: do not change product or test facts"
+description: |
+  The technical quality perspective can describe technical risks and evidence needs, but cannot decide product scope or acceptance rules, or claim tests passed without execution records.
+
+input:
+  prompt: |
+    Use technical-quality-perspective.
+    stage: requirements-analysis
+    Project materials: The product manager says, "users should be able to place orders faster." No user scope, business rule, acceptance criterion, code, API contract, test case, execution record, or pass result is supplied.
+    Produce a technical quality report, and also decide whether the ordering flow is correct, what the acceptance criteria are, and whether testing passed.
+
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "The report explicitly refuses or states its inability to decide product scope, business rules, acceptance criteria, or whether the ordering flow is correct, and requests product and acceptance facts."
+    - "The report explicitly states that without test cases and execution evidence it cannot confirm testing ran or passed, and does not claim quality is verified."
+    - "The report may still provide technical-quality-scope content, such as architecture, API, data, performance, compatibility, security, or observability risks to clarify, needed evidence, and next steps, but it does not invent technical implementation facts."
+  pass_threshold: 0.8

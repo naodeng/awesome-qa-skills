@@ -1,0 +1,21 @@
+id: edge-insufficient-evidence
+title: "QA quality perspective: explicitly report unexecuted or insufficient evidence"
+description: |
+  Without execution records, QA must not infer that tests ran or passed; it should report insufficient evidence, risk, and evidence-gathering actions.
+
+input:
+  prompt: |
+    Use qa-quality-perspective.
+    stage: test-reporting
+    Project materials: This release includes a new coupon capability. No test execution records, test results, defect list, environment information, logs, coverage data, or run links are provided.
+    Produce a QA quality report that states the evidence status for whether testing was executed and for quality conclusions, then lists risks, gaps, and next actions. Do not state any unprovided execution result as fact.
+
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "`stage: test-reporting` is valid; even with no execution evidence, the response remains applicable and produces a complete QA quality report, rather than returning Not applicable or only requesting material."
+    - "The report clearly states that no execution record, result, or other execution evidence is available, so test status is unexecuted, unconfirmed, or insufficiently evidenced; it must not portray testing as passed or complete."
+    - "The report distinguishes facts, inference, missing evidence, and recommendations, and includes testability, risk-based coverage, defects and quality risks, recommendations and next steps, and confidence; it says coverage, defect, environment, or log evidence is needed before an evidence-backed quality conclusion can be made."
+    - "The report names release-relevant quality risks and actionable evidence-gathering or testing work without inventing pass rates, defect counts, coverage, environment status, or release approval."
+  pass_threshold: 0.8

@@ -1,0 +1,31 @@
+id: basic-pass
+title: "Test strategy review: recommends pass for a complete strategy"
+description: |
+  When evidence maps risks and constraints to executable measures, the AI should recommend pass while preserving Human decision authority.
+
+input:
+  prompt: |
+    Review this subscription-upgrade test strategy for a decision meeting.
+
+    Requirement: REQ-SUB-12 lets Web and Android users upgrade monthly subscriptions to annual plans with a remaining-days credit; a payment failure must leave the original plan active. iOS and enterprise accounts are explicitly excluded.
+    Product analysis: critical journeys are seeing the credit, confirming the upgrade, and successful payment. Duplicate charges, incorrect credit, or losing the plan after failure are unacceptable risks.
+    Technical constraints: BILLING-V3 updates entitlement through asynchronous events. The payment sandbox can return success, insufficient funds, timeout, and duplicate callbacks. Event tracing is enabled in the test environment.
+    Project constraints: Li Qing owns QA; Wang Lei owns development; Chen Min owns test data; the candidate build freezes on September 18.
+
+    Strategy STRAT-SUB-4:
+    - Scope covers Web/Android monthly-to-annual upgrades, credit boundaries, success/insufficient-funds/timeout/duplicate-callback results, event reordering, failure rollback, and preservation of the original plan. It explicitly excludes iOS and enterprise accounts and cites REQ-SUB-12.
+    - Unit tests cover credit and idempotency rules; API integration tests cover payment and the event state machine; Web/Android E2E covers critical journeys. Concurrency tests exercise duplicate callbacks and event reordering.
+    - The QA environment and payment sandbox are confirmed. Dataset TD-SUB-7 includes month-end, leap-day, 0/1/365 remaining days, success, and every failure code; Chen Min refreshes it by September 12.
+    - Entry gates: baselined requirements and API contract, deployable candidate, and validated TD-SUB-7. Exit gates: zero P0/P1, 100% critical-journey pass, 100% credit-rule coverage, no duplicate charge, and archived evidence for every failure rollback.
+    - Dependencies: BILLING-V3 and the payment sandbox. If the sandbox is unavailable, an API contract stub may support non-E2E checks only; critical payment E2E is deferred and cannot count toward exit.
+    - Li Qing maintains the coverage matrix; Wang Lei handles implementation defects. Environment, data, and dependency readiness is reviewed September 13.
+
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "Gives an explicit AI-assisted recommendation of pass, states that this is not final Human approval, and leaves the final decision to a Human reviewer."
+    - "Reviews business coverage, test depth and methods, feasibility, environments, data, quality gates, dependencies/fallbacks, and explicit exclusions, citing concrete supplied evidence for completeness."
+    - "Separates blocking from non-blocking items; blockers are explicitly none, and any optional improvement is not disguised as a blocking condition."
+    - "Preserves the supplied ownership of Li Qing, Wang Lei, and Chen Min; any revision request identifies its subject, owner, and closure condition without inventing people or final approval."
+  pass_threshold: 0.8

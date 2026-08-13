@@ -1,0 +1,18 @@
+id: basic-test-case-writing
+title: "Technical perspective: provide traceable API and data-boundary cases"
+description: |
+  Technical case suggestions should use only declared contract, data, and failure behavior.
+input:
+  prompt: |
+    Use technical-quality-perspective.
+    stage: test-case-writing
+    API contract API-302 says `POST /payments` requires `Idempotency-Key`; same key and payload returns the original transaction, same key with different payload returns 409, and downstream timeout must not duplicate a charge.
+    Produce technical case suggestions, risks, missing evidence, and actions without inventing implementation.
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "Covers missing key, same key/same payload, same key/different payload 409, and timeout without duplicate charge among core technical boundaries."
+    - "Traces suggestions to API-302 and requests logs, transaction records, or downstream-simulation evidence."
+    - "Does not decide unsupplied error codes, retry counts, or business acceptance rules and does not claim execution."
+  pass_threshold: 0.8

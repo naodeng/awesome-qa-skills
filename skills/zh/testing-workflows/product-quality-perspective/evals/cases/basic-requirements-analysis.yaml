@@ -1,0 +1,31 @@
+id: basic-requirements-analysis
+title: 产品视角：需求分析覆盖价值、规则、范围和验收标准
+description: |
+  在需求分析阶段，产品质量视角应从用户价值和业务规则出发，明确范围与验收标准，形成可行动的质量报告。
+
+input:
+  prompt: |
+    请使用 product-quality-perspective。
+    stage: requirements-analysis
+    项目材料：会员续费页新增“自动续费”开关。已知：仅已绑定支付方式的会员可开启；开启后每月到期前 24 小时扣款；用户可以在到期前关闭。验收标准草案只写了“用户可开启或关闭自动续费”。
+    请输出产品质量报告，重点说明用户价值、业务规则、范围和验收标准，并列出风险、缺口、问题与下一步动作。
+
+expect:
+  must_contain:
+    - "用户价值"
+    - "业务规则"
+    - "范围"
+    - "验收标准"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "用户价值"
+          - "业务规则"
+          - "范围"
+          - "验收标准"

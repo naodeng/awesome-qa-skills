@@ -1,0 +1,36 @@
+schema_version: v1alpha1
+
+environment:
+  type: none
+
+skills:
+  - source: local_path
+    path: .
+
+engine:
+  name: claude_code
+
+cases:
+  files:
+    - evals/cases/basic-requirements-analysis.yaml
+    - evals/cases/basic-test-strategy.yaml
+    - evals/cases/basic-test-strategy-review.yaml
+    - evals/cases/basic-code-review.yaml
+    - evals/cases/basic-test-case-writing.yaml
+    - evals/cases/basic-test-case-review.yaml
+    - evals/cases/edge-insufficient-evidence.yaml
+    - evals/cases/edge-role-boundary.yaml
+    - evals/cases/edge-role-conflict.yaml
+    - evals/cases/edge-unsupported-stage.yaml
+    - evals/cases/edge-condition-not-met.yaml
+  defaults:
+    timeout_seconds: 180
+    max_turns: 8
+    expect:
+      exit_code: 0
+      must_not_contain:
+        - "TODO"
+        - "我无法"
+
+report:
+  formats: [json]

@@ -1,0 +1,16 @@
+id: edge-unsupported-stage
+title: UX 视角：不支持的阶段不生成体验发现
+description: |
+  UX 角色不得为未支持的 stage 选择相近 Prompt。
+input:
+  prompt: |
+    请使用 ux-quality-perspective。
+    stage: deployment
+    请给出部署阶段的 UX 质量结论。
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "返回不适用或等价结果，说明 deployment 不受支持，并请求一个有效 stage。"
+    - "不默认套用测试报告或其他 Prompt，不生成 UX 发现或部署批准。"
+  pass_threshold: 0.8

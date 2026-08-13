@@ -1,0 +1,17 @@
+id: edge-condition-not-met
+title: QA 视角：用例评审门槛不满足时返回不适用
+description: |
+  没有待评审用例时，QA 不得用通用清单伪造评审发现。
+input:
+  prompt: |
+    请使用 qa-quality-perspective。
+    stage: test-case-review
+    项目只提供一句“稍后会编写登录用例”，没有用例、覆盖说明或用例版本。
+    请完成 QA 用例评审。
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "因没有待评审用例而返回不适用或等价结果，并明确说明门槛未满足。"
+    - "列出已知事实、需要的用例/覆盖/版本材料和下一步，不生成伪造的漏测发现。"
+  pass_threshold: 0.8

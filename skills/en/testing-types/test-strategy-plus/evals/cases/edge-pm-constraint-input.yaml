@@ -1,0 +1,22 @@
+id: edge-pm-constraint-input
+title: "Test strategy plus: separate PM delivery constraints from quality judgment"
+description: |
+  A test strategy keeps project-delivery constraints separate from quality risk and acceptance.
+
+input:
+  prompt: |
+    Use test-strategy-plus for a refund redesign.
+    Requirements analysis says duplicate refunds may create duplicate credits, and there are no acceptance criteria for idempotency-failure scenarios.
+    Source role "QA" report: this is a P0 quality risk, and no release-quality conclusion is supportable until criteria exist and are verified.
+    Source role "Project Manager" report: release is fixed for Friday with one QA; recommends testing only the happy path and treating the duplicate-refund risk as accepted to protect the date.
+    Engineering confirms the test environment will not be available until Thursday morning. Produce an executable enhanced test strategy.
+
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - The Friday date and one-QA capacity remain Project-Manager-attributed schedule and resource constraints, while Thursday-morning test-environment availability remains an Engineering-attributed dependency constraint. The two sources stay distinct, and these constraints influence milestones, depth, or scope tradeoffs.
+    - The QA P0 judgment and duplicate-refund problem from requirements analysis remain separate, source-attributed quality conclusions; schedule pressure or limited staffing must not downgrade them, relabel them as verified, or close the risk.
+    - Delivery constraints, quality conclusions, and risk acceptance are explicitly separated; the Project Manager recommendation is neither quality evidence nor unilateral risk acceptance, and an authorized risk acceptor plus acceptance conditions remain explicit or open.
+    - The output still includes the standalone strategy's risk priorities, per-area depth, checkable gates, milestones, ownership, deferrals, assumptions, and open questions without depending on any role Skill's internal files.
+  pass_threshold: 0.8

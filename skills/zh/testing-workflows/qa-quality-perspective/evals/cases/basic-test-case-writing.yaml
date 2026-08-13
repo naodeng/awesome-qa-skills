@@ -1,0 +1,18 @@
+id: basic-test-case-writing
+title: QA 视角：编写可执行的风险驱动用例建议
+description: |
+  QA 应根据已提供行为输出可执行、可判定且可追溯的用例建议。
+input:
+  prompt: |
+    请使用 qa-quality-perspective。
+    stage: test-case-writing
+    需求 REQ-104：转账金额必须大于 0 且不超过账户可用余额；成功后显示交易号；失败不得改变余额。
+    请输出带优先级、前置、步骤、可观察预期和需求追溯的 QA 用例建议。
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "用例建议覆盖大于 0、等于/超过可用余额、成功交易号和失败余额不变中的高价值边界。"
+    - "建议具有可执行前置、步骤和可判定预期，并追溯到 REQ-104。"
+    - "对未提供的并发、币种或错误码只标为缺口/问题，不编造规则或执行结果。"
+  pass_threshold: 0.8

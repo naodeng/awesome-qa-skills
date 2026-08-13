@@ -1,0 +1,18 @@
+id: basic-test-case-review
+title: "UX perspective: review interaction and accessibility case coverage"
+description: |
+  UX should use case and experience evidence to find traceable task and state omissions.
+input:
+  prompt: |
+    Use ux-quality-perspective.
+    stage: test-case-review
+    UX-205 requires an empty-search result to offer clearing filters and a screen-reader status region to announce result count. The proposed case only covers mouse entry of a keyword and seeing a list.
+    Produce a UX review, risks, and coverage actions.
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "Identifies missing empty-result recovery and result-count announcement coverage traced to UX-205."
+    - "Explains impact on task completion and screen-reader users and gives concrete coverage actions."
+    - "Invents no other interface states or actual execution results."
+  pass_threshold: 0.8

@@ -1,0 +1,27 @@
+id: basic-code-review
+title: "技术质量视角：基于代码证据的评审发现"
+description: |
+  技术质量视角应基于带身份标识的可审查变更给出可追溯的代码发现、影响、严重性与行动，而不是泛泛而谈。
+
+input:
+  prompt: |
+    使用 technical-quality-perspective。
+    stage: code-review
+    架构：HTTP API 将请求转给服务层，服务层写入用户数据。
+    PR：#184；提交：8a2c4d1；文件：src/api/users.ts。
+    Diff：
+      export async function updateUser(req, res) {
+        await db.query(`UPDATE users SET email = '${req.body.email}' WHERE id = ${req.params.id}`);
+        res.status(204).end();
+      }
+    API 合同：PUT /users/{id} 需要已认证管理员；email 为必填邮箱格式。
+    请给出技术质量报告，只根据提供材料陈述事实，并列出发现、影响、严重性、缺失证据与行动。
+
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "报告明确引用 PR #184、提交 8a2c4d1、src/api/users.ts 或给出的 diff 作为代码身份和证据，并将所述内容与推断区分。"
+    - "报告识别至少一个由该 diff 支持的高影响技术风险，例如字符串拼接 SQL 导致注入风险、未显示认证授权校验、或缺少 email 合同校验；不得把未提供的实现细节陈述为事实。"
+    - "每个重要发现或至少主要发现包含影响和高、中、低严重性；报告列出需要验证的安全、错误处理、测试、性能或可观测性证据以及可执行的后续行动。"
+  pass_threshold: 0.8

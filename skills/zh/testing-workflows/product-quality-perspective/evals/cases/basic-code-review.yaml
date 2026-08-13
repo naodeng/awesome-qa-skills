@@ -1,0 +1,18 @@
+id: basic-code-review
+title: 产品视角：根据可追溯变更核对业务语义
+description: |
+  代码变更涉及业务规则时，产品视角应将 diff 与验收语义比对。
+input:
+  prompt: |
+    请使用 product-quality-perspective。
+    stage: code-review
+    需求 REQ-33：会员在到期前 24 小时或更早关闭自动续费时不应扣款。PR #33 的 diff 把判断改为 `hoursBeforeExpiry > 24`。
+    请只从产品规则和验收语义输出发现、风险和行动，不替代工程代码正确性结论。
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "识别 `> 24` 与“24 小时或更早”的边界语义不一致，并引用 REQ-33 和 PR #33 作为来源。"
+    - "说明对用户扣款和验收的产品风险，给出可执行的澄清或修订行动。"
+    - "不将产品发现扩展为已完成的工程评审、测试通过或合并批准。"
+  pass_threshold: 0.8

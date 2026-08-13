@@ -1,0 +1,18 @@
+id: basic-test-strategy-review
+title: "QA perspective: review strategy coverage and gates"
+description: |
+  QA should check whether risks trace to scope, method, environment, and exit evidence.
+input:
+  prompt: |
+    Use qa-quality-perspective.
+    stage: test-strategy-review
+    Strategy STR-102 covers successful login and wrong passwords, but the requirement also has account-lockout and verification-code replay risks. The strategy has no test data, environment-readiness check, or exit evidence.
+    Produce a QA review with traceable gaps, risks, and revision actions.
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "Identifies missing lockout and code-replay coverage in STR-102 and traces it to requirement risk."
+    - "Identifies data, environment-readiness, and exit-evidence gaps and provides prioritized revision actions."
+    - "Does not describe strategy review as test execution or a final Human decision."
+  pass_threshold: 0.8

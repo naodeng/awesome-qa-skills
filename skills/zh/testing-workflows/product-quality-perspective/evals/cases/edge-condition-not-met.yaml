@@ -1,0 +1,17 @@
+id: edge-condition-not-met
+title: 产品视角：条件参与不命中时不生成发现
+description: |
+  代码评审没有产品规则、状态流或验收语义影响时，产品角色应返回不适用。
+input:
+  prompt: |
+    请使用 product-quality-perspective。
+    stage: code-review
+    PR #88 只将内部指标采样率从 10% 调整为 20%。变更说明和 diff 明确标注：无用户流程、业务规则、状态或验收语义影响。
+    请给出产品视角输出。
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "识别已提供可追溯变更，但产品条件参与不命中，因而返回不适用或等价结果。"
+    - "说明已知事实和什么样的业务/状态/验收影响会触发重新评估，不生成空泛产品发现。"
+  pass_threshold: 0.8

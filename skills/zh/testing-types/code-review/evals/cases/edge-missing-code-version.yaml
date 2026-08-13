@@ -1,0 +1,46 @@
+id: edge-missing-code-version
+title: 代码审查：代码身份或可审查变更缺失时分别阻塞
+description: |
+  三个待合并请求覆盖仅有 Diff、仅有代码身份和双门槛齐全；审查应稳定阻塞前两者，并在第三者中按相关性使用带来源的角色报告。
+
+input:
+  prompt: |
+    请使用 code-review 分别处理下面三个待合并请求，并说明每个请求当前能否进入正式代码评审。
+
+    请求 A：产品角色报告说「退款重试不能重复打款」。工程师粘贴了这段变更：
+      - refundService.refund(orderId);
+      + retry(3, () -> refundService.refund(orderId));
+    但没有仓库地址、PR、提交、分支、标签或其他代码版本标识。
+
+    请求 B：UI/UX 角色报告说「保存期间按钮应显示忙碌状态」。代码身份是仓库 shop-web 的 PR #418、提交 64e8f20、分支 feature/save-state；但没有 Diff、变更文件、代码片段或可访问的仓库内容，只有一句「保存交互已优化」。
+
+    请求 C：代码身份是仓库 shop-web、PR #419、提交 b72a410、基线 main@64e8f20。另有两份可选角色报告：
+    - source_role: product：保存成功提示只能在资料持久化成功后显示，用户已输入的名称不能丢失。
+    - source_role: ux：保存期间按钮应显示忙碌状态并阻止重复点击，失败反馈应显示在表单附近。
+    可审查 Patch：
+    ```diff
+    diff --git a/src/EditProfile.tsx b/src/EditProfile.tsx
+    @@ async function submitProfile(form: ProfileForm) {
+    -  setSaving(true);
+       try {
+    -    await saveProfile(form);
+         toast.success("Saved");
+    +    saveProfile(form);
+       } finally {
+    -    setSaving(false);
+       }
+    }
+    ```
+
+    请把 A、B、C 的结论分开写，不要合并成一次审查。
+
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "请求 A 包含稳定字段 `status: blocked` 和准确的 `missing_gate: missing_code_identity`；不得额外误报 `missing_reviewable_change`，并具体索要 PR、提交、分支、标签、仓库修订号等身份。"
+    - "请求 B 包含稳定字段 `status: blocked` 和准确的 `missing_gate: missing_reviewable_change`；不得额外误报 `missing_code_identity`，并具体索要 Diff、Patch、变更文件、代码片段或可访问的 base→head 内容。"
+    - "请求 A、B 均不输出正式 P0/P1/P2 发现、不声称审查完成、不给出合入建议；产品与 UI/UX 角色报告不替代缺失门槛，也不被改写成代码事实。"
+    - "请求 C 识别到代码身份与 Patch 均存在并进入正式证据型评审；发现必须落在删除 `setSaving`、删除 `await`、提前成功提示或未等待 `saveProfile` 等 Patch 事实，而不是只复述角色报告。"
+    - "请求 C 仅因变更相关才使用 Product 与 UI/UX 报告，并以 `source_role: product`、`source_role: ux` 或等价的稳定来源字段分别保留来源；产品报告用于持久化后成功语义，UI/UX 报告用于忙碌/重复点击/反馈关注点，二者不冒充代码证据。"
+  pass_threshold: 1.0

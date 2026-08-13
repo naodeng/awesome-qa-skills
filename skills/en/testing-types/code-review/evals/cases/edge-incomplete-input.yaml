@@ -1,25 +1,20 @@
 id: edge-incomplete-input
-title: "Code review: mark gaps when diff is missing"
+title: "Code review: block when both code identity and changes are missing"
 description: |
-  With only a verbal hint and no code, still return a structured draft and list assumptions/gaps.
+  With only a verbal description and neither code identity nor reviewable changes, return a structured blocked result rather than starting a formal review.
 
 input:
   prompt: |
-    Use code-review. User says: we changed the points redemption API and there might be concurrency issues. No diff, no file paths.
-    Draft a review and clearly list information gaps and assumptions.
-
-expect:
-  must_contain:
-    - "gap"
-    - "assumption"
-  must_not_contain:
-    - "TODO"
-    - "I cannot"
+    Use code-review to handle a review request.
+    The team only says, "The points-redemption API changed and there may be a concurrency issue." There is no repository URL, PR, commit, branch, tag, release version, or revision; there is also no diff, patch, changed file, code snippet, or accessible base-to-head content.
+    Explain whether a formal code review can start now and what the team must supply next.
 
 judge:
-  type: rule_based
-  success:
-    - output_contains:
-        all:
-          - "assumption"
-          - "risk"
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "The output contains the stable field `status: blocked` and lists both `missing_code_identity` and `missing_reviewable_change` under `missing_gate`; synonymous field names or natural-language-only wording do not satisfy this criterion."
+    - "It separately explains the missing identifiable code version and missing reviewable changes, requesting repository plus PR/commit/branch/tag/revision identity and a diff/patch, changed-file contents, or an explicit accessible base-to-head range."
+    - "It contains no formal P0/P1/P2 findings, does not claim code review completion, does not invent concurrency defects, implementation facts, or test results, and gives no approve-merge, reject-merge, or other merge recommendation."
+    - "The verbal concurrency concern remains an unverified risk lead or assumption rather than a confirmed code finding."
+  pass_threshold: 1.0

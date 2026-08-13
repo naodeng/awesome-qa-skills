@@ -1,25 +1,20 @@
 id: edge-incomplete-input
-title: 代码审查：Diff 不全时标明缺口
+title: 代码审查：代码身份与变更均缺失时阻塞
 description: |
-  只有口头描述、没有代码时，仍应给出结构化初版，并显式列出假设与待补充信息。
+  只有口头描述、同时缺少代码身份和可审查变更时，必须输出结构化阻塞结果，不能开始正式审查。
 
 input:
   prompt: |
-    用 code-review。用户只说：改了一下积分兑换接口，感觉可能有并发问题。没有 Diff、没有文件路径。
-    请先给一版审查草稿，并明确信息缺口与假设。
-
-expect:
-  must_contain:
-    - "缺口"
-    - "假设"
-  must_not_contain:
-    - "TODO"
-    - "我无法"
+    请使用 code-review 处理一次代码评审请求。
+    团队只说「积分兑换接口改过了，可能有并发问题」。没有仓库地址、PR、提交、分支、标签、发布版本或修订号；也没有 Diff、Patch、变更文件、代码片段或可访问的 base→head 内容。
+    请说明现在能否开始正式代码评审，以及还需要团队补充什么。
 
 judge:
-  type: rule_based
-  success:
-    - output_contains:
-        all:
-          - "假设"
-          - "风险"
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "输出包含稳定字段 `status: blocked`，并在 `missing_gate` 中同时明确列出 `missing_code_identity` 与 `missing_reviewable_change`；等义替换字段名或只写自然语言不满足本项。"
+    - "分别说明缺少可识别代码版本和可审查变更，并具体索要仓库加 PR/提交/分支/标签/修订号，以及 Diff/Patch、变更文件内容或明确可访问的 base→head 范围。"
+    - "不输出正式 P0/P1/P2 发现，不声称已完成代码审查，不虚构并发缺陷、实现或测试事实，也不给出可以合并、禁止合并或其他合入建议。"
+    - "把口头的并发担忧保留为尚未验证的风险线索或假设，而不是已确认代码发现。"
+  pass_threshold: 1.0

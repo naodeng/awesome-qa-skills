@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "ux-quality-perspective"
+interface:
+  display_name: "UX Quality Perspective"
+  short_description: "Identify information architecture, interaction-state, consistency, responsive, and accessibility risks across quality stages."
+  default_prompt: "Use the ux-quality-perspective skill with a valid stage and supplied UI/UX evidence to produce an evidence-based UX quality report."
+policy:
+  allow_implicit_invocation: true

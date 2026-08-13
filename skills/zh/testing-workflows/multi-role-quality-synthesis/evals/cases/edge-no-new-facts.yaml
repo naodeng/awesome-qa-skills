@@ -1,0 +1,44 @@
+id: edge-no-new-facts
+title: 多角色汇总：不从有限证据推导新事实
+description: |
+  汇总只能重组输入陈述；不得将未知根因、生产影响或未执行验证写成事实。
+
+input:
+  prompt: |
+    请根据以下两份角色报告，给出一份 test-reporting 阶段质量汇总。
+
+    报告 1：
+    source_id: SRC-QA-301
+    stage: test-reporting
+    source_role: qa
+    facts: RUN-22 有 1 个用例因超时失败；Firefox 128 未执行。
+    evidence: RUN-22 结果页。
+    findings: [P1] 当前证据不足以确认跨浏览器回归通过。
+    risks: Firefox 128 状态未知。
+    gaps: 超时根因与 Firefox 128 结果缺失。
+    questions: 超时是环境问题还是产品问题？
+    actions: 调查超时并执行 Firefox 128。
+    confidence: medium
+
+    报告 2：
+    source_id: SRC-TECH-301
+    stage: test-reporting
+    source_role: technical
+    facts: 未提供服务器指标或应用日志。
+    evidence: OBS-GAP-7 清单。
+    findings: [P2] 没有技术证据可解释 RUN-22 超时。
+    risks: 根因未知。
+    gaps: 指标和日志缺失。
+    questions: 能否提供该时段日志？
+    actions: 收集指标和日志后再定位。
+    confidence: low
+
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "只保留输入支持的事实：RUN-22 有一个超时失败、Firefox 128 未执行、服务器指标和应用日志未提供，并保留 SRC-QA-301 与 SRC-TECH-301 来源。"
+    - "不把内存泄漏、服务器过载、生产故障、收入损失或其他未提供的根因/业务影响断言为事实；可将根因明确标为未知或待调查。"
+    - "每条汇总发现至少引用一个输入 source_id；待确认问题、行动和信心限制与事实清楚区分。"
+    - "输出显式的分歧部分；没有冲突时明确说明无分歧。"
+  pass_threshold: 0.8
