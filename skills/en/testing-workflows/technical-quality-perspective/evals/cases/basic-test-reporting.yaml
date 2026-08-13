@@ -1,0 +1,18 @@
+id: basic-test-reporting
+title: "Technical perspective: report technical risk from versioned execution evidence"
+description: |
+  Technical reporting should relate only supplied execution and defect evidence to technical dimensions.
+input:
+  prompt: |
+    Use technical-quality-perspective.
+    stage: test-reporting
+    Execution RUN-304 v2 on build rc9 shows API contracts 30/30 passed and data recovery 7/8 passed; failed case TC-304-8 loses the last update after primary-database failover. Defect DB-304 is Open P1. No performance or security records are supplied.
+    Produce a technical-quality report separating executed results, missing evidence, impact, and actions.
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "Preserves rc9, RUN-304 v2, 30/30, 7/8, TC-304-8, and DB-304 Open P1 with source and state."
+    - "Relates failover data loss to consistency/recovery risk and gives retest, fix, or evidence actions."
+    - "Marks performance and security evidence missing rather than passed and does not approve release."
+  pass_threshold: 0.8

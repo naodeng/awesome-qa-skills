@@ -1,0 +1,18 @@
+id: basic-code-review
+title: "QA perspective: assess change testability and regression risk"
+description: |
+  QA should use a traceable change to identify observable outcomes, negative paths, and regression gaps.
+input:
+  prompt: |
+    Use qa-quality-perspective.
+    stage: code-review
+    PR #103 adds up to three retries for a payment callback, but the diff has no idempotency-key handling, retry logging, or related tests. The API contract says the same callback may arrive more than once.
+    Produce a QA-quality report on testability, observability, negative paths, and regression coverage without replacing engineering correctness review.
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "Uses PR #103 and the contract to identify duplicate-callback/retry idempotency and regression risk."
+    - "Requests observable retry/result/side-effect evidence and suggests duplicate, failure, and success path tests."
+    - "Keeps implementation gaps as risks for engineering confirmation rather than claiming proven code failure or executed tests."
+  pass_threshold: 0.8

@@ -1,0 +1,44 @@
+id: edge-conflicting-findings
+title: 多角色汇总：显式保留严重级别冲突和少数高风险意见
+description: |
+  角色结论冲突时，不得平均或静默覆盖严重级别；少数 P0/P1 意见必须保持可见和可追溯。
+
+input:
+  prompt: |
+    请根据以下两份角色报告，给出一份 test-report-review 阶段质量汇总。
+
+    报告 1：
+    source_id: SRC-QA-101
+    stage: test-report-review
+    source_role: qa
+    facts: 支付回归执行 120 项，失败 4 项。
+    evidence: RUN-889；失败项均涉及重复扣款保护。
+    findings: [P0] 当前候选版本必须阻塞发布。
+    risks: 重复扣款。
+    gaps: 失败根因未定位。
+    questions: 是否已有修复版本？
+    actions: 阻塞发布并定位失败原因。
+    confidence: high
+
+    报告 2：
+    source_id: SRC-PROD-101
+    stage: test-report-review
+    source_role: product
+    facts: 演示环境完成一笔成功支付。
+    evidence: DEMO-24 录屏。
+    findings: [P2] 已演示核心支付路径，可接受风险并按期发布。
+    risks: 失败场景体验未知。
+    gaps: 未看到回归明细。
+    questions: 失败用例是否影响主要用户？
+    actions: 发布后观察投诉。
+    confidence: medium
+
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "显式呈现 SRC-QA-101 与 SRC-PROD-101 对发布可接受性的冲突，并准确保留各自证据和立场。"
+    - "保留 QA 的少数 P0 阻塞意见为可见发现/阻塞项，引用 SRC-QA-101；不把 P0 与 P2 无解释地平均成中间严重级别，也不以投票或产品意见覆盖它。"
+    - "若输出采用某个汇总严重级别，必须解释其确定规则和来源依据，同时仍保留原始 P0 与 P2 分歧。"
+    - "每条汇总发现至少引用一个输入 source_id，且输出包含显式的分歧部分。"
+  pass_threshold: 0.8

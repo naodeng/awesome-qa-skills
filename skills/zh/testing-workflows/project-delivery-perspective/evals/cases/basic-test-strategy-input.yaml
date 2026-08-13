@@ -1,0 +1,31 @@
+id: basic-test-strategy-input
+title: 项目交付视角：把已提供约束转为可归因的测试策略输入
+description: |
+  项目交付视角把排期、产能、依赖、里程碑、责任人和行动状态记录为可归因约束，不产出质量结论。
+
+input:
+  prompt: |
+    请使用 project-delivery-perspective。
+    stage: test-strategy
+    项目交付事实：候选版本计划于 9 月 20 日交付（来源：发布计划 v3）；QA 产能为 2 名工程师、5 个工作日（来源：QA 经理，9 月 1 日）；支付沙箱访问等待平台团队提供（责任人：陈；来源：依赖登记表）；策略评审里程碑为 9 月 12 日（来源：交付日历）；测试数据刷新是未完成行动，责任人为 Maya，截止 9 月 8 日（来源：行动日志）。
+    请为测试策略输出项目约束输入。将带来源的项目约束和行动跟踪与质量事实分开；不要判定缺陷状态、测试执行状态、质量状态或发布批准。
+
+expect:
+  must_contain:
+    - "项目约束"
+    - "行动跟踪"
+    - "发布计划 v3"
+    - "QA 经理"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "项目约束"
+          - "行动跟踪"
+          - "发布计划 v3"
+          - "QA 经理"

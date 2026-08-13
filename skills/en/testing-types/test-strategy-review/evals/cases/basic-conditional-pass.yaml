@@ -1,0 +1,25 @@
+id: basic-conditional-pass
+title: "Test strategy review: recommends conditional pass for bounded gaps"
+description: |
+  When a strategy is executable overall but needs time-bounded additions, the AI should recommend conditional pass with verifiable revision requests.
+
+input:
+  prompt: |
+    Review the test strategy for order cancellation.
+
+    Requirement REQ-ORD-31: an unshipped order can be cancelled on Web and Android; its coupon returns immediately and its refund completes within 24 hours. Overseas orders are explicitly excluded this release.
+    Technical note TECH-ORD-8: cancellation can be submitted repeatedly and refund runs as an asynchronous job. A payment sandbox exists, but the refund-timeout error-code mapping will arrive on August 16.
+    Project note: QA Zhou Ning owns the strategy; backend Zhao Kai supplies the error-code mapping. The test-data team owns data preparation, but no individual owner is named. System test starts August 20.
+
+    Strategy STRAT-ORD-9 covers Web/Android unshipped cancellation, coupon return, successful refund, duplicate-request idempotency, and asynchronous status query. Unit/API/E2E levels, entry gates, and exit gates for zero P0/P1 plus refund-timing evidence are defined. Overseas orders are excluded. The environment and sandbox are available. The strategy does not list a refund-timeout error-code scenario, and the data inventory has neither refund-timeout data nor a named owner. All other data and dependencies are ready.
+
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "Gives an explicit AI-assisted recommendation of conditional_pass and states that a Human reviewer retains the final decision."
+    - "Identifies refund-timeout mapping coverage, corresponding test data, and the unnamed data owner as mandatory non-blocking/conditional items rather than claiming an unconditional pass."
+    - "Separates blockers from non-blockers: the evidence does not show that the current gap prevents reviewing the whole strategy, but the conditions must close before system test or the applicable gate."
+    - "Revision requests require Zhao Kai to provide the mapping, Zhou Ning to update coverage/strategy, and the project to name a data owner and evidence; it does not invent an individual's name."
+    - "Still reviews business coverage, test depth, feasibility, environments, data, gates, dependencies, and exclusions rather than ignoring the other dimensions."
+  pass_threshold: 0.8

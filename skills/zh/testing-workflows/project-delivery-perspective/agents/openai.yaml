@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "project-delivery-perspective"
+interface:
+  display_name: "项目交付视角"
+  short_description: "在支持的策略与报告评审阶段记录带来源的交付约束和行动，不改变质量事实。"
+  default_prompt: "请使用 project-delivery-perspective，并提供受支持的 stage 及带来源的排期、产能、依赖、里程碑、责任人和行动信息。"
+policy:
+  allow_implicit_invocation: true

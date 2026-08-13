@@ -1,0 +1,18 @@
+id: basic-test-strategy-review
+title: 技术视角：评审策略对技术风险的追溯覆盖
+description: |
+  技术角色应根据已声明架构、合同和风险识别策略遗漏。
+input:
+  prompt: |
+    请使用 technical-quality-perspective。
+    stage: test-strategy-review
+    架构 ARC-301：订单服务通过至少一次消息更新库存，消费者必须幂等；失败消息进入 DLQ 并有告警。策略 STR-301 只覆盖正常消费，未覆盖重复、乱序、DLQ 或告警证据。
+    请输出技术评审报告，列出可追溯缺口、影响与修订行动。
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "识别 STR-301 相对 ARC-301 缺失重复/乱序、幂等、DLQ 和告警证据覆盖。"
+    - "说明库存一致性、恢复或可观测性影响，给出具体策略修订行动。"
+    - "不把未执行的策略覆盖写成已证明的实现缺陷或测试结果。"
+  pass_threshold: 0.8

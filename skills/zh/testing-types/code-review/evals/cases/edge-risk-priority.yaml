@@ -6,9 +6,23 @@ description: |
 input:
   prompt: |
     使用 code-review。
-    变更 A：退款接口在重试时可能重复退款（无幂等）。
-    变更 B：同一 PR 里某个私有方法变量名从 tmp 改成 data，无行为变化。
-    请分别给出分级，并解释为何严重程度不同；不要把 B 写成 P0。
+    代码身份：仓库 refund-api，PR #52，提交 8fd3bc1，基线 main@a20d119。
+    以下为该提交相对基线的可审查 Patch：
+    ```diff
+    diff --git a/src/RefundRetryHandler.java b/src/RefundRetryHandler.java
+    @@ public void handle(String orderId, String refundRequestId) {
+    -  refundService.refund(orderId, refundRequestId);
+    +  retry(3, () -> refundService.refund(orderId));
+    }
+    diff --git a/src/RefundResponseParser.java b/src/RefundResponseParser.java
+    @@ private Refund parse(Response response) {
+    -  Refund tmp = parseRefund(response);
+    -  return tmp;
+    +  Refund data = parseRefund(response);
+    +  return data;
+    }
+    ```
+    请分别审查两处变更并解释严重程度差异；不要把纯重命名写成 P0。
 
 expect:
   must_contain:
@@ -22,7 +36,8 @@ judge:
   type: agent_judge
   model: openai/gpt-5
   criteria:
-    - "分别覆盖「重复退款」与「重命名无行为变化」两类发现，而不是混成一条"
-    - "重复退款的优先级明显高于变量重命名，并给出业务/资损依据"
-    - "没有把纯命名/风格问题标成 P0；事实与假设分开"
-  pass_threshold: 0.67
+    - "分别覆盖两个 Patch：`RefundRetryHandler.java` 删除 `refundRequestId` 并对无该参数的退款调用重试，以及 `RefundResponseParser.java` 仅把局部变量 `tmp` 改为 `data`；不得用输入外的口头摘要替代 Patch 证据。"
+    - "将前者的重复退款/资损风险评为 P0，依据是重试调用失去明确幂等请求标识；同时把退款服务内部是否另有幂等保护保留为待验证假设。"
+    - "把后者识别为无行为变化的命名调整，不标为 P0；可以省略为噪声或至多给出低优先级说明。"
+    - "两处变更不混成一个发现，事实与假设分开，严重度差异有明确业务后果依据。"
+  pass_threshold: 0.8

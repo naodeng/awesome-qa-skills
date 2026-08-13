@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "multi-role-quality-synthesis"
+interface:
+  display_name: "多角色质量汇总"
+  short_description: "将同一阶段的多角色报告合并为保留来源、分歧和质量边界的可追溯汇总"
+  default_prompt: "使用 $multi-role-quality-synthesis 汇总这些角色质量报告，并保留所有来源与分歧。"
+policy:
+  allow_implicit_invocation: true

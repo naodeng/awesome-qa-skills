@@ -1,0 +1,18 @@
+id: basic-test-case-writing
+title: "UX perspective: write evidenced user-task and state case suggestions"
+description: |
+  UX case candidates should use only supplied task, interface, state, and input-mode evidence.
+input:
+  prompt: |
+    Use ux-quality-perspective.
+    stage: test-case-writing
+    Prototype UX-204 has a labeled email field, Save button, and inline error area. Requirements say Tab reaches every control, save failure focuses an error summary, and 320px width has no horizontal scrolling.
+    Produce UX case candidates, risks, and evidence needs.
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "Covers label/Tab order, save-failure focus, and no horizontal scroll at 320px among case candidates."
+    - "Uses UX-204 as source, writes only evidence-supported preconditions/steps/expectations, and lists unsupplied device/screen-reader details as gaps."
+    - "Does not present candidate cases as executed results."
+  pass_threshold: 0.8

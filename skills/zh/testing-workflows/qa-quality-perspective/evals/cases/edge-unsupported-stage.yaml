@@ -1,0 +1,16 @@
+id: edge-unsupported-stage
+title: QA 视角：不支持的阶段不进行 QA 分析
+description: |
+  QA 角色必须验证 stage，不能用相近 Prompt 替代未支持阶段。
+input:
+  prompt: |
+    请使用 qa-quality-perspective。
+    stage: defect-triage
+    请直接给出 QA 质量结论。
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "返回不适用或等价结果，说明 defect-triage 不受支持，并列出或指向八个有效阶段。"
+    - "不默认套用其他阶段，不生成填充式 QA 发现或质量结论。"
+  pass_threshold: 0.8

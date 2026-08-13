@@ -1,0 +1,18 @@
+id: basic-test-reporting
+title: "Product perspective: express product risk from execution results"
+description: |
+  The product perspective should turn supplied critical-journey results into traceable product risk.
+input:
+  prompt: |
+    Use product-quality-perspective.
+    stage: test-reporting
+    Requirement REQ-61 defines preserving the original order after payment failure as a critical journey. Execution RUN-61 shows successful payment 12/12 passed and payment-failure rollback 2/3 passed; failed case TC-61-9 clears the original order.
+    Produce a product-quality report that retains sources and explains user impact, residual risk, and actions without approving release.
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "Preserves the 12/12, 2/3, and TC-61-9 failure facts from RUN-61 without rewriting partial success as an overall pass."
+    - "Relates clearing the original order to REQ-61's critical user value and explains impact, residual risk, and actionable follow-up."
+    - "Does not approve release or invent other execution or defect results."
+  pass_threshold: 0.8

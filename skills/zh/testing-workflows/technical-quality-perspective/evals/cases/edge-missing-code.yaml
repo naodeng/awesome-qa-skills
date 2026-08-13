@@ -1,0 +1,19 @@
+id: edge-missing-code
+title: "技术质量视角：没有可审查变更时阻断代码评审"
+description: |
+  代码评审必须有可识别的代码版本和可审查变更。本用例提供代码身份但没有 diff、文件或代码，因此必须阻断而不能虚构代码发现。
+
+input:
+  prompt: |
+    使用 technical-quality-perspective。
+    stage: code-review
+    项目材料：已提供 PR #418、提交 64e8f20 和分支 feature/sign-in-speed。有人说“登录接口已经优化”，但没有 diff、变更文件清单、代码片段、API 合同或测试记录。请完成技术代码评审并告诉我是否可以合并。
+
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "报告明确阻断、拒绝开始或标记代码评审不适用，原因是尽管已提供 PR #418、提交 64e8f20 或分支身份，仍缺少可审查变更；等价的明确限制表述均可。"
+    - "报告具体索要缺少的可审查变更材料，如 diff、变更文件或代码；不得错误地说代码身份缺失，也可索要相关 API、架构或测试证据。"
+    - "报告不声称已审查代码、不虚构漏洞或实现发现、不建议合并，也不确认功能正确或测试通过。"
+  pass_threshold: 0.8

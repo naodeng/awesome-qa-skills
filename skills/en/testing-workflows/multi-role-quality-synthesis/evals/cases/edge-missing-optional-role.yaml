@@ -1,0 +1,45 @@
+id: edge-missing-optional-role
+title: "Multi-role synthesis: degrades safely when an optional role is absent"
+description: |
+  When an optional role has no report, synthesis should continue with available inputs, state the absence and impact, and create no finding for that role.
+
+input:
+  prompt: |
+    Prepare a test-strategy stage quality synthesis from the following two role reports.
+    Stage context: UI/UX is optional for this stage. No UI/UX report was supplied.
+
+    Report 1:
+    source_id: SRC-QA-201
+    stage: test-strategy
+    source_role: qa
+    facts: Scope includes the primary web checkout path.
+    evidence: STRAT-8 scope table.
+    findings: [P1] Failed-payment regression coverage is missing.
+    risks: A failed-payment regression may go undetected.
+    gaps: Failed-payment data is not ready.
+    questions: Who will provide failed-payment test data?
+    actions: Add failed-payment coverage and prepare data.
+    confidence: high
+
+    Report 2:
+    source_id: SRC-TECH-201
+    stage: test-strategy
+    source_role: technical
+    facts: The payment sandbox supports configurable failure codes.
+    evidence: API-SANDBOX-3.
+    findings: [P2] Sandbox failure codes can construct exception scenarios.
+    risks: Sandbox and production responses may differ.
+    gaps: The production error-code mapping was not supplied.
+    questions: Is there a production error-code contract?
+    actions: Obtain the error-code contract and map test data.
+    confidence: medium
+
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "Completes a traceable synthesis from SRC-QA-201 and SRC-TECH-201 rather than refusing because the optional UI/UX role is absent."
+    - "States that no UI/UX report was supplied and treats the resulting perspective-coverage limitation as an information gap or confidence limitation, not as a quality fact."
+    - "Invents no UI/UX fact, evidence, finding, risk, or conclusion; every synthesized finding cites an actual input source_id."
+    - "Includes an explicit Disagreements section and states that there are no material disagreements when none exist."
+  pass_threshold: 0.8

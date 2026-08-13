@@ -1,0 +1,20 @@
+id: edge-incomplete-input
+title: "Test strategy review: stops when the strategy itself is missing"
+description: |
+  Given only a requirement summary and no reviewable strategy, the AI must not invent coverage conclusions and should expose the input blocker.
+
+input:
+  prompt: |
+    Tomorrow we have a strategy review for cart promotions. The requirement says spend 300 and save 50; the promotion stacks with a member discount but not a category coupon. Web and iOS are in scope. Lin Shan owns product and Fang Yu owns QA. Give me the strategy review result now.
+
+    I do not have the strategy body, coverage matrix, test levels, environment/data plan, quality gates, dependency list, or exclusion rationale. Do not write a new strategy for us; review only what is supplied.
+
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "Outputs the exact structured field `recommendation: reject`, treats the missing test strategy as a blocking input gap, and does not substitute pass, conditional_pass, or a prose-only refusal for that field."
+    - "Outputs `human_final_decision: pending`, states that the result is only an AI-assisted recommendation, and does not fabricate completed Human approval."
+    - "Does not invent adequate business coverage, test depth, environments, data, gates, dependencies, or exclusions; lists the gaps, open questions, and the strategy body, coverage matrix, and related evidence needed for substantive review."
+    - "Separates blockers from non-blockers, allowing non-blockers to be currently undetermined; asks Fang Yu for strategy/coverage material and Lin Shan to confirm business rules, while keeping unknown technical/data/environment owners unassigned."
+  pass_threshold: 0.8

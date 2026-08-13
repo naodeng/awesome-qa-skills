@@ -1,0 +1,25 @@
+id: basic-conditional-pass
+title: "退款状态测试报告评审"
+description: |
+  评审主体证据一致、同时留有可界定复验与归档事项的测试报告。
+
+input:
+  prompt: |
+    帮我评审退款状态测试报告 TR-REF-8 v2.0。
+
+    需求 REQ-REF-8 v3.0：Web 和 Android 用户可查看退款处理中、成功和失败状态；状态最长 24 小时内收敛。批准范围不含 iOS。测试策略 STRAT-REF-8 v1.6 要求 API 状态机、Web/Android 关键路径、超时和重复通知，退出门禁为零 P0/P1、关键路径全通过、所有修复在候选构建复验。
+    测试报告 TR-REF-8 v2.0：build-refund-rc5 上计划 92 条，执行 92 条，91 条通过，1 条为修复后待复验；未测范围为 iOS（批准排除）。缺陷 P2-882 的 UI 时间文案已在 rc6 修复，但报告尚无 rc6 复验记录。报告建议有条件通过，条件是发布会议前完成 rc6 复验和证据归档。
+    执行证据 EXEC-REF-8 v1.9：rc5 的 92 条记录完整；API 状态机、超时、重复通知、Web/Android 关键路径均通过，P2-882 对应用例失败。证据库管理员为 Qian Yu。
+    缺陷证据 DEF-REF-8 v1.4：P2-882 severity=P2、status=fixed_in_rc6、retest=pending；无 P0/P1。开发负责人 Luo Chen。
+    角色报告：QA-REF v1.2 与 TECH-REF v1.1 均认为主体门禁已满足，但 P2-882 必须在发布会议前完成 rc6 复验；PRODUCT-REF v1.0 确认文案问题不影响退款金额或状态收敛；UX-REF v1.0 要求保留复验截图。
+    项目行动 ACTION-REF v1.3：Luo Chen 已交付 rc6，Qian Yu 在发布会议前执行复验并归档日志和截图；当前状态 open。最终是否接受剩余风险由 Human 决定。
+
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "给出明确的 AI 辅助建议 `recommendation: conditional_pass`，输出 `human_final_decision: pending`，不把建议表述为最终批准。"
+    - "把 P2-882 的 rc6 复验和日志/截图归档列为明确条件，保留 Luo Chen、Qian Yu 和发布会议前这一已给出的责任与关闭门槛。"
+    - "说明条件的验证证据与未满足时的影响，同时确认 iOS 是批准排除而不是偷偷隐藏的未测范围；不得把待复验写成已通过。"
+    - "列出报告与原始证据的矛盾/差异、残余风险、开放行动和所有关键来源版本，并把无 P0/P1 与待复验 P2 分开表达。"
+  pass_threshold: 0.8

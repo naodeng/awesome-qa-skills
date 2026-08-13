@@ -1,0 +1,18 @@
+id: basic-code-review
+title: "Product perspective: compare a traceable change with business semantics"
+description: |
+  When a code change touches a business rule, the product perspective should compare the diff with acceptance semantics.
+input:
+  prompt: |
+    Use product-quality-perspective.
+    stage: code-review
+    Requirement REQ-33 says a member who disables auto-renewal 24 hours or more before expiry must not be charged. PR #33 changes the condition to `hoursBeforeExpiry > 24`.
+    Report findings, risks, and actions only from the product-rule and acceptance perspective; do not replace an engineering correctness review.
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "Identifies the boundary mismatch between `> 24` and '24 hours or more', citing REQ-33 and PR #33."
+    - "Explains the product risk to charging and acceptance, and gives an actionable clarification or correction."
+    - "Does not turn the product finding into a completed engineering review, passed-test claim, or merge approval."
+  pass_threshold: 0.8

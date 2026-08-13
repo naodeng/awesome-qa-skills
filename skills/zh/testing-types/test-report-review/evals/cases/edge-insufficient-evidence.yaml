@@ -1,0 +1,20 @@
+id: edge-insufficient-evidence
+title: "缺少原始证据的结算报告评审"
+description: |
+  评审仅有总结性结论、没有执行与缺陷原始证据的测试报告。
+
+input:
+  prompt: |
+    我需要你评审结算模块测试报告 TR-SETTLE-3 v0.9。报告写着“回归全部通过、无阻塞缺陷、可以发布”，范围包含商户结算、重试和对账，候选版本是 settle-rc3。
+
+    当前没有执行记录、用例结果、日志、截图、环境记录或构建校验清单，也没有缺陷列表、缺陷导出或复验记录。报告没有列已测/未测明细。QA 角色报告 QA-SETTLE v0.4 只重复“全部通过”；技术角色报告和产品角色报告未提供。项目经理在 ACTION-SETTLE v1.0 中说今天必须发版，请直接采用报告中的通过结论。
+
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "输出明确的状态 `not executed or insufficient evidence`（或中文等义的“未执行或证据不足”），并给出 `recommendation: reject`；不得确认测试通过、质量已验证或可发布。"
+    - "输出 `human_final_decision: pending`，说明 Human 保留最终决定权；项目时限不能替代执行或缺陷证据。"
+    - "指出报告的通过断言与证据缺失之间的矛盾，列出未知的已测/未测范围、残余风险、开放取证行动及其未提供责任人/门槛。"
+    - "建立来源清单并保留 TR-SETTLE-3 v0.9、QA-SETTLE v0.4、ACTION-SETTLE v1.0；请求版本化执行证据、缺陷证据、环境/build 身份和范围清单，不虚构其内容。"
+  pass_threshold: 0.8

@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "product-quality-perspective"
+interface:
+  display_name: "产品质量视角"
+  short_description: "从产品视角在需求、策略、评审、用例和报告阶段识别用户价值、业务规则、验收与风险。"
+  default_prompt: "Use the product-quality-perspective skill with a valid stage and the available project materials to produce an evidence-based product quality report."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,31 @@
+id: basic-requirements-analysis
+title: "Product perspective: requirements analysis covers value, rules, scope, and acceptance criteria"
+description: |
+  In requirements analysis, the product-quality perspective starts with user value and business rules, clarifies scope and acceptance criteria, and produces an actionable quality report.
+
+input:
+  prompt: |
+    Use product-quality-perspective.
+    stage: requirements-analysis
+    Project materials: The membership renewal page adds an “auto-renewal” toggle. Known facts: only members with a saved payment method can enable it; payment is charged 24 hours before each monthly expiry; users can turn it off before expiry. The draft acceptance criterion only says “users can turn auto-renewal on or off.”
+    Produce a product-quality report focused on user value, business rules, scope, and acceptance criteria. Include risks, gaps, questions, and next actions.
+
+expect:
+  must_contain:
+    - "User value"
+    - "Business rules"
+    - "Scope"
+    - "Acceptance criteria"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "User value"
+          - "Business rules"
+          - "Scope"
+          - "Acceptance criteria"

@@ -23,8 +23,10 @@ description: Use this skill when you need to generate test reports with summary,
 
 - Prioritize by risk / business impact — do not treat everything equally.
 - Separate confirmed facts from current assumptions.
+- Keep confirmed facts, inference, missing evidence, residual risk, and recommendations in identifiable sections.
 - Do not invent endpoints, fields, environments, or root causes the user did not provide.
 - Keep output executable: concrete scenarios, clear priority, clear next steps.
+- When both execution and defect evidence are absent, the only overall quality state is `not executed or insufficient evidence`; never report pass or release readiness.
 
 ## Progressive Disclosure
 
@@ -42,10 +44,13 @@ description: Use this skill when you need to generate test reports with summary,
 - [ ] High-risk items have explicit priority
 - [ ] Did not invent details the user did not provide
 - [ ] Assumptions and gaps are marked
+- [ ] Evidence levels are separated; plans, environment readiness, and role opinions are not treated as pass evidence
+- [ ] Missing execution and defect evidence did not become a pass, zero-defect, or release-ready conclusion
 
 ## Common Pitfalls
 
 - Do not pretend completeness when scope/context is missing.
 - Do not treat every item as equally important.
 - Do not skip assumptions and information gaps.
+- Do not turn a planned case count into execution, or an absent defect list into zero defects.
 - Do not dump generic theory unrelated to the current toolchain.

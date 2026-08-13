@@ -1,0 +1,18 @@
+id: basic-requirements-analysis
+title: QA 视角：识别需求的可测性与边界
+description: |
+  QA 应将已提供的行为、边界和可观察结果转化为可测性发现。
+input:
+  prompt: |
+    请使用 qa-quality-perspective。
+    stage: requirements-analysis
+    需求 REQ-101：验证码 5 分钟有效，同一账号连续输错 3 次锁定 15 分钟；成功验证后页面显示“验证成功”。未说明计数是否跨设备共享。
+    请输出 QA 质量报告，分析可测性、边界、缺口和风险优先级。
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "覆盖 5 分钟有效期、3 次失败、15 分钟锁定和成功提示的可观察验收点或边界。"
+    - "将跨设备计数标为未知或待澄清，不自行决定业务规则。"
+    - "给出风险驱动的 QA 问题和行动，不声称实现或测试结果已验证。"
+  pass_threshold: 0.8

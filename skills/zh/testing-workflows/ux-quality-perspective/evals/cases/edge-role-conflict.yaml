@@ -1,0 +1,18 @@
+id: edge-role-conflict
+title: UX 视角：保留体验证据与 QA 总结的冲突
+description: |
+  角色结论冲突时，UX 应保留自己的可追溯体验证据，不改写其他角色的测试事实。
+input:
+  prompt: |
+    请使用 ux-quality-perspective。
+    stage: test-reporting
+    UX 记录 UX-RUN-206 v2 显示键盘用户无法离开支付方式列表，三个读屏任务中两个失败。QA 摘要 QA-206 v5 称“功能用例 50/50 通过，质量无风险”，但未包含键盘或读屏用例。
+    请输出 UX 质量报告，说明冲突、范围和行动。
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "分别归因 UX-RUN-206 v2 和 QA-206 v5，明确 QA 功能范围未覆盖 UX 键盘/读屏结果。"
+    - "保留键盘阻断和 2/3 读屏任务失败事实，不因 50/50 功能通过而写成无 UX 风险。"
+    - "说明范围边界、影响、补证/复测行动和冲突解决方，不改写 QA 执行事实或批准发布。"
+  pass_threshold: 0.8

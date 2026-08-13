@@ -1,0 +1,24 @@
+id: edge-hidden-untested-scope
+title: "Mobile-payment report review with omitted offline scope"
+description: |
+  Compare a report summary with execution scope for a critical offline-payment capability.
+
+input:
+  prompt: |
+    Review mobile-payment test report TR-PAY-21 v1.0.
+
+    Approved requirement REQ-PAY-21 v4.2 requires Android and iOS to prevent duplicate charging both online and after reconnecting from a short offline period. Offline recovery is a P0 business risk and has no approved exclusion. Test strategy STRAT-PAY-21 v2.3 makes Android/iOS online payment, offline submission, reconnect retry, duplicate callback, and ledger reconciliation mandatory. Its exit gate requires all those critical paths to pass.
+    Report TR-PAY-21 v1.0 says "all critical paths passed, scope complete, recommend pass," reports 80/80 passing, and lists untested scope as "none."
+    Execution evidence EXEC-PAY-21 v1.0 contains 80 cases for Android/iOS online payment and Android offline recovery only. There are no case IDs, logs, or results for iOS offline submission, reconnect retry, duplicate callback, or ledger reconciliation.
+    Defect evidence DEF-PAY-21 v1.0 says there is no open P0/P1 in executed scope but makes no claim about defects or verification in the iOS offline scope.
+    QA report QA-PAY-21 v1.1 marks iOS offline recovery "not executed: device network tooling unavailable." Product report PRODUCT-PAY-21 v1.0 restates that this path is a P0 risk. Project action ACTION-PAY-21 v1.0 has no assigned tooling owner or recovery date.
+
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "Gives `recommendation: reject` and `human_final_decision: pending`; it does not accept the report's pass claim or invent an approved exclusion for iOS offline scope."
+    - "Makes the hidden untested scope visible: iOS offline submission, reconnect retry, duplicate callback, and ledger reconciliation, tied to the P0 risk in REQ-PAY-21 v4.2 and the STRAT-PAY-21 v2.3 gate."
+    - "Identifies the contradiction between TR-PAY-21's complete-scope/no-untested claim and EXEC-PAY-21 plus QA-PAY-21; it does not extrapolate 80/80 to full-scope pass."
+    - "Lists source versions, residual duplicate-charge and ledger risks, and open actions; unknown tooling owner and date remain unassigned, with no invented waiver, result, or risk acceptance."
+  pass_threshold: 0.8

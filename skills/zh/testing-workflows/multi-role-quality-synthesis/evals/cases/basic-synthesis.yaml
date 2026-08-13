@@ -1,0 +1,44 @@
+id: basic-synthesis
+title: 多角色汇总：合并等价发现并保留全部来源
+description: |
+  等价的角色发现应规范化为一条可追溯发现，同时保留每个贡献来源并明确无分歧状态。
+
+input:
+  prompt: |
+    请根据以下两份角色报告，给出一份 requirements-analysis 阶段质量汇总。
+
+    报告 1：
+    source_id: SRC-PROD-001
+    stage: requirements-analysis
+    source_role: product
+    facts: 需求只写了“注册后进入首页”。
+    evidence: PRD-17 第 3 节没有邮箱验证失败后的用户路径。
+    findings: [P1] 邮箱验证失败后的验收路径未定义。
+    risks: 用户可能无法完成注册。
+    gaps: 失败状态验收标准缺失。
+    questions: 失败后允许重试还是联系客服？
+    actions: 产品补充失败路径和验收标准。
+    confidence: high
+
+    报告 2：
+    source_id: SRC-QA-001
+    stage: requirements-analysis
+    source_role: qa
+    facts: 当前验收标准仅覆盖注册成功。
+    evidence: AC-REG-01 至 AC-REG-03 均为成功场景。
+    findings: [P1] 邮箱验证失败场景没有可测试的验收标准。
+    risks: 无法设计失败路径测试。
+    gaps: 错误状态和重试规则缺失。
+    questions: 失败提示和重试次数是什么？
+    actions: 补充失败场景验收标准后再完成用例设计。
+    confidence: high
+
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "将两份报告中关于邮箱验证失败验收标准缺失的等价发现合并为一个规范化发现，而不是作为两个无关问题重复列出。"
+    - "该规范化发现同时引用 SRC-PROD-001 和 SRC-QA-001，并保留 product 与 qa 两个贡献角色；其他汇总发现也至少引用一个输入 source_id。"
+    - "输出清楚区分共识、分歧、阻塞项、待确认问题和行动；即使没有实质分歧，也显式输出分歧部分并说明无分歧。"
+    - "没有引入输入报告未提供的新事实、证据、严重级别或质量结论。"
+  pass_threshold: 0.8

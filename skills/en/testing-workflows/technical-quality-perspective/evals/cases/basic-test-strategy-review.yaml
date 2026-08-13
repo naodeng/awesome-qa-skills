@@ -1,0 +1,18 @@
+id: basic-test-strategy-review
+title: "Technical perspective: review traceable technical-risk coverage"
+description: |
+  Engineering should identify strategy omissions from supplied architecture, contracts, and risks.
+input:
+  prompt: |
+    Use technical-quality-perspective.
+    stage: test-strategy-review
+    Architecture ARC-301 says the order service updates inventory through at-least-once messages, so the consumer must be idempotent; failed messages go to a DLQ with alerts. Strategy STR-301 covers only normal consumption, omitting duplicates, reordering, DLQ, and alert evidence.
+    Produce a technical review with traceable gaps, impact, and revision actions.
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "Identifies missing duplicate/reordering, idempotency, DLQ, and alert-evidence coverage in STR-301 against ARC-301."
+    - "Explains inventory-consistency, recovery, or observability impact and gives concrete strategy revisions."
+    - "Does not turn unexecuted strategy coverage into proven implementation defects or test results."
+  pass_threshold: 0.8

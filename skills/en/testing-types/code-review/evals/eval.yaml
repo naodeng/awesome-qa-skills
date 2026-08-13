@@ -14,6 +14,7 @@ cases:
   files:
     - evals/cases/basic-success.yaml
     - evals/cases/edge-incomplete-input.yaml
+    - evals/cases/edge-missing-code-version.yaml
     - evals/cases/edge-risk-priority.yaml
   defaults:
     timeout_seconds: 180

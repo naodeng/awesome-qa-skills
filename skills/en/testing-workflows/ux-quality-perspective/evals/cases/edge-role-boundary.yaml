@@ -1,0 +1,20 @@
+id: edge-role-boundary
+title: "UX perspective: do not invent backend implementation conclusions"
+description: |
+  The UX quality perspective does not replace backend code review, security assessment, or test execution; without their evidence it must not assert correct implementation, reliable API, passed tests, or release readiness.
+
+input:
+  prompt: |
+    Use ux-quality-perspective.
+    stage: test-report-review
+    Project materials: The report claims, “The checkout-page experience is accepted,” and attaches only one desktop screenshot plus “the server-side order calculation is fixed.” No backend diff, API record, log, security assessment, or test execution result is provided, and there is no mobile or keyboard test evidence.
+    Produce a UX quality report that identifies what UX can and cannot be assessed and states needed evidence and actions. Do not assert that the backend implementation is correct, the API is reliable, it is secure, tests passed, or release is approved.
+
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "Limits the desktop screenshot to the UX visual evidence it can support and identifies mobile, keyboard, or other UX evidence gaps."
+    - "Clearly states that the materials cannot determine backend correctness, API reliability, security, passed tests, or release readiness, and names needed evidence and actions."
+    - "Does not assert, including by affirmative paraphrase, that the backend is correctly fixed, the API is reliable, it is secure, tests passed, or release is approved."
+  pass_threshold: 0.8

@@ -5,9 +5,9 @@
 A language-partitioned **AI testing skills library** (Agent Skills) for Codex, Cursor, Claude Code, Kiro, OpenCode, Trae, and similar tools. It ships independently installable, composable skills for testing workflows and testing types.
 
 [![License: GPL-3.0](https://img.shields.io/badge/License-GPL%203.0-blue.svg)](./LICENSE)
-[![Skills](https://img.shields.io/badge/skills-76%20(zh%2Ben)-0A7EA4)](./skills-index.md)
-[![Workflows](https://img.shields.io/badge/workflows-4-informational)](./skills/en/testing-workflows/)
-[![Testing types](https://img.shields.io/badge/testing%20types-34-informational)](./skills/en/testing-types/)
+[![Skills](https://img.shields.io/badge/skills-92%20(zh%2Ben)-0A7EA4)](./skills-index.md)
+[![Workflows](https://img.shields.io/badge/workflows-10-informational)](./skills/en/testing-workflows/)
+[![Testing types](https://img.shields.io/badge/testing%20types-36-informational)](./skills/en/testing-types/)
 
 **Online site:** [https://inaodeng.com/qaskills/](https://inaodeng.com/qaskills/)
 
@@ -19,7 +19,7 @@ A language-partitioned **AI testing skills library** (Agent Skills) for Codex, C
 | --- | --- |
 | Bilingual parity | `skills/zh` and `skills/en` share the same folder names and layout |
 | Full testing chain | From requirements and strategy through cases, execution, defects, and reporting |
-| Workflows + type skills | Daily / sprint / release workflows, composed with 34 specialized type skills |
+| Workflows + type skills | Daily / sprint / release, role-quality perspective, and multi-role synthesis workflows, composed with 36 specialized type skills |
 | Ready to install | One-click installers plus per-skill shortcut scripts |
 | Evaluable & evolvable | Every skill includes `evals/`; validate and run with [skill-up](https://github.com/alibaba/skill-up) |
 
@@ -90,7 +90,7 @@ I need a pre-release regression — which skills should I use?
 
 ## Skill catalog
 
-**38** skills per language (4 workflows + 34 testing types); **76** directories with zh/en parity. Full index: [skills-index.md](skills-index.md).
+**46** skills per language (10 workflows + 36 testing types); **92** directories with zh/en parity. Full index: [skills-index.md](skills-index.md).
 
 ### Workflow skills
 
@@ -100,6 +100,12 @@ I need a pre-release regression — which skills should I use?
 | Sprint Testing Workflow | [`sprint-testing-workflow`](skills/en/testing-workflows/sprint-testing-workflow/) | Sprint planning, incremental acceptance, iteration risk |
 | Release Testing Workflow | [`release-testing-workflow`](skills/en/testing-workflows/release-testing-workflow/) | Release gates, regression scope, go-live checks |
 | Discover Testing Router | [`discover-testing`](skills/en/testing-workflows/discover-testing/) | Recommend skills from a testing goal |
+| Product Quality Perspective | [`product-quality-perspective`](skills/en/testing-workflows/product-quality-perspective/) | Analyze user value, business rules, scope, acceptance, and release risk |
+| QA Quality Perspective | [`qa-quality-perspective`](skills/en/testing-workflows/qa-quality-perspective/) | Assess testability, risk-based coverage, defect risk, and evidence boundaries |
+| UX Quality Perspective | [`ux-quality-perspective`](skills/en/testing-workflows/ux-quality-perspective/) | Identify information architecture, interaction-state, consistency, responsive, and accessibility risks |
+| Technical Quality Perspective | [`technical-quality-perspective`](skills/en/testing-workflows/technical-quality-perspective/) | Analyze technical quality from architecture, code, security, performance, and observability evidence |
+| Project Delivery Perspective | [`project-delivery-perspective`](skills/en/testing-workflows/project-delivery-perspective/) | Capture attributable schedule, capacity, dependencies, and actions without changing quality facts |
+| Multi-Role Quality Synthesis | [`multi-role-quality-synthesis`](skills/en/testing-workflows/multi-role-quality-synthesis/) | Combine same-stage role reports while preserving sources, disagreements, and quality boundaries |
 
 ### Testing-type skills
 
@@ -122,11 +128,13 @@ I need a pre-release regression — which skills should I use?
 | --- | --- |
 | Requirements Analysis | [`requirements-analysis`](skills/en/testing-types/requirements-analysis/) |
 | Test Strategy | [`test-strategy`](skills/en/testing-types/test-strategy/) |
+| Test Strategy Review | [`test-strategy-review`](skills/en/testing-types/test-strategy-review/) |
 | Test Case Writing | [`test-case-writing`](skills/en/testing-types/test-case-writing/) |
 | Test Case Review | [`test-case-reviewer`](skills/en/testing-types/test-case-reviewer/) |
 | Code Review | [`code-review`](skills/en/testing-types/code-review/) |
 | Bug Reporting | [`bug-reporting`](skills/en/testing-types/bug-reporting/) |
 | Test Reporting | [`test-reporting`](skills/en/testing-types/test-reporting/) |
+| Test Report Review | [`test-report-review`](skills/en/testing-types/test-report-review/) |
 | AI-Assisted Testing | [`ai-assisted-testing`](skills/en/testing-types/ai-assisted-testing/) |
 
 #### Tool-specific

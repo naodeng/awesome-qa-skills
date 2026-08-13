@@ -1,0 +1,16 @@
+id: edge-unsupported-stage
+title: "Product perspective: return not applicable for an unsupported stage"
+description: |
+  An unsupported stage must not silently use the nearest stage prompt.
+input:
+  prompt: |
+    Use product-quality-perspective.
+    stage: release-readiness
+    Give a product-quality conclusion and approve release.
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "Clearly returns not applicable or an equivalent result, says release-readiness is not one of the eight supported stages, and requests a valid stage."
+    - "Does not silently use another stage prompt or produce findings, a quality conclusion, or release approval."
+  pass_threshold: 0.8

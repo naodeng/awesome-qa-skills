@@ -1,0 +1,20 @@
+id: edge-no-prototype
+title: "UX perspective: report evidence gaps rather than invent UI without a prototype"
+description: |
+  When a requirement exists but no prototype or UI evidence is supplied, requirements analysis remains applicable but can only report UX evidence gaps and needed material.
+
+input:
+  prompt: |
+    Use ux-quality-perspective.
+    stage: requirements-analysis
+    Project materials: The requirement says, “Users can change notification preferences in their account.” No prototype, screen description, component specification, user flow, state definition, or cross-device rule is provided.
+    Produce a UX quality report. Do not assume any toggle, page layout, message copy, error state, or mobile behavior; state the facts that can be confirmed, UX evidence gaps, questions, and next actions.
+
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "Treats the ability to change account notification preferences as the only product-requirement fact and clearly identifies absent prototype, screen/component detail, flow, state, and cross-device evidence."
+    - "Does not invent a notification-settings screen, toggle, layout, copy, error state, responsive behavior, or other UI fact."
+    - "Despite no prototype, provides useful UX evidence gaps, clarification questions, and next actions rather than invented UI findings or an empty refusal."
+  pass_threshold: 0.8

@@ -9,20 +9,26 @@ Produce a risk-driven, evidence-based, actionable code review report for this PR
 
 ## Input
 
-- PR / diff / changed file list, or key code snippets
+- identifiable code version: repository plus a PR, commit, branch, tag, release version, revision, or equivalent stable identity
+- reviewable changes for that version: diff/patch, changed-file contents, or an explicit accessible base-to-head repository range
 - Business goal, change scope, tech stack, upstream/downstream dependencies (APIs, messaging, DB, cache)
 - Team norms, known risks, past incidents, or related test findings (if any)
+- optional role reports with declared `source_role`; activate Product and UI/UX reports only when the change touches their concerns
 
 ## What to do
 
-1. Understand the business goal and change focus; separate new logic from edits to existing paths.
-2. Scan for logic defects, concurrency/consistency, financial-loss/security, API compatibility, and testability/maintainability.
-3. Rank findings as P0/P1/P2 and provide actionable fix guidance.
-4. Return a structured review that supports merge decisions and follow-up.
+1. Check the independent code-identity and reviewable-change gates first; if either is missing, stop the formal review and return a blocked result.
+2. Once both gates pass, understand the business goal and change focus; separate new logic from edits to existing paths.
+3. Scan for logic defects, concurrency/consistency, financial-loss/security, API compatibility, and testability/maintainability.
+4. Rank findings as P0/P1/P2 and provide actionable fix guidance.
+5. Return a structured review that supports merge decisions and follow-up.
 
 ## Execution Rules
 
 - **Risk-driven**: prioritize production outages, financial loss, security, main-path breakage, and severe maintainability damage; do not list naming/whitespace noise.
+- **Two code gates**: identifiable code version and reviewable changes must both exist. With only a diff/code snippet, use `missing_code_identity`; with only repository/PR/commit/branch identity, use `missing_reviewable_change`; when neither exists, list both. Any missing gate prevents formal finding severity and merge conclusions.
+- **Blocking is not a speculative first review**: a blocked result records supplied material, the missing gate, why evidence is insufficient, and the exact material required. Do not turn role opinions or verbal descriptions into confirmed code defects, test conclusions, or P0/P1/P2 findings.
+- **Optional role input**: role reports are not prerequisites and cannot replace either code gate. Use a Product report only for relevant business rules, state flows, or acceptance semantics. Use a UI/UX report only for relevant UI states, interaction feedback, responsive behavior, or accessibility. Retain `source_role` whenever citing role content and keep it separate from code facts.
 - **Evidence-based**: prefer path, line, or snippet with trigger path, repro conditions, and worst-case impact; if you cannot locate precisely, mark the information gap.
 - **Strict severity**:
   - **P0**: block merge (financial loss, severe security, reproducible deadlock/OOM, main-path breakage, etc.)
@@ -52,7 +58,18 @@ Unless the user explicitly narrows the scope, make sure the result addresses the
 
 ## Output
 
-Return the result in this order:
+If either code gate is missing, stop and return only:
+
+### Code Review Blocked
+
+- `status: blocked`
+- `missing_gate`: `missing_code_identity`, `missing_reviewable_change`, or both
+- supplied material and why it is insufficient
+- exact material required to proceed
+- blocking impact, unverified risk scope, and explicitly labeled assumptions (not code findings)
+- role-report sources and applicability, if supplied, with a statement that they are not code evidence
+
+Do not append completed severity findings, fix order, or a merge recommendation. Only when both gates pass, return the result in this order:
 
 ### 1. Change Summary and Overall Assessment
 
@@ -97,4 +114,5 @@ Same structure as P0; keep the list short and high-value only.
 - Focus on findings and risk, not long praise or generic theory.
 - Make every finding concrete; avoid “there is risk” without an example.
 - P0/P1 must cite business or technical impact.
-- Separate facts from assumptions; when input is incomplete, still deliver a usable draft and mark gaps.
+- Separate facts from assumptions. If non-gate context is incomplete, a limited review may mark gaps; if either code gate is missing, block.
+- When role reports are used, retain their sources and state how they relate to the change; do not require reading, installing, or linking to any role Skill's internal files.

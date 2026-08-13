@@ -24,13 +24,17 @@ Use baseline for a quick wording/format pass; use this skill for release-gate-gr
 - analysis conclusions, tech notes, plans, prototypes (if any)
 - release scope, risk hotspots, defect/production history
 - review standards or quality gates (if any)
+- optional multi-role review reports with each report's `source_id`, `source_role`, findings, evidence, risks, gaps, questions, and recommended actions
+
+Direct requirements, strategy, technical notes, and cases remain sufficient for a standalone review. When role reports are used, retain source role and source identifier item by item. Mark missing fields as Not supplied rather than guessing. Role opinions are sourced analysis inputs; they do not automatically become requirement facts, execution facts, or team consensus.
 
 ## What to do
 
 1. Build requirement/risk → existing case mapping; flag gaps and broken Trace.
-2. Review for omissions, weak assertions, non-executable steps, low-value/duplicate coverage.
-3. For each finding: severity, impact, evidence (which case/requirement), recommended fix.
+2. Classify before assessing risk: release blockers, high-risk coverage gaps, maintainability findings, low-value or duplicate cases, and other step or expectation issues.
+3. For each finding: severity, impact, evidence (case, requirement, or role report), source roles, and recommended fix.
 4. Produce fix and retest order so the team knows what to change and re-run first.
+5. Make an AI recommendation while leaving the final Human decision pending.
 
 ## Severity definitions (default)
 
@@ -47,6 +51,8 @@ Style-only issues default to Minor unless they prevent execution.
 - Evidence first: cite Case IDs / requirement items; avoid “coverage is insufficient” with no pointer.
 - Do not invent requirements or defects the user did not provide; put missing materials under residual risk.
 - If only cases are provided (no requirements): still review executability and internal consistency, but state that traceability conclusions are limited.
+- Multi-role findings may be composed but not anonymized: merge equivalents while retaining every source, and preserve conflicting positions without majority override of a minority high-risk finding.
+- This output is an AI-assisted review, not a Human approval record. Always output `human_final_decision: pending`; a request to mark approved or rejected remains a request for Human decision, not a state change.
 
 ## Minimum Coverage Checklist
 
@@ -57,6 +63,7 @@ Unless the user explicitly narrows scope, cover:
 - requirement/risk traceability issues
 - step and expectation quality issues
 - low-value or duplicate cases
+- maintainability findings, separate from low-value or duplicate cases
 - business impact and recommended action per finding
 - fix priority and retest order
 - residual risks and assumptions
@@ -66,23 +73,34 @@ Unless the user explicitly narrows scope, cover:
 Return in this order:
 
 ### 1. Review Conclusion
-- one-line verdict (Pass / Conditional Pass / Fail)
+- `ai_recommendation`: Pass / Conditional Pass / Reject
+- `human_final_decision: pending`
+- state that this is an AI recommendation and a Human owns the final decision
 - main blockers as a gate asset (if any)
 
-### 2. Critical Findings (Blocker / Critical)
+### 2. Input and Source Coverage
+- direct materials, role reports and their `source_id` / `source_role`, missing fields, and conflicts
+
+### 3. Release Blockers (Blocker)
 For each: `Severity | Finding | Evidence | Business impact | Recommended fix`
 
-### 3. Major Findings (Major / Minor)
-Same structure; group by theme if helpful
+### 4. High-Risk Coverage Gaps (Critical / Major)
+- positive, negative, boundary, and specialist-risk gaps with suggested Priority and Trace targets
 
-### 4. Missing High-Risk Scenarios
-- scenarios that should exist but do not (suggested Priority and Trace targets)
+### 5. Maintainability Findings
+- structure, data reuse, step stability, and other maintenance-cost concerns only
 
-### 5. Fix Priority and Retest Order
+### 6. Low-Value or Duplicate Cases
+- cases to merge, remove, or downgrade, with decision evidence; keep separate from maintainability findings
+
+### 7. Other Major / Minor Findings
+- step, expectation, or traceability issues not covered by the four categories above
+
+### 8. Fix Priority and Retest Order
 - fix batches (Blockers first…)
 - retest/regression order after fixes
 
-### 6. Residual Risks
+### 9. Residual Risks
 - areas undecidable due to missing info; accepted risks
 
 ## Quality Bar
@@ -90,6 +108,7 @@ Same structure; group by theme if helpful
 - Every finding must land on a concrete case or concrete missing scenario.
 - No long praise or textbook theory dumps.
 - Retest order must align with severity; never put Minor ahead of Blocker.
+- Never turn an AI recommendation into a Human approval, rejection, or risk acceptance; `human_final_decision` remains `pending`.
 
 ## Gotchas
 
@@ -100,9 +119,11 @@ Same structure; group by theme if helpful
 
 ## Pre-delivery checklist
 
-- [ ] Clear Pass / Conditional Pass / Fail verdict
+- [ ] Clear Pass / Conditional Pass / Reject verdict
 - [ ] Blocker/Critical listed separately (or explicit “none”)
 - [ ] Each finding has severity, evidence, impact, recommendation
 - [ ] High-risk missing scenarios are their own section
 - [ ] Fix priority and retest order present and severity-aligned
 - [ ] Traceability, assumptions, residual risks stated; no invented details
+- [ ] Blockers, high-risk coverage gaps, maintainability findings, and low-value cases remain distinct and source-traceable
+- [ ] Output includes `human_final_decision: pending` and does not record a final Human decision

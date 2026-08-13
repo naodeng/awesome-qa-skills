@@ -1,0 +1,17 @@
+id: edge-condition-not-met
+title: "Product perspective: do not generate findings when conditional participation is not triggered"
+description: |
+  Code review without product-rule, state-flow, or acceptance impact should return not applicable for Product.
+input:
+  prompt: |
+    Use product-quality-perspective.
+    stage: code-review
+    PR #88 only changes internal metrics sampling from 10% to 20%. The change note and diff explicitly state no impact to user flows, business rules, states, or acceptance semantics.
+    Give the product-perspective output.
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "Recognizes that traceable change material exists but Product's conditional participation is not triggered, and returns not applicable or an equivalent result."
+    - "States known facts and what business/state/acceptance impact would trigger reassessment, without generating generic product findings."
+  pass_threshold: 0.8

@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "ux-quality-perspective"
+interface:
+  display_name: "UX 质量视角"
+  short_description: "以 UX 视角在质量阶段识别信息架构、交互状态、一致性、响应式与无障碍风险。"
+  default_prompt: "Use the ux-quality-perspective skill with a valid stage and supplied UI/UX evidence to produce an evidence-based UX quality report."
+policy:
+  allow_implicit_invocation: true

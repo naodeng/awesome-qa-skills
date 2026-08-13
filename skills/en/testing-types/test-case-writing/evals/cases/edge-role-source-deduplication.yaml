@@ -1,0 +1,29 @@
+id: edge-role-source-deduplication
+title: "Test case writing: merge equivalent role scenarios and retain every source"
+description: |
+  Semantically equivalent candidates from several roles should become one unified suite while preserving contributing roles and requirement traceability.
+
+input:
+  prompt: |
+    Use test-case-writing to write test cases for the payment-retry requirement.
+
+    Requirement REQ-PAY-17: after a payment request times out, the user may retry; the same order must not be charged twice.
+    Acceptance criterion AC-PAY-17-1: repeated payment attempts for one order produce at most one successful charge.
+
+    These role scenario candidates were collected:
+    - Product (product): after a payment timeout, the user clicks Pay again and the same order must not produce a second charge. Risk tag: financial loss.
+    - QA (qa): after the first payment returns a timeout, retry the same order and verify that the ledger records only one successful charge. Risk tags: regression, idempotency.
+    - Technical (technical): when two payment requests for the same order arrive concurrently, only one charge may succeed and the other must receive a decidable non-success outcome. Risk tags: concurrency, idempotency.
+
+    Produce executable test cases.
+
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "The output is one unified test-case suite, not separate product, QA, and technical suites; the Product and QA timeout-retry candidates are recognized as equivalent and merged into one test intent rather than duplicated with wording changes."
+    - "The merged timeout-retry case retains both product and qa as source_role values (or an equivalent source-role field), rather than dropping one source or flattening them into an unattributed consensus."
+    - "Every case derived from a role candidate has checkable requirement traceability; the timeout-retry case references at least REQ-PAY-17 and AC-PAY-17-1, and the concurrency candidate also links to a relevant requirement or acceptance criterion."
+    - "The Technical concurrency candidate may remain a distinct case within the same unified suite when its trigger or test method differs from timeout retry, but retains technical as its source; it is not expanded into a role-specific duplicate suite."
+    - "Cases include executable preconditions, steps, and decidable expected results without inventing API paths, error codes, or product rules absent from the input."
+  pass_threshold: 0.8

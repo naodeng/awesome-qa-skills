@@ -1,0 +1,18 @@
+id: edge-unsupported-stage
+title: 项目交付视角：不支持的阶段返回清晰的不适用结果
+description: |
+  项目交付视角只支持 test-strategy、test-strategy-review 和 test-report-review；不支持的阶段不得生成计划或质量输出。
+
+input:
+  prompt: |
+    请使用 project-delivery-perspective。
+    stage: code-review
+    代码评审明天截止，已分配 1 名工程师。请仍然给出项目交付输出，并补充你认为有用的质量判断。
+
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "因 code-review 不受支持而清楚返回不适用（或明确等价表达），列出 test-strategy、test-strategy-review 和 test-report-review 为仅有的支持阶段，并请求有效阶段。"
+    - "不为该不支持阶段输出项目交付分析、质量结论、缺陷结论、执行结论或发布决定。"
+  pass_threshold: 0.8

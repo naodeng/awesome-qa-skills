@@ -1,0 +1,25 @@
+id: edge-conflicting-input
+title: "Test strategy review: rejects an unresolved scope conflict"
+description: |
+  When requirements and strategy conflict on a critical platform, the AI should preserve the conflict, avoid choosing without authority, and request owner resolution.
+
+input:
+  prompt: |
+    Review the login-security enhancement test strategy.
+
+    Approved requirement REQ-AUTH-55, owned by product Gu Yan, says Web, Android, and iOS must all support SMS MFA. Three-failure lockout, OTP replay, and screen-reader accessibility are acceptance scope, with no platform exclusion.
+    Project memo PLAN-55, owned by project manager Tang Wei, says the September release will cover only Web and Android and defer iOS, but it includes no approved requirement change.
+    Technical note AUTH-ARCH-9: all three clients share the MFA API; the test environment can simulate expiry, replay, and throttling.
+    QA owner: He Qing.
+
+    Strategy AUTH-STRAT-6 covers Web/Android success, failed-attempt lockout, expiry, replay, throttling, API integration, and accessibility. Environment, data, zero-P0/P1 gates, and the MFA API dependency are defined. It explicitly excludes iOS based only on PLAN-55, with no iOS risk disposition or requirement waiver.
+
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "Gives an explicit AI-assisted recommendation of reject, states that a Human reviewer retains the final decision, and does not choose the project memo over the approved requirement on its own."
+    - "Preserves the iOS scope conflict between REQ-AUTH-55 and PLAN-55, treats the unapproved iOS exclusion as a blocker, and recognizes existing Web/Android coverage as non-blocking or positive evidence."
+    - "Separates blockers from non-blockers; reviews test depth, feasibility, environments, data, gates, dependencies, and exclusions without inventing a requirement change or Human risk acceptance."
+    - "Revision requests ask Gu Yan or an authorized requirement owner to confirm/change scope, Tang Wei to supply approved plan/waiver evidence, and He Qing to update the strategy and risk coverage after resolution, with verifiable closure conditions."
+  pass_threshold: 0.8

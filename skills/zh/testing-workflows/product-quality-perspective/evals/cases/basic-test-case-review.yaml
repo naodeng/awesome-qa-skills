@@ -1,0 +1,18 @@
+id: basic-test-case-review
+title: 产品视角：评审用例的业务覆盖
+description: |
+  产品视角应识别可证明的核心规则和验收覆盖缺口。
+input:
+  prompt: |
+    请使用 product-quality-perspective。
+    stage: test-case-review
+    需求 REQ-52：只有账户管理员可导出成员清单。待评审用例只覆盖管理员成功导出 CSV，没有普通成员的拒绝场景。
+    请输出产品质量评审报告，说明业务影响、风险和补测行动。
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "识别普通成员无权导出的验收场景未覆盖，并追溯到 REQ-52。"
+    - "说明权限规则未验证带来的用户/业务风险，并给出补充用例的优先级和责任角色。"
+    - "不评定实现中已存在越权漏洞，也不声称测试已执行。"
+  pass_threshold: 0.8

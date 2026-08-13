@@ -1,0 +1,24 @@
+id: edge-role-artifact-input
+title: "Requirements analysis plus: compose source-identified role reports"
+description: |
+  Role reports accompanying source materials still produce a traceable standalone requirements analysis.
+
+input:
+  prompt: |
+    Use requirements-analysis-plus to analyze a points-redemption redesign.
+    PRD v3: deduct points immediately after submission and fail when inventory is unavailable.
+    API note v2: requests enter an asynchronous queue and duplicate requests rely on an idempotency key.
+    Two review notes are also available:
+    - Source role "Product Manager": points should be returned after failure, but the refund deadline is undecided.
+    - Source role "QA": no acceptance criteria were found for duplicate submission or asynchronous failure, so the end-to-end result cannot yet be judged.
+    Produce an enhanced requirements analysis for review.
+
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - The result preserves the existing standalone requirements-analysis structure and covers facts, assumptions, risks, sources, and open questions; role reports remain optional composition inputs rather than prerequisites.
+    - Every finding, risk, or question that uses the Product Manager or QA report retains that source-role attribution; role views are neither flattened into an anonymous consensus nor presented as PRD or API facts.
+    - The result traceably identifies aligned, conflicting, missing, or untestable content across the PRD, API note, and role reports; the unknown refund deadline and missing acceptance criteria remain open rather than invented.
+    - The result does not require reading, installing, or linking to any role Skill's internal files and uses only the source-identified report content supplied in the request.
+  pass_threshold: 0.8

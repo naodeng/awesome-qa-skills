@@ -1,0 +1,18 @@
+id: basic-code-review
+title: "UX perspective: review interaction and accessibility state from a UI diff"
+description: |
+  With traceable UI impact, UX should bound findings to supplied code evidence.
+input:
+  prompt: |
+    Use ux-quality-perspective.
+    stage: code-review
+    PR #203 adds a `.disabled` style during submission, but the button remains focusable and actionable and has neither `disabled` nor `aria-disabled`. Requirement UX-203 says submission must prevent duplicate action and communicate state to assistive technology.
+    Produce a UX-quality report without extending it into backend security or overall code correctness.
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "Uses PR #203 and UX-203 to identify the visual-only disabled state, remaining focus/action, and missing accessible state."
+    - "Explains duplicate-action and assistive-technology impact and suggests semantic-state and verification actions."
+    - "Does not claim backend, security, overall code, or test results were verified."
+  pass_threshold: 0.8

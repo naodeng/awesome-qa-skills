@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "technical-quality-perspective"
+interface:
+  display_name: "Technical quality perspective"
+  short_description: "Produces evidence-backed technical quality findings for a selected delivery stage."
+  default_prompt: "Use the technical-quality-perspective skill with a valid stage and available technical evidence to produce a standalone technical quality report."
+policy:
+  allow_implicit_invocation: true

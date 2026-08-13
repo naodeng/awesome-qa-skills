@@ -1,0 +1,18 @@
+id: basic-test-case-review
+title: "Product perspective: review test-case business coverage"
+description: |
+  The product perspective should identify evidenced gaps in critical-rule and acceptance coverage.
+input:
+  prompt: |
+    Use product-quality-perspective.
+    stage: test-case-review
+    Requirement REQ-52 says only an account administrator may export the member list. The proposed cases cover only a successful administrator CSV export and omit denial for a regular member.
+    Produce a product-quality review with business impact, risk, and coverage action.
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "Identifies the missing regular-member denial scenario and traces it to REQ-52."
+    - "Explains the user/business risk of unverified authorization and assigns a prioritized coverage action to an accountable role."
+    - "Does not assert that an authorization vulnerability exists in implementation or that tests already ran."
+  pass_threshold: 0.8

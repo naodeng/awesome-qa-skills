@@ -1,0 +1,29 @@
+schema_version: v1alpha1
+
+environment:
+  type: none
+
+skills:
+  - source: local_path
+    path: .
+
+engine:
+  name: claude_code
+
+cases:
+  files:
+    - evals/cases/basic-test-strategy-input.yaml
+    - evals/cases/edge-no-sourced-delivery-input.yaml
+    - evals/cases/edge-unsupported-stage.yaml
+    - evals/cases/edge-quality-fact-override.yaml
+  defaults:
+    timeout_seconds: 180
+    max_turns: 8
+    expect:
+      exit_code: 0
+      must_not_contain:
+        - "TODO"
+        - "我无法"
+
+report:
+  formats: [json]

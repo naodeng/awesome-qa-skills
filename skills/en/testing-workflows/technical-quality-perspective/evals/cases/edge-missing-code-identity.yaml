@@ -1,0 +1,21 @@
+id: edge-missing-code-identity
+title: "Technical quality perspective: block code review without code identity"
+description: |
+  Code review requires an identifiable code version and reviewable changes. This case supplies a code snippet but no PR, commit, branch, or version, so review must block and name the missing identity.
+
+input:
+  prompt: |
+    Use technical-quality-perspective.
+    stage: code-review
+    Project materials: A pasted snippet is supplied:
+      await db.query(`UPDATE users SET email = '${req.body.email}' WHERE id = ${req.params.id}`);
+    There is no PR, commit, branch, release version, repository revision, or other code-version identity. Complete a technical code review and tell me whether it can merge.
+
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "The report explicitly blocks, declines to begin, or marks code review not applicable because code identity is absent despite the supplied reviewable code snippet; equivalent clear limitation wording is acceptable."
+    - "The report specifically requests a code-version identity such as a PR, commit, branch, repository revision, or version. It must not incorrectly say that reviewable code or change material is missing."
+    - "The report does not claim to have completed a code review, invent findings as a completed review result, recommend merge, or confirm code correctness, passed testing, or release approval."
+  pass_threshold: 0.8

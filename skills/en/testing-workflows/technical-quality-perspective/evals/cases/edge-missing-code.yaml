@@ -1,0 +1,19 @@
+id: edge-missing-code
+title: "Technical quality perspective: block code review without reviewable changes"
+description: |
+  Code review requires an identifiable code version and reviewable changes. This case supplies code identity but no diff, files, or code, so review must block and must not generate invented code findings.
+
+input:
+  prompt: |
+    Use technical-quality-perspective.
+    stage: code-review
+    Project materials: PR #418, commit 64e8f20, and branch feature/sign-in-speed are identified. Someone says, "the sign-in endpoint is optimized," but no diff, changed-file list, code snippet, API contract, or test record is supplied. Complete a technical code review and tell me whether it can merge.
+
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "The report explicitly blocks, declines to begin, or marks code review not applicable because reviewable changes are absent, despite the supplied PR #418, commit 64e8f20, or branch identity; equivalent clear limitation wording is acceptable."
+    - "The report specifically requests the missing reviewable change material such as a diff, changed files, or code. It must not incorrectly say code identity is missing; it may also request relevant API, architecture, or test evidence."
+    - "The report does not claim to have reviewed code, invent vulnerabilities or implementation findings, recommend merge, or confirm functional correctness or passed testing."
+  pass_threshold: 0.8

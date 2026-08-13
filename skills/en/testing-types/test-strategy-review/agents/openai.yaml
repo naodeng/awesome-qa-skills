@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "test-strategy-review"
+interface:
+  display_name: "Test Strategy Review"
+  short_description: "Review test strategy evidence, separate blockers from conditions, and leave the final decision to a Human"
+  default_prompt: "Use $test-strategy-review to review this test strategy, list evidence, blockers, non-blockers, and revision ownership, and preserve final Human authority."
+policy:
+  allow_implicit_invocation: true

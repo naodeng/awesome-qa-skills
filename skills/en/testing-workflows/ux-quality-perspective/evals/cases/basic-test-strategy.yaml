@@ -1,0 +1,18 @@
+id: basic-test-strategy
+title: "UX perspective: provide strategy coverage for traceable experience risks"
+description: |
+  With UI/UX impact, UX should map user tasks, devices, input modes, and accessibility risks into strategy coverage.
+input:
+  prompt: |
+    Use ux-quality-perspective.
+    stage: test-strategy
+    Product material UX-201 says checkout supports a 320px viewport, desktop keyboard use, and screen readers; after payment failure the error summary receives focus. Mobile and desktop prototypes are supplied.
+    Produce a UX-quality report with evidence-based experience scope, methods, risks, and actions.
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "Maps 320px, keyboard, screen reader, and failure-focus behavior into actionable UX strategy coverage."
+    - "Retains UX-201 and prototypes as evidence and separates known facts from assumptions and device/assistive-technology questions."
+    - "Does not claim experience tests ran or passed."
+  pass_threshold: 0.8

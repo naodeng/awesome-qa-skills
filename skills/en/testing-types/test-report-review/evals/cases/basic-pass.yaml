@@ -1,0 +1,26 @@
+id: basic-pass
+title: "Subscription upgrade test report review"
+description: |
+  Review a versioned test report whose scope can be checked against complete execution and defect records.
+
+input:
+  prompt: |
+    Review subscription-upgrade test report TR-SUB-12 v1.3 for tomorrow's quality meeting.
+
+    Requirement REQ-SUB-12 v2.1: Web and Android monthly subscribers can upgrade to annual plans with a remaining-days credit; payment failure must preserve the original plan. iOS and enterprise accounts are outside the approved scope. Acceptance covers credit boundaries, duplicate-callback idempotency, asynchronous entitlement updates, and failure rollback.
+    Test strategy STRAT-SUB-4 v1.4 covers the Web/Android critical journeys, 0/1/365 remaining-day boundaries, success/insufficient-funds/timeout results, duplicate callbacks, event reordering, and failure rollback. Exit gates require 100% critical-journey pass, zero P0/P1, and archived evidence for every failure rollback.
+    Test report TR-SUB-12 v1.3: candidate build build-2026.09.18-rc2 in qa-billing-7; 146 planned, 146 executed, 146 passed. All listed scope is tested and untested scope is "none." The defect summary says zero open P0/P1 and two P2 defects both verified on rc2. The report recommends pass.
+    Execution evidence EXEC-SUB-12 v1.2 contains a case ID, build-2026.09.18-rc2, timestamp, and log link for every result: critical journeys 24/24, credit rules 38/38, failure rollback 28/28, idempotency and event reordering 20/20, and other regression 36/36. Archive hash manifest-77 matches the report.
+    Defect evidence DEF-SUB-12 v1.1 lists P2-331 and P2-334 as verified_fixed on rc2 and no other known defects.
+    Role reports PRODUCT-SUB v1.0, QA-SUB v1.2, TECH-SUB v1.1, and UX-SUB v1.0 all cite rc2 and these records; none reports a contradiction or unresolved high risk.
+    Project action ACTION-SUB v1.0 assigns Li Qing to archive manifest-77 and is done. A Human reviewer makes the final decision in the release meeting.
+
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "Gives an explicit AI-assisted `recommendation: pass`, outputs `human_final_decision: pending`, and states that a Human retains the final decision."
+    - "Checks the report against execution and defect evidence item by item, citing the build, environment, counts, gates, and versioned sources instead of merely repeating the report summary."
+    - "Explicitly lists tested and untested scope, contradictions (stating none when applicable), residual risk (stating no known material residual risk when supported), open actions (stating none when applicable), and every key source version."
+    - "Does not invent tests, defects, risk acceptance, release approval, people, or dates."
+  pass_threshold: 0.8

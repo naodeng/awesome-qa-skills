@@ -1,0 +1,18 @@
+id: basic-test-case-review
+title: UX 视角：评审用例的交互与无障碍覆盖
+description: |
+  UX 应根据用例与体验证据识别可追溯的任务和状态遗漏。
+input:
+  prompt: |
+    请使用 ux-quality-perspective。
+    stage: test-case-review
+    UX-205 要求搜索空结果时展示清空筛选的操作，并通过读屏状态区播报结果数。待评审用例只覆盖鼠标输入关键字并看到列表。
+    请输出 UX 评审报告、风险和补测行动。
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "识别空结果恢复操作和读屏结果数播报未覆盖，且追溯到 UX-205。"
+    - "说明对用户任务完成和读屏用户的影响，提出具体补测行动。"
+    - "不编造其他界面状态或实际执行结果。"
+  pass_threshold: 0.8

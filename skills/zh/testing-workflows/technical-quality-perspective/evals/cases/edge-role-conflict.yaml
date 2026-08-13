@@ -1,0 +1,18 @@
+id: edge-role-conflict
+title: 技术视角：保留技术证据与产品结论的冲突
+description: |
+  角色结论冲突时，技术角色应保留版本化证据和高风险少数意见，不替代产品或 Human 决策。
+input:
+  prompt: |
+    请使用 technical-quality-perspective。
+    stage: test-report-review
+    技术报告 TECH-305 v3 记录压测在 900 RPS 时 p99=2.4s，超过 SLO-305 的 800ms，并发现数据库连接池耗尽。产品报告 PROD-305 v2 称核心旅程功能通过，要求把性能风险写为“无”。
+    请输出技术评审报告并处理冲突。
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "分别归因 TECH-305 v3、SLO-305 和 PROD-305 v2，明确功能结论不能覆盖性能证据。"
+    - "保留 900 RPS、p99=2.4s、800ms SLO 和连接池耗尽风险，不改写为无风险。"
+    - "给出影响、复测/修复证据和授权冲突解决方，不决定产品范围或代替 Human 发布决定。"
+  pass_threshold: 0.8

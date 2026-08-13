@@ -1,0 +1,18 @@
+id: edge-role-conflict
+title: QA 视角：保留执行证据与产品意见的冲突
+description: |
+  角色结论冲突时，QA 必须保留执行事实和未测范围，不让产品意见改写证据。
+input:
+  prompt: |
+    请使用 qa-quality-perspective。
+    stage: test-report-review
+    QA 执行记录 RUN-106 v3 显示支付回调 18/20 通过，2 条超时失败，移动端未测。产品报告 PROD-106 v1 称“用户价值已全部验证，可忽略两条失败”。
+    请评审报告并处理角色冲突，不编造新结果。
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "分别归因 RUN-106 v3 和 PROD-106 v1，明确列出产品结论与执行证据的冲突。"
+    - "保留 18/20、2 条超时失败和移动端未测事实，不改写为全部验证或可忽略。"
+    - "说明所需复测/补测证据和授权冲突解决方，不替产品定义业务意图或代替 Human 批准。"
+  pass_threshold: 0.8

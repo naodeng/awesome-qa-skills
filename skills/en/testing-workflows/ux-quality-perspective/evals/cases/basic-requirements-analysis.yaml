@@ -1,0 +1,20 @@
+id: basic-requirements-analysis
+title: "UX perspective: prototype analysis covers IA, states, consistency, responsive behavior, and accessibility"
+description: |
+  With a UI prototype, the UX quality perspective uses visible evidence to analyze navigation, interaction states, consistency, responsive behavior, and accessibility risk.
+
+input:
+  prompt: |
+    Use ux-quality-perspective.
+    stage: requirements-analysis
+    Project materials: A mobile shopping app product-detail prototype. The top bar has Back and Cart; the main area shows a product image, name, price, colour selection, and Add to cart; an out-of-stock colour is greyed out; a fixed Add to cart button is at the bottom. The requirement says narrow screens remain single-column, colour selection must be keyboard-operable, and an out-of-stock reason must be communicated.
+    Produce a UX quality report covering information architecture, interaction states, consistency, responsive behavior, and accessibility, with risks, gaps, questions, and actions.
+
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "Uses the supplied product-detail prototype and requirement as evidence for actionable UX analysis related to information architecture, out-of-stock colour state, interaction consistency, narrow-screen behavior, or keyboard operation."
+    - "Separates supplied evidence, inferences, and information gaps; it does not present unsupplied screens, states, or device behavior as established facts."
+    - "Includes risks, clarification questions, and next actions with accountable roles."
+  pass_threshold: 0.8

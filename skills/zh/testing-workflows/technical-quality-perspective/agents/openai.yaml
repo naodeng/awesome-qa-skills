@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "technical-quality-perspective"
+interface:
+  display_name: "技术质量视角"
+  short_description: "在指定交付阶段基于证据输出技术质量发现。"
+  default_prompt: "Use the technical-quality-perspective skill with a valid stage and available technical evidence to produce a standalone technical quality report."
+policy:
+  allow_implicit_invocation: true

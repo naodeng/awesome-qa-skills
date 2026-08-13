@@ -1,0 +1,20 @@
+id: edge-role-boundary
+title: "Product perspective: do not invent code-correctness or test-pass conclusions"
+description: |
+  The product-quality perspective does not replace engineering code review or test execution. Without evidence, it must state this boundary and cannot conclude that code is correct or tests have passed.
+
+input:
+  prompt: |
+    Use product-quality-perspective.
+    stage: code-review
+    Project materials: The product manager says, “This change meets the requirement, so it should be fine.” No PR, diff, test record, or execution result is provided.
+    Produce a product-quality report. Explain that without a PR, diff, test record, or execution result, code correctness cannot be determined, test execution or pass status cannot be confirmed, and release cannot be authorized. State needed evidence and next actions. Any clear negative or limitation wording is acceptable.
+
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "Given the absent PR, diff, test record, and execution result, clearly states that code correctness cannot be determined; equivalent wording is acceptable."
+    - "Clearly states that test execution or pass status cannot be confirmed and release cannot be authorized, and identifies needed evidence and next actions."
+    - "Does not assert, including by affirmative paraphrase, that the code is correct, tests passed, or release is approved. Safe limitation statements such as ‘Cannot confirm that tests passed’ or their equivalents are required and must not be treated as affirmative claims."
+  pass_threshold: 0.8

@@ -1,0 +1,24 @@
+id: edge-hidden-untested-scope
+title: "遗漏离线范围的移动支付报告评审"
+description: |
+  核对报告摘要与执行范围在关键离线能力上的差异。
+
+input:
+  prompt: |
+    请评审移动支付测试报告 TR-PAY-21 v1.0。
+
+    已批准需求 REQ-PAY-21 v4.2 要求 Android 和 iOS 在在线与短时离线后恢复网络两种情况下都不得重复扣款，离线恢复是 P0 业务风险，没有批准排除项。测试策略 STRAT-PAY-21 v2.3 将 Android/iOS 在线支付、离线提交、恢复重试、重复回调和账务对账全部列为必测，退出门禁为这些关键路径 100% 通过。
+    报告 TR-PAY-21 v1.0 的摘要写“所有关键路径通过，范围完整，建议通过”，测试统计为 80/80 通过，未测范围写“无”。
+    执行证据 EXEC-PAY-21 v1.0 只有 Android/iOS 在线支付和 Android 离线恢复共 80 条；没有 iOS 离线提交、恢复重试、重复回调或账务对账的用例 ID、日志或结果。
+    缺陷证据 DEF-PAY-21 v1.0 记录已执行范围内无未关闭 P0/P1，但没有关于 iOS 离线范围的缺陷或验证结论。
+    QA 报告 QA-PAY-21 v1.1 标注 iOS 离线恢复“未执行：设备网络工具不可用”；产品报告 PRODUCT-PAY-21 v1.0 重申该路径属于 P0 风险；项目行动 ACTION-PAY-21 v1.0 的工具负责人和恢复日期均未分配。
+
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "给出 `recommendation: reject` 与 `human_final_decision: pending`，不接受报告的 pass 声明或自行批准排除 iOS 离线范围。"
+    - "显式展示被隐藏的未测范围：iOS 离线提交、恢复重试、重复回调和账务对账，并将其关联到 REQ-PAY-21 v4.2 的 P0 风险和 STRAT-PAY-21 v2.3 门禁。"
+    - "指出 TR-PAY-21 的“范围完整/未测为无”与 EXEC-PAY-21、QA-PAY-21 的矛盾；不得把已执行的 80/80 外推为完整范围通过。"
+    - "列出来源版本、残余重复扣款/账务风险和开放行动；未知工具负责人和日期保持未分配，不编造豁免、测试结果或风险接受。"
+  pass_threshold: 0.8

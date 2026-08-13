@@ -1,0 +1,18 @@
+id: basic-test-reporting
+title: 产品视角：根据执行结果表达产品风险
+description: |
+  产品视角应把已提供的关键路径结果转化为可追溯的产品风险。
+input:
+  prompt: |
+    请使用 product-quality-perspective。
+    stage: test-reporting
+    需求 REQ-61 把“支付失败后保留原订单”定为核心用户路径。执行记录 RUN-61 显示成功支付 12/12 通过，支付失败回滚 2/3 通过，失败的 TC-61-9 会清空原订单。
+    请输出产品质量报告，保留来源，说明用户影响、残余风险和行动，不做发布批准。
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "准确保留 RUN-61 的 12/12、2/3 和 TC-61-9 失败事实，不把部分成功改写为整体通过。"
+    - "将清空原订单与 REQ-61 的核心用户价值相关联，说明影响、残余风险和可执行行动。"
+    - "不替代发布流程批准发布，不编造其他执行或缺陷结果。"
+  pass_threshold: 0.8

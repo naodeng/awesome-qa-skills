@@ -1,0 +1,16 @@
+id: edge-unsupported-stage
+title: 技术视角：不支持的阶段返回不适用
+description: |
+  技术角色不得为未支持的 stage 生成架构或代码结论。
+input:
+  prompt: |
+    请使用 technical-quality-perspective。
+    stage: architecture-approval
+    请直接批准架构和发布。
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "返回不适用或等价结果，说明 architecture-approval 不受支持，并请求有效 stage。"
+    - "不生成架构、代码、测试或发布结论，不默认使用相近 Prompt。"
+  pass_threshold: 0.8

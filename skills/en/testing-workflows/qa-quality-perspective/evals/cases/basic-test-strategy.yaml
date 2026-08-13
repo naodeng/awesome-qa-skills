@@ -1,0 +1,20 @@
+id: basic-test-strategy
+title: "QA quality perspective: strategy covers testability and risk-based coverage"
+description: |
+  At the test-strategy stage, QA should assess whether requirements are testable and prioritize coverage using impact and uncertainty.
+
+input:
+  prompt: |
+    Use qa-quality-perspective.
+    stage: test-strategy
+    Project materials: The mobile membership renewal page adds an "auto-renewal" switch. Known facts: only members with a bound payment method can enable it; it charges 24 hours before monthly expiry; the user can turn it off before expiry. The release target is the next iteration; the payment service is an external dependency.
+    Produce a QA quality report focused on testability, risk-based test coverage, evidence, defect risk, and next actions.
+
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "The report assesses at least one testability condition, such as observable state, acceptance criteria, test data, environment, dependency, or logs, instead of merely restating requirements."
+    - "The report proposes risk-prioritized coverage for high-impact scenarios involving the payment-method precondition, charging time, switch-off boundary, or external payment dependency, and relates priority to impact or uncertainty."
+    - "The report separates supplied material, inference, and missing evidence, and gives actionable QA follow-up without presenting recommendations as executed or passed results."
+  pass_threshold: 0.8

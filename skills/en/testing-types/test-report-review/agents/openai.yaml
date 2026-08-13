@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "test-report-review"
+interface:
+  display_name: "Test Report Review"
+  short_description: "Check report claims against execution, defect, and scope evidence while preserving Human authority"
+  default_prompt: "Use $test-report-review to review this test report against source versions, execution and defect evidence, untested scope, contradictions, residual risks, and open actions while preserving the final Human decision."
+policy:
+  allow_implicit_invocation: true

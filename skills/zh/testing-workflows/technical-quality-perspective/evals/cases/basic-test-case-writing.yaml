@@ -1,0 +1,18 @@
+id: basic-test-case-writing
+title: 技术视角：为 API 和数据边界提供可追溯用例
+description: |
+  技术用例建议应只基于已声明的合同、数据和失败行为。
+input:
+  prompt: |
+    请使用 technical-quality-perspective。
+    stage: test-case-writing
+    API 合同 API-302：`POST /payments` 必须带 `Idempotency-Key`；同一 key 与相同 payload 返回原交易，同一 key 与不同 payload 返回 409；下游超时不得重复扣款。
+    请输出技术用例建议、风险、缺失证据和行动，不编造未提供的实现。
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "用例建议覆盖缺失 key、相同 key+相同 payload、相同 key+不同 payload 409 和超时不重复扣款中的核心技术边界。"
+    - "将建议追溯到 API-302，并说明所需日志、交易记录或下游模拟证据。"
+    - "不自行决定未提供的错误码、重试次数或业务验收规则，不声称已执行。"
+  pass_threshold: 0.8

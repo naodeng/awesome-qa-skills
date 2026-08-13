@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "project-delivery-perspective"
+interface:
+  display_name: "Project Delivery Perspective"
+  short_description: "Capture attributable delivery constraints and actions for supported strategy and report-review stages without changing quality facts."
+  default_prompt: "Use the project-delivery-perspective skill with a supported stage and source-attributed schedule, capacity, dependency, milestone, owner, and action information."
+policy:
+  allow_implicit_invocation: true

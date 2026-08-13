@@ -5,9 +5,9 @@
 按语言分区的 **AI 测试辅助技能库**（Agent Skills）。面向 Codex、Cursor、Claude Code、Kiro、OpenCode、Trae 等工具，提供可独立安装、可组合调用的测试工作流与测试类型技能。
 
 [![License: GPL-3.0](https://img.shields.io/badge/License-GPL%203.0-blue.svg)](./LICENSE)
-[![Skills](https://img.shields.io/badge/skills-76%20(zh%2Ben)-0A7EA4)](./skills-index.md)
-[![Workflows](https://img.shields.io/badge/workflows-4-informational)](./skills/zh/testing-workflows/)
-[![Testing types](https://img.shields.io/badge/testing%20types-34-informational)](./skills/zh/testing-types/)
+[![Skills](https://img.shields.io/badge/skills-92%20(zh%2Ben)-0A7EA4)](./skills-index.md)
+[![Workflows](https://img.shields.io/badge/workflows-10-informational)](./skills/zh/testing-workflows/)
+[![Testing types](https://img.shields.io/badge/testing%20types-36-informational)](./skills/zh/testing-types/)
 
 **在线站点：** [https://inaodeng.com/qaskills/](https://inaodeng.com/qaskills/)
 
@@ -19,7 +19,7 @@
 | --- | --- |
 | 双语对齐 | `skills/zh` 与 `skills/en` 同名目录、同结构，团队可按语言选用 |
 | 覆盖完整测试链 | 从需求分析、策略、用例、执行到缺陷与报告 |
-| 工作流 + 类型技能 | 日常 / 迭代 / 发布工作流，配合 34 类专项技能按需组合 |
+| 工作流 + 类型技能 | 日常 / 迭代 / 发布、角色质量视角与多角色汇总工作流，配合 36 类专项技能按需组合 |
 | 开箱即装 | 支持一键安装与单 skill 安装脚本 |
 | 可评测可演进 | 全量 skill 附带 `evals/`，可用 [skill-up](https://github.com/alibaba/skill-up) 校验与实跑 |
 
@@ -90,7 +90,7 @@ cp -r skills/zh/testing-types/functional-testing ~/.cursor/skills/
 
 ## 技能目录
 
-单语合计 **38** 个技能（4 工作流 + 34 测试类型）；中英双语共 **76** 个目录。完整索引见 [skills-index.md](skills-index.md)。
+单语合计 **46** 个技能（10 工作流 + 36 测试类型）；中英双语共 **92** 个目录。完整索引见 [skills-index.md](skills-index.md)。
 
 ### 工作流技能
 
@@ -100,6 +100,12 @@ cp -r skills/zh/testing-types/functional-testing ~/.cursor/skills/
 | 迭代测试工作流程 | [`sprint-testing-workflow`](skills/zh/testing-workflows/sprint-testing-workflow/) | Sprint 规划、增量验收、迭代风险 |
 | 发布测试工作流程 | [`release-testing-workflow`](skills/zh/testing-workflows/release-testing-workflow/) | 发布门禁、回归范围、上线检查 |
 | 测试技能路由 | [`discover-testing`](skills/zh/testing-workflows/discover-testing/) | 根据目标推荐应调用的 skill |
+| 产品质量视角 | [`product-quality-perspective`](skills/zh/testing-workflows/product-quality-perspective/) | 从用户价值、业务规则、范围与验收角度分析质量 |
+| QA 质量视角 | [`qa-quality-perspective`](skills/zh/testing-workflows/qa-quality-perspective/) | 评估可测试性、风险驱动覆盖、缺陷风险与证据边界 |
+| UX 质量视角 | [`ux-quality-perspective`](skills/zh/testing-workflows/ux-quality-perspective/) | 识别信息架构、交互状态、一致性、响应式与无障碍风险 |
+| 技术质量视角 | [`technical-quality-perspective`](skills/zh/testing-workflows/technical-quality-perspective/) | 基于架构、代码、安全、性能与可观测性证据分析技术质量 |
+| 项目交付视角 | [`project-delivery-perspective`](skills/zh/testing-workflows/project-delivery-perspective/) | 记录带来源的排期、产能、依赖和行动，不改变质量事实 |
+| 多角色质量汇总 | [`multi-role-quality-synthesis`](skills/zh/testing-workflows/multi-role-quality-synthesis/) | 合并同阶段角色报告并保留来源、分歧和质量边界 |
 
 ### 测试类型技能
 
@@ -122,11 +128,13 @@ cp -r skills/zh/testing-types/functional-testing ~/.cursor/skills/
 | --- | --- |
 | 需求分析 | [`requirements-analysis`](skills/zh/testing-types/requirements-analysis/) |
 | 测试策略 | [`test-strategy`](skills/zh/testing-types/test-strategy/) |
+| 测试策略评审 | [`test-strategy-review`](skills/zh/testing-types/test-strategy-review/) |
 | 测试用例编写 | [`test-case-writing`](skills/zh/testing-types/test-case-writing/) |
 | 测试用例评审 | [`test-case-reviewer`](skills/zh/testing-types/test-case-reviewer/) |
 | 代码审查 | [`code-review`](skills/zh/testing-types/code-review/) |
 | 缺陷上报 | [`bug-reporting`](skills/zh/testing-types/bug-reporting/) |
 | 测试报告 | [`test-reporting`](skills/zh/testing-types/test-reporting/) |
+| 测试报告评审 | [`test-report-review`](skills/zh/testing-types/test-report-review/) |
 | AI 辅助测试 | [`ai-assisted-testing`](skills/zh/testing-types/ai-assisted-testing/) |
 
 #### 工具专项

@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "test-report-review"
+interface:
+  display_name: "测试报告评审"
+  short_description: "核对测试报告与执行、缺陷和范围证据，形成 Human 待决的 AI 建议"
+  default_prompt: "使用 $test-report-review 评审这份测试报告，核对来源版本、执行与缺陷证据、未测范围、矛盾、残余风险和开放行动，并保留 Human 最终决定权。"
+policy:
+  allow_implicit_invocation: true

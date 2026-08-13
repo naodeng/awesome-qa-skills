@@ -1,0 +1,18 @@
+id: basic-code-review
+title: QA 视角：评估变更的可测性与回归风险
+description: |
+  QA 应基于可追溯变更识别可观察结果、异常路径和回归缺口。
+input:
+  prompt: |
+    请使用 qa-quality-perspective。
+    stage: code-review
+    PR #103 的 diff 为支付回调增加最多 3 次重试，但变更中没有幂等键处理、重试日志或相关测试。接口合同说明同一回调可重复到达。
+    请输出 QA 质量报告，关注可测性、观测、异常和回归覆盖，不代替工程正确性结论。
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "基于 PR #103 和合同识别重复回调/重试的幂等与回归风险。"
+    - "提出可观察重试次数、结果与副作用的日志/证据需求，以及重复、失败和成功路径测试建议。"
+    - "将实现缺口作为待工程确认的风险，不声称代码已证明错误或测试已执行。"
+  pass_threshold: 0.8

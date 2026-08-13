@@ -1,0 +1,44 @@
+id: edge-no-new-facts
+title: "Multi-role synthesis: does not derive new facts from limited evidence"
+description: |
+  Synthesis may reorganize supplied statements only; it must not turn unknown root causes, production impacts, or unexecuted checks into facts.
+
+input:
+  prompt: |
+    Prepare a test-reporting stage quality synthesis from the following two role reports.
+
+    Report 1:
+    source_id: SRC-QA-301
+    stage: test-reporting
+    source_role: qa
+    facts: RUN-22 has one test failure caused by a timeout; Firefox 128 was not executed.
+    evidence: RUN-22 results page.
+    findings: [P1] Current evidence cannot confirm that cross-browser regression passed.
+    risks: Firefox 128 status is unknown.
+    gaps: The timeout root cause and Firefox 128 result are missing.
+    questions: Is the timeout environmental or product-related?
+    actions: Investigate the timeout and execute Firefox 128.
+    confidence: medium
+
+    Report 2:
+    source_id: SRC-TECH-301
+    stage: test-reporting
+    source_role: technical
+    facts: No server metrics or application logs were supplied.
+    evidence: OBS-GAP-7 inventory.
+    findings: [P2] There is no technical evidence explaining the RUN-22 timeout.
+    risks: Root cause is unknown.
+    gaps: Metrics and logs are missing.
+    questions: Can logs for that period be supplied?
+    actions: Collect metrics and logs before diagnosis.
+    confidence: low
+
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "Preserves only supported facts: one RUN-22 timeout failure, Firefox 128 was not executed, and server metrics/application logs were not supplied, with SRC-QA-301 and SRC-TECH-301 attribution."
+    - "Does not assert a memory leak, server overload, production incident, revenue loss, or any other unsupplied root cause/business impact as fact; an explicit unknown or investigation question is acceptable."
+    - "Every synthesized finding cites at least one input source_id, and open questions, actions, and confidence limits remain distinct from facts."
+    - "Includes an explicit Disagreements section and states none exist when the inputs do not conflict."
+  pass_threshold: 0.8

@@ -1,0 +1,18 @@
+id: basic-test-case-writing
+title: "QA perspective: write executable risk-driven case recommendations"
+description: |
+  QA should derive executable, decidable, traceable case recommendations from supplied behavior.
+input:
+  prompt: |
+    Use qa-quality-perspective.
+    stage: test-case-writing
+    Requirement REQ-104 says a transfer amount must be greater than zero and no greater than available balance; success displays a transaction ID; failure must not change the balance.
+    Produce prioritized QA case recommendations with preconditions, steps, observable expected results, and requirement traceability.
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "Covers greater-than-zero, equal/over available balance, successful transaction ID, and unchanged balance on failure among high-value boundaries."
+    - "Provides executable preconditions, steps, and decidable expectations traced to REQ-104."
+    - "Treats unsupplied concurrency, currency, or error-code details as gaps/questions and invents no rules or results."
+  pass_threshold: 0.8

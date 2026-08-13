@@ -1,0 +1,46 @@
+id: edge-missing-code-version
+title: "Code review: block separately when code identity or reviewable changes are missing"
+description: |
+  Three merge requests cover diff-only, identity-only, and both gates satisfied; the review should stably block the first two and conditionally use source-identified role reports for the third.
+
+input:
+  prompt: |
+    Use code-review to handle the three merge requests below independently and say whether each can enter formal code review now.
+
+    Request A: a Product role report says, "Refund retries must not pay twice." The engineer pasted this change:
+      - refundService.refund(orderId);
+      + retry(3, () -> refundService.refund(orderId));
+    There is no repository URL, PR, commit, branch, tag, or other code-version identifier.
+
+    Request B: a UI/UX role report says, "The button should show a busy state while saving." The code identity is repository shop-web, PR #418, commit 64e8f20, branch feature/save-state; however, there is no diff, changed file, code snippet, or accessible repository content, only the statement "the save interaction was improved."
+
+    Request C: code identity is repository shop-web, PR #419, commit b72a410, baseline main@64e8f20. Two optional role reports are supplied:
+    - source_role: product: show a save-success message only after profile data is persisted, and do not lose the user's entered name.
+    - source_role: ux: show a busy state and prevent duplicate clicks while saving; put failure feedback near the form.
+    Reviewable patch:
+    ```diff
+    diff --git a/src/EditProfile.tsx b/src/EditProfile.tsx
+    @@ async function submitProfile(form: ProfileForm) {
+    -  setSaving(true);
+       try {
+    -    await saveProfile(form);
+         toast.success("Saved");
+    +    saveProfile(form);
+       } finally {
+    -    setSaving(false);
+       }
+    }
+    ```
+
+    Keep A, B, and C as separate conclusions rather than combining them into one review.
+
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "Request A contains the stable fields `status: blocked` and accurate `missing_gate: missing_code_identity`; it does not also report `missing_reviewable_change`, and specifically requests identity such as a PR, commit, branch, tag, or repository revision."
+    - "Request B contains the stable fields `status: blocked` and accurate `missing_gate: missing_reviewable_change`; it does not also report `missing_code_identity`, and specifically requests a diff/patch, changed files, code snippets, or accessible base-to-head content."
+    - "Requests A and B contain no formal P0/P1/P2 findings, do not claim review completion, and give no merge recommendation; Product and UI/UX reports do not substitute for missing gates or become code facts."
+    - "Request C recognizes that both code identity and patch exist and performs a formal evidence-based review; findings are grounded in patch facts such as removal of `setSaving`, removal of `await`, premature success feedback, or an unawaited `saveProfile`, not merely in role-report claims."
+    - "Request C uses the Product and UI/UX reports only because they are relevant and retains each as `source_role: product`, `source_role: ux`, or equivalent stable source fields; Product informs post-persistence success semantics, UI/UX informs busy/duplicate-click/feedback concerns, and neither is presented as code evidence."
+  pass_threshold: 1.0
