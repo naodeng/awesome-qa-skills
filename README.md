@@ -4,7 +4,7 @@
 
 按语言分区的 **AI 测试辅助技能库**（Agent Skills）。面向 Codex、Cursor、Claude Code、Kiro、OpenCode、Trae 等工具，提供可独立安装、可组合调用的测试工作流与测试类型技能。
 
-[![License: GPL-3.0](https://img.shields.io/badge/License-GPL%203.0-blue.svg)](./LICENSE)
+[![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](./LICENSE)
 [![Skills](https://img.shields.io/badge/skills-92%20(zh%2Ben)-0A7EA4)](./skills-index.md)
 [![Workflows](https://img.shields.io/badge/workflows-10-informational)](./skills/zh/testing-workflows/)
 [![Testing types](https://img.shields.io/badge/testing%20types-36-informational)](./skills/zh/testing-types/)
@@ -185,7 +185,7 @@ awesome-qa-skills/
 ├── AGENTS.md                    # Coding Agent 操作约定
 ├── skills-index.md              # 全量技能索引
 ├── README.md / README_EN.md
-└── LICENSE                      # GPL-3.0
+└── LICENSE                      # CC BY-NC-SA 4.0
 ```
 
 ### 单个 Skill 约定结构
@@ -255,4 +255,4 @@ bash scripts/run_skill_eval.sh skills/zh/testing-types/functional-testing/evals/
 
 ## 许可证
 
-本仓库采用 [GNU GPL v3](./LICENSE)。可自由使用、修改与分发；衍生作品需遵循相同许可证条款。
+本仓库采用 [知识共享 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0)](./LICENSE)。您可以自由分享与改编本作品，但必须署名、不得用于商业目的，且衍生作品须以相同许可证发布。

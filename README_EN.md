@@ -4,7 +4,7 @@
 
 A language-partitioned **AI testing skills library** (Agent Skills) for Codex, Cursor, Claude Code, Kiro, OpenCode, Trae, and similar tools. It ships independently installable, composable skills for testing workflows and testing types.
 
-[![License: GPL-3.0](https://img.shields.io/badge/License-GPL%203.0-blue.svg)](./LICENSE)
+[![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](./LICENSE)
 [![Skills](https://img.shields.io/badge/skills-92%20(zh%2Ben)-0A7EA4)](./skills-index.md)
 [![Workflows](https://img.shields.io/badge/workflows-10-informational)](./skills/en/testing-workflows/)
 [![Testing types](https://img.shields.io/badge/testing%20types-36-informational)](./skills/en/testing-types/)
@@ -185,7 +185,7 @@ awesome-qa-skills/
 ├── AGENTS.md                    # Conventions for coding agents
 ├── skills-index.md              # Full skill index
 ├── README.md / README_EN.md
-└── LICENSE                      # GPL-3.0
+└── LICENSE                      # CC BY-NC-SA 4.0
 ```
 
 ### Per-skill layout
@@ -255,4 +255,4 @@ Issues and PRs are welcome: new skills, bilingual parity, prompt/evals improveme
 
 ## License
 
-This repository is licensed under [GNU GPL v3](./LICENSE). You may use, modify, and redistribute it under the same license terms.
+This repository is licensed under [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)](./LICENSE). You are free to share and adapt the material as long as you give appropriate credit, do not use it for commercial purposes, and distribute your contributions under the same license.
