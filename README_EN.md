@@ -4,7 +4,7 @@
 
 A language-partitioned **AI testing skills library** (Agent Skills) for Codex, Cursor, Claude Code, Kiro, OpenCode, Trae, and similar tools. It ships independently installable, composable skills for testing workflows and testing types.
 
-[![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](./LICENSE)
+[![License: PolyForm Noncommercial 1.0.0](https://img.shields.io/badge/License-PolyForm%20Noncommercial%201.0.0-blue.svg)](./LICENSE)
 [![Skills](https://img.shields.io/badge/skills-92%20(zh%2Ben)-0A7EA4)](./skills-index.md)
 [![Workflows](https://img.shields.io/badge/workflows-10-informational)](./skills/en/testing-workflows/)
 [![Testing types](https://img.shields.io/badge/testing%20types-36-informational)](./skills/en/testing-types/)
@@ -185,7 +185,7 @@ awesome-qa-skills/
 ├── AGENTS.md                    # Conventions for coding agents
 ├── skills-index.md              # Full skill index
 ├── README.md / README_EN.md
-└── LICENSE                      # CC BY-NC-SA 4.0
+└── LICENSE                      # PolyForm Noncommercial 1.0.0
 ```
 
 ### Per-skill layout
@@ -255,4 +255,4 @@ Issues and PRs are welcome: new skills, bilingual parity, prompt/evals improveme
 
 ## License
 
-This repository is licensed under [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)](./LICENSE). You are free to share and adapt the material as long as you give appropriate credit, do not use it for commercial purposes, and distribute your contributions under the same license.
+This repository is licensed under the [PolyForm Noncommercial License 1.0.0](./LICENSE). You may use, modify, and distribute the software for noncommercial purposes only (e.g. personal study, research, experimentation, charitable organizations, educational institutions, public research organizations, or government institutions).

@@ -261,7 +261,7 @@ See [CONTRIBUTING_EN.md](CONTRIBUTING_EN.md) for details.
 
 #### 29. What is the project license?
 
-MIT License. You can freely use, modify, and distribute.
+PolyForm Noncommercial License 1.0.0. You may use, modify, and distribute for noncommercial purposes.
 
 #### 30. How to get more help?
 

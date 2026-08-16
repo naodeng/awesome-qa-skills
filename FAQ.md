@@ -261,7 +261,7 @@ AI 会生成定制化的测试策略。
 
 #### 29. 项目的许可证是什么？
 
-MIT License。您可以自由使用、修改和分发。
+PolyForm Noncommercial License 1.0.0。允许自由使用、修改和分发，但仅限非商业用途。
 
 #### 30. 如何获取更多帮助？
 
@@ -529,7 +529,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for details.
 
 #### 29. What is the project license?
 
-MIT License. You can freely use, modify, and distribute.
+PolyForm Noncommercial License 1.0.0. You may use, modify, and distribute for noncommercial purposes.
 
 #### 30. How to get more help?
 
