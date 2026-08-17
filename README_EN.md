@@ -8,6 +8,7 @@ A language-partitioned **AI testing skills library** (Agent Skills) for Codex, C
 [![Skills](https://img.shields.io/badge/skills-92%20(zh%2Ben)-0A7EA4)](./skills-index.md)
 [![Workflows](https://img.shields.io/badge/workflows-10-informational)](./skills/en/testing-workflows/)
 [![Testing types](https://img.shields.io/badge/testing%20types-36-informational)](./skills/en/testing-types/)
+[![skills.sh](https://skills.sh/b/naodeng/awesome-qa-skills)](https://skills.sh/naodeng/awesome-qa-skills)
 
 **Online site:** [https://inaodeng.com/qaskills/](https://inaodeng.com/qaskills/)
 
