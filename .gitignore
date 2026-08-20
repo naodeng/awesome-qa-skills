@@ -56,7 +56,6 @@ pnpm-debug.log*
 # local temp outputs
 /tmp-skill-review-*
 /temp/
-/.worktrees/
 
 # =========================
 # QA Performance Generated Reports
