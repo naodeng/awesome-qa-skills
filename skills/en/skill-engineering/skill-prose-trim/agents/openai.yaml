@@ -1,0 +1,10 @@
+version: 1
+metadata:
+  key: "skill-prose-trim"
+interface:
+  display_name: "Process Prose Trimming"
+  short_description: "Remove review and design residue while preserving current-state contracts."
+  default_prompt: "Use the skill-prose-trim skill to remove process residue while preserving contracts."
+policy:
+  allow_implicit_invocation: true
+schema_version: v1alpha1

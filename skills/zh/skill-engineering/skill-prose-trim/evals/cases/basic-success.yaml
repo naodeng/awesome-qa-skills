@@ -1,0 +1,6 @@
+id: basic-success
+title: 清理过程性文案并保留契约
+description: 文案含 PR 叙述和一个当前状态约束。
+input: {prompt: "清理这段文案中的审查过程，但保留不允许泄露 token 的安全约束。"}
+expect: {must_contain: ["契约", "保留"]}
+judge: {type: rule_based, success: [{output_contains: {all: ["保留"]}}]}

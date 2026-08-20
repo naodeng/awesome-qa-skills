@@ -1,0 +1,10 @@
+version: 1
+metadata:
+  key: "skill-prose-review"
+interface:
+  display_name: "Skill 文案契约审查"
+  short_description: "审查 Skill、Prompt 与文档的可执行契约、边界和证据要求。"
+  default_prompt: "Use the skill-prose-review skill to audit this Skill or Prompt contract."
+policy:
+  allow_implicit_invocation: true
+schema_version: v1alpha1

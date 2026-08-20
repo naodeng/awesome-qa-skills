@@ -1,0 +1,10 @@
+version: 1
+metadata:
+  key: "skill-change-verification"
+interface:
+  display_name: "Skill Change Verification"
+  short_description: "Select evidence by change scope and distinguish static, evaluation, and runtime claims."
+  default_prompt: "Use the skill-change-verification skill to select and report verification evidence."
+policy:
+  allow_implicit_invocation: true
+schema_version: v1alpha1

@@ -1,0 +1,18 @@
+version: 1
+metadata:
+  key: "skill-change-verification"
+interface:
+  display_name: "Skill 变更验证"
+  short_description: "按变更范围选择验证证据，并区分静态、评测和运行时结论。"
+  default_prompt: "Use the skill-change-verification skill to select and report verification evidence."
+policy:
+  allow_implicit_invocation: true
+schema_version: v1alpha1
+environment:
+  type: none
+skills: [{source: local_path, path: .}]
+engine: {name: claude_code}
+cases:
+  files: [evals/cases/basic-success.yaml, evals/cases/edge-incomplete-input.yaml, evals/cases/edge-scope-risk.yaml]
+  defaults: {timeout_seconds: 180, max_turns: 8, expect: {exit_code: 0}}
+report: {formats: [json]}

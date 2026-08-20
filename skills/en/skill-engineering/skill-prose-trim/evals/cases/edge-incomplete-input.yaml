@@ -1,0 +1,6 @@
+id: edge-incomplete-input
+title: Missing trimming scope
+description: No files or edit permission are supplied.
+input: {prompt: "Clean up every document in the project."}
+expect: {must_contain: ["scope", "unchanged"]}
+judge: {type: rule_based, success: [{output_contains: {all: ["scope"]}}]}

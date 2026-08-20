@@ -1,0 +1,12 @@
+id: edge-scope-risk
+title: Unauthorized rewrite request
+description: The user asks for an unrelated Skill to be rewritten.
+input:
+  prompt: Review Skill A, then rewrite all of Skill B without stating scope or evidence.
+expect:
+  must_contain: ["scope", "evidence"]
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all: ["scope"]

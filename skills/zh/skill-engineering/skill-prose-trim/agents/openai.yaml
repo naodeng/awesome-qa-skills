@@ -1,0 +1,10 @@
+version: 1
+metadata:
+  key: "skill-prose-trim"
+interface:
+  display_name: "过程性文案清理"
+  short_description: "清理文案中的审查和设计过程残留，同时保留当前状态契约。"
+  default_prompt: "Use the skill-prose-trim skill to remove process residue while preserving contracts."
+policy:
+  allow_implicit_invocation: true
+schema_version: v1alpha1

@@ -1,0 +1,6 @@
+id: basic-success
+title: Remove process prose and preserve contract
+description: Text contains PR narration and a current security constraint.
+input: {prompt: "Remove review narration but preserve the contract that tokens must not be disclosed."}
+expect: {must_contain: ["contract", "preserve"]}
+judge: {type: rule_based, success: [{output_contains: {all: ["preserve"]}}]}

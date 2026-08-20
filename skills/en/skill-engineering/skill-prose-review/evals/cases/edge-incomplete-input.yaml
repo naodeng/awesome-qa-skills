@@ -1,0 +1,12 @@
+id: edge-incomplete-input
+title: Missing review material
+description: The user provides no target or runtime context.
+input:
+  prompt: Review whether this Skill passes, but no Skill content, scope, or runtime environment is provided.
+expect:
+  must_contain: ["Information gaps", "Not verified"]
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all: ["Information gaps"]

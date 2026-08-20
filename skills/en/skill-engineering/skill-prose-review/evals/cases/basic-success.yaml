@@ -1,0 +1,12 @@
+id: basic-success
+title: Complete Skill contract review
+description: Full review scope is provided.
+input:
+  prompt: Use skill-prose-review to review triggers, inputs, outputs, constraints, and verification. Report blockers, gaps, and evidence boundaries.
+expect:
+  must_contain: ["Blocking findings", "Information gaps", "Evidence boundary"]
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all: ["Blocking findings", "Evidence boundary"]

@@ -1,0 +1,10 @@
+version: 1
+metadata:
+  key: "skill-prose-review"
+interface:
+  display_name: "Skill Prose Contract Review"
+  short_description: "Audit executable contracts, boundaries, and evidence requirements in Skills and Prompts."
+  default_prompt: "Use the skill-prose-review skill to audit this Skill or Prompt contract."
+policy:
+  allow_implicit_invocation: true
+schema_version: v1alpha1

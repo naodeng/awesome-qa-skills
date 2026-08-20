@@ -1,0 +1,6 @@
+id: edge-incomplete-input
+title: 缺少清理范围
+description: 用户没有提供文件或修改权限。
+input: {prompt: "请清理项目里的所有文档。"}
+expect: {must_contain: ["范围", "未修改"]}
+judge: {type: rule_based, success: [{output_contains: {all: ["范围"]}}]}

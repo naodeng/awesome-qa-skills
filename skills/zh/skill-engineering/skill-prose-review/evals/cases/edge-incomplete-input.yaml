@@ -1,0 +1,13 @@
+id: edge-incomplete-input
+title: 缺少审查材料
+description: 用户未提供目标文件或运行环境。
+input:
+  prompt: 请审查这个 Skill 是否通过，但不提供 Skill 内容、范围或验证环境。
+expect:
+  must_contain: ["信息缺口", "未验证"]
+  must_not_contain: ["已通过"]
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all: ["信息缺口"]

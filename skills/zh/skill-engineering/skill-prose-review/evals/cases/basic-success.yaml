@@ -1,0 +1,14 @@
+id: basic-success
+title: 完整 Skill 契约审查
+description: 输入包含目标、Skill 文件和验证要求。
+input:
+  prompt: |
+    请使用 skill-prose-review 审查一个 Skill。请检查触发条件、输入、输出、约束和验证，并按阻塞问题、重要建议、信息缺口、证据边界输出。
+expect:
+  must_contain: ["阻塞问题", "信息缺口", "证据边界"]
+  must_not_contain: ["TODO"]
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all: ["阻塞问题", "证据边界"]

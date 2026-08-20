@@ -1,0 +1,7 @@
+id: edge-incomplete-input
+title: 缺少验证环境
+description: 没有提供项目命令或变更文件。
+input:
+  prompt: 请确认变更通过，但没有提供变更范围、命令或运行环境。
+expect: {must_contain: ["待确认", "未执行"]}
+judge: {type: rule_based, success: [{output_contains: {all: ["待确认"]}}]}

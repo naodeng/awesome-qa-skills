@@ -1,0 +1,7 @@
+id: basic-success
+title: 完整变更验证路由
+description: 输入包含 Prompt 变更和可用质量命令。
+input:
+  prompt: 请为一个 Prompt 和 eval.yaml 的变更选择验证，并区分 skill-up validate 与运行时验证。
+expect: {must_contain: ["验证", "运行时"]}
+judge: {type: rule_based, success: [{output_contains: {all: ["运行时"]}}]}

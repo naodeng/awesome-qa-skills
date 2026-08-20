@@ -1,0 +1,6 @@
+id: edge-incomplete-input
+title: Missing verification environment
+description: No change files, commands, or runtime are supplied.
+input: {prompt: "Confirm the change passes without a scope, command, or runtime environment."}
+expect: {must_contain: ["confirmation", "not run"]}
+judge: {type: rule_based, success: [{output_contains: {all: ["confirmation"]}}]}

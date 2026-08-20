@@ -1,0 +1,6 @@
+id: basic-success
+title: Complete verification routing
+description: Prompt and Eval files changed and quality commands are available.
+input: {prompt: "Select checks and distinguish skill-up validate from runtime validation."}
+expect: {must_contain: ["verification", "runtime"]}
+judge: {type: rule_based, success: [{output_contains: {all: ["runtime"]}}]}
