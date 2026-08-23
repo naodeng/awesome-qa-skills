@@ -59,6 +59,18 @@ bash ./install-skills-mac.sh --tool codex --lang en
 bash installers/en/functional-testing/mac/codex.sh
 ```
 
+You can also use `npx skills` to install skills into a supported AI tool (Node.js required):
+
+```bash
+# Install all English skills into Codex
+npx skills add https://github.com/naodeng/awesome-qa-skills/tree/main/skills/en -g -a codex -y
+
+# Install one skill only
+npx skills add https://github.com/naodeng/awesome-qa-skills/tree/main/skills/en/testing-types/functional-testing -g -a codex -y
+```
+
+For Chinese skills, replace `skills/en` in the URL with `skills/zh`. Install one language at a time to avoid same-named skills overwriting each other.
+
 Windows:
 
 ```powershell

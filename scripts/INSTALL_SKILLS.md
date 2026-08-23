@@ -70,6 +70,23 @@ powershell -ExecutionPolicy Bypass -File .\scripts\install-skills-windows.ps1 -T
 powershell -ExecutionPolicy Bypass -File .\scripts\install-skills-windows.ps1 -Tool claude -Lang all -Dest C:\skills
 ```
 
+## Install with `npx skills`
+
+The [`skills` CLI](https://www.skills.sh/docs/cli) can install a whole language directory or one skill directly from GitHub. Node.js is required.
+
+```bash
+# install all Chinese skills to Codex
+npx skills add https://github.com/naodeng/awesome-qa-skills/tree/main/skills/zh -g -a codex -y
+
+# install one Chinese skill to Codex
+npx skills add https://github.com/naodeng/awesome-qa-skills/tree/main/skills/zh/testing-types/functional-testing -g -a codex -y
+
+# install all English skills to Codex
+npx skills add https://github.com/naodeng/awesome-qa-skills/tree/main/skills/en -g -a codex -y
+```
+
+Replace `codex` with another supported agent name when needed, such as `claude-code` or `cursor`. Install one language at a time because the Chinese and English directories contain same-named skills.
+
 ## Tool target defaults
 
 - Claude Code: `~/.claude/skills` (Windows: `%USERPROFILE%\.claude\skills`)

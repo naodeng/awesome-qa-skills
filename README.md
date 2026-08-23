@@ -59,6 +59,18 @@ bash ./install-skills-mac.sh --tool codex --lang zh
 bash installers/zh/functional-testing/mac/codex.sh
 ```
 
+也可以使用 `npx skills` 安装到支持的 AI 工具（需要 Node.js）：
+
+```bash
+# 安装全部中文 skills 到 Codex
+npx skills add https://github.com/naodeng/awesome-qa-skills/tree/main/skills/zh -g -a codex -y
+
+# 只安装一个 skill
+npx skills add https://github.com/naodeng/awesome-qa-skills/tree/main/skills/zh/testing-types/functional-testing -g -a codex -y
+```
+
+英文 skills 将 URL 中的 `skills/zh` 替换为 `skills/en`。建议一次只安装一种语言，避免同名 skill 相互覆盖。
+
 Windows：
 
 ```powershell
