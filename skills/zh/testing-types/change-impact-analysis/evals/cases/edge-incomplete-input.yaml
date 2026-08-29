@@ -1,0 +1,26 @@
+id: edge-incomplete-input
+title: change-impact-analysis：信息不完整时仍给初版
+description: |
+  输入缺少环境/接口细节时，仍应产出可用初版并显式标注缺口，而不是拒绝或空转。
+
+input:
+  prompt: |
+    请用 change-impact-analysis 帮我做测试相关产出。
+    我只有一句话：新版本加了积分兑换。其他文档还没有。
+    请先给可用初版，并列出必须补齐的信息。
+
+expect:
+  must_contain:
+    - "假设"
+    - "缺口"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "假设"
+          - "缺口"

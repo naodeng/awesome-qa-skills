@@ -2,7 +2,20 @@
 
 Canonical language root: `skills/en`
 
-This tree mirrors `skills/zh` with the **same folder names**: 10 workflows + 36 testing types. For install, conventions, and evals, see the root [README_EN.md](../../README_EN.md), [AGENTS.md](../../AGENTS.md), and [skills/SKILL_AUTHORING.md](../SKILL_AUTHORING.md).
+This tree mirrors `skills/zh` with the **same folder names**: 10 workflows + 44 testing types + 3 Skill Engineering packages. For install, conventions, and evals, see the root [README_EN.md](../../README_EN.md), [AGENTS.md](../../AGENTS.md), and [skills/SKILL_AUTHORING.md](../SKILL_AUTHORING.md).
+
+## Capability navigation
+
+Package categories remain stable; use these stages to find a Skill by quality outcome:
+
+| Stage | Existing starting Skills | Status |
+| --- | --- | --- |
+| Core QA Skills | `requirements-analysis`, `test-strategy`, `test-case-writing`, `functional-testing`, `test-reporting` | Available |
+| Engineering QA Skills | `code-review`, `automation-testing`, `performance-testing` | Foundation available; Shift Left, change, and diagnostic capabilities follow the roadmap |
+| Production Quality Skills | `release-testing-workflow`, `test-reporting` | Release foundation available; production capabilities follow the roadmap |
+| AI Native QA Skills | No installable Testing-for-AI package yet | Planned; `ai-assisted-testing` is AI for QA |
+
+See the [English evolution roadmap](../../docs/QA_SKILLS_EVOLUTION_ROADMAP_EN.md); installation still uses the actual directories listed below.
 
 ## testing-workflows
 
@@ -76,5 +89,15 @@ This tree mirrors `skills/zh` with the **same folder names**: 10 workflows + 36 
 | `test-strategy-plus` | Test Strategy Plus |
 | `testcase-writer-plus` | Testcase Writer Plus |
 | `test-case-reviewer-plus` | Test Case Reviewer Plus |
+
+## skill-engineering (governance support)
+
+| Folder | Skill |
+| --- | --- |
+| `skill-change-verification` | Skill Change Verification |
+| `skill-prose-review` | Skill Prose Review |
+| `skill-prose-trim` | Skill Prose Trim |
+
+These Skills support every capability stage and do not form a fifth stage.
 
 Chinese counterpart: [skills/zh/README.md](../zh/README.md) · Full index: [skills-index.md](../../skills-index.md)

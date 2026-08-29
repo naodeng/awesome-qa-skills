@@ -19,6 +19,7 @@ cases:
     - evals/cases/basic-success.yaml
     - evals/cases/edge-incomplete-input.yaml
     - evals/cases/edge-narrow-recommendation.yaml
+    - evals/cases/capability-stage-routing.yaml
   defaults:
     timeout_seconds: 180
     max_turns: 8

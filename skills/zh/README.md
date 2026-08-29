@@ -2,7 +2,20 @@
 
 语言根目录：`skills/zh`
 
-本目录与 `skills/en` **同名对齐**：工作流 10 个 + 测试类型 36 个。安装、约定与评测见仓库根 [README.md](../../README.md)、[AGENTS.md](../../AGENTS.md)、[skills/SKILL_AUTHORING.md](../SKILL_AUTHORING.md)。
+本目录与 `skills/en` **同名对齐**：工作流 10 个 + 测试类型 44 个 + Skill Engineering 3 个。安装、约定与评测见仓库根 [README.md](../../README.md)、[AGENTS.md](../../AGENTS.md)、[skills/SKILL_AUTHORING.md](../SKILL_AUTHORING.md)。
+
+## 能力导航
+
+目录类别保持不变；以下阶段用于按质量目标查找 Skill：
+
+| 阶段 | 可先选择的现有 Skill | 状态 |
+| --- | --- | --- |
+| Core QA Skills | `requirements-analysis`、`test-strategy`、`test-case-writing`、`functional-testing`、`test-reporting` | 已提供 |
+| Engineering QA Skills | `code-review`、`automation-testing`、`performance-testing` | 已有基础，Shift Left、变更与诊断能力按路线图补齐 |
+| Production Quality Skills | `release-testing-workflow`、`test-reporting` | 已有发布基础，生产能力按路线图补齐 |
+| AI Native QA Skills | 暂无可安装的 Testing for AI 专项包 | 规划中；`ai-assisted-testing` 属于 AI for QA |
+
+查看 [中文演进路线图](../../docs/QA_SKILLS_EVOLUTION_ROADMAP.md)；安装仍使用本页列出的实际目录。
 
 ## testing-workflows（工作流）
 
@@ -76,5 +89,15 @@
 | `test-strategy-plus` | 测试策略增强版 |
 | `testcase-writer-plus` | 测试用例编写增强版 |
 | `test-case-reviewer-plus` | 测试用例评审增强版 |
+
+## skill-engineering（治理支撑）
+
+| 目录名 | 中文名称 |
+| --- | --- |
+| `skill-change-verification` | Skill 变更验证 |
+| `skill-prose-review` | Skill 文案评审 |
+| `skill-prose-trim` | Skill 文案精简 |
+
+这些 Skill 服务所有能力阶段，不构成第五阶段。
 
 英文对照：[skills/en/README.md](../en/README.md) · 全量索引：[skills-index.md](../../skills-index.md)

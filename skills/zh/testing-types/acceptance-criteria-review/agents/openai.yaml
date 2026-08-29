@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: acceptance-criteria-review
+interface:
+  display_name: "验收标准评审"
+  short_description: "评审验收标准的可验证性与缺口"
+  default_prompt: "Use the acceptance-criteria-review skill to review acceptance criteria."
+policy:
+  allow_implicit_invocation: true

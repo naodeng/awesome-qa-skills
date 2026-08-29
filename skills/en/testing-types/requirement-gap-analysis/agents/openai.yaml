@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: requirement-gap-analysis
+interface:
+  display_name: "Requirement Gap Analysis"
+  short_description: "Identify requirement gaps, conflicts, and impact"
+  default_prompt: "Use the requirement-gap-analysis skill to analyze requirement gaps."
+policy:
+  allow_implicit_invocation: true

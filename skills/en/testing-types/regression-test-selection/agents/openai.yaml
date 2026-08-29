@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: regression-test-selection
+interface:
+  display_name: "Regression Test Selection"
+  short_description: "Select a minimum risk-covering regression set"
+  default_prompt: "Use the regression-test-selection skill to select regression tests."
+policy:
+  allow_implicit_invocation: true

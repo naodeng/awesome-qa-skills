@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: regression-scope-analysis
+interface:
+  display_name: "回归范围分析"
+  short_description: "按风险定义回归范围和排除依据"
+  default_prompt: "Use the regression-scope-analysis skill to analyze regression scope."
+policy:
+  allow_implicit_invocation: true

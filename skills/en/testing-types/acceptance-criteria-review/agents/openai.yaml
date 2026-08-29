@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: acceptance-criteria-review
+interface:
+  display_name: "Acceptance Criteria Review"
+  short_description: "Review acceptance-criteria gaps and verifiability"
+  default_prompt: "Use the acceptance-criteria-review skill to review acceptance criteria."
+policy:
+  allow_implicit_invocation: true

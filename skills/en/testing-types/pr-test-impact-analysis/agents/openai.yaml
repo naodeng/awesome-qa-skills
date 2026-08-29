@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: pr-test-impact-analysis
+interface:
+  display_name: "PR Test Impact Analysis"
+  short_description: "Analyze test impact from a PR or diff"
+  default_prompt: "Use the pr-test-impact-analysis skill to analyze PR test impact."
+policy:
+  allow_implicit_invocation: true

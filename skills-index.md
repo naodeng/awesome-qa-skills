@@ -1,6 +1,32 @@
 # Skills Index
 
-按当前仓库实际目录整理的技能索引：每种语言 10 个工作流 Skill + 36 个测试类型 Skill，共 92 个中英文目录。
+按当前仓库实际目录整理的技能索引：每种语言 10 个工作流 Skill + 44 个测试类型 Skill + 3 个 Skill Engineering，共 114 个中英文目录。
+
+## Capability Map
+
+物理目录仍按 Workflow / Testing Type / Skill Engineering 组织，下面的四阶段只用于能力导航：
+
+| Stage | Existing entry points | Status |
+| --- | --- | --- |
+| Core QA Skills | requirements, strategy, cases, functional/API/manual/security/accessibility testing, defects and reporting | Available |
+| Engineering QA Skills | [`requirements-analysis`](skills/zh/testing-types/requirements-analysis/), [`code-review`](skills/zh/testing-types/code-review/), [`automation-testing`](skills/zh/testing-types/automation-testing/), [`performance-testing`](skills/zh/testing-types/performance-testing/) | Available foundation; Shift Left, change intelligence, diagnostics and performance analysis are planned extensions |
+| Production Quality Skills | [`release-testing-workflow`](skills/zh/testing-workflows/release-testing-workflow/), [`test-reporting`](skills/zh/testing-types/test-reporting/) | Available release foundation; production verification and observability are planned extensions |
+| AI Native QA Skills | No installable Testing-for-AI package yet | Planned; [`ai-assisted-testing`](skills/zh/testing-types/ai-assisted-testing/) is AI for QA, not this stage |
+
+Full future scope: [Chinese roadmap](docs/QA_SKILLS_EVOLUTION_ROADMAP.md) · [English roadmap](docs/QA_SKILLS_EVOLUTION_ROADMAP_EN.md).
+
+### Available Engineering QA additions
+
+| Skill | 中文 | English |
+| --- | --- | --- |
+| `acceptance-criteria-review` | [中文](skills/zh/testing-types/acceptance-criteria-review/) | [English](skills/en/testing-types/acceptance-criteria-review/) |
+| `requirement-gap-analysis` | [中文](skills/zh/testing-types/requirement-gap-analysis/) | [English](skills/en/testing-types/requirement-gap-analysis/) |
+| `quality-risk-analysis` | [中文](skills/zh/testing-types/quality-risk-analysis/) | [English](skills/en/testing-types/quality-risk-analysis/) |
+| `testability-analysis` | [中文](skills/zh/testing-types/testability-analysis/) | [English](skills/en/testing-types/testability-analysis/) |
+| `change-impact-analysis` | [中文](skills/zh/testing-types/change-impact-analysis/) | [English](skills/en/testing-types/change-impact-analysis/) |
+| `pr-test-impact-analysis` | [中文](skills/zh/testing-types/pr-test-impact-analysis/) | [English](skills/en/testing-types/pr-test-impact-analysis/) |
+| `regression-scope-analysis` | [中文](skills/zh/testing-types/regression-scope-analysis/) | [English](skills/en/testing-types/regression-scope-analysis/) |
+| `regression-test-selection` | [中文](skills/zh/testing-types/regression-test-selection/) | [English](skills/en/testing-types/regression-test-selection/) |
 
 ## Workflow Skills
 
@@ -109,3 +135,17 @@
 - [ui-test-selenium](skills/en/testing-types/ui-test-selenium/)
 - [ui-test-testcafe](skills/en/testing-types/ui-test-testcafe/)
 - [ui-test-webdriverio](skills/en/testing-types/ui-test-webdriverio/)
+
+## Skill Engineering
+
+### 中文
+
+- [skill-change-verification](skills/zh/skill-engineering/skill-change-verification/)
+- [skill-prose-review](skills/zh/skill-engineering/skill-prose-review/)
+- [skill-prose-trim](skills/zh/skill-engineering/skill-prose-trim/)
+
+### English
+
+- [skill-change-verification](skills/en/skill-engineering/skill-change-verification/)
+- [skill-prose-review](skills/en/skill-engineering/skill-prose-review/)
+- [skill-prose-trim](skills/en/skill-engineering/skill-prose-trim/)

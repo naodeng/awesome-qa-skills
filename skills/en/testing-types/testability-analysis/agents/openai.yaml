@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: testability-analysis
+interface:
+  display_name: "Testability Analysis"
+  short_description: "Assess testability and prioritized blockers"
+  default_prompt: "Use the testability-analysis skill to assess testability."
+policy:
+  allow_implicit_invocation: true

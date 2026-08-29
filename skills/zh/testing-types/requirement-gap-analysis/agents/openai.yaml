@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: requirement-gap-analysis
+interface:
+  display_name: "需求缺口分析"
+  short_description: "识别需求信息缺口、冲突与影响"
+  default_prompt: "Use the requirement-gap-analysis skill to analyze requirement gaps."
+policy:
+  allow_implicit_invocation: true

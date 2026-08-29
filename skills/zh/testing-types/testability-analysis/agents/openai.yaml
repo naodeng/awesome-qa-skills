@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: testability-analysis
+interface:
+  display_name: "可测试性分析"
+  short_description: "评估需求或设计的可测试性与阻碍"
+  default_prompt: "Use the testability-analysis skill to assess testability."
+policy:
+  allow_implicit_invocation: true
