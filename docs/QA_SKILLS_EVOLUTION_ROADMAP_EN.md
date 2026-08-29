@@ -1,3 +1,5 @@
+<div align="right"><a href="./QA_SKILLS_EVOLUTION_ROADMAP.md">🇨🇳 中文</a> | <strong>🇬🇧 English</strong></div>
+
 # Awesome QA Skills Evolution Roadmap
 
 > Status: completed. This document preserves delivery order and boundaries; all 29 listed Skills are now installable.

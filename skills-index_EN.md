@@ -1,12 +1,12 @@
-<div align="right"><strong>🇨🇳 中文</strong> | <a href="./skills-index_EN.md">🇬🇧 English</a></div>
+<div align="right"><a href="./skills-index.md">🇨🇳 中文</a> | <strong>🇬🇧 English</strong></div>
 
-# Skills 全量索引
+# Complete Skills Index
 
-每种语言包含 10 个工作流、65 个测试类型和 3 个 Skill Engineering，共 78 个；中英文合计 156 个目录。以下是逻辑导航，实际目录不变。
+Each language contains 10 workflows, 65 testing types, and 3 Skill Engineering packages: 78 per language and 156 directories total. This is logical navigation; physical directories do not change.
 
-## 跨阶段工作流
+## Cross-phase workflows
 
-### 需求发现与分析
+### Discovery
 
 | Skill | 中文 | English |
 | --- | --- | --- |
@@ -16,7 +16,7 @@
 | `ux-quality-perspective` | [中文](skills/zh/testing-workflows/ux-quality-perspective/) | [English](skills/en/testing-workflows/ux-quality-perspective/) |
 | `technical-quality-perspective` | [中文](skills/zh/testing-workflows/technical-quality-perspective/) | [English](skills/en/testing-workflows/technical-quality-perspective/) |
 
-### 开发与迭代
+### Development
 
 | Skill | 中文 | English |
 | --- | --- | --- |
@@ -24,25 +24,25 @@
 | `sprint-testing-workflow` | [中文](skills/zh/testing-workflows/sprint-testing-workflow/) | [English](skills/en/testing-workflows/sprint-testing-workflow/) |
 | `project-delivery-perspective` | [中文](skills/zh/testing-workflows/project-delivery-perspective/) | [English](skills/en/testing-workflows/project-delivery-perspective/) |
 
-### 发布与综合
+### Release
 
 | Skill | 中文 | English |
 | --- | --- | --- |
 | `release-testing-workflow` | [中文](skills/zh/testing-workflows/release-testing-workflow/) | [English](skills/en/testing-workflows/release-testing-workflow/) |
 | `multi-role-quality-synthesis` | [中文](skills/zh/testing-workflows/multi-role-quality-synthesis/) | [English](skills/en/testing-workflows/multi-role-quality-synthesis/) |
 
-## 四层能力体系 × 研发测试阶段
+## Four Capability Stages × R&D and Testing Lifecycle
 
-### Core QA Skills — 基础质量能力
+### Core QA Skills — Quality foundation
 
-#### 需求发现与分析
+#### Discovery and Requirements Analysis
 
 | Skill | 中文 | English |
 | --- | --- | --- |
 | `requirements-analysis` | [中文](skills/zh/testing-types/requirements-analysis/) | [English](skills/en/testing-types/requirements-analysis/) |
 | `requirements-analysis-plus` | [中文](skills/zh/testing-types/requirements-analysis-plus/) | [English](skills/en/testing-types/requirements-analysis-plus/) |
 
-#### 方案设计与测试策略
+#### Solution Design and Test Strategy
 
 | Skill | 中文 | English |
 | --- | --- | --- |
@@ -50,7 +50,7 @@
 | `test-strategy-plus` | [中文](skills/zh/testing-types/test-strategy-plus/) | [English](skills/en/testing-types/test-strategy-plus/) |
 | `test-strategy-review` | [中文](skills/zh/testing-types/test-strategy-review/) | [English](skills/en/testing-types/test-strategy-review/) |
 
-#### 测试设计与准备
+#### Test Design and Preparation
 
 | Skill | 中文 | English |
 | --- | --- | --- |
@@ -59,7 +59,7 @@
 | `test-case-reviewer` | [中文](skills/zh/testing-types/test-case-reviewer/) | [English](skills/en/testing-types/test-case-reviewer/) |
 | `test-case-reviewer-plus` | [中文](skills/zh/testing-types/test-case-reviewer-plus/) | [English](skills/en/testing-types/test-case-reviewer-plus/) |
 
-#### 测试执行与分析
+#### Test Execution and Analysis
 
 | Skill | 中文 | English |
 | --- | --- | --- |
@@ -70,7 +70,7 @@
 | `accessibility-testing` | [中文](skills/zh/testing-types/accessibility-testing/) | [English](skills/en/testing-types/accessibility-testing/) |
 | `security-testing` | [中文](skills/zh/testing-types/security-testing/) | [English](skills/en/testing-types/security-testing/) |
 
-#### 发布、缺陷与报告
+#### Release, Defects, and Reporting
 
 | Skill | 中文 | English |
 | --- | --- | --- |
@@ -78,9 +78,9 @@
 | `test-reporting` | [中文](skills/zh/testing-types/test-reporting/) | [English](skills/en/testing-types/test-reporting/) |
 | `test-report-review` | [中文](skills/zh/testing-types/test-report-review/) | [English](skills/en/testing-types/test-report-review/) |
 
-### Engineering QA Skills — 质量工程能力
+### Engineering QA Skills — Quality engineering
 
-#### 需求与质量左移
+#### Requirements and Shift Left
 
 | Skill | 中文 | English |
 | --- | --- | --- |
@@ -89,7 +89,7 @@
 | `quality-risk-analysis` | [中文](skills/zh/testing-types/quality-risk-analysis/) | [English](skills/en/testing-types/quality-risk-analysis/) |
 | `testability-analysis` | [中文](skills/zh/testing-types/testability-analysis/) | [English](skills/en/testing-types/testability-analysis/) |
 
-#### 开发与持续集成
+#### Development and Continuous Integration
 
 | Skill | 中文 | English |
 | --- | --- | --- |
@@ -99,7 +99,7 @@
 | `api-contract-testing` | [中文](skills/zh/testing-types/api-contract-testing/) | [English](skills/en/testing-types/api-contract-testing/) |
 | `automation-testing` | [中文](skills/zh/testing-types/automation-testing/) | [English](skills/en/testing-types/automation-testing/) |
 
-#### 测试数据与自动化实现
+#### Test Data and Automation Implementation
 
 | Skill | 中文 | English |
 | --- | --- | --- |
@@ -116,7 +116,7 @@
 | `ui-test-puppeteer` | [中文](skills/zh/testing-types/ui-test-puppeteer/) | [English](skills/en/testing-types/ui-test-puppeteer/) |
 | `ui-test-webdriverio` | [中文](skills/zh/testing-types/ui-test-webdriverio/) | [English](skills/en/testing-types/ui-test-webdriverio/) |
 
-#### 测试执行与回归智能
+#### Test Execution and Regression Intelligence
 
 | Skill | 中文 | English |
 | --- | --- | --- |
@@ -125,7 +125,7 @@
 | `regression-test-selection` | [中文](skills/zh/testing-types/regression-test-selection/) | [English](skills/en/testing-types/regression-test-selection/) |
 | `ai-assisted-testing` | [中文](skills/zh/testing-types/ai-assisted-testing/) | [English](skills/en/testing-types/ai-assisted-testing/) |
 
-#### 性能工程与容量决策
+#### Performance Engineering and Capacity Decisions
 
 | Skill | 中文 | English |
 | --- | --- | --- |
@@ -139,22 +139,22 @@
 | `performance-regression-analysis` | [中文](skills/zh/testing-types/performance-regression-analysis/) | [English](skills/en/testing-types/performance-regression-analysis/) |
 | `capacity-planning-analysis` | [中文](skills/zh/testing-types/capacity-planning-analysis/) | [English](skills/en/testing-types/capacity-planning-analysis/) |
 
-#### 复盘与持续改进
+#### Retrospective and Continuous Improvement
 
 | Skill | 中文 | English |
 | --- | --- | --- |
 | `root-cause-analysis` | [中文](skills/zh/testing-types/root-cause-analysis/) | [English](skills/en/testing-types/root-cause-analysis/) |
 | `log-analysis` | [中文](skills/zh/testing-types/log-analysis/) | [English](skills/en/testing-types/log-analysis/) |
 
-### Production Quality Skills — 生产质量能力
+### Production Quality Skills — Production quality
 
-#### 发布与生产验证
+#### Release and Production Verification
 
 | Skill | 中文 | English |
 | --- | --- | --- |
 | `production-verification` | [中文](skills/zh/testing-types/production-verification/) | [English](skills/en/testing-types/production-verification/) |
 
-#### 生产运行与事故响应
+#### Production Operations and Incident Response
 
 | Skill | 中文 | English |
 | --- | --- | --- |
@@ -162,15 +162,15 @@
 | `distributed-trace-analysis` | [中文](skills/zh/testing-types/distributed-trace-analysis/) | [English](skills/en/testing-types/distributed-trace-analysis/) |
 | `metrics-anomaly-analysis` | [中文](skills/zh/testing-types/metrics-anomaly-analysis/) | [English](skills/en/testing-types/metrics-anomaly-analysis/) |
 
-### AI Native QA Skills — AI 原生质量能力
+### AI Native QA Skills — AI-native quality
 
-#### AI 功能需求与风险
+#### AI Feature Requirements and Risk
 
 | Skill | 中文 | English |
 | --- | --- | --- |
 | `ai-feature-testing` | [中文](skills/zh/testing-types/ai-feature-testing/) | [English](skills/en/testing-types/ai-feature-testing/) |
 
-#### LLM 与 Prompt 评测设计
+#### LLM and Prompt Evaluation Design
 
 | Skill | 中文 | English |
 | --- | --- | --- |
@@ -178,7 +178,7 @@
 | `llm-testing` | [中文](skills/zh/testing-types/llm-testing/) | [English](skills/en/testing-types/llm-testing/) |
 | `prompt-testing` | [中文](skills/zh/testing-types/prompt-testing/) | [English](skills/en/testing-types/prompt-testing/) |
 
-#### Agent、工具与安全测试
+#### Agent, Tool, and Safety Testing
 
 | Skill | 中文 | English |
 | --- | --- | --- |
@@ -186,7 +186,7 @@
 | `agent-tool-testing` | [中文](skills/zh/testing-types/agent-tool-testing/) | [English](skills/en/testing-types/agent-tool-testing/) |
 | `prompt-injection-testing` | [中文](skills/zh/testing-types/prompt-injection-testing/) | [English](skills/en/testing-types/prompt-injection-testing/) |
 
-## Skill Engineering（横向治理）
+## Skill Engineering (Cross-cutting Governance)
 
 | Skill | 中文 | English |
 | --- | --- | --- |
@@ -194,7 +194,7 @@
 | `skill-prose-review` | [中文](skills/zh/skill-engineering/skill-prose-review/) | [English](skills/en/skill-engineering/skill-prose-review/) |
 | `skill-prose-trim` | [中文](skills/zh/skill-engineering/skill-prose-trim/) | [English](skills/en/skill-engineering/skill-prose-trim/) |
 
-完整演进说明：
+Evolution details:
 
 - [中文路线图](docs/QA_SKILLS_EVOLUTION_ROADMAP.md)
 - [English roadmap](docs/QA_SKILLS_EVOLUTION_ROADMAP_EN.md)

@@ -1,3 +1,5 @@
+<div align="right"><strong>🇨🇳 中文</strong> | <a href="./2026-08-29-new-skills-audit_EN.md">🇬🇧 English</a></div>
+
 # 新增 QA Skills 审计报告
 
 **日期：** 2026-08-29

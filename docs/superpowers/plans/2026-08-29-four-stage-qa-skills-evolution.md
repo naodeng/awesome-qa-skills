@@ -1,3 +1,5 @@
+<div align="right"><strong>🇨🇳 中文</strong> | <a href="./2026-08-29-four-stage-qa-skills-evolution_EN.md">🇬🇧 English</a></div>
+
 # Four-Stage QA Skills Evolution Implementation Plan
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.

@@ -1,3 +1,5 @@
+<div align="right"><strong>🇨🇳 中文</strong> | <a href="./2026-08-29-four-stage-qa-skills-evolution-design_EN.md">🇬🇧 English</a></div>
+
 # Awesome QA Skills 四阶段演进设计
 
 ## 决策摘要

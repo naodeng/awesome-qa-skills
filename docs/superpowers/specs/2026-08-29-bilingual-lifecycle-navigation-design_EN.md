@@ -78,7 +78,7 @@ Each Skill table includes at least name, directory, and usage. Counts must resol
 ### Skill Documents
 
 - `skills/zh/` and `skills/en/` use identical relative paths for language mirrors.
-- Do not add `_EN` files inside a Skill; language switches link to the corresponding file under the other language directory.
+- Do not add `_EN` files or per-file language switches inside a Skill; `skills/zh` and `skills/en` provide mirrored relative paths.
 - Mirror maintained Markdown that exists in only one language. Language-specific examples may remain when the Skill entry clearly states their language scope.
 
 ### Explicit Exclusions
@@ -95,7 +95,7 @@ These files do not require file-by-file translation, but maintained documentatio
 Add a documentation parity check to the main quality gate. It verifies at least:
 
 - Every Chinese primary document has an `_EN` mirror and vice versa.
-- Both documents contain valid two-way language links.
+- Project-level document pairs contain valid two-way language links; internal Skill documents are checked for path parity only.
 - Maintained Markdown under `skills/zh` and `skills/en` has matching relative paths.
 - README primary classifications contain every Skill exactly once and match actual directory counts.
 - Markdown relative links have no obvious broken targets.

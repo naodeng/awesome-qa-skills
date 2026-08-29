@@ -1,3 +1,5 @@
+<div align="right"><a href="./FAQ.md">🇨🇳 中文</a> | <strong>🇬🇧 English</strong></div>
+
 # Frequently Asked Questions (FAQ)
 
 [中文](FAQ.md) | [English](#english-faq)

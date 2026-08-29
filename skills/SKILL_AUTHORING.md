@@ -1,3 +1,5 @@
+<div align="right"><strong>🇨🇳 中文</strong> | <a href="./SKILL_AUTHORING_EN.md">🇬🇧 English</a></div>
+
 # Skill Authoring Guide（对齐 skill-up / Agent Skills）
 
 本指南把 [alibaba/skill-up](https://github.com/alibaba/skill-up) 与 [Agent Skills 最佳实践](https://agentskills.io/skill-creation/best-practices) 落到本仓库的 QA skill 上。人类贡献者与 coding agent 改 skill 时都应遵守。

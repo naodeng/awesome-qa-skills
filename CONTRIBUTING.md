@@ -1,3 +1,5 @@
+<div align="right"><strong>🇨🇳 中文</strong> | <a href="./CONTRIBUTING_EN.md">🇬🇧 English</a></div>
+
 # 贡献指南 | Contributing Guide
 
 [English](#english) | [中文](#中文)

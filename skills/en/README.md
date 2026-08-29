@@ -1,103 +1,199 @@
+<div align="right"><a href="../zh/README.md">🇨🇳 中文</a> | <strong>🇬🇧 English</strong></div>
+
 # English Skills
 
-Canonical language root: `skills/en`
+This is the English Skill root and mirrors `skills/zh` with identical Skill names and physical structure.
 
-This tree mirrors `skills/zh` with the **same folder names**: 10 workflows + 65 testing types + 3 Skill Engineering packages. For install, conventions, and evals, see the root [README_EN.md](../../README_EN.md), [AGENTS.md](../../AGENTS.md), and [skills/SKILL_AUTHORING.md](../SKILL_AUTHORING.md).
+Each language provides **78** Skills: 10 workflows + 65 testing types + 3 Skill Engineering. See the [Chinese README](../../README.md) and [English README](../../README_EN.md).
 
-## Capability navigation
+## Cross-phase workflows
 
-Package categories remain stable; use these stages to find a Skill by quality outcome:
+### Discovery
 
-| Stage | Existing starting Skills | Status |
-| --- | --- | --- |
-| Core QA Skills | `requirements-analysis`, `test-strategy`, `test-case-writing`, `functional-testing`, `test-reporting` | Available |
-| Engineering QA Skills | `code-review`, `automation-testing`, `performance-testing` | Foundation available; Shift Left, change, and diagnostic capabilities follow the roadmap |
-| Production Quality Skills | `release-testing-workflow`, `test-reporting` | Release foundation available; production capabilities follow the roadmap |
-| AI Native QA Skills | `ai-feature-testing`, `llm-testing`, `prompt-testing`, `ai-agent-testing` | Available; `ai-assisted-testing` is AI for QA |
-
-See the [English evolution roadmap](../../docs/QA_SKILLS_EVOLUTION_ROADMAP_EN.md); installation still uses the actual directories listed below.
-
-## testing-workflows
-
-| Folder | Skill | When to use |
-| --- | --- | --- |
-| `daily-testing-workflow` | Daily Testing Workflow | Daily smoke, bug follow-up, day plan |
-| `sprint-testing-workflow` | Sprint Testing Workflow | Sprint planning, incremental acceptance, iteration risk |
-| `release-testing-workflow` | Release Testing Workflow | Release gates, regression scope, go-live checks |
-| `discover-testing` | Discover Testing Router | Recommend skills from a testing goal |
-| `product-quality-perspective` | Product Quality Perspective | Analyze user value, business rules, scope, acceptance, and release risk |
-| `qa-quality-perspective` | QA Quality Perspective | Assess testability, risk-based coverage, defect risk, and evidence boundaries |
-| `ux-quality-perspective` | UX Quality Perspective | Identify information architecture, interaction-state, consistency, responsive, and accessibility risks |
-| `technical-quality-perspective` | Technical Quality Perspective | Analyze technical quality from architecture, code, security, performance, and observability evidence |
-| `project-delivery-perspective` | Project Delivery Perspective | Capture attributable delivery constraints and actions without changing quality facts |
-| `multi-role-quality-synthesis` | Multi-Role Quality Synthesis | Combine same-stage role reports while preserving sources, disagreements, and quality boundaries |
-
-## testing-types
-
-### Core execution
-
-| Folder | Skill |
+| Skill | Directory |
 | --- | --- |
-| `functional-testing` | Functional Testing |
-| `api-testing` | API Testing |
-| `automation-testing` | Automation Testing |
-| `manual-testing` | Manual / Exploratory Testing |
-| `performance-testing` | Performance Testing |
-| `security-testing` | Security Testing |
-| `mobile-testing` | Mobile Testing |
-| `accessibility-testing` | Accessibility Testing |
+| Testing Skill Discovery | [`discover-testing`](testing-workflows/discover-testing/) |
+| Product Quality Perspective | [`product-quality-perspective`](testing-workflows/product-quality-perspective/) |
+| QA quality perspective | [`qa-quality-perspective`](testing-workflows/qa-quality-perspective/) |
+| UX Quality Perspective | [`ux-quality-perspective`](testing-workflows/ux-quality-perspective/) |
+| Technical quality perspective | [`technical-quality-perspective`](testing-workflows/technical-quality-perspective/) |
 
-### Process & artifacts
+### Development
 
-| Folder | Skill |
+| Skill | Directory |
 | --- | --- |
-| `requirements-analysis` | Requirements Analysis |
-| `test-strategy` | Test Strategy |
-| `test-strategy-review` | Test Strategy Review |
-| `test-case-writing` | Test Case Writing |
-| `test-case-reviewer` | Test Case Review |
-| `code-review` | Code Review |
-| `bug-reporting` | Bug Reporting |
-| `test-reporting` | Test Reporting |
-| `test-report-review` | Test Report Review |
-| `ai-assisted-testing` | AI-Assisted Testing |
+| Daily Testing Workflow | [`daily-testing-workflow`](testing-workflows/daily-testing-workflow/) |
+| Sprint Testing Workflow | [`sprint-testing-workflow`](testing-workflows/sprint-testing-workflow/) |
+| Project Delivery Perspective | [`project-delivery-perspective`](testing-workflows/project-delivery-perspective/) |
 
-### Tool-specific
+### Release
 
-| Folder | Skill |
+| Skill | Directory |
 | --- | --- |
-| `api-test-bruno` | API Test (Bruno) |
-| `api-test-postman` | API Test (Postman) |
-| `api-test-pytest` | API Test (Pytest) |
-| `api-test-restassure` | API Test (Rest Assured) |
-| `api-test-supertest` | API Test (Supertest) |
-| `ui-test-selenium` | UI Test (Selenium) |
-| `ui-test-playwright` | UI Test (Playwright) |
-| `ui-test-testcafe` | UI Test (TestCafe) |
-| `ui-test-cypress` | UI Test (Cypress) |
-| `ui-test-puppeteer` | UI Test (Puppeteer) |
-| `ui-test-webdriverio` | UI Test (WebdriverIO) |
-| `performance-test-k6` | Performance Test (k6) |
-| `performance-test-gatling` | Performance Test (Gatling) |
-| `performance-test-jmeter` | Performance Test (JMeter) |
+| Release Testing Workflow | [`release-testing-workflow`](testing-workflows/release-testing-workflow/) |
+| Multi-Role Quality Synthesis | [`multi-role-quality-synthesis`](testing-workflows/multi-role-quality-synthesis/) |
 
-### Plus variants
+## Four Capability Stages × R&D and Testing Lifecycle
 
-| Folder | Skill |
+### Core QA Skills — Quality foundation
+
+#### Discovery and Requirements Analysis
+
+| Skill | Directory |
 | --- | --- |
-| `requirements-analysis-plus` | Requirements Analysis Plus |
-| `test-strategy-plus` | Test Strategy Plus |
-| `testcase-writer-plus` | Testcase Writer Plus |
-| `test-case-reviewer-plus` | Test Case Reviewer Plus |
+| Requirements Analysis (English) | [`requirements-analysis`](testing-types/requirements-analysis/) |
+| Requirements Analysis Plus | [`requirements-analysis-plus`](testing-types/requirements-analysis-plus/) |
 
-## skill-engineering (governance support)
+#### Solution Design and Test Strategy
 
-| Folder | Skill |
+| Skill | Directory |
 | --- | --- |
-| `skill-change-verification` | Skill Change Verification |
-| `skill-prose-review` | Skill Prose Review |
-| `skill-prose-trim` | Skill Prose Trim |
+| Test Strategy | [`test-strategy`](testing-types/test-strategy/) |
+| Test Strategy Plus | [`test-strategy-plus`](testing-types/test-strategy-plus/) |
+| Test Strategy Review | [`test-strategy-review`](testing-types/test-strategy-review/) |
 
-These Skills support every capability stage and do not form a fifth stage.
+#### Test Design and Preparation
 
-Chinese counterpart: [skills/zh/README.md](../zh/README.md) · Full index: [skills-index.md](../../skills-index.md)
+| Skill | Directory |
+| --- | --- |
+| Test Case Writing (English) | [`test-case-writing`](testing-types/test-case-writing/) |
+| Testcase Writer Plus | [`testcase-writer-plus`](testing-types/testcase-writer-plus/) |
+| Test Case Review | [`test-case-reviewer`](testing-types/test-case-reviewer/) |
+| Test Case Reviewer Plus | [`test-case-reviewer-plus`](testing-types/test-case-reviewer-plus/) |
+
+#### Test Execution and Analysis
+
+| Skill | Directory |
+| --- | --- |
+| Functional Testing (English) | [`functional-testing`](testing-types/functional-testing/) |
+| API Testing (English) | [`api-testing`](testing-types/api-testing/) |
+| Manual/Exploratory Testing | [`manual-testing`](testing-types/manual-testing/) |
+| Mobile Testing (English) | [`mobile-testing`](testing-types/mobile-testing/) |
+| Accessibility Testing (English) | [`accessibility-testing`](testing-types/accessibility-testing/) |
+| Security Testing (English) | [`security-testing`](testing-types/security-testing/) |
+
+#### Release, Defects, and Reporting
+
+| Skill | Directory |
+| --- | --- |
+| Bug Reporting | [`bug-reporting`](testing-types/bug-reporting/) |
+| Test Reporting | [`test-reporting`](testing-types/test-reporting/) |
+| Test Report Review | [`test-report-review`](testing-types/test-report-review/) |
+
+### Engineering QA Skills — Quality engineering
+
+#### Requirements and Shift Left
+
+| Skill | Directory |
+| --- | --- |
+| Acceptance Criteria Review | [`acceptance-criteria-review`](testing-types/acceptance-criteria-review/) |
+| Requirement Gap Analysis | [`requirement-gap-analysis`](testing-types/requirement-gap-analysis/) |
+| Quality Risk Analysis | [`quality-risk-analysis`](testing-types/quality-risk-analysis/) |
+| Testability Analysis | [`testability-analysis`](testing-types/testability-analysis/) |
+
+#### Development and Continuous Integration
+
+| Skill | Directory |
+| --- | --- |
+| Code Review | [`code-review`](testing-types/code-review/) |
+| Change Impact Analysis | [`change-impact-analysis`](testing-types/change-impact-analysis/) |
+| PR Test Impact Analysis | [`pr-test-impact-analysis`](testing-types/pr-test-impact-analysis/) |
+| API Contract Testing | [`api-contract-testing`](testing-types/api-contract-testing/) |
+| Automation Testing (English) | [`automation-testing`](testing-types/automation-testing/) |
+
+#### Test Data and Automation Implementation
+
+| Skill | Directory |
+| --- | --- |
+| Test Data Generation | [`test-data-generation`](testing-types/test-data-generation/) |
+| API Test Bruno | [`api-test-bruno`](testing-types/api-test-bruno/) |
+| Postman API Testing | [`api-test-postman`](testing-types/api-test-postman/) |
+| API Test Pytest | [`api-test-pytest`](testing-types/api-test-pytest/) |
+| API Test RestAssure | [`api-test-restassure`](testing-types/api-test-restassure/) |
+| API Test Supertest | [`api-test-supertest`](testing-types/api-test-supertest/) |
+| Selenium UI Testing | [`ui-test-selenium`](testing-types/ui-test-selenium/) |
+| Playwright UI Testing | [`ui-test-playwright`](testing-types/ui-test-playwright/) |
+| TestCafe UI Testing | [`ui-test-testcafe`](testing-types/ui-test-testcafe/) |
+| Cypress UI Testing | [`ui-test-cypress`](testing-types/ui-test-cypress/) |
+| Puppeteer UI Testing | [`ui-test-puppeteer`](testing-types/ui-test-puppeteer/) |
+| WebdriverIO UI Testing | [`ui-test-webdriverio`](testing-types/ui-test-webdriverio/) |
+
+#### Test Execution and Regression Intelligence
+
+| Skill | Directory |
+| --- | --- |
+| Flaky Test Analysis | [`flaky-test-analysis`](testing-types/flaky-test-analysis/) |
+| Regression Scope Analysis | [`regression-scope-analysis`](testing-types/regression-scope-analysis/) |
+| Regression Test Selection | [`regression-test-selection`](testing-types/regression-test-selection/) |
+| AI-Assisted Testing | [`ai-assisted-testing`](testing-types/ai-assisted-testing/) |
+
+#### Performance Engineering and Capacity Decisions
+
+| Skill | Directory |
+| --- | --- |
+| Performance Testing (English) | [`performance-testing`](testing-types/performance-testing/) |
+| Performance Test k6 | [`performance-test-k6`](testing-types/performance-test-k6/) |
+| Performance Test Gatling | [`performance-test-gatling`](testing-types/performance-test-gatling/) |
+| JMeter Performance Testing | [`performance-test-jmeter`](testing-types/performance-test-jmeter/) |
+| Performance Workload Modeling | [`performance-workload-modeling`](testing-types/performance-workload-modeling/) |
+| Performance Result Analysis | [`performance-result-analysis`](testing-types/performance-result-analysis/) |
+| Performance Bottleneck Analysis | [`performance-bottleneck-analysis`](testing-types/performance-bottleneck-analysis/) |
+| Performance Regression Analysis | [`performance-regression-analysis`](testing-types/performance-regression-analysis/) |
+| Capacity Planning Analysis | [`capacity-planning-analysis`](testing-types/capacity-planning-analysis/) |
+
+#### Retrospective and Continuous Improvement
+
+| Skill | Directory |
+| --- | --- |
+| Root Cause Analysis | [`root-cause-analysis`](testing-types/root-cause-analysis/) |
+| Log Analysis | [`log-analysis`](testing-types/log-analysis/) |
+
+### Production Quality Skills — Production quality
+
+#### Release and Production Verification
+
+| Skill | Directory |
+| --- | --- |
+| Production Verification | [`production-verification`](testing-types/production-verification/) |
+
+#### Production Operations and Incident Response
+
+| Skill | Directory |
+| --- | --- |
+| Production Incident Analysis | [`production-incident-analysis`](testing-types/production-incident-analysis/) |
+| Distributed Trace Analysis | [`distributed-trace-analysis`](testing-types/distributed-trace-analysis/) |
+| Metrics Anomaly Analysis | [`metrics-anomaly-analysis`](testing-types/metrics-anomaly-analysis/) |
+
+### AI Native QA Skills — AI-native quality
+
+#### AI Feature Requirements and Risk
+
+| Skill | Directory |
+| --- | --- |
+| AI Feature Testing | [`ai-feature-testing`](testing-types/ai-feature-testing/) |
+
+#### LLM and Prompt Evaluation Design
+
+| Skill | Directory |
+| --- | --- |
+| LLM Evaluation Design | [`llm-evaluation-design`](testing-types/llm-evaluation-design/) |
+| LLM Testing | [`llm-testing`](testing-types/llm-testing/) |
+| Prompt Testing | [`prompt-testing`](testing-types/prompt-testing/) |
+
+#### Agent, Tool, and Safety Testing
+
+| Skill | Directory |
+| --- | --- |
+| AI Agent Testing | [`ai-agent-testing`](testing-types/ai-agent-testing/) |
+| Agent Tool Testing | [`agent-tool-testing`](testing-types/agent-tool-testing/) |
+| Prompt Injection Testing | [`prompt-injection-testing`](testing-types/prompt-injection-testing/) |
+
+## Skill Engineering (Cross-cutting Governance)
+
+| Skill | Directory |
+| --- | --- |
+| Skill Change Verification | [`skill-change-verification`](skill-engineering/skill-change-verification/) |
+| Skill Prose Contract Review | [`skill-prose-review`](skill-engineering/skill-prose-review/) |
+| Process Prose Trimming | [`skill-prose-trim`](skill-engineering/skill-prose-trim/) |
+
+Physical directories do not change with logical classification. See the [complete English index](../../skills-index_EN.md).

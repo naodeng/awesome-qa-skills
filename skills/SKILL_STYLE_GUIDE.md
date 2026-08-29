@@ -1,3 +1,5 @@
+<div align="right"><strong>🇨🇳 中文</strong> | <a href="./SKILL_STYLE_GUIDE_EN.md">🇬🇧 English</a></div>
+
 # Skill Style Guide
 
 This guide defines the current standard for `SKILL.md` and prompt files in this repository.

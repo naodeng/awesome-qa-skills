@@ -1,3 +1,5 @@
+<div align="right"><strong>🇨🇳 中文</strong> | <a href="./QA_SKILLS_EVOLUTION_ROADMAP_EN.md">🇬🇧 English</a></div>
+
 # Awesome QA Skills 演进路线图
 
 > 状态：已完成。本文保留建设顺序和边界，表中 29 个新增 Skill 均已可安装。
@@ -16,6 +18,10 @@ skills/{zh|en}/{testing-types|testing-workflows|skill-engineering}/<skill-name>/
 
 当前每种语言有 78 个 Skill（10 个工作流、65 个测试类型、3 个 Skill Engineering），中英双语共 156 个目录。
 
+## 研发与测试阶段细分
+
+四个能力层继续按适用的生命周期阶段细分：需求发现与分析、方案设计与测试策略、开发与持续集成、测试设计与准备、测试执行与分析、发布与交付、生产运行与事故响应、复盘与持续改进。每个 Skill 只有一个主要归属，跨阶段组合由工作流与 `discover-testing` 完成。
+
 ## 能力地图
 
 | 阶段 | 要解决的问题 | 当前代表能力 | 后续重点 |
@@ -23,7 +29,7 @@ skills/{zh|en}/{testing-types|testing-workflows|skill-engineering}/<skill-name>/
 | Core QA Skills | 如何理解、设计、执行和报告基础测试？ | requirements、strategy、cases、functional、API、security、reporting | 保持基础完整性，避免重复造 Skill |
 | Engineering QA Skills | 如何前移质量、评估变更并提高诊断和性能决策？ | requirements-analysis、code-review、automation-testing、performance-testing | Shift Left、变更智能、执行智能、性能工程 |
 | Production Quality Skills | 如何用发布和生产证据做质量判断及闭环？ | release-testing-workflow、test-reporting | 生产验证、事故与可观测性 |
-| AI Native QA Skills | 如何验证 AI 功能、LLM、Prompt、Agent 与安全边界？ | 当前尚无 Testing for AI 专项包 | Eval、Prompt、Agent/Tool、安全 |
+| AI Native QA Skills | 如何验证 AI 功能、LLM、Prompt、Agent 与安全边界？ | Testing for AI 专项 Skill 已提供 | Eval、Prompt、Agent/Tool、安全 |
 
 `ai-assisted-testing` 是横向的 **AI for QA**：用 AI 辅助传统 QA 工作；它不是 AI Native QA 的 Testing for AI 替代品。`skill-engineering` 是横向治理层，不是第五个能力阶段。
 
