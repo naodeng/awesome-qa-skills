@@ -1,6 +1,6 @@
 # Awesome QA Skills 演进路线图
 
-> 状态：已确认的规划。本文描述未来建设顺序，不代表表中新增 Skill 已经可安装。
+> 状态：已完成。本文保留建设顺序和边界，表中 29 个新增 Skill 均已可安装。
 
 ## 演进方向
 
@@ -14,7 +14,7 @@ Core QA Skills → Engineering QA Skills → Production Quality Skills → AI Na
 skills/{zh|en}/{testing-types|testing-workflows|skill-engineering}/<skill-name>/
 ```
 
-当前每种语言有 49 个 Skill（10 个工作流、36 个测试类型、3 个 Skill Engineering），中英双语共 98 个目录。完成全部路线图后，每种语言将有 78 个、双语共 156 个目录。
+当前每种语言有 78 个 Skill（10 个工作流、65 个测试类型、3 个 Skill Engineering），中英双语共 156 个目录。
 
 ## 能力地图
 

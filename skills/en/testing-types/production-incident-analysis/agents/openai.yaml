@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: production-incident-analysis
+interface:
+  display_name: "Production Incident Analysis"
+  short_description: "Analyze production incident evidence, impact, and follow-up"
+  default_prompt: "Use the production-incident-analysis skill to analyze a production incident."
+policy:
+  allow_implicit_invocation: true

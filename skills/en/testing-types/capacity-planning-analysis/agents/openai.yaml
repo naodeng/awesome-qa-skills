@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: capacity-planning-analysis
+interface:
+  display_name: "Capacity Planning Analysis"
+  short_description: "Assess capacity demand, headroom, and planning risk"
+  default_prompt: "Use the capacity-planning-analysis skill to analyze capacity plans."
+policy:
+  allow_implicit_invocation: true

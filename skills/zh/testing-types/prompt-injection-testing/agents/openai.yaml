@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: prompt-injection-testing
+interface:
+  display_name: "Prompt Injection 测试"
+  short_description: "设计 AI 系统 Prompt 注入防护测试"
+  default_prompt: "Use the prompt-injection-testing skill to design authorized injection tests."
+policy:
+  allow_implicit_invocation: true

@@ -2,7 +2,7 @@
 
 Canonical language root: `skills/en`
 
-This tree mirrors `skills/zh` with the **same folder names**: 10 workflows + 44 testing types + 3 Skill Engineering packages. For install, conventions, and evals, see the root [README_EN.md](../../README_EN.md), [AGENTS.md](../../AGENTS.md), and [skills/SKILL_AUTHORING.md](../SKILL_AUTHORING.md).
+This tree mirrors `skills/zh` with the **same folder names**: 10 workflows + 65 testing types + 3 Skill Engineering packages. For install, conventions, and evals, see the root [README_EN.md](../../README_EN.md), [AGENTS.md](../../AGENTS.md), and [skills/SKILL_AUTHORING.md](../SKILL_AUTHORING.md).
 
 ## Capability navigation
 
@@ -13,7 +13,7 @@ Package categories remain stable; use these stages to find a Skill by quality ou
 | Core QA Skills | `requirements-analysis`, `test-strategy`, `test-case-writing`, `functional-testing`, `test-reporting` | Available |
 | Engineering QA Skills | `code-review`, `automation-testing`, `performance-testing` | Foundation available; Shift Left, change, and diagnostic capabilities follow the roadmap |
 | Production Quality Skills | `release-testing-workflow`, `test-reporting` | Release foundation available; production capabilities follow the roadmap |
-| AI Native QA Skills | No installable Testing-for-AI package yet | Planned; `ai-assisted-testing` is AI for QA |
+| AI Native QA Skills | `ai-feature-testing`, `llm-testing`, `prompt-testing`, `ai-agent-testing` | Available; `ai-assisted-testing` is AI for QA |
 
 See the [English evolution roadmap](../../docs/QA_SKILLS_EVOLUTION_ROADMAP_EN.md); installation still uses the actual directories listed below.
 

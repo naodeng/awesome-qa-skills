@@ -1,6 +1,6 @@
 # Skills Index
 
-按当前仓库实际目录整理的技能索引：每种语言 10 个工作流 Skill + 44 个测试类型 Skill + 3 个 Skill Engineering，共 114 个中英文目录。
+按当前仓库实际目录整理的技能索引：每种语言 10 个工作流 Skill + 65 个测试类型 Skill + 3 个 Skill Engineering，共 156 个中英文目录。
 
 ## Capability Map
 
@@ -11,11 +11,11 @@
 | Core QA Skills | requirements, strategy, cases, functional/API/manual/security/accessibility testing, defects and reporting | Available |
 | Engineering QA Skills | [`requirements-analysis`](skills/zh/testing-types/requirements-analysis/), [`code-review`](skills/zh/testing-types/code-review/), [`automation-testing`](skills/zh/testing-types/automation-testing/), [`performance-testing`](skills/zh/testing-types/performance-testing/) | Available foundation; Shift Left, change intelligence, diagnostics and performance analysis are planned extensions |
 | Production Quality Skills | [`release-testing-workflow`](skills/zh/testing-workflows/release-testing-workflow/), [`test-reporting`](skills/zh/testing-types/test-reporting/) | Available release foundation; production verification and observability are planned extensions |
-| AI Native QA Skills | No installable Testing-for-AI package yet | Planned; [`ai-assisted-testing`](skills/zh/testing-types/ai-assisted-testing/) is AI for QA, not this stage |
+| AI Native QA Skills | `ai-feature-testing`, `llm-testing`, `llm-evaluation-design`, `prompt-testing`, `ai-agent-testing`, `agent-tool-testing`, `prompt-injection-testing` | Available; [`ai-assisted-testing`](skills/zh/testing-types/ai-assisted-testing/) remains AI for QA |
 
 Full future scope: [Chinese roadmap](docs/QA_SKILLS_EVOLUTION_ROADMAP.md) · [English roadmap](docs/QA_SKILLS_EVOLUTION_ROADMAP_EN.md).
 
-### Available Engineering QA additions
+### Available Evolution Additions
 
 | Skill | 中文 | English |
 | --- | --- | --- |
@@ -27,6 +27,28 @@ Full future scope: [Chinese roadmap](docs/QA_SKILLS_EVOLUTION_ROADMAP.md) · [En
 | `pr-test-impact-analysis` | [中文](skills/zh/testing-types/pr-test-impact-analysis/) | [English](skills/en/testing-types/pr-test-impact-analysis/) |
 | `regression-scope-analysis` | [中文](skills/zh/testing-types/regression-scope-analysis/) | [English](skills/en/testing-types/regression-scope-analysis/) |
 | `regression-test-selection` | [中文](skills/zh/testing-types/regression-test-selection/) | [English](skills/en/testing-types/regression-test-selection/) |
+
+| `test-data-generation` | [中文](skills/zh/testing-types/test-data-generation/) | [English](skills/en/testing-types/test-data-generation/) |
+| `api-contract-testing` | [中文](skills/zh/testing-types/api-contract-testing/) | [English](skills/en/testing-types/api-contract-testing/) |
+| `flaky-test-analysis` | [中文](skills/zh/testing-types/flaky-test-analysis/) | [English](skills/en/testing-types/flaky-test-analysis/) |
+| `root-cause-analysis` | [中文](skills/zh/testing-types/root-cause-analysis/) | [English](skills/en/testing-types/root-cause-analysis/) |
+| `log-analysis` | [中文](skills/zh/testing-types/log-analysis/) | [English](skills/en/testing-types/log-analysis/) |
+| `performance-workload-modeling` | [中文](skills/zh/testing-types/performance-workload-modeling/) | [English](skills/en/testing-types/performance-workload-modeling/) |
+| `performance-result-analysis` | [中文](skills/zh/testing-types/performance-result-analysis/) | [English](skills/en/testing-types/performance-result-analysis/) |
+| `performance-bottleneck-analysis` | [中文](skills/zh/testing-types/performance-bottleneck-analysis/) | [English](skills/en/testing-types/performance-bottleneck-analysis/) |
+| `performance-regression-analysis` | [中文](skills/zh/testing-types/performance-regression-analysis/) | [English](skills/en/testing-types/performance-regression-analysis/) |
+| `capacity-planning-analysis` | [中文](skills/zh/testing-types/capacity-planning-analysis/) | [English](skills/en/testing-types/capacity-planning-analysis/) |
+| `production-verification` | [中文](skills/zh/testing-types/production-verification/) | [English](skills/en/testing-types/production-verification/) |
+| `production-incident-analysis` | [中文](skills/zh/testing-types/production-incident-analysis/) | [English](skills/en/testing-types/production-incident-analysis/) |
+| `distributed-trace-analysis` | [中文](skills/zh/testing-types/distributed-trace-analysis/) | [English](skills/en/testing-types/distributed-trace-analysis/) |
+| `metrics-anomaly-analysis` | [中文](skills/zh/testing-types/metrics-anomaly-analysis/) | [English](skills/en/testing-types/metrics-anomaly-analysis/) |
+| `ai-feature-testing` | [中文](skills/zh/testing-types/ai-feature-testing/) | [English](skills/en/testing-types/ai-feature-testing/) |
+| `llm-testing` | [中文](skills/zh/testing-types/llm-testing/) | [English](skills/en/testing-types/llm-testing/) |
+| `llm-evaluation-design` | [中文](skills/zh/testing-types/llm-evaluation-design/) | [English](skills/en/testing-types/llm-evaluation-design/) |
+| `prompt-testing` | [中文](skills/zh/testing-types/prompt-testing/) | [English](skills/en/testing-types/prompt-testing/) |
+| `ai-agent-testing` | [中文](skills/zh/testing-types/ai-agent-testing/) | [English](skills/en/testing-types/ai-agent-testing/) |
+| `agent-tool-testing` | [中文](skills/zh/testing-types/agent-tool-testing/) | [English](skills/en/testing-types/agent-tool-testing/) |
+| `prompt-injection-testing` | [中文](skills/zh/testing-types/prompt-injection-testing/) | [English](skills/en/testing-types/prompt-injection-testing/) |
 
 ## Workflow Skills
 

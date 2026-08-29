@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: root-cause-analysis
+interface:
+  display_name: "根因分析"
+  short_description: "形成并验证基于证据的根因假设"
+  default_prompt: "Use the root-cause-analysis skill to analyze root causes."
+policy:
+  allow_implicit_invocation: true

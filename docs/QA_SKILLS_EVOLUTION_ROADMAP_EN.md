@@ -1,6 +1,6 @@
 # Awesome QA Skills Evolution Roadmap
 
-> Status: approved plan. This document describes future delivery order; listed new Skills are not installable yet.
+> Status: completed. This document preserves delivery order and boundaries; all 29 listed Skills are now installable.
 
 ## Direction
 
@@ -14,7 +14,7 @@ This is a logical navigation model, not a directory migration. Existing and futu
 skills/{zh|en}/{testing-types|testing-workflows|skill-engineering}/<skill-name>/
 ```
 
-The repository currently has 49 Skills per language (10 workflows, 36 testing types, and 3 Skill Engineering packages), or 98 bilingual directories. Completing this roadmap raises the count to 78 per language and 156 bilingual directories.
+The repository currently has 78 Skills per language (10 workflows, 65 testing types, and 3 Skill Engineering packages), or 156 bilingual directories.
 
 ## Capability map
 

@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: ai-agent-testing
+interface:
+  display_name: "AI Agent Testing"
+  short_description: "Test AI agent goals, state, recovery, and safety boundaries"
+  default_prompt: "Use the ai-agent-testing skill to design AI agent tests."
+policy:
+  allow_implicit_invocation: true

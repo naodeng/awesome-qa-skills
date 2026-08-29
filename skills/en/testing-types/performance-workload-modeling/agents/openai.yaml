@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: performance-workload-modeling
+interface:
+  display_name: "Performance Workload Modeling"
+  short_description: "Build evidence-based performance workload models"
+  default_prompt: "Use the performance-workload-modeling skill to model performance workload."
+policy:
+  allow_implicit_invocation: true

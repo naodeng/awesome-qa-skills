@@ -1,0 +1,27 @@
+id: basic-success
+title: flaky-test-analysis：完整上下文下的可用产出
+description: |
+  用户提供相对完整的范围与目标，期望得到可执行、有优先级的结果。
+
+input:
+  prompt: |
+    请使用 flaky-test-analysis 技能完成以下任务。
+    背景：电商订单模块即将发版，核心流程为下单→支付→发货。
+    环境：SIT；角色：买家、卖家运营、仓配。
+    请给出聚焦高风险路径的可执行产出，并标明假设与信息缺口。
+
+expect:
+  must_contain:
+    - "风险"
+    - "优先级"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "任务理解"
+          - "待确认"

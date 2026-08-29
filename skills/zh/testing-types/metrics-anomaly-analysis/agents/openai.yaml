@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: metrics-anomaly-analysis
+interface:
+  display_name: "指标异常分析"
+  short_description: "识别指标异常、基线与排查证据"
+  default_prompt: "Use the metrics-anomaly-analysis skill to analyze metric anomalies."
+policy:
+  allow_implicit_invocation: true

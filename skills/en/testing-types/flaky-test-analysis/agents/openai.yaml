@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: flaky-test-analysis
+interface:
+  display_name: "Flaky Test Analysis"
+  short_description: "Analyze intermittent test failures from evidence"
+  default_prompt: "Use the flaky-test-analysis skill to analyze flaky tests."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: performance-bottleneck-analysis
+interface:
+  display_name: "性能瓶颈分析"
+  short_description: "形成可验证的性能瓶颈假设"
+  default_prompt: "Use the performance-bottleneck-analysis skill to analyze performance bottlenecks."
+policy:
+  allow_implicit_invocation: true

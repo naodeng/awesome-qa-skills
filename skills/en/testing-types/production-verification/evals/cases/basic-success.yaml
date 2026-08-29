@@ -1,0 +1,27 @@
+id: basic-success
+title: "production-verification: usable output with adequate context"
+description: |
+  User provides enough scope and goals; expect an executable, prioritized result.
+
+input:
+  prompt: |
+    Use the production-verification skill.
+    Context: ecommerce order module release; core flow place order → pay → ship.
+    Environment: SIT; roles: buyer, seller ops, warehouse.
+    Produce an executable, risk-focused result and mark assumptions and gaps.
+
+expect:
+  must_contain:
+    - "risk"
+    - "priority"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "understanding"
+          - "open"

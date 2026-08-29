@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: performance-workload-modeling
+interface:
+  display_name: "性能负载建模"
+  short_description: "建立基于证据的性能负载模型"
+  default_prompt: "Use the performance-workload-modeling skill to model performance workload."
+policy:
+  allow_implicit_invocation: true

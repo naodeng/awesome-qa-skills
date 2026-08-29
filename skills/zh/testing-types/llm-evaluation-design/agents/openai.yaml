@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: llm-evaluation-design
+interface:
+  display_name: "LLM Eval 设计"
+  short_description: "设计 LLM 评测集、判定与人工复核边界"
+  default_prompt: "Use the llm-evaluation-design skill to design an LLM evaluation."
+policy:
+  allow_implicit_invocation: true

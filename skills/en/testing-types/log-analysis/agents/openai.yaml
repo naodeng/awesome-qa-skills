@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: log-analysis
+interface:
+  display_name: "Log Analysis"
+  short_description: "Extract timelines, anomalies, and evidence from logs"
+  default_prompt: "Use the log-analysis skill to analyze logs."
+policy:
+  allow_implicit_invocation: true

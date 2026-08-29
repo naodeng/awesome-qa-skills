@@ -1,0 +1,26 @@
+id: edge-incomplete-input
+title: "llm-testing: incomplete input still yields a draft"
+description: |
+  Missing docs should yield a usable draft with explicit gaps, not a refusal.
+
+input:
+  prompt: |
+    Use llm-testing.
+    I only know: the new release adds points redemption. No other docs yet.
+    Give a usable first draft and list the information we must fill in.
+
+expect:
+  must_contain:
+    - "assumption"
+    - "gap"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "assumption"
+          - "gap"

@@ -1,0 +1,25 @@
+id: edge-risk-priority
+title: "performance-regression-analysis: prioritize by risk"
+description: |
+  Avoid flat coverage lists; distinguish P0 from deferrable work.
+
+input:
+  prompt: |
+    Use performance-regression-analysis. Features: login, search, checkout, payment, coupons, points, tickets, admin reports.
+    Release window is half a day. Keep only critical paths and explain what can be deferred.
+
+expect:
+  must_contain:
+    - "P0"
+    - "priority"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "P0"
+          - "priority"

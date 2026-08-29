@@ -1,0 +1,2 @@
+# Prompt Injection Testing Prompt
+Audit system boundary, model/prompt, data sources, tools, permissions, isolation, authorization, and risk. Cover direct/indirect injection, instruction conflict, data leakage, tool overreach, and recovery. Output threat model, authorized scenarios, observable assertions, isolation/stop conditions, evidence gaps, and fix validation; never provide unapproved attack steps or claim system security.

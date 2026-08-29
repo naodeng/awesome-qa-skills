@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: performance-result-analysis
+interface:
+  display_name: "性能结果分析"
+  short_description: "解释性能结果、证据质量与风险"
+  default_prompt: "Use the performance-result-analysis skill to analyze performance results."
+policy:
+  allow_implicit_invocation: true

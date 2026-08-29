@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: prompt-injection-testing
+interface:
+  display_name: "Prompt Injection Testing"
+  short_description: "Design AI prompt-injection defense tests"
+  default_prompt: "Use the prompt-injection-testing skill to design authorized injection tests."
+policy:
+  allow_implicit_invocation: true

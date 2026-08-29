@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: test-data-generation
+interface:
+  display_name: "测试数据生成"
+  short_description: "设计安全且具代表性的测试数据"
+  default_prompt: "Use the test-data-generation skill to design test data."
+policy:
+  allow_implicit_invocation: true

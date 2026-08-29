@@ -2,7 +2,7 @@
 
 语言根目录：`skills/zh`
 
-本目录与 `skills/en` **同名对齐**：工作流 10 个 + 测试类型 44 个 + Skill Engineering 3 个。安装、约定与评测见仓库根 [README.md](../../README.md)、[AGENTS.md](../../AGENTS.md)、[skills/SKILL_AUTHORING.md](../SKILL_AUTHORING.md)。
+本目录与 `skills/en` **同名对齐**：工作流 10 个 + 测试类型 65 个 + Skill Engineering 3 个。安装、约定与评测见仓库根 [README.md](../../README.md)、[AGENTS.md](../../AGENTS.md)、[skills/SKILL_AUTHORING.md](../SKILL_AUTHORING.md)。
 
 ## 能力导航
 
@@ -13,7 +13,7 @@
 | Core QA Skills | `requirements-analysis`、`test-strategy`、`test-case-writing`、`functional-testing`、`test-reporting` | 已提供 |
 | Engineering QA Skills | `code-review`、`automation-testing`、`performance-testing` | 已有基础，Shift Left、变更与诊断能力按路线图补齐 |
 | Production Quality Skills | `release-testing-workflow`、`test-reporting` | 已有发布基础，生产能力按路线图补齐 |
-| AI Native QA Skills | 暂无可安装的 Testing for AI 专项包 | 规划中；`ai-assisted-testing` 属于 AI for QA |
+| AI Native QA Skills | `ai-feature-testing`、`llm-testing`、`prompt-testing`、`ai-agent-testing` | 已提供；`ai-assisted-testing` 属于 AI for QA |
 
 查看 [中文演进路线图](../../docs/QA_SKILLS_EVOLUTION_ROADMAP.md)；安装仍使用本页列出的实际目录。
 

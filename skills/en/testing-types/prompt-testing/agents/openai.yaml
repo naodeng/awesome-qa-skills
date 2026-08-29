@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: prompt-testing
+interface:
+  display_name: "Prompt Testing"
+  short_description: "Test prompt behavior, boundaries, and version regressions"
+  default_prompt: "Use the prompt-testing skill to design prompt tests."
+policy:
+  allow_implicit_invocation: true

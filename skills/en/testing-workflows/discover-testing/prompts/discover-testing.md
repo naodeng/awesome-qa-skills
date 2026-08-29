@@ -17,12 +17,12 @@ Route the user request to the best-fit testing skill. This skill **only selects 
 | User goal | Capability stage | Current routing rule |
 | --- | --- | --- |
 | Requirements, strategy, cases, execution, defects, or reporting | Core QA Skills | Route to an installed foundational Skill |
-| Requirement quality, code change, diagnosis, or performance decision | Engineering QA Skills | Route to the nearest installed Skill and state that specialized additions remain on the roadmap |
-| Release evidence, production verification, incident, or observability | Production Quality Skills | Use `release-testing-workflow` for release gates; state the gap when a production specialty is not installed |
-| Testing an AI feature, LLM, prompt, agent, or injection defense | AI Native QA Skills | No installable specialty exists yet; state roadmap status and do not invent a Skill name |
+| Requirement quality, code change, diagnosis, or performance decision | Engineering QA Skills | Route to a specialty such as `change-impact-analysis` or `performance-result-analysis` |
+| Release evidence, production verification, incident, or observability | Production Quality Skills | Use `release-testing-workflow` for gates and production verification/incident/trace/metrics Skills for specialty work |
+| Testing an AI feature, LLM, prompt, agent, or injection defense | AI Native QA Skills | Route to `ai-feature-testing`, `llm-testing`, `prompt-testing`, `ai-agent-testing`, or the matching specialty |
 | Using AI to assist a conventional testing task | AI for QA (cross-cutting) | Recommend `ai-assisted-testing`; do not classify it as AI Native QA |
 
-Roadmap Skills are not callable directories yet. For an uninstalled capability, provide the nearest installed primary Skill, explicitly say “roadmap capability not yet installed,” and state the evidence needed; never use a planned directory name as the primary recommendation.
+All roadmap Skills are now callable. With incomplete material, still provide the current best primary Skill and state evidence needed and assumptions; never invent test results.
 
 ## Routing decision rules (apply in order)
 

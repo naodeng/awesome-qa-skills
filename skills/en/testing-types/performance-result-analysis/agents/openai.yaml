@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: performance-result-analysis
+interface:
+  display_name: "Performance Result Analysis"
+  short_description: "Interpret performance results, evidence, and risk"
+  default_prompt: "Use the performance-result-analysis skill to analyze performance results."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: api-contract-testing
+interface:
+  display_name: "API Contract Testing"
+  short_description: "Verify API contract compatibility and change risk"
+  default_prompt: "Use the api-contract-testing skill to design API contract tests."
+policy:
+  allow_implicit_invocation: true

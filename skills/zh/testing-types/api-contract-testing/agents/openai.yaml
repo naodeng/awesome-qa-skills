@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: api-contract-testing
+interface:
+  display_name: "API 契约测试"
+  short_description: "验证 API 契约兼容性与变更风险"
+  default_prompt: "Use the api-contract-testing skill to design API contract tests."
+policy:
+  allow_implicit_invocation: true

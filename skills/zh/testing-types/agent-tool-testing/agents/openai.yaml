@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: agent-tool-testing
+interface:
+  display_name: "Agent 工具调用测试"
+  short_description: "验证 Agent 工具调用契约、授权和副作用边界"
+  default_prompt: "Use the agent-tool-testing skill to design agent tool-call tests."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: production-verification
+interface:
+  display_name: "生产验证"
+  short_description: "基于证据规划或评估生产验证"
+  default_prompt: "Use the production-verification skill to plan production verification."
+policy:
+  allow_implicit_invocation: true

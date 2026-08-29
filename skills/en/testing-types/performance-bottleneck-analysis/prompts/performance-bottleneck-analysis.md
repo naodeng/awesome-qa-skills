@@ -1,0 +1,2 @@
+# Performance Bottleneck Analysis Prompt
+Audit timeline, workload, service metrics, traces, logs, version, and environment; list facts, gaps, and assumptions. Check CPU, memory, IO, network, pools, database, queues, locks, and downstream dependencies. Output hypotheses/confidence, evidence, validation experiments, mitigations, risk, and open items; never turn correlation or one metric into a cause.

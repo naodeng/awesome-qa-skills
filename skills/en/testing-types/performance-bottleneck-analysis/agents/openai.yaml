@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: performance-bottleneck-analysis
+interface:
+  display_name: "Performance Bottleneck Analysis"
+  short_description: "Form verifiable performance bottleneck hypotheses"
+  default_prompt: "Use the performance-bottleneck-analysis skill to analyze performance bottlenecks."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: root-cause-analysis
+interface:
+  display_name: "Root Cause Analysis"
+  short_description: "Form and verify evidence-based root-cause hypotheses"
+  default_prompt: "Use the root-cause-analysis skill to analyze root causes."
+policy:
+  allow_implicit_invocation: true

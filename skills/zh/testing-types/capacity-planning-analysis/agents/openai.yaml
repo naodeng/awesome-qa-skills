@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: capacity-planning-analysis
+interface:
+  display_name: "容量规划分析"
+  short_description: "评估容量需求、余量和规划风险"
+  default_prompt: "Use the capacity-planning-analysis skill to analyze capacity plans."
+policy:
+  allow_implicit_invocation: true
