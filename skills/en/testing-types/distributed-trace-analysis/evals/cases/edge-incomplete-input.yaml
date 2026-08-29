@@ -1,26 +1,28 @@
 id: edge-incomplete-input
-title: "distributed-trace-analysis: incomplete input still yields a draft"
+title: "Distributed Trace Analysis: bounded first pass with incomplete input"
 description: |
-  Missing docs should yield a usable draft with explicit gaps, not a refusal.
+  Checks that missing context leads to a bounded first pass with assumptions and gaps, not refusal or invention.
 
 input:
   prompt: |
-    Use distributed-trace-analysis.
-    I only know: the new release adds points redemption. No other docs yet.
-    Give a usable first draft and list the information we must fill in.
+    Use the distributed-trace-analysis skill. The only known fact is: payment P99 rises across gateway, order, risk, and third-party payment services. No environment, version, or supporting evidence is available. Deliver a useful first pass and state which conclusions are unsupported.
 
 expect:
   must_contain:
-    - "assumption"
-    - "gap"
+    - "Working Assumptions"
+    - "Open Questions"
+    - "evidence"
+    - "Next Actions"
   must_not_contain:
     - "TODO"
     - "I cannot"
+    - "unable to help"
 
 judge:
   type: rule_based
   success:
     - output_contains:
         all:
-          - "assumption"
-          - "gap"
+          - "Working Assumptions"
+          - "Open Questions"
+          - "evidence"

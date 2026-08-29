@@ -1,26 +1,28 @@
 id: edge-incomplete-input
-title: performance-result-analysis：信息不完整时仍给初版
+title: "性能结果分析：信息不完整时的受限初版"
 description: |
-  输入缺少环境/接口细节时，仍应产出可用初版并显式标注缺口，而不是拒绝或空转。
+  验证输入不足时不会拒绝或编造，而是交付受限初版并标出假设与缺口。
 
 input:
   prompt: |
-    请用 performance-result-analysis 帮我做测试相关产出。
-    我只有一句话：新版本加了积分兑换。其他文档还没有。
-    请先给可用初版，并列出必须补齐的信息。
+    请使用 performance-result-analysis Skill。当前只知道：阶梯压测从 100 到 1200 RPS，提供各阶段 P50/P95/P99、错误率和资源指标。没有更多环境、版本或证据，请先给出可用初版，并明确哪些结论不能成立。
 
 expect:
   must_contain:
-    - "假设"
-    - "缺口"
+    - "当前假设"
+    - "信息缺口"
+    - "待确认"
+    - "下一步"
   must_not_contain:
     - "TODO"
     - "我无法"
+    - "无法提供帮助"
 
 judge:
   type: rule_based
   success:
     - output_contains:
         all:
-          - "假设"
-          - "缺口"
+          - "当前假设"
+          - "信息缺口"
+          - "待确认"

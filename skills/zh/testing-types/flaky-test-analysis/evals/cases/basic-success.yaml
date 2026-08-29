@@ -1,22 +1,23 @@
 id: basic-success
-title: flaky-test-analysis：完整上下文下的可用产出
+title: "不稳定测试分析：领域完整场景"
 description: |
-  用户提供相对完整的范围与目标，期望得到可执行、有优先级的结果。
+  验证 Skill 能针对领域输入给出有证据、有优先级、可执行的产出。
 
 input:
   prompt: |
-    请使用 flaky-test-analysis 技能完成以下任务。
-    背景：电商订单模块即将发版，核心流程为下单→支付→发货。
-    环境：SIT；角色：买家、卖家运营、仓配。
-    请给出聚焦高风险路径的可执行产出，并标明假设与信息缺口。
+    请使用 flaky-test-analysis Skill 分析以下场景：Playwright 登录用例在 CI 中约 8% 失败，本地稳定，失败点分布在等待跳转和读取 cookie。已提供基本范围，请给出风险优先级、核心执行项、预期结果或判断标准，并标明证据和待确认问题。
 
 expect:
   must_contain:
+    - "任务理解"
+    - "输入审计"
     - "风险"
-    - "优先级"
+    - "P0"
+    - "预期"
   must_not_contain:
     - "TODO"
     - "我无法"
+    - "无法提供帮助"
 
 judge:
   type: rule_based
@@ -24,4 +25,5 @@ judge:
     - output_contains:
         all:
           - "任务理解"
-          - "待确认"
+          - "输入审计"
+          - "风险"

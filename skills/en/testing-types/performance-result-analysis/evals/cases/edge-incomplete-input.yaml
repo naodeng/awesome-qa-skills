@@ -1,26 +1,28 @@
 id: edge-incomplete-input
-title: "performance-result-analysis: incomplete input still yields a draft"
+title: "Performance Result Analysis: bounded first pass with incomplete input"
 description: |
-  Missing docs should yield a usable draft with explicit gaps, not a refusal.
+  Checks that missing context leads to a bounded first pass with assumptions and gaps, not refusal or invention.
 
 input:
   prompt: |
-    Use performance-result-analysis.
-    I only know: the new release adds points redemption. No other docs yet.
-    Give a usable first draft and list the information we must fill in.
+    Use the performance-result-analysis skill. The only known fact is: a stepped load test from 100 to 1200 RPS provides P50/P95/P99, errors, and resources per stage. No environment, version, or supporting evidence is available. Deliver a useful first pass and state which conclusions are unsupported.
 
 expect:
   must_contain:
-    - "assumption"
-    - "gap"
+    - "Working Assumptions"
+    - "Open Questions"
+    - "evidence"
+    - "Next Actions"
   must_not_contain:
     - "TODO"
     - "I cannot"
+    - "unable to help"
 
 judge:
   type: rule_based
   success:
     - output_contains:
         all:
-          - "assumption"
-          - "gap"
+          - "Working Assumptions"
+          - "Open Questions"
+          - "evidence"

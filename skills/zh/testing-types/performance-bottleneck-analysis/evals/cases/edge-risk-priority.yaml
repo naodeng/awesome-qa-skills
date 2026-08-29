@@ -1,20 +1,22 @@
 id: edge-risk-priority
-title: performance-bottleneck-analysis：必须按风险排优先级
+title: "性能瓶颈分析：高风险边界与取舍"
 description: |
-  防止平均摊铺；结果应区分 P0/高优先级与可延后项。
+  验证时间受限时能聚焦高风险，并给出停止、升级或人工接管边界。
 
 input:
   prompt: |
-    使用 performance-bottleneck-analysis。功能很多：登录、搜索、下单、支付、优惠券、积分、客服工单、后台报表。
-    发版窗口只有半天。请只保留最关键路径，并说明为什么其他项可降级。
+    请使用 performance-bottleneck-analysis Skill 分析：API 在 800 RPS 后延迟陡增，CPU 65%，数据库连接池等待明显。执行窗口只有半天，且不允许真实生产破坏性操作。请限定范围，按 P0/P1 排序，并说明剩余风险和停止或升级条件。
 
 expect:
   must_contain:
     - "P0"
-    - "优先级"
+    - "P1"
+    - "剩余风险"
+    - "条件"
   must_not_contain:
     - "TODO"
     - "我无法"
+    - "无法提供帮助"
 
 judge:
   type: rule_based
@@ -22,4 +24,5 @@ judge:
     - output_contains:
         all:
           - "P0"
-          - "优先级"
+          - "P1"
+          - "剩余风险"

@@ -1,26 +1,28 @@
 id: edge-incomplete-input
-title: "performance-workload-modeling: incomplete input still yields a draft"
+title: "Performance Workload Modeling: bounded first pass with incomplete input"
 description: |
-  Missing docs should yield a usable draft with explicit gaps, not a refusal.
+  Checks that missing context leads to a bounded first pass with assumptions and gaps, not refusal or invention.
 
 input:
   prompt: |
-    Use performance-workload-modeling.
-    I only know: the new release adds points redemption. No other docs yet.
-    Give a usable first draft and list the information we must fill in.
+    Use the performance-workload-modeling skill. The only known fact is: daily peak has 600k requests: search 55%, detail 30%, order 10%, payment 5%, with ten-minute bursts. No environment, version, or supporting evidence is available. Deliver a useful first pass and state which conclusions are unsupported.
 
 expect:
   must_contain:
-    - "assumption"
-    - "gap"
+    - "Working Assumptions"
+    - "Open Questions"
+    - "evidence"
+    - "Next Actions"
   must_not_contain:
     - "TODO"
     - "I cannot"
+    - "unable to help"
 
 judge:
   type: rule_based
   success:
     - output_contains:
         all:
-          - "assumption"
-          - "gap"
+          - "Working Assumptions"
+          - "Open Questions"
+          - "evidence"

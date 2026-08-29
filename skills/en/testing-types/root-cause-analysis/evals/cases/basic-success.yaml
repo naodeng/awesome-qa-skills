@@ -1,27 +1,29 @@
 id: basic-success
-title: "root-cause-analysis: usable output with adequate context"
+title: "Root Cause Analysis: domain-complete scenario"
 description: |
-  User provides enough scope and goals; expect an executable, prioritized result.
+  Checks that the skill produces domain-specific, evidence-based, prioritized, executable output.
 
 input:
   prompt: |
-    Use the root-cause-analysis skill.
-    Context: ecommerce order module release; core flow place order → pay → ship.
-    Environment: SIT; roles: buyer, seller ops, warehouse.
-    Produce an executable, risk-focused result and mark assumptions and gaps.
+    Use the root-cause-analysis skill for this scenario: duplicate orders occur only during network instability; the service retries but idempotency-key records are incomplete. The basic scope is available. Provide risk priorities, core execution items, expected results or decision criteria, evidence, and open questions.
 
 expect:
   must_contain:
-    - "risk"
-    - "priority"
+    - "Task Understanding"
+    - "Input Audit"
+    - "Risks"
+    - "P0"
+    - "expected"
   must_not_contain:
     - "TODO"
     - "I cannot"
+    - "unable to help"
 
 judge:
   type: rule_based
   success:
     - output_contains:
         all:
-          - "understanding"
-          - "open"
+          - "Task Understanding"
+          - "Input Audit"
+          - "Risks"
