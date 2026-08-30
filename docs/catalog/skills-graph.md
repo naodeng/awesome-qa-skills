@@ -1,17 +1,19 @@
-# Skills 关系图 | Skill Relationship Graph
+<div align="right"><strong>🇨🇳 中文</strong> | <a href="./skills-graph_EN.md">🇬🇧 English</a></div>
 
-中文为主；English follows each section. This graph is a navigation aid, not an installation dependency. Physical packages remain under `skills/{zh|en}/`.
+# Skills 关系图
 
-## 能力全景 | Capability Landscape
+这是导航辅助文档，不是安装依赖。物理包仍位于 `skills/{zh|en}/`。
+
+## 能力全景
 
 ```mermaid
 flowchart LR
-    D[需求发现与分析\nDiscovery] --> S[方案设计与测试策略\nStrategy]
-    S --> P[测试设计与准备\nPreparation]
-    P --> E[测试执行与分析\nExecution]
-    E --> R[发布与交付\nRelease]
-    R --> O[生产运行与事故响应\nProduction]
-    O --> I[复盘与持续改进\nImprovement]
+    D[需求发现与分析] --> S[方案设计与测试策略]
+    S --> P[测试设计与准备]
+    P --> E[测试执行与分析]
+    E --> R[发布与交付]
+    R --> O[生产运行与事故响应]
+    O --> I[复盘与持续改进]
 
     C[Core QA Skills] --- D
     G[Engineering QA Skills] --- S
@@ -22,12 +24,12 @@ flowchart LR
     A[AI Native QA Skills] --- D
     A --- P
     A --- E
-    H[Skill Engineering\nCross-cutting governance] --- I
+    H[Skill Engineering\n横向治理] --- I
 ```
 
-The four-stage evolution is `Core QA Skills → Engineering QA Skills → Production Quality Skills → AI Native QA Skills`. The nodes show primary lifecycle placement, not a required execution order.
+四层演进方向为：`Core QA Skills → Engineering QA Skills → Production Quality Skills → AI Native QA Skills`。节点表示主要生命周期归属，不代表必须严格按此顺序执行。
 
-## 推荐组合 | Recommended Compositions
+## 推荐组合
 
 | 场景 | 推荐组合 | 输出 |
 | --- | --- | --- |
@@ -39,16 +41,16 @@ The four-stage evolution is `Core QA Skills → Engineering QA Skills → Produc
 | AI 功能验证 | `ai-feature-testing` → `llm-evaluation-design` → `llm-testing` → `prompt-injection-testing` | 评测设计、行为证据和安全边界 |
 | Agent 工具验证 | `ai-agent-testing` → `agent-tool-testing` → `prompt-injection-testing` | 状态、工具副作用与注入防护证据 |
 
-Each composition is optional. Use `discover-testing` when the entry point or sequence is unclear.
+各组合均为可选。入口或顺序不明确时使用 `discover-testing`。
 
-## 使用边界 | Boundaries
+## 使用边界
 
-- `ai-assisted-testing` is **AI for QA** and can assist any stage; it is not a replacement for Testing for AI.
-- Production Skills analyze evidence and recommend actions; human approval remains required for release, rollback, waiver, or risk acceptance.
-- `skill-engineering` governs Skill changes and prose quality; it is not a fifth QA lifecycle stage.
+- `ai-assisted-testing` 属于 **AI for QA**，可辅助任一阶段，但不能替代 Testing for AI。
+- 生产质量 Skill 仅分析证据并提出建议；发布、回滚、豁免和风险接受仍需人工审批。
+- `skill-engineering` 是 Skill 治理能力，不是第五个 QA 生命周期阶段。
 
-## 导航 | Navigation
+## 导航
 
-- [全量索引 | Complete index](skills-index.md)
-- [中文演进路线图 | Chinese roadmap](../governance/QA_SKILLS_EVOLUTION_ROADMAP.md)
+- [全量索引](skills-index.md)
+- [中文演进路线图](../governance/QA_SKILLS_EVOLUTION_ROADMAP.md)
 - [English roadmap](../governance/QA_SKILLS_EVOLUTION_ROADMAP_EN.md)

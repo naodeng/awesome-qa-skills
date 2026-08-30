@@ -14,6 +14,7 @@ PROJECT_PAIRS = (
     ("CONTRIBUTING.md", "CONTRIBUTING_EN.md"),
     ("FAQ.md", "FAQ_EN.md"),
     ("docs/catalog/skills-index.md", "docs/catalog/skills-index_EN.md"),
+    ("docs/catalog/skills-graph.md", "docs/catalog/skills-graph_EN.md"),
     (
         "docs/governance/QA_SKILLS_EVOLUTION_ROADMAP.md",
         "docs/governance/QA_SKILLS_EVOLUTION_ROADMAP_EN.md",
