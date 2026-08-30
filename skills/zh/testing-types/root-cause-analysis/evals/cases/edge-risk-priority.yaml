@@ -1,0 +1,28 @@
+id: edge-risk-priority
+title: "根因分析：高风险边界与取舍"
+description: |
+  验证时间受限时能聚焦高风险，并给出停止、升级或人工接管边界。
+
+input:
+  prompt: |
+    请使用 root-cause-analysis Skill 分析：订单重复创建仅在网络抖动时出现，服务有重试但幂等键记录不完整。执行窗口只有半天，且不允许真实生产破坏性操作。请限定范围，按 P0/P1 排序，并说明剩余风险和停止或升级条件。
+
+expect:
+  must_contain:
+    - "P0"
+    - "P1"
+    - "剩余风险"
+    - "条件"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+    - "无法提供帮助"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "P0"
+          - "P1"
+          - "剩余风险"

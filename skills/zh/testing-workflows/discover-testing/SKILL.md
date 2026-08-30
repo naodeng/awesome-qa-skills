@@ -14,7 +14,7 @@ description: Use this skill when you need to route a request to the right testin
 
 ## 执行流程
 
-1. 先读用户请求，识别主要测试目标与阶段。
+1. 先读用户请求，识别能力阶段（Core QA / Engineering QA / Production Quality / AI Native QA）与主要测试目标。
 2. 阅读并遵循 `prompts/` 路由规范：先选 1 个主 skill；仅必要时再补 1 个辅助 skill。
 3. 输出路由结论后，把请求交给目标 skill；不要在本 skill 内把整件事执行完。
 
@@ -23,6 +23,7 @@ description: Use this skill when you need to route a request to the right testin
 - 一次只推荐少量 skill，避免菜单式罗列。
 - 目标 skill 已经很明显时，直接指出，不要无效绕路。
 - 路由结果要可执行：写清推荐 skill 名与理由。
+- AI for QA 使用 `ai-assisted-testing`；Testing for AI 属于 AI Native QA。路线图中的未来 Skill 未安装前，不得把它们当作可调用主推荐。
 
 ## 按需加载
 

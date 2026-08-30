@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: quality-risk-analysis
+interface:
+  display_name: "质量风险分析"
+  short_description: "基于证据识别并排序质量风险"
+  default_prompt: "Use the quality-risk-analysis skill to analyze quality risks."
+policy:
+  allow_implicit_invocation: true

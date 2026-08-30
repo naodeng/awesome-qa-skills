@@ -1,5 +1,15 @@
 # 测试技能路由图（中文）
 
+## 能力阶段优先级
+
+- Core QA Skills：需求、策略、用例、执行、缺陷和报告；选择对应的已安装基础 Skill。
+- Engineering QA Skills：需求质量、代码变更、诊断和性能决策；当前选择最近的已安装基础 Skill，并说明专项能力仍在路线图。
+- Production Quality Skills：发布证据优先 `release-testing-workflow`；生产验证、事故和可观测性专项尚未安装时不得虚构目录。
+- AI Native QA Skills：验证 AI 功能、LLM、Prompt、Agent 或注入防护；当前尚无可安装专项包，应明确说明路线图状态。
+- AI for QA：使用 AI 协助常规测试时选 `ai-assisted-testing`；它不属于 AI Native QA。
+
+不单独建路由目标：`manual-testing` 负责 `exploratory-testing` 模式；`release-testing-workflow` 负责 `release-readiness-assessment` 模式；未来 `prompt-testing` 负责 `prompt-regression-testing` 模式。
+
 ## 第一步：选择主技能（测试类型）
 
 - 需求理解与测试点识别 -> `requirements-analysis` / `requirements-analysis`
@@ -37,6 +47,16 @@
 ---
 
 # Testing Skill Routing Map
+
+## Capability stage first
+
+- Core QA Skills: requirements, strategy, cases, execution, defects, and reporting; choose the matching installed foundation Skill.
+- Engineering QA Skills: requirement quality, code change, diagnosis, and performance decisions; choose the nearest installed foundation Skill and state that the specialty remains on the roadmap.
+- Production Quality Skills: use `release-testing-workflow` for release evidence; do not invent a directory when production verification, incidents, or observability specialties are not installed.
+- AI Native QA Skills: testing AI features, LLMs, prompts, agents, or injection defenses; no specialized package is installable yet, so state the roadmap status.
+- AI for QA: use `ai-assisted-testing` to assist conventional testing; it is not AI Native QA.
+
+Do not add separate routing targets for `exploratory-testing` (`manual-testing` mode), `release-readiness-assessment` (`release-testing-workflow` mode), or `prompt-regression-testing` (future `prompt-testing` mode).
 
 ## Step 1: Choose Primary Skill Type
 

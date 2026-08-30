@@ -1,0 +1,29 @@
+id: basic-success
+title: "Agent 工具调用测试：领域完整场景"
+description: |
+  验证 Skill 能针对领域输入给出有证据、有优先级、可执行的产出。
+
+input:
+  prompt: |
+    请使用 agent-tool-testing Skill 分析以下场景：订单助手可调用查库存、创建订单和退款工具，其中退款需主管授权。已提供基本范围，请给出风险优先级、核心执行项、预期结果或判断标准，并标明证据和待确认问题。
+
+expect:
+  must_contain:
+    - "任务理解"
+    - "输入审计"
+    - "风险"
+    - "P0"
+    - "预期"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+    - "无法提供帮助"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "任务理解"
+          - "输入审计"
+          - "风险"

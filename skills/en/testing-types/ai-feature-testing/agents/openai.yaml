@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: ai-feature-testing
+interface:
+  display_name: "AI Feature Testing"
+  short_description: "Design AI feature behavior, risk, and boundary tests"
+  default_prompt: "Use the ai-feature-testing skill to design AI feature tests."
+policy:
+  allow_implicit_invocation: true

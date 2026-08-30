@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: regression-scope-analysis
+interface:
+  display_name: "Regression Scope Analysis"
+  short_description: "Define risk-based regression scope and exclusions"
+  default_prompt: "Use the regression-scope-analysis skill to analyze regression scope."
+policy:
+  allow_implicit_invocation: true

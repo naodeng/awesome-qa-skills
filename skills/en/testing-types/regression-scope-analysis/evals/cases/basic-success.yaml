@@ -1,0 +1,29 @@
+id: basic-success
+title: "Regression Scope Analysis: domain-complete scenario"
+description: |
+  Checks that the skill produces domain-specific, evidence-based, prioritized, executable output.
+
+input:
+  prompt: |
+    Use the regression-scope-analysis skill for this scenario: a mobile release upgrades login SDK, changes search UI, and modifies payment configuration, with one day for regression. The basic scope is available. Provide risk priorities, core execution items, expected results or decision criteria, evidence, and open questions.
+
+expect:
+  must_contain:
+    - "Task Understanding"
+    - "Input Audit"
+    - "Risks"
+    - "P0"
+    - "expected"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+    - "unable to help"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Task Understanding"
+          - "Input Audit"
+          - "Risks"

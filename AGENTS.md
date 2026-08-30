@@ -10,8 +10,9 @@
 | --- | --- |
 | 中文技能 | `skills/zh/` |
 | 英文技能 | `skills/en/` |
-| 工作流 | `testing-workflows/`（日常 / 迭代 / 发布 / 路由） |
-| 测试类型 | `testing-types/`（功能、API、性能、安全等） |
+| 工作流 | `skills/{zh,en}/testing-workflows/`（日常 / 迭代 / 发布 / 路由） |
+| 测试类型 | `skills/{zh,en}/testing-types/`（功能、API、性能、安全等） |
+| Skill Engineering | `skills/{zh,en}/skill-engineering/`（Skill 编写与仓库治理） |
 | 安装脚本 | 根目录 `install-skills-*.sh` + `scripts/` + `installers/` |
 | 参考素材 | `resources/`（公共素材池，勿与 skill 内 `references/` 混淆） |
 | 旧版提示词 | `legacy-prompts/`（兼容旧根级提示词；正式入口以 skill 内 `prompts/` 为准） |
@@ -23,7 +24,7 @@
 改 skill 时，先定位到正确语言与类别，再改同名目录：
 
 ```text
-skills/{zh|en}/{testing-types|testing-workflows}/<skill-name>/
+skills/{zh|en}/{testing-types|testing-workflows|skill-engineering}/<skill-name>/
 ├── SKILL.md                 # 必需：入口 + YAML frontmatter
 ├── prompts/                 # 必需：主提示词
 ├── agents/openai.yaml       # 必需：OpenAI / Codex 元数据
@@ -115,6 +116,8 @@ python3 scripts/validate_agents_metadata.py
 python3 scripts/validate_skills_independence.py --skills-root skills --fail-on-findings
 python3 scripts/validate_skills_integrity.py --fail-on-findings
 python3 scripts/check_external_snapshots.py --skills-root skills --max-per-skill 5
+bash scripts/validate_skill_evals.sh
+python3 scripts/check_docs_bilingual.py --repo-root .
 ```
 
 安装相关改动可参考：
@@ -140,7 +143,7 @@ bash scripts/setup-git-hooks.sh
 2. 写 `SKILL.md`、`prompts/<name>.md`、`agents/openai.yaml`。
 3. 补齐 `evals/eval.yaml` 和 `evals/cases/*.yaml`，新增 skill 不允许没有测试用例。
 4. 按需补 `output-formats.md`、`examples/`、`scripts/`。
-5. 更新索引文档：`skills-index.md`、`skills/zh/README.md` / `skills/en/...`、根 `README.md`（若新增对外入口）。
+5. 更新索引文档：`docs/catalog/skills-index.md`、`skills/zh/README.md` / `skills/en/README.md`、根 `README.md` / `README_EN.md`（若新增对外入口）。
 6. 若影响安装入口，检查 `scripts/` 与 `installers/`。
 7. 跑 `bash scripts/check_skills_quality.sh` 并修到绿。
 
@@ -170,7 +173,7 @@ bash scripts/setup-git-hooks.sh
 | 目录规范 | [skills/DIRECTORY_GUIDE.md](skills/DIRECTORY_GUIDE.md)、[skills/SKILL_STYLE_GUIDE.md](skills/SKILL_STYLE_GUIDE.md) |
 | 贡献流程 | [CONTRIBUTING.md](CONTRIBUTING.md) |
 | 常见问题 | [FAQ.md](FAQ.md) |
-| 技能总览 | [skills-index.md](skills-index.md) |
+| 技能总览 | [docs/catalog/skills-index.md](docs/catalog/skills-index.md) |
 
 ## Nested AGENTS.md
 

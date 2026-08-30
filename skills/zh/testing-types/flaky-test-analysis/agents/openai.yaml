@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: flaky-test-analysis
+interface:
+  display_name: "不稳定测试分析"
+  short_description: "从运行证据分析间歇性测试失败"
+  default_prompt: "Use the flaky-test-analysis skill to analyze flaky tests."
+policy:
+  allow_implicit_invocation: true

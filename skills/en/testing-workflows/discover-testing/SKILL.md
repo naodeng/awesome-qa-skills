@@ -14,7 +14,7 @@ description: Use this skill when you need to route a request to the right testin
 
 ## Workflow
 
-1. Read the user request and identify the primary testing goal and stage.
+1. Read the user request and first identify the capability stage (Core QA / Engineering QA / Production Quality / AI Native QA) and primary testing goal.
 2. Follow the routing prompt under `prompts/`: pick 1 primary skill; add at most 1 helper only when needed.
 3. Hand the request to the target skill; do not execute the full testing work inside this router skill.
 
@@ -23,6 +23,7 @@ description: Use this skill when you need to route a request to the right testin
 - Recommend few skills — avoid menu dumping.
 - If the target skill is already obvious, say so directly.
 - Make the route actionable: name the skill and the reason.
+- Use `ai-assisted-testing` for AI for QA; Testing for AI belongs to AI Native QA. Until roadmap Skills are installed, never recommend them as callable primary Skills.
 
 ## Progressive Disclosure
 

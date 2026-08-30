@@ -12,6 +12,18 @@
 - 当前阶段（若有）：需求澄清 / 策略 / 设计用例 / 执行 / 缺陷 / 日常 / 迭代 / 发布
 - 已知约束：语言、工具链、是否要增强版（plus）
 
+## 能力阶段判定（先于目录类型）
+
+| 用户目标 | 能力阶段 | 当前路由原则 |
+| --- | --- | --- |
+| 需求、策略、用例、执行、缺陷或报告 | Core QA Skills | 路由到现有基础 Skill |
+| 需求质量、代码变更、诊断或性能决策 | Engineering QA Skills | 路由到对应专项 Skill，例如 `change-impact-analysis` 或 `performance-result-analysis` |
+| 发布证据、生产验证、事故或可观测性 | Production Quality Skills | 发布门禁优先 `release-testing-workflow`；专项使用 `production-verification`、事故/Trace/指标分析 Skill |
+| 验证 AI 功能、LLM、Prompt、Agent 或注入防护 | AI Native QA Skills | 路由到 `ai-feature-testing`、`llm-testing`、`prompt-testing`、`ai-agent-testing` 或对应专项 |
+| 用 AI 协助常规测试任务 | AI for QA（横向能力） | 主推荐 `ai-assisted-testing`，不误归类为 AI Native QA |
+
+所有路线图 Skill 现已可调用。遇到材料不足时，仍给当前最佳主 Skill，并明确所需证据与假设；不得编造测试结果。
+
 ## 路由决策规则（按顺序判断）
 
 ### 1. 先判「工作流 vs 类型」

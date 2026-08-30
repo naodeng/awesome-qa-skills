@@ -1,0 +1,28 @@
+id: edge-risk-priority
+title: "Distributed Trace Analysis: high-risk boundary and tradeoffs"
+description: |
+  Checks that a constrained window produces risk focus plus stop, escalation, or human-handoff boundaries.
+
+input:
+  prompt: |
+    Use the distributed-trace-analysis skill for: payment P99 rises across gateway, order, risk, and third-party payment services. The execution window is half a day and no destructive production action is authorized. Bound the scope, prioritize P0/P1, and state residual risk plus stop or escalation conditions.
+
+expect:
+  must_contain:
+    - "P0"
+    - "P1"
+    - "Residual Risk"
+    - "condition"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+    - "unable to help"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "P0"
+          - "P1"
+          - "Residual Risk"

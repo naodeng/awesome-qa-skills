@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: distributed-trace-analysis
+interface:
+  display_name: "Distributed Trace Analysis"
+  short_description: "Correlate call paths and evidence from distributed traces"
+  default_prompt: "Use the distributed-trace-analysis skill to analyze distributed traces."
+policy:
+  allow_implicit_invocation: true

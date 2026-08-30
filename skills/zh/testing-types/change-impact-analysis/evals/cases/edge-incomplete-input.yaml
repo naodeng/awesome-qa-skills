@@ -1,0 +1,28 @@
+id: edge-incomplete-input
+title: "变更影响分析：信息不完整时的受限初版"
+description: |
+  验证输入不足时不会拒绝或编造，而是交付受限初版并标出假设与缺口。
+
+input:
+  prompt: |
+    请使用 change-impact-analysis Skill。当前只知道：结算服务调整税费计算并升级汇率依赖，同时新增数据库字段。没有更多环境、版本或证据，请先给出可用初版，并明确哪些结论不能成立。
+
+expect:
+  must_contain:
+    - "当前假设"
+    - "信息缺口"
+    - "待确认"
+    - "下一步"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+    - "无法提供帮助"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "当前假设"
+          - "信息缺口"
+          - "待确认"

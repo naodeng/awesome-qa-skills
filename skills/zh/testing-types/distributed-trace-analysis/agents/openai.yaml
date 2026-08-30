@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: distributed-trace-analysis
+interface:
+  display_name: "分布式 Trace 分析"
+  short_description: "从分布式 Trace 关联调用链和证据"
+  default_prompt: "Use the distributed-trace-analysis skill to analyze distributed traces."
+policy:
+  allow_implicit_invocation: true

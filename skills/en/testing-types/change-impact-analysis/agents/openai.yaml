@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: change-impact-analysis
+interface:
+  display_name: "Change Impact Analysis"
+  short_description: "Analyze quality impact scope and risk from change"
+  default_prompt: "Use the change-impact-analysis skill to analyze change impact."
+policy:
+  allow_implicit_invocation: true

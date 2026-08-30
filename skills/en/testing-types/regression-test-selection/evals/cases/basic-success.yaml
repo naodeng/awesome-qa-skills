@@ -1,0 +1,29 @@
+id: basic-success
+title: "Regression Test Selection: domain-complete scenario"
+description: |
+  Checks that the skill produces domain-specific, evidence-based, prioritized, executable output.
+
+input:
+  prompt: |
+    Use the regression-test-selection skill for this scenario: a 600-test suite covers a small payment change, with a 25-minute CI budget and substantial redundancy. The basic scope is available. Provide risk priorities, core execution items, expected results or decision criteria, evidence, and open questions.
+
+expect:
+  must_contain:
+    - "Task Understanding"
+    - "Input Audit"
+    - "Risks"
+    - "P0"
+    - "expected"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+    - "unable to help"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Task Understanding"
+          - "Input Audit"
+          - "Risks"

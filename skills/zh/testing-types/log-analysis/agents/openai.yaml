@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: log-analysis
+interface:
+  display_name: "日志分析"
+  short_description: "从日志提取时间线、异常和证据"
+  default_prompt: "Use the log-analysis skill to analyze logs."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,29 @@
+id: basic-success
+title: "分布式链路分析：领域完整场景"
+description: |
+  验证 Skill 能针对领域输入给出有证据、有优先级、可执行的产出。
+
+input:
+  prompt: |
+    请使用 distributed-trace-analysis Skill 分析以下场景：支付请求 P99 升高，链路经过网关、订单、风控和第三方支付。已提供基本范围，请给出风险优先级、核心执行项、预期结果或判断标准，并标明证据和待确认问题。
+
+expect:
+  must_contain:
+    - "任务理解"
+    - "输入审计"
+    - "风险"
+    - "P0"
+    - "预期"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+    - "无法提供帮助"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "任务理解"
+          - "输入审计"
+          - "风险"

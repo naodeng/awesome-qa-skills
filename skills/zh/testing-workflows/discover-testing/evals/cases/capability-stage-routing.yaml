@@ -1,0 +1,25 @@
+id: capability-stage-routing
+title: 路由：区分 AI Native QA 路线图与 AI for QA
+description: |
+  用户要验证 LLM 的幻觉和拒答行为时，路由必须指出这是 AI Native QA 路线图能力，
+  不得虚构未安装的 Skill；使用 AI 协助现有 API 测试时才应推荐 ai-assisted-testing。
+
+input:
+  prompt: |
+    请使用 discover-testing 做路由：我要评估客服 LLM 的幻觉和拒答行为。
+    只给主推荐、理由和下一步；不要虚构一个尚未安装的 skill。
+
+expect:
+  must_contain:
+    - "AI Native QA"
+    - "路线图"
+  must_not_contain:
+    - "llm-testing"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "AI Native QA"
+          - "路线图"

@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: test-data-generation
+interface:
+  display_name: "Test Data Generation"
+  short_description: "Design safe and representative test data"
+  default_prompt: "Use the test-data-generation skill to design test data."
+policy:
+  allow_implicit_invocation: true

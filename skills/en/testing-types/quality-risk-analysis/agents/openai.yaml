@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: quality-risk-analysis
+interface:
+  display_name: "Quality Risk Analysis"
+  short_description: "Identify and rank evidence-based quality risks"
+  default_prompt: "Use the quality-risk-analysis skill to analyze quality risks."
+policy:
+  allow_implicit_invocation: true

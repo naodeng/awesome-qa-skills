@@ -1,0 +1,29 @@
+id: basic-success
+title: "Capacity Planning Analysis: domain-complete scenario"
+description: |
+  Checks that the skill produces domain-specific, evidence-based, prioritized, executable output.
+
+input:
+  prompt: |
+    Use the capacity-planning-analysis skill for this scenario: a sale may triple order volume; payment CPU currently peaks at 55%, and autoscaling takes five minutes. The basic scope is available. Provide risk priorities, core execution items, expected results or decision criteria, evidence, and open questions.
+
+expect:
+  must_contain:
+    - "Task Understanding"
+    - "Input Audit"
+    - "Risks"
+    - "P0"
+    - "expected"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+    - "unable to help"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Task Understanding"
+          - "Input Audit"
+          - "Risks"

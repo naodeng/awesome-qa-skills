@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: production-verification
+interface:
+  display_name: "Production Verification"
+  short_description: "Plan or assess evidence-based production verification"
+  default_prompt: "Use the production-verification skill to plan production verification."
+policy:
+  allow_implicit_invocation: true

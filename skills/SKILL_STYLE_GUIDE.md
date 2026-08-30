@@ -1,17 +1,17 @@
-# Skill Style Guide
+<div align="right"><strong>🇨🇳 中文</strong> | <a href="./SKILL_STYLE_GUIDE_EN.md">🇬🇧 English</a></div>
 
-This guide defines the current standard for `SKILL.md` and prompt files in this repository.
+# Skill 写作风格指南
 
-## Goals
+本指南定义 `SKILL.md` 和主 Prompt 的当前结构与写作标准。
 
-- Keep entry files short and easy to use.
-- Make prompts practical, risk-driven, and directly executable.
-- Remove nonessential filler such as long role setup, generic theory, and repeated examples.
-- Keep same-type files aligned across Chinese, English, and workflow reuse copies.
+## 目标
+
+- 激活入口短小、可直接使用。
+- Prompt 可执行、以风险为导向。
+- 删除泛泛理论、冗长人设和重复示例。
+- 中英文对应内容在意图与结构上保持对齐。
 
 ## Frontmatter
-
-Keep frontmatter minimal:
 
 ```yaml
 ---
@@ -20,110 +20,64 @@ description: Use this skill when ...; triggers include ...
 ---
 ```
 
-Rules:
-- Keep only `name` and `description`.
-- `description` must be trigger-oriented, not capability-only.
-- Use the sentence pattern: `Use this skill when ...; triggers include ...`.
+- 只保留 `name` 与 `description`。
+- 描述应以触发条件为中心，不能只写能力概述。
+- 必须与目录名和 metadata key 一致。
 
-## SKILL.md Required Sections
+## `SKILL.md` 必备章节
 
-All `SKILL.md` files must use these sections:
+中文入口使用以下章节：
 
-1. `## When to Use` / `## 何时使用`
-2. `## Output Format Options` / `## 输出格式选项`
-3. `## How to Use` / `## 如何使用`
-4. `## Reference Files` / `## 参考文件`
-5. `## Common Pitfalls` / `## 常见误区`
-6. `## Best Practices` / `## 最佳实践`
+1. `## 何时使用`
+2. `## 输出格式选项`
+3. `## 如何使用`
+4. `## 参考文件`
+5. `## 常见误区`
+6. `## 最佳实践`
 
-Workflow skills may also include:
-- `## Workflow Steps` / `## 工作流步骤`
+工作流 Skill 可以额外包含 `## 工作流步骤`。英文目录使用语义等价的英文标题。
 
-## Prompt Required Sections
+## Prompt 必备章节
 
-All prompt files must use this structure:
+中文 Prompt 使用：标题、可选的 `## 角色定位`、`## 输入`、`## 你要做的事`、`## 执行规则`、`## 最低覆盖清单`、`## 输出`、`## 质量要求`。英文 Prompt 使用语义等价的英文标题。
 
-For English prompts:
-1. Title
-2. Optional `## Role` with one short persona line
-3. `## Input`
-4. `## What to do`
-5. `## Execution Rules`
-6. `## Minimum Coverage Checklist`
-7. `## Output`
-8. `## Quality Bar`
+## 写作规则
 
-For Chinese prompts:
-1. 标题
-2. 可选 `## 角色定位`，只保留一行简短人设
-3. `## 输入`
-4. `## 你要做的事`
-5. `## 执行规则`
-6. `## 最低覆盖清单`
-7. `## 输出`
-8. `## 质量要求`
+Prompt 应当：
 
-## Writing Rules
+- 用一句短句说明任务；
+- 列出真实的输入来源；
+- 说明 Agent 必须作出的判断；
+- 强制最低覆盖范围；
+- 定义输出顺序；
+- 区分事实、假设、信息缺口、证据与风险边界；
+- 让质量要求简短且可检查。
 
-Prompt files should:
-- say what the task is in one short sentence
-- keep a concise professional persona when that identity helps output quality
-- list realistic input sources
-- explain the main decisions the model should make
-- enforce a minimum coverage checklist so short prompts do not become incomplete
-- define output order clearly
-- keep quality requirements short and concrete
+入口文件说明调用和加载方式即可，不复制完整 Prompt。
 
-`SKILL.md` files should:
-- explain when to use the skill in simple trigger-based language
-- point to the prompt file or workflow reference first
-- keep reference links short and practical
-- avoid restating the whole prompt inside `SKILL.md`
+## 渐进加载
 
-## Standard How-to Pattern
+- `references/` 用于深规则和故障排查。
+- `examples/` 用于示例输入与输出。
+- `scripts/` 用于辅助工具。
+- 仅支持替代格式时使用 `output-formats.md`。
+- 不得假设可选目录一定存在。
 
-Testing-type:
-1. Open the prompt file in `prompts/`.
-2. Add only the context that actually affects the result.
-3. If the request is incomplete, return a usable first version and mark gaps.
+## 中英文对齐
 
-Workflow:
-1. Check `reference.md` first.
-2. Open the prompt for the current step.
-3. Run step by step and adjust priorities when blockers or scope changes appear.
+中英文 Skill 对齐 frontmatter 风格、触发意图、章节结构、加载流程、Prompt 骨架和评测意图。使用自然的技术表达，不做逐字翻译。
 
-## Progressive Disclosure
+## 应当做
 
-Keep `SKILL.md` and prompts concise. Move heavy detail to support files.
+- 直接、领域化且以风险为中心。
+- 明确缺失信息和假设。
+- 给出可验证的预期行为和证据。
+- 保持既有工具链和安全默认值。
 
-Use:
-- `references/` for deep rules, troubleshooting, FAQs, or long background notes
-- `examples/` for sample inputs and outputs
-- `scripts/` for helper tooling
+## 不应做
 
-Do not paste large examples or long script usage blocks into `SKILL.md`.
-
-## Language Pairing
-
-For each Chinese skill, keep one English counterpart aligned on:
-- frontmatter style
-- trigger intent
-- section structure
-- how-to flow
-- prompt skeleton
-
-## Do / Don't
-
-Do:
-- keep prompts short, direct, and risk-focused
-- keep section names stable and consistent
-- keep same-name prompt copies aligned across workflow folders
-- make missing information and assumptions explicit
-
-Don't:
-- add long role descriptions such as `Role / Context / Task` blocks
-- add long persona backstory, but a one-line professional role is allowed
-- add copy-paste instructions like “copy below the divider line”
-- keep baseline-plus duplication inside prompt files
-- overload `SKILL.md` with code samples, quick-start scripts, or audit metadata
-- use large fixed templates when a concise output order is enough
+- 添加冗长的人设背景。
+- 添加可复制粘贴的仪式化文本。
+- 在同一个 Prompt 中重复基础版与 Plus 版内容。
+- 把大段示例或脚本塞进 `SKILL.md`。
+- 使用大到掩盖实际判断的固定模板。

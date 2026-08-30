@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: production-incident-analysis
+interface:
+  display_name: "生产事故分析"
+  short_description: "分析生产事故证据、影响与后续动作"
+  default_prompt: "Use the production-incident-analysis skill to analyze a production incident."
+policy:
+  allow_implicit_invocation: true

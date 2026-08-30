@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: performance-regression-analysis
+interface:
+  display_name: "Performance Regression Analysis"
+  short_description: "Compare version evidence and assess performance regression risk"
+  default_prompt: "Use the performance-regression-analysis skill to analyze performance regressions."
+policy:
+  allow_implicit_invocation: true

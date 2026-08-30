@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: regression-test-selection
+interface:
+  display_name: "回归测试选择"
+  short_description: "从测试资产选择最小风险覆盖回归集"
+  default_prompt: "Use the regression-test-selection skill to select regression tests."
+policy:
+  allow_implicit_invocation: true

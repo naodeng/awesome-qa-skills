@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: llm-testing
+interface:
+  display_name: "LLM 测试"
+  short_description: "验证 LLM 行为、失败模式和质量边界"
+  default_prompt: "Use the llm-testing skill to design LLM tests."
+policy:
+  allow_implicit_invocation: true

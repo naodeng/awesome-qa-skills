@@ -1,0 +1,32 @@
+name: Project Quality
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - explore
+
+permissions:
+  contents: read
+
+jobs:
+  project-quality:
+    name: Project quality gate
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run project-document unit tests
+        run: python3 -m unittest scripts.tests.test_check_docs_bilingual -v
+
+      - name: Run project quality gate
+        run: bash scripts/check_skills_quality.sh

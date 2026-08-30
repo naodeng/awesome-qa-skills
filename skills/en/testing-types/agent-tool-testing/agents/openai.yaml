@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: agent-tool-testing
+interface:
+  display_name: "Agent Tool Testing"
+  short_description: "Verify agent tool-call contracts, authorization, and side effects"
+  default_prompt: "Use the agent-tool-testing skill to design agent tool-call tests."
+policy:
+  allow_implicit_invocation: true

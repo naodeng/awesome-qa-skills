@@ -1,16 +1,12 @@
-# Frequently Asked Questions (FAQ)
+<div align="right"><a href="./FAQ.md">🇨🇳 中文</a> | <strong>🇬🇧 English</strong></div>
 
-[中文](FAQ.md) | [English](#english-faq)
-
----
-
-## English FAQ
+# Frequently Asked Questions
 
 ### Basic Questions
 
 #### 1. What is AI Testing Assistant Skills?
 
-A testing skills library designed specifically for AI coding assistants, containing **18 carefully designed testing Skills** (15 testing types + 3 workflows) to help Cursor, Claude Code, Kiro, and other AI tools become your professional testing assistant.
+A quality-engineering Skills library for AI coding assistants. Each language currently contains **78 Skills**: 65 testing types, 10 cross-phase workflows, and 3 Skill Engineering governance capabilities — 156 independently installable directories across Chinese and English.
 
 #### 2. Which AI tools are supported?
 
@@ -38,7 +34,7 @@ Functionally identical, just different languages. Chinese skill directories like
 
 #### 5. Can I use multiple skills together?
 
-Yes! Skills are designed to be composable. Check [skills-graph.md](skills-graph.md) for recommended skill combinations.
+Yes! Skills are designed to be composable. Check [skills-graph.md](docs/catalog/skills-graph.md) for recommended skill combinations.
 
 ---
 
@@ -128,17 +124,12 @@ Workflow will guide you through daily testing activities.
 
 Three ways:
 1. Check [README_EN.md](README_EN.md) - Skills list
-2. Check [skills-index.md](skills-index.md) - By category
-3. Check [skills-graph.md](skills-graph.md) - Skills relationships
+2. Check [skills-index.md](docs/catalog/skills-index.md) - By category
+3. Check [skills-graph.md](docs/catalog/skills-graph.md) - Skills relationships
 
 #### 15. What testing type Skills are available?
 
-15 testing type Skills:
-- Functional Testing, API Testing, Automation Testing
-- Performance Testing, Security Testing, Mobile Testing, Accessibility Testing
-- Bug Reporting, Test Case Writing, Test Case Review
-- Test Reporting, Test Strategy, Requirements Analysis
-- Manual Testing, AI-Assisted Testing
+There are currently 65 testing types across Core QA, Engineering QA, Production Quality, and AI Native QA. Use the [complete index](docs/catalog/skills-index.md) to select by R&D and testing phase.
 
 ---
 
@@ -185,7 +176,7 @@ AI will generate customized test strategy.
 
 #### 20. How to use multiple Skills together?
 
-Refer to recommended combinations in [skills-graph.md](skills-graph.md), for example:
+Refer to recommended combinations in [skills-graph.md](docs/catalog/skills-graph.md), for example:
 
 **New Feature Testing Flow**:
 ```
@@ -232,7 +223,7 @@ Based on your needs:
 
 #### 25. What are the relationships between Skills?
 
-Check [skills-graph.md](skills-graph.md) to understand dependencies and recommended combinations between Skills.
+Check [skills-graph.md](docs/catalog/skills-graph.md) to understand dependencies and recommended combinations between Skills.
 
 ---
 

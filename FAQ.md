@@ -1,16 +1,12 @@
-# 常见问题解答 | FAQ
+<div align="right"><strong>🇨🇳 中文</strong> | <a href="./FAQ_EN.md">🇬🇧 English</a></div>
 
-[English](#english-faq) | [中文](#中文-faq)
-
----
-
-## 中文 FAQ
+# 常见问题解答
 
 ### 基础问题
 
 #### 1. 什么是 AI 测试辅助技能合集？
 
-这是一套专为 AI 编码助手设计的测试技能库（Skills），包含 **18 个精心设计的测试 Skills**（15 个测试类型 + 3 个工作流），帮助 Cursor、Claude Code、Kiro 等 AI 工具成为你的专业测试助手。
+这是一套面向 AI 编码助手的质量工程 Skills 库。每种语言目前包含 **78 个 Skill**：65 个测试类型、10 个跨阶段工作流和 3 个 Skill Engineering 治理能力；中英文共 156 个可独立安装的目录。
 
 #### 2. 支持哪些 AI 工具？
 
@@ -38,7 +34,7 @@ cp -r skills/zh/testing-types/functional-testing ~/.cursor/skills/
 
 #### 5. 可以同时使用多个 skills 吗？
 
-可以！Skills 设计为可组合使用。查看 [skills-graph.md](skills-graph.md) 了解推荐的 skill 组合。
+可以！Skills 设计为可组合使用。查看 [skills-graph.md](docs/catalog/skills-graph.md) 了解推荐的 skill 组合。
 
 ---
 
@@ -128,17 +124,12 @@ cp -r skills/zh/testing-types/functional-testing /path/to/your/project/.cursor/s
 
 三种方式：
 1. 查看 [README.md](README.md) - Skills 列表
-2. 查看 [skills-index.md](skills-index.md) - 按类别索引
-3. 查看 [skills-graph.md](skills-graph.md) - Skills 关系图
+2. 查看 [skills-index.md](docs/catalog/skills-index.md) - 按类别索引
+3. 查看 [skills-graph.md](docs/catalog/skills-graph.md) - Skills 关系图
 
 #### 15. 有哪些测试类型 Skills？
 
-15 个测试类型 Skills：
-- 功能测试、API 测试、自动化测试
-- 性能测试、安全测试、移动端测试、可访问性测试
-- 缺陷上报、测试用例编写、测试用例评审
-- 测试报告、测试策略、需求分析
-- 手动测试、AI 辅助测试
+当前有 65 个测试类型，覆盖 Core QA、Engineering QA、Production Quality 和 AI Native QA。请查看 [全量索引](docs/catalog/skills-index.md) 按研发与测试阶段选择。
 
 ---
 
@@ -185,7 +176,7 @@ AI 会生成定制化的测试策略。
 
 #### 20. 如何使用多个 Skills 组合？
 
-参考 [skills-graph.md](skills-graph.md) 中的推荐组合，例如：
+参考 [skills-graph.md](docs/catalog/skills-graph.md) 中的推荐组合，例如：
 
 **新功能测试流程**：
 ```
@@ -232,7 +223,7 @@ AI 会生成定制化的测试策略。
 
 #### 25. Skills 之间有什么关系？
 
-查看 [skills-graph.md](skills-graph.md) 了解 Skills 之间的依赖关系和推荐组合。
+查看 [skills-graph.md](docs/catalog/skills-graph.md) 了解 Skills 之间的依赖关系和推荐组合。
 
 ---
 
@@ -269,283 +260,3 @@ PolyForm Noncommercial License 1.0.0。允许自由使用、修改和分发，�
 2. 查看 [README.md](README.md)
 3. 搜索 [Issues](https://github.com/naodeng/awesome-qa-skills/issues)
 4. 提问在 GitHub Issues
-
----
-
-## English FAQ
-
-### Basic Questions
-
-#### 1. What is AI Testing Assistant Skills?
-
-A testing skills library designed specifically for AI coding assistants, containing **18 carefully designed testing Skills** (15 testing types + 3 workflows) to help Cursor, Claude Code, Kiro, and other AI tools become your professional testing assistant.
-
-#### 2. Which AI tools are supported?
-
-- **Cursor** (v0.40+)
-- **Claude Code** (v1.0+)
-- **Kiro** (v0.5+)
-
-#### 3. How to get started quickly?
-
-```bash
-# 1. Clone the project
-git clone https://github.com/naodeng/awesome-qa-skills.git
-
-# 2. Copy needed skill
-cp -r skills/en/testing-types/functional-testing ~/.cursor/skills/
-
-# 3. Use in AI tool
-@skill functional-testing
-Help me generate test cases for user login functionality
-```
-
-#### 4. What's the difference between Chinese and English versions?
-
-Functionally identical, just different languages. Chinese skill directories like `functional-testing`, English as `functional-testing`.
-
-#### 5. Can I use multiple skills together?
-
-Yes! Skills are designed to be composable. Check [skills-graph.md](skills-graph.md) for recommended skill combinations.
-
----
-
-### Installation and Configuration
-
-#### 6. How to install to Cursor?
-
-```bash
-# Project level (recommended)
-cp -r skills/en/testing-types/functional-testing /path/to/your/project/.cursor/skills/
-
-# User level (global)
-cp -r skills/en/testing-types/functional-testing ~/.cursor/skills/
-```
-
-#### 7. How to install to Claude Code?
-
-```bash
-mkdir -p .claude/skills
-cp -r skills/en/testing-types/functional-testing .claude/skills/
-```
-
-#### 8. How to install to Kiro?
-
-```bash
-# Project level
-mkdir -p .kiro/skills
-cp -r skills/en/testing-types/functional-testing .kiro/skills/
-
-# Global
-mkdir -p ~/.kiro/skills
-cp -r skills/en/testing-types/functional-testing ~/.kiro/skills/
-```
-
-#### 9. How to update skills?
-
-```bash
-# 1. Pull latest code
-cd ai-testing-assistant-skills
-git pull origin main
-
-# 2. Re-copy skills
-cp -r skills/en/testing-types/functional-testing /path/to/your/project/.cursor/skills/
-```
-
-#### 10. How to customize skills?
-
-1. Copy skill to your project
-2. Modify prompt files in `prompts/` directory
-3. Adjust content as needed
-
----
-
-### Usage Questions
-
-#### 11. How to invoke a skill?
-
-In AI tool's chat:
-
-```
-@skill functional-testing
-Requirement: User login functionality
-```
-
-#### 12. How to specify output format?
-
-Specify at the end of requirement:
-
-```
-@skill functional-testing
-Requirement: User login functionality
-Please output as tab-separated table for Excel
-```
-
-Supported formats: Markdown (default), Excel, CSV, JSON, Jira, TestRail.
-
-#### 13. How to use workflows?
-
-```
-@skill daily-testing-workflow
-Today I need to test user login and registration features
-```
-
-Workflow will guide you through daily testing activities.
-
-#### 14. How to find the right skill?
-
-Three ways:
-1. Check [README.md](README.md) - Skills list
-2. Check [skills-index.md](skills-index.md) - By category
-3. Check [skills-graph.md](skills-graph.md) - Skills relationships
-
-#### 15. What testing type Skills are available?
-
-15 testing type Skills:
-- Functional Testing, API Testing, Automation Testing
-- Performance Testing, Security Testing, Mobile Testing, Accessibility Testing
-- Bug Reporting, Test Case Writing, Test Case Review
-- Test Reporting, Test Strategy, Requirements Analysis
-- Manual Testing, AI-Assisted Testing
-
----
-
-### Feature Questions
-
-#### 16. How to generate test cases?
-
-```
-@skill test-case-writing
-Requirement: User login functionality, support email and phone login
-```
-
-AI will automatically generate test cases including normal, exception, and boundary value scenarios.
-
-#### 17. How to generate automation test code?
-
-```
-@skill automation-testing
-Requirement: Generate Playwright automation test code for login functionality
-```
-
-AI will generate runnable test code.
-
-#### 18. How to analyze requirements?
-
-```
-@skill requirements-analysis
-Requirement: Users can login to the system via email or phone number
-```
-
-AI will analyze requirements and extract test points.
-
-#### 19. How to create test strategy?
-
-```
-@skill test-strategy
-Project info:
-- Type: Web application
-- Tech stack: React + Node.js
-- Team size: 5 people
-```
-
-AI will generate customized test strategy.
-
-#### 20. How to use multiple Skills together?
-
-Refer to recommended combinations in [skills-graph.md](skills-graph.md), for example:
-
-**New Feature Testing Flow**:
-```
-1. @skill requirements-analysis
-2. @skill test-strategy
-3. @skill test-case-writing
-4. @skill functional-testing
-5. @skill automation-testing
-```
-
----
-
-### Troubleshooting
-
-#### 21. Skill cannot be loaded?
-
-Check:
-1. Directory name is correct
-2. SKILL.md file exists
-3. File permissions are correct
-4. AI tool version supports Skills
-
-#### 22. Output format is incorrect?
-
-Ensure you specify format at the end of requirement:
-
-```
-Please output as tab-separated table for Excel
-```
-
-#### 23. Chinese and English versions are out of sync?
-
-Please submit an Issue to report, we will fix it promptly.
-
-#### 24. How to choose the right Skill?
-
-Based on your needs:
-- **Write test cases** → test-case-writing
-- **Functional testing** → functional-testing
-- **API testing** → api-testing
-- **Automation testing** → automation-testing
-- **Performance testing** → performance-testing
-- **Security testing** → security-testing
-
-#### 25. What are the relationships between Skills?
-
-Check [skills-graph.md](skills-graph.md) to understand dependencies and recommended combinations between Skills.
-
----
-
-### Contributing and Community
-
-#### 26. How to contribute a new skill?
-
-1. Fork the project
-2. Create new Skill directory
-3. Write SKILL.md, prompts/, etc.
-4. Submit Pull Request
-
-See [CONTRIBUTING.md](CONTRIBUTING.md) for details.
-
-#### 27. How to report bugs?
-
-1. Search [Issues](https://github.com/naodeng/awesome-qa-skills/issues)
-2. If not reported, create new Issue
-3. Provide detailed information and reproduction steps
-
-#### 28. How to request a new Skill?
-
-1. Search existing Feature Requests
-2. Create new Issue with `enhancement` label
-3. Describe Skill requirements and use cases in detail
-
-#### 29. What is the project license?
-
-PolyForm Noncommercial License 1.0.0. You may use, modify, and distribute for noncommercial purposes.
-
-#### 30. How to get more help?
-
-1. Check this FAQ
-2. Check [README.md](README.md)
-3. Search [Issues](https://github.com/naodeng/awesome-qa-skills/issues)
-4. Ask in GitHub Issues
-
----
-
-## 没有找到答案？ | Can't Find Your Answer?
-
-如果您的问题未在此列出，请在 [GitHub Issues](https://github.com/naodeng/awesome-qa-skills/issues) 提问。
-
-If your question isn't listed, please ask in [GitHub Issues](https://github.com/naodeng/awesome-qa-skills/issues).
-
----
-
-**最后更新 | Last Updated**: 2024-02-09

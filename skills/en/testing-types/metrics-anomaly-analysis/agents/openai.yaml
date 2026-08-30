@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: metrics-anomaly-analysis
+interface:
+  display_name: "Metrics Anomaly Analysis"
+  short_description: "Identify metric anomalies, baselines, and investigation evidence"
+  default_prompt: "Use the metrics-anomaly-analysis skill to analyze metric anomalies."
+policy:
+  allow_implicit_invocation: true

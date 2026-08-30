@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: prompt-testing
+interface:
+  display_name: "Prompt 测试"
+  short_description: "测试 Prompt 行为、边界和版本回归"
+  default_prompt: "Use the prompt-testing skill to design prompt tests."
+policy:
+  allow_implicit_invocation: true

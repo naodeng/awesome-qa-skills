@@ -12,6 +12,18 @@ Route the user request to the best-fit testing skill. This skill **only selects 
 - current phase if known: clarification / strategy / case design / execution / defects / daily / sprint / release
 - constraints: language, toolchain, whether plus/enhanced is wanted
 
+## Capability-stage decision (before package family)
+
+| User goal | Capability stage | Current routing rule |
+| --- | --- | --- |
+| Requirements, strategy, cases, execution, defects, or reporting | Core QA Skills | Route to an installed foundational Skill |
+| Requirement quality, code change, diagnosis, or performance decision | Engineering QA Skills | Route to a specialty such as `change-impact-analysis` or `performance-result-analysis` |
+| Release evidence, production verification, incident, or observability | Production Quality Skills | Use `release-testing-workflow` for gates and production verification/incident/trace/metrics Skills for specialty work |
+| Testing an AI feature, LLM, prompt, agent, or injection defense | AI Native QA Skills | Route to `ai-feature-testing`, `llm-testing`, `prompt-testing`, `ai-agent-testing`, or the matching specialty |
+| Using AI to assist a conventional testing task | AI for QA (cross-cutting) | Recommend `ai-assisted-testing`; do not classify it as AI Native QA |
+
+All roadmap Skills are now callable. With incomplete material, still provide the current best primary Skill and state evidence needed and assumptions; never invent test results.
+
 ## Routing decision rules (apply in order)
 
 ### 1. Workflow vs type first
