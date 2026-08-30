@@ -131,7 +131,7 @@ cp -r skills/zh/testing-types/functional-testing ~/.cursor/skills/
 
 | 名称 | 目录 | 主要用途 |
 | --- | --- | --- |
-| Testing Skill Discovery | [`discover-testing`](skills/zh/testing-workflows/discover-testing/) | Use this skill when you need to route a request to the right testing skill before execution; triggers include 测试技能路由、discover testing and which testing skill. |
+| 测试技能路由 | [`discover-testing`](skills/zh/testing-workflows/discover-testing/) | 在执行前根据需求、阶段和风险选择合适的测试 Skill。 |
 | 产品质量视角 | [`product-quality-perspective`](skills/zh/testing-workflows/product-quality-perspective/) | 从产品视角在需求、策略、评审、用例和报告阶段识别用户价值、业务规则、验收与风险。 |
 | QA 质量视角 | [`qa-quality-perspective`](skills/zh/testing-workflows/qa-quality-perspective/) | 在质量各阶段基于证据评估可测试性、风险驱动覆盖、缺陷风险与质量结论边界。 |
 | UX 质量视角 | [`ux-quality-perspective`](skills/zh/testing-workflows/ux-quality-perspective/) | 以 UX 视角在质量阶段识别信息架构、交互状态、一致性、响应式与无障碍风险。 |
@@ -141,15 +141,15 @@ cp -r skills/zh/testing-types/functional-testing ~/.cursor/skills/
 
 | 名称 | 目录 | 主要用途 |
 | --- | --- | --- |
-| 日常测试工作流程（中文版） | [`daily-testing-workflow`](skills/zh/testing-workflows/daily-testing-workflow/) | Use this skill when you need a day-by-day QA routine including planning, execution, bug reporting, and end-of-day wrap-up; triggers include 日常测试工作流程 and daily… |
-| 迭代测试工作流程（中文版） | [`sprint-testing-workflow`](skills/zh/testing-workflows/sprint-testing-workflow/) | Use this skill when you need a sprint-based QA workflow from planning through review and retrospective; triggers include 迭代测试工作流程 and sprint testing workflow. |
+| 日常测试工作流程 | [`daily-testing-workflow`](skills/zh/testing-workflows/daily-testing-workflow/) | 按日常节奏完成计划、执行、缺陷跟踪和日终收口。 |
+| 迭代测试工作流程 | [`sprint-testing-workflow`](skills/zh/testing-workflows/sprint-testing-workflow/) | 覆盖迭代计划、测试执行、评审和复盘的质量工作流。 |
 | 项目交付视角 | [`project-delivery-perspective`](skills/zh/testing-workflows/project-delivery-perspective/) | 在支持的策略与报告评审阶段记录带来源的交付约束和行动，不改变质量事实。 |
 
 #### 发布与综合
 
 | 名称 | 目录 | 主要用途 |
 | --- | --- | --- |
-| 发布测试工作流程（中文版） | [`release-testing-workflow`](skills/zh/testing-workflows/release-testing-workflow/) | Use this skill when you need release-phase QA workflow from T-14 planning to go/no-go and post-release monitoring; triggers include 发布测试工作流程 and release testin… |
+| 发布测试工作流程 | [`release-testing-workflow`](skills/zh/testing-workflows/release-testing-workflow/) | 从发布前计划到 Go/No-Go 决策和发布后监控的质量工作流。 |
 | 多角色质量汇总 | [`multi-role-quality-synthesis`](skills/zh/testing-workflows/multi-role-quality-synthesis/) | 将同一阶段的多角色报告合并为保留来源、分歧和质量边界的可追溯汇总 |
 
 ### 四层能力体系与研发测试阶段
@@ -162,43 +162,43 @@ cp -r skills/zh/testing-types/functional-testing ~/.cursor/skills/
 
 | 名称 | 目录 | 主要用途 |
 | --- | --- | --- |
-| 需求分析（中文版） <!-- data-skill:requirements-analysis --> | [`requirements-analysis`](skills/zh/testing-types/requirements-analysis/) | Use this skill when you need to analyze requirements, identify test points, boundaries, dependencies, and risks before test design; triggers include 需求分析 and r… |
-| 需求分析加强版 <!-- data-skill:requirements-analysis-plus --> | [`requirements-analysis-plus`](skills/zh/testing-types/requirements-analysis-plus/) | Use this skill when you need to parse Word/HTML/JSON/Markdown/Excel requirements and produce a structured analysis; triggers include 需求分析增强、requirements analys… |
+| 需求分析 <!-- data-skill:requirements-analysis --> | [`requirements-analysis`](skills/zh/testing-types/requirements-analysis/) | 在测试设计前识别需求测试点、边界、依赖和风险。 |
+| 需求分析加强版 <!-- data-skill:requirements-analysis-plus --> | [`requirements-analysis-plus`](skills/zh/testing-types/requirements-analysis-plus/) | 解析多种需求文档并输出结构化的需求分析。 |
 
 ##### 方案设计与测试策略
 
 | 名称 | 目录 | 主要用途 |
 | --- | --- | --- |
-| 测试策略（中文版） <!-- data-skill:test-strategy --> | [`test-strategy`](skills/zh/testing-types/test-strategy/) | Use this skill when you need to define a test strategy covering scope, methods, resources, risks, and quality gates; triggers include 测试策略 and test strategy. |
-| 测试策略加强版 <!-- data-skill:test-strategy-plus --> | [`test-strategy-plus`](skills/zh/testing-types/test-strategy-plus/) | Use this skill when you need a structured test strategy from requirement, analysis, tech, and plan docs; triggers include 测试策略增强、test strategy plus and advance… |
+| 测试策略 <!-- data-skill:test-strategy --> | [`test-strategy`](skills/zh/testing-types/test-strategy/) | 定义测试范围、方法、资源、风险和质量门禁。 |
+| 测试策略加强版 <!-- data-skill:test-strategy-plus --> | [`test-strategy-plus`](skills/zh/testing-types/test-strategy-plus/) | 基于需求、分析、技术和计划文档形成结构化测试策略。 |
 | 测试策略评审 <!-- data-skill:test-strategy-review --> | [`test-strategy-review`](skills/zh/testing-types/test-strategy-review/) | 基于证据评审测试策略，区分阻塞项与条件项并给出 Human 待决的 AI 建议 |
 
 ##### 测试设计与准备
 
 | 名称 | 目录 | 主要用途 |
 | --- | --- | --- |
-| 测试用例编写（中文版） <!-- data-skill:test-case-writing --> | [`test-case-writing`](skills/zh/testing-types/test-case-writing/) | Use this skill when you need to create high-quality test cases with normal, exception, and boundary scenarios; triggers include 测试用例编写 and test case writing. |
-| 测试用例编写加强版 <!-- data-skill:testcase-writer-plus --> | [`testcase-writer-plus`](skills/zh/testing-types/testcase-writer-plus/) | Use this skill when you need high-quality test cases from requirements and analysis artifacts; triggers include 测试用例编写增强、testcase writer plus and advanced test… |
-| 测试用例评审（中文版） <!-- data-skill:test-case-reviewer --> | [`test-case-reviewer`](skills/zh/testing-types/test-case-reviewer/) | Use this skill when you need to review test cases for completeness, clarity, maintainability, and missing scenarios; triggers include 测试用例评审 and test case revi… |
-| 测试用例评审加强版 <!-- data-skill:test-case-reviewer-plus --> | [`test-case-reviewer-plus`](skills/zh/testing-types/test-case-reviewer-plus/) | Use this skill when you need structured test-case review findings from requirements, strategy, and case docs; triggers include 用例评审增强、test case reviewer plus a… |
+| 测试用例编写 <!-- data-skill:test-case-writing --> | [`test-case-writing`](skills/zh/testing-types/test-case-writing/) | 编写覆盖正常、异常和边界场景的高质量测试用例。 |
+| 测试用例编写加强版 <!-- data-skill:testcase-writer-plus --> | [`testcase-writer-plus`](skills/zh/testing-types/testcase-writer-plus/) | 根据需求与分析产物生成高质量测试用例。 |
+| 测试用例评审 <!-- data-skill:test-case-reviewer --> | [`test-case-reviewer`](skills/zh/testing-types/test-case-reviewer/) | 评审测试用例的完整性、清晰度、可维护性和遗漏场景。 |
+| 测试用例评审加强版 <!-- data-skill:test-case-reviewer-plus --> | [`test-case-reviewer-plus`](skills/zh/testing-types/test-case-reviewer-plus/) | 从需求、策略和用例文档中形成结构化评审发现。 |
 
 ##### 测试执行与分析
 
 | 名称 | 目录 | 主要用途 |
 | --- | --- | --- |
-| 功能测试（中文版） <!-- data-skill:functional-testing --> | [`functional-testing`](skills/zh/testing-types/functional-testing/) | Use this skill when you need to design functional test plans or cases for business flows, UI, data, and integrations; triggers include 功能测试 and functional test… |
-| API 测试（中文版） <!-- data-skill:api-testing --> | [`api-testing`](skills/zh/testing-types/api-testing/) | Use this skill when you need to design API test plans or cases for REST, GraphQL, or gRPC interfaces; triggers include API 测试 and api testing. |
-| 手动/探索性测试（中文版） <!-- data-skill:manual-testing --> | [`manual-testing`](skills/zh/testing-types/manual-testing/) | Use this skill when you need to plan manual or exploratory testing with charters, heuristics, and session records; triggers include 手动测试 and exploratory testin… |
-| 移动端测试（中文版） <!-- data-skill:mobile-testing --> | [`mobile-testing`](skills/zh/testing-types/mobile-testing/) | Use this skill when you need to design mobile test plans for iOS or Android covering functionality, compatibility, performance, network, and security; triggers… |
-| 可访问性测试（中文版） <!-- data-skill:accessibility-testing --> | [`accessibility-testing`](skills/zh/testing-types/accessibility-testing/) | Use this skill when you need to design accessibility testing against WCAG, keyboard navigation, and assistive technology scenarios; triggers include 可访问性测试 and… |
-| 安全测试（中文版） <!-- data-skill:security-testing --> | [`security-testing`](skills/zh/testing-types/security-testing/) | Use this skill when you need to design security testing around OWASP risks, vulnerability scanning, and penetration scenarios; triggers include 安全测试 and securi… |
+| 功能测试 <!-- data-skill:functional-testing --> | [`functional-testing`](skills/zh/testing-types/functional-testing/) | 为业务流程、界面、数据和集成设计功能测试方案或用例。 |
+| API 测试 <!-- data-skill:api-testing --> | [`api-testing`](skills/zh/testing-types/api-testing/) | 为 REST、GraphQL 或 gRPC 接口设计 API 测试方案或用例。 |
+| 手动/探索性测试 <!-- data-skill:manual-testing --> | [`manual-testing`](skills/zh/testing-types/manual-testing/) | 使用章程、启发式方法和会话记录规划手动或探索性测试。 |
+| 移动端测试 <!-- data-skill:mobile-testing --> | [`mobile-testing`](skills/zh/testing-types/mobile-testing/) | 覆盖功能、兼容性、性能、网络和安全的 iOS/Android 测试。 |
+| 可访问性测试 <!-- data-skill:accessibility-testing --> | [`accessibility-testing`](skills/zh/testing-types/accessibility-testing/) | 按 WCAG、键盘导航和辅助技术场景设计可访问性测试。 |
+| 安全测试 <!-- data-skill:security-testing --> | [`security-testing`](skills/zh/testing-types/security-testing/) | 围绕 OWASP 风险、漏洞扫描和渗透场景设计安全测试。 |
 
 ##### 发布、缺陷与报告
 
 | 名称 | 目录 | 主要用途 |
 | --- | --- | --- |
-| 缺陷上报（中文版） <!-- data-skill:bug-reporting --> | [`bug-reporting`](skills/zh/testing-types/bug-reporting/) | Use this skill when you need to write clear, reproducible bug reports with steps, environment details, and evidence; triggers include 缺陷上报 and bug reporting. |
-| 测试报告（中文版） <!-- data-skill:test-reporting --> | [`test-reporting`](skills/zh/testing-types/test-reporting/) | Use this skill when you need to generate test reports with summary, metrics, defect analysis, and risk assessment; triggers include 测试报告 and test reporting. |
+| 缺陷上报 <!-- data-skill:bug-reporting --> | [`bug-reporting`](skills/zh/testing-types/bug-reporting/) | 编写包含复现步骤、环境信息和证据的清晰缺陷报告。 |
+| 测试报告 <!-- data-skill:test-reporting --> | [`test-reporting`](skills/zh/testing-types/test-reporting/) | 生成包含摘要、指标、缺陷分析和风险评估的测试报告。 |
 | 测试报告评审 <!-- data-skill:test-report-review --> | [`test-report-review`](skills/zh/testing-types/test-report-review/) | 核对测试报告与执行、缺陷和范围证据，形成 Human 待决的 AI 建议 |
 
 #### Engineering QA Skills — 质量工程能力
@@ -216,22 +216,22 @@ cp -r skills/zh/testing-types/functional-testing ~/.cursor/skills/
 
 | 名称 | 目录 | 主要用途 |
 | --- | --- | --- |
-| 代码审查（中文版） <!-- data-skill:code-review --> | [`code-review`](skills/zh/testing-types/code-review/) | Risk-driven PR/diff code review with P0/P1/P2 findings and actionable fixes; triggers include 代码审查 and code review. |
+| 代码审查 <!-- data-skill:code-review --> | [`code-review`](skills/zh/testing-types/code-review/) | 对 PR 或 Diff 进行风险驱动的代码审查，输出 P0/P1/P2 问题与可执行修复建议。 |
 | 变更影响分析 <!-- data-skill:change-impact-analysis --> | [`change-impact-analysis`](skills/zh/testing-types/change-impact-analysis/) | 分析变更的质量影响范围与风险 |
 | PR 测试影响分析 <!-- data-skill:pr-test-impact-analysis --> | [`pr-test-impact-analysis`](skills/zh/testing-types/pr-test-impact-analysis/) | 从 PR 或 Diff 分析测试影响 |
 | API 契约测试 <!-- data-skill:api-contract-testing --> | [`api-contract-testing`](skills/zh/testing-types/api-contract-testing/) | 验证 API 契约兼容性与变更风险 |
-| 自动化测试（中文版） <!-- data-skill:automation-testing --> | [`automation-testing`](skills/zh/testing-types/automation-testing/) | Use this skill when you need to design automation testing approaches using patterns like POM, data-driven testing, or BDD; triggers include 自动化测试 and automatio… |
+| 自动化测试 <!-- data-skill:automation-testing --> | [`automation-testing`](skills/zh/testing-types/automation-testing/) | 使用 POM、数据驱动或 BDD 等模式设计自动化测试方案。 |
 
 ##### 测试数据与自动化实现
 
 | 名称 | 目录 | 主要用途 |
 | --- | --- | --- |
 | 测试数据生成 <!-- data-skill:test-data-generation --> | [`test-data-generation`](skills/zh/testing-types/test-data-generation/) | 设计安全且具代表性的测试数据 |
-| Bruno 接口自动化 <!-- data-skill:api-test-bruno --> | [`api-test-bruno`](skills/zh/testing-types/api-test-bruno/) | Use this skill when you need to parse multi-format API definitions and generate Bruno collections for executable regression; triggers include Bruno、Bruno 集合 an… |
+| Bruno 接口自动化 <!-- data-skill:api-test-bruno --> | [`api-test-bruno`](skills/zh/testing-types/api-test-bruno/) | 解析多格式 API 定义，生成可执行回归的 Bruno 集合。 |
 | Postman API 测试 <!-- data-skill:api-test-postman --> | [`api-test-postman`](skills/zh/testing-types/api-test-postman/) | 设计 Postman 集合、环境、脚本和可用 Newman 执行的 API 回归方案。 |
-| Pytest 接口自动化 <!-- data-skill:api-test-pytest --> | [`api-test-pytest`](skills/zh/testing-types/api-test-pytest/) | Use this skill when you need to parse multi-format API definitions and generate Pytest API automation; triggers include Pytest 接口测试、pytest api and API automati… |
-| RestAssured 接口自动化 <!-- data-skill:api-test-restassure --> | [`api-test-restassure`](skills/zh/testing-types/api-test-restassure/) | Use this skill when you need to parse multi-format API definitions and generate Rest Assured Java test classes; triggers include Rest Assured、RestAssured and J… |
-| Supertest 接口自动化 <!-- data-skill:api-test-supertest --> | [`api-test-supertest`](skills/zh/testing-types/api-test-supertest/) | Use this skill when you need to parse multi-format API definitions and generate executable Supertest scripts; triggers include Supertest、Node.js API 测试 and Sup… |
+| Pytest 接口自动化 <!-- data-skill:api-test-pytest --> | [`api-test-pytest`](skills/zh/testing-types/api-test-pytest/) | 解析多格式 API 定义并生成 Pytest 接口自动化方案。 |
+| RestAssured 接口自动化 <!-- data-skill:api-test-restassure --> | [`api-test-restassure`](skills/zh/testing-types/api-test-restassure/) | 解析多格式 API 定义并生成 Rest Assured Java 测试类。 |
+| Supertest 接口自动化 <!-- data-skill:api-test-supertest --> | [`api-test-supertest`](skills/zh/testing-types/api-test-supertest/) | 解析多格式 API 定义并生成可执行的 Supertest 脚本。 |
 | Selenium UI 自动化测试 <!-- data-skill:ui-test-selenium --> | [`ui-test-selenium`](skills/zh/testing-types/ui-test-selenium/) | 设计 Selenium WebDriver UI 自动化方案，覆盖稳定定位、等待、Page Object、Grid 和 CI 执行。 |
 | Playwright UI 自动化测试 <!-- data-skill:ui-test-playwright --> | [`ui-test-playwright`](skills/zh/testing-types/ui-test-playwright/) | 设计 Playwright Test 套件，覆盖 fixtures、projects、trace、截图、API+UI 组合和 CI 报告。 |
 | TestCafe UI 自动化测试 <!-- data-skill:ui-test-testcafe --> | [`ui-test-testcafe`](skills/zh/testing-types/ui-test-testcafe/) | 设计 TestCafe UI 自动化方案，覆盖 fixture、selector、role、浏览器矩阵和报告。 |
@@ -246,15 +246,15 @@ cp -r skills/zh/testing-types/functional-testing ~/.cursor/skills/
 | 不稳定测试分析 <!-- data-skill:flaky-test-analysis --> | [`flaky-test-analysis`](skills/zh/testing-types/flaky-test-analysis/) | 从运行证据分析间歇性测试失败 |
 | 回归范围分析 <!-- data-skill:regression-scope-analysis --> | [`regression-scope-analysis`](skills/zh/testing-types/regression-scope-analysis/) | 按风险定义回归范围和排除依据 |
 | 回归测试选择 <!-- data-skill:regression-test-selection --> | [`regression-test-selection`](skills/zh/testing-types/regression-test-selection/) | 从测试资产选择最小风险覆盖回归集 |
-| AI 辅助测试（中文版） <!-- data-skill:ai-assisted-testing --> | [`ai-assisted-testing`](skills/zh/testing-types/ai-assisted-testing/) | Use this skill when you need AI-assisted testing workflows such as test data generation, root-cause analysis, and prioritization; triggers include AI 辅助测试 and… |
+| AI 辅助测试 <!-- data-skill:ai-assisted-testing --> | [`ai-assisted-testing`](skills/zh/testing-types/ai-assisted-testing/) | 使用 AI 辅助测试数据生成、根因分析和优先级判断等工作。 |
 
 ##### 性能工程与容量决策
 
 | 名称 | 目录 | 主要用途 |
 | --- | --- | --- |
-| 性能测试（中文版） <!-- data-skill:performance-testing --> | [`performance-testing`](skills/zh/testing-types/performance-testing/) | Use this skill when you need to design performance testing for load, stress, spike, endurance, or capacity objectives; triggers include 性能测试 and performance te… |
-| k6 性能测试 <!-- data-skill:performance-test-k6 --> | [`performance-test-k6`](skills/zh/testing-types/performance-test-k6/) | Use this skill when you need k6 load/stress/spike/soak scope, scripts, or runnable entry points; triggers include k6、k6 性能测试 and k6 performance testing. |
-| Gatling 性能测试 <!-- data-skill:performance-test-gatling --> | [`performance-test-gatling`](skills/zh/testing-types/performance-test-gatling/) | Use this skill when you need Gatling performance scope, simulations, or runnable entry points; triggers include Gatling、Gatling 性能测试 and Gatling simulation. |
+| 性能测试 <!-- data-skill:performance-testing --> | [`performance-testing`](skills/zh/testing-types/performance-testing/) | 面向负载、压力、突发、耐久或容量目标设计性能测试。 |
+| k6 性能测试 <!-- data-skill:performance-test-k6 --> | [`performance-test-k6`](skills/zh/testing-types/performance-test-k6/) | 规划 k6 的负载、压力、突发或浸泡测试范围、脚本与执行入口。 |
+| Gatling 性能测试 <!-- data-skill:performance-test-gatling --> | [`performance-test-gatling`](skills/zh/testing-types/performance-test-gatling/) | 规划 Gatling 性能测试范围、模拟场景和可执行入口。 |
 | JMeter 性能测试 <!-- data-skill:performance-test-jmeter --> | [`performance-test-jmeter`](skills/zh/testing-types/performance-test-jmeter/) | 设计 JMeter 测试计划，覆盖 Thread Group、Sampler、数据集、断言、Timer、CLI 执行和 HTML 报告。 |
 | 性能负载建模 <!-- data-skill:performance-workload-modeling --> | [`performance-workload-modeling`](skills/zh/testing-types/performance-workload-modeling/) | 建立基于证据的性能负载模型 |
 | 性能结果分析 <!-- data-skill:performance-result-analysis --> | [`performance-result-analysis`](skills/zh/testing-types/performance-result-analysis/) | 解释性能结果、证据质量与风险 |

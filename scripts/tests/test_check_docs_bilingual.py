@@ -2,7 +2,12 @@ from pathlib import Path
 from tempfile import TemporaryDirectory
 import unittest
 
-from scripts.check_docs_bilingual import check_catalog, check_project_pairs, check_relative_links
+from scripts.check_docs_bilingual import (
+    check_catalog,
+    check_chinese_readme_metadata_leak,
+    check_project_pairs,
+    check_relative_links,
+)
 
 
 class DocsBilingualCheckTest(unittest.TestCase):
@@ -43,6 +48,18 @@ class DocsBilingualCheckTest(unittest.TestCase):
                 encoding="utf-8",
             )
             self.assertEqual(check_relative_links(root, ("guide.md",)), [])
+
+    def test_reports_english_metadata_leak_in_chinese_readme(self):
+        with TemporaryDirectory() as temp:
+            root = Path(temp)
+            (root / "README.md").write_text(
+                "Use this skill when you need an English catalog entry.\n",
+                encoding="utf-8",
+            )
+            self.assertEqual(
+                check_chinese_readme_metadata_leak(root),
+                ["English Skill metadata leaked into README.md"],
+            )
 
     def test_catalog_reports_duplicate_and_missing_markers(self):
         with TemporaryDirectory() as temp:

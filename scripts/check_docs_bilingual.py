@@ -155,6 +155,15 @@ def check_catalog(root: Path) -> list[str]:
     return findings
 
 
+def check_chinese_readme_metadata_leak(root: Path) -> list[str]:
+    readme = root / "README.md"
+    if not readme.is_file():
+        return ["missing catalog: README.md"]
+    if re.search(r"\bUse this skill when\b|\btriggers include\b", readme.read_text(encoding="utf-8")):
+        return ["English Skill metadata leaked into README.md"]
+    return []
+
+
 def validate(root: Path) -> list[str]:
     project_paths = tuple(path for pair in PROJECT_PAIRS for path in pair)
     return (
@@ -162,6 +171,7 @@ def validate(root: Path) -> list[str]:
         + check_relative_links(root, project_paths)
         + check_skill_parity(root)
         + check_catalog(root)
+        + check_chinese_readme_metadata_leak(root)
     )
 
 
