@@ -5,7 +5,7 @@
 A language-partitioned **AI testing skills library** (Agent Skills) for Codex, Cursor, Claude Code, Kiro, OpenCode, Trae, and similar tools. It ships independently installable, composable skills for testing workflows and testing types.
 
 [![License: PolyForm Noncommercial 1.0.0](https://img.shields.io/badge/License-PolyForm%20Noncommercial%201.0.0-blue.svg)](./LICENSE)
-[![Skills](https://img.shields.io/badge/skills-156%20(zh%2Ben)-0A7EA4)](./skills-index.md)
+[![Skills](https://img.shields.io/badge/skills-156%20(zh%2Ben)-0A7EA4)](./docs/catalog/skills-index.md)
 [![Workflows](https://img.shields.io/badge/workflows-10-informational)](./skills/en/testing-workflows/)
 [![Testing types](https://img.shields.io/badge/testing%20types-65-informational)](./skills/en/testing-types/)
 [![Skill engineering](https://img.shields.io/badge/skill%20engineering-3-informational)](./skills/en/skill-engineering/)
@@ -42,7 +42,7 @@ Core QA Skills → Engineering QA Skills → Production Quality Skills → AI Na
 | Production Quality Skills | How do we make quality decisions from release and production evidence? | `release-testing-workflow`, `test-reporting` | Production verification, incidents, and observability |
 | AI Native QA Skills | How do we test AI features, LLMs, prompts, agents, and safety boundaries? | AI feature, LLM, prompt, agent, and safety Skills are available | Testing-for-AI specialized Skills |
 
-`ai-assisted-testing` is cross-cutting **AI for QA**, not the Testing-for-AI scope of AI Native QA. The six-iteration roadmap, 29 added Skills, and Prompt Baseline mapping are in the [evolution roadmap](docs/QA_SKILLS_EVOLUTION_ROADMAP_EN.md).
+`ai-assisted-testing` is cross-cutting **AI for QA**, not the Testing-for-AI scope of AI Native QA. The six-iteration roadmap, 29 added Skills, and Prompt Baseline mapping are in the [evolution roadmap](docs/governance/QA_SKILLS_EVOLUTION_ROADMAP_EN.md).
 
 ## Supported AI tools
 
@@ -334,7 +334,7 @@ awesome-qa-skills/
 ├── resources/                   # Shared reference materials, not an install source
 ├── legacy-prompts/              # Legacy root prompts; official prompts live inside skills
 ├── AGENTS.md                    # Conventions for coding agents
-├── skills-index.md              # Full skill index
+├── docs/catalog/                # Full index and relationship graph
 ├── README.md / README_EN.md
 └── LICENSE                      # PolyForm Noncommercial 1.0.0
 ```
@@ -388,13 +388,15 @@ Suggested pilots: `functional-testing`, `api-testing`, `api-test-bruno`, `bug-re
 | Document | Purpose |
 | --- | --- |
 | [AGENTS.md](AGENTS.md) | Coding-agent conventions and quality checks |
-| [skills-index.md](skills-index.md) | Full skill index |
+| [skills-index.md](docs/catalog/skills-index.md) | Full skill index |
+| [QA_SKILLS_EVOLUTION_ROADMAP_EN.md](docs/governance/QA_SKILLS_EVOLUTION_ROADMAP_EN.md) | Four-stage capability evolution and R&D/testing lifecycle map |
+| [DOCUMENTATION_POLICY_EN.md](docs/governance/DOCUMENTATION_POLICY_EN.md) | Chinese-first bilingual documentation policy |
 | [skills/DIRECTORY_GUIDE.md](skills/DIRECTORY_GUIDE.md) | Directory and naming rules |
 | [skills/SKILL_AUTHORING.md](skills/SKILL_AUTHORING.md) | Authoring and skill-up eval conventions |
 | [scripts/INSTALL_SKILLS.md](scripts/INSTALL_SKILLS.md) | Install options and tool paths |
 | [FAQ_EN.md](FAQ_EN.md) | FAQ (English) |
-| [CONTRIBUTING.md](CONTRIBUTING.md) / [CONTRIBUTING_EN.md](CONTRIBUTING_EN.md) | Contribution guide |
-| [skills-graph.md](skills-graph.md) | Skill relationship graph (reference) |
+| [CONTRIBUTING_EN.md](CONTRIBUTING_EN.md) | Contribution guide (English) |
+| [skills-graph.md](docs/catalog/skills-graph.md) | Skill relationship graph (reference) |
 
 ## Contributing
 

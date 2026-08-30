@@ -5,7 +5,7 @@
 按语言分区的 **AI 测试辅助技能库**（Agent Skills）。面向 Codex、Cursor、Claude Code、Kiro、OpenCode、Trae 等工具，提供可独立安装、可组合调用的测试工作流与测试类型技能。
 
 [![License: PolyForm Noncommercial 1.0.0](https://img.shields.io/badge/License-PolyForm%20Noncommercial%201.0.0-blue.svg)](./LICENSE)
-[![Skills](https://img.shields.io/badge/skills-156%20(zh%2Ben)-0A7EA4)](./skills-index.md)
+[![Skills](https://img.shields.io/badge/skills-156%20(zh%2Ben)-0A7EA4)](./docs/catalog/skills-index.md)
 [![Workflows](https://img.shields.io/badge/workflows-10-informational)](./skills/zh/testing-workflows/)
 [![Testing types](https://img.shields.io/badge/testing%20types-65-informational)](./skills/zh/testing-types/)
 [![Skill engineering](https://img.shields.io/badge/skill%20engineering-3-informational)](./skills/zh/skill-engineering/)
@@ -42,7 +42,7 @@ Core QA Skills → Engineering QA Skills → Production Quality Skills → AI Na
 | Production Quality Skills | 如何基于发布和生产证据进行质量决策 | `release-testing-workflow`、`test-reporting` | 生产验证、事故和可观测性 |
 | AI Native QA Skills | 如何验证 AI 功能、LLM、Prompt、Agent 和安全边界 | AI 功能、LLM、Prompt、Agent 与安全专项能力已提供 | Testing for AI 专项 Skill |
 
-`ai-assisted-testing` 是横向的 **AI for QA**，不等同于 AI Native QA 的 Testing for AI。完整的六迭代路线、29 个新增 Skill 和跨仓 Prompt Baseline 映射见 [演进路线图](docs/QA_SKILLS_EVOLUTION_ROADMAP.md)。
+`ai-assisted-testing` 是横向的 **AI for QA**，不等同于 AI Native QA 的 Testing for AI。完整的六迭代路线、29 个新增 Skill 和跨仓 Prompt Baseline 映射见 [演进路线图](docs/governance/QA_SKILLS_EVOLUTION_ROADMAP.md)。
 
 ## 支持的 AI 工具
 
@@ -334,7 +334,7 @@ awesome-qa-skills/
 ├── resources/                   # 公共参考素材池（非 skill 安装源）
 ├── legacy-prompts/              # 旧版根级提示词（正式入口见各 skill 内 prompts/）
 ├── AGENTS.md                    # Coding Agent 操作约定
-├── skills-index.md              # 全量技能索引
+├── docs/catalog/                # 全量索引与关系图
 ├── README.md / README_EN.md
 └── LICENSE                      # PolyForm Noncommercial 1.0.0
 ```
@@ -388,13 +388,15 @@ bash scripts/run_skill_eval.sh skills/zh/testing-types/functional-testing/evals/
 | 文档 | 用途 |
 | --- | --- |
 | [AGENTS.md](AGENTS.md) | Coding Agent 约定与质量检查 |
-| [skills-index.md](skills-index.md) | 全量技能索引 |
+| [skills-index.md](docs/catalog/skills-index.md) | 全量技能索引 |
+| [QA_SKILLS_EVOLUTION_ROADMAP.md](docs/governance/QA_SKILLS_EVOLUTION_ROADMAP.md) | 四层能力演进与研发测试阶段地图 |
+| [DOCUMENTATION_POLICY.md](docs/governance/DOCUMENTATION_POLICY.md) | 中文优先的双语文档治理策略 |
 | [skills/DIRECTORY_GUIDE.md](skills/DIRECTORY_GUIDE.md) | 目录与命名规范 |
 | [skills/SKILL_AUTHORING.md](skills/SKILL_AUTHORING.md) | 编写与 skill-up 评测约定 |
 | [scripts/INSTALL_SKILLS.md](scripts/INSTALL_SKILLS.md) | 安装参数与工具路径 |
 | [FAQ.md](FAQ.md) | 常见问题 |
 | [CONTRIBUTING.md](CONTRIBUTING.md) | 贡献流程 |
-| [skills-graph.md](skills-graph.md) | 技能关系图（参考） |
+| [skills-graph.md](docs/catalog/skills-graph.md) | 技能关系图（参考） |
 
 ## 贡献
 

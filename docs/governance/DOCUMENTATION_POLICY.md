@@ -8,8 +8,8 @@
 
 ## 必须双语镜像的文档
 
-- 根 README、贡献指南、FAQ 和全量 Skill 索引
-- 当前能力演进路线图
+- 根 README、贡献指南、FAQ 和 `docs/catalog/` 下的全量 Skill 索引
+- `docs/governance/` 下的当前能力演进路线图与文档治理策略
 - 当前有效的设计文档、实施计划和审计报告
 - `skills/` 下的目录、编写、风格和外部快照治理规范
 - `skills/zh` 与 `skills/en` 的语言入口 README
@@ -25,8 +25,8 @@ Skill 内部文档不使用 `_EN` 文件，也不增加逐文件语言切换；�
 - 2026-08-29 之前已经完成的 `docs/superpowers/plans/` 与 `specs/` 历史执行记录
 - `legacy-prompts/` 兼容内容
 - examples、references、output templates、评测 fixtures 等语言专属辅助材料
-- 自动生成的 `skills-graph.md`、`skills-metadata-report.md` 和评测运行产物
-- 内部草稿、Agent 交接上下文和第三方许可文本
+- `docs/generated/` 下的关系图、metadata 报告和评测运行产物
+- `docs/archive/internal/` 下的内部草稿、Agent 交接上下文和第三方许可文本
 
 这些文件可以保留单语或自身已包含的双语内容，但不得成为当前用户文档的唯一正式入口。
 

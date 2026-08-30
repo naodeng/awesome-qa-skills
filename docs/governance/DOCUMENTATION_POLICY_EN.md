@@ -8,8 +8,8 @@ Chinese is the project's default language. The root `README.md` is the default G
 
 ## Documents That Require Bilingual Mirrors
 
-- Root README files, contribution guides, FAQs, and complete Skill indexes
-- The active capability-evolution roadmap
+- Root README files, contribution guides, FAQs, and complete Skill indexes under `docs/catalog/`
+- The active capability-evolution roadmap and documentation policy under `docs/governance/`
 - Current designs, implementation plans, and audit reports
 - Directory, authoring, style, and external-snapshot governance under `skills/`
 - Language entry README files under `skills/zh` and `skills/en`
@@ -25,8 +25,8 @@ Internal Skill documents do not use `_EN` names or per-file language switches. T
 - Completed historical plans and specs created before 2026-08-29
 - Compatibility content under `legacy-prompts/`
 - Language-specific examples, references, output templates, and eval fixtures
-- Generated `skills-graph.md`, `skills-metadata-report.md`, and evaluation outputs
-- Internal drafts, agent handoff context, and third-party license text
+- Relationship graphs, metadata reports, and evaluation outputs under `docs/generated/`
+- Internal drafts, agent handoff context, and third-party license text under `docs/archive/internal/`
 
 These files may remain single-language or keep their existing bilingual content, but they must not be the only official entry for current user documentation.
 

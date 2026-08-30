@@ -18,6 +18,10 @@ skills/{zh|en}/{testing-types|testing-workflows|skill-engineering}/<skill-name>/
 
 The repository currently has 78 Skills per language (10 workflows, 65 testing types, and 3 Skill Engineering packages), or 156 bilingual directories.
 
+## R&D and Testing Lifecycle Breakdown
+
+The four capability stages are further organized by the lifecycle phases they primarily support: discovery and requirements analysis, solution design and test strategy, development and continuous integration, test design and preparation, test execution and analysis, release and delivery, production operations and incident response, and retrospective and continuous improvement. Each Skill has one primary placement; cross-phase orchestration is provided by workflows and `discover-testing`.
+
 ## Capability map
 
 | Stage | Question answered | Current anchors | Next focus |
@@ -25,7 +29,7 @@ The repository currently has 78 Skills per language (10 workflows, 65 testing ty
 | Core QA Skills | How do we understand, design, execute, and report foundational testing? | requirements, strategy, cases, functional, API, security, reporting | Preserve a complete foundation without duplicate packages |
 | Engineering QA Skills | How do we shift quality left, assess changes, and improve diagnostic and performance decisions? | requirements-analysis, code-review, automation-testing, performance-testing | Shift Left, change intelligence, execution intelligence, performance engineering |
 | Production Quality Skills | How do we make and close quality decisions from release and production evidence? | release-testing-workflow, test-reporting | Production verification, incidents, and observability |
-| AI Native QA Skills | How do we test AI features, LLMs, prompts, agents, and safety boundaries? | No Testing-for-AI package yet | Eval, prompts, agents/tools, and security |
+| AI Native QA Skills | How do we test AI features, LLMs, prompts, agents, and safety boundaries? | Testing-for-AI specialist Skills are available | Eval, prompts, agents/tools, and security |
 
 `ai-assisted-testing` remains cross-cutting **AI for QA**. It is not a substitute for AI Native QA, which is Testing for AI. `skill-engineering` is a horizontal governance layer, not a fifth capability stage.
 

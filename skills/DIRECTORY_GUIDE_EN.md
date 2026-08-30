@@ -22,7 +22,7 @@ Core QA Skills → Engineering QA Skills → Production Quality Skills → AI Na
 - `testing-types` contains concrete quality deliverables.
 - `testing-workflows` owns cross-phase orchestration, cadence, gates, and handoffs.
 - `skill-engineering` owns Skill authoring and repository governance.
-- Before creating a directory, inspect the [evolution roadmap](../docs/QA_SKILLS_EVOLUTION_ROADMAP_EN.md). Add a Skill only when its input, primary output, and routing triggers are independently bounded.
+- Before creating a directory, inspect the [evolution roadmap](../docs/governance/QA_SKILLS_EVOLUTION_ROADMAP_EN.md). Add a Skill only when its input, primary output, and routing triggers are independently bounded.
 
 ## Per-Skill Layout
 

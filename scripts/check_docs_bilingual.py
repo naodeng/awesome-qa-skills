@@ -6,15 +6,22 @@ from __future__ import annotations
 import argparse
 import re
 from pathlib import Path
+from urllib.parse import unquote
 
 
 PROJECT_PAIRS = (
     ("README.md", "README_EN.md"),
     ("CONTRIBUTING.md", "CONTRIBUTING_EN.md"),
     ("FAQ.md", "FAQ_EN.md"),
-    ("skills-index.md", "skills-index_EN.md"),
-    ("docs/QA_SKILLS_EVOLUTION_ROADMAP.md", "docs/QA_SKILLS_EVOLUTION_ROADMAP_EN.md"),
-    ("docs/DOCUMENTATION_POLICY.md", "docs/DOCUMENTATION_POLICY_EN.md"),
+    ("docs/catalog/skills-index.md", "docs/catalog/skills-index_EN.md"),
+    (
+        "docs/governance/QA_SKILLS_EVOLUTION_ROADMAP.md",
+        "docs/governance/QA_SKILLS_EVOLUTION_ROADMAP_EN.md",
+    ),
+    (
+        "docs/governance/DOCUMENTATION_POLICY.md",
+        "docs/governance/DOCUMENTATION_POLICY_EN.md",
+    ),
     ("docs/reviews/2026-08-29-new-skills-audit.md", "docs/reviews/2026-08-29-new-skills-audit_EN.md"),
     (
         "docs/superpowers/specs/2026-08-29-four-stage-qa-skills-evolution-design.md",
@@ -32,6 +39,14 @@ PROJECT_PAIRS = (
         "docs/superpowers/plans/2026-08-29-bilingual-lifecycle-navigation.md",
         "docs/superpowers/plans/2026-08-29-bilingual-lifecycle-navigation_EN.md",
     ),
+    (
+        "docs/superpowers/specs/2026-08-29-project-structure-and-bilingual-docs-design.md",
+        "docs/superpowers/specs/2026-08-29-project-structure-and-bilingual-docs-design_EN.md",
+    ),
+    (
+        "docs/superpowers/plans/2026-08-29-project-structure-and-bilingual-docs.md",
+        "docs/superpowers/plans/2026-08-29-project-structure-and-bilingual-docs_EN.md",
+    ),
     ("skills/DIRECTORY_GUIDE.md", "skills/DIRECTORY_GUIDE_EN.md"),
     ("skills/EXTERNAL_SNAPSHOT_POLICY.md", "skills/EXTERNAL_SNAPSHOT_POLICY_EN.md"),
     ("skills/SKILL_AUTHORING.md", "skills/SKILL_AUTHORING_EN.md"),
@@ -48,6 +63,8 @@ MAINTAINED_NAMES = {
 }
 
 SKILL_MARKER = re.compile(r"<!--\s*data-skill:([a-z0-9-]+)\s*-->")
+MARKDOWN_LINK = re.compile(r"(?<!!)\[[^\]]*\]\(([^)]+)\)")
+FENCED_CODE = re.compile(r"```.*?```|~~~.*?~~~", re.DOTALL)
 
 
 def maintained_skill_markdown(root: Path, lang: str) -> set[Path]:
@@ -81,6 +98,23 @@ def check_project_pairs(root: Path) -> list[str]:
             findings.append(f"missing English switch link: {primary_rel}")
         if Path(primary_rel).name not in english.read_text(encoding="utf-8"):
             findings.append(f"missing Chinese switch link: {english_rel}")
+    return findings
+
+
+def check_relative_links(root: Path, paths: tuple[str, ...]) -> list[str]:
+    findings: list[str] = []
+    for rel in paths:
+        document = root / rel
+        if not document.is_file():
+            continue
+        text = FENCED_CODE.sub("", document.read_text(encoding="utf-8"))
+        for raw_target in MARKDOWN_LINK.findall(text):
+            target = raw_target.strip().strip("<>").split(maxsplit=1)[0]
+            if not target or target.startswith(("#", "/", "http://", "https://", "mailto:")):
+                continue
+            path_part = unquote(target.split("#", 1)[0].split("?", 1)[0])
+            if path_part and not (document.parent / path_part).resolve().exists():
+                findings.append(f"broken relative link in {rel}: {target}")
     return findings
 
 
@@ -121,7 +155,13 @@ def check_catalog(root: Path) -> list[str]:
 
 
 def validate(root: Path) -> list[str]:
-    return check_project_pairs(root) + check_skill_parity(root) + check_catalog(root)
+    project_paths = tuple(path for pair in PROJECT_PAIRS for path in pair)
+    return (
+        check_project_pairs(root)
+        + check_relative_links(root, project_paths)
+        + check_skill_parity(root)
+        + check_catalog(root)
+    )
 
 
 def main() -> int:

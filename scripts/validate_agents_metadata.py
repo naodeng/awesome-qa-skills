@@ -9,15 +9,12 @@ from typing import List
 
 
 ROOT = Path(__file__).resolve().parents[1]
+SECTIONS = ("testing-types", "testing-workflows", "skill-engineering")
 SKILL_DIRS = sorted(
     [
         p
-        for p in (
-            list((ROOT / "skills").glob("zh/testing-types/*"))
-            + list((ROOT / "skills").glob("zh/testing-workflows/*"))
-            + list((ROOT / "skills").glob("en/testing-types/*"))
-            + list((ROOT / "skills").glob("en/testing-workflows/*"))
-        )
+        for root in [ROOT / "skills" / lang / section for lang in ("zh", "en") for section in SECTIONS]
+        for p in root.glob("*")
         if p.is_dir() and not p.name.endswith("-workspace")
     ]
 )
@@ -144,7 +141,11 @@ def write_report(findings: List[Finding], report_path: Path) -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Validate Codex skills metadata files.")
-    parser.add_argument("--report", default="skills-metadata-report.md", help="Output report path")
+    parser.add_argument(
+        "--report",
+        default="docs/generated/skills-metadata-report.md",
+        help="Output report path",
+    )
     args = parser.parse_args()
 
     findings = validate()

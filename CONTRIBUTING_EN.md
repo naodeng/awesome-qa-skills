@@ -2,12 +2,6 @@
 
 # Contributing Guide
 
-[中文](CONTRIBUTING.md) | [English](#english)
-
----
-
-## English
-
 Thank you for your interest in contributing to AI Testing Assistant Skills! We welcome all forms of contributions.
 
 ### How to Contribute
