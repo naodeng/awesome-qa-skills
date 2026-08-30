@@ -27,6 +27,21 @@ A language-partitioned **AI testing skills library** (Agent Skills) for Codex, C
 
 Each skill directory is meant to be self-contained when copied out: `SKILL.md`, primary prompts, tool metadata, plus optional examples, templates, scripts, and eval cases.
 
+## Choose Skills by Category
+
+Start with the delivery or testing stage you are in, then install or invoke a Skill from that section. Use the routing workflow when you are unsure. The [complete Skills index](docs/catalog/skills-index_EN.md) remains available when you already know a name.
+
+| What are you trying to do? | Choose a category | Typical stages / capabilities | Entry point |
+| --- | --- | --- | --- |
+| Build a quality foundation across requirements, strategy, cases, execution, and reporting | Core QA Skills | Discovery, strategy, design, execution, defects, and reporting | [View Core QA Skills](#core-qa-skills--quality-foundation) |
+| Shift quality left, assess change, implement automation, or make performance decisions | Engineering QA Skills | Requirements shift left, development / CI, regression, performance, and continuous improvement | [View Engineering QA Skills](#engineering-qa-skills--quality-engineering) |
+| Make quality decisions from release and production evidence | Production Quality Skills | Release verification, incident response, trace, and metrics analysis | [View Production Quality Skills](#production-quality-skills--production-quality) |
+| Test AI features, LLMs, prompts, agents, and safety boundaries | AI Native QA Skills | AI requirements and risk, evaluation, tool use, and injection defense | [View AI Native QA Skills](#ai-native-qa-skills--ai-native-quality) |
+| Orchestrate stages, collaborate by role, or decide where to begin | Cross-phase workflows | Routing, daily / sprint / release workflows, quality perspectives, and synthesis | [View workflows](#cross-phase-workflows) |
+| You already know the Skill name | Complete index | All 78 capabilities and Chinese/English paths | [Open the complete Skills index](docs/catalog/skills-index_EN.md) |
+
+**Recommended path:** start with [`discover-testing`](skills/en/testing-workflows/discover-testing/) when uncertain, select the matching capability layer once the stage is clear, or go directly to the complete index when you know the name.
+
 ## Capability evolution map
 
 The repository uses stable directories for installation and capability stages for navigation and evolution:

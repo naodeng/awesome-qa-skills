@@ -27,6 +27,21 @@
 
 每个 skill 目录复制出去后应自洽：含 `SKILL.md`、主提示词、工具元数据，以及可选的示例、模板、脚本与评测用例。
 
+## 按分类选择 Skill
+
+先按你所在的研发 / 测试阶段选择分类，再从对应小节安装或调用 Skill；不确定时使用路由工作流。完整名称清单仍在[全量技能索引](docs/catalog/skills-index.md)。
+
+| 我现在要解决什么 | 选择分类 | 典型阶段 / 能力 | 入口 |
+| --- | --- | --- | --- |
+| 建立需求、策略、用例、执行与报告的基础质量闭环 | Core QA Skills | 需求发现、策略、设计、执行、缺陷与报告 | [查看基础质量能力](#core-qa-skills--基础质量能力) |
+| 前移质量、评估变更、实现自动化或性能工程 | Engineering QA Skills | 需求左移、开发 / CI、回归、性能、持续改进 | [查看质量工程能力](#engineering-qa-skills--质量工程能力) |
+| 基于发布与生产证据作质量决策 | Production Quality Skills | 发布验证、事故响应、Trace 与指标分析 | [查看生产质量能力](#production-quality-skills--生产质量能力) |
+| 测试 AI 功能、LLM、Prompt、Agent 与安全边界 | AI Native QA Skills | AI 需求与风险、评测、工具调用与注入防护 | [查看 AI 原生质量能力](#ai-native-qa-skills--ai-原生质量能力) |
+| 串联多个阶段、按角色协作或不确定从哪里开始 | 跨阶段工作流 | 路由、日常 / 迭代 / 发布、质量视角与汇总 | [查看工作流](#跨阶段工作流) |
+| 已经知道要找的 Skill 名称 | 全量索引 | 全部 78 项能力与中英文路径 | [打开全量技能索引](docs/catalog/skills-index.md) |
+
+**推荐路径：** 不确定选哪个，先调用 [`discover-testing`](skills/zh/testing-workflows/discover-testing/)；确定阶段后，再进入对应能力层；只需具体名称时，直接使用全量索引。
+
 ## 能力演进地图
 
 仓库以稳定目录提供安装，以能力阶段帮助选择和演进：
