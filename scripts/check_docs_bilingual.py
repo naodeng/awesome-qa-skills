@@ -25,6 +25,10 @@ PROJECT_PAIRS = (
     ),
     ("docs/reviews/2026-08-29-new-skills-audit.md", "docs/reviews/2026-08-29-new-skills-audit_EN.md"),
     (
+        "docs/reviews/2026-08-30-all-testing-skills-audit.md",
+        "docs/reviews/2026-08-30-all-testing-skills-audit_EN.md",
+    ),
+    (
         "docs/superpowers/specs/2026-08-29-four-stage-qa-skills-evolution-design.md",
         "docs/superpowers/specs/2026-08-29-four-stage-qa-skills-evolution-design_EN.md",
     ),
