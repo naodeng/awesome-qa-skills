@@ -1,0 +1,20 @@
+id: strong-behavior
+title: AI 生成单元测试审查：识别真实回归保护
+input:
+  prompt: |
+    使用 ai-generated-test-review 审查单元测试：
+    it('拒绝重复订单且不重复扣款', async () => {
+      await submitOrder(order);
+      const duplicate = await submitOrder(order);
+      expect(duplicate.code).toBe('ORDER_ALREADY_EXISTS');
+      expect(await payments.countFor(order.id)).toBe(1);
+    });
+    需求：同一订单重复提交必须返回重复错误，且只能扣款一次。
+expect:
+  must_contain: ["STRONG", "重复", "扣款", "最小"]
+  must_not_contain: ["FAKE", "TODO", "我无法"]
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "将这条测试判为 STRONG；依据是它独立验证重复错误契约和只扣款一次的业务副作用，并说明移除幂等保护会使该测试失败。"

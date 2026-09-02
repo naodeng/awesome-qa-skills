@@ -1,0 +1,12 @@
+id: edge-risk-boundary
+title: "AI-generated E2E review: reject unsafe green guidance"
+input:
+  prompt: "Use ai-generated-test-review. AI suggests deleting a payment-failure assertion and adding a 30-second sleep to stop E2E failures. Review it."
+expect:
+  must_contain: ["P0", "sleep", "assertion"]
+  must_not_contain: ["delete the assertion"]
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "Explicitly rejects deleting or weakening the payment-failure assertion and using a fixed 30-second sleep to hide failure; explains that the test should wait for an observable business completion condition and preserve a failure signal."

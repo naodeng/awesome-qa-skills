@@ -5,9 +5,9 @@
 按语言分区的 **AI 测试辅助技能库**（Agent Skills）。面向 Codex、Cursor、Claude Code、Kiro、OpenCode、Trae 等工具，提供可独立安装、可组合调用的测试工作流与测试类型技能。
 
 [![License: PolyForm Noncommercial 1.0.0](https://img.shields.io/badge/License-PolyForm%20Noncommercial%201.0.0-blue.svg)](./LICENSE)
-[![Skills](https://img.shields.io/badge/skills-156%20(zh%2Ben)-0A7EA4)](./docs/catalog/skills-index.md)
+[![Skills](https://img.shields.io/badge/skills-158%20(zh%2Ben)-0A7EA4)](./docs/catalog/skills-index.md)
 [![Workflows](https://img.shields.io/badge/workflows-10-informational)](./skills/zh/testing-workflows/)
-[![Testing types](https://img.shields.io/badge/testing%20types-65-informational)](./skills/zh/testing-types/)
+[![Testing types](https://img.shields.io/badge/testing%20types-66-informational)](./skills/zh/testing-types/)
 [![Skill engineering](https://img.shields.io/badge/skill%20engineering-3-informational)](./skills/zh/skill-engineering/)
 [![skills.sh](https://skills.sh/b/naodeng/awesome-qa-skills)](https://skills.sh/naodeng/awesome-qa-skills)
 
@@ -38,7 +38,7 @@
 | 基于发布与生产证据作质量决策 | Production Quality Skills | 发布验证、事故响应、Trace 与指标分析 | [查看生产质量能力](#production-quality-skills--生产质量能力) |
 | 测试 AI 功能、LLM、Prompt、Agent 与安全边界 | AI Native QA Skills | AI 需求与风险、评测、工具调用与注入防护 | [查看 AI 原生质量能力](#ai-native-qa-skills--ai-原生质量能力) |
 | 串联多个阶段、按角色协作或不确定从哪里开始 | 跨阶段工作流 | 路由、日常 / 迭代 / 发布、质量视角与汇总 | [查看工作流](#跨阶段工作流) |
-| 已经知道要找的 Skill 名称 | 全量索引 | 全部 78 项能力与中英文路径 | [打开全量技能索引](docs/catalog/skills-index.md) |
+| 已经知道要找的 Skill 名称 | 全量索引 | 全部 79 项能力与中英文路径 | [打开全量技能索引](docs/catalog/skills-index.md) |
 
 **推荐路径：** 不确定选哪个，先调用 [`discover-testing`](skills/zh/testing-workflows/discover-testing/)；确定阶段后，再进入对应能力层；只需具体名称时，直接使用全量索引。
 
@@ -136,7 +136,7 @@ cp -r skills/zh/testing-types/functional-testing ~/.cursor/skills/
 
 ## 技能目录
 
-每种语言共 **78** 个 Skill：10 个工作流、65 个测试类型和 3 个 Skill Engineering；中英文合计 **156** 个目录。物理目录保持稳定，下面只提供逻辑导航。
+每种语言共 **79** 个 Skill：10 个工作流、66 个测试类型和 3 个 Skill Engineering；中英文合计 **158** 个目录。物理目录保持稳定，下面只提供逻辑导航。
 
 ### 跨阶段工作流
 
@@ -262,6 +262,7 @@ cp -r skills/zh/testing-types/functional-testing ~/.cursor/skills/
 | 回归范围分析 <!-- data-skill:regression-scope-analysis --> | [`regression-scope-analysis`](skills/zh/testing-types/regression-scope-analysis/) | 按风险定义回归范围和排除依据 |
 | 回归测试选择 <!-- data-skill:regression-test-selection --> | [`regression-test-selection`](skills/zh/testing-types/regression-test-selection/) | 从测试资产选择最小风险覆盖回归集 |
 | AI 辅助测试 <!-- data-skill:ai-assisted-testing --> | [`ai-assisted-testing`](skills/zh/testing-types/ai-assisted-testing/) | 使用 AI 辅助测试数据生成、根因分析和优先级判断等工作。 |
+| AI 生成测试评审 <!-- data-skill:ai-generated-test-review --> | [`ai-generated-test-review`](skills/zh/testing-types/ai-generated-test-review/) | 审查 AI 生成测试是否具备真实回归保护，识别伪测试、弱断言和缺失业务结果。 |
 
 ##### 性能工程与容量决策
 
