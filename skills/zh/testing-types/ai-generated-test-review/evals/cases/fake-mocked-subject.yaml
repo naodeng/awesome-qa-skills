@@ -1,0 +1,19 @@
+id: fake-mocked-subject
+title: AI 生成单元测试审查：识别被 mock 的被测对象
+input:
+  prompt: |
+    使用 ai-generated-test-review 审查：
+    const orderService = { create: vi.fn().mockResolvedValue({ id: '1' }) };
+    it('creates an order', async () => {
+      await orderService.create(input);
+      expect(orderService.create).toHaveBeenCalledWith(input);
+    });
+    被测对象本应是 orderService.create 的真实重复订单校验逻辑。
+expect:
+  must_contain: ["FAKE", "mock", "最小", "缺失断言"]
+  must_not_contain: ["STRONG", "TODO", "我无法"]
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "将这条测试判为 FAKE；明确指出被测的 orderService.create 被 mock 替代，只验证 mock 调用，真实重复订单校验可被破坏而该测试仍会通过。"

@@ -4,7 +4,7 @@
 
 This is the English Skill root and mirrors `skills/zh` with identical Skill names and physical structure.
 
-Each language provides **78** Skills: 10 workflows + 65 testing types + 3 Skill Engineering. See the [Chinese README](../../README.md) and [English README](../../README_EN.md).
+Each language provides **79** Skills: 10 workflows + 66 testing types + 3 Skill Engineering. See the [Chinese README](../../README.md) and [English README](../../README_EN.md).
 
 ## Cross-phase workflows
 
@@ -126,6 +126,7 @@ Each language provides **78** Skills: 10 workflows + 65 testing types + 3 Skill 
 | Regression Scope Analysis | [`regression-scope-analysis`](testing-types/regression-scope-analysis/) |
 | Regression Test Selection | [`regression-test-selection`](testing-types/regression-test-selection/) |
 | AI-Assisted Testing | [`ai-assisted-testing`](testing-types/ai-assisted-testing/) |
+| AI-Generated Test Review | [`ai-generated-test-review`](testing-types/ai-generated-test-review/) |
 
 #### Performance Engineering and Capacity Decisions
 

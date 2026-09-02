@@ -4,7 +4,7 @@
 
 本目录是中文主语言 Skill 根目录，与 `skills/en` 使用相同 Skill 名和物理结构。
 
-每种语言共 **78** 个 Skill：10 workflows + 65 testing types + 3 Skill Engineering。完整项目说明见 [中文 README](../../README.md) 和 [English README](../../README_EN.md)。
+每种语言共 **79** 个 Skill：10 workflows + 66 testing types + 3 Skill Engineering。完整项目说明见 [中文 README](../../README.md) 和 [English README](../../README_EN.md)。
 
 ## 跨阶段工作流
 
@@ -126,6 +126,7 @@
 | 回归范围分析 | [`regression-scope-analysis`](testing-types/regression-scope-analysis/) |
 | 回归测试选择 | [`regression-test-selection`](testing-types/regression-test-selection/) |
 | AI 辅助测试（中文版） | [`ai-assisted-testing`](testing-types/ai-assisted-testing/) |
+| AI 生成测试评审 | [`ai-generated-test-review`](testing-types/ai-generated-test-review/) |
 
 #### 性能工程与容量决策
 

@@ -5,9 +5,9 @@
 A language-partitioned **AI testing skills library** (Agent Skills) for Codex, Cursor, Claude Code, Kiro, OpenCode, Trae, and similar tools. It ships independently installable, composable skills for testing workflows and testing types.
 
 [![License: PolyForm Noncommercial 1.0.0](https://img.shields.io/badge/License-PolyForm%20Noncommercial%201.0.0-blue.svg)](./LICENSE)
-[![Skills](https://img.shields.io/badge/skills-156%20(zh%2Ben)-0A7EA4)](./docs/catalog/skills-index.md)
+[![Skills](https://img.shields.io/badge/skills-158%20(zh%2Ben)-0A7EA4)](./docs/catalog/skills-index.md)
 [![Workflows](https://img.shields.io/badge/workflows-10-informational)](./skills/en/testing-workflows/)
-[![Testing types](https://img.shields.io/badge/testing%20types-65-informational)](./skills/en/testing-types/)
+[![Testing types](https://img.shields.io/badge/testing%20types-66-informational)](./skills/en/testing-types/)
 [![Skill engineering](https://img.shields.io/badge/skill%20engineering-3-informational)](./skills/en/skill-engineering/)
 [![skills.sh](https://skills.sh/b/naodeng/awesome-qa-skills)](https://skills.sh/naodeng/awesome-qa-skills)
 
@@ -38,7 +38,7 @@ Start with the delivery or testing stage you are in, then install or invoke a Sk
 | Make quality decisions from release and production evidence | Production Quality Skills | Release verification, incident response, trace, and metrics analysis | [View Production Quality Skills](#production-quality-skills--production-quality) |
 | Test AI features, LLMs, prompts, agents, and safety boundaries | AI Native QA Skills | AI requirements and risk, evaluation, tool use, and injection defense | [View AI Native QA Skills](#ai-native-qa-skills--ai-native-quality) |
 | Orchestrate stages, collaborate by role, or decide where to begin | Cross-phase workflows | Routing, daily / sprint / release workflows, quality perspectives, and synthesis | [View workflows](#cross-phase-workflows) |
-| You already know the Skill name | Complete index | All 78 capabilities and Chinese/English paths | [Open the complete Skills index](docs/catalog/skills-index_EN.md) |
+| You already know the Skill name | Complete index | All 79 capabilities and Chinese/English paths | [Open the complete Skills index](docs/catalog/skills-index_EN.md) |
 
 **Recommended path:** start with [`discover-testing`](skills/en/testing-workflows/discover-testing/) when uncertain, select the matching capability layer once the stage is clear, or go directly to the complete index when you know the name.
 
@@ -136,7 +136,7 @@ I need a pre-release regression — which skills should I use?
 
 ## Skill catalog
 
-Each language provides **78** Skills: 10 workflows, 65 testing types, and 3 Skill Engineering packages; **156** bilingual directories in total. Physical directories remain stable; the catalog below is logical navigation only.
+Each language provides **79** Skills: 10 workflows, 66 testing types, and 3 Skill Engineering packages; **158** bilingual directories in total. Physical directories remain stable; the catalog below is logical navigation only.
 
 ### Cross-phase workflows
 
@@ -262,6 +262,7 @@ Each testing-type Skill appears once; routers and workflows cover cross-phase co
 | Regression Scope Analysis <!-- data-skill:regression-scope-analysis --> | [`regression-scope-analysis`](skills/en/testing-types/regression-scope-analysis/) | Define risk-based regression scope and exclusions |
 | Regression Test Selection <!-- data-skill:regression-test-selection --> | [`regression-test-selection`](skills/en/testing-types/regression-test-selection/) | Select a minimum risk-covering regression set |
 | AI-Assisted Testing <!-- data-skill:ai-assisted-testing --> | [`ai-assisted-testing`](skills/en/testing-types/ai-assisted-testing/) | Use this skill when you need AI-assisted testing workflows such as test data generation, root-cause analysis, and prioritization; triggers include AI-assisted… |
+| AI-Generated Test Review <!-- data-skill:ai-generated-test-review --> | [`ai-generated-test-review`](skills/en/testing-types/ai-generated-test-review/) | Review AI-generated tests for real regression protection, fake tests, weak assertions, and missing business outcomes. |
 
 ##### Performance Engineering and Capacity Decisions
 

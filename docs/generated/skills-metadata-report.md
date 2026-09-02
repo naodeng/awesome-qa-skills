@@ -1,7 +1,7 @@
 # Skills Metadata Validation Report
 
 ## Summary
-- Total skills scanned: 156
+- Total skills scanned: 158
 - Total findings: 0
 - High: 0
 - Medium: 0

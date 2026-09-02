@@ -1,0 +1,12 @@
+id: edge-incomplete-input
+title: "AI-generated test review: insufficient evidence"
+input:
+  prompt: "Use ai-generated-test-review to review the title: login succeeds. No test code, requirement, or implementation is supplied."
+expect:
+  must_contain: ["open", "evidence"]
+  must_not_contain: ["TODO", "I cannot"]
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all: ["review", "open"]

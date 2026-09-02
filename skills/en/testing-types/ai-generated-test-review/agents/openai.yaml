@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "ai-generated-test-review"
+interface:
+  display_name: "AI-Generated Test Review"
+  short_description: "Review AI-generated tests for false confidence, weak assertions, and missing risk coverage."
+  default_prompt: "Use the ai-generated-test-review skill to review these AI-generated tests and prioritize actionable findings."
+policy:
+  allow_implicit_invocation: true

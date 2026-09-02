@@ -2,7 +2,7 @@
 
 # Skills 全量索引
 
-每种语言包含 10 个工作流、65 个测试类型和 3 个 Skill Engineering，共 78 个；中英文合计 156 个目录。以下是逻辑导航，实际目录不变。
+每种语言包含 10 个工作流、66 个测试类型和 3 个 Skill Engineering，共 79 个；中英文合计 158 个目录。以下是逻辑导航，实际目录不变。
 
 ## 跨阶段工作流
 
@@ -124,6 +124,7 @@
 | `regression-scope-analysis` | [中文](../../skills/zh/testing-types/regression-scope-analysis/) | [English](../../skills/en/testing-types/regression-scope-analysis/) |
 | `regression-test-selection` | [中文](../../skills/zh/testing-types/regression-test-selection/) | [English](../../skills/en/testing-types/regression-test-selection/) |
 | `ai-assisted-testing` | [中文](../../skills/zh/testing-types/ai-assisted-testing/) | [English](../../skills/en/testing-types/ai-assisted-testing/) |
+| `ai-generated-test-review` | [中文](../../skills/zh/testing-types/ai-generated-test-review/) | [English](../../skills/en/testing-types/ai-generated-test-review/) |
 
 #### 性能工程与容量决策
 

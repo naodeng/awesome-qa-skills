@@ -1,0 +1,15 @@
+id: functional-route
+title: "Functional-test routing: review discovered type only"
+input:
+  prompt: |
+    Use ai-generated-test-review. The repository scope contains only this functional test; there are no unit, API, or E2E tests:
+    A buyer submits an order and the page navigates to /orders/123.
+    Review its regression protection. Requirement: a successful order shows an order number, persists the order, and decrements inventory.
+expect:
+  must_contain: ["functional test", "WEAK", "business"]
+  must_not_contain: ["TODO", "I cannot"]
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "Reviews only the functional-test scope rather than making API, E2E, or unit rules mandatory; classifies URL-only verification as WEAK or FAKE and identifies missing order number, persisted-order, or inventory-decrement business postconditions."
