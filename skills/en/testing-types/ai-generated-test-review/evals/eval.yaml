@@ -1,0 +1,18 @@
+schema_version: v1alpha1
+environment:
+  type: none
+skills:
+  - source: local_path
+    path: .
+engine:
+  name: claude_code
+cases:
+  files:
+    - evals/cases/basic-success.yaml
+    - evals/cases/edge-incomplete-input.yaml
+    - evals/cases/edge-risk-boundary.yaml
+    - evals/cases/strong-behavior.yaml
+    - evals/cases/fake-mocked-subject.yaml
+    - evals/cases/functional-route.yaml
+report:
+  formats: [json]

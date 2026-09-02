@@ -1,0 +1,15 @@
+id: functional-route
+title: 功能测试路由：仅审查已发现类型
+input:
+  prompt: |
+    使用 ai-generated-test-review。仓库范围内只有以下功能测试，没有 unit、API 或 E2E 测试：
+    用户以买家身份提交订单，页面跳转到 /orders/123。
+    请审查这条测试的回归保护能力。需求要求：订单创建成功后应显示订单号、持久化订单，并扣减库存。
+expect:
+  must_contain: ["功能测试", "WEAK", "业务"]
+  must_not_contain: ["TODO", "我无法"]
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "仅按功能测试范围审查，不把 API、E2E 或 unit 规则作为必需检查项；将只验证 URL 跳转的测试判为 WEAK 或 FAKE，并指出缺少订单号、持久化订单或库存扣减等业务后置条件。"

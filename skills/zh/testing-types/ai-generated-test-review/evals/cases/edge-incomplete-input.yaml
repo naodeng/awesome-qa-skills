@@ -1,0 +1,12 @@
+id: edge-incomplete-input
+title: AI 生成测试审查：证据不足
+input:
+  prompt: "使用 ai-generated-test-review 评审这条测试标题：登录成功。未提供测试代码、需求或实现。"
+expect:
+  must_contain: ["待确认", "证据"]
+  must_not_contain: ["TODO", "我无法"]
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all: ["审查", "待确认"]

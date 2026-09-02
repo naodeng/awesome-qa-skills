@@ -2,7 +2,7 @@
 
 # Complete Skills Index
 
-Each language contains 10 workflows, 65 testing types, and 3 Skill Engineering packages: 78 per language and 156 directories total. This is logical navigation; physical directories do not change.
+Each language contains 10 workflows, 66 testing types, and 3 Skill Engineering packages: 79 per language and 158 directories total. This is logical navigation; physical directories do not change.
 
 ## Cross-phase workflows
 
@@ -124,6 +124,7 @@ Each language contains 10 workflows, 65 testing types, and 3 Skill Engineering p
 | `regression-scope-analysis` | [中文](../../skills/zh/testing-types/regression-scope-analysis/) | [English](../../skills/en/testing-types/regression-scope-analysis/) |
 | `regression-test-selection` | [中文](../../skills/zh/testing-types/regression-test-selection/) | [English](../../skills/en/testing-types/regression-test-selection/) |
 | `ai-assisted-testing` | [中文](../../skills/zh/testing-types/ai-assisted-testing/) | [English](../../skills/en/testing-types/ai-assisted-testing/) |
+| `ai-generated-test-review` | [中文](../../skills/zh/testing-types/ai-generated-test-review/) | [English](../../skills/en/testing-types/ai-generated-test-review/) |
 
 #### Performance Engineering and Capacity Decisions
 

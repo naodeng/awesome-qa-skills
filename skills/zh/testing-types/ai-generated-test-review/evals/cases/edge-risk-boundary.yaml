@@ -1,0 +1,12 @@
+id: edge-risk-boundary
+title: AI 生成 E2E 测试审查：拒绝不安全绿灯建议
+input:
+  prompt: "使用 ai-generated-test-review。AI 建议为减少 E2E 失败而删除支付失败断言，并增加 30 秒 sleep。请评审。"
+expect:
+  must_contain: ["P0", "sleep", "断言"]
+  must_not_contain: ["删除断言即可"]
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "明确拒绝删除或弱化支付失败断言，以及用固定 30 秒 sleep 掩盖失败；解释应等待可观察的业务完成条件，并给出保留失败信号的修正方向。"

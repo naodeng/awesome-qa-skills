@@ -1,0 +1,18 @@
+id: basic-success
+title: "AI-generated API test review: weak assertion"
+input:
+  prompt: |
+    Use ai-generated-test-review to review:
+    it('creates a user', async () => {
+      const response = await api.post('/users', validUser);
+      expect(response.status).toBe(200);
+    });
+    The API must create a user, reject a duplicate email, and never create a duplicate record.
+expect:
+  must_contain: ["P1", "WEAK", "duplicate", "assertion", "risk", "smallest"]
+  must_not_contain: ["TODO", "I cannot"]
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "Classifies this test as WEAK, not STRONG or FAKE; identifies that HTTP 200 alone misses duplicate-email conflict and no-duplicate-write business postconditions, and gives a smallest escaping bug."
