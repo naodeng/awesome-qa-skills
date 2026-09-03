@@ -1,112 +1,62 @@
-测试用例输出
-==========
+Test Case Output
+================
 
-1. 用例标题: TC-001 ## 核心规则
-优先级: P0
-类型: 功能/接口
-前置条件: 活动配置已生效，测试账号和库存数据已准备
-测试步骤: 1) 进入活动页 2) 执行与“## 核心规则”相关操作 3) 观察页面与接口返回
-测试数据: 测试账号、活动ID、礼品ID、资格条件参数
-预期结果: 业务结果与规则一致，状态更新正确，无越权和异常漏处理
-实际结果: 
-状态: 
-备注: 
+1. Test case title: TC-001 - Eligible user can claim a gift
+Priority: P0
+Trace: Core rule: eligible PLUS member may claim one gift per campaign.
+Type: positive
+Preconditions: The campaign is active; an eligible test account and gift inventory are available.
+Test steps: 1) Open the campaign page. 2) Select Claim. 3) Check the page and API response.
+Test data: Eligible test account, campaign ID, gift ID, eligibility parameters.
+Expected result: The claim succeeds, inventory is deducted once, and the order state is updated.
+Actual result:
+Status:
+Notes:
 
-2. 用例标题: TC-002 - 用户必须为 PLUS 会员，且近 30 天消费金额 >= 199。
-优先级: P0
-类型: 功能/接口
-前置条件: 活动配置已生效，测试账号和库存数据已准备
-测试步骤: 1) 进入活动页 2) 执行与“- 用户必须为 PLUS 会员，且近 30 天消费金额 >= 199。”相关操作 3) 观察页面与接口返回
-测试数据: 测试账号、活动ID、礼品ID、资格条件参数
-预期结果: 业务结果与规则一致，状态更新正确，无越权和异常漏处理
-实际结果: 
-状态: 
-备注: 
+2. Test case title: TC-002 - Ineligible user is blocked
+Priority: P0
+Trace: Exception rule: ineligible users must be prevented from ordering.
+Type: negative
+Preconditions: The campaign is active; an ineligible test account is available.
+Test steps: 1) Open the campaign page. 2) Select Claim.
+Test data: Ineligible test account, campaign ID, gift ID.
+Expected result: The claim is blocked, no inventory is deducted, and the UI explains the eligibility failure.
+Actual result:
+Status:
+Notes:
 
-3. 用例标题: TC-003 - 库存扣减应当与订单状态一致。
-优先级: P1
-类型: 功能/接口
-前置条件: 活动配置已生效，测试账号和库存数据已准备
-测试步骤: 1) 进入活动页 2) 执行与“- 库存扣减应当与订单状态一致。”相关操作 3) 观察页面与接口返回
-测试数据: 测试账号、活动ID、礼品ID、资格条件参数
-预期结果: 业务结果与规则一致，状态更新正确，无越权和异常漏处理
-实际结果: 
-状态: 
-备注: 
+3. Test case title: TC-003 - Failed payment restores inventory
+Priority: P0
+Trace: Exception rule: reserved inventory must be restored after failed payment.
+Type: regression
+Preconditions: An eligible account has a pending reservation.
+Test steps: 1) Submit a claim. 2) Simulate payment failure. 3) Query inventory and order status.
+Test data: Eligible test account, campaign ID, gift ID, failed-payment event.
+Expected result: The order is marked failed and reserved inventory is restored exactly once.
+Actual result:
+Status:
+Notes:
 
-4. 用例标题: TC-004 ## 异常规则
-优先级: P1
-类型: 功能/接口
-前置条件: 活动配置已生效，测试账号和库存数据已准备
-测试步骤: 1) 进入活动页 2) 执行与“## 异常规则”相关操作 3) 观察页面与接口返回
-测试数据: 测试账号、活动ID、礼品ID、资格条件参数
-预期结果: 业务结果与规则一致，状态更新正确，无越权和异常漏处理
-实际结果: 
-状态: 
-备注: 
+4. Test case title: TC-004 - Duplicate request is idempotent
+Priority: P0
+Trace: Core rule: inventory deduction must be idempotent.
+Type: regression
+Preconditions: An eligible account and inventory are available.
+Test steps: Send the same claim request twice using one idempotency key.
+Test data: Eligible test account, campaign ID, gift ID, idempotency key.
+Expected result: Only one claim and one inventory deduction are created.
+Actual result:
+Status:
+Notes:
 
-5. 用例标题: TC-005 - 支付失败时，已预扣礼品库存必须回滚。
-优先级: P1
-类型: 功能/接口
-前置条件: 活动配置已生效，测试账号和库存数据已准备
-测试步骤: 1) 进入活动页 2) 执行与“- 支付失败时，已预扣礼品库存必须回滚。”相关操作 3) 观察页面与接口返回
-测试数据: 测试账号、活动ID、礼品ID、资格条件参数
-预期结果: 业务结果与规则一致，状态更新正确，无越权和异常漏处理
-实际结果: 
-状态: 
-备注: 
-
-6. 用例标题: TC-006 - 资格接口 p95 响应时间 < 300ms。
-优先级: P1
-类型: 功能/接口
-前置条件: 活动配置已生效，测试账号和库存数据已准备
-测试步骤: 1) 进入活动页 2) 执行与“- 资格接口 p95 响应时间 < 300ms。”相关操作 3) 观察页面与接口返回
-测试数据: 测试账号、活动ID、礼品ID、资格条件参数
-预期结果: 业务结果与规则一致，状态更新正确，无越权和异常漏处理
-实际结果: 
-状态: 
-备注: 
-
-7. 用例标题: TC-007 - 资格规则在缓存延迟下可能出现误判。
-优先级: P2
-类型: 功能/接口
-前置条件: 活动配置已生效，测试账号和库存数据已准备
-测试步骤: 1) 进入活动页 2) 执行与“- 资格规则在缓存延迟下可能出现误判。”相关操作 3) 观察页面与接口返回
-测试数据: 测试账号、活动ID、礼品ID、资格条件参数
-预期结果: 业务结果与规则一致，状态更新正确，无越权和异常漏处理
-实际结果: 
-状态: 
-备注: 
-
-8. 用例标题: TC-008 - 库存和订单状态可能出现短暂不一致。
-优先级: P2
-类型: 功能/接口
-前置条件: 活动配置已生效，测试账号和库存数据已准备
-测试步骤: 1) 进入活动页 2) 执行与“- 库存和订单状态可能出现短暂不一致。”相关操作 3) 观察页面与接口返回
-测试数据: 测试账号、活动ID、礼品ID、资格条件参数
-预期结果: 业务结果与规则一致，状态更新正确，无越权和异常漏处理
-实际结果: 
-状态: 
-备注: 
-
-9. 用例标题: TC-009 - 多设备登录是否共享限领规则。
-优先级: P2
-类型: 功能/接口
-前置条件: 活动配置已生效，测试账号和库存数据已准备
-测试步骤: 1) 进入活动页 2) 执行与“- 多设备登录是否共享限领规则。”相关操作 3) 观察页面与接口返回
-测试数据: 测试账号、活动ID、礼品ID、资格条件参数
-预期结果: 业务结果与规则一致，状态更新正确，无越权和异常漏处理
-实际结果: 
-状态: 
-备注: 
-
-10. 用例标题: TC-010 - 优先验证资格校验和库存幂等。
-优先级: P2
-类型: 功能/接口
-前置条件: 活动配置已生效，测试账号和库存数据已准备
-测试步骤: 1) 进入活动页 2) 执行与“- 优先验证资格校验和库存幂等。”相关操作 3) 观察页面与接口返回
-测试数据: 测试账号、活动ID、礼品ID、资格条件参数
-预期结果: 业务结果与规则一致，状态更新正确，无越权和异常漏处理
-实际结果: 
-状态: 
-备注:
+5. Test case title: TC-005 - Sold-out state is displayed
+Priority: P1
+Trace: Core rule: users cannot claim a gift when inventory is zero.
+Type: boundary
+Preconditions: Gift inventory is zero.
+Test steps: Open or refresh the campaign page.
+Test data: Campaign ID and sold-out gift ID.
+Expected result: The page displays the sold-out state and disables claiming.
+Actual result:
+Status:
+Notes:

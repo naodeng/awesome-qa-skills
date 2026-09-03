@@ -5,7 +5,7 @@ description: Use this skill when you need to define a test strategy covering sco
 
 # Test Strategy
 
-**中文版：** See the corresponding Chinese skill.
+**Chinese version：** See the corresponding Chinese skill.
 
 ## When to Use
 

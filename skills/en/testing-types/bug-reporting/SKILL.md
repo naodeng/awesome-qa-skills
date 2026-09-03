@@ -5,7 +5,7 @@ description: Use this skill when you need to write clear, reproducible bug repor
 
 # Bug Reporting
 
-**中文版：** See the corresponding Chinese skill.
+**Chinese version：** See the corresponding Chinese skill.
 
 ## When to Use
 

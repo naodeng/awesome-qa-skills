@@ -1,6 +1,6 @@
 ---
 name: qa-quality-perspective
-description: Use this skill when QA quality perspective is needed for requirements, strategy, review, test cases, or reports; triggers include QA质量视角、测试质量评估 and QA quality perspective.
+description: Use this skill when QA quality perspective is needed for requirements, strategy, review, test cases, or reports; triggers include QA quality perspective.
 ---
 
 # QA quality perspective

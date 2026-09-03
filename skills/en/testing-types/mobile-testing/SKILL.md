@@ -5,7 +5,7 @@ description: Use this skill when you need to design mobile test plans for iOS or
 
 # Mobile Testing (English)
 
-**中文版：** See the corresponding Chinese skill.
+**Chinese version：** See the corresponding Chinese skill.
 
 ## When to Use
 

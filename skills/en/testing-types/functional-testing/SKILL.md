@@ -5,7 +5,7 @@ description: Use this skill when you need to design functional test plans or cas
 
 # Functional Testing (English)
 
-**中文版：** See the corresponding Chinese skill.
+**Chinese version：** See the corresponding Chinese skill.
 
 ## When to Use
 

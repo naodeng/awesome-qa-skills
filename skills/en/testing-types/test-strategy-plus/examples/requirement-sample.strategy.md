@@ -1,34 +1,39 @@
-# 测试策略输出
+# Test Strategy Output
 
-## Test Strategy Plus 输出 - 业务活动质量保障策略
+## Flash-Sale Gift Campaign Quality Strategy
 
-### 质量目标
-- 保障关键链路正确性、稳定性与安全性。重点：- 用户必须为 PLUS 会员，且近30天消费>=199。；- 库存扣减需要和订单状态一致，支付失败要回滚库存。；- 资格规则和库存一致性是P0测试点。；- 网关+活动服务+库存服务+订单服务架构。；- Redis做资格缓存，消息队列异步落单。；性能关注：- 活动高峰并发目标：5000 RPS，95线响应<500ms。；- 并发下超卖风险高。；- T-5 完成性能压测。
+### Quality objectives
+- Protect correctness, reliability, and security for eligibility, claiming, inventory deduction, and order rollback.
+- Treat inventory consistency and eligibility validation as P0.
 
-### 范围定义
-- In Scope: 资格校验、活动参与、库存扣减、订单状态联动、失败回滚、幂等控制、关键接口与前端主流程。
-- Out of Scope: 非活动范围的历史模块重构验证、与当前发布无关的低风险边缘特性。
+### Scope
+- **In scope:** eligibility checks, campaign participation, inventory deduction, order-state integration, failure rollback, idempotency, core APIs, and the main UI flow.
+- **Out of scope:** unrelated legacy-module refactoring verification and low-risk features not included in this release.
 
-### 测试类型与覆盖
-- 功能+接口为P0，性能压测/稳定性为P1，安全与权限为P1，兼容与可访问性为P2；覆盖正常、异常、边界、并发冲突场景。
+### Test types and coverage
+- Functional and API testing are P0; performance, reliability, security, and authorization are P1; compatibility and accessibility are P2.
+- Cover happy paths, errors, boundaries, and concurrent conflicts.
 
-### 环境与工具
-- 独立测试环境（网关/服务/缓存/消息队列/数据库）+ API自动化 + UI回归 + 性能压测工具 + 安全扫描工具。
+### Environments and tools
+- Use an isolated environment containing gateway, services, cache, queue, and database.
+- Combine API automation, UI regression, load testing, and security scanning.
 
-### 测试数据策略
-- 构造多层级用户与库存数据集，覆盖资格达标/不达标、库存充足/不足、重复提交、失败补偿；敏感数据脱敏。
+### Test-data strategy
+- Prepare eligible and ineligible users, sufficient and depleted inventory, duplicate requests, and failure-compensation data.
+- Mask sensitive data before use.
 
-### 准入/准出标准
-- 准入：需求冻结、接口文档可用、环境联通；准出：P0用例通过率100%，P1通过率>=95%，阻塞缺陷清零，高风险项有结论。
+### Entry and exit criteria
+- **Entry:** requirements frozen, API documentation available, and environments connected.
+- **Exit:** P0 pass rate is 100%, P1 pass rate is at least 95%, no blocking defects remain, and high-risk items have an explicit decision.
 
-### 风险与缓解
-- 风险：并发超卖、状态不一致、越权与刷单、回滚失败。缓解：前置压测、幂等校验、风控规则验证、补偿链路演练。补充：- 防刷和权限绕过存在潜在安全风险。；- T-3 完成安全测试。
+### Risks and mitigations
+- Risks: overselling, inconsistent state, unauthorized access, abuse, and rollback failure.
+- Mitigations: pre-release load testing, idempotency checks, fraud-control verification, and compensation-path drills.
 
-### 里程碑与角色
-- 里程碑：# 项目计划；- T-10 完成功能联调；- T-7 完成接口测试与回归；- T-5 完成性能压测。角色：QA负责人统筹策略与门禁，测试工程师执行分层测试，开发与SRE协同定位和修复。
+### Milestones and roles
+- Complete functional integration at T-10, API regression at T-7, load testing at T-5, security testing at T-3, and Go/No-Go review at T-1.
+- QA owns strategy and gates; test engineers execute layered testing; development and SRE diagnose and fix issues.
 
-### 交付物与度量
-- 交付物：测试策略、测试计划、用例集、缺陷报告、测试总结。度量：需求覆盖率、缺陷密度、通过率、回归耗时、线上问题逃逸率。来源文档：需求文档、需求分析结果、技术文档、项目计划。 提示词约束摘要：你是资深测试策略专家。请基于输入文档（需求文档、需求分析结果、技术文档、项目计划、其他文档）输出可执行的测试策略。
-
-输出要求：
-1. 明确质量目标与业务优先级...
+### Deliverables and metrics
+- Deliver a test strategy, plan, test suite, defect report, and test summary.
+- Track requirement coverage, defect density, pass rate, regression duration, and production escape rate.

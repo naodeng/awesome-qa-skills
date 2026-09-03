@@ -1,3 +1,3 @@
-# Examples
+# 示例
 
-Placeholder examples directory for this skill.
+本技能的示例目录。

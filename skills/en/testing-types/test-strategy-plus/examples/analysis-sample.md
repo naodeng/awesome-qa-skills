@@ -1,6 +1,6 @@
-# 需求分析结论
+# Requirements Analysis Findings
 
-- 资格规则和库存一致性是P0测试点。
-- 并发下超卖风险高。
-- 支付失败回滚和重复提交幂等性需重点验证。
-- 防刷和权限绕过存在潜在安全风险。
+- Eligibility rules and inventory consistency are P0 test areas.
+- Overselling risk is high under concurrent requests.
+- Failed-payment rollback and duplicate-submission idempotency require focused verification.
+- Anti-abuse controls and authorization bypass are potential security risks.

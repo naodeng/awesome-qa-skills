@@ -80,7 +80,7 @@ thresholds: {
 
 若用户已有 k6 目录或 `options`，**优先对齐现有结构**，只在缺口处套用上述默认。
 
-## Gotchas
+## 常见误区
 
 - **`open()` 只能在 init 全局阶段调用**（读文件/证书等）；不要写进 `default` 函数或每次迭代里。
 - **禁止**硬编码真实 Bearer token、密码、cookie、私钥；用 `__ENV.TOKEN` / 占位符，并说明由 CI secret 或本机 env 注入。

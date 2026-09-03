@@ -1,28 +1,28 @@
-QA Report
+QA 报告
 =========
 
-1. Basic Information
-- Skill:
-- Scope:
-- Environment:
-- Priority:
+1. 基本信息
+- 技能:
+- 范围:
+- 环境:
+- 优先级:
 
-2. Requirement and Constraints
-- Requirement:
-- Constraints:
-- Risks:
+2. 需求与约束
+- 需求:
+- 约束:
+- 风险:
 
-3. Test/Review Process
-- Step 1:
-- Step 2:
-- Step 3:
+3. 测试/评审过程
+- 步骤 1:
+- 步骤 2:
+- 步骤 3:
 
-4. Outcome
-- Status:
-- Evidence:
-- Defects:
+4. 结果
+- 状态:
+- 证据:
+- 缺陷:
 
-5. Follow-up Plan
-- Owner:
-- ETA:
-- Action:
+5. 后续计划
+- 负责人:
+- 预计完成时间:
+- 行动:

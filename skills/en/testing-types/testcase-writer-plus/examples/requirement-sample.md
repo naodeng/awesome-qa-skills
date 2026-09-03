@@ -1,17 +1,17 @@
-# 京东秒杀礼品活动需求
+# Flash-Sale Gift Campaign Requirements
 
-## 业务目标
-- 用户在活动时段内完成秒杀订单后可领取礼品。
+## Business objective
+- A user may claim a gift after completing a flash-sale order during the campaign window.
 
-## 核心规则
-- 用户必须为 PLUS 会员，且近 30 天消费金额 >= 199。
-- 每个用户每个活动最多领取 1 份礼品。
-- 库存扣减应当与订单状态一致。
+## Core rules
+- A user must be a PLUS member and have spent at least 199 CNY in the last 30 days.
+- Each user may claim one gift per campaign.
+- Inventory deduction must stay consistent with order status.
 
-## 异常规则
-- 支付失败时，已预扣礼品库存必须回滚。
-- 资格不满足时，前端禁止下单并提示原因。
+## Exception rules
+- Reserved inventory must be restored after a failed payment.
+- The UI must prevent an ineligible user from ordering and explain why.
 
-## 非功能要求
-- 活动峰值并发 5 万 QPS。
-- 资格接口 p95 响应时间 < 300ms。
+## Non-functional requirements
+- The campaign peak load is 50,000 QPS.
+- The eligibility API p95 response time is below 300 ms.

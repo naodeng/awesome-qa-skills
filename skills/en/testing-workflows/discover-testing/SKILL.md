@@ -5,7 +5,7 @@ description: Use this skill when you need to route a request to the right testin
 
 # Testing Skill Discovery (English)
 
-**中文版：** See the corresponding Chinese skill.
+**Chinese version:** See the corresponding Chinese skill.
 
 ## When to Use
 

@@ -1,14 +1,14 @@
-# 需求分析结论
+# Requirements Analysis Findings
 
-## 关键风险
-- 资格规则在缓存延迟下可能出现误判。
-- 库存和订单状态可能出现短暂不一致。
+## Key risks
+- Eligibility may be incorrectly determined while cache data is delayed.
+- Inventory and order states may become temporarily inconsistent.
 
-## 不明确项
-- 多设备登录是否共享限领规则。
-- 库存回补后的展示刷新延迟阈值未定义。
+## Ambiguities
+- It is unclear whether claim limits are shared across multiple devices.
+- The display-refresh latency after inventory restoration is undefined.
 
-## 测试重点建议
-- 优先验证资格校验和库存幂等。
-- 覆盖支付失败、回滚和重试链路。
-- 覆盖边界库存（0、1、临界值）和并发领取冲突。
+## Recommended focus
+- Prioritize eligibility checks and inventory idempotency.
+- Cover failed payment, rollback, and retry paths.
+- Cover inventory boundaries (0, 1, threshold) and concurrent claim conflicts.

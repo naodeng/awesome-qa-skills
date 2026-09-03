@@ -1,3 +1,3 @@
-# Examples
+# 测试策略模板示例
 
-Placeholder examples directory for this skill.
+本目录包含测试策略模板示例。

@@ -5,7 +5,7 @@ description: Use this skill when you need to design Cypress e2e and component te
 
 # Cypress UI Testing (EN)
 
-**中文版：** 见对应中文技能。
+**Chinese version：** See the corresponding Chinese skill.
 
 ## When to Use
 

@@ -1,11 +1,11 @@
 ---
 name: product-quality-perspective
-description: Use this skill when product-quality responsibility is needed across requirements, strategy, review, test-case, or reporting stages; triggers include product quality perspective, product quality review, and 产品质量视角.
+description: Use this skill when product-quality responsibility is needed across requirements, strategy, review, test-case, or reporting stages; triggers include product quality perspective, product quality review..
 ---
 
 # Product Quality Perspective (English)
 
-**中文版：** 见对应中文技能。
+**Chinese version：** See the corresponding Chinese skill.
 
 ## When to Use
 

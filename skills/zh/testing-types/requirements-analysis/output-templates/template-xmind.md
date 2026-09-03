@@ -1,24 +1,24 @@
-# QA Output Mindmap
+# QA 输出脑图
 
-- QA Output
-  - Meta
-    - Skill
-    - Scope
-    - Environment
-    - Priority
-  - Inputs
-    - Requirement
-    - Constraints
-    - Risks
-  - Execution
-    - Step 1
-    - Step 2
-    - Step 3
-  - Results
-    - Status
-    - Evidence
-    - Defects
-  - Next Actions
-    - Owner
-    - ETA
-    - Action
+- QA 输出
+  - 元信息
+    - 技能
+    - 范围
+    - 环境
+    - 优先级
+  - 输入
+    - 需求
+    - 约束
+    - 风险
+  - 执行
+    - 步骤 1
+    - 步骤 2
+    - 步骤 3
+  - 结果
+    - 状态
+    - 证据
+    - 缺陷
+  - 后续行动
+    - 负责人
+    - 预计完成时间
+    - 行动

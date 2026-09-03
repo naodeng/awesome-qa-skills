@@ -61,7 +61,7 @@ src/test/resources/
 
 若用户已有 Base 类或分层，**优先对齐**。
 
-## Gotchas
+## 常见误区
 
 - **禁止**在 `test.properties`、示例代码、输出中硬编码真实 token/密码/cookie。
 - 从 curl/Postman 迁移时脱敏敏感 header。

@@ -5,7 +5,7 @@ description: Use this skill when you need release-phase QA workflow from T-14 pl
 
 # Release Testing Workflow
 
-**中文版：** See the corresponding Chinese skill.
+**Chinese version：** See the corresponding Chinese skill.
 
 ## When to Use
 

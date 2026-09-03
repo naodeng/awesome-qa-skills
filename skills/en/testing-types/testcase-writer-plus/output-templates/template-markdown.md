@@ -1,16 +1,16 @@
-# 测试用例模板
+# Test Case Template
 
-## 用例标题
+## Test case title
 
-**优先级**: 
-**类型**: 
-**前置条件**:
-**测试步骤**:
+**Priority**:
+**Type**:
+**Preconditions**:
+**Test steps**:
 
-**测试数据**:
+**Test data**:
 
-**预期结果**:
+**Expected result**:
 
-**实际结果**: 
-**状态**: 
-**备注**:
+**Actual result**:
+**Status**:
+**Notes**:

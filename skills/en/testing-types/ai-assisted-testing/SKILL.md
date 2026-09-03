@@ -5,7 +5,7 @@ description: Use this skill when you need AI-assisted testing workflows such as 
 
 # AI-Assisted Testing
 
-**中文版：** See the corresponding Chinese skill.
+**Chinese version：** See the corresponding Chinese skill.
 
 ## When to Use
 

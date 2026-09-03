@@ -1,26 +1,26 @@
-# QA Output Template
+# QA 输出模板
 
-## Summary
-- Skill:
-- Scope:
-- Environment:
-- Priority:
+## 摘要
+- 技能:
+- 范围:
+- 环境:
+- 优先级:
 
-## Inputs
-- Requirement:
-- Constraints:
-- Risks:
+## 输入
+- 需求:
+- 约束:
+- 风险:
 
-## Execution
-1. Step 1
-2. Step 2
-3. Step 3
+## 执行
+1. 步骤 1
+2. 步骤 2
+3. 步骤 3
 
-## Results
-- Status:
-- Evidence:
-- Defects:
+## 结果
+- 状态:
+- 证据:
+- 缺陷:
 
-## Next Actions
-- Owner:
-- ETA:
+## 后续行动
+- 负责人:
+- 预计完成时间:

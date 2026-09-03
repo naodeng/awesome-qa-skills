@@ -59,7 +59,7 @@ tests/
 
 若用户已有结构，**优先对齐**，只在缺口处套用默认。
 
-## Gotchas
+## 常见误区
 
 - **禁止**硬编码真实 token、密码、cookie；示例一律 `os.getenv(...)` + 占位默认值。
 - 从 curl/Postman 迁移时脱敏敏感 header。

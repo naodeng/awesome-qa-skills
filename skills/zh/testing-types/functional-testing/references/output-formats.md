@@ -1,3 +1,3 @@
-# Output Formats
+# 输出格式
 
-Describe recommended output formats for functional testing deliverables.
+说明功能测试交付物的推荐输出格式。

@@ -1,5 +1,5 @@
-# 测试策略摘要
+# Test Strategy Summary
 
-- P0覆盖资格、库存、订单一致性。
-- P1覆盖性能与安全。
-- 退出标准：P0通过率100%，阻塞缺陷清零。
+- P0 covers eligibility, inventory, and order consistency.
+- P1 covers performance and security.
+- Exit requires a 100% P0 pass rate and no blocking defects.

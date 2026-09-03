@@ -1,6 +1,6 @@
 ---
 name: multi-role-quality-synthesis
-description: Use this skill when multiple role reports for one quality stage must be combined into a traceable synthesis; triggers include multi-role quality synthesis, role report consolidation, disagreement summary, 多角色质量汇总 and 角色报告合并.
+description: Use this skill when multiple role reports for one quality stage must be combined into a traceable synthesis; triggers include multi-role quality synthesis, role report consolidation, disagreement summary..
 ---
 
 # Multi-Role Quality Synthesis

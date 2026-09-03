@@ -1,9 +1,9 @@
-# Output Template
+# 输出模板
 
-## Summary
-- Scope:
-- Key Points:
+## 摘要
+- 范围:
+- 关键要点:
 
-## Details
-- Item 1
-- Item 2
+## 详细内容
+- 条目 1
+- 条目 2

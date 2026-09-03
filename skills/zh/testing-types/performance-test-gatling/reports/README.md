@@ -1,50 +1,30 @@
-# Gatling Report Interpretation Guide
+# Gatling 结果解读指南
 
-This guide standardizes how to interpret Gatling result artifacts.
+本指南说明如何解读 Gatling 生成的测试结果。
 
-## 1. Required Metrics
+## 1. 必需指标
 
-- global success/failed request rate
-- response time p95 and p99
-- request throughput (req/s)
-- scenario-level assertion outcomes
-- optional custom business success ratio
+- 请求总数与请求成功率
+- 响应时间：p50、p90、p95、p99 与最大值
+- 每秒请求数（RPS）
+- 错误率，以及按错误类型归类的错误
+- 并发用户数与场景持续时间
 
-## 2. Default Pass/Fail Baseline
+## 2. 默认通过/失败基线
 
-- latency gate:
-  - p95 <= 800ms
-  - p99 <= 1500ms
-- error gate:
-  - failed requests < 1%
-- stability gate:
-  - no sustained degradation in soak run
-- recovery gate:
-  - spike run should recover near baseline after burst
+- 错误率应低于 1%。
+- p95 响应时间应满足测试计划中的服务目标。
+- 吞吐量应达到计划目标，且不出现持续下降。
+- 不应有未解释的断言失败或基础设施错误。
 
-Use scenario-specific assertions where intentionally relaxed (for stress/spike exploration).
+如压力或突发场景刻意放宽阈值，应使用场景专属断言。
 
-## 3. Recommended Output Sections
+## 3. 建议的报告结构
 
-1. Test metadata:
-- simulation, env, base URL, timestamp, build/commit
+1. 测试目标、范围、环境和数据集
+2. 负载模型、执行时间线和实际并发度
+3. 关键指标与通过/失败判定
+4. 错误分布、异常日志和受影响接口
+5. 瓶颈假设、风险和后续行动
 
-2. Workload profile:
-- users, ramp pattern, hold duration, scenario mix
-
-3. Key results:
-- p95, p99, failed %, throughput, assertion summary
-
-4. Verdict:
-- pass/fail against assertions and threshold rationale
-
-5. Bottleneck hints:
-- app CPU saturation, DB contention, cache miss surge, dependency timeout
-
-## 4. Trend Comparison Rules
-
-- Compare same simulation + same env + same profile first.
-- Regression candidate when:
-  - p95 increased > 15%, or
-  - failed % increased > 0.5 percentage point
-- Always correlate with infra/app metrics before root-cause conclusion.
+将结论与测试计划、监控数据和已知环境限制一起说明，避免仅凭单个指标做发布判断。

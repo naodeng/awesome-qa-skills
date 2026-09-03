@@ -5,7 +5,7 @@ description: Use this skill when you need high-quality test cases from requireme
 
 # testcase-writer-plus (EN)
 
-**中文版：** See the corresponding Chinese skill.
+**Chinese version：** See the corresponding Chinese skill.
 
 ## When to Use
 

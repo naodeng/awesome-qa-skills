@@ -1,20 +1,20 @@
-# 京东活动秒杀礼品需求草案
+# Flash-Sale Gift Campaign: Draft Requirements
 
-## 背景
-- 活动时间 2026-03-20 20:00 到 20:10。
-- 活动礼品总库存 500 份。
+## Background
+- The campaign runs from 20:00 to 20:10 on 2026-03-20.
+- Total gift inventory is 500 units.
 
-## 业务规则
-- 用户必须是 PLUS 会员并且近 30 天消费满 199 元。
-- 每个用户仅可领取 1 份礼品。
-- 支付成功后应当在 3 秒内更新礼品中心状态。
-- 库存为 0 时前端应显示已抢完。
+## Business rules
+- A user must be a PLUS member and have spent at least 199 CNY in the past 30 days.
+- Each user may claim one gift only.
+- The gift-center status must update within three seconds of a successful payment.
+- When inventory reaches zero, the UI must show that the gifts are sold out.
 
-## 非功能要求
-- 峰值并发 5 万 QPS，接口响应时间应小于 300ms。
-- 系统必须具备防重放和接口签名校验。
-- 必要时支持库存回补。
+## Non-functional requirements
+- The service must sustain 50,000 QPS at peak, with API response time below 300 ms.
+- The system must prevent replay attacks and validate request signatures.
+- Inventory replenishment must be supported when necessary.
 
-## 待确认
-- 企业账号是否与个人账号共享限领规则（待定）。
-- 弱网场景下轮询间隔是否固定（后续确认）。
+## Open questions
+- Do enterprise and personal accounts share the same claim limit? (TBD)
+- Is the polling interval fixed under poor-network conditions? (TBD)

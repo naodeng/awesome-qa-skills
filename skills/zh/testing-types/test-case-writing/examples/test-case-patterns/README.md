@@ -1,3 +1,3 @@
-# Examples
+# 用例模式示例
 
-Placeholder examples directory for this skill.
+本目录包含测试用例模式示例。

@@ -5,7 +5,7 @@ description: Use this skill when you need a day-by-day QA routine including plan
 
 # Daily Testing Workflow
 
-**中文版：** See the corresponding Chinese skill.
+**Chinese version：** See the corresponding Chinese skill.
 
 ## When to Use
 

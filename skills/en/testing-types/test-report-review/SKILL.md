@@ -1,6 +1,6 @@
 ---
 name: test-report-review
-description: Use this skill when a test report needs an evidence-consistency review before Human approval; triggers include test report review, quality report audit, test evidence review, 测试报告评审 and 测试结论复核.
+description: Use this skill when a test report needs an evidence-consistency review before Human approval; triggers include test report review, quality report audit, test evidence review..
 ---
 
 # Test Report Review

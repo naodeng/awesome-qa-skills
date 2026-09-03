@@ -5,7 +5,7 @@ description: Use this skill when you need to parse multi-format API definitions 
 
 # api-test-bruno (EN)
 
-**中文版：** See the corresponding Chinese skill.
+**Chinese version：** See the corresponding Chinese skill.
 
 ## When to Use
 

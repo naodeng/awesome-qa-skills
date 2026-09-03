@@ -5,7 +5,7 @@ description: Use this skill when you need Gatling performance scope, simulations
 
 # performance-test-gatling (EN)
 
-**中文版：** See the corresponding Chinese skill.
+**Chinese version：** See the corresponding Chinese skill.
 
 ## When to Use
 

@@ -62,7 +62,7 @@
 
 若用户已有 collection 结构，**优先对齐现有结构**，只在缺口处套用上述默认。
 
-## Gotchas
+## 常见误区
 
 - **禁止**在示例、环境文件、输出中硬编码真实 Bearer token、密码、cookie、私钥；一律占位符或「读环境变量」说明。
 - 从 curl/Postman 迁移时：**脱敏** Authorization / Cookie / 签名头后再写入方案。

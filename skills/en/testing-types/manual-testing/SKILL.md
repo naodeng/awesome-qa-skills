@@ -5,7 +5,7 @@ description: Use this skill when you need to plan manual or exploratory testing 
 
 # Manual/Exploratory Testing
 
-**中文版：** See the corresponding Chinese skill.
+**Chinese version：** See the corresponding Chinese skill.
 
 ## When to Use
 

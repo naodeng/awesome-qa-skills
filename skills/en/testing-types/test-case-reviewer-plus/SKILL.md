@@ -5,7 +5,7 @@ description: Use this skill when you need structured test-case review findings f
 
 # test-case-reviewer-plus (EN)
 
-**中文版：** See the corresponding Chinese skill.
+**Chinese version：** See the corresponding Chinese skill.
 
 ## When to Use
 

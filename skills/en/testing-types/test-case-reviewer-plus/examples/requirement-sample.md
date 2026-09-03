@@ -1,6 +1,6 @@
-# 京东线上活动秒杀礼品需求
+# Flash-Sale Gift Campaign Requirements
 
-- 用户必须为 PLUS 会员，且近30天消费>=199。
-- 每个用户每天最多领取1份礼品。
-- 库存扣减需要和订单状态一致，支付失败要回滚库存。
-- 活动高峰并发目标：5000 RPS，95线响应<500ms。
+- A user must be a PLUS member and have spent at least 199 CNY in the previous 30 days.
+- Each user may claim one gift per day.
+- Inventory deduction must match order status; failed payments must restore inventory.
+- The peak target is 5,000 RPS with p95 response time below 500 ms.

@@ -1,44 +1,44 @@
-# 测试策略模板
+# Test Strategy Template
 
-## 1. 策略标题
-- 示例：京东秒杀礼品活动测试策略
+## 1. Strategy title
+- Example: Flash-sale gift campaign test strategy
 
-## 2. 质量目标
-- 可用性目标：
-- 正确性目标：
-- 稳定性目标：
+## 2. Quality objectives
+- Availability objective:
+- Correctness objective:
+- Reliability objective:
 
-## 3. 范围定义
+## 3. Scope
 - In Scope:
 - Out of Scope:
 
-## 4. 测试类型与覆盖
-- 功能测试：
-- 接口测试：
-- 性能测试：
-- 安全测试：
-- 兼容性测试：
+## 4. Test types and coverage
+- Functional testing:
+- API testing:
+- Performance testing:
+- Security testing:
+- Compatibility testing:
 
-## 5. 环境与工具
-- 环境：
-- 工具链：
+## 5. Environments and tools
+- Environment:
+- Toolchain:
 
-## 6. 测试数据策略
-- 数据准备：
-- 脱敏与合规：
+## 6. Test-data strategy
+- Data preparation:
+- Masking and compliance:
 
-## 7. 准入/准出标准
+## 7. Entry and exit criteria
 - Entry Criteria:
 - Exit Criteria:
 
-## 8. 风险与缓解
-- 风险：
-- 缓解方案：
+## 8. Risks and mitigations
+- Risks:
+- Mitigations:
 
-## 9. 里程碑与角色
-- 里程碑：
-- 角色分工：
+## 9. Milestones and roles
+- Milestones:
+- Roles and responsibilities:
 
-## 10. 交付物与度量
-- 交付物：
-- 指标：
+## 10. Deliverables and metrics
+- Deliverables:
+- Metrics:

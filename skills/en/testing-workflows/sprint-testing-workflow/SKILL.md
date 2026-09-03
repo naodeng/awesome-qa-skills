@@ -5,7 +5,7 @@ description: Use this skill when you need a sprint-based QA workflow from planni
 
 # Sprint Testing Workflow
 
-**中文版：** See the corresponding Chinese skill.
+**Chinese version：** See the corresponding Chinese skill.
 
 ## When to Use
 

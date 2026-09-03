@@ -1,33 +1,33 @@
-# 测试用例评审结果模板
+# Test-Case Review Result Template
 
-## 1. 评审标题
-- 示例：京东秒杀礼品活动测试用例评审
+## 1. Review title
+- Example: Flash-sale gift campaign test-case review
 
-## 2. 整体结论
-- 是否通过入库：
-- 结论摘要：
+## 2. Overall conclusion
+- Approved for baseline:
+- Conclusion summary:
 
-## 3. 覆盖性评估
-- 业务流程覆盖：
-- 异常与边界覆盖：
-- 并发与一致性覆盖：
-- 安全与权限覆盖：
+## 3. Coverage assessment
+- Business-flow coverage:
+- Error and boundary coverage:
+- Concurrency and consistency coverage:
+- Security and authorization coverage:
 
-## 4. 可执行性评估
-- 前置条件：
-- 步骤清晰度：
-- 数据可复现性：
+## 4. Executability assessment
+- Preconditions:
+- Step clarity:
+- Data reproducibility:
 
-## 5. 问题清单（按优先级）
+## 5. Findings by priority
 - P0：
 - P1：
 - P2：
 
-## 6. 缺失场景
+## 6. Missing scenarios
 - 
 
-## 7. 改进建议
+## 7. Recommendations
 - 
 
-## 8. 补测计划
+## 8. Supplemental test plan
 - 

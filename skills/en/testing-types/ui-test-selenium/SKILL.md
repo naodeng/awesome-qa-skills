@@ -5,7 +5,7 @@ description: Use this skill when you need to design Selenium WebDriver UI automa
 
 # Selenium UI Testing (EN)
 
-**中文版：** 见对应中文技能。
+**Chinese version：** See the corresponding Chinese skill.
 
 ## When to Use
 

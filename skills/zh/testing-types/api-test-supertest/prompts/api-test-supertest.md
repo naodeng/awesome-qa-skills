@@ -63,7 +63,7 @@ package.json             # script: "test": "jest --runInBand"
 
 若用户已是 Mocha + chai 或 TypeScript，**对齐现有**，不要强行改 Jest，除非用户要求。
 
-## Gotchas
+## 常见误区
 
 - **禁止**硬编码真实 token、密码、cookie；一律环境变量 + 占位。
 - 从 curl/Postman 迁移时脱敏敏感 header。

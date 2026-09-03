@@ -1,7 +1,7 @@
-# 项目计划
+# Project Plan
 
-- T-10 完成功能联调
-- T-7 完成接口测试与回归
-- T-5 完成性能压测
-- T-3 完成安全测试
-- T-1 Go/No-Go评审
+- T-10: complete functional integration testing.
+- T-7: complete API testing and regression.
+- T-5: complete performance testing.
+- T-3: complete security testing.
+- T-1: conduct the Go/No-Go review.

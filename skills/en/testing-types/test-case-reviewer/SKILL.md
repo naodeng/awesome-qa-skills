@@ -5,7 +5,7 @@ description: Use this skill when you need to review test cases for completeness,
 
 # Test Case Review
 
-**中文版：** See the corresponding Chinese skill.
+**Chinese version：** See the corresponding Chinese skill.
 
 ## When to Use
 

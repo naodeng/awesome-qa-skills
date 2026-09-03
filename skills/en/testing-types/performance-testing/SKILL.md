@@ -5,7 +5,7 @@ description: Use this skill when you need to design performance testing for load
 
 # Performance Testing (English)
 
-**中文版：** See the corresponding Chinese skill.
+**Chinese version：** See the corresponding Chinese skill.
 
 ## When to Use
 

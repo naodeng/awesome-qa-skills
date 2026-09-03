@@ -1,11 +1,11 @@
 ---
 name: project-delivery-perspective
-description: Use this skill when project delivery constraints or action tracking are needed for test strategy, test strategy review, or test report review; triggers include project delivery perspective, delivery planning, schedule and capacity, and 项目交付视角.
+description: Use this skill when project delivery constraints or action tracking are needed for test strategy, test strategy review, or test report review; triggers include project delivery perspective, delivery planning, schedule and capacity..
 ---
 
 # Project Delivery Perspective (English)
 
-**中文版：** See the corresponding Chinese skill.
+**Chinese version：** See the corresponding Chinese skill.
 
 ## When to use
 

@@ -5,7 +5,7 @@ description: Use this skill when you need to create high-quality test cases with
 
 # Test Case Writing (English)
 
-**中文版：** See the corresponding Chinese skill.
+**Chinese version：** See the corresponding Chinese skill.
 
 ## When to Use
 

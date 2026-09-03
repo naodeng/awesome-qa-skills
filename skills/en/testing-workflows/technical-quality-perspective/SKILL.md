@@ -1,6 +1,6 @@
 ---
 name: technical-quality-perspective
-description: Use this skill when a technical quality perspective is needed for requirements, strategy, code, test cases, or reports; triggers include 技术质量视角, technical quality review, architecture review, and code review.
+description: Use this skill when a technical quality perspective is needed for requirements, strategy, code, test cases, or reports; triggers include technical quality review, architecture review, and code review.
 ---
 
 # Technical quality perspective

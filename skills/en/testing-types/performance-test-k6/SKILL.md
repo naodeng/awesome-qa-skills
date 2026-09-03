@@ -5,7 +5,7 @@ description: Use this skill when you need k6 load/stress/spike/soak scope, scrip
 
 # performance-test-k6 (EN)
 
-**中文版：** See the corresponding Chinese skill.
+**Chinese version：** See the corresponding Chinese skill.
 
 ## When to Use
 

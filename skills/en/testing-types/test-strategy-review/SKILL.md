@@ -1,6 +1,6 @@
 ---
 name: test-strategy-review
-description: Use this skill when a proposed test strategy needs evidence-based review before Human approval; triggers include test strategy review, strategy approval review, 测试策略评审、策略评审 and 测试方案审核.
+description: Use this skill when a proposed test strategy needs evidence-based review before Human approval; triggers include test strategy review, strategy approval review..
 ---
 
 # Test Strategy Review

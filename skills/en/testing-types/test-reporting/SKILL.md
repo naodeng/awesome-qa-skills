@@ -5,7 +5,7 @@ description: Use this skill when you need to generate test reports with summary,
 
 # Test Reporting
 
-**中文版：** See the corresponding Chinese skill.
+**Chinese version：** See the corresponding Chinese skill.
 
 ## When to Use
 
