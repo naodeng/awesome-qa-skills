@@ -199,3 +199,4 @@
 
 - [中文路线图](../governance/QA_SKILLS_EVOLUTION_ROADMAP.md)
 - [English roadmap](../governance/QA_SKILLS_EVOLUTION_ROADMAP_EN.md)
+- [v1.0 源代码治理基线与逐项记录](../governance/SKILL_GOVERNANCE_V1.md)（静态证据，不代表运行质量）
