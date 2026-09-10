@@ -23,6 +23,10 @@ PROJECT_PAIRS = (
         "docs/governance/DOCUMENTATION_POLICY.md",
         "docs/governance/DOCUMENTATION_POLICY_EN.md",
     ),
+    (
+        "docs/governance/SKILL_GOVERNANCE_V1.md",
+        "docs/governance/SKILL_GOVERNANCE_V1_EN.md",
+    ),
     ("docs/reviews/2026-08-29-new-skills-audit.md", "docs/reviews/2026-08-29-new-skills-audit_EN.md"),
     (
         "docs/reviews/2026-08-30-all-testing-skills-audit.md",
@@ -51,6 +55,10 @@ PROJECT_PAIRS = (
     (
         "docs/superpowers/plans/2026-08-29-project-structure-and-bilingual-docs.md",
         "docs/superpowers/plans/2026-08-29-project-structure-and-bilingual-docs_EN.md",
+    ),
+    (
+        "docs/superpowers/plans/2026-09-10-v1-governance-closeout.md",
+        "docs/superpowers/plans/2026-09-10-v1-governance-closeout_EN.md",
     ),
     ("skills/DIRECTORY_GUIDE.md", "skills/DIRECTORY_GUIDE_EN.md"),
     ("skills/EXTERNAL_SNAPSHOT_POLICY.md", "skills/EXTERNAL_SNAPSHOT_POLICY_EN.md"),
