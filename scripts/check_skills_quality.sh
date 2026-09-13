@@ -8,6 +8,8 @@ echo "[1/7] Organize and validate project directories"
 python3 scripts/organize_project_dirs.py >/tmp/skills-organize-check.out
 cat /tmp/skills-organize-check.out
 
+python3 scripts/generate_skill_inventory.py
+
 echo "[2/7] Validate agents metadata"
 python3 scripts/validate_agents_metadata.py --report /tmp/skills-metadata-check.md >/tmp/skills-metadata-check.out
 cat /tmp/skills-metadata-check.out

@@ -4,7 +4,7 @@
 
 This is the English Skill root and mirrors `skills/zh` with identical Skill names and physical structure.
 
-Each language provides **79** Skills: 10 workflows + 66 testing types + 3 Skill Engineering. See the [Chinese README](../../README.md) and [English README](../../README_EN.md).
+Each language provides **79** Skills: 10 workflows + 66 testing types + 3 Skill Engineering. See the [Chinese README](../../README.md) and [English README](../../README_EN.md); see the [governance roadmap](../../docs/governance/SKILL_GOVERNANCE_ROADMAP_EN.md) and [governance matrix](../../docs/SKILL_MATRIX_EN.md) for long-term governance.
 
 ## Cross-phase workflows
 

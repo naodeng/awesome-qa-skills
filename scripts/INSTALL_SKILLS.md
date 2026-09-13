@@ -101,8 +101,10 @@ Replace `codex` with another supported agent name when needed, such as `claude-c
 - Source directories:
   - `skills/zh/testing-types`
   - `skills/zh/testing-workflows`
+  - `skills/zh/skill-engineering`
   - `skills/en/testing-types`
   - `skills/en/testing-workflows`
+  - `skills/en/skill-engineering`
 - Per-skill one-click installers are generated under:
   - `installers/{lang}/{skill-name}/mac/{tool}.sh`
   - `installers/{lang}/{skill-name}/windows/{tool}.ps1`
@@ -115,3 +117,4 @@ Replace `codex` with another supported agent name when needed, such as `claude-c
   - `.../skills/zh/testing-types/...`
   - `.../skills/en/testing-types/...`
   - (same for `testing-workflows`)
+  - (same for `skill-engineering`)

@@ -127,6 +127,7 @@ install_for_tool() {
     done < <(
       collect_skill_dirs "$lang" "testing-types"
       collect_skill_dirs "$lang" "testing-workflows"
+      collect_skill_dirs "$lang" "skill-engineering"
     )
   done
 }

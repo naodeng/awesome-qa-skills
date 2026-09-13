@@ -9,6 +9,7 @@ from pathlib import Path
 
 
 LINK_RE = re.compile(r"\[([^\]]+)\]\(([^)]+)\)")
+SECTIONS = ("testing-types", "testing-workflows", "skill-engineering")
 
 
 @dataclass
@@ -21,12 +22,7 @@ class Finding:
 
 
 def discover_skill_dirs(repo_root: Path) -> list[Path]:
-    bases = [
-        repo_root / "skills" / "zh" / "testing-types",
-        repo_root / "skills" / "zh" / "testing-workflows",
-        repo_root / "skills" / "en" / "testing-types",
-        repo_root / "skills" / "en" / "testing-workflows",
-    ]
+    bases = [repo_root / "skills" / lang / section for lang in ("zh", "en") for section in SECTIONS]
     result: list[Path] = []
     for b in bases:
         if not b.exists():
@@ -58,6 +54,10 @@ def _skill_identity(path: Path) -> tuple[str, str] | None:
         i = parts.index("testing-workflows")
         if i + 1 < len(parts):
             return ("testing-workflows", parts[i + 1])
+    if "skill-engineering" in parts:
+        i = parts.index("skill-engineering")
+        if i + 1 < len(parts):
+            return ("skill-engineering", parts[i + 1])
     return None
 
 

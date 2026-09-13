@@ -9,6 +9,7 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parents[1]
 SKILLS = REPO / "skills"
 LINK_RE = re.compile(r"\[([^\]]+)\]\(([^)]+)\)")
+SECTIONS = ("testing-types", "testing-workflows", "skill-engineering")
 
 
 def normalize_name(name: str) -> str:
@@ -40,7 +41,7 @@ def main() -> int:
     updated_files = 0
     moved_refs = 0
 
-    for section in ("testing-types", "testing-workflows"):
+    for section in SECTIONS:
         base = SKILLS / section
         if not base.exists():
             continue
