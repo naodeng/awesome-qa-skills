@@ -54,3 +54,4 @@ Every composition is optional. Use `discover-testing` when the entry point or se
 - [Complete index](skills-index.md)
 - [Chinese roadmap](../governance/QA_SKILLS_EVOLUTION_ROADMAP.md)
 - [English roadmap](../governance/QA_SKILLS_EVOLUTION_ROADMAP_EN.md)
+- [v1.0 source-governance baseline and per-package records](../governance/SKILL_GOVERNANCE_V1_EN.md) (static evidence, not runtime quality)
