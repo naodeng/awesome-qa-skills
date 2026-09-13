@@ -13,6 +13,8 @@ VALID_STATUSES = {
 VALID_CONCLUSIONS = {"EXISTING", "MATCH", "ENHANCE", "MERGE", "NEW"}
 VALID_SCORE_STATES = {"NOT_SCORED", "PARTIALLY_SCORED", "SCORED"}
 MATCH_FIELDS = ("name", "purpose", "inputs", "outputs", "decision_logic", "workflow_role")
+SECTIONS = ("testing-types", "testing-workflows", "skill-engineering")
+LANGUAGES = ("zh", "en")
 SCORE_DIMENSIONS = (
     "problem_value", "scope_clarity", "input_quality", "analysis_depth",
     "output_actionability", "evidence_quality", "reusability", "eval_coverage",
@@ -24,6 +26,17 @@ SCORE_DIMENSIONS = (
 class GovernanceRegistry:
     skills: tuple[dict[str, object], ...]
     candidates: tuple[dict[str, object], ...]
+
+
+def discover_physical_skills(root: Path) -> set[str]:
+    """Return logical slugs from the union of both language trees."""
+    return {
+        directory.name
+        for language in LANGUAGES
+        for section in SECTIONS
+        for directory in (root / "skills" / language / section).iterdir()
+        if directory.is_dir()
+    }
 
 
 def parse_registry(data: dict[str, object]) -> GovernanceRegistry:

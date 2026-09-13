@@ -40,6 +40,16 @@ class GovernanceMatrixTest(unittest.TestCase):
             ["missing registry record for skill: missing", "registry record has no physical skill: extra"],
         )
 
+    def test_discovers_union_of_language_skill_trees(self):
+        with TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            for language, slug in (("zh", "zh-only"), ("en", "en-only")):
+                (root / "skills" / language / "testing-types" / slug).mkdir(parents=True)
+            for language in matrix.LANGUAGES:
+                for section in matrix.SECTIONS:
+                    (root / "skills" / language / section).mkdir(parents=True, exist_ok=True)
+            self.assertEqual(matrix.discover_physical_skills(root), {"zh-only", "en-only"})
+
     def test_rejects_new_candidate_without_boundaries(self):
         candidate = {
             "slug": "new-capability",
