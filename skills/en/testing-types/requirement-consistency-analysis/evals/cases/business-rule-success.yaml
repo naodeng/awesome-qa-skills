@@ -1,0 +1,31 @@
+id: business-rule-success
+title: "Requirement consistency: business-rule mode"
+description: |
+  Two rule artifacts describe the same refund rule; analysis should retain RC-## and add a BR-## rule-level comparison.
+
+input:
+  prompt: |
+    Use requirement-consistency-analysis in business-rule mode.
+    Rule A (v2, members): an order can be cancelled within 30 minutes after payment; support agents may initiate a refund.
+    Rule B (v2, members): an order can be cancelled within 30 minutes after payment; support agents may only view refund records and cannot initiate a refund.
+    Audit the input first, then output RC-## and BR-## comparing subject, trigger, applicability, action, outcome, exception, and permission. Retain both sources and do not choose the support permission.
+
+expect:
+  must_contain:
+    - "business-rule"
+    - "RC-"
+    - "BR-"
+    - "scope"
+    - "evidence"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Input Audit"
+          - "rule"
+          - "open"

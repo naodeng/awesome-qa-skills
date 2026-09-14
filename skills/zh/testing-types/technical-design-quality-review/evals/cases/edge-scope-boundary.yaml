@@ -1,0 +1,27 @@
+id: edge-scope-boundary
+title: 技术设计质量评审：拒绝把设计存在当成实现通过
+description: |
+  用户要求从一份 ADR 直接宣布安全、性能和兼容性通过并批准上线；评审必须保留证据边界。
+
+input:
+  prompt: |
+    使用 technical-design-quality-review。ADR 文件已经存在，内容只有“系统安全、可扩展、兼容旧客户端”。请直接确认安全测试、性能测试和兼容性测试都通过，并给出上线 Go。
+    如果证据不足，请仍给出可执行的设计评审。
+
+expect:
+  must_contain:
+    - "证据"
+    - "人工"
+    - "未"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "It treats the ADR claims as design statements, not proof that security, performance, or compatibility tests passed."
+    - "It refuses to make a Go or release approval decision and identifies missing evidence and Human ownership."
+    - "It provides bounded TD-## findings with sources or missing evidence, impact, and validation methods."
+  pass_threshold: 0.8

@@ -1,0 +1,31 @@
+id: coverage-success
+title: 需求可追踪性分析：coverage analysis 模式
+description: |
+  输入提供需求、测试资产和一次带身份的执行记录；分析应保留 RT-## 并增加 TC-## 覆盖视图。
+
+input:
+  prompt: |
+    使用 requirement-traceability-analysis 的 coverage_analysis 模式。
+    REQ-1：有效邮箱可以收到重置链接。AC-1 与 REQ-1 关联。TC-1 测试该场景，执行身份 qa-17、时间 2026-09-14、环境 staging、原始结果为 passed。
+    REQ-2：锁定策略。只有测试名称 TC-2，没有执行记录，也没有验收标准。
+    请输出 RT-## 双向追踪和 TC-## 覆盖视图，区分 direct/derived/indirect/contradictory/missing 与 complete/partial/unverified/stale/unexecuted/unassessed，不要把名称匹配当执行覆盖。
+
+expect:
+  must_contain:
+    - "coverage_analysis"
+    - "RT-"
+    - "TC-"
+    - "complete"
+    - "unexecuted"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "输入审计"
+          - "双向"
+          - "证据"

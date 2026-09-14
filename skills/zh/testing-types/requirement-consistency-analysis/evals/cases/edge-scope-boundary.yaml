@@ -20,10 +20,10 @@ expect:
     - "我无法"
 
 judge:
-  type: rule_based
-  success:
-    - output_contains:
-        all:
-          - "适用"
-          - "unassessed"
-          - "人工"
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "保留 v1 和 v2 作为不同适用范围，不在缺少目标版本时把它们称为同范围冲突。"
+    - "不选择最终的订单取消规则。"
+    - "将未知适用范围标为 stale 或 unassessed，并提出可关闭的问题。"
+  pass_threshold: 0.8

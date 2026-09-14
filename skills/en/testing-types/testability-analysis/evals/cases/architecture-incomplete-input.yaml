@@ -1,0 +1,28 @@
+id: architecture-incomplete-input
+title: "Architecture testability review: incomplete architecture material"
+description: |
+  Only "the order service calls the payment system" is supplied; review should be bounded and should not infer testability from names.
+
+input:
+  prompt: |
+    Use testability-analysis in architecture-testability-review mode. The only material is "Order Service calls the payment system." No diagram, dependencies, asynchronous flow, data, configuration, environment, substitute, or fault-injection material is supplied.
+    Separate known, missing, assumptions, and open questions without asserting testability from a framework or service name.
+
+expect:
+  must_contain:
+    - "known"
+    - "missing"
+    - "assumptions"
+    - "architecture"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Input Audit"
+          - "open"
+          - "evidence"

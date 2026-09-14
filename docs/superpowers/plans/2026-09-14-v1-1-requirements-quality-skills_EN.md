@@ -6,6 +6,8 @@
 
 **Goal:** Create and validate the first five v1.1 P0 requirement-quality Skills as independently installable bilingual packages on `develop`, then synchronize Project, catalog, governance, and generated views.
 
+> **Status note (2026-09-14):** This is a historical implementation plan; its original checkbox state is preserved for process traceability and unchecked items are not evidence that the implementation is incomplete. The current acceptance source is the [Phase 1 requirement-quality record](../../governance/PHASE_1_REQUIREMENTS_QUALITY_EN.md). Real-model Evals were explicitly deferred and remain `NOT_RUN`.
+
 **Architecture:** Five separate Skills own overall quality review, ambiguity, consistency, conflict, and traceability analysis. Each package has its own Prompt and Evals and no shared runtime code. All packages use a common audit/evidence/risk/Human-decision boundary; the governance registry cross-checks physical directories and renders the Matrix, Matching Register, and inventory.
 
 **Tech Stack:** Markdown, YAML, Bash, Python 3 standard library, `skill-up validate/run`, the repository quality gate, and GitHub Project CLI.
@@ -16,6 +18,7 @@
 
 - Add only these five logical Skills in both languages: 10 directories total. Do not change the behavior of `requirements-analysis` or `requirements-analysis-plus`.
 - Each package must contain `SKILL.md`, `prompts/<slug>.md`, `agents/openai.yaml`, `evals/eval.yaml`, and `basic-success`, `edge-incomplete-input`, and `edge-scope-boundary` cases.
+- Each package's `evals/` also maintains `trigger-prompts.csv` covering explicit, implicit, contextual, and negative controls plus `local-rules.json`; the local runner reports `BLOCKED` when `skill.selection` evidence is absent.
 - The frontmatter `name`, directory name, `agents/openai.yaml` `metadata.key`, and both language versions must agree. Descriptions start with `Use when...` and contain triggers only.
 - Prompts start with an input audit for `known/missing/conflicting/stale/out_of_scope/assumptions`; facts, inferences, recommendations, and Human decisions stay separate; no invented thresholds, fields, endpoints, environments, owners, root causes, execution results, or approvals.
 - Keep only these five Project #4 cards `In Progress`; do not change other cards, create GitHub Issues, push, or publish.
@@ -41,7 +44,7 @@
 - Produces: input audit; quality-dimension table for completeness, clarity, verifiability, feasibility, scope, and evidence quality; prioritized findings; specialist-routing suggestions; assumptions and Human decisions.
 - Boundary: summarizes and routes; does not run the four specialists, assign a numeric quality score, or make a release decision.
 
-- [ ] **Step 1: Write the three failing/boundary cases first.**
+- [x] **Step 1: Write the three failing/boundary cases first.**
 
   - `basic-success`: an order requirement says points may offset payment, but only “offset succeeds” is specified; require missing insufficient-points and callback-retry findings, `P0/P1` priority, and specialist routing.
   - `edge-incomplete-input`: the only input is “the new release adds points redemption”; require a usable draft, `known`, `missing`, `assumptions`, and 3–5 closeable questions instead of refusal.
@@ -49,11 +52,11 @@
 
   Each Chinese case asserts `输入审计`, `假设` or `信息缺口`, and `待确认`; each English case asserts `input audit`, `assumption` or `gap`, and `open question`. Boundary cases reject unsupported release/score claims.
 
-- [ ] **Step 2: Run `skill-up validate` on both new `eval.yaml` files and record the baseline.**
+- [x] **Step 2: Run `skill-up validate` on both new `eval.yaml` files and record the baseline.**
 
   Before package files exist, validation may report a missing skill layout; after the cases and package structure exist it must exit 0. Do not call YAML validation a behavior pass.
 
-- [ ] **Step 3: Write the minimum bilingual package.**
+- [x] **Step 3: Write the minimum bilingual package.**
 
   Use these exact frontmatter identities:
 
@@ -68,7 +71,7 @@
 
   `agents/openai.yaml` sets `metadata.key` to `requirement-quality-review`, a bilingual display name, a short description under 160 characters, a default prompt naming the Skill, and `allow_implicit_invocation: true`.
 
-- [ ] **Step 4: Validate and review behavior.**
+- [x] **Step 4: Validate and review behavior.**
 
   ```bash
   skill-up validate skills/zh/testing-types/requirement-quality-review/evals/eval.yaml
@@ -80,7 +83,7 @@
 
   If an Agent Engine is configured, run all three cases in both languages and inspect the reports. Otherwise record execution as `NOT_RUN`; never infer behavior from `--dry-run`.
 
-- [ ] **Step 5: Refactor only confirmed gaps and leave the verified package ready for registry sync.**
+- [x] **Step 5: Refactor only confirmed gaps and leave the verified package ready for registry sync.**
 
   ```bash
   git diff --check
@@ -101,13 +104,13 @@
 - Produces: ambiguity findings with exact phrase, source, missing discriminator, possible readings without selecting one, priority, owner, clarification question, and validation method.
 - Boundary: diagnoses under-specification; does not classify explicit incompatible statements as ordinary ambiguity or invent a default interpretation.
 
-- [ ] **Step 1: Write cases before the Skill.**
+- [x] **Step 1: Write cases before the Skill.**
 
   - `basic-success`: “管理员可以在必要时导出订单” lacks the administrator, necessary condition, scope, format, and timing; require `RA-##` findings and a testability impact.
   - `edge-incomplete-input`: only “支持快速退款” is supplied; require a minimum audit and high-value questions, not a fabricated SLA or refund rule.
   - `edge-scope-boundary`: two artifacts explicitly say “refund is immediate” and “refund is processed within 3 business days”; require routing to conflict detection while preserving both sources.
 
-- [ ] **Step 2: Validate and dry-run.**
+- [x] **Step 2: Validate and dry-run.**
 
   ```bash
   skill-up validate skills/zh/testing-types/requirement-ambiguity-analysis/evals/eval.yaml
@@ -116,13 +119,13 @@
   skill-up run skills/en/testing-types/requirement-ambiguity-analysis/evals/eval.yaml --dry-run
   ```
 
-- [ ] **Step 3: Write the bilingual package.**
+- [x] **Step 3: Write the bilingual package.**
 
   The Prompt requires a phrase-level ambiguity table with `source`, `quoted statement`, `ambiguity type`, `missing discriminator`, `possible readings`, `risk/impact`, `clarification question`, `owner`, and `validation method`. It explicitly forbids choosing a reading or filling in a threshold from common practice. Use `RA-##` IDs and `ambiguous`, `missing`, `untestable`, and `out_of_scope` statuses.
 
   Use `name: requirement-ambiguity-analysis`, a trigger-only `Use when...` description, matching `agents/openai.yaml`, and no cross-Skill file links.
 
-- [ ] **Step 4: Run validation and, if configured, both-language cases; inspect that explicit contradiction is routed rather than resolved.**
+- [x] **Step 4: Run validation and, if configured, both-language cases; inspect that explicit contradiction is routed rather than resolved.**
 
   ```bash
   python3 scripts/validate_agents_metadata.py --report /tmp/v11-requirement-ambiguity-metadata.md
@@ -130,7 +133,7 @@
   git diff --check
   ```
 
-- [ ] **Step 5: Leave only this verified package as the next uncommitted scope.**
+- [x] **Step 5: Leave only this verified package as the next uncommitted scope.**
 
   ```bash
   git diff --check
@@ -149,15 +152,15 @@
 **Interfaces:**
 - Consumes: at least two supplied artifacts, or one artifact with repeated terminology/rule/state declarations.
 - Produces: comparison matrix for terms, identifiers, formats, states, rules, and behavior; each row has source pair, relation, status, evidence, impact, action, and owner.
-- Boundary: `aligned`, `inconsistent`, `missing`, `stale`, and `unassessed` are evidence states; explicit mutual exclusion is handed to conflict detection, not silently normalized.
+- Boundary: relation values are `aligned`, `inconsistent`, and `conflict`; evidence statuses are `assessed`, `missing`, `stale`, and `unassessed`. Explicit mutual exclusion is preserved and routed to conflict detection, not silently normalized.
 
-- [ ] **Step 1: Write the cases first.**
+- [x] **Step 1: Write the cases first.**
 
   - `basic-success`: PRD calls the actor `buyer`, API contract calls it `customer`; one source permits `pending → cancelled`, another lists only `pending → paid`; require comparison evidence, not a guessed synonym or normalized state machine.
   - `edge-incomplete-input`: only one short requirement is supplied; require the missing comparison set and a bounded single-source result.
   - `edge-scope-boundary`: two versioned documents differ because one is explicitly for v1 and one for v2; require `stale`/scope qualification and no same-scope conflict claim.
 
-- [ ] **Step 2: Validate and dry-run.**
+- [x] **Step 2: Validate and dry-run.**
 
   ```bash
   skill-up validate skills/zh/testing-types/requirement-consistency-analysis/evals/eval.yaml
@@ -166,11 +169,11 @@
   skill-up run skills/en/testing-types/requirement-consistency-analysis/evals/eval.yaml --dry-run
   ```
 
-- [ ] **Step 3: Write the bilingual package.**
+- [x] **Step 3: Write the bilingual package.**
 
   The Prompt requires a stable comparison key and a table with `topic`, `source A`, `source B`, `relation`, `status`, `evidence`, `scope/version`, `impact`, `question`, `owner`, and `validation method`. It keeps different versions or applicability scopes separate and routes explicit mutual exclusion to `requirement-conflict-detection` by Skill name only. Use `RC-##` IDs.
 
-- [ ] **Step 4: Validate metadata, independence, and package boundary cases; refactor only evidence-backed gaps.**
+- [x] **Step 4: Validate metadata, independence, and package boundary cases; refactor only evidence-backed gaps.**
 
   ```bash
   python3 scripts/validate_agents_metadata.py --report /tmp/v11-requirement-consistency-metadata.md
@@ -178,7 +181,7 @@
   git diff --check
   ```
 
-- [ ] **Step 5: Leave only this verified package as the next uncommitted scope.**
+- [x] **Step 5: Leave only this verified package as the next uncommitted scope.**
 
   ```bash
   git diff --check
@@ -199,13 +202,13 @@
 - Produces: conflict pairs with both statements, source evidence, affected scope, conflict type, impact, priority, missing precedence rule, decision owner, and validation plan.
 - Boundary: reports conflicts and decision needs; never chooses precedence, assigns risk acceptance, declares the final business rule, or claims a defect without evidence.
 
-- [ ] **Step 1: Write the cases first.**
+- [x] **Step 1: Write the cases first.**
 
   - `basic-success`: one source says “guest checkout is allowed”; another says “login is required before checkout”; require both statements, `conflict` status, P0/P1 impact, and a suggested decision owner.
   - `edge-incomplete-input`: one rule is supplied with no scope/version/owner; require a provisional missing-precedence finding and questions, not a conflict invented from absent evidence.
   - `edge-scope-boundary`: a product note says “may” while a legal rule says “must not”; keep the difference source-attributed and the final decision Human-owned.
 
-- [ ] **Step 2: Validate and dry-run.**
+- [x] **Step 2: Validate and dry-run.**
 
   ```bash
   skill-up validate skills/zh/testing-types/requirement-conflict-detection/evals/eval.yaml
@@ -214,11 +217,11 @@
   skill-up run skills/en/testing-types/requirement-conflict-detection/evals/eval.yaml --dry-run
   ```
 
-- [ ] **Step 3: Write the bilingual package.**
+- [x] **Step 3: Write the bilingual package.**
 
   The Prompt requires `conflict ID`, both statements and sources, applicability, conflict type, evidence, impact, priority, decision needed, suggested owner, validation method, and unknowns. Use `RF-##` IDs, distinguish `conflict` from `ambiguous` and `missing`, and explicitly forbid resolving on behalf of a Human.
 
-- [ ] **Step 4: Run metadata, independence, and boundary checks; inspect that no output silently selects the stronger-sounding rule.**
+- [x] **Step 4: Run metadata, independence, and boundary checks; inspect that no output silently selects the stronger-sounding rule.**
 
   ```bash
   python3 scripts/validate_agents_metadata.py --report /tmp/v11-requirement-conflict-metadata.md
@@ -226,7 +229,7 @@
   git diff --check
   ```
 
-- [ ] **Step 5: Leave only this verified package as the next uncommitted scope.**
+- [x] **Step 5: Leave only this verified package as the next uncommitted scope.**
 
   ```bash
   git diff --check
@@ -245,15 +248,15 @@
 **Interfaces:**
 - Consumes: requirements, acceptance criteria, designs, code/change references, test assets, defects, logs, metrics, or explicitly supplied evidence.
 - Produces: bidirectional traceability map with stable IDs, relationship type, coverage state, evidence, orphan/uncovered items, data/environment evidence requirements, risks, and next actions.
-- Boundary: distinguishes complete, partial, indirect, missing, stale, and unexecuted evidence; a matching name alone cannot prove coverage or execution.
+- Boundary: relationship types are `direct`, `derived`, `indirect`, `contradictory`, and `missing`; coverage statuses are `complete`, `partial`, `unverified`, `stale`, `unexecuted`, and `unassessed`. A matching name alone cannot prove coverage or execution.
 
-- [ ] **Step 1: Write the cases first, using the inspected local external baseline without copying its directory structure.**
+- [x] **Step 1: Write the cases first, using the inspected local external baseline without copying its directory structure.**
 
   - `basic-success`: requirements `REQ-1/REQ-2`, acceptance `AC-1`, tests `TC-1`, defect `DEF-1`; require bidirectional rows, `partial` or `missing` for the unlinked item, evidence references, and next action.
-  - `edge-incomplete-input`: only a requirement and a test name are supplied; require `indirect`/`unverified` treatment and a request for the actual artifact/evidence, not claimed coverage.
-  - `edge-scope-boundary`: a report says “all passed” but no execution record is supplied; keep the report claim source-attributed and execution evidence `UNASSESSED`/missing.
+  - `edge-incomplete-input`: only a requirement and a test name are supplied; require `indirect` as the relationship type and `unverified` as the coverage status, plus a request for the actual artifact/evidence, not claimed coverage.
+  - `edge-scope-boundary`: a report says “all passed” but no execution record is supplied; keep the report claim source-attributed and execution evidence `unverified`/`unexecuted`/`unassessed` as supported by the supplied material.
 
-- [ ] **Step 2: Validate and dry-run.**
+- [x] **Step 2: Validate and dry-run.**
 
   ```bash
   skill-up validate skills/zh/testing-types/requirement-traceability-analysis/evals/eval.yaml
@@ -262,11 +265,11 @@
   skill-up run skills/en/testing-types/requirement-traceability-analysis/evals/eval.yaml --dry-run
   ```
 
-- [ ] **Step 3: Write the bilingual package.**
+- [x] **Step 3: Write the bilingual package.**
 
-  Adapt the inspected `awesome-qa-prompt` baseline into the repository contract. The Prompt requires an input audit, a timeline/model/evidence chain where applicable, a result table with requirement/control, source, linked artifact, relationship type, coverage status, evidence, gap/action, and a self-check. Use `RT-##` IDs and keep `complete`, `partial`, `indirect`, `missing`, `stale`, and `not executed` separate.
+  Adapt the inspected `awesome-qa-prompt` baseline into the repository contract. The Prompt requires an input audit, a timeline/model/evidence chain where applicable, a result table with requirement/control, source, linked artifact, relationship type, coverage status, evidence, gap/action, and a self-check. Use `RT-##` IDs and keep relationship types `direct`, `derived`, `indirect`, `contradictory`, `missing` separate from coverage statuses `complete`, `partial`, `unverified`, `stale`, `unexecuted`, `unassessed`.
 
-- [ ] **Step 4: Run metadata, independence, and boundary checks; inspect that “all passed” is not upgraded to execution evidence.**
+- [x] **Step 4: Run metadata, independence, and boundary checks; inspect that “all passed” is not upgraded to execution evidence.**
 
   ```bash
   python3 scripts/validate_agents_metadata.py --report /tmp/v11-requirement-traceability-metadata.md
@@ -274,7 +277,7 @@
   git diff --check
   ```
 
-- [ ] **Step 5: Leave only this verified package as the next uncommitted scope.**
+- [x] **Step 5: Leave only this verified package as the next uncommitted scope.**
 
   ```bash
   git diff --check
@@ -300,23 +303,23 @@
 - Generated views: `generate_skill_governance_matrix.py`, `generate_skill_governance_inventory.py`, and `generate_skill_inventory.py` remain the only writers for their generated outputs.
 - Navigation: each new row appears in Chinese and English discovery/requirements sections and points only to its own directory.
 
-- [ ] **Step 1: Add the Phase 1 note before editing generated views.**
+- [x] **Step 1: Add the Phase 1 note before editing generated views.**
 
   Record the five Project card IDs/titles, the five boundaries, provisional `PROPOSED`/`NEW` match state, the source-only evidence limit, and the five-card `In Progress` status. Add English mirror navigation.
 
-- [ ] **Step 2: Add exactly five registry Skill records.**
+- [x] **Step 2: Add exactly five registry Skill records.**
 
   Use these exact role sets: `requirement-quality-review` → `[QA, BA, Product, Engineering]`; `requirement-ambiguity-analysis` → `[QA, BA, Product]`; `requirement-consistency-analysis` → `[QA, BA, Engineering]`; `requirement-conflict-detection` → `[QA, BA, Product, Engineering]`; `requirement-traceability-analysis` → `[QA, BA, Engineering]`. For every slug use `section: testing-types`, `virtual_domain: Engineering QA`, `sdlc_stage: requirements`, `status: Planned-P0`, `priority: P0`, `quality_score.state: NOT_SCORED`, `eval_execution.state: NOT_RUN`, and evidence paths for the eight required bilingual files. `inputs`, `outputs`, `related`, and `workflow` name only actual package files or Skill names.
 
-- [ ] **Step 3: Add exactly five registry candidate records.**
+- [x] **Step 3: Add exactly five registry candidate records.**
 
   Each exact slug uses `decision_state: PROPOSED`, `conclusion: NEW`, concrete `scope`, `non_goals`, six non-empty evidence fields, `target` equal to its slug, and target evidence paths covering both language `SKILL.md` and Prompt files. If a package boundary proves existing coverage, change the record to the evidenced conclusion before generation.
 
-- [ ] **Step 4: Update bilingual navigation and graph composition.**
+- [x] **Step 4: Update bilingual navigation and graph composition.**
 
   Add five rows under discovery/requirements in every README and index. Add a graph composition with `requirement-quality-review` as an optional overview before `requirements-analysis` and the four specialists as optional focused checks; state that the order is optional and links are navigation, not dependencies.
 
-- [ ] **Step 5: Generate and validate all governance outputs.**
+- [x] **Step 5: Generate and validate all governance outputs.**
 
   ```bash
   python3 scripts/generate_skill_inventory.py
@@ -328,7 +331,7 @@
 
   Expected counts are 168 physical Skill directories and 84 logical bilingual pairs. Any mismatch, missing evidence path, or stale generated file is a failure to fix before proceeding.
 
-- [ ] **Step 6: Commit governance and navigation as one scoped commit.**
+- [x] **Step 6: Commit governance and navigation as one scoped commit.**
 
   ```bash
   git add docs/governance/PHASE_1_REQUIREMENTS_QUALITY.md docs/governance/PHASE_1_REQUIREMENTS_QUALITY_EN.md docs/governance/skill-governance-registry.yaml docs/generated docs/SKILL_MATRIX.md docs/SKILL_MATRIX_EN.md docs/SKILL_MATCHING_REGISTER.md docs/SKILL_MATCHING_REGISTER_EN.md docs/catalog README.md README_EN.md skills/zh/README.md skills/en/README.md
@@ -342,7 +345,7 @@
 **Files:**
 - Test: all changed files from Tasks 1–6; no additional product files.
 
-- [ ] **Step 1: Run focused structural checks.**
+- [x] **Step 1: Run focused structural checks.**
 
   ```bash
   python3 scripts/validate_agents_metadata.py --report /tmp/v11-final-metadata.md
@@ -351,7 +354,7 @@
   bash scripts/validate_skill_evals.sh
   ```
 
-- [ ] **Step 2: Run the repository gate and whitespace check.**
+- [x] **Step 2: Run the repository gate and whitespace check.**
 
   ```bash
   bash scripts/check_skills_quality.sh
@@ -360,7 +363,7 @@
 
   Read complete output and record exit code, physical directory count, logical pair count, metadata findings, independence findings, integrity findings, and Eval YAML failures. Do not call a model Eval passed without a real `skill-up run` report.
 
-- [ ] **Step 3: Verify the five Project cards without changing other cards.**
+- [x] **Step 3: Verify the five Project cards without changing other cards.**
 
   ```bash
   gh project item-list 4 --owner naodeng --format json --limit 200 \
@@ -369,7 +372,7 @@
 
   Expected: the first five named slugs are `In Progress`; the sixth and later v1.1 cards remain `Todo`.
 
-- [ ] **Step 4: Inspect Git state and report boundaries.**
+- [x] **Step 4: Inspect Git state and report boundaries.**
 
   ```bash
   git status --short --branch

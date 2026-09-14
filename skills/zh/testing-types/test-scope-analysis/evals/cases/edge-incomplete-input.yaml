@@ -1,0 +1,28 @@
+id: edge-incomplete-input
+title: 测试范围分析：信息不完整的受限范围
+description: |
+  只有“测试新支付功能”，没有版本、变更、风险、平台、数据或时间；分析应给受限草案并列出扩大条件。
+
+input:
+  prompt: |
+    使用 test-scope-analysis。唯一输入是“测试新支付功能”。没有需求、版本、变更清单、消费者、风险、平台、数据、环境、时间或既有资产。
+    请区分 known、missing、assumptions 和待确认问题，给出受限范围，不要宣称全量覆盖。
+
+expect:
+  must_contain:
+    - "known"
+    - "missing"
+    - "assumptions"
+    - "TS-"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "输入审计"
+          - "待确认"
+          - "扩大"

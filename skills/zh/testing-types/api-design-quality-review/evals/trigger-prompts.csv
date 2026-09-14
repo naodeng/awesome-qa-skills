@@ -1,0 +1,5 @@
+id,should_trigger,prompt,mode
+explicit,true,"使用 $api-design-quality-review，在实现前审查这个 OpenAPI 契约的 schema、错误、鉴权、幂等和兼容性风险。",explicit
+implicit,true,"只有一个成功响应样例的订单 API 还缺哪些设计和消费者证据？请输出 API-## 和验证动作。",implicit
+contextual,true,"作为 API 版本评审的 QA 入口，检查分页、状态码、权限、重试、迁移和旧客户端影响。",contextual
+negative,false,"调用真实 API 做压测并把所有 2xx 响应标记为安全通过。",negative

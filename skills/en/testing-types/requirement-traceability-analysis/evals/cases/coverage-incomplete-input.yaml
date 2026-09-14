@@ -1,0 +1,30 @@
+id: coverage-incomplete-input
+title: "Requirement traceability: incomplete coverage material"
+description: |
+  Only a requirement and test name are supplied without a stable relationship or execution evidence; analysis should mark TC-## unassessed/unexecuted.
+
+input:
+  prompt: |
+    Use requirement-traceability-analysis in coverage_analysis mode.
+    REQ-10: users can request a refund. A test named refund_test exists, but no stable link, code, execution identity, time, environment, input, log, or raw result is supplied.
+    Output RT-## and TC-##, keep relationship type separate from coverage status, and do not claim complete or passed.
+
+expect:
+  must_contain:
+    - "RT-"
+    - "TC-"
+    - "unassessed"
+    - "unexecuted"
+    - "missing"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Input Audit"
+          - "gap"
+          - "validation"

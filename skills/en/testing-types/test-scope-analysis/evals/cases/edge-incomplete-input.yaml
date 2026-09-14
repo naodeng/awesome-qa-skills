@@ -1,0 +1,28 @@
+id: edge-incomplete-input
+title: "Test scope analysis: bounded scope with incomplete input"
+description: |
+  Only "test the new payment feature" is supplied; analysis should provide a constrained draft and expansion conditions.
+
+input:
+  prompt: |
+    Use test-scope-analysis. The only input is "Test the new payment feature." No requirements, version, change list, consumers, risk, platform, data, environment, time, or existing assets are supplied.
+    Separate known, missing, assumptions, and open questions, provide a bounded scope, and do not claim full coverage.
+
+expect:
+  must_contain:
+    - "known"
+    - "missing"
+    - "assumptions"
+    - "TS-"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Input Audit"
+          - "open"
+          - "expansion"

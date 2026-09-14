@@ -1,0 +1,28 @@
+id: basic-success
+title: "Test data requirement analysis: entities, relationships, and cleanup"
+description: |
+  The input supplies checkout entities, relationships, roles, states, and privacy constraints; analysis should produce TDR-## preparation requirements.
+
+input:
+  prompt: |
+    Use test-data-requirement-analysis for checkout test data. The scenario involves customer, order, and payment entities; order must reference customer and payment must reference order; user and support roles have different permissions; cover unpaid, paid, and refunded states; only synthetic or masked data may be used and it must be cleaned up after testing.
+    Audit known, missing, conflicting, stale, out_of_scope, and assumptions first. Then output TDR-## with fields/relationships, states/roles, valid/invalid/boundary conditions, source/masking, setup, isolation, cleanup, blockers, and validation.
+
+expect:
+  must_contain:
+    - "TDR-"
+    - "relationship"
+    - "mask"
+    - "cleanup"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Input Audit"
+          - "relationship"
+          - "validation"

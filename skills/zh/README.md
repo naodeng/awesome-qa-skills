@@ -4,7 +4,7 @@
 
 本目录是中文主语言 Skill 根目录，与 `skills/en` 使用相同 Skill 名和物理结构。
 
-每种语言共 **84** 个 Skill：10 workflows + 71 testing types + 3 Skill Engineering。完整项目说明见 [中文 README](../../README.md) 和 [English README](../../README_EN.md)；长期治理见 [治理路线图](../../docs/governance/SKILL_GOVERNANCE_ROADMAP.md) 与 [治理矩阵](../../docs/SKILL_MATRIX.md)。
+每种语言共 **96** 个 Skill：10 workflows + 83 testing types + 3 Skill Engineering。完整项目说明见 [中文 README](../../README.md) 和 [English README](../../README_EN.md)；长期治理见 [治理路线图](../../docs/governance/SKILL_GOVERNANCE_ROADMAP.md) 与 [治理矩阵](../../docs/SKILL_MATRIX.md)。
 
 ## 跨阶段工作流
 
@@ -95,6 +95,17 @@
 | 需求一致性分析 | [`requirement-consistency-analysis`](testing-types/requirement-consistency-analysis/) |
 | 需求冲突检测 | [`requirement-conflict-detection`](testing-types/requirement-conflict-detection/) |
 | 需求可追踪性分析 | [`requirement-traceability-analysis`](testing-types/requirement-traceability-analysis/) |
+| 业务规则提取 | [`business-rule-extraction`](testing-types/business-rule-extraction/) |
+| 技术设计质量评审 | [`technical-design-quality-review`](testing-types/technical-design-quality-review/) |
+| API 设计质量评审 | [`api-design-quality-review`](testing-types/api-design-quality-review/) |
+| 数据库设计质量评审 | [`database-design-quality-review`](testing-types/database-design-quality-review/) |
+| 可观测性设计评审 | [`observability-design-review`](testing-types/observability-design-review/) |
+| 错误处理设计评审 | [`error-handling-design-review`](testing-types/error-handling-design-review/) |
+| 测试范围分析 | [`test-scope-analysis`](testing-types/test-scope-analysis/) |
+| 测试缺口分析 | [`test-gap-analysis`](testing-types/test-gap-analysis/) |
+| 基于风险的测试 | [`risk-based-testing`](testing-types/risk-based-testing/) |
+| 边界场景发现 | [`edge-case-discovery`](testing-types/edge-case-discovery/) |
+| 负向场景发现 | [`negative-scenario-discovery`](testing-types/negative-scenario-discovery/) |
 
 #### 开发与持续集成
 
@@ -110,6 +121,7 @@
 
 | Skill | 目录 |
 | --- | --- |
+| 测试数据需求分析 | [`test-data-requirement-analysis`](testing-types/test-data-requirement-analysis/) |
 | 测试数据生成 | [`test-data-generation`](testing-types/test-data-generation/) |
 | Bruno 接口自动化 | [`api-test-bruno`](testing-types/api-test-bruno/) |
 | Postman API 测试 | [`api-test-postman`](testing-types/api-test-postman/) |

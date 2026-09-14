@@ -1,0 +1,5 @@
+id,should_trigger,prompt,mode
+explicit,true,"使用 $edge-case-discovery，从需求和约束发现有证据的边界、稀有组合和顺序场景并输出 EC-##。",explicit
+implicit,true,"订单有金额、长度、时区和重复提交问题，请帮我找出最需要验证的边界场景。",implicit
+contextual,true,"作为测试设计前的发现步骤，分析值域、状态、资源、并发、平台和组合边界。",contextual
+negative,false,"直接编写并执行完整测试用例，保证所有边界通过。",negative

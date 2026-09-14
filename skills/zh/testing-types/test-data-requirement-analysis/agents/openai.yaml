@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "test-data-requirement-analysis"
+interface:
+  display_name: "测试数据需求分析"
+  short_description: "Analyze test-data prerequisites, relationships, privacy, lifecycle, and blockers."
+  default_prompt: "Use the test-data-requirement-analysis skill to define test-data prerequisites without generating records."
+policy:
+  allow_implicit_invocation: true

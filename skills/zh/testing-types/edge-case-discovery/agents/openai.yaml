@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "edge-case-discovery"
+interface:
+  display_name: "边界场景发现"
+  short_description: "Discover evidence-backed boundary, rare, ordering, and combination scenarios."
+  default_prompt: "Use the edge-case-discovery skill to find prioritized boundary scenarios without inventing product thresholds."
+policy:
+  allow_implicit_invocation: true

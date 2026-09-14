@@ -1,0 +1,28 @@
+id: edge-incomplete-input
+title: 数据库设计质量评审：只有表名
+description: |
+  只有一个表名和“保存用户资料”，没有字段、所有权、隐私、生命周期或访问模式；评审应输出受限初版。
+
+input:
+  prompt: |
+    使用 database-design-quality-review。唯一材料是“创建 user_profile 表保存用户资料”。没有字段、数据分类、所有者、删除策略、索引、备份、环境或迁移方案。
+    请区分 known、missing、assumptions 和待确认问题，不要根据表名推断隐私等级或保留期限。
+
+expect:
+  must_contain:
+    - "known"
+    - "missing"
+    - "assumptions"
+    - "DB-"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "输入审计"
+          - "待确认"
+          - "验证"

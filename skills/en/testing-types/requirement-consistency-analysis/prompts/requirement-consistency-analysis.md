@@ -36,11 +36,18 @@ Use `RC-##` for each item:
 | --- | --- |
 | `Topic` / `Comparison key` | Compared object and stable key |
 | `Source A` / `Source B` | Both artifacts, versions, times, and applicability scopes |
-| `Relation` | `aligned`, `inconsistent`, `missing`, `stale`, or `conflict` |
+| `Relation` | `aligned`, `inconsistent`, or `conflict` |
+| `Status` | `assessed`, `missing`, `stale`, or `unassessed` |
 | `Evidence` | Minimum statement, field, table, or record supporting the result |
 | `Impact` / `Priority` | Delivery, quality, and testability impact with P0–P3 rationale |
 | `Question` / `Owner` | Who must clarify or decide and what closes the issue |
 | `Suggested action` / `Validation method` | Concrete correction, confirmation, or verification |
+
+## Business-Rule Mode
+
+When the user asks for business-rule consistency, retain the generic `RC-##` findings and add a rule-level `BR-##` view. Use stable rule key, subject/object, trigger, preconditions, applicability, precedence/override relation, action, outcome, and exception as comparison keys; retain both original statements, sources, and minimum evidence.
+
+The `business-rule` mode keeps relation values `aligned`, `inconsistent`, and `conflict` separate from evidence statuses `assessed`, `missing`, `stale`, and `unassessed`. Do not treat a “stricter” rule as automatically higher precedence; when scope, version, or override evidence is absent, preserve the open decision.
 
 ## Conflict and Version Boundaries
 
@@ -60,6 +67,6 @@ Explicitly mutually exclusive rules preserve both sources and use `conflict`; do
 
 - Can every row be traced to both sources, or does it explicitly state that the comparison object is missing?
 - Are version, time, and applicability scope retained?
-- Are `inconsistent`, `conflict`, `stale`, `missing`, and `unassessed` distinct?
+- Are relation values `aligned`, `inconsistent`, and `conflict` separate from statuses `assessed`, `missing`, `stale`, and `unassessed`?
 - Did you avoid guessing synonyms, state transitions, field meaning, or a final specification?
 - Do high-priority differences have owner role, action, close condition, and validation method?

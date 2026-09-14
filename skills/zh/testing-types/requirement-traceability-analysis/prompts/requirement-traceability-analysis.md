@@ -22,13 +22,15 @@
 - 下游追踪：需求 → 验收 → 设计/代码 → 测试 → 缺陷/执行证据；
 - 上游反查：测试、缺陷和证据 → 需求/控制项；找不到上游时标记孤立项。
 
-关系类型使用：
+## 关系类型
 
 - `direct`：材料明确给出稳定 ID 或可核验链接；
 - `derived`：可从明确字段、规则或引用推导，但仍需说明推导依据；
 - `indirect`：只有主题或名称相似，不能当作完整链接；
 - `contradictory`：材料对关系或状态给出矛盾声明；
 - `missing`：应有关系但没有足够材料确认。
+
+## 覆盖状态
 
 覆盖状态使用：`complete`、`partial`、`unverified`、`stale`、`unexecuted` 和 `unassessed`。状态必须由证据支持；缺少执行记录时不能写 `passed`。
 
@@ -41,6 +43,12 @@
 | 稳定 ID 和版本 | PRD/规则/用户提供 | 验收、设计、代码、测试、缺陷或证据 ID | `direct`/`derived`/`indirect`/`contradictory`/`missing` | 上述覆盖状态 | 最小可回溯记录和执行身份 | 缺失项、责任角色、关闭条件、验证方法 |
 
 每行还应说明适用范围、时间、影响、优先级和待确认问题。报告“全部通过”但没有执行身份、时间、环境、输入、日志或原始结果时，保留该声明为材料内容，并把执行证据标为 `unverified`/`unexecuted`。
+
+## 覆盖分析模式（coverage_analysis）
+
+当用户要求 `test-coverage-analysis` 或 `coverage_analysis` 模式时，保留 `RT-##` 的需求/制品双向关系，并增加 `TC-##` 覆盖视图。每条 `TC-##` 至少包含需求/风险/行为对象、来源、关联测试资产、关系类型、覆盖状态、执行身份/时间/环境（若提供）、证据质量、孤立或重复项、缺口行动和验证方法。
+
+关系类型仍只能使用 `direct`、`derived`、`indirect`、`contradictory`、`missing`；覆盖状态仍只能使用 `complete`、`partial`、`unverified`、`stale`、`unexecuted`、`unassessed`。测试文件、名称、报告摘要或静态存在不能单独产生 `complete`，缺少真实执行证据时不能写 `passed`。
 
 ## 输出顺序
 
@@ -56,6 +64,7 @@
 
 - 是否既做需求到制品，也做制品到需求的反向检查？
 - 是否每个链接都有稳定标识、来源、适用条件和最小证据？
-- 是否区分 `complete`、`partial`、`indirect`、`missing`、`stale`、`unverified` 和 `unexecuted`？
+- 关系类型是否仅使用 `direct`、`derived`、`indirect`、`contradictory`、`missing`？
+- 覆盖状态是否仅使用 `complete`、`partial`、`unverified`、`stale`、`unexecuted`、`unassessed`？
 - 是否把孤立项、缺执行记录和过期制品显式列出？
 - 是否避免编造需求、关系、审批、漏洞或执行结果？

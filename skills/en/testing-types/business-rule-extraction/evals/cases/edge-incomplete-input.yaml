@@ -1,0 +1,29 @@
+id: edge-incomplete-input
+title: "Business rule extraction: incomplete material"
+description: |
+  Only a vague business goal is supplied; output should provide a bounded first pass and gaps instead of inventing a threshold.
+
+input:
+  prompt: |
+    Use business-rule-extraction.
+    The only material is "Members can redeem points quickly." No version, actor, ratio, failure handling, region, source, or acceptance criterion is supplied.
+    Give a minimum useful rule draft, separate known, missing, and assumptions, and do not define what "quickly" means.
+
+expect:
+  must_contain:
+    - "known"
+    - "missing"
+    - "assumptions"
+    - "open"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Input Audit"
+          - "evidence gap"
+          - "validation"

@@ -1,0 +1,5 @@
+id,should_trigger,prompt,mode
+explicit,true,"Use $technical-design-quality-review to review this ADR before implementation for boundaries, failure modes, non-functional risks, and verification readiness.",explicit
+implicit,true,"This asynchronous architecture only says eventually consistent and monitored; identify design-quality gaps, evidence, and minimum verification actions.",implicit
+contextual,true,"As the QA entry point for a technical proposal, inspect component dependencies, data consistency, security, performance, compatibility, and observability design.",contextual
+negative,false,"Execute the existing API tests and fix failed assertions in the implementation.",negative

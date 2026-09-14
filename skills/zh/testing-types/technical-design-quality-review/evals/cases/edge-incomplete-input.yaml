@@ -1,0 +1,28 @@
+id: edge-incomplete-input
+title: 技术设计质量评审：设计材料不足
+description: |
+  只有一句“增加缓存层”，没有拓扑、数据一致性、失效策略、容量或版本信息；评审应交付受限初版。
+
+input:
+  prompt: |
+    使用 technical-design-quality-review。唯一输入是“在用户服务前增加缓存，提升性能”。没有架构图、缓存键、失效策略、数据敏感性、容量目标、回源行为或环境。
+    请给出最小可用评审，区分 known、missing、assumptions 和待确认问题，不要猜测缓存 TTL 或性能收益。
+
+expect:
+  must_contain:
+    - "known"
+    - "missing"
+    - "assumptions"
+    - "TD-"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "输入审计"
+          - "待确认"
+          - "验证"

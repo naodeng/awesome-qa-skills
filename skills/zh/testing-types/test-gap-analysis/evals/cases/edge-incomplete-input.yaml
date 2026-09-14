@@ -1,0 +1,28 @@
+id: edge-incomplete-input
+title: 测试缺口分析：信息不足的受限初版
+description: |
+  只有一句“测试新支付功能”，分析应列出缺失证据并避免假装知道测试范围。
+
+input:
+  prompt: |
+    使用 test-gap-analysis。唯一输入是“测试新支付功能”。没有需求 ID、验收标准、版本、风险、变更、测试资产、环境、数据、执行记录或历史缺陷。
+    请区分已知事实、信息缺口、冲突、过期信息、范围外和假设，给出受限 TG-## 草案，不要宣称全量覆盖或测试通过。
+
+expect:
+  must_contain:
+    - "TG-"
+    - "信息缺口"
+    - "假设"
+    - "受限"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "输入审计"
+          - "待确认"
+          - "验证"

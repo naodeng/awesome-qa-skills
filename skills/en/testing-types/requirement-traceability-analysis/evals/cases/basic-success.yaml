@@ -1,7 +1,7 @@
 id: basic-success
 title: "Requirement traceability analysis: bidirectional requirement-to-test mapping"
 description: |
-  Stable requirement, acceptance, test, and defect IDs are supplied; analysis must distinguish complete and partial coverage and identify missing execution evidence and orphan artifacts.
+  Stable requirement, acceptance, test, and defect IDs are supplied; analysis must keep relationship types separate from coverage statuses and identify missing execution evidence and orphan artifacts.
 
 input:
   prompt: |
@@ -12,7 +12,7 @@ input:
     TC-1: verify that a valid email receives a reset link.
     DEF-1: the observed lock duration is 5 minutes, status Open, linked to REQ-2.
     No acceptance criterion for REQ-2, test execution record, environment, log, or fix commit is supplied.
-    Build a downstream and upstream result table, use RT-##, distinguish complete, partial, missing, unverified, and unexecuted, and give gaps, owners, and validation methods; do not claim a test ran.
+    Build a downstream and upstream result table, use RT-##, keep relationship types direct/derived/indirect/contradictory/missing separate from coverage statuses complete/partial/unverified/stale/unexecuted/unassessed, and give gaps, owners, and validation methods; do not claim a test ran.
 
 expect:
   must_contain:

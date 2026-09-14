@@ -38,6 +38,8 @@ If implementation shows that a candidate is semantically covered by an existing 
 | `requirement-conflict-detection` | Evidence-backed mutually exclusive rules, constraints, or acceptance conditions, preserving both sides, scope, and the decision needed | It does not decide precedence, ownership, waiver, or the final business rule |
 | `requirement-traceability-analysis` | Bidirectional relationships among requirements, acceptance criteria, design/implementation, test assets, defects, and evidence, including orphans and uncovered items | It does not treat matching names as real links or claim that a test was executed or passed |
 
+Specialist enums stay in separate dimensions: consistency analysis uses relation values `aligned`/`inconsistent`/`conflict` and evidence statuses `assessed`/`missing`/`stale`/`unassessed`; traceability analysis uses relationship types `direct`/`derived`/`indirect`/`contradictory`/`missing` and coverage statuses `complete`/`partial`/`unverified`/`stale`/`unexecuted`/`unassessed`.
+
 ## Shared Output Contract
 
 Every Prompt starts with an input audit and includes these shared fields:
@@ -62,6 +64,8 @@ skills/{zh,en}/testing-types/<skill-name>/
 ├── agents/openai.yaml
 └── evals/
     ├── eval.yaml
+    ├── trigger-prompts.csv
+    ├── local-rules.json
     └── cases/
         ├── basic-success.yaml
         ├── edge-incomplete-input.yaml

@@ -1,0 +1,28 @@
+id: basic-success
+title: "Technical design review: coverage matrix and failure risks"
+description: |
+  The input supplies an asynchronous payment design, dependencies, and a degradation claim; review should produce TD-## findings, evidence, impact, and verification readiness.
+
+input:
+  prompt: |
+    Use technical-design-quality-review for this design: Order Service writes an order and publishes a payment event; Payment Service calls an external provider; failures enter a retry queue. The design only says "eventually consistent" and "monitored" and omits an idempotency key, retry limit, alert condition, rollback, and compatibility version.
+    List known, missing, conflicting, stale, out_of_scope, and assumptions first. Then provide a design coverage matrix and TD-## findings. Do not claim implementation or performance tests passed.
+
+expect:
+  must_contain:
+    - "TD-"
+    - "failure"
+    - "validation"
+    - "missing"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Input Audit"
+          - "coverage matrix"
+          - "evidence"

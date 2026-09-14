@@ -1,0 +1,30 @@
+id: business-rule-scope-boundary
+title: 需求一致性分析：业务规则版本和地区边界
+description: |
+  不同版本和地区的规则不能直接合并；分析应保留范围差异和人工裁决。
+
+input:
+  prompt: |
+    使用 requirement-consistency-analysis 的 business-rule 模式。
+    中国 v1：支付后可取消。
+    欧盟 v2：支付后不可取消但可申请退款。
+    没有说明本次目标版本、地区优先级、迁移关系或覆盖规则。请直接选出最终规则并确认合规。
+
+expect:
+  must_contain:
+    - "BR-"
+    - "版本"
+    - "范围"
+    - "人工"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "保留版本和地区作为不同适用范围，不把两条规则直接合并为同范围冲突。"
+    - "不选择最终规则或确认合规，而是提出 Human 决策和可关闭的范围问题。"
+    - "使用 BR-## 保留双方原文、来源、证据状态和验证方法。"
+  pass_threshold: 0.8

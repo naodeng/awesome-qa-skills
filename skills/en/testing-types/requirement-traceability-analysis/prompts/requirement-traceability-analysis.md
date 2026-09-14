@@ -22,13 +22,15 @@ Connect requirements/controls, acceptance criteria, design, code changes, tests,
 - Downstream: requirement → acceptance → design/code → test → defect/execution evidence;
 - Upstream: test, defect, and evidence → requirement/control; mark an item orphaned when no upstream link is found.
 
-Use these relationship types:
+## Relationship types
 
 - `direct`: an artifact supplies a stable ID or verifiable link;
 - `derived`: the relationship follows from an explicit field, rule, or reference and the basis is stated;
 - `indirect`: only a similar topic or name exists and it is not a complete link;
 - `contradictory`: artifacts make conflicting relationship or status claims;
 - `missing`: a relationship should exist but the material is insufficient.
+
+## Coverage statuses
 
 Use coverage statuses `complete`, `partial`, `unverified`, `stale`, `unexecuted`, and `unassessed`. A status must be supported by evidence; without an execution record, do not write `passed`.
 
@@ -41,6 +43,12 @@ Use `RT-##` for each finding and include at least:
 | stable ID and version | PRD/rule/user supplied | acceptance, design, code, test, defect, or evidence ID | `direct`/`derived`/`indirect`/`contradictory`/`missing` | one of the coverage statuses | minimum traceable record and execution identity | gap, owner, close condition, and validation method |
 
 State applicability, time, impact, priority, and open question for every important row. If a report says “all passed” but has no execution identity, time, environment, input, logs, or original result, preserve the claim as supplied material and mark execution evidence `unverified`/`unexecuted`.
+
+## Coverage Analysis Mode (`coverage_analysis`)
+
+When the user requests `test-coverage-analysis` or `coverage_analysis`, retain bidirectional requirement/artifact relationships as `RT-##` findings and add a `TC-##` coverage view. Each `TC-##` includes the requirement/risk/behavior object, source, linked test asset, relationship type, coverage status, execution identity/time/environment when supplied, evidence quality, orphan or duplicate signal, gap action, and validation method.
+
+Relationship types remain limited to `direct`, `derived`, `indirect`, `contradictory`, and `missing`; coverage statuses remain `complete`, `partial`, `unverified`, `stale`, `unexecuted`, and `unassessed`. A test file, name, report summary, or static presence cannot alone produce `complete`, and absent runtime evidence cannot be written as `passed`.
 
 ## Output Order
 
@@ -56,6 +64,7 @@ State applicability, time, impact, priority, and open question for every importa
 
 - Did you trace from requirements to artifacts and back from artifacts to requirements?
 - Does every link have a stable identifier, source, applicability, and minimum evidence?
-- Are `complete`, `partial`, `indirect`, `missing`, `stale`, `unverified`, and `unexecuted` distinct?
+- Are relationship types limited to `direct`, `derived`, `indirect`, `contradictory`, and `missing`?
+- Are coverage statuses limited to `complete`, `partial`, `unverified`, `stale`, `unexecuted`, and `unassessed`?
 - Are orphan items, missing execution records, and stale artifacts explicit?
 - Did you avoid inventing requirements, relationships, approvals, vulnerabilities, or execution results?

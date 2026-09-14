@@ -1,0 +1,27 @@
+id: basic-success
+title: 负向场景发现：依赖失败与幂等风险
+description: |
+  输入包含权限、依赖超时、重复请求和部分失败约束；分析应输出 NS-##。
+
+input:
+  prompt: |
+    请使用 negative-scenario-discovery 分析退款接口。只有订单所有者或客服角色可操作；支付依赖可能超时；请求带 idempotency key；历史上出现重复提交和支付成功但本地状态未更新。请先审计已知事实、信息缺口、冲突、过期信息、范围外和假设，再输出 NS-##，区分未授权、超时、重试耗尽、重复请求、部分失败和恢复路径，包含预期可见结果、数据一致性影响和验证方法。
+
+expect:
+  must_contain:
+    - "NS-"
+    - "超时"
+    - "幂等"
+    - "数据一致性"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "输入审计"
+          - "触发"
+          - "验证"

@@ -1,0 +1,5 @@
+id,should_trigger,prompt,mode
+explicit,true,"Use the $requirement-traceability-analysis skill to build bidirectional mappings from requirements to artifacts and back, separating coverage status from execution evidence.",explicit
+implicit,true,"Requirement REQ-20 has acceptance criteria, code, and a test name but no run identity or raw log. Identify orphan items, relationship types, coverage statuses, and missing evidence without treating a report's passed claim as executed.",implicit
+contextual,true,"During a release change review, use coverage analysis mode to trace stable IDs, versions, environments, and execution records downstream and upstream across requirements, acceptance, design, code, tests, defects, and CI evidence, returning a TC-## coverage view, auditable gaps, and close conditions.",contextual
+negative,false,"Run the existing test suite and summarize the CI result.",negative

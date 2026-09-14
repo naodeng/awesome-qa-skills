@@ -2,7 +2,7 @@
 
 # Skills 全量索引
 
-每种语言包含 10 个工作流、71 个测试类型和 3 个 Skill Engineering，共 84 个；中英文合计 168 个目录。以下是逻辑导航，实际目录不变。长期治理入口见 [Skill 治理路线图](../governance/SKILL_GOVERNANCE_ROADMAP.md)、[治理矩阵](../SKILL_MATRIX.md) 和 [匹配登记表](../SKILL_MATCHING_REGISTER.md)。
+每种语言包含 10 个工作流、83 个测试类型和 3 个 Skill Engineering，共 96 个；中英文合计 192 个目录。以下是逻辑导航，实际目录不变。长期治理入口见 [Skill 治理路线图](../governance/SKILL_GOVERNANCE_ROADMAP.md)、[治理矩阵](../SKILL_MATRIX.md) 和 [匹配登记表](../SKILL_MATCHING_REGISTER.md)。
 
 ## 跨阶段工作流
 
@@ -93,6 +93,19 @@
 | `requirement-consistency-analysis` | [中文](../../skills/zh/testing-types/requirement-consistency-analysis/) | [English](../../skills/en/testing-types/requirement-consistency-analysis/) |
 | `requirement-conflict-detection` | [中文](../../skills/zh/testing-types/requirement-conflict-detection/) | [English](../../skills/en/testing-types/requirement-conflict-detection/) |
 | `requirement-traceability-analysis` | [中文](../../skills/zh/testing-types/requirement-traceability-analysis/) | [English](../../skills/en/testing-types/requirement-traceability-analysis/) |
+| `business-rule-extraction` | [中文](../../skills/zh/testing-types/business-rule-extraction/) | [English](../../skills/en/testing-types/business-rule-extraction/) |
+| `technical-design-quality-review` | [中文](../../skills/zh/testing-types/technical-design-quality-review/) | [English](../../skills/en/testing-types/technical-design-quality-review/) |
+| `api-design-quality-review` | [中文](../../skills/zh/testing-types/api-design-quality-review/) | [English](../../skills/en/testing-types/api-design-quality-review/) |
+| `database-design-quality-review` | [中文](../../skills/zh/testing-types/database-design-quality-review/) | [English](../../skills/en/testing-types/database-design-quality-review/) |
+| `observability-design-review` | [中文](../../skills/zh/testing-types/observability-design-review/) | [English](../../skills/en/testing-types/observability-design-review/) |
+| `error-handling-design-review` | [中文](../../skills/zh/testing-types/error-handling-design-review/) | [English](../../skills/en/testing-types/error-handling-design-review/) |
+| `test-scope-analysis` | [中文](../../skills/zh/testing-types/test-scope-analysis/) | [English](../../skills/en/testing-types/test-scope-analysis/) |
+| `test-gap-analysis` | [中文](../../skills/zh/testing-types/test-gap-analysis/) | [English](../../skills/en/testing-types/test-gap-analysis/) |
+| `risk-based-testing` | [中文](../../skills/zh/testing-types/risk-based-testing/) | [English](../../skills/en/testing-types/risk-based-testing/) |
+| `edge-case-discovery` | [中文](../../skills/zh/testing-types/edge-case-discovery/) | [English](../../skills/en/testing-types/edge-case-discovery/) |
+| `negative-scenario-discovery` | [中文](../../skills/zh/testing-types/negative-scenario-discovery/) | [English](../../skills/en/testing-types/negative-scenario-discovery/) |
+
+> v1.1 后续卡片中的 `business-rule-consistency-review`、`architecture-testability-review` 和 `test-coverage-analysis` 登记为现有物理 Skill 的增强模式，不创建重复目录；详见[能力匹配登记表](../SKILL_MATCHING_REGISTER.md)。
 
 #### 开发与持续集成
 
@@ -108,6 +121,7 @@
 
 | Skill | 中文 | English |
 | --- | --- | --- |
+| `test-data-requirement-analysis` | [中文](../../skills/zh/testing-types/test-data-requirement-analysis/) | [English](../../skills/en/testing-types/test-data-requirement-analysis/) |
 | `test-data-generation` | [中文](../../skills/zh/testing-types/test-data-generation/) | [English](../../skills/en/testing-types/test-data-generation/) |
 | `api-test-bruno` | [中文](../../skills/zh/testing-types/api-test-bruno/) | [English](../../skills/en/testing-types/api-test-bruno/) |
 | `api-test-postman` | [中文](../../skills/zh/testing-types/api-test-postman/) | [English](../../skills/en/testing-types/api-test-postman/) |

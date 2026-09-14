@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "technical-design-quality-review"
+interface:
+  display_name: "技术设计质量评审"
+  short_description: "Review technical designs for boundaries, failures, evidence gaps, non-functional risks, and verification readiness."
+  default_prompt: "Use the technical-design-quality-review skill to assess this technical design before implementation."
+policy:
+  allow_implicit_invocation: true

@@ -24,7 +24,7 @@ For every lifecycle change, check the Matrix, bilingual entry READMEs, Catalog/G
 
 ## Phase 1 current work item (2026-09-14)
 
-`IN_PROGRESS_WITH_LIMITATIONS`: the first five v1.1 P0 requirement-quality Skills now have bilingual packages and package-level structural checks, while their Project #4 cards remain `In Progress`. See the [Phase 1 requirement-quality record](./PHASE_1_REQUIREMENTS_QUALITY_EN.md) for scope, card IDs, input-audit boundaries, evidence limits, and acceptance commands. Real model Evals have not run, so semantic effectiveness and release completion must not be claimed.
+`ACCEPTED_WITH_DEFERRED_EVAL`: the first five v1.1 requirement-quality Skills, the following ten quality-skill cards, and the current five test-design discovery Skills have passed unified implementation-scope acceptance; the corresponding 20 Project #4 cards move to `Done`. See the [Phase 1 requirement-quality record](./PHASE_1_REQUIREMENTS_QUALITY_EN.md) for scope, card IDs, input-audit boundaries, evidence limits, and acceptance commands. Real-model Evals are deferred by the user and remain `NOT_RUN`, so semantic effectiveness, quality scoring, and release completion must not be claimed.
 
 ## Phase reviews
 

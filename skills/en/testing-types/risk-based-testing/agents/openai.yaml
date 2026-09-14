@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "risk-based-testing"
+interface:
+  display_name: "Risk-Based Testing"
+  short_description: "Translate quality risk evidence into prioritized test depth, methods, and tradeoffs."
+  default_prompt: "Use the risk-based-testing skill to prioritize test objectives and depth from supplied risk evidence."
+policy:
+  allow_implicit_invocation: true

@@ -1,6 +1,6 @@
 ---
 name: requirement-consistency-analysis
-description: Use when multiple requirement artifacts may disagree on terminology, identifiers, formats, states, rules, or behavior; triggers include requirement consistency, cross-document consistency, and consistency analysis.
+description: Use this skill when multiple requirement artifacts may disagree on terminology, identifiers, formats, states, rules, or behavior; triggers include requirement consistency, cross-document consistency, and consistency analysis.
 ---
 
 # Requirement Consistency Analysis
@@ -20,12 +20,15 @@ Do not use it with one source when only general requirements analysis is needed,
 1. Read and follow `prompts/requirement-consistency-analysis.md`.
 2. Inventory source, version, time, actor, platform, and applicability scope. State the limitation when a comparison artifact is missing.
 3. Compare terminology, identifiers, formats, states, rules, and behavior using stable keys; preserve evidence and relationship per item.
-4. Distinguish `aligned`, `inconsistent`, `missing`, `stale`, and `unassessed`. Mark explicit mutual exclusion as `conflict` instead of silently merging it.
-5. Provide impact, priority, owner role, open question, close condition, and validation method.
+4. Distinguish relation values `aligned`, `inconsistent`, and `conflict` from evidence statuses `assessed`, `missing`, `stale`, and `unassessed`; never silently merge mutually exclusive rules.
+5. When the task requests `business-rule` mode, use stable rule keys and `BR-##` rule-level evidence for subject, trigger, applicability, precedence/override, action, outcome, and exception while retaining generic `RC-##` findings.
+6. Provide impact, priority, owner role, open question, close condition, and validation method.
 
 ## Core Constraints
 
-- Use `RC-##` finding IDs; each row includes source pair, comparison key, status, evidence, scope/version, impact, and action.
+- Use `RC-##` finding IDs; each row includes source pair, comparison key, relation, status, evidence, scope/version, impact, and action. Relations are `aligned`, `inconsistent`, or `conflict`; statuses are `assessed`, `missing`, `stale`, or `unassessed`.
+- In `business-rule` mode, add `BR-##` rule-level evidence for subject/object, trigger, applicability, precedence/override, action, outcome, and exception; never treat “stricter” as automatically higher precedence.
+- Status values: `assessed`, `missing`, `stale`, and `unassessed` are evidence states, not relation values.
 - Do not treat similar names as synonyms and do not call one source consistent merely because a second source is absent.
 - Do not compare across versions or applicability scopes as if they were one fact. Use `stale`/`unassessed` when scope is unclear.
 - Suggest `requirement-conflict-detection` for explicit mutually exclusive rules by Skill name only; do not link its internal files.
@@ -35,11 +38,13 @@ Do not use it with one source when only general requirements analysis is needed,
 
 - Always read `prompts/requirement-consistency-analysis.md` before producing an analysis.
 - Use `evals/eval.yaml` and `evals/cases/` to regress this Skill; structural gates do not prove cross-source semantic correctness.
+- To check discovery behavior, run `scripts/run_skill_trace_eval.py` with `evals/trigger-prompts.csv` and `evals/local-rules.json`; missing `skill.selection` evidence is `BLOCKED`, not a trigger pass.
+- To check `business-rule` mode, use the `business-rule-*` Evals and a local trigger prompt containing the business-rule phrase; the physical directory remains this Skill and no alias directory is created.
 
 ## Pre-delivery Checklist
 
 - [ ] Each comparison conclusion cites source, version/scope, and minimum evidence
-- [ ] Aligned, inconsistent, missing, stale, and unassessed are distinguished
+- [ ] Relation values `aligned`, `inconsistent`, and `conflict` are separate from statuses `assessed`, `missing`, `stale`, and `unassessed`
 - [ ] Explicit conflict is not silently merged or incorrectly downgraded
 - [ ] P0/P1 issues have owner role, decision question, and validation method
 - [ ] Names, document existence, and static tables are not presented as runtime results

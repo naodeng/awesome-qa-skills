@@ -1,0 +1,5 @@
+id,should_trigger,prompt,mode
+explicit,true,"使用 $requirement-consistency-analysis，对两份需求材料建立同范围的术语、状态和规则对照并保留证据。",explicit
+implicit,true,"比较 PRD 和 API 契约对订单取消状态的描述，区分同范围不一致、版本差异、缺失来源和未评估状态，不要替业务合并规则。",implicit
+contextual,true,"在订单服务的版本评审中，使用 business-rule（business rule）模式核对产品说明、接口契约和验收标准的规则、触发、适用范围、例外和覆盖关系，输出来源成对的发现和验证方式。",contextual
+negative,false,"运行订单 API 契约测试并报告响应不匹配。",negative

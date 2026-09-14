@@ -27,7 +27,7 @@ GitHub Project `Awesome QA Skills — Governance & Roadmap` 是执行看板。�
 
 ## Phase 1 当前工作项（2026-09-14）
 
-`IN_PROGRESS_WITH_LIMITATIONS`：第一批五个 v1.1 P0 需求质量 Skill 已完成中英文包和包级结构检查，Project #4 对应卡片保持 `In Progress`。范围、卡片 ID、输入审计约束、证据边界和验收命令见 [Phase 1 需求质量记录](./PHASE_1_REQUIREMENTS_QUALITY.md)；真实模型 Eval 尚未运行，不能据此宣称语义效果或发布完成。
+`ACCEPTED_WITH_DEFERRED_EVAL`：v1.1 第一批五个需求质量 Skill、后续十个质量 Skill 卡片和本批五个测试设计发现 Skill 已完成统一实现范围验收；对应 20 张 Project #4 卡片移至 `Done`。范围、卡片 ID、输入审计约束、证据边界和验收命令见 [Phase 1 需求质量记录](./PHASE_1_REQUIREMENTS_QUALITY.md)。真实模型 Eval 按用户决定延期并保持 `NOT_RUN`，因此不能据此宣称语义效果、质量评分或版本发布完成。
 
 ## 阶段复盘
 

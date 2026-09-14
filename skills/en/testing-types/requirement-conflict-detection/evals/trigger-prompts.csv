@@ -1,0 +1,5 @@
+id,should_trigger,prompt,mode
+explicit,true,"Use the $requirement-conflict-detection skill to identify mutually exclusive rules within one applicability scope and preserve both sources.",explicit
+implicit,true,"The product note allows exporting personal data while a compliance rule prohibits it. Check version, region, tenant, and data classification, identify any conflict requiring a Human decision, and do not choose precedence.",implicit
+contextual,true,"For a payment-platform compliance change review, analyze product policy, regional regulation, and acceptance criteria for scope-qualified conflicts and return both statements, minimum evidence, decision questions, and validation methods.",contextual
+negative,false,"Implement the approved login policy and add server-side unit tests.",negative

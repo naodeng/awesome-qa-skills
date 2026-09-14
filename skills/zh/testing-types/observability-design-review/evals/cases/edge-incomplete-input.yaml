@@ -1,0 +1,28 @@
+id: edge-incomplete-input
+title: 可观测性设计评审：只有“加监控”
+description: |
+  输入没有服务、信号、字段、阈值、隐私或环境；评审应交付受限初版并列出补证问题。
+
+input:
+  prompt: |
+    使用 observability-design-review。唯一材料是“给新服务加监控和告警”。没有服务边界、业务目标、信号类型、字段、SLO、采样、保留或接收人。
+    请区分 known、missing、assumptions 和待确认问题，不要定义默认告警阈值。
+
+expect:
+  must_contain:
+    - "known"
+    - "missing"
+    - "assumptions"
+    - "OBS-"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "输入审计"
+          - "待确认"
+          - "验证"

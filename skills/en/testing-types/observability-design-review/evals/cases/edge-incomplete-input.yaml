@@ -1,0 +1,28 @@
+id: edge-incomplete-input
+title: "Observability design review: monitor everything"
+description: |
+  No service, signal, field, threshold, privacy, or environment is supplied; review should give a bounded first pass and evidence questions.
+
+input:
+  prompt: |
+    Use observability-design-review. The only material is "Add monitoring and alerts to the new service." No service boundary, business objective, signal type, field, SLO, sampling, retention, or recipient is supplied.
+    Separate known, missing, assumptions, and open questions without defining a default alert threshold.
+
+expect:
+  must_contain:
+    - "known"
+    - "missing"
+    - "assumptions"
+    - "OBS-"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Input Audit"
+          - "open"
+          - "validation"

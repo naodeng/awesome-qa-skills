@@ -36,11 +36,18 @@
 | --- | --- |
 | `Topic` / `Comparison key` | 比较的对象和稳定键 |
 | `Source A` / `Source B` | 两份材料、版本、时间和适用范围 |
-| `Relation` | `aligned`、`inconsistent`、`missing`、`stale` 或 `conflict` |
+| `Relation` | `aligned`、`inconsistent` 或 `conflict` |
+| `状态` | `assessed`、`missing`、`stale` 或 `unassessed` |
 | `Evidence` | 支撑结论的最小原文、字段、表格或记录 |
 | `Impact` / `Priority` | 对交付、质量、可测性的影响和 P0–P3 依据 |
 | `Question` / `Owner` | 需要谁澄清或裁决，以及关闭条件 |
 | `Suggested action` / `Validation method` | 修改、补充、确认或验证的具体方式 |
+
+## 业务规则模式（business-rule mode）
+
+当用户要求业务规则一致性比较时，保留通用 `RC-##` 发现，并为规则级差异建立 `BR-##` 视图。使用稳定规则键、主体/对象、触发条件、前置条件、适用范围、优先级/覆盖关系、动作、结果和例外作为比较键；每条规则保留双方原文、来源和最小证据。
+
+`business-rule` 模式仍将关系 `aligned`、`inconsistent`、`conflict` 与状态 `assessed`、`missing`、`stale`、`unassessed` 分开。不能因为一条规则“更严格”就自动认定其优先级更高；范围、版本或覆盖关系没有证据时，保留未决问题。
 
 ## 冲突和版本边界
 
@@ -60,6 +67,6 @@
 
 - 是否每行都能回溯到两侧来源或明确说明缺少比较对象？
 - 是否保留版本、时间和适用范围？
-- 是否区分 `inconsistent`、`conflict`、`stale`、`missing` 和 `unassessed`？
+- 是否将关系 `aligned`、`inconsistent`、`conflict` 与状态 `assessed`、`missing`、`stale`、`unassessed` 分开？
 - 是否避免猜测同义词、补造状态迁移、字段含义或最终规范？
 - 是否给高优先级差异提供责任角色、行动、关闭条件和验证方式？

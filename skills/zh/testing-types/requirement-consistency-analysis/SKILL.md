@@ -1,6 +1,6 @@
 ---
 name: requirement-consistency-analysis
-description: Use when multiple requirement artifacts may disagree on terminology, identifiers, formats, states, rules, or behavior; triggers include 需求一致性分析, requirement consistency, and cross-document consistency.
+description: Use this skill when multiple requirement artifacts may disagree on terminology, identifiers, formats, states, rules, or behavior; triggers include 需求一致性分析, requirement consistency, and cross-document consistency.
 ---
 
 # 需求一致性分析
@@ -20,12 +20,14 @@ description: Use when multiple requirement artifacts may disagree on terminology
 1. 阅读并遵循 `prompts/requirement-consistency-analysis.md`。
 2. 建立来源、版本、时间、角色、平台和适用范围清单；没有比较对象时标明限制。
 3. 用稳定比较键对照术语、标识、格式、状态、规则和行为；逐项保留证据和关系。
-4. 区分 `aligned`、`inconsistent`、`missing`、`stale` 和 `unassessed`；明确互斥规则转为 `conflict`，不静默合并。
-5. 给出影响、优先级、责任角色、待确认问题、关闭条件和验证方式。
+4. 将关系区分为 `aligned`、`inconsistent` 和 `conflict`，将证据状态区分为 `assessed`、`missing`、`stale` 和 `unassessed`；不静默合并互斥规则。
+5. 当任务要求 `business-rule` 模式时，使用稳定规则键和 `BR-##` 规则级证据比较主体、触发、适用范围、优先级/覆盖关系、动作、结果和例外；保留通用 `RC-##` 发现。
+6. 给出影响、优先级、责任角色、待确认问题、关闭条件和验证方式。
 
 ## 核心约束
 
-- 使用 `RC-##` 标识发现；每行至少有 source pair、comparison key、status、evidence、scope/version、impact 和 action。
+- 使用 `RC-##` 标识发现；每行至少有 source pair、comparison key、关系、状态、evidence、scope/version、impact 和 action。关系只能使用 `aligned`、`inconsistent` 或 `conflict`；状态只能使用 `assessed`、`missing`、`stale` 或 `unassessed`。
+- `business-rule` 模式额外使用 `BR-##` 记录规则级证据、主体/对象、触发、适用范围、优先级/覆盖关系、动作、结果和例外；不把“更严格”自动当作更高优先级。
 - 不把相似名称直接当成同义，不把缺少第二来源当成一致。
 - 不跨版本或不同适用范围判定同一事实；范围不明时保留 `stale`/`unassessed`。
 - 显式互斥规则建议使用 `requirement-conflict-detection`，只写 Skill 名称，不链接内部文件。
@@ -35,11 +37,13 @@ description: Use when multiple requirement artifacts may disagree on terminology
 
 - 每次产出前必须阅读 `prompts/requirement-consistency-analysis.md`。
 - 需要回归本 Skill 时使用 `evals/eval.yaml` 和 `evals/cases/`；结构门禁不证明跨来源语义正确。
+- 需要验证发现行为时，使用 `evals/trigger-prompts.csv` 与 `evals/local-rules.json` 运行仓库的 `scripts/run_skill_trace_eval.py`；缺少 `skill.selection` 证据时必须报告 `BLOCKED`，不能推断触发成功。
+- 需要验证 `business-rule` 模式时，使用 `business-rule-*` Eval 和带业务规则短语的本地触发样本；目录仍是本 Skill 的物理目录，不创建别名目录。
 
 ## 交付前自检
 
 - [ ] 每个比较结论都列出来源、版本/范围和最小证据
-- [ ] 已区分一致、不一致、缺失、过期和未评估
+- [ ] 已分别区分关系 `aligned`、`inconsistent`、`conflict` 与状态 `assessed`、`missing`、`stale`、`unassessed`
 - [ ] 明确冲突没有被静默合并或被错误降级为普通不一致
 - [ ] P0/P1 问题有责任角色、待决策问题和验证方式
 - [ ] 没有把名称匹配、文档存在或静态表格写成运行结果

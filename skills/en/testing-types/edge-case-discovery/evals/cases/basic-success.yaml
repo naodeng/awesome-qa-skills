@@ -1,0 +1,27 @@
+id: basic-success
+title: "Edge case discovery: input and state dimensions"
+description: |
+  The input supplies field constraints, time rules, and states; analysis should produce EC-## candidates and validation suggestions.
+
+input:
+  prompt: |
+    Use edge-case-discovery for order creation. The requirement says order notes allow at most 50 characters and amount must be a non-negative currency value; states are draft, submitted, and cancelled; settlement uses UTC while users are in several time zones; a past defect involved duplicate submit clicks. Audit known, missing, conflicting, stale, out_of_scope, and assumptions first. Then output EC-## across value/length, null/type, time/timezone, state, order/concurrency, and combination boundaries with source, impact, and validation.
+
+expect:
+  must_contain:
+    - "EC-"
+    - "time"
+    - "state"
+    - "validation"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Input Audit"
+          - "boundary"
+          - "evidence"

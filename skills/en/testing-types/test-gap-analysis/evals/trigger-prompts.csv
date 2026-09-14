@@ -1,0 +1,5 @@
+id,should_trigger,prompt,mode
+explicit,true,"Use $test-gap-analysis to find missing test obligations from requirements, risks, changes, and evidence and output TG-##.",explicit
+implicit,true,"Payment callbacks have a history of duplicates and delays, but the test evidence is incomplete; find the unprotected test obligations.",implicit
+contextual,true,"As a pre-release QA entry point, compare requirements, risks, test assets, and execution evidence to identify orphan, stale, and unverified gaps.",contextual
+negative,false,"Run the entire automation suite and announce that the version passed.",negative

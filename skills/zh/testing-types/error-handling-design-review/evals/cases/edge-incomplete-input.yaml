@@ -1,0 +1,28 @@
+id: edge-incomplete-input
+title: 错误处理设计评审：只有通用错误响应
+description: |
+  只有“失败返回 500”，没有触发、重试、数据、消费者或恢复资料；评审应标出信息缺口而不是补全策略。
+
+input:
+  prompt: |
+    使用 error-handling-design-review。唯一材料是“发生错误时返回 500”。没有失败类型、输入、超时、依赖、重试、幂等、用户影响、日志或恢复策略。
+    请区分 known、missing、assumptions 和待确认问题，不要自动把所有错误设为可重试。
+
+expect:
+  must_contain:
+    - "known"
+    - "missing"
+    - "assumptions"
+    - "EH-"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "输入审计"
+          - "待确认"
+          - "验证"

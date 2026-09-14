@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "observability-design-review"
+interface:
+  display_name: "Observability Design Review"
+  short_description: "Review telemetry designs for signal semantics, alert actionability, privacy, cardinality, sampling, and evidence gaps."
+  default_prompt: "Use the observability-design-review skill to assess this observability design before implementation."
+policy:
+  allow_implicit_invocation: true

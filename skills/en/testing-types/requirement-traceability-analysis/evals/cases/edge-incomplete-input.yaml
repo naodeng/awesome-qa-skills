@@ -1,7 +1,7 @@
 id: edge-incomplete-input
 title: "Requirement traceability analysis: requirement and test name only"
 description: |
-  Only a requirement and test name are supplied without a stable link or execution record; analysis must mark the relationship indirect or unassessed rather than claiming complete coverage.
+  Only a requirement and test name are supplied without a stable link or execution record; analysis must mark the relationship as indirect and the coverage status as unassessed rather than claiming complete coverage.
 
 input:
   prompt: |

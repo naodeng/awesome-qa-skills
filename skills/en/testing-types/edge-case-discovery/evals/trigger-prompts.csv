@@ -1,0 +1,5 @@
+id,should_trigger,prompt,mode
+explicit,true,"Use $edge-case-discovery to find evidence-backed boundary, rare-combination, and ordering scenarios from requirements and constraints and output EC-##.",explicit
+implicit,true,"An order flow has amount, length, time-zone, and duplicate-submit risks; find the boundary scenarios that need attention.",implicit
+contextual,true,"As a pre-test-design discovery step, analyze value, state, resource, concurrency, platform, and combination boundaries.",contextual
+negative,false,"Write and execute a complete test-case suite to guarantee every boundary passes.",negative

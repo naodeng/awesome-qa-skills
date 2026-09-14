@@ -1,0 +1,5 @@
+id,should_trigger,prompt,mode
+explicit,true,"Use $business-rule-extraction to extract source-backed BR-## business rules and exceptions from this policy and acceptance material.",explicit
+implicit,true,"Break this payment description into traceable atomic business rules, retaining triggers, scope, and unknowns without inventing thresholds.",implicit
+contextual,true,"As the QA entry point for a checkout change, organize business rules from the PRD, support policy, and workflow with evidence and Human decision items.",contextual
+negative,false,"Connect to the production database, execute refund tests, and approve the compliance release.",negative

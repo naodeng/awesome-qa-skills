@@ -1,0 +1,28 @@
+id: edge-incomplete-input
+title: "API design review: path and one-line description only"
+description: |
+  Only a POST path and "create order" are supplied; review should provide a bounded first pass without guessing fields or statuses.
+
+input:
+  prompt: |
+    Use api-design-quality-review. The only material is POST /orders: create an order. No request, response, status, authorization, duplicate handling, version, consumer, or environment is supplied.
+    List known, missing, assumptions, and the highest-value evidence questions without guessing fields or a default status.
+
+expect:
+  must_contain:
+    - "known"
+    - "missing"
+    - "assumptions"
+    - "API-"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Input Audit"
+          - "open"
+          - "validation"

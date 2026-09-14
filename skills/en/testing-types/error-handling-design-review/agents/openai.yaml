@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "error-handling-design-review"
+interface:
+  display_name: "Error Handling Design Review"
+  short_description: "Review failure paths for retryability, propagation, consistency, recovery, telemetry, and evidence gaps."
+  default_prompt: "Use the error-handling-design-review skill to assess this failure-handling design before implementation."
+policy:
+  allow_implicit_invocation: true

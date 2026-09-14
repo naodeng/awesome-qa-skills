@@ -1,0 +1,30 @@
+id: business-rule-incomplete-input
+title: 需求一致性分析：业务规则材料不完整
+description: |
+  只有一条规则和模糊的第二来源，分析应暴露缺失的范围、优先级和证据。
+
+input:
+  prompt: |
+    请使用 requirement-consistency-analysis 的 business-rule 模式。
+    来源 A：高风险订单需要人工审核。
+    来源 B：高风险订单优先处理。没有版本、风险定义、触发阈值、角色、状态转换或两条规则的适用范围。
+    请输出受限 BR-## 对照，区分 known、missing、stale、assumptions，不要把“优先处理”解释成更高优先级或自动覆盖人工审核。
+
+expect:
+  must_contain:
+    - "known"
+    - "missing"
+    - "BR-"
+    - "assumptions"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "输入审计"
+          - "范围"
+          - "验证"

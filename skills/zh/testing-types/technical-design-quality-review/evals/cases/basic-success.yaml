@@ -1,0 +1,28 @@
+id: basic-success
+title: 技术设计质量评审：覆盖矩阵与失败风险
+description: |
+  输入包含异步支付设计、依赖和降级声明；评审应输出 TD-##、证据、影响和验证准备度。
+
+input:
+  prompt: |
+    请使用 technical-design-quality-review 评审以下设计：订单服务写入订单后发布支付事件，支付服务调用外部支付商，失败时进入重试队列；设计只写了“最终一致”和“具备监控”，没有幂等键、重试上限、告警条件、回滚策略或兼容版本。
+    先列 known、missing、conflicting、stale、out_of_scope、assumptions，再给设计覆盖矩阵和 TD-## 发现。不要声称实现或性能测试已通过。
+
+expect:
+  must_contain:
+    - "TD-"
+    - "失败"
+    - "验证"
+    - "缺失"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "输入审计"
+          - "覆盖矩阵"
+          - "证据"

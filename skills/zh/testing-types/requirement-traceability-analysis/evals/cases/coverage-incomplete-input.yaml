@@ -1,0 +1,30 @@
+id: coverage-incomplete-input
+title: 需求可追踪性分析：覆盖材料不完整
+description: |
+  只有需求和测试名称，没有稳定关系或执行证据；分析应使用 TC-## 标出未评估/未执行。
+
+input:
+  prompt: |
+    使用 requirement-traceability-analysis 的 coverage_analysis 模式。
+    REQ-10：用户可以退款。测试名称 refund_test 存在，但没有稳定链接、代码、执行身份、时间、环境、输入、日志或原始结果。
+    请输出 RT-## 和 TC-##，标出关系类型与覆盖状态的区别，不要宣称 complete 或 passed。
+
+expect:
+  must_contain:
+    - "RT-"
+    - "TC-"
+    - "unassessed"
+    - "unexecuted"
+    - "missing"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "输入审计"
+          - "缺口"
+          - "验证"

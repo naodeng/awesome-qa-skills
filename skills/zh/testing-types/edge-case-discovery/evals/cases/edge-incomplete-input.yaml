@@ -1,0 +1,28 @@
+id: edge-incomplete-input
+title: 边界场景发现：阈值和状态缺失
+description: |
+  只有“发现所有边界”，没有 schema、规则或阈值；分析应保留缺口和假设。
+
+input:
+  prompt: |
+    使用 edge-case-discovery。只知道“发现这个功能的所有边界场景”，没有需求、字段、单位、最大最小值、状态、时间、平台、依赖或历史问题。
+    请区分已知事实、信息缺口、冲突、过期信息、范围外和假设，给出受限 EC-##，不要发明阈值或宣称边界已覆盖。
+
+expect:
+  must_contain:
+    - "EC-"
+    - "信息缺口"
+    - "假设"
+    - "阈值"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "输入审计"
+          - "待确认"
+          - "验证"

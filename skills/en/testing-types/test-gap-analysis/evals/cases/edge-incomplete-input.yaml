@@ -1,0 +1,28 @@
+id: edge-incomplete-input
+title: "Test gap analysis: bounded first pass with incomplete input"
+description: |
+  Only "test the new payment feature" is supplied; the analysis should list missing evidence without pretending to know the scope.
+
+input:
+  prompt: |
+    Use test-gap-analysis. The only input is "Test the new payment feature." There are no requirement IDs, acceptance criteria, version, risks, changes, test assets, environment, data, execution records, or past defects.
+    Separate known, missing, conflicting, stale, out_of_scope, and assumptions. Provide a bounded TG-## draft and do not claim full coverage or passed testing.
+
+expect:
+  must_contain:
+    - "TG-"
+    - "missing"
+    - "assumptions"
+    - "bounded"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Input Audit"
+          - "open"
+          - "validation"

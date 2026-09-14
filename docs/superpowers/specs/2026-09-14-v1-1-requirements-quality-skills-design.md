@@ -38,6 +38,8 @@
 | `requirement-conflict-detection` | 识别有来源证据的互斥规则、约束或验收条件，保留冲突双方、适用范围和裁决问题 | 不自行决定优先级、责任、豁免或最终业务规则 |
 | `requirement-traceability-analysis` | 建立需求、验收标准、设计/实现、测试资产、缺陷和证据之间的双向关系，识别孤立项和未覆盖项 | 不把名称相同当作真实链接；不宣称测试已执行或通过 |
 
+专项枚举必须保持不同维度：一致性分析使用关系 `aligned`/`inconsistent`/`conflict`，并单独使用证据状态 `assessed`/`missing`/`stale`/`unassessed`；可追踪性分析使用关系类型 `direct`/`derived`/`indirect`/`contradictory`/`missing`，并单独使用覆盖状态 `complete`/`partial`/`unverified`/`stale`/`unexecuted`/`unassessed`。
+
 ## 统一输出契约
 
 每个 Prompt 都要求先做输入审计，再给专项结果。最低共享字段如下：
@@ -62,6 +64,8 @@ skills/{zh,en}/testing-types/<skill-name>/
 ├── agents/openai.yaml
 └── evals/
     ├── eval.yaml
+    ├── trigger-prompts.csv
+    ├── local-rules.json
     └── cases/
         ├── basic-success.yaml
         ├── edge-incomplete-input.yaml

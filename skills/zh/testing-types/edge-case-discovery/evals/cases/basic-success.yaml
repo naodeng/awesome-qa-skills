@@ -1,0 +1,27 @@
+id: basic-success
+title: 边界场景发现：多维输入与状态边界
+description: |
+  输入提供明确字段限制、时间规则和状态；分析应输出 EC-## 候选与验证建议。
+
+input:
+  prompt: |
+    请使用 edge-case-discovery 分析订单创建。需求明确订单备注最多 50 个字符，金额必须为非负货币值；订单有 draft、submitted、cancelled 状态；系统按 UTC 结算但用户在多个时区；已有缺陷是重复点击提交造成重复请求。请先审计已知事实、信息缺口、冲突、过期信息、范围外和假设，再输出 EC-##，至少覆盖值/长度、空值/类型、时间/时区、状态、顺序/并发和组合边界，并给出来源、影响和验证方法。
+
+expect:
+  must_contain:
+    - "EC-"
+    - "时间"
+    - "状态"
+    - "验证"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "输入审计"
+          - "边界"
+          - "证据"

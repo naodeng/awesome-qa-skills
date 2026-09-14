@@ -1,0 +1,28 @@
+id: edge-incomplete-input
+title: 负向场景发现：失败契约缺失
+description: |
+  只有“找异常场景”，没有错误处理或依赖信息；分析应标记缺口而不是发明行为。
+
+input:
+  prompt: |
+    使用 negative-scenario-discovery。唯一输入是“找出这个功能所有异常场景”。没有需求、权限、输入约束、依赖、超时、重试、错误响应、事务、恢复或历史故障信息。
+    请区分已知事实、信息缺口、冲突、过期信息、范围外和假设，给出受限 NS-##，不要发明错误码、重试次数或恢复结果。
+
+expect:
+  must_contain:
+    - "NS-"
+    - "信息缺口"
+    - "假设"
+    - "错误"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "输入审计"
+          - "待确认"
+          - "验证"

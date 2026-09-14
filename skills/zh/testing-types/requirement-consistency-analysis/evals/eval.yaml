@@ -15,6 +15,9 @@ cases:
     - evals/cases/basic-success.yaml
     - evals/cases/edge-incomplete-input.yaml
     - evals/cases/edge-scope-boundary.yaml
+    - evals/cases/business-rule-success.yaml
+    - evals/cases/business-rule-incomplete-input.yaml
+    - evals/cases/business-rule-scope-boundary.yaml
   defaults:
     timeout_seconds: 180
     max_turns: 8

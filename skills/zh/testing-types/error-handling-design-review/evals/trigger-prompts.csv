@@ -1,0 +1,5 @@
+id,should_trigger,prompt,mode
+explicit,true,"使用 $error-handling-design-review，在实现前评审错误分类、超时、重试、降级、幂等、传播和恢复设计。",explicit
+implicit,true,"支付服务只有一个通用 500 响应，请找出失败模式、重试边界、数据一致性和遥测缺口。",implicit
+contextual,true,"作为支付变更的 QA 入口，检查依赖失败、人工接管、消费者契约、恢复和验证证据。",contextual
+negative,false,"执行生产故障注入并根据一次恢复结果批准发布。",negative

@@ -1,0 +1,30 @@
+id: basic-success
+title: "Business rule extraction: traceable source and exception"
+description: |
+  The input supplies a payment rule, actors, a trigger, and a callback exception; output should create atomic BR-## rules with evidence.
+
+input:
+  prompt: |
+    Use business-rule-extraction.
+    Source "Checkout Rules v2.1": a buyer may redeem points when the order amount is greater than zero and the balance is sufficient; after submission, a payment callback failure may be retried once within 15 minutes. Support agents may view the redemption record but cannot change the balance.
+    Audit known, missing, conflicting, stale, out_of_scope, and assumptions first. Then output BR-## with source, trigger, preconditions, action/outcome, exception, invariant, and validation hint. Do not extend 15 minutes to another flow.
+
+expect:
+  must_contain:
+    - "BR-"
+    - "Source"
+    - "exception"
+    - "validation"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Input Audit"
+          - "known"
+          - "missing"
+          - "BR-"

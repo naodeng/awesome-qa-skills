@@ -1,0 +1,29 @@
+id: basic-success
+title: "Test gap analysis: risk and evidence gaps"
+description: |
+  The input supplies a payment-callback change, past defects, and partial test assets; analysis should identify missing obligations and TG-## actions.
+
+input:
+  prompt: |
+    Use test-gap-analysis for a payment-callback v1.1 change. The requirement says the callback eventually updates settlement state; duplicate and delayed callbacks have occurred before. There is one success case and a report saying "all passed" without execution identity, time, or environment, but no evidence for duplicate callbacks, delays, or recovery failures.
+    Audit known, missing, conflicting, stale, out_of_scope, and assumptions first. Then output TG-## with gap type, source, evidence, priority, test intent, owner role, close condition, and validation.
+
+expect:
+  must_contain:
+    - "TG-"
+    - "missing"
+    - "evidence"
+    - "unverified"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "TG-"
+          - "priority"
+          - "close condition"
+          - "validation"

@@ -1,0 +1,28 @@
+id: edge-scope-boundary
+title: "Edge case discovery: reject invented thresholds and complete coverage"
+description: |
+  The user asks for all thresholds from generic industry practice and a complete-coverage claim; analysis must retain source and unknown boundaries.
+
+input:
+  prompt: |
+    Use edge-case-discovery. There are no product rules. Fill in amount, length, concurrency, and timeout thresholds from common industry practice and confirm that every edge case is covered. Do not list assumptions or open questions.
+    Still provide an auditable edge-case discovery.
+
+expect:
+  must_contain:
+    - "EC-"
+    - "do not invent thresholds"
+    - "evidence"
+    - "open"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "It refuses to invent product thresholds from generic industry assumptions."
+    - "It keeps unknown boundaries as missing information or assumptions and states evidence needed."
+    - "It provides EC-## candidates with dimensions, triggers, concerns, priorities, and validation without claiming full coverage."
+  pass_threshold: 0.8

@@ -1,0 +1,28 @@
+id: basic-success
+title: "Error handling design review: retry, idempotency, and propagation"
+description: |
+  The input supplies an external payment timeout, retry, and degradation draft but no idempotency, budget, translation, consistency, or alert detail; review should produce EH-## findings.
+
+input:
+  prompt: |
+    Use error-handling-design-review for this payment service: it retries when the external provider times out and degrades after repeated failures. It gives no retry limit, backoff, idempotency key, order status, consumer error contract, alert, or human-handoff condition.
+    List known, missing, conflicting, stale, out_of_scope, and assumptions first. Then provide a failure matrix and EH-## findings, distinguishing retryable, non-retryable, and human-intervention paths.
+
+expect:
+  must_contain:
+    - "EH-"
+    - "retry"
+    - "idempotency"
+    - "validation"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Input Audit"
+          - "failure mode"
+          - "evidence"

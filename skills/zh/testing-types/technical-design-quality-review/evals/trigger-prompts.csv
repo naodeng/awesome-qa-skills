@@ -1,0 +1,5 @@
+id,should_trigger,prompt,mode
+explicit,true,"使用 $technical-design-quality-review，在实现前评审这份 ADR 的边界、失败模式、非功能风险和验证准备度。",explicit
+implicit,true,"这份异步架构方案只写了最终一致和具备监控，请找出设计质量缺口、证据和最小验证动作。",implicit
+contextual,true,"作为技术方案评审的 QA 入口，检查组件依赖、数据一致性、安全、性能、兼容和可观测性设计。",contextual
+negative,false,"请执行现有 API 测试并修复实现代码中的失败断言。",negative

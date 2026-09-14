@@ -35,6 +35,7 @@ Do not use it to make a final decision between mutually exclusive rules, execute
 
 - Always read `prompts/requirement-ambiguity-analysis.md` before producing an analysis.
 - Use `evals/eval.yaml` and `evals/cases/` to regress this Skill; structural or rule-based checks do not prove real-project effectiveness.
+- To check discovery behavior, run `scripts/run_skill_trace_eval.py` with `evals/trigger-prompts.csv` and `evals/local-rules.json`; missing `skill.selection` evidence is `BLOCKED`, not a trigger pass.
 
 ## Pre-delivery Checklist
 

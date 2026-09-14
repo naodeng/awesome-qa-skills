@@ -21,10 +21,10 @@ expect:
     - "我无法"
 
 judge:
-  type: rule_based
-  success:
-    - output_contains:
-        all:
-          - "版本"
-          - "地区"
-          - "unassessed"
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "保留产品陈述和合规陈述，以及各自的版本、地区、租户和数据分类边界。"
+    - "在目标范围和覆盖证据缺失时不选择 precedence 或最终优先级。"
+    - "将未知适用性标为 unassessed 或其他有边界的状态，并给出 Human 决策问题。"
+  pass_threshold: 0.8

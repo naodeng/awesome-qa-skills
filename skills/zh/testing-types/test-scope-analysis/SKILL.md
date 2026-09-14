@@ -1,0 +1,51 @@
+---
+name: test-scope-analysis
+description: Use this skill when a test activity, iteration, release, or risk review needs explicit inclusion, exclusion, depth, and expansion boundaries before execution; triggers include 测试范围分析, test scope analysis, and test boundary review.
+---
+
+# 测试范围分析
+
+在测试开始前分析目标、产品面、变更/风险、约束、已有资产、平台、角色、数据和环境，输出 `TS-##` 的纳入/排除范围、深度、依赖、停止条件、扩大触发器和剩余风险。它不是完整测试策略、测试选择或测试执行。
+
+## 何时使用
+
+- 需要为一次迭代、发布、变更或风险评审划定可解释的测试边界。
+- 需要明确核心路径、直接/传递影响、非功能范围、迁移兼容和不评估项。
+- 需要在材料不完整时给出受限范围草案和补证问题。
+
+不适用于直接执行测试、生成完整策略或在无证据时宣称全量覆盖/零风险。
+
+## 工作方式
+
+1. 阅读 `prompts/test-scope-analysis.md`，审计目标、版本、范围、风险和约束。
+2. 将输入分为 `known`、`missing`、`conflicting`、`stale`、`out_of_scope`、`assumptions`。
+3. 以 `TS-##` 记录纳入、排除、覆盖深度、依赖、停止条件、扩大触发器、证据和责任角色。
+4. 分离范围事实、风险推断、建议和 Human 决策；说明每个取舍的可验证理由。
+5. 信息不足时给出受限范围和扩大条件，不将范围声明升级为覆盖证明。
+
+## 核心约束
+
+- 不生成完整测试策略，不选择具体可执行测试集，不执行测试。
+- 不以变更文件名、测试名称、范围表或静态检查证明覆盖或通过。
+- 每条 `TS-##` 至少包含目标/对象、纳入、排除、影响依据、深度、平台/角色/数据/环境依赖、停止条件、扩大触发器、剩余风险、来源和责任角色。
+- 未提供风险、执行或环境证据时标记 `unassessed`、`unverified` 或 `unexecuted`。
+
+## 按需加载
+
+- 每次产出前必须阅读 `prompts/test-scope-analysis.md`。
+- 回归时读取 `evals/eval.yaml` 和用例；范围草案不证明测试已执行。
+- 触发检查使用 `evals/trigger-prompts.csv` 与 `evals/local-rules.json`；缺少 selection trace 时报告 `BLOCKED`。
+
+## 交付前自检
+
+- [ ] 已记录目标、版本、范围和六类输入审计
+- [ ] 每条 `TS-##` 有纳入/排除、深度、依赖、停止和扩大条件
+- [ ] 已覆盖核心/传递影响、非功能、迁移兼容和不评估项
+- [ ] 已给每个取舍提供来源、影响和验证方法
+- [ ] 未把范围声明写成覆盖证明、执行结果或发布结论
+
+## 常见误区
+
+- 把“本次只测核心流程”当成已证明非核心路径安全。
+- 用测试数量或文件数量代替范围理由和风险证据。
+- 没有扩大触发器，导致变更或风险变化后范围仍然不变。

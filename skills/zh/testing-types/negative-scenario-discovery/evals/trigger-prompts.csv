@@ -1,0 +1,5 @@
+id,should_trigger,prompt,mode
+explicit,true,"使用 $negative-scenario-discovery，发现非法输入、未授权、依赖失败、超时、重试和恢复路径并输出 NS-##。",explicit
+implicit,true,"退款接口有超时、重复提交和状态不一致风险，请找出需要验证的负向场景。",implicit
+contextual,true,"作为测试设计前的失败路径发现步骤，分析拒绝、降级、幂等、部分失败和人工接管边界。",contextual
+negative,false,"立即执行故障注入并确认系统恢复正确后批准发布。",negative

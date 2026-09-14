@@ -1,0 +1,5 @@
+id,should_trigger,prompt,mode
+explicit,true,"使用 $test-scope-analysis，在执行前定义这次发布的纳入、排除、深度、停止条件和扩大触发器。",explicit
+implicit,true,"只有两天和一个沙箱环境，支付变更影响多个消费者，请帮我划定有证据的测试范围并列出剩余风险。",implicit
+contextual,true,"作为迭代风险评审的 QA 入口，分析核心路径、传递影响、非功能、迁移兼容和未评估区域。",contextual
+negative,false,"编写并执行完整的 Playwright 测试套件，确保所有路径通过。",negative

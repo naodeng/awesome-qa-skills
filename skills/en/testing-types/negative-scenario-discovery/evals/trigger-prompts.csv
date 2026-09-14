@@ -1,0 +1,5 @@
+id,should_trigger,prompt,mode
+explicit,true,"Use $negative-scenario-discovery to find invalid-input, unauthorized, dependency-failure, timeout, retry, and recovery paths and output NS-##.",explicit
+implicit,true,"A refund API has timeout, duplicate-submit, and inconsistent-state risks; find the negative scenarios that need validation.",implicit
+contextual,true,"As a pre-test-design failure-path step, analyze denial, degradation, idempotency, partial failure, and Human-handoff boundaries.",contextual
+negative,false,"Run fault injection immediately, confirm recovery, and approve release.",negative

@@ -1,0 +1,28 @@
+id: basic-success
+title: 测试范围分析：核心路径与扩大触发器
+description: |
+  输入包含支付变更、移动端和后台消费者、风险和时间约束；分析应输出 TS-## 的范围取舍和验证条件。
+
+input:
+  prompt: |
+    请使用 test-scope-analysis 为支付结算 v1.1 变更划定测试范围。变更影响结算、支付回调和对账；移动端和后台依赖支付状态。已知支付回调偶发延迟，只有两天和一个脱敏沙箱环境。没有完整风险清单和历史缺陷。
+    先做 known、missing、conflicting、stale、out_of_scope、assumptions 审计，再输出 TS-##，包括纳入/排除、深度、依赖、停止条件、扩大触发器、剩余风险和验证方法。
+
+expect:
+  must_contain:
+    - "TS-"
+    - "纳入"
+    - "排除"
+    - "扩大"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "输入审计"
+          - "剩余风险"
+          - "验证"

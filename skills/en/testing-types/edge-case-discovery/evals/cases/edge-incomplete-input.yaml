@@ -1,0 +1,28 @@
+id: edge-incomplete-input
+title: "Edge case discovery: missing thresholds and states"
+description: |
+  Only "discover every edge case" is supplied, with no schema, rules, or thresholds; analysis must retain gaps and assumptions.
+
+input:
+  prompt: |
+    Use edge-case-discovery. The only input is "Discover every edge case for this feature." No requirements, fields, units, minimums, maximums, states, time rules, platforms, dependencies, or past issues are supplied.
+    Separate known, missing, conflicting, stale, out_of_scope, and assumptions. Provide a bounded EC-## list, do not invent thresholds, and do not claim that boundaries are covered.
+
+expect:
+  must_contain:
+    - "EC-"
+    - "missing"
+    - "assumptions"
+    - "threshold"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Input Audit"
+          - "open"
+          - "validation"

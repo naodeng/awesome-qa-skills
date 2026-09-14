@@ -19,6 +19,9 @@ cases:
     - evals/cases/basic-success.yaml
     - evals/cases/edge-incomplete-input.yaml
     - evals/cases/edge-risk-priority.yaml
+    - evals/cases/architecture-success.yaml
+    - evals/cases/architecture-incomplete-input.yaml
+    - evals/cases/architecture-unsafe-seam-boundary.yaml
   defaults:
     timeout_seconds: 180
     max_turns: 8

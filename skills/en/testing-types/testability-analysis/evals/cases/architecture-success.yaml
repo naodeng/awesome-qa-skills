@@ -1,0 +1,28 @@
+id: architecture-success
+title: "Architecture testability review: seams and environment reproduction"
+description: |
+  The input supplies an asynchronous architecture, external dependency, and environment detail; review should output architecture-level seams, substitutes, fault injection, and evidence gaps.
+
+input:
+  prompt: |
+    Use testability-analysis in architecture-testability-review mode.
+    The architecture shows Order Service calling a payment adapter through a message queue; the adapter depends on an external provider. A sandbox has a callback simulator but no fault-injection entry point; the queue supports isolated topics. Analyze component boundaries, test seams, substitute strategy, isolation, fault injection, environment reproduction, and evidence gaps while retaining observability, controllability, and determinism.
+
+expect:
+  must_contain:
+    - "architecture"
+    - "seam"
+    - "substitute"
+    - "evidence"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Input Audit"
+          - "isolation"
+          - "validation"

@@ -1,11 +1,11 @@
 ---
 name: requirement-traceability-analysis
-description: Use when requirements, acceptance criteria, design, code, tests, defects, or evidence must be mapped bidirectionally and coverage gaps made explicit; triggers include 需求可追踪性分析, requirement traceability, and traceability matrix.
+description: Use this skill when requirements, acceptance criteria, design, code, tests, defects, or evidence must be mapped bidirectionally and coverage gaps made explicit; triggers include 需求可追踪性分析, requirement traceability, and traceability matrix.
 ---
 
 # 需求可追踪性分析
 
-把需求或控制项与验收标准、设计、代码、测试、缺陷和验证证据建立可回溯的双向映射。区分完整、部分、间接、缺失、陈旧和未执行证据，不把名称匹配、静态存在或报告文字写成真实执行结果。
+把需求或控制项与验收标准、设计、代码、测试、缺陷和验证证据建立可回溯的双向映射。区分关系类型与覆盖状态，不把名称匹配、静态存在或报告文字写成真实执行结果。
 
 ## 何时使用
 
@@ -19,13 +19,17 @@ description: Use when requirements, acceptance criteria, design, code, tests, de
 
 1. 阅读并遵循 `prompts/requirement-traceability-analysis.md`，先审计目标、版本、范围、时间窗口和输入边界。
 2. 使用稳定标识建立需求、验收、设计、代码、测试、缺陷和证据的双向映射；记录来源、版本和适用条件。
-3. 将关系区分为 `direct`、`derived`、`indirect`、`contradictory` 或 `missing`，将覆盖状态区分为 `complete`、`partial`、`unverified`、`stale`、`unexecuted` 和 `unassessed`。
-4. 保留孤立项、断链、重复映射、缺少执行记录和只存在名称的链接，给出缺口、责任角色、下一步和验证方式。
-5. 结论只反映提供的材料；执行状态、缺陷关闭和发布结论必须有对应证据。
+3. 关系类型使用 `direct`、`derived`、`indirect`、`contradictory` 或 `missing`；覆盖状态使用 `complete`、`partial`、`unverified`、`stale`、`unexecuted` 和 `unassessed`，两组枚举不可混用。
+4. 当任务要求 `coverage_analysis` 或 `test-coverage-analysis` 模式时，在保留 `RT-##` 双向追踪的基础上增加 `TC-##` 覆盖视图，记录测试资产、覆盖状态、执行身份/时间/环境、证据质量和孤立项。
+5. 保留孤立项、断链、重复映射、缺少执行记录和只存在名称的链接，给出缺口、责任角色、下一步和验证方式。
+6. 结论只反映提供的材料；执行状态、缺陷关闭和发布结论必须有对应证据。
 
 ## 核心约束
 
 - 使用 `RT-##` 标识追踪发现；每行至少有需求/控制项、来源、关联制品、关系类型、覆盖状态、证据和缺口行动。
+- 关系类型：`direct`、`derived`、`indirect`、`contradictory`、`missing`。
+- 覆盖状态：`complete`、`partial`、`unverified`、`stale`、`unexecuted`、`unassessed`。
+- `coverage_analysis` 模式额外使用 `TC-##` 表示覆盖视图；保留 `RT-##` 关系发现，关系类型与覆盖状态不可混用。
 - 双向检查：从需求追到下游制品，也从测试/缺陷/证据反查其上游需求；未找到对应项时明确标记孤立。
 - 不把文件、链接、测试名称、报告摘要或代码存在当成已执行、已通过、已修复或已批准。
 - 缺少制品、稳定 ID、版本、执行记录、数据或环境时，标记 `unassessed`/`unverified`/`unexecuted` 并提出补证问题。
@@ -35,13 +39,15 @@ description: Use when requirements, acceptance criteria, design, code, tests, de
 
 - 每次产出前必须阅读 `prompts/requirement-traceability-analysis.md`。
 - 需要回归本 Skill 时使用 `evals/eval.yaml` 和 `evals/cases/`；评测配置和静态映射不证明真实系统已执行。
+- 需要验证发现行为时，使用 `evals/trigger-prompts.csv` 与 `evals/local-rules.json` 运行仓库的 `scripts/run_skill_trace_eval.py`；缺少 `skill.selection` 证据时必须报告 `BLOCKED`，不能推断触发成功。
+- 需要回归 `test-coverage-analysis` 时使用 `coverage-*` Eval 和包含 coverage analysis 短语的本地触发数据；目标仍是本 Skill 的物理目录，不创建别名目录。
 
 ## 交付前自检
 
 - [ ] 已记录输入审计、范围、版本、时间窗口和关键假设
 - [ ] 已做需求到下游、下游到需求的双向追踪
 - [ ] 每个结论都有来源、证据、关系类型、覆盖状态和验证方法
-- [ ] 已区分完整、部分、间接、缺失、陈旧、未验证和未执行
+- [ ] 已分别区分关系类型 `direct`、`derived`、`indirect`、`contradictory`、`missing` 与覆盖状态 `complete`、`partial`、`unverified`、`stale`、`unexecuted`、`unassessed`
 - [ ] 没有把静态存在、报告文字或测试名称写成执行结果
 
 ## 常见误区
