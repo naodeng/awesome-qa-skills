@@ -1,0 +1,29 @@
+id: edge-incomplete-input
+title: 需求可追踪性分析：只有需求和测试名称
+description: |
+  只给出需求和一个测试名称，没有稳定链接或执行记录；分析应标记间接或未评估，而不是宣称完整覆盖。
+
+input:
+  prompt: |
+    用 requirement-traceability-analysis 分析：REQ-9 支持导出账单；测试名称为 test_export_invoice。
+    没有验收标准、代码提交、测试内容、执行时间、环境、结果、日志或缺陷记录。
+    请说明当前能建立什么关系、哪些证据缺失，以及继续追踪需要向谁索取什么材料。
+
+expect:
+  must_contain:
+    - "缺失"
+    - "未评估"
+    - "执行"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "REQ-9"
+          - "test_export_invoice"
+          - "证据"
+          - "待确认"

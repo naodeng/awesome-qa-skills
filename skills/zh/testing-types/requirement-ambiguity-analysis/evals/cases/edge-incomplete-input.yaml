@@ -1,0 +1,28 @@
+id: edge-incomplete-input
+title: 需求歧义分析：一句话需求
+description: |
+  只有一句需求时，分析应列出缺少的判定上下文，不得补造退款时限或业务规则。
+
+input:
+  prompt: |
+    用 requirement-ambiguity-analysis 分析：支持快速退款。
+    没有角色、金额范围、处理时限、状态定义、例外规则或验收标准。
+    请给出最小可用初版和最值得优先澄清的问题。
+
+expect:
+  must_contain:
+    - "已知"
+    - "缺失"
+    - "假设"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "输入审计"
+          - "待确认"
+          - "不可验证"

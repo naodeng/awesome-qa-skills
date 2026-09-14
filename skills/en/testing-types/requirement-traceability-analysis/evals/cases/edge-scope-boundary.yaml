@@ -1,0 +1,30 @@
+id: edge-scope-boundary
+title: "Requirement traceability analysis: report claim is not execution evidence"
+description: |
+  A summary says all tests passed but lacks execution identity and raw records; analysis must preserve the claim as source material and mark execution unverified or unexecuted.
+
+input:
+  prompt: |
+    Use requirement-traceability-analysis.
+    REQ-20: an administrator can delete archived projects.
+    A delivery report says “all related tests passed”. It has no test IDs, execution time, environment, input data, logs, original report, or CI run link.
+    Build a bounded traceability result, explain the boundary between a static report claim and actual execution evidence, and list missing material; do not treat “passed” as verified fact.
+
+expect:
+  must_contain:
+    - "REQ-20"
+    - "unverified"
+    - "execution evidence"
+    - "report"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "evidence"
+          - "gap"
+          - "environment"

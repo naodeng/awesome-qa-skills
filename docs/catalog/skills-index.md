@@ -2,7 +2,7 @@
 
 # Skills 全量索引
 
-每种语言包含 10 个工作流、66 个测试类型和 3 个 Skill Engineering，共 79 个；中英文合计 158 个目录。以下是逻辑导航，实际目录不变。长期治理入口见 [Skill 治理路线图](../governance/SKILL_GOVERNANCE_ROADMAP.md)、[治理矩阵](../SKILL_MATRIX.md) 和 [匹配登记表](../SKILL_MATCHING_REGISTER.md)。
+每种语言包含 10 个工作流、71 个测试类型和 3 个 Skill Engineering，共 84 个；中英文合计 168 个目录。以下是逻辑导航，实际目录不变。长期治理入口见 [Skill 治理路线图](../governance/SKILL_GOVERNANCE_ROADMAP.md)、[治理矩阵](../SKILL_MATRIX.md) 和 [匹配登记表](../SKILL_MATCHING_REGISTER.md)。
 
 ## 跨阶段工作流
 
@@ -88,6 +88,11 @@
 | `requirement-gap-analysis` | [中文](../../skills/zh/testing-types/requirement-gap-analysis/) | [English](../../skills/en/testing-types/requirement-gap-analysis/) |
 | `quality-risk-analysis` | [中文](../../skills/zh/testing-types/quality-risk-analysis/) | [English](../../skills/en/testing-types/quality-risk-analysis/) |
 | `testability-analysis` | [中文](../../skills/zh/testing-types/testability-analysis/) | [English](../../skills/en/testing-types/testability-analysis/) |
+| `requirement-quality-review` | [中文](../../skills/zh/testing-types/requirement-quality-review/) | [English](../../skills/en/testing-types/requirement-quality-review/) |
+| `requirement-ambiguity-analysis` | [中文](../../skills/zh/testing-types/requirement-ambiguity-analysis/) | [English](../../skills/en/testing-types/requirement-ambiguity-analysis/) |
+| `requirement-consistency-analysis` | [中文](../../skills/zh/testing-types/requirement-consistency-analysis/) | [English](../../skills/en/testing-types/requirement-consistency-analysis/) |
+| `requirement-conflict-detection` | [中文](../../skills/zh/testing-types/requirement-conflict-detection/) | [English](../../skills/en/testing-types/requirement-conflict-detection/) |
+| `requirement-traceability-analysis` | [中文](../../skills/zh/testing-types/requirement-traceability-analysis/) | [English](../../skills/en/testing-types/requirement-traceability-analysis/) |
 
 #### 开发与持续集成
 

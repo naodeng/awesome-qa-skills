@@ -1,0 +1,30 @@
+id: basic-success
+title: "Requirement quality review: completeness and verifiability"
+description: |
+  The requirement has a clear business goal, but its acceptance criteria omit important failure paths; the review must identify and prioritize the gaps.
+
+input:
+  prompt: |
+    Use requirement-quality-review for this requirement.
+    Business goal: a buyer can use points to offset the order amount at checkout.
+    Known rules: checkout is blocked when points are insufficient; a failed payment callback may be retried.
+    The only current acceptance criterion is "points offset succeeds".
+    Provide an input audit, quality findings, priorities, open questions, and next steps. State which issues should go to a specialist analysis.
+
+expect:
+  must_contain:
+    - "input audit"
+    - "verifiability"
+    - "P1"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Structured Findings"
+          - "Next Steps"
+          - "open"

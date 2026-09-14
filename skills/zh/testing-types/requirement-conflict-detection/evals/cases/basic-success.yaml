@@ -1,0 +1,32 @@
+id: basic-success
+title: 需求冲突检测：结账登录规则互斥
+description: |
+  两份同版本材料对同一结账流程给出允许游客结账和必须登录的互斥规则；分析应保留双方来源，把裁决交给 Human。
+
+input:
+  prompt: |
+    请使用 requirement-conflict-detection 检查以下同一产品 v1 的材料。
+    产品说明：游客可以直接提交订单，不要求登录。
+    安全策略：提交订单前必须完成登录并绑定账户。
+    两条规则都适用于 Web 端标准结账流程，但没有说明哪条规则优先。
+    请输出冲突双方、来源、适用范围、影响、优先级、待决策问题、责任角色和验证方法；不要自行选择最终规则。
+
+expect:
+  must_contain:
+    - "冲突"
+    - "RF-"
+    - "来源"
+    - "Human"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "游客"
+          - "登录"
+          - "待决策"
+          - "验证"

@@ -1,0 +1,30 @@
+id: basic-success
+title: "Requirement consistency analysis: terminology and state comparison"
+description: |
+  Two materials differ in actor terminology and order-state behavior; the analysis must compare sources and scope instead of guessing synonyms or merging state machines.
+
+input:
+  prompt: |
+    Use requirement-consistency-analysis to compare these materials.
+    PRD: after a buyer submits an order, the order may move from pending to cancelled.
+    API contract: the field uses customer; the order states list only pending -> paid.
+    Both are marked v1, but no state-transition explanation is supplied.
+    Analyze terminology, state, and behavior consistency with evidence, impact, and next steps.
+
+expect:
+  must_contain:
+    - "consisten"
+    - "RC-"
+    - "source"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "comparison"
+          - "state"
+          - "validation"

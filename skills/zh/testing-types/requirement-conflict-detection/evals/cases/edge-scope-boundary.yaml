@@ -1,0 +1,30 @@
+id: edge-scope-boundary
+title: 需求冲突检测：版本和规则层级范围
+description: |
+  产品说明和地区合规规则的表面差异可能来自不同范围；分析应保留双方，不在缺少目标地区和版本时直接给出最终规则。
+
+input:
+  prompt: |
+    使用 requirement-conflict-detection。
+    产品 v1 全球说明写“用户可以导出完整订单数据”。
+    欧盟地区 v2 合规说明写“在特定保留期内不得导出包含个人数据的完整订单数据”。
+    本次评审没有明确目标版本、地区、租户和数据分类，也没有说明合规规则是否覆盖产品说明。
+    请判断当前是冲突还是范围未明，保留双方证据，并列出需要由 Human 确认的问题；不要选最终优先级。
+
+expect:
+  must_contain:
+    - "范围"
+    - "待确认"
+    - "Human"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "版本"
+          - "地区"
+          - "unassessed"

@@ -1,0 +1,28 @@
+id: edge-incomplete-input
+title: 需求冲突检测：缺少来源与适用范围
+description: |
+  只有一条规则且缺少版本、范围和第二来源；分析不能凭经验制造冲突，应标记缺失并提出补证问题。
+
+input:
+  prompt: |
+    用 requirement-conflict-detection 分析：系统必须在 10 分钟内完成审批。
+    只有这一句话，没有来源、版本、角色、平台、地区、异常规则或第二份材料。
+    请说明当前能确认什么、为什么不能判定冲突，以及需要补齐哪些信息。
+
+expect:
+  must_contain:
+    - "缺失"
+    - "来源"
+    - "未评估"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "输入审计"
+          - "待决策"
+          - "范围"

@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "requirement-quality-review"
+interface:
+  display_name: "Requirement Quality Review"
+  short_description: "Review requirement completeness, clarity, verifiability, feasibility, scope, and evidence boundaries."
+  default_prompt: "Use the requirement-quality-review skill to assess this requirement and prioritize evidence-backed gaps."
+policy:
+  allow_implicit_invocation: true

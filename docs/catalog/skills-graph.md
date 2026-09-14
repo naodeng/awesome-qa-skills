@@ -33,6 +33,7 @@ flowchart LR
 
 | 场景 | 推荐组合 | 输出 |
 | --- | --- | --- |
+| v1.1 需求质量专项准备（可选） | `requirement-quality-review` → `requirements-analysis`；按需使用 `requirement-ambiguity-analysis` / `requirement-consistency-analysis` / `requirement-conflict-detection` / `requirement-traceability-analysis` | 证据有界的需求质量发现、专项问题和追踪缺口 |
 | 新功能质量准备 | `requirements-analysis` → `test-strategy` → `test-case-writing` → `functional-testing` | 可追溯的测试范围、用例与执行结论 |
 | 变更与回归决策 | `change-impact-analysis` → `regression-scope-analysis` → `regression-test-selection` | 有证据的回归范围和候选测试集 |
 | API 交付 | `api-contract-testing` → `api-testing` → `test-reporting` | 契约兼容性、接口覆盖和交付报告 |
@@ -48,10 +49,12 @@ flowchart LR
 - `ai-assisted-testing` 属于 **AI for QA**，可辅助任一阶段，但不能替代 Testing for AI。
 - 生产质量 Skill 仅分析证据并提出建议；发布、回滚、豁免和风险接受仍需人工审批。
 - `skill-engineering` 是 Skill 治理能力，不是第五个 QA 生命周期阶段。
+- v1.1 需求质量组合只是可选导航；箭头不表示安装依赖、强制顺序或跨 Skill 内部文件链接。
 
 ## 导航
 
 - [全量索引](skills-index.md)
 - [中文演进路线图](../governance/QA_SKILLS_EVOLUTION_ROADMAP.md)
 - [English roadmap](../governance/QA_SKILLS_EVOLUTION_ROADMAP_EN.md)
+- [v1.1 需求质量 Phase 1](../governance/PHASE_1_REQUIREMENTS_QUALITY.md)
 - [v1.0 源代码治理基线与逐项记录](../governance/SKILL_GOVERNANCE_V1.md)（静态证据，不代表运行质量）

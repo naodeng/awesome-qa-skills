@@ -5,9 +5,9 @@
 按语言分区的 **AI 测试辅助技能库**（Agent Skills）。面向 Codex、Cursor、Claude Code、Kiro、OpenCode、Trae 等工具，提供可独立安装、可组合调用的测试工作流与测试类型技能。
 
 [![License: PolyForm Noncommercial 1.0.0](https://img.shields.io/badge/License-PolyForm%20Noncommercial%201.0.0-blue.svg)](./LICENSE)
-[![Skills](https://img.shields.io/badge/skills-158%20(zh%2Ben)-0A7EA4)](./docs/catalog/skills-index.md)
+[![Skills](https://img.shields.io/badge/skills-168%20(zh%2Ben)-0A7EA4)](./docs/catalog/skills-index.md)
 [![Workflows](https://img.shields.io/badge/workflows-10-informational)](./skills/zh/testing-workflows/)
-[![Testing types](https://img.shields.io/badge/testing%20types-66-informational)](./skills/zh/testing-types/)
+[![Testing types](https://img.shields.io/badge/testing%20types-71-informational)](./skills/zh/testing-types/)
 [![Skill engineering](https://img.shields.io/badge/skill%20engineering-3-informational)](./skills/zh/skill-engineering/)
 [![skills.sh](https://skills.sh/b/naodeng/awesome-qa-skills)](https://skills.sh/naodeng/awesome-qa-skills)
 
@@ -21,7 +21,7 @@
 | --- | --- |
 | 双语对齐 | `skills/zh` 与 `skills/en` 同名目录、同结构，团队可按语言选用 |
 | 覆盖完整测试链 | 从需求分析、策略、用例、执行到缺陷与报告 |
-| 工作流 + 类型技能 | 日常 / 迭代 / 发布、角色质量视角与多角色汇总工作流，配合 65 类专项技能按需组合 |
+| 工作流 + 类型技能 | 日常 / 迭代 / 发布、角色质量视角与多角色汇总工作流，配合 70 类专项技能按需组合 |
 | 开箱即装 | 支持一键安装与单 skill 安装脚本 |
 | 可评测可演进 | 全量 skill 附带 `evals/`，可用 [skill-up](https://github.com/alibaba/skill-up) 校验与实跑 |
 
@@ -38,7 +38,7 @@
 | 基于发布与生产证据作质量决策 | Production Quality Skills | 发布验证、事故响应、Trace 与指标分析 | [查看生产质量能力](#production-quality-skills--生产质量能力) |
 | 测试 AI 功能、LLM、Prompt、Agent 与安全边界 | AI Native QA Skills | AI 需求与风险、评测、工具调用与注入防护 | [查看 AI 原生质量能力](#ai-native-qa-skills--ai-原生质量能力) |
 | 串联多个阶段、按角色协作或不确定从哪里开始 | 跨阶段工作流 | 路由、日常 / 迭代 / 发布、质量视角与汇总 | [查看工作流](#跨阶段工作流) |
-| 已经知道要找的 Skill 名称 | 全量索引 | 全部 79 项能力与中英文路径 | [打开全量技能索引](docs/catalog/skills-index.md) |
+| 已经知道要找的 Skill 名称 | 全量索引 | 全部 84 项能力与中英文路径 | [打开全量技能索引](docs/catalog/skills-index.md) |
 
 **推荐路径：** 不确定选哪个，先调用 [`discover-testing`](skills/zh/testing-workflows/discover-testing/)；确定阶段后，再进入对应能力层；只需具体名称时，直接使用全量索引。
 
@@ -136,7 +136,7 @@ cp -r skills/zh/testing-types/functional-testing ~/.cursor/skills/
 
 ## 技能目录
 
-每种语言共 **79** 个 Skill：10 个工作流、66 个测试类型和 3 个 Skill Engineering；中英文合计 **158** 个目录。物理目录保持稳定，下面只提供逻辑导航。
+每种语言共 **84** 个 Skill：10 个工作流、71 个测试类型和 3 个 Skill Engineering；中英文合计 **168** 个目录。物理目录保持稳定，下面只提供逻辑导航。
 
 ### 跨阶段工作流
 
@@ -226,6 +226,11 @@ cp -r skills/zh/testing-types/functional-testing ~/.cursor/skills/
 | 需求缺口分析 <!-- data-skill:requirement-gap-analysis --> | [`requirement-gap-analysis`](skills/zh/testing-types/requirement-gap-analysis/) | 识别需求信息缺口、冲突与影响 |
 | 质量风险分析 <!-- data-skill:quality-risk-analysis --> | [`quality-risk-analysis`](skills/zh/testing-types/quality-risk-analysis/) | 基于证据识别并排序质量风险 |
 | 可测试性分析 <!-- data-skill:testability-analysis --> | [`testability-analysis`](skills/zh/testing-types/testability-analysis/) | 评估需求或设计的可测试性与阻碍 |
+| 需求质量评审 <!-- data-skill:requirement-quality-review --> | [`requirement-quality-review`](skills/zh/testing-types/requirement-quality-review/) | 在测试设计前，从完整性、清晰度、可验证性、可行性、范围和证据质量评审需求 |
+| 需求歧义分析 <!-- data-skill:requirement-ambiguity-analysis --> | [`requirement-ambiguity-analysis`](skills/zh/testing-types/requirement-ambiguity-analysis/) | 识别角色、对象、条件、数量、时间、状态和验收语句中的歧义 |
+| 需求一致性分析 <!-- data-skill:requirement-consistency-analysis --> | [`requirement-consistency-analysis`](skills/zh/testing-types/requirement-consistency-analysis/) | 比较跨来源术语、标识、格式、状态、规则和行为的一致性 |
+| 需求冲突检测 <!-- data-skill:requirement-conflict-detection --> | [`requirement-conflict-detection`](skills/zh/testing-types/requirement-conflict-detection/) | 识别同一适用范围内互斥的需求规则并保留 Human 决策边界 |
+| 需求可追踪性分析 <!-- data-skill:requirement-traceability-analysis --> | [`requirement-traceability-analysis`](skills/zh/testing-types/requirement-traceability-analysis/) | 建立需求与验收、设计、代码、测试、缺陷和证据的双向追踪 |
 
 ##### 开发与持续集成
 
@@ -408,6 +413,7 @@ bash scripts/run_skill_eval.sh skills/zh/testing-types/functional-testing/evals/
 | [QA_SKILLS_EVOLUTION_ROADMAP.md](docs/governance/QA_SKILLS_EVOLUTION_ROADMAP.md) | 四层能力演进与研发测试阶段地图 |
 | [DOCUMENTATION_POLICY.md](docs/governance/DOCUMENTATION_POLICY.md) | 中文优先的双语文档治理策略 |
 | [SKILL_GOVERNANCE_V1.md](docs/governance/SKILL_GOVERNANCE_V1.md) | v1.0 源代码治理基线与 79 对静态记录入口（不代表运行质量） |
+| [PHASE_1_REQUIREMENTS_QUALITY.md](docs/governance/PHASE_1_REQUIREMENTS_QUALITY.md) | v1.1 Phase 1 前五个需求质量 Skill 的范围、卡片、证据和验收边界 |
 | [skills/DIRECTORY_GUIDE.md](skills/DIRECTORY_GUIDE.md) | 目录与命名规范 |
 | [skills/SKILL_AUTHORING.md](skills/SKILL_AUTHORING.md) | 编写与 skill-up 评测约定 |
 | [scripts/INSTALL_SKILLS.md](scripts/INSTALL_SKILLS.md) | 安装参数与工具路径 |

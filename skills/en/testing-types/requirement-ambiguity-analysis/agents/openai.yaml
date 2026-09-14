@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "requirement-ambiguity-analysis"
+interface:
+  display_name: "Requirement Ambiguity Analysis"
+  short_description: "Identify unclear actors, scope, conditions, timing, states, and acceptance criteria without choosing an interpretation."
+  default_prompt: "Use the requirement-ambiguity-analysis skill to identify evidence-backed ambiguity and closeable clarification questions."
+policy:
+  allow_implicit_invocation: true

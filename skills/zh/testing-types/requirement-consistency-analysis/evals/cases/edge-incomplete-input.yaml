@@ -1,0 +1,28 @@
+id: edge-incomplete-input
+title: 需求一致性分析：缺少比较对象
+description: |
+  只提供一条需求时，分析应说明无法完成跨来源比较，并给出单来源的有限结果。
+
+input:
+  prompt: |
+    用 requirement-consistency-analysis 分析：用户可以兑换积分。
+    没有第二份文档、版本、角色、状态或验收标准。
+    请给出当前能确认的内容和需要补齐的比较材料。
+
+expect:
+  must_contain:
+    - "缺少"
+    - "比较"
+    - "未评估"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "输入审计"
+          - "待确认"
+          - "来源"

@@ -4,7 +4,7 @@
 
 本目录是中文主语言 Skill 根目录，与 `skills/en` 使用相同 Skill 名和物理结构。
 
-每种语言共 **79** 个 Skill：10 workflows + 66 testing types + 3 Skill Engineering。完整项目说明见 [中文 README](../../README.md) 和 [English README](../../README_EN.md)；长期治理见 [治理路线图](../../docs/governance/SKILL_GOVERNANCE_ROADMAP.md) 与 [治理矩阵](../../docs/SKILL_MATRIX.md)。
+每种语言共 **84** 个 Skill：10 workflows + 71 testing types + 3 Skill Engineering。完整项目说明见 [中文 README](../../README.md) 和 [English README](../../README_EN.md)；长期治理见 [治理路线图](../../docs/governance/SKILL_GOVERNANCE_ROADMAP.md) 与 [治理矩阵](../../docs/SKILL_MATRIX.md)。
 
 ## 跨阶段工作流
 
@@ -90,6 +90,11 @@
 | 需求缺口分析 | [`requirement-gap-analysis`](testing-types/requirement-gap-analysis/) |
 | 质量风险分析 | [`quality-risk-analysis`](testing-types/quality-risk-analysis/) |
 | 可测试性分析 | [`testability-analysis`](testing-types/testability-analysis/) |
+| 需求质量评审 | [`requirement-quality-review`](testing-types/requirement-quality-review/) |
+| 需求歧义分析 | [`requirement-ambiguity-analysis`](testing-types/requirement-ambiguity-analysis/) |
+| 需求一致性分析 | [`requirement-consistency-analysis`](testing-types/requirement-consistency-analysis/) |
+| 需求冲突检测 | [`requirement-conflict-detection`](testing-types/requirement-conflict-detection/) |
+| 需求可追踪性分析 | [`requirement-traceability-analysis`](testing-types/requirement-traceability-analysis/) |
 
 #### 开发与持续集成
 

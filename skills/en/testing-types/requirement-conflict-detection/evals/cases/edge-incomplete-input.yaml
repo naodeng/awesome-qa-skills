@@ -1,0 +1,28 @@
+id: edge-incomplete-input
+title: "Requirement conflict detection: missing source and scope"
+description: |
+  Only one rule is provided without version, scope, or a second source; analysis must mark missing information instead of inventing a conflict.
+
+input:
+  prompt: |
+    Use requirement-conflict-detection to analyze: the system must complete approval within 10 minutes.
+    This is the only sentence. There is no source, version, actor, platform, region, exception rule, or second artifact.
+    State what is known, why a conflict cannot be established, and what evidence is needed.
+
+expect:
+  must_contain:
+    - "missing"
+    - "source"
+    - "unassessed"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "input audit"
+          - "decision"
+          - "scope"

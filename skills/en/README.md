@@ -4,7 +4,7 @@
 
 This is the English Skill root and mirrors `skills/zh` with identical Skill names and physical structure.
 
-Each language provides **79** Skills: 10 workflows + 66 testing types + 3 Skill Engineering. See the [Chinese README](../../README.md) and [English README](../../README_EN.md); see the [governance roadmap](../../docs/governance/SKILL_GOVERNANCE_ROADMAP_EN.md) and [governance matrix](../../docs/SKILL_MATRIX_EN.md) for long-term governance.
+Each language provides **84** Skills: 10 workflows + 71 testing types + 3 Skill Engineering. See the [Chinese README](../../README.md) and [English README](../../README_EN.md); see the [governance roadmap](../../docs/governance/SKILL_GOVERNANCE_ROADMAP_EN.md) and [governance matrix](../../docs/SKILL_MATRIX_EN.md) for long-term governance.
 
 ## Cross-phase workflows
 
@@ -90,6 +90,11 @@ Each language provides **79** Skills: 10 workflows + 66 testing types + 3 Skill 
 | Requirement Gap Analysis | [`requirement-gap-analysis`](testing-types/requirement-gap-analysis/) |
 | Quality Risk Analysis | [`quality-risk-analysis`](testing-types/quality-risk-analysis/) |
 | Testability Analysis | [`testability-analysis`](testing-types/testability-analysis/) |
+| Requirement Quality Review | [`requirement-quality-review`](testing-types/requirement-quality-review/) |
+| Requirement Ambiguity Analysis | [`requirement-ambiguity-analysis`](testing-types/requirement-ambiguity-analysis/) |
+| Requirement Consistency Analysis | [`requirement-consistency-analysis`](testing-types/requirement-consistency-analysis/) |
+| Requirement Conflict Detection | [`requirement-conflict-detection`](testing-types/requirement-conflict-detection/) |
+| Requirement Traceability Analysis | [`requirement-traceability-analysis`](testing-types/requirement-traceability-analysis/) |
 
 #### Development and Continuous Integration
 

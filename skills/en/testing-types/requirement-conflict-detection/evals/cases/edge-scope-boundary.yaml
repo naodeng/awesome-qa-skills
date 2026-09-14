@@ -1,0 +1,30 @@
+id: edge-scope-boundary
+title: "Requirement conflict detection: version and regulatory scope"
+description: |
+  A product statement and a regional compliance rule may differ because their scopes differ; analysis must preserve both without selecting final precedence when the target is missing.
+
+input:
+  prompt: |
+    Use requirement-conflict-detection.
+    The global v1 product note says users may export complete order data.
+    The EU v2 compliance note says complete order data containing personal data must not be exported during a specified retention period.
+    The review has no target version, region, tenant, data classification, or evidence that the compliance rule overrides the product note.
+    Decide whether this is a conflict or an unknown scope, preserve both pieces of evidence, and list Human decision questions; do not choose precedence.
+
+expect:
+  must_contain:
+    - "scope"
+    - "decision"
+    - "Human"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "version"
+          - "region"
+          - "unassessed"

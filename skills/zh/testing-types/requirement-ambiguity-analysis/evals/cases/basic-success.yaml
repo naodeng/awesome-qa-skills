@@ -1,0 +1,28 @@
+id: basic-success
+title: 需求歧义分析：缺失判定条件
+description: |
+  需求包含角色、条件和范围歧义；分析应保留原句、缺失区分项和可关闭的问题。
+
+input:
+  prompt: |
+    请使用 requirement-ambiguity-analysis 分析这句话：
+    “管理员可以在必要时导出订单。”
+    请识别角色、必要条件、导出范围、格式和时间要求中无法唯一判断的部分，给出风险、优先级和待澄清问题。
+
+expect:
+  must_contain:
+    - "歧义"
+    - "待澄清"
+    - "RA-"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "原句"
+          - "缺失"
+          - "验证"

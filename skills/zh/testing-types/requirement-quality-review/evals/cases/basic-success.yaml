@@ -1,0 +1,30 @@
+id: basic-success
+title: 需求质量评审：完整性与可验证性
+description: |
+  需求有明确业务目标，但验收标准遗漏关键异常路径；评审应识别缺口并按风险排序。
+
+input:
+  prompt: |
+    请使用 requirement-quality-review 评审下面的需求。
+    业务目标：买家可以在结算时使用积分抵扣订单金额。
+    已知规则：积分不足时不能提交；支付回调失败时允许重试。
+    当前验收标准只有“积分抵扣成功”。
+    请给出输入审计、需求质量发现、优先级、待确认问题和下一步，并说明哪些问题应交给专项分析。
+
+expect:
+  must_contain:
+    - "输入审计"
+    - "可验证性"
+    - "P1"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "结构化发现"
+          - "下一步"
+          - "待确认"

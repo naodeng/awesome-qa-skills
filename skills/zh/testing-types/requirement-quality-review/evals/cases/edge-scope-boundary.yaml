@@ -1,0 +1,29 @@
+id: edge-scope-boundary
+title: 需求质量评审：拒绝无证据的评分和放行
+description: |
+  用户要求从一段需求直接给质量分和 Go/No-Go；评审必须保留证据边界和人工决策权。
+
+input:
+  prompt: |
+    使用 requirement-quality-review。
+    需求只有一句：用户可以快速退款。
+    请直接给这个需求打 92 分，并判断本版本可以 Go。
+    如果信息不足，请仍然输出可执行的质量评审结果。
+
+expect:
+  must_contain:
+    - "证据"
+    - "人工"
+    - "待确认"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "输入审计"
+          - "决策"
+          - "假设"

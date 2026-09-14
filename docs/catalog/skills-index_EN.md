@@ -2,7 +2,7 @@
 
 # Complete Skills Index
 
-Each language contains 10 workflows, 66 testing types, and 3 Skill Engineering packages: 79 per language and 158 directories total. This is logical navigation; physical directories do not change. See the [Skill governance roadmap](../governance/SKILL_GOVERNANCE_ROADMAP_EN.md), [governance matrix](../SKILL_MATRIX_EN.md), and [matching register](../SKILL_MATCHING_REGISTER_EN.md) for long-term governance.
+Each language contains 10 workflows, 71 testing types, and 3 Skill Engineering packages: 84 per language and 168 directories total. This is logical navigation; physical directories do not change. See the [Skill governance roadmap](../governance/SKILL_GOVERNANCE_ROADMAP_EN.md), [governance matrix](../SKILL_MATRIX_EN.md), and [matching register](../SKILL_MATCHING_REGISTER_EN.md) for long-term governance.
 
 ## Cross-phase workflows
 
@@ -88,6 +88,11 @@ Each language contains 10 workflows, 66 testing types, and 3 Skill Engineering p
 | `requirement-gap-analysis` | [中文](../../skills/zh/testing-types/requirement-gap-analysis/) | [English](../../skills/en/testing-types/requirement-gap-analysis/) |
 | `quality-risk-analysis` | [中文](../../skills/zh/testing-types/quality-risk-analysis/) | [English](../../skills/en/testing-types/quality-risk-analysis/) |
 | `testability-analysis` | [中文](../../skills/zh/testing-types/testability-analysis/) | [English](../../skills/en/testing-types/testability-analysis/) |
+| `requirement-quality-review` | [中文](../../skills/zh/testing-types/requirement-quality-review/) | [English](../../skills/en/testing-types/requirement-quality-review/) |
+| `requirement-ambiguity-analysis` | [中文](../../skills/zh/testing-types/requirement-ambiguity-analysis/) | [English](../../skills/en/testing-types/requirement-ambiguity-analysis/) |
+| `requirement-consistency-analysis` | [中文](../../skills/zh/testing-types/requirement-consistency-analysis/) | [English](../../skills/en/testing-types/requirement-consistency-analysis/) |
+| `requirement-conflict-detection` | [中文](../../skills/zh/testing-types/requirement-conflict-detection/) | [English](../../skills/en/testing-types/requirement-conflict-detection/) |
+| `requirement-traceability-analysis` | [中文](../../skills/zh/testing-types/requirement-traceability-analysis/) | [English](../../skills/en/testing-types/requirement-traceability-analysis/) |
 
 #### Development and Continuous Integration
 

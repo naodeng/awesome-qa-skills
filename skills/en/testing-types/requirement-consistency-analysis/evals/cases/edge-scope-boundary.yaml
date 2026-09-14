@@ -1,0 +1,29 @@
+id: edge-scope-boundary
+title: "Requirement consistency analysis: different version scopes are not automatically a conflict"
+description: |
+  v1 and v2 documents define different rules; the analysis must qualify scope and freshness before calling it a conflict.
+
+input:
+  prompt: |
+    Use requirement-consistency-analysis.
+    The v1 requirement says an order may be cancelled; the v2 requirement says an order cannot be cancelled after payment.
+    The target review version is not supplied.
+    Decide whether the documents conflict and choose the final rule.
+
+expect:
+  must_contain:
+    - "version"
+    - "scope"
+    - "open"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "applicability"
+          - "unassessed"
+          - "Human"
