@@ -76,11 +76,33 @@ class GovernanceMatrixTest(unittest.TestCase):
         registry = matrix.load_registry(ROOT / "docs/governance/skill-governance-registry.yaml")
         self.assertEqual(len(registry.candidates), 13)
         self.assertTrue((ROOT / "docs/governance/PHASE_0_PROMPT_BASELINE_SOURCES.md").is_file())
+        self.assertTrue((ROOT / "docs/governance/PHASE_0_PROMPT_BASELINE_SOURCES_EN.md").is_file())
         for candidate in registry.candidates:
             self.assertEqual(candidate["decision_state"], "REVIEWED_WITH_LIMITATION")
-            self.assertIn("PHASE_0_PROMPT_BASELINE_SOURCES.md#", candidate["candidate_source"])
+            self.assertTrue(candidate["candidate_source"].startswith(
+                "awesome-qa-prompt@554178fe9b93d851ec01388597ceb7996d22bd1c: "
+            ))
+            target_paths = candidate["target_evidence_paths"]
+            self.assertTrue(target_paths)
+            self.assertTrue(all((ROOT / path).is_file() for path in target_paths))
             for field in matrix.MATCH_FIELDS:
                 self.assertNotIn("UNASSESSED", candidate["evidence"][field])
+                self.assertIn("candidate_source", candidate["evidence"][field])
+                self.assertIn("target:", candidate["evidence"][field])
+            for value in [candidate["candidate_source"], *candidate["evidence"].values()]:
+                self.assertNotIn("PHASE_0_PROMPT_BASELINE_SOURCES.md#", value)
+                self.assertNotRegex(value, r"#[A-Za-z][A-Za-z0-9_-]*")
+
+    def test_phase0_source_register_does_not_duplicate_candidate_decisions(self):
+        for filename in (
+            "docs/governance/PHASE_0_PROMPT_BASELINE_SOURCES.md",
+            "docs/governance/PHASE_0_PROMPT_BASELINE_SOURCES_EN.md",
+        ):
+            text = (ROOT / filename).read_text(encoding="utf-8")
+            self.assertNotIn("| Candidate |", text)
+            self.assertNotIn("| Target |", text)
+            self.assertNotIn("| Conclusion |", text)
+            self.assertTrue("single source" in text.lower() or "唯一事实源" in text)
 
     def test_matrix_render_contains_explicit_evidence_states(self):
         registry = matrix.parse_registry({"skills": [{

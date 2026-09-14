@@ -28,3 +28,7 @@
 | NEW | 定义独立 Scope/Non-goals 后，创建中英双语独立 Skill。 |
 
 `NEW` 必须证明输入、分析逻辑、输出和决策价值均不能由已有能力合理承担。匹配结论必须写入 Matrix 和 GitHub Project 卡；静态审查不能代替运行效果证明。
+
+## 受限审查状态
+
+`REVIEWED_WITH_LIMITATION` 表示六项证据已定位并完成结构化比较，但仍缺少项目上下文、语义等价、运行结果或 Eval 证据。它不是批准或可执行状态；其中的 `MATCH`、`MERGE`、`ENHANCE`、`NEW` 只能作为 Phase 1 复核前的候选结论，不能仅凭 Registry 创建、修改或删除 Skill。

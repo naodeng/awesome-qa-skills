@@ -23,25 +23,15 @@ Phase 0 的候选能力参考源是相邻仓库 `naodeng/awesome-qa-prompt`。�
 | decision_logic | `分析方法` / `分析与设计方法`、专项聚焦与降级规则 |
 | workflow_role | 本仓库 `QA_SKILLS_EVOLUTION_ROADMAP.md` 的阶段边界与 Baseline 的专项输出角色 |
 
-## 候选映射
+## Registry 关联
 
-下表中的路径均相对于上述固定提交；`zh` 与 `en` 目录成对存在。
+候选名称、Target、Conclusion 和适配边界只在
+`docs/governance/skill-governance-registry.yaml` 维护；该 Registry 是唯一事实源。
+本文件只定义固定 Prompt Baseline 提交和取证规则，避免形成第二份候选决策表。
 
-| Candidate | 当前 Target | 结论 | Prompt Baseline | 适配边界 |
-| --- | --- | --- | --- | --- |
-| `requirement-change-impact-analysis` | `change-impact-analysis` | MATCH | `testing-types/{zh,en}/change-impact-analysis/` | 变更到直接/间接影响；不替代需求缺口分析 |
-| `test-impact-analysis` | `change-impact-analysis`, `pr-test-impact-analysis` | MERGE | `change-impact-analysis/` + `pr-risk-analysis/` | 合并变更影响与 PR 测试影响；不把风险分析当执行结果 |
-| `code-change-risk-analysis` | `pr-test-impact-analysis` | MERGE | `testing-types/{zh,en}/pr-risk-analysis/` | PR/Diff 风险、关键路径与测试影响；不替代完整代码审查 |
-| `workload-modeling` | `performance-workload-modeling` | MATCH | `testing-types/{zh,en}/workload-model-design/` | 负载来源、事务分布、到达/并发和增长假设 |
-| `capacity-planning` | `capacity-planning-analysis` | MATCH | `testing-types/{zh,en}/capacity-planning-analysis/` | 容量需求、资源约束和增长假设；不编造指标 |
-| `regression-scope-selection` | `regression-scope-analysis`, `regression-test-selection` | MERGE | `regression-scope-analysis/` + `regression-test-selection/` | 先定义回归范围，再从已知资产选择执行集 |
-| `ai-test-case-review` | `ai-generated-test-review` | MATCH | `testing-types/{zh,en}/ai-generated-test-review/` | 审核 AI 生成用例；以需求和技术材料为依据 |
-| `ai-log-analysis` | `log-analysis` | ENHANCE | `testing-types/{zh,en}/log-analysis/` | 日志事件、时间线、错误和关联证据 |
-| `ai-root-cause-analysis` | `root-cause-analysis` | ENHANCE | `testing-types/{zh,en}/root-cause-analysis/` | 证据、原因假设和验证路径；不宣称未证实根因 |
-| `quality-risk-identification` | `quality-risk-analysis` | MATCH | `testing-types/{zh,en}/quality-risk-analysis/` | 风险、影响、证据和缓解选项 |
-| `ai-test-data-generation` | `test-data-generation` | ENHANCE | `testing-types/{zh,en}/test-data-generation/` | 测试目标、约束、隐私和可追溯数据方案 |
-| `llm-output-quality-testing` | `llm-testing` | ENHANCE | `testing-types/{zh,en}/llm-output-quality-evaluation/` | 输出质量维度、评分标准和证据；不等同于运行评测结果 |
-| `llm-evaluation` | `llm-evaluation-design` | MATCH | `ai-evaluation-design/` + `llm-output-quality-evaluation/` | 评测目标、数据集、指标、判定规则和复现要求 |
+Registry 的每个 `candidate_source` 直接列出对应 Baseline 的 `README.md` 与
+`Standard-version/*.md` 路径；六项 `evidence` 同时列出候选 Baseline 与当前 Target 的
+具体文件和章节。下列路径均相对于固定提交，`zh` 与 `en` 目录成对存在。
 
 ## 限制
 

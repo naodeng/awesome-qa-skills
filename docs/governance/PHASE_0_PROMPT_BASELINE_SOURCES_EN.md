@@ -24,25 +24,17 @@ cross-repository relative links; this register records source locations and matc
 | decision_logic | `分析方法` / `分析与设计方法`, focused scope, and degradation rules |
 | workflow_role | The stage boundary in `QA_SKILLS_EVOLUTION_ROADMAP_EN.md` and the baseline's focused output role |
 
-## Candidate mapping
+## Registry linkage
 
-Paths below are relative to the pinned commit; `zh` and `en` directories are paired.
+Candidate name, target, conclusion, and adaptation boundary are maintained only in
+`docs/governance/skill-governance-registry.yaml`; the Registry is the single source of truth.
+This file defines only the pinned Prompt Baseline commit and the evidence-location rules, so it
+does not become a second candidate decision table.
 
-| Candidate | Current target | Conclusion | Prompt Baseline | Adaptation boundary |
-| --- | --- | --- | --- | --- |
-| `requirement-change-impact-analysis` | `change-impact-analysis` | MATCH | `testing-types/{zh,en}/change-impact-analysis/` | Direct and indirect change impact; not requirement-gap analysis |
-| `test-impact-analysis` | `change-impact-analysis`, `pr-test-impact-analysis` | MERGE | `change-impact-analysis/` + `pr-risk-analysis/` | Combine change impact and PR test impact; risk is not an execution result |
-| `code-change-risk-analysis` | `pr-test-impact-analysis` | MERGE | `testing-types/{zh,en}/pr-risk-analysis/` | PR/Diff risk, critical paths, and test impact; not full code review |
-| `workload-modeling` | `performance-workload-modeling` | MATCH | `testing-types/{zh,en}/workload-model-design/` | Workload sources, transaction mix, arrival/concurrency, and growth assumptions |
-| `capacity-planning` | `capacity-planning-analysis` | MATCH | `testing-types/{zh,en}/capacity-planning-analysis/` | Capacity needs, resource constraints, and growth assumptions; no invented metrics |
-| `regression-scope-selection` | `regression-scope-analysis`, `regression-test-selection` | MERGE | `regression-scope-analysis/` + `regression-test-selection/` | Define scope first, then select an execution set from known assets |
-| `ai-test-case-review` | `ai-generated-test-review` | MATCH | `testing-types/{zh,en}/ai-generated-test-review/` | Review AI-generated cases using supplied requirements and technical material |
-| `ai-log-analysis` | `log-analysis` | ENHANCE | `testing-types/{zh,en}/log-analysis/` | Log events, timelines, errors, and correlated evidence |
-| `ai-root-cause-analysis` | `root-cause-analysis` | ENHANCE | `testing-types/{zh,en}/root-cause-analysis/` | Evidence, cause hypotheses, and validation paths; no unverified root-cause claims |
-| `quality-risk-identification` | `quality-risk-analysis` | MATCH | `testing-types/{zh,en}/quality-risk-analysis/` | Quality risks, impact, evidence, and mitigation options |
-| `ai-test-data-generation` | `test-data-generation` | ENHANCE | `testing-types/{zh,en}/test-data-generation/` | Test goals, constraints, privacy, and traceable data plans |
-| `llm-output-quality-testing` | `llm-testing` | ENHANCE | `testing-types/{zh,en}/llm-output-quality-evaluation/` | Output-quality dimensions, scoring, and evidence; not executed evaluation results |
-| `llm-evaluation` | `llm-evaluation-design` | MATCH | `ai-evaluation-design/` + `llm-output-quality-evaluation/` | Evaluation goals, datasets, metrics, decision rules, and reproducibility |
+Each Registry `candidate_source` lists the relevant Baseline `README.md` and
+`Standard-version/*.md` paths directly. Each six-field `evidence` value lists concrete files and
+sections on both the candidate-Baseline and current-Target sides. Paths below are relative to the
+pinned commit; `zh` and `en` directories are paired.
 
 ## Limitations
 

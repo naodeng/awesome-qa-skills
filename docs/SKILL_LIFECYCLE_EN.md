@@ -17,4 +17,8 @@ Matching routes a candidate to Existing, Enhance, Merge, Match, or New. Stable S
 | Experimental | Scope or evidence is insufficient for Stable | Meet score/Eval gate or Redesign |
 | Deprecated / Archived | Replacement path and migration impact are recorded | Archived retains traceable history only |
 
+### `REVIEWED_WITH_LIMITATION`
+
+This Registry state means that all six evidence fields were located and structurally compared, while project context, semantic equivalence, runtime results, or Eval evidence is still incomplete. It is not a signal of human approval, release, risk acceptance, or permission to execute changes; `MATCH`, `MERGE`, `ENHANCE`, and `NEW` remain provisional candidate conclusions until Phase 1 reviews requirements and real assets, or explicitly retains the limitation.
+
 Each transition records evidence, decision, ownership, affected bilingual paths, Eval state, and Matrix/documentation updates. No state implies automated human approval, release, or risk acceptance.
