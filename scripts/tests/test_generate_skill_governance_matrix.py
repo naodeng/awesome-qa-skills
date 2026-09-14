@@ -80,6 +80,20 @@ class GovernanceMatrixTest(unittest.TestCase):
         quality_gate = (ROOT / "scripts/check_skills_quality.sh").read_text(encoding="utf-8")
         self.assertIn("python3 scripts/generate_skill_governance_matrix.py --check", quality_gate)
 
+    def test_matrix_uses_skill_description_as_scope_evidence(self):
+        with TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            evidence = root / "skills/zh/testing-types/sample/SKILL.md"
+            evidence.parent.mkdir(parents=True)
+            evidence.write_text("---\ndescription: Analyze requirement boundaries\n---\n", encoding="utf-8")
+            registry = matrix.parse_registry({"skills": [{
+                "slug": "sample", "section": "testing-types", "zh_path": "skills/zh/testing-types/sample",
+                "en_path": "skills/en/testing-types/sample", "virtual_domain": "D01", "status": "Candidate",
+                "quality_score": {"state": "NOT_SCORED"}, "eval_execution": {"state": "NOT_RUN"},
+                "governance_evidence": "skills/zh/testing-types/sample/SKILL.md",
+            }], "candidates": []})
+            self.assertIn("Analyze requirement boundaries", matrix.render_matrix(registry, "zh", root))
+
     def test_rejects_new_candidate_without_boundaries(self):
         candidate = {
             "slug": "new-capability",

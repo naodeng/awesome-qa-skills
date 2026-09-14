@@ -4,6 +4,7 @@
 from dataclasses import dataclass
 import argparse
 import json
+import re
 from pathlib import Path
 
 
@@ -96,7 +97,20 @@ def validate_registry(registry: GovernanceRegistry, physical: set[str]) -> list[
     return errors
 
 
-def render_matrix(registry: GovernanceRegistry, locale: str) -> str:
+def skill_description(root: Path, skill: dict[str, object], locale: str) -> str:
+    evidence = str(skill.get("governance_evidence", ""))
+    if locale == "en" and evidence.startswith("skills/zh/"):
+        evidence = evidence.replace("skills/zh/", "skills/en/", 1)
+    path = root / evidence
+    if not path.is_file():
+        return "UNASSESSED"
+    text = path.read_text(encoding="utf-8", errors="replace")
+    match = re.search(r"^description:\s*(.+)$", text, re.MULTILINE)
+    return match.group(1).strip().strip('"').replace("|", "\\|") if match else "UNASSESSED"
+
+
+def render_matrix(registry: GovernanceRegistry, locale: str, root: Path | None = None) -> str:
+    root = root or Path(__file__).resolve().parents[1]
     english = locale == "en"
     switch = "中文" if english else "English"
     target = "SKILL_MATRIX.md" if english else "SKILL_MATRIX_EN.md"
@@ -106,14 +120,15 @@ def render_matrix(registry: GovernanceRegistry, locale: str) -> str:
         if english else
         "由 `docs/governance/skill-governance-registry.yaml` 生成；结构和评审状态不证明运行效果。"
     )
-    lines = [f'<div align="right"><a href="./{target}">{switch}</a></div>', "", f"# {title}", "", intro, "", "| Skill | Section | Virtual Domain | SDLC | Roles | Status | Priority | Inputs | Outputs | Related / Workflow | Quality Score | Eval Execution | Evidence |", "| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |"]
+    lines = [f'<div align="right"><a href="./{target}">{switch}</a></div>', "", f"# {title}", "", intro, "", "| Skill | Section | Virtual Domain | SDLC | Roles | Status | Priority | Scope evidence | Inputs | Outputs | Related / Workflow | Quality Score | Eval Execution | Evidence |", "| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |"]
     for skill in sorted(registry.skills, key=lambda item: str(item.get("slug", ""))):
         score = skill.get("quality_score", {}).get("state", "UNASSESSED")
         execution = skill.get("eval_execution", {}).get("state", "UNASSESSED")
         roles = ", ".join(skill.get("roles", [])) if isinstance(skill.get("roles"), list) else skill.get("roles", "UNASSESSED")
         related = skill.get("related", "UNASSESSED")
         workflow = skill.get("workflow", "UNASSESSED")
-        lines.append(f"| `{skill.get('slug', '')}` | {skill.get('section', 'UNASSESSED')} | {skill.get('virtual_domain', 'UNASSESSED')} | {skill.get('sdlc_stage', 'UNASSESSED')} | {roles} | {skill.get('status', 'UNASSESSED')} | {skill.get('priority', 'UNASSESSED')} | {skill.get('inputs', 'UNASSESSED')} | {skill.get('outputs', 'UNASSESSED')} | {related} / {workflow} | `{score}` | `{execution}` | `{skill.get('governance_evidence', 'UNASSESSED')}` |")
+        scope = skill_description(root, skill, locale)
+        lines.append(f"| `{skill.get('slug', '')}` | {skill.get('section', 'UNASSESSED')} | {skill.get('virtual_domain', 'UNASSESSED')} | {skill.get('sdlc_stage', 'UNASSESSED')} | {roles} | {skill.get('status', 'UNASSESSED')} | {skill.get('priority', 'UNASSESSED')} | {scope} | {skill.get('inputs', 'UNASSESSED')} | {skill.get('outputs', 'UNASSESSED')} | {related} / {workflow} | `{score}` | `{execution}` | `{skill.get('governance_evidence', 'UNASSESSED')}` |")
     return "\n".join(lines) + "\n"
 
 
@@ -141,7 +156,7 @@ def check_outputs(root: Path, registry: GovernanceRegistry) -> int:
     stale = []
     for locale in ("zh", "en"):
         matrix_path, register_path = output_paths(root, locale)
-        expected = (render_matrix(registry, locale), render_matching_register(registry, locale))
+        expected = (render_matrix(registry, locale, root), render_matching_register(registry, locale))
         for path, content in zip((matrix_path, register_path), expected):
             if not path.is_file() or path.read_text(encoding="utf-8") != content:
                 stale.append(str(path.relative_to(root)))
