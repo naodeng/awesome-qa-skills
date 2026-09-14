@@ -15,9 +15,9 @@ import sys
 from typing import Any, Sequence
 
 try:
-    from .skill_eval_rules import EvalReport, evaluate_trace, load_jsonl
+    from .skill_eval_rules import EvalReport, TRIGGER_MODES, evaluate_trace, load_jsonl
 except ImportError:  # pragma: no cover - supports direct script execution
-    from skill_eval_rules import EvalReport, evaluate_trace, load_jsonl
+    from skill_eval_rules import EvalReport, TRIGGER_MODES, evaluate_trace, load_jsonl
 
 
 CASE_ID_PATTERN = re.compile(r"^[A-Za-z0-9][A-Za-z0-9_.-]*$")
@@ -28,7 +28,7 @@ class PromptCase:
     case_id: str
     should_trigger: bool
     prompt: str
-    mode: str | None = None
+    mode: str
 
 
 @dataclass
@@ -62,7 +62,7 @@ def _parse_bool(value: str, field_name: str, case_id: str) -> bool:
 
 
 def load_prompt_cases(path: Path) -> list[PromptCase]:
-    """Load the small article-style ``id,should_trigger,prompt`` CSV."""
+    """Load the trigger prompt CSV with one explicit mode per case."""
 
     with path.open(encoding="utf-8", newline="") as stream:
         reader = csv.DictReader(stream)
@@ -71,6 +71,8 @@ def load_prompt_cases(path: Path) -> list[PromptCase]:
         missing = sorted(required - fieldnames)
         if missing:
             raise ValueError(f"prompt CSV missing columns: {', '.join(missing)}")
+        if not {"mode", "trigger_mode"}.intersection(fieldnames):
+            raise ValueError("prompt CSV missing columns: mode or trigger_mode")
         cases: list[PromptCase] = []
         seen: set[str] = set()
         for row_number, row in enumerate(reader, 2):
@@ -86,6 +88,11 @@ def load_prompt_cases(path: Path) -> list[PromptCase]:
             if not prompt:
                 raise ValueError(f"empty prompt for case {case_id!r}")
             mode = (row.get("mode") or row.get("trigger_mode") or "").strip() or None
+            if mode is None:
+                raise ValueError(f"mode is required for case {case_id!r}")
+            if mode not in TRIGGER_MODES:
+                allowed = ", ".join(sorted(TRIGGER_MODES))
+                raise ValueError(f"invalid trigger mode {mode!r} for case {case_id!r}; expected one of {allowed}")
             cases.append(
                 PromptCase(
                     case_id=case_id,
@@ -99,10 +106,10 @@ def load_prompt_cases(path: Path) -> list[PromptCase]:
     return cases
 
 
-def build_codex_command(prompt: str, full_auto: bool = False, codex_bin: str = "codex") -> list[str]:
-    command = [codex_bin, "exec", "--json"]
-    if full_auto:
-        command.append("--full-auto")
+def build_codex_command(prompt: str, approve_for_me: bool = False, codex_bin: str = "codex") -> list[str]:
+    command = [codex_bin, "exec", "--json", "--skip-git-repo-check"]
+    if approve_for_me:
+        command.append("--approve-for-me")
     command.append(prompt)
     return command
 
@@ -130,14 +137,14 @@ def _case_paths(output_root: Path, case_id: str) -> tuple[Path, Path, Path]:
     )
 
 
-def _dry_case(case: PromptCase, project_root: Path, full_auto: bool, codex_bin: str) -> dict[str, Any]:
+def _dry_case(case: PromptCase, project_root: Path, approve_for_me: bool, codex_bin: str) -> dict[str, Any]:
     return {
         "case_id": case.case_id,
         "should_trigger": case.should_trigger,
         "mode": case.mode,
         "project_dir": str(project_root / case.case_id),
-        "command": build_codex_command(case.prompt, full_auto=full_auto, codex_bin=codex_bin),
-        "shell_command": shlex.join(build_codex_command(case.prompt, full_auto=full_auto, codex_bin=codex_bin)),
+        "command": build_codex_command(case.prompt, approve_for_me=approve_for_me, codex_bin=codex_bin),
+        "shell_command": shlex.join(build_codex_command(case.prompt, approve_for_me=approve_for_me, codex_bin=codex_bin)),
         "dry_run": True,
         "exit_code": 0,
     }
@@ -149,7 +156,7 @@ def run_cases(
     project_root: Path,
     output_root: Path,
     *,
-    full_auto: bool = False,
+    approve_for_me: bool = False,
     dry_run: bool = True,
     codex_bin: str = "codex",
 ) -> BatchReport:
@@ -158,7 +165,7 @@ def run_cases(
     cases = load_prompt_cases(prompts_path)
     base_config = _load_config(config_path)
     if dry_run:
-        return BatchReport([_dry_case(case, project_root, full_auto, codex_bin) for case in cases])
+        return BatchReport([_dry_case(case, project_root, approve_for_me, codex_bin) for case in cases])
 
     project_root.mkdir(parents=True, exist_ok=True)
     output_root.mkdir(parents=True, exist_ok=True)
@@ -169,7 +176,7 @@ def run_cases(
             raise ValueError(f"case directory already exists; refusing to reuse it: {case_dir}")
         case_dir.mkdir()
         trace_path, stderr_path, report_path = _case_paths(output_root, case.case_id)
-        command = build_codex_command(case.prompt, full_auto=full_auto, codex_bin=codex_bin)
+        command = build_codex_command(case.prompt, approve_for_me=approve_for_me, codex_bin=codex_bin)
         completed = subprocess.run(
             command,
             cwd=str(case_dir),
@@ -203,12 +210,16 @@ def run_cases(
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--prompts", required=True, type=Path, help="CSV with id,should_trigger,prompt[,mode]")
+    parser.add_argument("--prompts", required=True, type=Path, help="CSV with id,should_trigger,prompt,mode")
     parser.add_argument("--config", required=True, type=Path, help="JSON rule configuration")
     parser.add_argument("--project-root", required=True, type=Path, help="Empty root for per-case project directories")
     parser.add_argument("--output-dir", required=True, type=Path, help="Directory for JSONL, stderr, and rule reports")
     parser.add_argument("--run", action="store_true", help="Actually invoke codex; without this flag only preview the commands")
-    parser.add_argument("--full-auto", action="store_true", help="Pass --full-auto to codex; only applies with --run")
+    parser.add_argument(
+        "--approve-for-me",
+        action="store_true",
+        help="Pass the current Codex approval flag; only applies with --run",
+    )
     parser.add_argument("--codex-bin", default="codex", help="Codex executable to invoke")
     return parser
 
@@ -221,7 +232,7 @@ def main(argv: Sequence[str] | None = None) -> int:
             config_path=args.config,
             project_root=args.project_root,
             output_root=args.output_dir,
-            full_auto=args.full_auto,
+            approve_for_me=args.approve_for_me,
             dry_run=not args.run,
             codex_bin=args.codex_bin,
         )

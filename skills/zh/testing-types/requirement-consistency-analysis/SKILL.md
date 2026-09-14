@@ -38,6 +38,7 @@ description: Use this skill when multiple requirement artifacts may disagree on 
 - 每次产出前必须阅读 `prompts/requirement-consistency-analysis.md`。
 - 需要回归本 Skill 时使用 `evals/eval.yaml` 和 `evals/cases/`；结构门禁不证明跨来源语义正确。
 - 需要验证发现行为时，使用 `evals/trigger-prompts.csv` 与 `evals/local-rules.json` 运行仓库的 `scripts/run_skill_trace_eval.py`；缺少 `skill.selection` 证据时必须报告 `BLOCKED`，不能推断触发成功。
+- 以上是仓库根目录下的开发验证步骤；独立安装的 Skill 包不包含仓库级 runner，运行时不依赖该脚本。
 - 需要验证 `business-rule` 模式时，使用 `business-rule-*` Eval 和带业务规则短语的本地触发样本；目录仍是本 Skill 的物理目录，不创建别名目录。
 
 ## 交付前自检

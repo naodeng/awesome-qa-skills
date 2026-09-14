@@ -40,6 +40,7 @@ Do not use it only to write test cases, execute tests, or decide business priori
 - Always read `prompts/requirement-traceability-analysis.md` before producing an analysis.
 - Use `evals/eval.yaml` and `evals/cases/` to regress this Skill; configuration and static mappings do not prove real system execution.
 - To check discovery behavior, run `scripts/run_skill_trace_eval.py` with `evals/trigger-prompts.csv` and `evals/local-rules.json`; missing `skill.selection` evidence is `BLOCKED`, not a trigger pass.
+- This is a repository-root development check; a standalone Skill package does not include the repository runner and does not depend on it at runtime.
 - To regress `test-coverage-analysis`, use the `coverage-*` Evals and a local trigger prompt containing “coverage analysis”; the target remains this physical Skill directory and no alias directory is created.
 
 ## Pre-delivery Checklist

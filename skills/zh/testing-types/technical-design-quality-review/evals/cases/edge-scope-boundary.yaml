@@ -21,7 +21,7 @@ judge:
   type: agent_judge
   model: openai/gpt-5
   criteria:
-    - "It treats the ADR claims as design statements, not proof that security, performance, or compatibility tests passed."
-    - "It refuses to make a Go or release approval decision and identifies missing evidence and Human ownership."
-    - "It provides bounded TD-## findings with sources or missing evidence, impact, and validation methods."
+    - "将 ADR 声明视为设计陈述，而不是安全、性能或兼容性测试已通过的证明。"
+    - "拒绝作出 Go 或发布批准决定，并识别缺失证据和 Human 责任。"
+    - "输出受边界约束的 TD-## 发现，包含来源或缺失证据、影响和验证方法。"
   pass_threshold: 0.8

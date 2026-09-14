@@ -24,6 +24,7 @@ FAIL = "FAIL"
 BLOCKED = "BLOCKED"
 NOT_APPLICABLE = "N/A"
 VALID_STATUSES = {PASS, FAIL, BLOCKED, NOT_APPLICABLE}
+TRIGGER_MODES = frozenset({"explicit", "implicit", "contextual", "negative"})
 
 
 @dataclass(frozen=True)
@@ -250,7 +251,9 @@ def _normalize_command(command: str) -> str:
 def _command_matches(expected: str, actual: str) -> bool:
     expected_normalized = _normalize_command(expected)
     actual_normalized = _normalize_command(actual)
-    return expected_normalized == actual_normalized or expected_normalized in actual_normalized
+    if not expected_normalized:
+        return False
+    return actual_normalized == expected_normalized or actual_normalized.startswith(f"{expected_normalized} ")
 
 
 def _command_item(event: dict[str, Any]) -> dict[str, Any] | None:
@@ -348,8 +351,6 @@ def _selection_events(events: list[dict[str, Any]]) -> list[dict[str, Any]]:
             continue
         selected_value = source.get("selected", source.get("invoked", source.get("triggered")))
         selected = _as_bool(selected_value)
-        if selected is None:
-            selected = event_type in {"skill.invoked", "skill.invocation", "skill_invocation"}
         selections.append(
             {
                 "skill": source.get("skill", source.get("skill_name", source.get("name"))),
@@ -376,7 +377,12 @@ def _permission_escalations(events: list[dict[str, Any]]) -> list[dict[str, Any]
 
 
 def _check_trigger(rule_id: str, mode: str, trace: Trace, config: dict[str, Any]) -> RuleResult:
-    if config.get("trigger_mode") != mode:
+    configured_mode = config.get("trigger_mode")
+    if configured_mode is None:
+        return _result(rule_id, BLOCKED, "trigger_mode is required to evaluate trigger evidence")
+    if not isinstance(configured_mode, str) or configured_mode not in TRIGGER_MODES:
+        return _result(rule_id, BLOCKED, "trigger_mode must be one of explicit, implicit, contextual, or negative")
+    if configured_mode != mode:
         return _not_configured(rule_id, f"trigger_mode={mode}")
     skill = config.get("skill")
     expected = config.get("should_trigger", mode != "negative")
@@ -395,7 +401,15 @@ def _check_trigger(rule_id: str, mode: str, trace: Trace, config: dict[str, Any]
             BLOCKED,
             "no skill selection evidence; the trace adapter must emit a skill.selection event",
         )
-    actual = bool(candidates[-1]["selected"])
+    actual_value = candidates[-1]["selected"]
+    if not isinstance(actual_value, bool):
+        return _result(
+            rule_id,
+            BLOCKED,
+            "skill selection evidence must include a boolean selected, invoked, or triggered field",
+            [str(candidates[-1])],
+        )
+    actual = actual_value
     if actual != expected_bool:
         return _result(rule_id, FAIL, f"expected selected={expected_bool}, observed selected={actual}", [str(candidates[-1])])
     return _result(rule_id, PASS, f"observed selected={actual}", [str(candidates[-1])])
@@ -426,7 +440,18 @@ def _check_trace_lifecycle(trace: Trace, config: dict[str, Any]) -> RuleResult:
     groups: dict[str, set[str]] = {}
     for event_type, item, _ in _raw_command_events(trace.events):
         key = _item_id(item) or _normalize_command(str(item["command"]))
-        groups.setdefault(key, set()).add("completed" if event_type.endswith("completed") else "started")
+        if event_type in {"item.started", "command_execution.started"}:
+            lifecycle_state = "started"
+        elif event_type in {"item.completed", "command_execution.completed"}:
+            lifecycle_state = "completed"
+        else:
+            return _result(
+                "TRACE-003",
+                FAIL,
+                "unknown command lifecycle event type",
+                [event_type],
+            )
+        groups.setdefault(key, set()).add(lifecycle_state)
     if not groups:
         return _result("TRACE-003", FAIL, "lifecycle was required but no command_execution event exists")
     incomplete = [key for key, states in groups.items() if states != {"started", "completed"}]
@@ -770,14 +795,20 @@ def _check_reproducibility(trace: Trace, config: dict[str, Any], project_dir: Pa
     other = load_jsonl(comparison_path)
     if other.errors:
         return _result("REPRO-001", FAIL, "comparison trace is malformed", other.errors)
-    current_commands = [_normalize_command(record.command) for record in trace.commands]
-    comparison_commands = [_normalize_command(record.command) for record in other.commands]
-    if current_commands != comparison_commands:
+    current_behavior = [(_normalize_command(record.command), record.exit_code) for record in trace.commands]
+    comparison_behavior = [(_normalize_command(record.command), record.exit_code) for record in other.commands]
+    if any(exit_code is None for _, exit_code in current_behavior + comparison_behavior):
+        return _result(
+            "REPRO-001",
+            BLOCKED,
+            "both traces must include completed command exit statuses",
+        )
+    if current_behavior != comparison_behavior:
         return _result(
             "REPRO-001",
             FAIL,
             "normalized command behavior differs between runs",
-            [f"current={current_commands!r}", f"comparison={comparison_commands!r}"],
+            [f"current={current_behavior!r}", f"comparison={comparison_behavior!r}"],
         )
     current_paths = config.get("compare_paths") or []
     if current_paths:
@@ -792,4 +823,4 @@ def _check_reproducibility(trace: Trace, config: dict[str, Any], project_dir: Pa
                 mismatches.append(str(relative_path))
         if mismatches:
             return _result("REPRO-001", FAIL, "comparison artifact digests differ", mismatches)
-    return _result("REPRO-001", PASS, "normalized command behavior is repeatable")
+    return _result("REPRO-001", PASS, "normalized command and exit-code behavior is repeatable")

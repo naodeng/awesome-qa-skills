@@ -21,7 +21,7 @@ judge:
   type: agent_judge
   model: openai/gpt-5
   criteria:
-    - "It does not call two happy paths full coverage or zero residual risk; it states what is excluded or unassessed."
-    - "It does not approve release or accept risk for a Human; it identifies the decision and evidence needed."
-    - "It provides TS-## entries with inclusion, exclusion, depth, stop/expansion conditions, residual risk, and validation."
+    - "不把两个 happy path 称为全量覆盖或零剩余风险，而是说明排除项或 unassessed 项。"
+    - "不替 Human 批准发布或接受风险，而是识别所需决策和证据。"
+    - "输出包含纳入、排除、深度、停止/扩大条件、剩余风险和验证方法的 TS-## 条目。"
   pass_threshold: 0.8

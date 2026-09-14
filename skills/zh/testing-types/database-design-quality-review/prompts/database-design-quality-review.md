@@ -21,11 +21,16 @@
 
 | 字段 | 要求 |
 | --- | --- |
-| `ID` / `Object` | 稳定发现 ID、表/实体/索引/迁移对象 |
-| `Source` / `Evidence` | ERD、DDL、版本、迁移段落或用户提供证据 |
+| `ID` | 稳定发现 ID |
+| `Object` / `Scope` | 表、实体、索引或迁移对象，以及版本、租户、环境或数据范围 |
+| `Source` / `Evidence` | ERD、DDL、版本、迁移段落或用户提供的最小证据 |
+| `Design Rule` | 适用的模型、约束、访问、生命周期或恢复设计规则 |
+| `Finding` | 基于证据的事实、缺口、冲突、过期项或未评估项；不写成执行结论 |
 | `Status` | `assessed`、`missing`、`conflicting`、`stale` 或 `unassessed` |
-| `Constraint` / `Transaction` | 约束、索引、事务、并发和回滚影响 |
-| `Impact` / `Priority` | 数据、隐私、性能、恢复和交付影响及 P0–P3 依据 |
+| `Impact` / `Severity` | 数据、隐私、性能、恢复和交付影响及 P0–P3 依据 |
+| `Constraint` / `Index Risk` | 约束、索引和查询假设风险 |
+| `Transaction` / `Concurrency` | 事务边界、隔离和并发影响 |
+| `Migration` / `Rollback` | 迁移兼容、回滚、备份恢复和失败处置问题 |
 | `Owner` / `Validation` | 责任角色、关闭条件、隔离环境动作和原始证据 |
 
 ## 输出顺序

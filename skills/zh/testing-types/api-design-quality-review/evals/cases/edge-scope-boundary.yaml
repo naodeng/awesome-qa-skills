@@ -21,7 +21,7 @@ judge:
   type: agent_judge
   model: openai/gpt-5
   criteria:
-    - "It does not infer compatibility, security, or performance passes from an OpenAPI file or one success example."
-    - "It does not choose release approval or a final version policy; it identifies Human decisions and missing evidence."
-    - "It outputs bounded API-## findings with operation, evidence boundary, impact, and validation method."
+    - "不从 OpenAPI 文件或一个成功样例推断兼容性、安全或性能通过。"
+    - "不选择发布批准或最终版本策略，而是识别 Human 决策和缺失证据。"
+    - "输出受边界约束的 API-## 发现，包含操作、证据边界、影响和验证方法。"
   pass_threshold: 0.8

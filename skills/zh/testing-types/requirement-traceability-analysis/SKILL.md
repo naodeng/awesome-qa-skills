@@ -40,6 +40,7 @@ description: Use this skill when requirements, acceptance criteria, design, code
 - 每次产出前必须阅读 `prompts/requirement-traceability-analysis.md`。
 - 需要回归本 Skill 时使用 `evals/eval.yaml` 和 `evals/cases/`；评测配置和静态映射不证明真实系统已执行。
 - 需要验证发现行为时，使用 `evals/trigger-prompts.csv` 与 `evals/local-rules.json` 运行仓库的 `scripts/run_skill_trace_eval.py`；缺少 `skill.selection` 证据时必须报告 `BLOCKED`，不能推断触发成功。
+- 以上是仓库根目录下的开发验证步骤；独立安装的 Skill 包不包含仓库级 runner，运行时不依赖该脚本。
 - 需要回归 `test-coverage-analysis` 时使用 `coverage-*` Eval 和包含 coverage analysis 短语的本地触发数据；目标仍是本 Skill 的物理目录，不创建别名目录。
 
 ## 交付前自检

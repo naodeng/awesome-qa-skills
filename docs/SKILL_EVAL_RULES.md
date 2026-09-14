@@ -7,7 +7,7 @@
 先用 `codex exec --json` 保存一次运行结果，再复制并按目标 Skill 修改 [规则配置示例](examples/skill-eval.rules.json)：
 
 ```bash
-codex exec --json --full-auto \
+codex exec --json --approve-for-me \
   'Use the $setup-demo-app skill to create the project in this directory.' \
   > evals/artifacts/test-01.jsonl
 
@@ -34,7 +34,7 @@ python3 scripts/run_skill_trace_eval.py \
   --output-dir /tmp/demo-skill-reports
 ```
 
-确认隔离目录和命令无误后，显式增加 `--run` 才会调用 `codex`；只有确实需要写入项目时才增加 `--full-auto`。每个 case 使用独立目录，trace、stderr 和规则报告分别保存，已有 case 目录会被拒绝复用。
+确认隔离目录和命令无误后，显式增加 `--run` 才会调用 `codex`；只有确实需要写入项目时才增加 `--approve-for-me`。runner 会为隔离的非 Git case 传入 `--skip-git-repo-check`。每个 case 使用独立目录，trace、stderr 和规则报告分别保存，已有 case 目录会被拒绝复用。
 
 退出码含义：`0` 表示没有失败或缺证据的规则，`1` 表示至少一条 `FAIL`，`2` 表示没有失败但至少一条规则为 `BLOCKED`。`BLOCKED` 不等于通过，表示当前 trace 或环境不足以证明该规则。
 
@@ -63,7 +63,7 @@ python3 scripts/run_skill_trace_eval.py \
 | `PERMISSION-001` | 是否出现权限升级或禁止命令 | `permissions` / `forbidden_commands` |
 | `REPRO-001` | 对比运行的命令行为是否一致 | `compare_trace` |
 
-同一条规则只有在配置了对应断言时才会执行；未配置项显示为 `N/A`，不应解释成通过。
+同一条非触发规则只有在配置了对应断言时才会执行；未配置项显示为 `N/A`，不应解释成通过。触发规则缺少或使用非法 `trigger_mode` 时显示 `BLOCKED`，不会静默跳过。
 
 ## 配置示例
 
@@ -97,7 +97,7 @@ python3 scripts/run_skill_trace_eval.py \
 }
 ```
 
-触发规则需要评测适配器在 trace 中写入选择证据。文章公开的 `command_execution` 事件足以证明命令和产物，但不一定提供 Skill 选择事件，因此缺少 `skill.selection` 时规则会报告 `BLOCKED`，不会推断“没有触发”。
+触发规则需要评测适配器在 trace 中写入带布尔选择字段的 `skill.selection` 证据。文章公开的 `command_execution` 事件足以证明命令和产物，但不一定提供 Skill 选择事件，因此缺少选择事件或 `selected`/`invoked`/`triggered` 字段非法时规则会报告 `BLOCKED`，不会推断“没有触发”。
 
 ## 边界
 

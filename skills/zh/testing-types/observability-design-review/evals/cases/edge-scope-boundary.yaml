@@ -21,7 +21,7 @@ judge:
   type: agent_judge
   model: openai/gpt-5
   criteria:
-    - "It does not read production signals or treat a green dashboard as proof of health or SLO attainment."
-    - "It does not choose incident severity; it leaves SLO and severity decisions to Human owners with evidence questions."
-    - "It provides bounded OBS-## design findings with signal semantics, privacy/cardinality or actionability gaps, and validation methods."
+    - "不读取生产信号，也不把绿色 dashboard 当作健康或 SLO 达标的证明。"
+    - "不选择事故严重级别，而是把 SLO 和严重级别决策留给 Human 责任人，并提出证据问题。"
+    - "输出受边界约束的 OBS-## 设计发现，包含信号语义、隐私/基数或可行动性缺口以及验证方法。"
   pass_threshold: 0.8

@@ -22,7 +22,7 @@ judge:
   type: agent_judge
   model: openai/gpt-5
   criteria:
-    - "It rejects treating test-file presence or names as proof of execution or complete coverage."
-    - "It identifies missing execution evidence and preserves unverified, unexecuted, or unassessed status."
-    - "It produces TG-## findings with evidence, priority, a test intent, and a close condition without accepting risk for a Human."
+    - "拒绝把测试文件存在或文件名当作执行或完整覆盖的证明。"
+    - "识别缺失的执行证据，并保留 unverified、unexecuted 或 unassessed 状态。"
+    - "输出包含证据、优先级、测试意图和关闭条件的 TG-## 发现，不替 Human 接受风险。"
   pass_threshold: 0.8

@@ -1,6 +1,6 @@
 ---
 name: requirement-ambiguity-analysis
-description: Use when requirement wording has unclear actors, references, scope, quantities, conditions, timing, states, or acceptance criteria; triggers include 需求歧义分析, requirement ambiguity, and unclear requirements.
+description: Use this skill when requirement wording has unclear actors, references, scope, quantities, conditions, timing, states, or acceptance criteria; triggers include 需求歧义分析, requirement ambiguity, and unclear requirements.
 ---
 
 # 需求歧义分析
@@ -36,6 +36,7 @@ description: Use when requirement wording has unclear actors, references, scope,
 - 每次产出前必须阅读 `prompts/requirement-ambiguity-analysis.md`。
 - 需要回归本 Skill 时使用 `evals/eval.yaml` 和 `evals/cases/`；文件结构或规则评测不代表真实项目效果。
 - 需要验证发现行为时，使用 `evals/trigger-prompts.csv` 与 `evals/local-rules.json` 运行仓库的 `scripts/run_skill_trace_eval.py`；缺少 `skill.selection` 证据时必须报告 `BLOCKED`，不能推断触发成功。
+- 以上是仓库根目录下的开发验证步骤；独立安装的 Skill 包不包含仓库级 runner，运行时不依赖该脚本。
 
 ## 交付前自检
 

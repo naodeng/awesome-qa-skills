@@ -115,6 +115,34 @@ class V11TenQualitySkillContractTest(unittest.TestCase):
                 rules = json.loads((package / "evals" / "local-rules.json").read_text(encoding="utf-8"))
                 self.assertEqual(rules.get("skill"), slug, package)
 
+    def test_database_findings_include_the_specified_per_finding_fields(self):
+        required_fields = (
+            "Object",
+            "Scope",
+            "Source",
+            "Evidence",
+            "Design Rule",
+            "Finding",
+            "Impact",
+            "Severity",
+            "Constraint",
+            "Index Risk",
+            "Transaction",
+            "Concurrency",
+            "Migration",
+            "Rollback",
+            "Owner",
+            "Validation",
+        )
+        for language in LANGUAGES:
+            prompt = (
+                package_path(language, "database-design-quality-review")
+                / "prompts"
+                / "database-design-quality-review.md"
+            ).read_text(encoding="utf-8")
+            for field in required_fields:
+                self.assertIn(field, prompt, f"missing {field} in {language} database prompt")
+
     def test_enhancements_use_strong_mode_contracts_without_alias_directories(self):
         for candidate, contract in ENHANCEMENTS.items():
             target_slug = contract["target"]

@@ -1,6 +1,6 @@
 ---
 name: requirement-quality-review
-description: Use when a requirement, acceptance-criteria set, or change brief needs an evidence-bounded quality review before design or testing; triggers include 需求质量评审, requirement quality review, and requirements quality gate.
+description: Use this skill when a requirement, acceptance-criteria set, or change brief needs an evidence-bounded quality review before design or testing; triggers include 需求质量评审, requirement quality review, and requirements quality gate.
 ---
 
 # 需求质量评审
@@ -36,6 +36,7 @@ description: Use when a requirement, acceptance-criteria set, or change brief ne
 - 每次产出前必须阅读 `prompts/requirement-quality-review.md`。
 - 需要回归本 Skill 时使用 `evals/eval.yaml` 和 `evals/cases/`；Eval 文件是结构与行为约束，不是已执行质量证明。
 - 需要验证发现行为时，使用 `evals/trigger-prompts.csv` 与 `evals/local-rules.json` 运行仓库的 `scripts/run_skill_trace_eval.py`；缺少 `skill.selection` 证据时必须报告 `BLOCKED`，不能推断触发成功。
+- 以上是仓库根目录下的开发验证步骤；独立安装的 Skill 包不包含仓库级 runner，运行时不依赖该脚本。
 
 ## 交付前自检
 

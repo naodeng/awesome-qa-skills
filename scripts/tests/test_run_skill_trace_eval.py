@@ -38,6 +38,20 @@ class SkillTraceRunnerTest(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "unsafe case id"):
                 runner.load_prompt_cases(path)
 
+            self.write_prompts(
+                path,
+                [{"id": "case-1", "should_trigger": "true", "prompt": "one", "mode": ""}],
+            )
+            with self.assertRaisesRegex(ValueError, "mode is required"):
+                runner.load_prompt_cases(path)
+
+            self.write_prompts(
+                path,
+                [{"id": "case-1", "should_trigger": "true", "prompt": "one", "mode": "unknown"}],
+            )
+            with self.assertRaisesRegex(ValueError, "invalid trigger mode"):
+                runner.load_prompt_cases(path)
+
     def test_dry_run_prints_commands_without_creating_case_directories(self):
         with TemporaryDirectory() as temporary:
             root = Path(temporary)
@@ -56,7 +70,7 @@ class SkillTraceRunnerTest(unittest.TestCase):
                 config_path=config,
                 project_root=project_root,
                 output_root=output_root,
-                full_auto=True,
+                approve_for_me=True,
                 dry_run=True,
             )
 
@@ -65,7 +79,14 @@ class SkillTraceRunnerTest(unittest.TestCase):
             self.assertTrue(report.cases[0]["dry_run"])
             self.assertEqual(
                 report.cases[0]["command"],
-                ["codex", "exec", "--json", "--full-auto", "Create a demo"],
+                [
+                    "codex",
+                    "exec",
+                    "--json",
+                    "--skip-git-repo-check",
+                    "--approve-for-me",
+                    "Create a demo",
+                ],
             )
             self.assertFalse(project_root.exists())
             self.assertFalse(output_root.exists())
@@ -95,14 +116,17 @@ class SkillTraceRunnerTest(unittest.TestCase):
                     config_path=config,
                     project_root=project_root,
                     output_root=output_root,
-                    full_auto=False,
+                    approve_for_me=False,
                     dry_run=False,
                 )
 
             self.assertEqual(report.exit_code, 0)
             run.assert_called_once()
             called = run.call_args
-            self.assertEqual(called.args[0], ["codex", "exec", "--json", "Create a demo"])
+            self.assertEqual(
+                called.args[0],
+                ["codex", "exec", "--json", "--skip-git-repo-check", "Create a demo"],
+            )
             self.assertEqual(called.kwargs["cwd"], str(project_root / "case-1"))
             self.assertTrue((output_root / "case-1.jsonl").is_file())
             self.assertTrue((output_root / "case-1.stderr.log").is_file())

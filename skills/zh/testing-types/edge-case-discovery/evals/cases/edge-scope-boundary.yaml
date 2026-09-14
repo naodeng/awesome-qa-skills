@@ -22,7 +22,7 @@ judge:
   type: agent_judge
   model: openai/gpt-5
   criteria:
-    - "It refuses to invent product thresholds from generic industry assumptions."
-    - "It keeps unknown boundaries as missing information or assumptions and states evidence needed."
-    - "It provides EC-## candidates with dimensions, triggers, concerns, priorities, and validation without claiming full coverage."
+    - "拒绝根据通用行业假设发明产品阈值。"
+    - "将未知边界保留为信息缺口或假设，并说明所需证据。"
+    - "输出包含维度、触发条件、关注点、优先级和验证方法的 EC-## 候选项，不声称全量覆盖。"
   pass_threshold: 0.8

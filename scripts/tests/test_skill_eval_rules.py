@@ -260,6 +260,78 @@ class SkillEvalRulesTest(unittest.TestCase):
             result = next(item for item in report.results if item.rule_id == "TRIGGER-004")
             self.assertEqual(result.status, "PASS")
 
+    def test_trigger_config_without_mode_is_blocked(self):
+        with TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            trace_path = root / "trace.jsonl"
+            write_trace(trace_path, [{"type": "turn.completed"}])
+
+            report = rules.evaluate_trace(
+                rules.load_jsonl(trace_path),
+                {"skill": "demo-skill"},
+                root,
+            )
+
+            trigger_results = [result for result in report.results if result.rule_id.startswith("TRIGGER-")]
+            self.assertTrue(trigger_results)
+            self.assertTrue(all(result.status == "BLOCKED" for result in trigger_results))
+            self.assertEqual(report.exit_code, 2)
+
+    def test_negative_control_rejects_missing_or_invalid_selection_boolean(self):
+        with TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            trace_path = root / "trace.jsonl"
+            write_trace(
+                trace_path,
+                [{
+                    "type": "skill.selection",
+                    "skill": "demo-skill",
+                    "mode": "negative",
+                    "selected": "unknown",
+                }],
+            )
+            config = {"skill": "demo-skill", "trigger_mode": "negative"}
+
+            report = rules.evaluate_trace(rules.load_jsonl(trace_path), config, root)
+            result = next(item for item in report.results if item.rule_id == "TRIGGER-004")
+            self.assertEqual(result.status, "BLOCKED")
+
+    def test_command_matching_requires_a_token_boundary(self):
+        self.assertTrue(rules._command_matches("npm test", "npm test -- --runInBand"))
+        self.assertFalse(rules._command_matches("npm test", "npm test-extra"))
+
+    def test_lifecycle_rejects_unknown_command_event_types(self):
+        with TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            trace_path = root / "trace.jsonl"
+            write_trace(
+                trace_path,
+                [
+                    {
+                        "type": "item.updated",
+                        "item": {
+                            "id": "build",
+                            "type": "command_execution",
+                            "command": "python build.py",
+                        },
+                    },
+                    {
+                        "type": "item.completed",
+                        "item": {
+                            "id": "build",
+                            "type": "command_execution",
+                            "command": "python build.py",
+                            "exit_code": 0,
+                        },
+                    },
+                ],
+            )
+            config = {"require_command_lifecycle": True}
+
+            report = rules.evaluate_trace(rules.load_jsonl(trace_path), config, root)
+            result = next(item for item in report.results if item.rule_id == "TRACE-003")
+            self.assertEqual(result.status, "FAIL")
+
     def test_cli_writes_a_structured_report(self):
         with TemporaryDirectory() as temporary:
             root = Path(temporary)
@@ -297,6 +369,42 @@ class SkillEvalRulesTest(unittest.TestCase):
             self.assertEqual(report["exit_code"], 0)
             self.assertEqual(len(report["results"]), 20)
             self.assertIn('"has_failures": false', stdout.getvalue())
+
+    def test_reproducibility_compares_command_exit_codes(self):
+        with TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            current_path = root / "current.jsonl"
+            comparison_path = root / "comparison.jsonl"
+            write_trace(
+                current_path,
+                [{
+                    "type": "item.completed",
+                    "item": {
+                        "type": "command_execution",
+                        "command": "npm test",
+                        "exit_code": 1,
+                    },
+                }],
+            )
+            write_trace(
+                comparison_path,
+                [{
+                    "type": "item.completed",
+                    "item": {
+                        "type": "command_execution",
+                        "command": "npm test",
+                        "exit_code": 0,
+                    },
+                }],
+            )
+
+            report = rules.evaluate_trace(
+                rules.load_jsonl(current_path),
+                {"compare_trace": str(comparison_path)},
+                root,
+            )
+            result = next(item for item in report.results if item.rule_id == "REPRO-001")
+            self.assertEqual(result.status, "FAIL")
 
 
 if __name__ == "__main__":

@@ -1,6 +1,6 @@
 ---
 name: requirement-conflict-detection
-description: Use when multiple requirement, policy, contract, or acceptance sources may contain mutually exclusive rules or constraints; triggers include requirement conflict detection, conflicting requirements, and mutually exclusive requirements.
+description: Use this skill when multiple requirement, policy, contract, or acceptance sources may contain mutually exclusive rules or constraints; triggers include requirement conflict detection, conflicting requirements, and mutually exclusive requirements.
 ---
 
 # Requirement Conflict Detection
@@ -36,6 +36,7 @@ Do not use it for an ordinary one-source requirement review without mutually exc
 - Always read `prompts/requirement-conflict-detection.md` before producing an analysis.
 - Use `evals/eval.yaml` and `evals/cases/` to regress this Skill; structural gates do not prove conflict semantics were runtime-tested.
 - To check discovery behavior, run `scripts/run_skill_trace_eval.py` with `evals/trigger-prompts.csv` and `evals/local-rules.json`; missing `skill.selection` evidence is `BLOCKED`, not a trigger pass.
+- This is a repository-root development check; a standalone Skill package does not include the repository runner and does not depend on it at runtime.
 
 ## Pre-delivery Checklist
 

@@ -1,6 +1,6 @@
 ---
 name: requirement-ambiguity-analysis
-description: Use when requirement wording has unclear actors, references, scope, quantities, conditions, timing, states, or acceptance criteria; triggers include requirement ambiguity, unclear requirements, and ambiguity analysis.
+description: Use this skill when requirement wording has unclear actors, references, scope, quantities, conditions, timing, states, or acceptance criteria; triggers include requirement ambiguity, unclear requirements, and ambiguity analysis.
 ---
 
 # Requirement Ambiguity Analysis
@@ -36,6 +36,7 @@ Do not use it to make a final decision between mutually exclusive rules, execute
 - Always read `prompts/requirement-ambiguity-analysis.md` before producing an analysis.
 - Use `evals/eval.yaml` and `evals/cases/` to regress this Skill; structural or rule-based checks do not prove real-project effectiveness.
 - To check discovery behavior, run `scripts/run_skill_trace_eval.py` with `evals/trigger-prompts.csv` and `evals/local-rules.json`; missing `skill.selection` evidence is `BLOCKED`, not a trigger pass.
+- This is a repository-root development check; a standalone Skill package does not include the repository runner and does not depend on it at runtime.
 
 ## Pre-delivery Checklist
 

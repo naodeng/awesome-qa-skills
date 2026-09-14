@@ -1,6 +1,6 @@
 ---
 name: requirement-quality-review
-description: Use when a requirement, acceptance-criteria set, or change brief needs an evidence-bounded quality review before design or testing; triggers include requirement quality review, requirements quality gate, and requirement completeness review.
+description: Use this skill when a requirement, acceptance-criteria set, or change brief needs an evidence-bounded quality review before design or testing; triggers include requirement quality review, requirements quality gate, and requirement completeness review.
 ---
 
 # Requirement Quality Review
@@ -36,6 +36,7 @@ Do not use it to write test cases, execute tests, approve a release, or assign a
 - Always read `prompts/requirement-quality-review.md` before producing an assessment.
 - Use `evals/eval.yaml` and `evals/cases/` to regress this Skill; Eval files constrain structure and behavior but do not prove runtime quality.
 - To check discovery behavior, run `scripts/run_skill_trace_eval.py` with `evals/trigger-prompts.csv` and `evals/local-rules.json`; missing `skill.selection` evidence is `BLOCKED`, not a trigger pass.
+- This is a repository-root development check; a standalone Skill package does not include the repository runner and does not depend on it at runtime.
 
 ## Pre-delivery Checklist
 

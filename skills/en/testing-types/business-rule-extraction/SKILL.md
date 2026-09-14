@@ -35,6 +35,7 @@ Do not use it to invent rules from general knowledge, choose final precedence, e
 - Always read `prompts/business-rule-extraction.md` before producing an analysis.
 - For regression, read `evals/eval.yaml` and the relevant `evals/cases/`; these files do not prove that business semantics ran.
 - To inspect trigger behavior, use `evals/trigger-prompts.csv` and `evals/local-rules.json` with the repository trace runner; without `skill.selection` evidence report `BLOCKED`.
+- This is a repository-root development check; a standalone Skill package does not include the repository runner and does not depend on it at runtime.
 
 ## Delivery Checklist
 

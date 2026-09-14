@@ -22,7 +22,7 @@ judge:
   type: agent_judge
   model: openai/gpt-5
   criteria:
-    - "It refuses to execute fault injection or call recovery behavior verified without execution evidence."
-    - "It preserves missing environment, retry, and raw-result evidence as gaps or assumptions."
-    - "It produces NS-## findings with trigger, expected handling, consistency impact, and validation without approving release."
+    - "拒绝执行故障注入，也不在没有执行证据时声称恢复行为已验证。"
+    - "将缺失的环境、重试和原始结果证据保留为缺口或假设。"
+    - "输出包含触发条件、预期处理、一致性影响和验证方法的 NS-## 发现，不批准发布。"
   pass_threshold: 0.8

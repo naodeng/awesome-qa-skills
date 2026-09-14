@@ -1,6 +1,6 @@
 ---
 name: requirement-conflict-detection
-description: Use when multiple requirement, policy, contract, or acceptance sources may contain mutually exclusive rules or constraints; triggers include 需求冲突检测, requirement conflict detection, and conflicting requirements.
+description: Use this skill when multiple requirement, policy, contract, or acceptance sources may contain mutually exclusive rules or constraints; triggers include 需求冲突检测, requirement conflict detection, and conflicting requirements.
 ---
 
 # 需求冲突检测
@@ -36,6 +36,7 @@ description: Use when multiple requirement, policy, contract, or acceptance sour
 - 每次产出前必须阅读 `prompts/requirement-conflict-detection.md`。
 - 需要回归本 Skill 时使用 `evals/eval.yaml` 和 `evals/cases/`；结构门禁不等于冲突语义已被运行验证。
 - 需要验证发现行为时，使用 `evals/trigger-prompts.csv` 与 `evals/local-rules.json` 运行仓库的 `scripts/run_skill_trace_eval.py`；缺少 `skill.selection` 证据时必须报告 `BLOCKED`，不能推断触发成功。
+- 以上是仓库根目录下的开发验证步骤；独立安装的 Skill 包不包含仓库级 runner，运行时不依赖该脚本。
 
 ## 交付前自检
 

@@ -39,6 +39,7 @@ Do not use it with one source when only general requirements analysis is needed,
 - Always read `prompts/requirement-consistency-analysis.md` before producing an analysis.
 - Use `evals/eval.yaml` and `evals/cases/` to regress this Skill; structural gates do not prove cross-source semantic correctness.
 - To check discovery behavior, run `scripts/run_skill_trace_eval.py` with `evals/trigger-prompts.csv` and `evals/local-rules.json`; missing `skill.selection` evidence is `BLOCKED`, not a trigger pass.
+- This is a repository-root development check; a standalone Skill package does not include the repository runner and does not depend on it at runtime.
 - To check `business-rule` mode, use the `business-rule-*` Evals and a local trigger prompt containing the business-rule phrase; the physical directory remains this Skill and no alias directory is created.
 
 ## Pre-delivery Checklist

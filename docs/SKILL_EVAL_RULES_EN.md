@@ -7,7 +7,7 @@ This repository includes a read-only local rule engine for JSONL traces produced
 Capture a run with `codex exec --json`, then copy and adapt the [rule configuration example](examples/skill-eval.rules.json):
 
 ```bash
-codex exec --json --full-auto \
+codex exec --json --approve-for-me \
   'Use the $setup-demo-app skill to create the project in this directory.' \
   > evals/artifacts/test-01.jsonl
 
@@ -34,7 +34,7 @@ python3 scripts/run_skill_trace_eval.py \
   --output-dir /tmp/demo-skill-reports
 ```
 
-Only add `--run` after confirming the isolated directories and commands; add `--full-auto` only when the project really needs writes. Each case gets its own directory, and the trace, stderr, and rule report are persisted separately. Existing case directories are rejected rather than reused.
+Only add `--run` after confirming the isolated directories and commands; add `--approve-for-me` only when the project really needs writes. The runner passes `--skip-git-repo-check` for its isolated non-Git case directories. Each case gets its own directory, and the trace, stderr, and rule report are persisted separately. Existing case directories are rejected rather than reused.
 
 Exit codes are: `0` when no rule is failed or evidence-blocked, `1` when at least one rule is `FAIL`, and `2` when there are no failures but at least one rule is `BLOCKED`. `BLOCKED` is not a pass; it means the trace or environment cannot prove the assertion.
 
@@ -63,7 +63,7 @@ Exit codes are: `0` when no rule is failed or evidence-blocked, `1` when at leas
 | `PERMISSION-001` | No escalation or forbidden command occurs | `permissions` / `forbidden_commands` |
 | `REPRO-001` | Comparison run has the same command behavior | `compare_trace` |
 
-A rule runs only when its corresponding assertion is configured. Unconfigured rules are reported as `N/A` and must not be interpreted as passes.
+A non-trigger rule runs only when its corresponding assertion is configured. Unconfigured rules are reported as `N/A` and must not be interpreted as passes. A missing or invalid `trigger_mode` is reported as `BLOCKED` rather than being silently skipped.
 
 ## Configuration example
 
@@ -97,7 +97,7 @@ A rule runs only when its corresponding assertion is configured. Unconfigured ru
 }
 ```
 
-Trigger rules require the eval adapter to write selection evidence into the trace. The article documents `command_execution` events for command and artifact checks, but does not guarantee a Skill-selection event. When `skill.selection` is missing, the rule reports `BLOCKED` rather than inferring that the Skill was not triggered.
+Trigger rules require the eval adapter to write `skill.selection` evidence with a boolean selection field into the trace. The article documents `command_execution` events for command and artifact checks, but does not guarantee a Skill-selection event. When the selection event is missing or its `selected`/`invoked`/`triggered` field is invalid, the rule reports `BLOCKED` rather than inferring that the Skill was not triggered.
 
 ## Boundaries
 

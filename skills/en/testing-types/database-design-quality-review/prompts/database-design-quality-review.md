@@ -21,11 +21,16 @@ Build an object matrix covering entities/relationships/cardinality, primary/fore
 
 | Field | Requirement |
 | --- | --- |
-| `ID` / `Object` | Stable finding ID and table/entity/index/migration object |
-| `Source` / `Evidence` | ERD, DDL, version, migration section, or supplied evidence |
+| `ID` | Stable finding ID |
+| `Object` / `Scope` | Table, entity, index, or migration object plus version, tenant, environment, or data scope |
+| `Source` / `Evidence` | ERD, DDL, version, migration section, or the minimum supplied evidence |
+| `Design Rule` | Applicable model, constraint, access, lifecycle, or recovery design rule |
+| `Finding` | Evidence-bounded fact, gap, conflict, stale item, or unassessed item; never an execution claim |
 | `Status` | `assessed`, `missing`, `conflicting`, `stale`, or `unassessed` |
-| `Constraint` / `Transaction` | Constraint, index, transaction, concurrency, and rollback impact |
-| `Impact` / `Priority` | Data, privacy, performance, recovery, and delivery impact with P0–P3 rationale |
+| `Impact` / `Severity` | Data, privacy, performance, recovery, and delivery impact with P0–P3 rationale |
+| `Constraint` / `Index Risk` | Constraint, index, and query-assumption risks |
+| `Transaction` / `Concurrency` | Transaction boundaries, isolation, and concurrency impact |
+| `Migration` / `Rollback` | Migration compatibility, rollback, backup/recovery, and failure-handling concerns |
 | `Owner` / `Validation` | Owner role, close condition, isolated action, and raw evidence |
 
 ## Output Order

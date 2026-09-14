@@ -35,6 +35,7 @@ description: Use this skill when requirements, policies, contracts, or workflows
 - 每次产出前必须阅读 `prompts/business-rule-extraction.md`。
 - 需要回归时读取 `evals/eval.yaml` 和匹配的 `evals/cases/`；这些文件不证明真实业务语义已执行。
 - 需要检查触发行为时使用 `evals/trigger-prompts.csv` 与 `evals/local-rules.json` 运行仓库 trace runner；没有 `skill.selection` 证据时报告 `BLOCKED`。
+- 以上是仓库根目录下的开发验证步骤；独立安装的 Skill 包不包含仓库级 runner，运行时不依赖该脚本。
 
 ## 交付前自检
 
