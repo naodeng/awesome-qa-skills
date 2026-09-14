@@ -20,7 +20,7 @@ For every lifecycle change, check the Matrix, bilingual entry READMEs, Catalog/G
 
 ## Phase 0 current status (2026-09-14)
 
-`IN_PROGRESS`: the registry covers 79 logical bilingual Skill pairs, Matrix/Register output is reproducible, and 13 candidates are recorded as `PROPOSED`. Candidate source artifacts and six-field Capability Match evidence are still missing, so this phase cannot be marked `verified` or enter new-Skill implementation; Quality Score and Eval execution remain `NOT_SCORED` / `NOT_RUN`.
+`COMPLETED_WITH_LIMITATIONS`: the registry covers all 79 logical bilingual Skill pairs individually; every record preserves evidence paths for both `SKILL.md` files, the primary prompts, Eval structure, and `agents/openai.yaml`, while the Matrix/Register are generated and freshness-gated. All 13 candidates have six recorded comparison fields, but candidate source artifacts are absent from the reviewed repository material: every conclusion remains `PROPOSED`, and missing comparison evidence is explicitly `UNASSESSED` or `REVIEWED_WITH_LIMITATION`; no Skill may be created or changed from these records. Phase 0 ran no model, external test target, or real quality evaluation, so Quality Score / Eval execution remain `NOT_SCORED` / `NOT_RUN`; Prompt semantic equivalence, runtime behavior, and effectiveness remain `UNASSESSED`.
 
 ## Phase reviews
 

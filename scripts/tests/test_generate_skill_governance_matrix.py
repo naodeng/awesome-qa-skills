@@ -7,6 +7,29 @@ from scripts import generate_skill_governance_matrix as matrix
 ROOT = Path(__file__).resolve().parents[2]
 
 
+def complete_skill(**overrides):
+    skill = {
+        "slug": "sample",
+        "zh_path": "skills/zh/testing-types/sample",
+        "en_path": "skills/en/testing-types/sample",
+        "virtual_domain": "UNASSESSED",
+        "sdlc_stage": "UNASSESSED",
+        "roles": ["UNASSESSED"],
+        "status": "Existing",
+        "priority": "UNASSESSED",
+        "inputs": "UNASSESSED",
+        "outputs": "UNASSESSED",
+        "related": "UNASSESSED",
+        "workflow": "UNASSESSED",
+        "governance_evidence": "skills/zh/testing-types/sample/SKILL.md",
+        "evidence_paths": ["skills/zh/testing-types/sample/SKILL.md"],
+        "quality_score": {"state": "NOT_SCORED"},
+        "eval_execution": {"state": "NOT_RUN"},
+    }
+    skill.update(overrides)
+    return skill
+
+
 class GovernanceMatrixTest(unittest.TestCase):
     def test_generator_entrypoint_exists(self):
         self.assertTrue((ROOT / "scripts/generate_skill_governance_matrix.py").is_file())
@@ -15,22 +38,16 @@ class GovernanceMatrixTest(unittest.TestCase):
         registry = matrix.parse_registry(
             {
                 "skills": [
-                    {
-                        "slug": "only-one",
-                        "zh_path": "skills/zh/testing-types/only-one",
-                        "en_path": "skills/en/testing-types/only-one",
-                        "status": "Existing",
-                        "quality_score": {"state": "NOT_SCORED"},
-                        "eval_execution": {"state": "NOT_RUN"},
-                    },
-                    {
-                        "slug": "extra",
-                        "zh_path": "skills/zh/testing-types/extra",
-                        "en_path": "skills/en/testing-types/extra",
-                        "status": "Existing",
-                        "quality_score": {"state": "NOT_SCORED"},
-                        "eval_execution": {"state": "NOT_RUN"},
-                    },
+                    complete_skill(
+                        slug="only-one",
+                        zh_path="skills/zh/testing-types/only-one",
+                        en_path="skills/en/testing-types/only-one",
+                    ),
+                    complete_skill(
+                        slug="extra",
+                        zh_path="skills/zh/testing-types/extra",
+                        en_path="skills/en/testing-types/extra",
+                    ),
                 ],
                 "candidates": [],
             }
@@ -97,21 +114,49 @@ class GovernanceMatrixTest(unittest.TestCase):
     def test_rejects_new_candidate_without_boundaries(self):
         candidate = {
             "slug": "new-capability",
+            "decision_state": "PROPOSED",
             "conclusion": "NEW",
             "evidence": {field: "reviewed" for field in matrix.MATCH_FIELDS},
         }
         self.assertEqual(matrix.validate_candidate(candidate), ["scope", "non_goals"])
 
     def test_rejects_scored_entry_without_dimensions_and_evidence(self):
+        skill = complete_skill(quality_score={"state": "SCORED", "dimensions": {}})
+        self.assertEqual(matrix.validate_skill(skill), ["SCORED requires nine dimensions", "SCORED requires evidence"])
+
+    def test_rejects_skill_without_required_governance_fields(self):
         skill = {
             "slug": "sample",
             "zh_path": "skills/zh/testing-types/sample",
             "en_path": "skills/en/testing-types/sample",
             "status": "Existing",
-            "quality_score": {"state": "SCORED", "dimensions": {}},
+            "quality_score": {"state": "NOT_SCORED"},
             "eval_execution": {"state": "NOT_RUN"},
         }
-        self.assertEqual(matrix.validate_skill(skill), ["SCORED requires nine dimensions", "SCORED requires evidence"])
+        errors = matrix.validate_skill(skill)
+        for field in ("virtual_domain", "sdlc_stage", "roles", "priority", "inputs", "outputs", "related", "workflow", "governance_evidence"):
+            self.assertIn(f"missing {field}", errors)
+
+    def test_rejects_mismatched_or_unpaired_paths(self):
+        skill = {
+            "slug": "sample",
+            "zh_path": "skills/zh/testing-types/other",
+            "en_path": "skills/en/testing-types/sample",
+            "virtual_domain": "UNASSESSED",
+            "sdlc_stage": "UNASSESSED",
+            "roles": ["UNASSESSED"],
+            "status": "Existing",
+            "priority": "UNASSESSED",
+            "inputs": "UNASSESSED",
+            "outputs": "UNASSESSED",
+            "related": "UNASSESSED",
+            "workflow": "UNASSESSED",
+            "governance_evidence": "skills/zh/testing-types/sample/SKILL.md",
+            "evidence_paths": ["skills/zh/testing-types/sample/SKILL.md"],
+            "quality_score": {"state": "NOT_SCORED"},
+            "eval_execution": {"state": "NOT_RUN"},
+        }
+        self.assertIn("zh_path does not end in slug", matrix.validate_skill(skill))
 
 
 if __name__ == "__main__":

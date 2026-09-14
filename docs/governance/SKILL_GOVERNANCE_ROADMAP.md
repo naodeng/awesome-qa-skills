@@ -23,7 +23,7 @@ GitHub Project `Awesome QA Skills — Governance & Roadmap` 是执行看板。�
 
 ## Phase 0 当前状态（2026-09-14）
 
-`IN_PROGRESS`：registry 已覆盖 79 个逻辑双语 Skill 对，Matrix/Register 已可由生成器复现，13 个候选已登记为 `PROPOSED`。候选源材料与六项 Capability Match 证据仍未完成，因此本阶段不能标记为 `verified` 或进入新增 Skill 实施；Quality Score 与 Eval 执行状态继续保持 `NOT_SCORED` / `NOT_RUN`。
+`COMPLETED_WITH_LIMITATIONS`：registry 已逐条覆盖 79 个逻辑双语 Skill 对；每条保留中英文 `SKILL.md`、主 prompt、Eval 结构和 `agents/openai.yaml` 的证据路径，Matrix/Register 由生成器复现并受质量门禁检查。13 个候选均已逐项登记六步字段，但候选源材料在已审查仓库资料中缺失：其结论全部仍为 `PROPOSED`，其中缺失项显式为 `UNASSESSED` 或 `REVIEWED_WITH_LIMITATION`，不得据此创建或修改 Skill。Phase 0 未执行模型、外部测试目标或真实质量评估，因此 Quality Score / Eval 执行仍为 `NOT_SCORED` / `NOT_RUN`；Prompt 语义等价、运行行为与有效性继续为 `UNASSESSED`。
 
 ## 阶段复盘
 
