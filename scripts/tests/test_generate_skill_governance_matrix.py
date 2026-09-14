@@ -55,6 +55,25 @@ class GovernanceMatrixTest(unittest.TestCase):
         self.assertEqual(matrix.validate_registry(registry, matrix.discover_physical_skills(ROOT)), [])
         self.assertEqual(len(registry.skills), 79)
 
+    def test_matrix_render_contains_explicit_evidence_states(self):
+        registry = matrix.parse_registry({"skills": [{
+            "slug": "sample", "zh_path": "zh/sample", "en_path": "en/sample",
+            "virtual_domain": "D01", "status": "Candidate",
+            "quality_score": {"state": "NOT_SCORED"},
+            "eval_execution": {"state": "NOT_RUN"},
+        }], "candidates": []})
+        rendered = matrix.render_matrix(registry, "zh")
+        self.assertIn("NOT_SCORED", rendered)
+        self.assertIn("NOT_RUN", rendered)
+
+    def test_check_outputs_detects_stale_matrix(self):
+        with TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            (root / "docs").mkdir()
+            registry = matrix.parse_registry({"skills": [], "candidates": []})
+            (root / "docs/SKILL_MATRIX.md").write_text("stale\n", encoding="utf-8")
+            self.assertEqual(matrix.check_outputs(root, registry), 1)
+
     def test_rejects_new_candidate_without_boundaries(self):
         candidate = {
             "slug": "new-capability",

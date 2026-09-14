@@ -1,38 +1,87 @@
-<div align="right"><strong>🇨🇳 中文</strong> | <a href="./SKILL_MATRIX_EN.md">🇬🇧 English</a></div>
+<div align="right"><a href="./SKILL_MATRIX_EN.md">English</a></div>
 
 # Skill 治理矩阵
 
-本矩阵的权威数据源是 [Skill Inventory](generated/skill-inventory.md)：该快照基于当前 158 个实际目录生成，记录可验证的语言与物理分类。每一行至少包含：Skill、中文名、英文名、物理分类、虚拟 Domain、SDLC 阶段、角色、状态、优先级、输入、输出、关联 Skill、Workflow、Match With、Merge Into、Enhance Reason、Deprecation Target 和 Quality Score。
+由 `docs/governance/skill-governance-registry.yaml` 生成；结构和评审状态不证明运行效果。
 
-## 虚拟 Domain
-
-| ID | Domain | 中文 |
-| --- | --- | --- |
-| D01 | Requirement Quality | 需求质量 |
-| D02 | Engineering Quality | 工程质量 |
-| D03 | Test Analysis & Strategy | 测试分析与策略 |
-| D04 | Test Design | 测试设计 |
-| D05 | Functional & Exploratory Testing | 功能与探索式测试 |
-| D06 | API & Integration Quality | API 与集成质量 |
-| D07 | UI & E2E Quality | UI 与端到端质量 |
-| D08 | Automation Engineering | 自动化工程 |
-| D09 | Performance Quality | 性能质量 |
-| D10 | Security Quality | 安全质量 |
-| D11 | Reliability & Resilience | 可靠性与韧性 |
-| D12 | Release & Production Quality | 发布与生产质量 |
-| D13 | Observability & Incident Quality | 可观测性与事故质量 |
-| D14 | Quality Engineering & Productivity | QE 与效能 |
-| D15 | AI for QA | AI 辅助 QA |
-| D16 | AI / LLM / Agent Quality | AI 系统质量 |
-
-## 状态词典
-
-`Existing`、`Enhance`、`Merge`、`Match`、`Planned-P0`、`Planned-P1`、`Planned-P2`、`Experimental`、`Deprecated`、`Archived`。状态含义与转换规则以 `SKILL_LIFECYCLE.md` 为准。
-
-能力匹配以 `SKILL_MATCHING_GUIDE.md` 和 `SKILL_MATCHING_REGISTER.md` 为准；质量评分与最低 Eval 以 `SKILL_QUALITY_GATE.md` 为准；弃用路径以 `SKILL_DEPRECATION_GUIDE.md` 为准。
-
-在数据生成前，不以本文件的空表推断覆盖率或质量结论。候选项先记录为 Candidate/Planned，只有 Capability Match 结论为 `NEW` 才创建目录。
-
-| Skill | Virtual Domain | Status | Match evidence | Next action |
-| --- | --- | --- | --- | --- |
-| _158 physical directories inventoried_ | _pending_ | Candidate | filesystem snapshot | Complete capability classification |
+| Skill | Section | Virtual Domain | Status | Priority | Quality Score | Eval Execution | Evidence |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| `acceptance-criteria-review` | testing-types | Engineering QA | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-types/acceptance-criteria-review/SKILL.md` |
+| `accessibility-testing` | testing-types | Core QA | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-types/accessibility-testing/SKILL.md` |
+| `agent-tool-testing` | testing-types | AI Native QA | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-types/agent-tool-testing/SKILL.md` |
+| `ai-agent-testing` | testing-types | AI Native QA | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-types/ai-agent-testing/SKILL.md` |
+| `ai-assisted-testing` | testing-types | Engineering QA | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-types/ai-assisted-testing/SKILL.md` |
+| `ai-feature-testing` | testing-types | AI Native QA | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-types/ai-feature-testing/SKILL.md` |
+| `ai-generated-test-review` | testing-types | Engineering QA | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-types/ai-generated-test-review/SKILL.md` |
+| `api-contract-testing` | testing-types | Engineering QA | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-types/api-contract-testing/SKILL.md` |
+| `api-test-bruno` | testing-types | Engineering QA | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-types/api-test-bruno/SKILL.md` |
+| `api-test-postman` | testing-types | Engineering QA | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-types/api-test-postman/SKILL.md` |
+| `api-test-pytest` | testing-types | Engineering QA | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-types/api-test-pytest/SKILL.md` |
+| `api-test-restassure` | testing-types | Engineering QA | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-types/api-test-restassure/SKILL.md` |
+| `api-test-supertest` | testing-types | Engineering QA | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-types/api-test-supertest/SKILL.md` |
+| `api-testing` | testing-types | Core QA | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-types/api-testing/SKILL.md` |
+| `automation-testing` | testing-types | Engineering QA | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-types/automation-testing/SKILL.md` |
+| `bug-reporting` | testing-types | Core QA | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-types/bug-reporting/SKILL.md` |
+| `capacity-planning-analysis` | testing-types | Engineering QA | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-types/capacity-planning-analysis/SKILL.md` |
+| `change-impact-analysis` | testing-types | Engineering QA | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-types/change-impact-analysis/SKILL.md` |
+| `code-review` | testing-types | Engineering QA | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-types/code-review/SKILL.md` |
+| `daily-testing-workflow` | testing-workflows | Workflow orchestration | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-workflows/daily-testing-workflow/SKILL.md` |
+| `discover-testing` | testing-workflows | Workflow orchestration | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-workflows/discover-testing/SKILL.md` |
+| `distributed-trace-analysis` | testing-types | Production Quality | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-types/distributed-trace-analysis/SKILL.md` |
+| `flaky-test-analysis` | testing-types | Engineering QA | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-types/flaky-test-analysis/SKILL.md` |
+| `functional-testing` | testing-types | Core QA | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-types/functional-testing/SKILL.md` |
+| `llm-evaluation-design` | testing-types | AI Native QA | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-types/llm-evaluation-design/SKILL.md` |
+| `llm-testing` | testing-types | AI Native QA | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-types/llm-testing/SKILL.md` |
+| `log-analysis` | testing-types | Engineering QA | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-types/log-analysis/SKILL.md` |
+| `manual-testing` | testing-types | Core QA | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-types/manual-testing/SKILL.md` |
+| `metrics-anomaly-analysis` | testing-types | Production Quality | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-types/metrics-anomaly-analysis/SKILL.md` |
+| `mobile-testing` | testing-types | Core QA | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-types/mobile-testing/SKILL.md` |
+| `multi-role-quality-synthesis` | testing-workflows | Workflow orchestration | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-workflows/multi-role-quality-synthesis/SKILL.md` |
+| `performance-bottleneck-analysis` | testing-types | Engineering QA | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-types/performance-bottleneck-analysis/SKILL.md` |
+| `performance-regression-analysis` | testing-types | Engineering QA | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-types/performance-regression-analysis/SKILL.md` |
+| `performance-result-analysis` | testing-types | Engineering QA | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-types/performance-result-analysis/SKILL.md` |
+| `performance-test-gatling` | testing-types | Engineering QA | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-types/performance-test-gatling/SKILL.md` |
+| `performance-test-jmeter` | testing-types | Engineering QA | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-types/performance-test-jmeter/SKILL.md` |
+| `performance-test-k6` | testing-types | Engineering QA | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-types/performance-test-k6/SKILL.md` |
+| `performance-testing` | testing-types | Engineering QA | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-types/performance-testing/SKILL.md` |
+| `performance-workload-modeling` | testing-types | Engineering QA | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-types/performance-workload-modeling/SKILL.md` |
+| `pr-test-impact-analysis` | testing-types | Engineering QA | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-types/pr-test-impact-analysis/SKILL.md` |
+| `product-quality-perspective` | testing-workflows | Workflow orchestration | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-workflows/product-quality-perspective/SKILL.md` |
+| `production-incident-analysis` | testing-types | Production Quality | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-types/production-incident-analysis/SKILL.md` |
+| `production-verification` | testing-types | Production Quality | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-types/production-verification/SKILL.md` |
+| `project-delivery-perspective` | testing-workflows | Workflow orchestration | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-workflows/project-delivery-perspective/SKILL.md` |
+| `prompt-injection-testing` | testing-types | AI Native QA | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-types/prompt-injection-testing/SKILL.md` |
+| `prompt-testing` | testing-types | AI Native QA | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-types/prompt-testing/SKILL.md` |
+| `qa-quality-perspective` | testing-workflows | Workflow orchestration | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-workflows/qa-quality-perspective/SKILL.md` |
+| `quality-risk-analysis` | testing-types | Engineering QA | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-types/quality-risk-analysis/SKILL.md` |
+| `regression-scope-analysis` | testing-types | Engineering QA | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-types/regression-scope-analysis/SKILL.md` |
+| `regression-test-selection` | testing-types | Engineering QA | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-types/regression-test-selection/SKILL.md` |
+| `release-testing-workflow` | testing-workflows | Workflow orchestration | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-workflows/release-testing-workflow/SKILL.md` |
+| `requirement-gap-analysis` | testing-types | Engineering QA | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-types/requirement-gap-analysis/SKILL.md` |
+| `requirements-analysis` | testing-types | Core QA | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-types/requirements-analysis/SKILL.md` |
+| `requirements-analysis-plus` | testing-types | Core QA | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-types/requirements-analysis-plus/SKILL.md` |
+| `root-cause-analysis` | testing-types | Engineering QA | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-types/root-cause-analysis/SKILL.md` |
+| `security-testing` | testing-types | Core QA | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-types/security-testing/SKILL.md` |
+| `skill-change-verification` | skill-engineering | Cross-cutting Skill governance | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/skill-engineering/skill-change-verification/SKILL.md` |
+| `skill-prose-review` | skill-engineering | Cross-cutting Skill governance | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/skill-engineering/skill-prose-review/SKILL.md` |
+| `skill-prose-trim` | skill-engineering | Cross-cutting Skill governance | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/skill-engineering/skill-prose-trim/SKILL.md` |
+| `sprint-testing-workflow` | testing-workflows | Workflow orchestration | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-workflows/sprint-testing-workflow/SKILL.md` |
+| `technical-quality-perspective` | testing-workflows | Workflow orchestration | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-workflows/technical-quality-perspective/SKILL.md` |
+| `test-case-reviewer` | testing-types | Core QA | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-types/test-case-reviewer/SKILL.md` |
+| `test-case-reviewer-plus` | testing-types | Core QA | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-types/test-case-reviewer-plus/SKILL.md` |
+| `test-case-writing` | testing-types | Core QA | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-types/test-case-writing/SKILL.md` |
+| `test-data-generation` | testing-types | Engineering QA | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-types/test-data-generation/SKILL.md` |
+| `test-report-review` | testing-types | Core QA | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-types/test-report-review/SKILL.md` |
+| `test-reporting` | testing-types | Core QA | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-types/test-reporting/SKILL.md` |
+| `test-strategy` | testing-types | Core QA | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-types/test-strategy/SKILL.md` |
+| `test-strategy-plus` | testing-types | Core QA | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-types/test-strategy-plus/SKILL.md` |
+| `test-strategy-review` | testing-types | Core QA | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-types/test-strategy-review/SKILL.md` |
+| `testability-analysis` | testing-types | Engineering QA | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-types/testability-analysis/SKILL.md` |
+| `testcase-writer-plus` | testing-types | Core QA | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-types/testcase-writer-plus/SKILL.md` |
+| `ui-test-cypress` | testing-types | Engineering QA | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-types/ui-test-cypress/SKILL.md` |
+| `ui-test-playwright` | testing-types | Engineering QA | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-types/ui-test-playwright/SKILL.md` |
+| `ui-test-puppeteer` | testing-types | Engineering QA | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-types/ui-test-puppeteer/SKILL.md` |
+| `ui-test-selenium` | testing-types | Engineering QA | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-types/ui-test-selenium/SKILL.md` |
+| `ui-test-testcafe` | testing-types | Engineering QA | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-types/ui-test-testcafe/SKILL.md` |
+| `ui-test-webdriverio` | testing-types | Engineering QA | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-types/ui-test-webdriverio/SKILL.md` |
+| `ux-quality-perspective` | testing-workflows | Workflow orchestration | Candidate | UNASSESSED | `NOT_SCORED` | `NOT_RUN` | `skills/zh/testing-workflows/ux-quality-perspective/SKILL.md` |

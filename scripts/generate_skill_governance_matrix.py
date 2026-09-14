@@ -2,6 +2,7 @@
 """Generate and validate the Phase 0 Skill governance matrix."""
 
 from dataclasses import dataclass
+import argparse
 import json
 from pathlib import Path
 
@@ -95,7 +96,78 @@ def validate_registry(registry: GovernanceRegistry, physical: set[str]) -> list[
     return errors
 
 
+def render_matrix(registry: GovernanceRegistry, locale: str) -> str:
+    english = locale == "en"
+    switch = "中文" if english else "English"
+    target = "SKILL_MATRIX.md" if english else "SKILL_MATRIX_EN.md"
+    title = "Skill Governance Matrix" if english else "Skill 治理矩阵"
+    intro = (
+        "Generated from `docs/governance/skill-governance-registry.yaml`; structure and review states do not prove runtime effectiveness."
+        if english else
+        "由 `docs/governance/skill-governance-registry.yaml` 生成；结构和评审状态不证明运行效果。"
+    )
+    lines = [f'<div align="right"><a href="./{target}">{switch}</a></div>', "", f"# {title}", "", intro, "", "| Skill | Section | Virtual Domain | Status | Priority | Quality Score | Eval Execution | Evidence |", "| --- | --- | --- | --- | --- | --- | --- | --- |"]
+    for skill in sorted(registry.skills, key=lambda item: str(item.get("slug", ""))):
+        score = skill.get("quality_score", {}).get("state", "UNASSESSED")
+        execution = skill.get("eval_execution", {}).get("state", "UNASSESSED")
+        lines.append(f"| `{skill.get('slug', '')}` | {skill.get('section', 'UNASSESSED')} | {skill.get('virtual_domain', 'UNASSESSED')} | {skill.get('status', 'UNASSESSED')} | {skill.get('priority', 'UNASSESSED')} | `{score}` | `{execution}` | `{skill.get('governance_evidence', 'UNASSESSED')}` |")
+    return "\n".join(lines) + "\n"
+
+
+def render_matching_register(registry: GovernanceRegistry, locale: str) -> str:
+    english = locale == "en"
+    switch = "中文" if english else "English"
+    target = "SKILL_MATCHING_REGISTER.md" if english else "SKILL_MATCHING_REGISTER_EN.md"
+    title = "Skill Capability Match Register" if english else "Skill 能力匹配决策登记表"
+    lines = [f'<div align="right"><a href="./{target}">{switch}</a></div>', "", f"# {title}", "", "| Candidate | Conclusion | Target | Evidence (six fields) | Next action |", "| --- | --- | --- | --- | --- |"]
+    for candidate in sorted(registry.candidates, key=lambda item: str(item.get("slug", ""))):
+        evidence = candidate.get("evidence", {})
+        evidence_text = "; ".join(f"{field}: {evidence.get(field, 'UNASSESSED')}" for field in MATCH_FIELDS)
+        lines.append(f"| `{candidate.get('slug', '')}` | `{candidate.get('conclusion', 'UNASSESSED')}` | `{candidate.get('target', 'UNASSESSED')}` | {evidence_text} | {candidate.get('next_action', 'UNASSESSED')} |")
+    if not registry.candidates:
+        lines.append("| _No candidate decisions recorded yet_ | `UNASSESSED` | — | Six-field evidence pending | Record evidence before implementation |" if not english else "| _No candidate decisions recorded yet_ | `UNASSESSED` | — | Six-field evidence pending | Record evidence before implementation |")
+    return "\n".join(lines) + "\n"
+
+
+def output_paths(root: Path, locale: str) -> tuple[Path, Path]:
+    suffix = "" if locale == "zh" else "_EN"
+    return root / f"docs/SKILL_MATRIX{suffix}.md", root / f"docs/SKILL_MATCHING_REGISTER{suffix}.md"
+
+
+def check_outputs(root: Path, registry: GovernanceRegistry) -> int:
+    stale = []
+    for locale in ("zh", "en"):
+        matrix_path, register_path = output_paths(root, locale)
+        expected = (render_matrix(registry, locale), render_matching_register(registry, locale))
+        for path, content in zip((matrix_path, register_path), expected):
+            if not path.is_file() or path.read_text(encoding="utf-8") != content:
+                stale.append(str(path.relative_to(root)))
+    if stale:
+        print("stale_governance_views=" + ",".join(stale))
+        return 1
+    print("governance_views=up-to-date")
+    return 0
+
+
 def main() -> int:
+    root = Path(__file__).resolve().parents[1]
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--check", action="store_true")
+    args = parser.parse_args()
+    registry = load_registry(root / "docs/governance/skill-governance-registry.yaml")
+    errors = validate_registry(registry, discover_physical_skills(root))
+    if errors:
+        for error in errors:
+            print(error)
+        return 1
+    if args.check:
+        return check_outputs(root, registry)
+    for locale in ("zh", "en"):
+        matrix_path, register_path = output_paths(root, locale)
+        matrix_path.write_text(render_matrix(registry, locale), encoding="utf-8")
+        register_path.write_text(render_matching_register(registry, locale), encoding="utf-8")
+        print(f"generated={matrix_path.relative_to(root)}")
+        print(f"generated={register_path.relative_to(root)}")
     return 0
 
 
