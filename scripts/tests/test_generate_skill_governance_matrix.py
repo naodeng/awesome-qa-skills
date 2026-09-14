@@ -74,6 +74,10 @@ class GovernanceMatrixTest(unittest.TestCase):
             (root / "docs/SKILL_MATRIX.md").write_text("stale\n", encoding="utf-8")
             self.assertEqual(matrix.check_outputs(root, registry), 1)
 
+    def test_quality_gate_checks_generated_governance_views(self):
+        quality_gate = (ROOT / "scripts/check_skills_quality.sh").read_text(encoding="utf-8")
+        self.assertIn("python3 scripts/generate_skill_governance_matrix.py --check", quality_gate)
+
     def test_rejects_new_candidate_without_boundaries(self):
         candidate = {
             "slug": "new-capability",
