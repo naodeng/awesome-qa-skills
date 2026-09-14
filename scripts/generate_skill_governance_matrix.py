@@ -106,11 +106,14 @@ def render_matrix(registry: GovernanceRegistry, locale: str) -> str:
         if english else
         "由 `docs/governance/skill-governance-registry.yaml` 生成；结构和评审状态不证明运行效果。"
     )
-    lines = [f'<div align="right"><a href="./{target}">{switch}</a></div>', "", f"# {title}", "", intro, "", "| Skill | Section | Virtual Domain | Status | Priority | Quality Score | Eval Execution | Evidence |", "| --- | --- | --- | --- | --- | --- | --- | --- |"]
+    lines = [f'<div align="right"><a href="./{target}">{switch}</a></div>', "", f"# {title}", "", intro, "", "| Skill | Section | Virtual Domain | SDLC | Roles | Status | Priority | Inputs | Outputs | Related / Workflow | Quality Score | Eval Execution | Evidence |", "| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |"]
     for skill in sorted(registry.skills, key=lambda item: str(item.get("slug", ""))):
         score = skill.get("quality_score", {}).get("state", "UNASSESSED")
         execution = skill.get("eval_execution", {}).get("state", "UNASSESSED")
-        lines.append(f"| `{skill.get('slug', '')}` | {skill.get('section', 'UNASSESSED')} | {skill.get('virtual_domain', 'UNASSESSED')} | {skill.get('status', 'UNASSESSED')} | {skill.get('priority', 'UNASSESSED')} | `{score}` | `{execution}` | `{skill.get('governance_evidence', 'UNASSESSED')}` |")
+        roles = ", ".join(skill.get("roles", [])) if isinstance(skill.get("roles"), list) else skill.get("roles", "UNASSESSED")
+        related = skill.get("related", "UNASSESSED")
+        workflow = skill.get("workflow", "UNASSESSED")
+        lines.append(f"| `{skill.get('slug', '')}` | {skill.get('section', 'UNASSESSED')} | {skill.get('virtual_domain', 'UNASSESSED')} | {skill.get('sdlc_stage', 'UNASSESSED')} | {roles} | {skill.get('status', 'UNASSESSED')} | {skill.get('priority', 'UNASSESSED')} | {skill.get('inputs', 'UNASSESSED')} | {skill.get('outputs', 'UNASSESSED')} | {related} / {workflow} | `{score}` | `{execution}` | `{skill.get('governance_evidence', 'UNASSESSED')}` |")
     return "\n".join(lines) + "\n"
 
 

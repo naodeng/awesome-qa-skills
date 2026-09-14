@@ -65,6 +65,8 @@ class GovernanceMatrixTest(unittest.TestCase):
         rendered = matrix.render_matrix(registry, "zh")
         self.assertIn("NOT_SCORED", rendered)
         self.assertIn("NOT_RUN", rendered)
+        self.assertIn("SDLC", rendered)
+        self.assertIn("UNASSESSED", rendered)
 
     def test_check_outputs_detects_stale_matrix(self):
         with TemporaryDirectory() as temporary:
