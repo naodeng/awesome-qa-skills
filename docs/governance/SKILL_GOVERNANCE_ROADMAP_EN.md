@@ -18,6 +18,10 @@ Phase 0 establishes inventory, 16 virtual Domains, matching, lifecycle, quality 
 
 For every lifecycle change, check the Matrix, bilingual entry READMEs, Catalog/Graph, Workflows, Evals, `agents/openai.yaml`, and installation/contribution documents. Mark non-applicable work explicitly as `N/A`.
 
+## Phase 0 current status (2026-09-14)
+
+`IN_PROGRESS`: the registry covers 79 logical bilingual Skill pairs, Matrix/Register output is reproducible, and 13 candidates are recorded as `PROPOSED`. Candidate source artifacts and six-field Capability Match evidence are still missing, so this phase cannot be marked `verified` or enter new-Skill implementation; Quality Score and Eval execution remain `NOT_SCORED` / `NOT_RUN`.
+
 ## Phase reviews
 
 Each phase runs Coverage, Duplicate, Match, Merge, Enhancement, Eval, Usage, and Maintenance reviews. Findings distinguish verified, failed, not run, blocked, and not applicable; static checks are not runtime proof.
