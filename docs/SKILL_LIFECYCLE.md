@@ -4,6 +4,8 @@
 
 `Idea → Candidate → Capability Match → Design → Implementation → Eval → Review → Stable`
 
+Phase 0 的逐项治理事实源是 `governance/skill-governance-registry.yaml`（JSON 兼容 YAML）；`SKILL_MATRIX.md` 与 `SKILL_MATCHING_REGISTER.md` 均由生成器产出，不应手工编辑。`Candidate` 只表示等待匹配证据，不表示能力缺失或质量失败。
+
 候选在匹配后进入 Existing、Enhance、Merge、Match 或 New 分支。Stable Skill 可因证据或使用反馈回到 Enhance/Merge；Deprecated 必须提供替代路径，Archived 不再维护但保留历史可追溯性。
 
 | 状态 | 进入条件 | 退出条件 |

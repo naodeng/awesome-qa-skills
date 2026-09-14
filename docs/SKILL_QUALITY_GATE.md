@@ -4,6 +4,8 @@
 
 ## 评分模型
 
+治理 registry 与双语 Matrix/Register 的新鲜度由 `python3 scripts/generate_skill_governance_matrix.py --check` 校验。`NOT_SCORED`、`NOT_RUN` 和 `UNASSESSED` 是证据状态，不是运行失败或质量结论。
+
 | 维度 | 分值 |
 | --- | ---: |
 | Problem Value | 15 |

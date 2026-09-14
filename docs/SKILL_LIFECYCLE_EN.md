@@ -4,6 +4,8 @@
 
 `Idea → Candidate → Capability Match → Design → Implementation → Eval → Review → Stable`
 
+The Phase 0 source of truth is `governance/skill-governance-registry.yaml` (JSON-compatible YAML); `SKILL_MATRIX_EN.md` and `SKILL_MATCHING_REGISTER_EN.md` are generator-owned views and must not be edited by hand. `Candidate` means matching evidence is pending, not that capability is absent or quality has failed.
+
 Matching routes a candidate to Existing, Enhance, Merge, Match, or New. Stable Skills may return to Enhance or Merge when evidence changes. Deprecated Skills require a replacement path; Archived Skills remain traceable but are no longer maintained.
 
 | Status | Entry condition | Exit condition |

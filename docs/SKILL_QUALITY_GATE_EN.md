@@ -4,6 +4,8 @@
 
 ## Scoring model
 
+Registry-to-Matrix/Register freshness is checked by `python3 scripts/generate_skill_governance_matrix.py --check`. `NOT_SCORED`, `NOT_RUN`, and `UNASSESSED` are evidence states, not runtime failures or quality conclusions.
+
 | Dimension | Score |
 | --- | ---: |
 | Problem Value | 15 |

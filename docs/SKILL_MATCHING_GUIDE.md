@@ -4,6 +4,8 @@
 
 ## 目的
 
+逐项匹配决定记录在 `governance/skill-governance-registry.yaml`，Matching Register 是生成视图；修改 registry 后必须重新生成并运行 `--check`。
+
 所有候选能力在创建目录前必须完成能力匹配。结论只能是 `EXISTING`、`ENHANCE`、`MERGE`、`MATCH` 或 `NEW`。
 
 ## 六步核对
