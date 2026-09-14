@@ -49,7 +49,7 @@ Each finding includes at least:
 
 `TG-##` describes a gap and action only. Without execution identity, time, environment, inputs, and raw results, status stays `unverified`, `unexecuted`, or `unassessed`.
 
-## Output Order
+## Output
 
 1. Objective, subject, version, in/out-of-scope boundaries, and success criteria;
 2. six-part input audit;
@@ -65,7 +65,18 @@ Each finding includes at least:
 - Do not invent missing rules, results, defect causes, owners, or priority numbers.
 - Do not execute tests, edit test assets, or accept residual risk for a Human.
 
-## Self-Check
+## Execution Rules
+
+- Complete the input audit first; reason only from supplied material and retain source and minimum evidence for every finding.
+- Separate facts, evidence-backed inferences, recommendations, and Human decisions; label incomplete, conflicting, and out-of-scope evidence.
+
+## Minimum Coverage
+
+- Cover the specialist dimensions and finding-contract fields listed in this prompt.
+- Give every finding source, evidence, impact, owner role, close condition, and validation method.
+- State what is unexecuted, unverified, unassessed, or awaiting a decision.
+
+## Quality Requirements
 
 - Did you check both requirement/risk-to-test and test-to-source directions?
 - Does every `TG-##` have source, evidence, gap type, priority, action, and close condition?

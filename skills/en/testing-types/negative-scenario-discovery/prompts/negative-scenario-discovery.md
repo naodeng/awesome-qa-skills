@@ -41,7 +41,7 @@ Start with:
 | `Evidence / Priority` | Source, evidence state, impact, P0–P3 or equivalent, and basis |
 | `Owner / Validation` | Owner role, validation method, close condition, and required execution evidence |
 
-## Output Order
+## Output
 
 1. Subject, in/out-of-scope boundaries, failure-path goal, and success criteria;
 2. six-part input audit;
@@ -57,7 +57,18 @@ Start with:
 - Do not treat code, example responses, log-field presence, or configuration names as verified handling behavior.
 - Do not write full test cases, choose final degradation, accept risk, or approve release for a Human.
 
-## Self-Check
+## Execution Rules
+
+- Complete the input audit first; reason only from supplied material and retain source and minimum evidence for every finding.
+- Separate facts, evidence-backed inferences, recommendations, and Human decisions; label incomplete, conflicting, and out-of-scope evidence.
+
+## Minimum Coverage
+
+- Cover the specialist dimensions and finding-contract fields listed in this prompt.
+- Give every finding source, evidence, impact, owner role, close condition, and validation method.
+- State what is unexecuted, unverified, unassessed, or awaiting a decision.
+
+## Quality Requirements
 
 - Did you distinguish input, permission, dependency, timeout, retry, duplicate, partial-failure, and recovery paths where applicable?
 - Does each `NS-##` have trigger, preconditions, expected handling, visible result, consistency impact, and evidence?

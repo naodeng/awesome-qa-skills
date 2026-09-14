@@ -15,6 +15,17 @@ description: Use this skill when an ERD, DDL, ORM schema, or migration plan need
 
 不适用于执行迁移、连接生产数据库、压测查询或凭表名补造业务规则。
 
+## 输出格式选项
+
+- 默认输出 Markdown；用户要求表格、CSV 或 JSON 时，保留相同的证据、状态、影响、责任角色和验证字段。
+- 不把结构化格式或静态清单写成执行、通过、批准或发布证据。
+
+## 如何使用
+
+1. 先读取本 Skill 的主 Prompt，并提供目标、范围、材料、环境和已有证据。
+2. 按 Prompt 的输入审计和输出合同执行；缺少信息时交付带边界的初版。
+3. 对每条发现保留来源、证据状态、影响、责任角色、关闭条件和验证方法。
+
 ## 工作方式
 
 1. 阅读 `prompts/database-design-quality-review.md`，审计目标、版本、数据库边界和证据。
@@ -30,11 +41,16 @@ description: Use this skill when an ERD, DDL, ORM schema, or migration plan need
 - 每条 `DB-##` 至少包含对象、来源/证据、约束/索引、事务/并发、迁移回滚、影响、责任角色和验证方式。
 - 示例必须脱敏；缺少证据时标记 `missing`、`unverified`、`unexecuted` 或 `unassessed`。
 
-## 按需加载
+## 参考文件
 
 - 每次产出前必须阅读 `prompts/database-design-quality-review.md`。
 - 回归时读取 `evals/eval.yaml` 和用例；静态设计检查不证明数据库行为。
 - 触发检查使用 `evals/trigger-prompts.csv` 与 `evals/local-rules.json`；缺少 selection trace 时报告 `BLOCKED`。
+
+## 最佳实践
+
+- 优先处理高影响且可验证的缺口，使用最小实验或补证动作降低不确定性。
+- 将事实、证据支持的推断、建议和 Human 决策分开，避免把假设升级为结论。
 
 ## 交付前自检
 

@@ -46,7 +46,7 @@ When key risk material is missing, provide qualitative bounded priorities and li
 
 Without real risk evidence, a rating is qualitative or `unassessed`; do not manufacture a precise score with a formula.
 
-## Output Order
+## Output
 
 1. Objective, in/out-of-scope boundaries, time-box, and success criteria;
 2. six-part input audit;
@@ -62,7 +62,18 @@ Without real risk evidence, a rating is qualitative or `unassessed`; do not manu
 - Do not invent business criticality, likelihood, impact, thresholds, time, or capacity numbers.
 - Do not accept risk, approve an exception, decide release, or claim zero risk for a Human.
 
-## Self-Check
+## Execution Rules
+
+- Complete the input audit first; reason only from supplied material and retain source and minimum evidence for every finding.
+- Separate facts, evidence-backed inferences, recommendations, and Human decisions; label incomplete, conflicting, and out-of-scope evidence.
+
+## Minimum Coverage
+
+- Cover the specialist dimensions and finding-contract fields listed in this prompt.
+- Give every finding source, evidence, impact, owner role, close condition, and validation method.
+- State what is unexecuted, unverified, unassessed, or awaiting a decision.
+
+## Quality Requirements
 
 - Can every `RBT-##` be traced from risk source to test objective and required evidence?
 - Are depth, method, and scope tradeoffs explained rather than risks merely listed?

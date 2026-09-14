@@ -58,7 +58,30 @@ Return the following order:
 
 Routing is a recommendation, not automatic execution, installation, or a quality conclusion. Preserve both sources for conflicts. Without execution records, do not say that tests passed.
 
-## Self-Check
+## Input
+
+Accept the user-provided objective, scope, material, environment, constraints, and evidence; the input audit above determines what can be used safely.
+
+## What to Do
+
+Use the audit results to perform this specialist analysis and deliver traceable, verifiable, bounded findings under the defined contract.
+
+## Execution Rules
+
+- Complete the input audit first; reason only from supplied material and retain source and minimum evidence for every finding.
+- Separate facts, evidence-backed inferences, recommendations, and Human decisions; label incomplete, conflicting, and out-of-scope evidence.
+
+## Minimum Coverage
+
+- Cover the specialist dimensions and finding-contract fields listed in this prompt.
+- Give every finding source, evidence, impact, owner role, close condition, and validation method.
+- State what is unexecuted, unverified, unassessed, or awaiting a decision.
+
+## Output
+
+- Follow the output order defined earlier in this prompt and retain claim boundaries, assumptions, and residual risks at the end.
+
+## Quality Requirements
 
 - Are direct facts, inferences, recommendations, and Human decisions separated?
 - Does every P0/P1 item have source, impact, owner role, question, action, and validation method?

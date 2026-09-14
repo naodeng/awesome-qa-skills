@@ -15,6 +15,17 @@ Analyze goals, product surface, changes/risks, constraints, existing assets, pla
 
 Do not use it to execute tests, generate a complete strategy, or claim full coverage/zero risk without evidence.
 
+## Output Format Options
+
+- Use Markdown by default; when a table, CSV, or JSON is requested, preserve the same evidence, status, impact, owner, and validation fields.
+- Do not present a structured format or static inventory as execution, pass, approval, or release evidence.
+
+## How to Use
+
+1. Read this Skill's primary prompt and provide the objective, scope, material, environment, and available evidence.
+2. Follow the prompt's input audit and output contract; deliver a bounded first pass when information is incomplete.
+3. Retain source, evidence status, impact, owner role, close condition, and validation method for every finding.
+
 ## Workflow
 
 1. Read `prompts/test-scope-analysis.md` and audit objective, version, scope, risk, and constraints.
@@ -30,11 +41,16 @@ Do not use it to execute tests, generate a complete strategy, or claim full cove
 - Each `TS-##` includes goal/object, included, excluded, rationale, depth, platform/role/data/environment dependencies, stop conditions, expansion triggers, residual risk, source, and owner.
 - Without risk, execution, or environment evidence, mark status `unassessed`, `unverified`, or `unexecuted`.
 
-## On-Demand Loading
+## Reference Files
 
 - Always read `prompts/test-scope-analysis.md` before producing an analysis.
 - For regression, read `evals/eval.yaml` and its cases; a scope draft does not prove testing ran.
 - For trigger checks, use `evals/trigger-prompts.csv` and `evals/local-rules.json`; missing selection trace is `BLOCKED`.
+
+## Best Practices
+
+- Prioritize high-impact gaps with a verifiable next action, using the smallest useful experiment or evidence request.
+- Separate facts, evidence-backed inferences, recommendations, and Human decisions; never upgrade an assumption into a conclusion.
 
 ## Delivery Checklist
 

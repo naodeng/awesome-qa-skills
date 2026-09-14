@@ -15,6 +15,17 @@ Review ERDs, DDL, ORM schemas, data ownership, lifecycle, query constraints, tra
 
 Do not use it to execute migrations, connect to production, benchmark queries, or infer business rules from table names.
 
+## Output Format Options
+
+- Use Markdown by default; when a table, CSV, or JSON is requested, preserve the same evidence, status, impact, owner, and validation fields.
+- Do not present a structured format or static inventory as execution, pass, approval, or release evidence.
+
+## How to Use
+
+1. Read this Skill's primary prompt and provide the objective, scope, material, environment, and available evidence.
+2. Follow the prompt's input audit and output contract; deliver a bounded first pass when information is incomplete.
+3. Retain source, evidence status, impact, owner role, close condition, and validation method for every finding.
+
 ## Workflow
 
 1. Read `prompts/database-design-quality-review.md` and audit objective, version, database scope, and evidence.
@@ -30,11 +41,16 @@ Do not use it to execute migrations, connect to production, benchmark queries, o
 - Each `DB-##` includes object, source/evidence, constraints/indexes, transaction/concurrency, migration rollback, impact, owner, and validation method.
 - All examples use redacted data; mark absent evidence `missing`, `unverified`, `unexecuted`, or `unassessed`.
 
-## On-Demand Loading
+## Reference Files
 
 - Always read `prompts/database-design-quality-review.md` before producing a review.
 - For regression, read `evals/eval.yaml` and its cases; static design checks do not prove database behavior.
 - For trigger checks, use `evals/trigger-prompts.csv` and `evals/local-rules.json`; missing selection trace is `BLOCKED`.
+
+## Best Practices
+
+- Prioritize high-impact gaps with a verifiable next action, using the smallest useful experiment or evidence request.
+- Separate facts, evidence-backed inferences, recommendations, and Human decisions; never upgrade an assumption into a conclusion.
 
 ## Delivery Checklist
 

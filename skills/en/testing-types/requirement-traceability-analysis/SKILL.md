@@ -15,6 +15,17 @@ Build a bidirectional, auditable mapping from requirements or controls to accept
 
 Do not use it only to write test cases, execute tests, or decide business priority; this Skill analyzes the mappings and evidence supplied by the user.
 
+## Output Format Options
+
+- Use Markdown by default; when a table, CSV, or JSON is requested, preserve the same evidence, status, impact, owner, and validation fields.
+- Do not present a structured format or static inventory as execution, pass, approval, or release evidence.
+
+## How to Use
+
+1. Read this Skill's primary prompt and provide the objective, scope, material, environment, and available evidence.
+2. Follow the prompt's input audit and output contract; deliver a bounded first pass when information is incomplete.
+3. Retain source, evidence status, impact, owner role, close condition, and validation method for every finding.
+
 ## Workflow
 
 1. Read and follow `prompts/requirement-traceability-analysis.md`; audit target, version, scope, time window, and input boundary first.
@@ -35,13 +46,18 @@ Do not use it only to write test cases, execute tests, or decide business priori
 - When artifacts, stable IDs, versions, execution records, data, or environment are missing, mark `unassessed`/`unverified`/`unexecuted` and ask for evidence.
 - Do not invent requirements, relationships, thresholds, owners, approvals, or runtime results; state the basis and close condition for recommendations.
 
-## Progressive Disclosure
+## Reference Files
 
 - Always read `prompts/requirement-traceability-analysis.md` before producing an analysis.
 - Use `evals/eval.yaml` and `evals/cases/` to regress this Skill; configuration and static mappings do not prove real system execution.
 - To check discovery behavior, run `scripts/run_skill_trace_eval.py` with `evals/trigger-prompts.csv` and `evals/local-rules.json`; missing `skill.selection` evidence is `BLOCKED`, not a trigger pass.
 - This is a repository-root development check; a standalone Skill package does not include the repository runner and does not depend on it at runtime.
 - To regress `test-coverage-analysis`, use the `coverage-*` Evals and a local trigger prompt containing “coverage analysis”; the target remains this physical Skill directory and no alias directory is created.
+
+## Best Practices
+
+- Prioritize high-impact gaps with a verifiable next action, using the smallest useful experiment or evidence request.
+- Separate facts, evidence-backed inferences, recommendations, and Human decisions; never upgrade an assumption into a conclusion.
 
 ## Pre-delivery Checklist
 

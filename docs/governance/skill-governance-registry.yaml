@@ -3909,6 +3909,174 @@
       "candidate_source": "awesome-qa-prompt@554178fe9b93d851ec01388597ceb7996d22bd1c requirement-traceability baseline; docs/superpowers/specs/2026-09-14-v1-1-requirements-quality-skills-design.md; local bilingual package review"
     },
     {
+      "slug": "business-rule-extraction",
+      "decision_state": "PROPOSED",
+      "conclusion": "NEW",
+      "target": "business-rule-extraction",
+      "scope": "Evidence-bounded extraction of atomic BR-## business rules from requirements, policies, contracts, workflows, acceptance criteria, and supplied examples.",
+      "non_goals": "No invented thresholds, precedence, state transitions, exceptions, execution result, compliance approval, or business decision.",
+      "evidence": {
+        "name": "The v1.1 design and bilingual package frontmatter define a distinct business-rule extraction capability.",
+        "purpose": "The Prompt converts distributed source material into traceable atomic rules while preserving scope, exceptions, and unknowns.",
+        "inputs": "Requirements, policies, contracts, workflows, acceptance criteria, and examples; target skills/zh/testing-types/business-rule-extraction/prompts/business-rule-extraction.md and English mirror Input Audit and Scope.",
+        "outputs": "BR-## rule contract with source, subject/object, trigger, preconditions, action/outcome, constraints, exceptions, evidence, impact, and validation.",
+        "decision_logic": "Split or merge statements only when source evidence supports it; preserve conflicting sources and label facts, inferences, recommendations, and Human decisions separately.",
+        "workflow_role": "Optional v1.1 Phase 1 quality-shift specialist before design or testing; navigation only, with no approval or execution."
+      },
+      "next_action": "Run real model Eval when Claude login is available and verify source retention, atomicity, and no-invented-rule boundaries before changing the reviewed state.",
+      "target_evidence_paths": [
+        "skills/zh/testing-types/business-rule-extraction/SKILL.md",
+        "skills/en/testing-types/business-rule-extraction/SKILL.md",
+        "skills/zh/testing-types/business-rule-extraction/prompts/business-rule-extraction.md",
+        "skills/en/testing-types/business-rule-extraction/prompts/business-rule-extraction.md"
+      ],
+      "candidate_source": "docs/superpowers/specs/2026-09-14-v1-1-next-five-quality-skills-design.md; docs/superpowers/plans/2026-09-14-v1-1-ten-quality-skills.md; local bilingual package review"
+    },
+    {
+      "slug": "technical-design-quality-review",
+      "decision_state": "PROPOSED",
+      "conclusion": "NEW",
+      "target": "technical-design-quality-review",
+      "scope": "Evidence-bounded review of architecture notes, ADRs, component/data-flow designs, technical proposals, and non-functional constraints before implementation.",
+      "non_goals": "No code review without supplied code, build or test execution, architecture approval, risk acceptance, or release decision.",
+      "evidence": {
+        "name": "The v1.1 design and bilingual package frontmatter define a distinct implementation-preparation design review capability.",
+        "purpose": "The Prompt evaluates design boundaries, dependencies, failure modes, consistency, security, performance, observability, compatibility, maintainability, and verification readiness.",
+        "inputs": "Architecture notes, ADRs, component/data-flow designs, technical proposals, and non-functional constraints; target skills/zh/testing-types/technical-design-quality-review/prompts/technical-design-quality-review.md and English mirror Input Audit and Scope.",
+        "outputs": "TD-## findings with source, evidence, impact/severity, gaps, action, owner, and validation method.",
+        "decision_logic": "Separate design statements, evidence-backed inference, missing evidence, recommendations, and Human decisions; do not upgrade design presence into implementation correctness.",
+        "workflow_role": "Optional v1.1 Phase 1 technical-design specialist before implementation or test design; navigation only, with no execution."
+      },
+      "next_action": "Run real model Eval when Claude login is available and verify design-boundary coverage and implementation-evidence limits before changing the reviewed state.",
+      "target_evidence_paths": [
+        "skills/zh/testing-types/technical-design-quality-review/SKILL.md",
+        "skills/en/testing-types/technical-design-quality-review/SKILL.md",
+        "skills/zh/testing-types/technical-design-quality-review/prompts/technical-design-quality-review.md",
+        "skills/en/testing-types/technical-design-quality-review/prompts/technical-design-quality-review.md"
+      ],
+      "candidate_source": "docs/superpowers/specs/2026-09-14-v1-1-next-five-quality-skills-design.md; docs/superpowers/plans/2026-09-14-v1-1-ten-quality-skills.md; local bilingual package review"
+    },
+    {
+      "slug": "api-design-quality-review",
+      "decision_state": "PROPOSED",
+      "conclusion": "NEW",
+      "target": "api-design-quality-review",
+      "scope": "Evidence-bounded review of API/OpenAPI design, request/response contracts, errors, authorization, idempotency, pagination, version evolution, compatibility, consumers, and observability before implementation.",
+      "non_goals": "No API execution, consumer approval, compatibility or security pass claim, or final versioning decision.",
+      "evidence": {
+        "name": "The v1.1 design and bilingual package frontmatter define a distinct implementation-time API design quality capability.",
+        "purpose": "The Prompt retains operation, source, evidence, impact, compatibility risk, migration issue, owner, and validation details.",
+        "inputs": "API designs, OpenAPI/contracts, examples, error models, authorization, idempotency, pagination, status, version, consumer, and telemetry material; target skills/zh/testing-types/api-design-quality-review/prompts/api-design-quality-review.md and English mirror Input Audit and Scope.",
+        "outputs": "API-## findings with operation, source/evidence, impact, compatibility risk, migration issue, owner, and validation method.",
+        "decision_logic": "Treat examples as partial evidence, preserve missing contract fields and consumer assumptions, and separate design review from runtime compatibility or security testing.",
+        "workflow_role": "Optional v1.1 Phase 1 API design specialist before implementation or versioning; navigation only, with no API calls."
+      },
+      "next_action": "Run real model Eval when Claude login is available and verify example-boundary, consumer-impact, and no-compatibility-claim behavior before changing the reviewed state.",
+      "target_evidence_paths": [
+        "skills/zh/testing-types/api-design-quality-review/SKILL.md",
+        "skills/en/testing-types/api-design-quality-review/SKILL.md",
+        "skills/zh/testing-types/api-design-quality-review/prompts/api-design-quality-review.md",
+        "skills/en/testing-types/api-design-quality-review/prompts/api-design-quality-review.md"
+      ],
+      "candidate_source": "docs/superpowers/specs/2026-09-14-v1-1-next-five-quality-skills-design.md; docs/superpowers/plans/2026-09-14-v1-1-ten-quality-skills.md; local bilingual package review"
+    },
+    {
+      "slug": "database-design-quality-review",
+      "decision_state": "PROPOSED",
+      "conclusion": "NEW",
+      "target": "database-design-quality-review",
+      "scope": "Evidence-bounded review of ERDs, DDL, ORM schemas, migration plans, ownership, lifecycle, query constraints, transactions, concurrency, and recovery before implementation or migration.",
+      "non_goals": "No connection to or mutation of a real database, query or benchmark execution, invented data thresholds, schema approval, risk acceptance, or release decision.",
+      "evidence": {
+        "name": "The v1.1 design and bilingual package frontmatter define a distinct database design review capability.",
+        "purpose": "The Prompt covers model integrity, keys/constraints, indexes, transaction/concurrency, lifecycle/privacy, migration compatibility, recovery, and test readiness.",
+        "inputs": "ERDs, DDL, ORM schemas, migration plans, ownership, lifecycle, query constraints, transaction/concurrency, and recovery material; target skills/zh/testing-types/database-design-quality-review/prompts/database-design-quality-review.md and English mirror Input Audit and Scope.",
+        "outputs": "DB-## findings with object, scope, source, evidence, design rule, impact/severity, constraint/index risk, transaction/concurrency, migration/rollback, owner, and validation.",
+        "decision_logic": "Review supplied data design evidence without inferring business rules from table names or filling absent consistency, volume, or recovery thresholds.",
+        "workflow_role": "Optional v1.1 Phase 1 database-design specialist before implementation or migration; navigation only, with no database operation."
+      },
+      "next_action": "Run real model Eval when Claude login is available and verify transaction, migration, privacy, and no-real-database-operation boundaries before changing the reviewed state.",
+      "target_evidence_paths": [
+        "skills/zh/testing-types/database-design-quality-review/SKILL.md",
+        "skills/en/testing-types/database-design-quality-review/SKILL.md",
+        "skills/zh/testing-types/database-design-quality-review/prompts/database-design-quality-review.md",
+        "skills/en/testing-types/database-design-quality-review/prompts/database-design-quality-review.md"
+      ],
+      "candidate_source": "docs/superpowers/specs/2026-09-14-v1-1-following-five-quality-skills-design.md; docs/superpowers/plans/2026-09-14-v1-1-ten-quality-skills.md; local bilingual package review"
+    },
+    {
+      "slug": "observability-design-review",
+      "decision_state": "PROPOSED",
+      "conclusion": "NEW",
+      "target": "observability-design-review",
+      "scope": "Evidence-bounded review of logging, metrics, traces, context propagation, SLO/SLI, alerts, dashboards, sampling, retention, privacy, and cost design before implementation.",
+      "non_goals": "No production signal query, health declaration, probe execution, SLO or incident decision, or tool-name-as-evidence claim.",
+      "evidence": {
+        "name": "The v1.1 design and bilingual package frontmatter define a distinct pre-implementation observability design review capability.",
+        "purpose": "The Prompt requires signal type, source, covered object, dimensions, expected semantics, evidence, gap, impact, detection action, owner, and validation.",
+        "inputs": "Logging, metrics, traces, context propagation, SLO/SLI, alert, dashboard, sampling, retention, privacy, and cost design; target skills/zh/testing-types/observability-design-review/prompts/observability-design-review.md and English mirror Input Audit and Scope.",
+        "outputs": "OBS-## findings that keep covered object and expected semantics distinct from signal dimensions and evidence status.",
+        "decision_logic": "Assess supplied design semantics and actionability while preserving undefined thresholds, privacy, cardinality, sampling, cost, and runtime evidence gaps.",
+        "workflow_role": "Optional v1.1 Phase 1 observability specialist before implementation; navigation only, with no production probe."
+      },
+      "next_action": "Run real model Eval when Claude login is available and verify signal semantics, actionability, privacy, and no-health-claim boundaries before changing the reviewed state.",
+      "target_evidence_paths": [
+        "skills/zh/testing-types/observability-design-review/SKILL.md",
+        "skills/en/testing-types/observability-design-review/SKILL.md",
+        "skills/zh/testing-types/observability-design-review/prompts/observability-design-review.md",
+        "skills/en/testing-types/observability-design-review/prompts/observability-design-review.md"
+      ],
+      "candidate_source": "docs/superpowers/specs/2026-09-14-v1-1-following-five-quality-skills-design.md; docs/superpowers/plans/2026-09-14-v1-1-ten-quality-skills.md; local bilingual package review"
+    },
+    {
+      "slug": "error-handling-design-review",
+      "decision_state": "PROPOSED",
+      "conclusion": "NEW",
+      "target": "error-handling-design-review",
+      "scope": "Evidence-bounded review of error taxonomy, exception boundaries, timeout/retry, degradation, idempotency, propagation, caller-visible results, telemetry, consistency, and recovery design before implementation.",
+      "non_goals": "No fault injection, incident replay, production rollback, invented retry/SLA/copy values, risk acceptance, or recovery approval.",
+      "evidence": {
+        "name": "The v1.1 design and bilingual package frontmatter define a distinct pre-implementation error-handling design review capability.",
+        "purpose": "The Prompt differentiates failure modes, triggers, expected behavior, propagation/fallback, caller-visible result, observable evidence, consistency impact, owner, and validation.",
+        "inputs": "Failure models, interface contracts, exception boundaries, timeout/retry/degradation, idempotency, consistency, telemetry, recovery, and consumer material; target skills/zh/testing-types/error-handling-design-review/prompts/error-handling-design-review.md and English mirror Input Audit and Scope.",
+        "outputs": "EH-## findings with failure mode, trigger/boundary, expected behavior, propagation/fallback, caller-visible result, observable evidence, source, impact, owner, and validation.",
+        "decision_logic": "Classify retryable, non-retryable, human-handoff, and safe-rejection paths from supplied evidence without collapsing distinct failures into a generic error.",
+        "workflow_role": "Optional v1.1 Phase 1 error-handling specialist before implementation; navigation only, with no fault injection."
+      },
+      "next_action": "Run real model Eval when Claude login is available and verify failure-mode separation, caller-visible behavior, observable evidence, and no-fault-injection boundaries before changing the reviewed state.",
+      "target_evidence_paths": [
+        "skills/zh/testing-types/error-handling-design-review/SKILL.md",
+        "skills/en/testing-types/error-handling-design-review/SKILL.md",
+        "skills/zh/testing-types/error-handling-design-review/prompts/error-handling-design-review.md",
+        "skills/en/testing-types/error-handling-design-review/prompts/error-handling-design-review.md"
+      ],
+      "candidate_source": "docs/superpowers/specs/2026-09-14-v1-1-following-five-quality-skills-design.md; docs/superpowers/plans/2026-09-14-v1-1-ten-quality-skills.md; local bilingual package review"
+    },
+    {
+      "slug": "test-scope-analysis",
+      "decision_state": "PROPOSED",
+      "conclusion": "NEW",
+      "target": "test-scope-analysis",
+      "scope": "Evidence-bounded definition of test inclusion, exclusion, depth, dependencies, stop conditions, and expansion triggers for a test activity, iteration, release, or risk review.",
+      "non_goals": "No complete test strategy, concrete test-set selection, test execution, coverage proof, or release decision.",
+      "evidence": {
+        "name": "The v1.1 design and bilingual package frontmatter define a distinct test-boundary analysis capability.",
+        "purpose": "The Prompt records target/object, included and excluded areas, risk basis, depth, dependencies, stop conditions, expansion triggers, residual risk, evidence, and owner.",
+        "inputs": "Test objective, change/release/risk context, requirements, dependencies, platforms, roles, data, environments, existing assets, and constraints; target skills/zh/testing-types/test-scope-analysis/prompts/test-scope-analysis.md and English mirror Input Audit and Scope.",
+        "outputs": "TS-## scope findings with inclusion/exclusion, depth, dependency, trigger, residual risk, source evidence, owner, and validation rationale.",
+        "decision_logic": "Separate core, directly affected, transitively affected, non-functional, migration/compatibility, and unassessed areas; justify scope tradeoffs without selecting concrete tests.",
+        "workflow_role": "Optional v1.1 Phase 1 test-design-and-preparation specialist before strategy or execution; navigation only, with no test run."
+      },
+      "next_action": "Run real model Eval when Claude login is available and verify inclusion/exclusion, depth, expansion-trigger, and no-coverage-claim boundaries before changing the reviewed state.",
+      "target_evidence_paths": [
+        "skills/zh/testing-types/test-scope-analysis/SKILL.md",
+        "skills/en/testing-types/test-scope-analysis/SKILL.md",
+        "skills/zh/testing-types/test-scope-analysis/prompts/test-scope-analysis.md",
+        "skills/en/testing-types/test-scope-analysis/prompts/test-scope-analysis.md"
+      ],
+      "candidate_source": "docs/superpowers/specs/2026-09-14-v1-1-following-five-quality-skills-design.md; docs/superpowers/plans/2026-09-14-v1-1-ten-quality-skills.md; local bilingual package review"
+    },
+    {
       "slug": "business-rule-consistency-review",
       "decision_state": "PROPOSED",
       "conclusion": "ENHANCE",

@@ -15,6 +15,17 @@ Extract traceable atomic business rules from requirements, policies, contracts, 
 
 Do not use it to invent rules from general knowledge, choose final precedence, execute system verification, or approve a policy for a business or compliance role.
 
+## Output Format Options
+
+- Use Markdown by default; when a table, CSV, or JSON is requested, preserve the same evidence, status, impact, owner, and validation fields.
+- Do not present a structured format or static inventory as execution, pass, approval, or release evidence.
+
+## How to Use
+
+1. Read this Skill's primary prompt and provide the objective, scope, material, environment, and available evidence.
+2. Follow the prompt's input audit and output contract; deliver a bounded first pass when information is incomplete.
+3. Retain source, evidence status, impact, owner role, close condition, and validation method for every finding.
+
 ## Workflow
 
 1. Read and follow `prompts/business-rule-extraction.md`, auditing objective, version, time, and applicability first.
@@ -30,12 +41,17 @@ Do not use it to invent rules from general knowledge, choose final precedence, e
 - Every `BR-##` should contain rule, source, actor/object, trigger, preconditions, action/outcome, constraint/invariant, exception, evidence, unknowns, impact, and validation method.
 - Preserve both sides of a conflict; use `missing`, `stale`, or `unassessed` when the material cannot support a choice.
 
-## On-Demand Loading
+## Reference Files
 
 - Always read `prompts/business-rule-extraction.md` before producing an analysis.
 - For regression, read `evals/eval.yaml` and the relevant `evals/cases/`; these files do not prove that business semantics ran.
 - To inspect trigger behavior, use `evals/trigger-prompts.csv` and `evals/local-rules.json` with the repository trace runner; without `skill.selection` evidence report `BLOCKED`.
 - This is a repository-root development check; a standalone Skill package does not include the repository runner and does not depend on it at runtime.
+
+## Best Practices
+
+- Prioritize high-impact gaps with a verifiable next action, using the smallest useful experiment or evidence request.
+- Separate facts, evidence-backed inferences, recommendations, and Human decisions; never upgrade an assumption into a conclusion.
 
 ## Delivery Checklist
 

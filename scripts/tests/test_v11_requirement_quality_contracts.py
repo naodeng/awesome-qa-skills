@@ -1,10 +1,11 @@
 from __future__ import annotations
 
-import csv
 import json
 from pathlib import Path
 import re
 import unittest
+
+from scripts.tests.v11_contract_helpers import assert_trigger_contract
 
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
@@ -16,7 +17,6 @@ SLUGS = (
     "requirement-traceability-analysis",
 )
 LANGUAGES = ("zh", "en")
-TRIGGER_MODES = {"explicit", "implicit", "contextual", "negative"}
 
 
 class V11RequirementQualityContractTest(unittest.TestCase):
@@ -30,16 +30,7 @@ class V11RequirementQualityContractTest(unittest.TestCase):
                 self.assertTrue(prompt_path.is_file(), prompt_path)
                 self.assertTrue(rules_path.is_file(), rules_path)
 
-                with prompt_path.open(encoding="utf-8", newline="") as stream:
-                    rows = list(csv.DictReader(stream))
-                self.assertEqual(
-                    {row.get("mode") for row in rows},
-                    TRIGGER_MODES,
-                    f"{language}/{slug} must cover all trigger modes",
-                )
-                self.assertEqual({row.get("should_trigger") for row in rows}, {"true", "false"})
-                self.assertEqual(len(rows), len({row.get("id") for row in rows}))
-                self.assertTrue(all((row.get("prompt") or "").strip() for row in rows))
+                assert_trigger_contract(self, package)
 
                 rules = json.loads(rules_path.read_text(encoding="utf-8"))
                 self.assertEqual(rules.get("skill"), slug)

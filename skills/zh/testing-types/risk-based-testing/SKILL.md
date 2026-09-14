@@ -15,6 +15,17 @@ description: Use this skill when you need to turn quality risks into prioritized
 
 不适用于只识别质量风险、编写完整测试策略、从已有测试资产选择执行集或宣布发布通过。
 
+## 输出格式选项
+
+- 默认输出 Markdown；用户要求表格、CSV 或 JSON 时，保留相同的证据、状态、影响、责任角色和验证字段。
+- 不把结构化格式或静态清单写成执行、通过、批准或发布证据。
+
+## 如何使用
+
+1. 先读取本 Skill 的主 Prompt，并提供目标、范围、材料、环境和已有证据。
+2. 按 Prompt 的输入审计和输出合同执行；缺少信息时交付带边界的初版。
+3. 对每条发现保留来源、证据状态、影响、责任角色、关闭条件和验证方法。
+
 ## 工作方式
 
 1. 阅读并遵循 `prompts/risk-based-testing.md`，先审计六类输入。
@@ -30,11 +41,16 @@ description: Use this skill when you need to turn quality risks into prioritized
 - 不生成完整测试策略，不替代 `quality-risk-analysis` 的风险识别、`test-strategy` 的全局策略或回归测试选择。
 - 不选择具体已有测试 ID，不执行测试，不编造环境、阈值、缺陷或通过结果。
 
-## 按需加载
+## 参考文件
 
 - 每次产出前必须阅读 `prompts/risk-based-testing.md`。
 - 回归时读取 `evals/eval.yaml` 和匹配用例；配置和建议不证明真实风险已被控制。
 - 触发验证使用 `evals/trigger-prompts.csv` 和 `evals/local-rules.json`；缺少 selection trace 时报告 `BLOCKED`。
+
+## 最佳实践
+
+- 优先处理高影响且可验证的缺口，使用最小实验或补证动作降低不确定性。
+- 将事实、证据支持的推断、建议和 Human 决策分开，避免把假设升级为结论。
 
 ## 交付前自检
 

@@ -49,7 +49,7 @@ Use `RA-##` for each item:
 
 When two sources explicitly state different rules, do not reduce the matter to ordinary ambiguity or choose one. Preserve both statements, sources, applicability, and impact; use `conflict` and suggest `requirement-conflict-detection` for focused organization. Leave precedence and the final business rule to a Human decision.
 
-## Output Order
+## Output
 
 1. Input audit and scope;
 2. Ambiguity overview;
@@ -59,7 +59,26 @@ When two sources explicitly state different rules, do not reduce the matter to o
 6. Assumptions, unassessed items, and next steps;
 7. Self-check.
 
-## Self-Check
+## Input
+
+Accept the user-provided objective, scope, material, environment, constraints, and evidence; the input audit above determines what can be used safely.
+
+## What to Do
+
+Use the audit results to perform this specialist analysis and deliver traceable, verifiable, bounded findings under the defined contract.
+
+## Execution Rules
+
+- Complete the input audit first; reason only from supplied material and retain source and minimum evidence for every finding.
+- Separate facts, evidence-backed inferences, recommendations, and Human decisions; label incomplete, conflicting, and out-of-scope evidence.
+
+## Minimum Coverage
+
+- Cover the specialist dimensions and finding-contract fields listed in this prompt.
+- Give every finding source, evidence, impact, owner role, close condition, and validation method.
+- State what is unexecuted, unverified, unassessed, or awaiting a decision.
+
+## Quality Requirements
 
 - Does every finding include the phrase, source, and missing discriminator?
 - Are possible readings presented as options rather than facts or final decisions?

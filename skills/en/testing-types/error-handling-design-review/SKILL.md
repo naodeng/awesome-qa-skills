@@ -15,6 +15,17 @@ Review error taxonomy, exception boundaries, timeouts, retry/backoff, circuit br
 
 Do not use it to execute fault injection, choose SLA/copy/risk acceptance for a Human, or treat code presence as correctness.
 
+## Output Format Options
+
+- Use Markdown by default; when a table, CSV, or JSON is requested, preserve the same evidence, status, impact, owner, and validation fields.
+- Do not present a structured format or static inventory as execution, pass, approval, or release evidence.
+
+## How to Use
+
+1. Read this Skill's primary prompt and provide the objective, scope, material, environment, and available evidence.
+2. Follow the prompt's input audit and output contract; deliver a bounded first pass when information is incomplete.
+3. Retain source, evidence status, impact, owner role, close condition, and validation method for every finding.
+
 ## Workflow
 
 1. Read `prompts/error-handling-design-review.md` and audit objective, failure boundaries, version, sources, and evidence.
@@ -30,11 +41,16 @@ Do not use it to execute fault injection, choose SLA/copy/risk acceptance for a 
 - Each `EH-##` includes failure mode, trigger, boundary, expected behavior, propagation/translation, retry/fallback, data consistency, observable evidence, owner, and validation.
 - Without identity, time, environment, inputs, and raw results, runtime status remains `unverified`, `unexecuted`, or `unassessed`.
 
-## On-Demand Loading
+## Reference Files
 
 - Always read `prompts/error-handling-design-review.md` before producing a review.
 - For regression, read `evals/eval.yaml` and its cases; a design review is not incident analysis or fault injection.
 - For trigger checks, use `evals/trigger-prompts.csv` and `evals/local-rules.json`; missing selection trace is `BLOCKED`.
+
+## Best Practices
+
+- Prioritize high-impact gaps with a verifiable next action, using the smallest useful experiment or evidence request.
+- Separate facts, evidence-backed inferences, recommendations, and Human decisions; never upgrade an assumption into a conclusion.
 
 ## Delivery Checklist
 

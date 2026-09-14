@@ -15,6 +15,17 @@ Compare supplied requirements, contracts, designs, or rule artifacts to determin
 
 Do not use it with one source when only general requirements analysis is needed, or to make a business decision for an explicit conflict.
 
+## Output Format Options
+
+- Use Markdown by default; when a table, CSV, or JSON is requested, preserve the same evidence, status, impact, owner, and validation fields.
+- Do not present a structured format or static inventory as execution, pass, approval, or release evidence.
+
+## How to Use
+
+1. Read this Skill's primary prompt and provide the objective, scope, material, environment, and available evidence.
+2. Follow the prompt's input audit and output contract; deliver a bounded first pass when information is incomplete.
+3. Retain source, evidence status, impact, owner role, close condition, and validation method for every finding.
+
 ## Workflow
 
 1. Read and follow `prompts/requirement-consistency-analysis.md`.
@@ -34,13 +45,18 @@ Do not use it with one source when only general requirements analysis is needed,
 - Suggest `requirement-conflict-detection` for explicit mutually exclusive rules by Skill name only; do not link its internal files.
 - Do not invent state transitions, field meaning, platform support, or a final specification.
 
-## Progressive Disclosure
+## Reference Files
 
 - Always read `prompts/requirement-consistency-analysis.md` before producing an analysis.
 - Use `evals/eval.yaml` and `evals/cases/` to regress this Skill; structural gates do not prove cross-source semantic correctness.
 - To check discovery behavior, run `scripts/run_skill_trace_eval.py` with `evals/trigger-prompts.csv` and `evals/local-rules.json`; missing `skill.selection` evidence is `BLOCKED`, not a trigger pass.
 - This is a repository-root development check; a standalone Skill package does not include the repository runner and does not depend on it at runtime.
 - To check `business-rule` mode, use the `business-rule-*` Evals and a local trigger prompt containing the business-rule phrase; the physical directory remains this Skill and no alias directory is created.
+
+## Best Practices
+
+- Prioritize high-impact gaps with a verifiable next action, using the smallest useful experiment or evidence request.
+- Separate facts, evidence-backed inferences, recommendations, and Human decisions; never upgrade an assumption into a conclusion.
 
 ## Pre-delivery Checklist
 

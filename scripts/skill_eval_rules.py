@@ -59,6 +59,7 @@ RULES = (
 )
 
 RULE_IDS = tuple(rule.rule_id for rule in RULES)
+RULE_ID_BY_NAME = {rule.name: rule.rule_id for rule in RULES}
 
 
 @dataclass
@@ -162,6 +163,8 @@ def validate_rule_catalog() -> list[str]:
         errors.append(f"expected 20 rules, found {len(RULES)}")
     if len(set(RULE_IDS)) != len(RULE_IDS):
         errors.append("rule IDs must be unique")
+    if len({rule.name for rule in RULES}) != len(RULES):
+        errors.append("rule names must be unique")
     for rule in RULES:
         if not re.fullmatch(r"[A-Z]+-\d{3}", rule.rule_id):
             errors.append(f"invalid rule ID: {rule.rule_id}")
@@ -197,28 +200,31 @@ def evaluate_trace(trace: Trace, config: dict[str, Any], project_dir: Path) -> E
     """Evaluate configured assertions and return explainable local evidence."""
 
     project_dir = project_dir.resolve()
-    handlers = {
-        "TRIGGER-001": lambda: _check_trigger("TRIGGER-001", "explicit", trace, config),
-        "TRIGGER-002": lambda: _check_trigger("TRIGGER-002", "implicit", trace, config),
-        "TRIGGER-003": lambda: _check_trigger("TRIGGER-003", "contextual", trace, config),
-        "TRIGGER-004": lambda: _check_trigger("TRIGGER-004", "negative", trace, config),
-        "TRACE-001": lambda: _check_trace_audit(trace),
-        "TRACE-002": lambda: _check_trace_contract(trace),
-        "TRACE-003": lambda: _check_trace_lifecycle(trace, config),
-        "PROCESS-001": lambda: _check_required_commands(trace, config),
-        "PROCESS-002": lambda: _check_command_order(trace, config),
-        "PROCESS-003": lambda: _check_command_exit_status(trace, config),
-        "OUTCOME-001": lambda: _check_required_artifacts(config, project_dir),
-        "OUTCOME-002": lambda: _check_command_success(trace, config, "build_command", "OUTCOME-002"),
-        "ARTIFACT-001": lambda: _check_exact_artifacts(config, project_dir),
-        "ARTIFACT-002": lambda: _check_persisted_artifacts(config, project_dir),
-        "ENV-001": lambda: _check_environment(trace, config, project_dir),
-        "ENV-002": lambda: _check_tools(config),
-        "RUNTIME-001": lambda: _check_command_success(trace, config, "smoke_command", "RUNTIME-001"),
-        "SAFETY-001": lambda: _check_safety(trace, config, project_dir),
-        "PERMISSION-001": lambda: _check_permissions(trace, config),
-        "REPRO-001": lambda: _check_reproducibility(trace, config, project_dir),
-    }
+    handler_factories = (
+        lambda: _check_trigger(RULE_ID_BY_NAME["explicit invocation"], "explicit", trace, config),
+        lambda: _check_trigger(RULE_ID_BY_NAME["implicit invocation"], "implicit", trace, config),
+        lambda: _check_trigger(RULE_ID_BY_NAME["contextual invocation"], "contextual", trace, config),
+        lambda: _check_trigger(RULE_ID_BY_NAME["negative control"], "negative", trace, config),
+        lambda: _check_trace_audit(trace),
+        lambda: _check_trace_contract(trace),
+        lambda: _check_trace_lifecycle(trace, config),
+        lambda: _check_required_commands(trace, config),
+        lambda: _check_command_order(trace, config),
+        lambda: _check_command_exit_status(trace, config),
+        lambda: _check_required_artifacts(config, project_dir),
+        lambda: _check_command_success(trace, config, "build_command", RULE_ID_BY_NAME["build check"]),
+        lambda: _check_exact_artifacts(config, project_dir),
+        lambda: _check_persisted_artifacts(config, project_dir),
+        lambda: _check_environment(trace, config, project_dir),
+        lambda: _check_tools(config),
+        lambda: _check_command_success(trace, config, "smoke_command", RULE_ID_BY_NAME["runtime smoke"]),
+        lambda: _check_safety(trace, config, project_dir),
+        lambda: _check_permissions(trace, config),
+        lambda: _check_reproducibility(trace, config, project_dir),
+    )
+    if len(handler_factories) != len(RULES):
+        raise RuntimeError("rule handler count does not match the rule catalog")
+    handlers = dict(zip(RULE_IDS, handler_factories))
     return EvalReport([handlers[rule.rule_id]() for rule in RULES])
 
 
@@ -338,23 +344,16 @@ def _command_records(events: list[dict[str, Any]]) -> list[CommandRecord]:
 
 
 def _selection_events(events: list[dict[str, Any]]) -> list[dict[str, Any]]:
-    selection_types = {"skill.selection", "skill.invoked", "skill.invocation", "skill_selection", "skill_invocation"}
     selections: list[dict[str, Any]] = []
     for event in events:
-        item = _command_item(event)
-        event_type = str(event.get("type", "")).lower()
-        source = event
-        if item is not None and str(item.get("type", "")).lower() in selection_types:
-            event_type = str(item.get("type", "")).lower()
-            source = item
-        if event_type not in selection_types:
+        if event.get("type") != "skill.selection":
             continue
-        selected_value = source.get("selected", source.get("invoked", source.get("triggered")))
+        selected_value = event.get("selected", event.get("invoked", event.get("triggered")))
         selected = _as_bool(selected_value)
         selections.append(
             {
-                "skill": source.get("skill", source.get("skill_name", source.get("name"))),
-                "mode": source.get("mode", source.get("trigger_mode")),
+                "skill": event.get("skill", event.get("skill_name", event.get("name"))),
+                "mode": event.get("mode", event.get("trigger_mode")),
                 "selected": selected,
             }
         )

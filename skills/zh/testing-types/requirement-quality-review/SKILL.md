@@ -15,6 +15,17 @@ description: Use this skill when a requirement, acceptance-criteria set, or chan
 
 不适用于只要求编写测试用例、执行测试、批准发布或从无证据材料直接给质量分的任务。
 
+## 输出格式选项
+
+- 默认输出 Markdown；用户要求表格、CSV 或 JSON 时，保留相同的证据、状态、影响、责任角色和验证字段。
+- 不把结构化格式或静态清单写成执行、通过、批准或发布证据。
+
+## 如何使用
+
+1. 先读取本 Skill 的主 Prompt，并提供目标、范围、材料、环境和已有证据。
+2. 按 Prompt 的输入审计和输出合同执行；缺少信息时交付带边界的初版。
+3. 对每条发现保留来源、证据状态、影响、责任角色、关闭条件和验证方法。
+
 ## 工作方式
 
 1. 先阅读并遵循 `prompts/requirement-quality-review.md`；它定义完整输入审计、质量维度和输出顺序。
@@ -31,12 +42,17 @@ description: Use this skill when a requirement, acceptance-criteria set, or chan
 - 用 `RQ-##` 标识发现；至少区分 `missing`、`ambiguous`、`untestable`、`conflict` 和 `unassessed`。
 - P0/P1 发现必须有影响、建议责任角色、待决策问题和验证方式。
 
-## 按需加载
+## 参考文件
 
 - 每次产出前必须阅读 `prompts/requirement-quality-review.md`。
 - 需要回归本 Skill 时使用 `evals/eval.yaml` 和 `evals/cases/`；Eval 文件是结构与行为约束，不是已执行质量证明。
 - 需要验证发现行为时，使用 `evals/trigger-prompts.csv` 与 `evals/local-rules.json` 运行仓库的 `scripts/run_skill_trace_eval.py`；缺少 `skill.selection` 证据时必须报告 `BLOCKED`，不能推断触发成功。
 - 以上是仓库根目录下的开发验证步骤；独立安装的 Skill 包不包含仓库级 runner，运行时不依赖该脚本。
+
+## 最佳实践
+
+- 优先处理高影响且可验证的缺口，使用最小实验或补证动作降低不确定性。
+- 将事实、证据支持的推断、建议和 Human 决策分开，避免把假设升级为结论。
 
 ## 交付前自检
 

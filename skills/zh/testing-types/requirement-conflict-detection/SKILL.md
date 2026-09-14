@@ -15,6 +15,17 @@ description: Use this skill when multiple requirement, policy, contract, or acce
 
 不适用于只有一个来源且没有互斥陈述的普通需求审阅，也不用于替业务接受风险、裁决优先级或生成未经批准的折中规则。
 
+## 输出格式选项
+
+- 默认输出 Markdown；用户要求表格、CSV 或 JSON 时，保留相同的证据、状态、影响、责任角色和验证字段。
+- 不把结构化格式或静态清单写成执行、通过、批准或发布证据。
+
+## 如何使用
+
+1. 先读取本 Skill 的主 Prompt，并提供目标、范围、材料、环境和已有证据。
+2. 按 Prompt 的输入审计和输出合同执行；缺少信息时交付带边界的初版。
+3. 对每条发现保留来源、证据状态、影响、责任角色、关闭条件和验证方法。
+
 ## 工作方式
 
 1. 阅读并遵循 `prompts/requirement-conflict-detection.md`。
@@ -31,12 +42,17 @@ description: Use this skill when multiple requirement, policy, contract, or acce
 - 缺少版本、范围、来源或上下文时，标记 `missing`/`stale`/`unassessed` 并提出补证问题。
 - 不把静态文档中的“已通过”、已有实现或表格存在写成运行时验证结果。
 
-## 按需加载
+## 参考文件
 
 - 每次产出前必须阅读 `prompts/requirement-conflict-detection.md`。
 - 需要回归本 Skill 时使用 `evals/eval.yaml` 和 `evals/cases/`；结构门禁不等于冲突语义已被运行验证。
 - 需要验证发现行为时，使用 `evals/trigger-prompts.csv` 与 `evals/local-rules.json` 运行仓库的 `scripts/run_skill_trace_eval.py`；缺少 `skill.selection` 证据时必须报告 `BLOCKED`，不能推断触发成功。
 - 以上是仓库根目录下的开发验证步骤；独立安装的 Skill 包不包含仓库级 runner，运行时不依赖该脚本。
+
+## 最佳实践
+
+- 优先处理高影响且可验证的缺口，使用最小实验或补证动作降低不确定性。
+- 将事实、证据支持的推断、建议和 Human 决策分开，避免把假设升级为结论。
 
 ## 交付前自检
 

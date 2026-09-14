@@ -39,8 +39,9 @@ Start with:
 | `Source / Evidence` | Source, version/scope, evidence state, and unknowns |
 | `Impact / Priority` | Impact, P0–P3 or equivalent, and rationale |
 | `Validation` | Smallest validation action, required environment/data, owner role, and close condition |
+| `Unresolved Questions` | Open threshold, rule, assumption, or conflict questions with the owner and evidence needed to close them |
 
-## Output Order
+## Output
 
 1. Subject, in/out-of-scope boundaries, and discovery goal;
 2. six-part input audit;
@@ -56,9 +57,20 @@ Start with:
 - Without real execution evidence, do not write verified, passed, or safe.
 - Do not edit requirements, test assets, data, or the target system.
 
-## Self-Check
+## Execution Rules
+
+- Complete the input audit first; reason only from supplied material and retain source and minimum evidence for every finding.
+- Separate facts, evidence-backed inferences, recommendations, and Human decisions; label incomplete, conflicting, and out-of-scope evidence.
+
+## Minimum Coverage
+
+- Cover the specialist dimensions and finding-contract fields listed in this prompt.
+- Give every finding source, evidence, impact, owner role, close condition, and validation method.
+- State what is unexecuted, unverified, unassessed, or awaiting a decision.
+
+## Quality Requirements
 
 - Did you cover applicable value, time, state, resource, order, platform, and combination dimensions?
-- Does each `EC-##` have source, trigger, concern, impact, evidence state, and validation?
+- Does each `EC-##` have source, trigger, concern, impact, evidence state, validation, and unresolved questions?
 - Are unknown thresholds and conflicts explicit gaps/assumptions rather than facts?
 - Did you avoid expanding candidates into full cases or execution conclusions?

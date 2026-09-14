@@ -34,7 +34,7 @@ Create stable `BR-##` entries with at least:
 
 Merge sentences only when the evidence supports the merge; similar names are not the same rule. When sources conflict, retain both `BR-##` statements or both evidence paths and identify the Human decision required.
 
-## Output Order
+## Output
 
 1. Objective, in-scope/out-of-scope boundaries, and rule sources;
 2. `known`, `missing`, `conflicting`, `stale`, `out_of_scope`, and `assumptions` audit;
@@ -49,7 +49,26 @@ Merge sentences only when the evidence supports the merge; similar names are not
 - Do not present a rule entry, name match, or static check as implementation correctness, test passage, compliance approval, or release completion.
 - Do not turn “not found” into “no issue”; use `missing` or `unassessed` when evidence is absent.
 
-## Self-Check
+## Input
+
+Accept the user-provided objective, scope, material, environment, constraints, and evidence; the input audit above determines what can be used safely.
+
+## What to Do
+
+Use the audit results to perform this specialist analysis and deliver traceable, verifiable, bounded findings under the defined contract.
+
+## Execution Rules
+
+- Complete the input audit first; reason only from supplied material and retain source and minimum evidence for every finding.
+- Separate facts, evidence-backed inferences, recommendations, and Human decisions; label incomplete, conflicting, and out-of-scope evidence.
+
+## Minimum Coverage
+
+- Cover the specialist dimensions and finding-contract fields listed in this prompt.
+- Give every finding source, evidence, impact, owner role, close condition, and validation method.
+- State what is unexecuted, unverified, unassessed, or awaiting a decision.
+
+## Quality Requirements
 
 - Does every `BR-##` include source, scope, evidence, and a validation hint?
 - Are exceptions, conflicts, and unknowns retained?

@@ -53,7 +53,7 @@ The `business-rule` mode keeps relation values `aligned`, `inconsistent`, and `c
 
 Explicitly mutually exclusive rules preserve both sources and use `conflict`; do not rewrite them into a compromise answer. A difference between versions, platforms, or applicability scopes is not automatically a conflict. If the target scope is unknown, use `stale` or `unassessed` and ask for it. When focused organization is needed, suggest `requirement-conflict-detection` without choosing the final rule for a Human.
 
-## Output Order
+## Output
 
 1. Input audit and comparison scope;
 2. Source and version inventory;
@@ -63,7 +63,26 @@ Explicitly mutually exclusive rules preserve both sources and use `conflict`; do
 6. Open questions, owner roles, close conditions, and validation methods;
 7. Assumptions, unassessed items, and self-check.
 
-## Self-Check
+## Input
+
+Accept the user-provided objective, scope, material, environment, constraints, and evidence; the input audit above determines what can be used safely.
+
+## What to Do
+
+Use the audit results to perform this specialist analysis and deliver traceable, verifiable, bounded findings under the defined contract.
+
+## Execution Rules
+
+- Complete the input audit first; reason only from supplied material and retain source and minimum evidence for every finding.
+- Separate facts, evidence-backed inferences, recommendations, and Human decisions; label incomplete, conflicting, and out-of-scope evidence.
+
+## Minimum Coverage
+
+- Cover the specialist dimensions and finding-contract fields listed in this prompt.
+- Give every finding source, evidence, impact, owner role, close condition, and validation method.
+- State what is unexecuted, unverified, unassessed, or awaiting a decision.
+
+## Quality Requirements
 
 - Can every row be traced to both sources, or does it explicitly state that the comparison object is missing?
 - Are version, time, and applicability scope retained?

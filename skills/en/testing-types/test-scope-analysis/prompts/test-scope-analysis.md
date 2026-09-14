@@ -27,7 +27,7 @@ Start with:
 
 At minimum distinguish core journeys, direct impact, transitive impact, non-functional concerns, migration/compatibility, and unassessed areas. Explain every tradeoff with a reviewable reason.
 
-## Output Order
+## Output
 
 1. Objective, version, activity, and in/out-of-scope boundaries;
 2. Six-part input audit;
@@ -42,7 +42,26 @@ At minimum distinguish core journeys, direct impact, transitive impact, non-func
 - Do not use changed files, test names, test counts, scope statements, or static gates as coverage or pass proof.
 - Without real execution identity, time, environment, inputs, and results, execution status remains `unverified`, `unexecuted`, or `unassessed`.
 
-## Self-Check
+## Input
+
+Accept the user-provided objective, scope, material, environment, constraints, and evidence; the input audit above determines what can be used safely.
+
+## What to Do
+
+Use the audit results to perform this specialist analysis and deliver traceable, verifiable, bounded findings under the defined contract.
+
+## Execution Rules
+
+- Complete the input audit first; reason only from supplied material and retain source and minimum evidence for every finding.
+- Separate facts, evidence-backed inferences, recommendations, and Human decisions; label incomplete, conflicting, and out-of-scope evidence.
+
+## Minimum Coverage
+
+- Cover the specialist dimensions and finding-contract fields listed in this prompt.
+- Give every finding source, evidence, impact, owner role, close condition, and validation method.
+- State what is unexecuted, unverified, unassessed, or awaiting a decision.
+
+## Quality Requirements
 
 - Does every `TS-##` include inclusion, exclusion, depth, dependencies, stop, and expansion conditions?
 - Did you explain core/transitive impact, non-functional, migration compatibility, and unassessed areas?

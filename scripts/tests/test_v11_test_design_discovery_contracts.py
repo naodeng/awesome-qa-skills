@@ -1,14 +1,14 @@
 from __future__ import annotations
 
-import csv
 import json
 from pathlib import Path
 import unittest
 
+from scripts.tests.v11_contract_helpers import assert_trigger_contract, read_trigger_rows
+
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 LANGUAGES = ("zh", "en")
-TRIGGER_MODES = {"explicit", "implicit", "contextual", "negative"}
 
 NEW_SLUGS = (
     "test-gap-analysis",
@@ -58,13 +58,6 @@ def package_path(language: str, slug: str) -> Path:
     return REPO_ROOT / "skills" / language / "testing-types" / slug
 
 
-def read_trigger_rows(package: Path) -> list[dict[str, str]]:
-    with (package / "evals" / "trigger-prompts.csv").open(
-        encoding="utf-8", newline=""
-    ) as stream:
-        return list(csv.DictReader(stream))
-
-
 class V11TestDesignDiscoveryContractTest(unittest.TestCase):
     def test_new_packages_have_required_bilingual_contract(self):
         required_cases = (
@@ -104,11 +97,7 @@ class V11TestDesignDiscoveryContractTest(unittest.TestCase):
                     f"missing boundary marker for {package}",
                 )
 
-                rows = read_trigger_rows(package)
-                self.assertEqual({row.get("mode") for row in rows}, TRIGGER_MODES, package)
-                self.assertEqual({row.get("should_trigger") for row in rows}, {"true", "false"}, package)
-                self.assertEqual(len(rows), len({row.get("id") for row in rows}), package)
-                self.assertTrue(all((row.get("prompt") or "").strip() for row in rows), package)
+                rows = assert_trigger_contract(self, package)
 
                 rules = json.loads(
                     (package / "evals" / "local-rules.json").read_text(encoding="utf-8")

@@ -15,6 +15,17 @@ Analyze entity, field, relationship, state, role, privacy, source, lifecycle, se
 
 Do not use it to create records, call real data sources, copy production data, write full cases, or execute tests.
 
+## Output Format Options
+
+- Use Markdown by default; when a table, CSV, or JSON is requested, preserve the same evidence, status, impact, owner, and validation fields.
+- Do not present a structured format or static inventory as execution, pass, approval, or release evidence.
+
+## How to Use
+
+1. Read this Skill's primary prompt and provide the objective, scope, material, environment, and available evidence.
+2. Follow the prompt's input audit and output contract; deliver a bounded first pass when information is incomplete.
+3. Retain source, evidence status, impact, owner role, close condition, and validation method for every finding.
+
 ## Workflow
 
 1. Read and follow `prompts/test-data-requirement-analysis.md`, beginning with the six-part input audit.
@@ -31,11 +42,16 @@ Do not use it to create records, call real data sources, copy production data, w
 - `TDR-##` is a preparation requirement/gap, not proof that data exists, is available, compliant, or passed testing.
 - State what later test design or data generation needs; do not replace generation or Human/compliance approval.
 
-## Progressive Disclosure
+## Reference Files
 
 - Always read `prompts/test-data-requirement-analysis.md` before producing an analysis.
 - For regression, read `evals/eval.yaml` and matching cases; configuration does not prove data is ready.
 - For trigger checks, use `evals/trigger-prompts.csv` and `evals/local-rules.json`; missing selection trace is `BLOCKED`.
+
+## Best Practices
+
+- Prioritize high-impact gaps with a verifiable next action, using the smallest useful experiment or evidence request.
+- Separate facts, evidence-backed inferences, recommendations, and Human decisions; never upgrade an assumption into a conclusion.
 
 ## Pre-delivery Check
 

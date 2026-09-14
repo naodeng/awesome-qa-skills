@@ -15,6 +15,17 @@ Find test obligations that are not sufficiently protected by test intent or exec
 
 Do not use it only to write test cases, build a complete `RT-##`/`TC-##` matrix, execute tests, or accept residual risk for a Human.
 
+## Output Format Options
+
+- Use Markdown by default; when a table, CSV, or JSON is requested, preserve the same evidence, status, impact, owner, and validation fields.
+- Do not present a structured format or static inventory as execution, pass, approval, or release evidence.
+
+## How to Use
+
+1. Read this Skill's primary prompt and provide the objective, scope, material, environment, and available evidence.
+2. Follow the prompt's input audit and output contract; deliver a bounded first pass when information is incomplete.
+3. Retain source, evidence status, impact, owner role, close condition, and validation method for every finding.
+
 ## Workflow
 
 1. Read and follow `prompts/test-gap-analysis.md`, beginning with the six-part input audit.
@@ -31,11 +42,16 @@ Do not use it only to write test cases, build a complete `RT-##`/`TC-##` matrix,
 - Never invent requirements, priorities, test results, defect states, owners, or closure facts.
 - Do not duplicate complete traceability analysis, test-case authoring, or executable-set selection here.
 
-## Progressive Disclosure
+## Reference Files
 
 - Always read `prompts/test-gap-analysis.md` before producing an analysis.
 - For regression, read `evals/eval.yaml` and matching `evals/cases/`; Eval configuration does not prove project results.
 - For trigger checks, use `evals/trigger-prompts.csv` and `evals/local-rules.json`; missing `skill.selection` evidence is `BLOCKED`.
+
+## Best Practices
+
+- Prioritize high-impact gaps with a verifiable next action, using the smallest useful experiment or evidence request.
+- Separate facts, evidence-backed inferences, recommendations, and Human decisions; never upgrade an assumption into a conclusion.
 
 ## Pre-delivery Check
 

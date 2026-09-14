@@ -15,6 +15,17 @@ description: Use this skill when requirements, policies, contracts, or workflows
 
 不适用于凭常识补造规则、决定最终优先级、执行系统验证或替业务角色批准政策。
 
+## 输出格式选项
+
+- 默认输出 Markdown；用户要求表格、CSV 或 JSON 时，保留相同的证据、状态、影响、责任角色和验证字段。
+- 不把结构化格式或静态清单写成执行、通过、批准或发布证据。
+
+## 如何使用
+
+1. 先读取本 Skill 的主 Prompt，并提供目标、范围、材料、环境和已有证据。
+2. 按 Prompt 的输入审计和输出合同执行；缺少信息时交付带边界的初版。
+3. 对每条发现保留来源、证据状态、影响、责任角色、关闭条件和验证方法。
+
 ## 工作方式
 
 1. 先阅读并遵循 `prompts/business-rule-extraction.md`，审计目标、版本、时间和适用范围。
@@ -30,12 +41,17 @@ description: Use this skill when requirements, policies, contracts, or workflows
 - 每条 `BR-##` 至少包含规则、来源、主体/对象、触发、前置条件、动作/结果、约束/不变量、例外、证据、未知项、影响和验证方法。
 - 冲突保留双方来源；无法证明时使用 `missing`、`stale` 或 `unassessed`，不要静默选择一方。
 
-## 按需加载
+## 参考文件
 
 - 每次产出前必须阅读 `prompts/business-rule-extraction.md`。
 - 需要回归时读取 `evals/eval.yaml` 和匹配的 `evals/cases/`；这些文件不证明真实业务语义已执行。
 - 需要检查触发行为时使用 `evals/trigger-prompts.csv` 与 `evals/local-rules.json` 运行仓库 trace runner；没有 `skill.selection` 证据时报告 `BLOCKED`。
 - 以上是仓库根目录下的开发验证步骤；独立安装的 Skill 包不包含仓库级 runner，运行时不依赖该脚本。
+
+## 最佳实践
+
+- 优先处理高影响且可验证的缺口，使用最小实验或补证动作降低不确定性。
+- 将事实、证据支持的推断、建议和 Human 决策分开，避免把假设升级为结论。
 
 ## 交付前自检
 

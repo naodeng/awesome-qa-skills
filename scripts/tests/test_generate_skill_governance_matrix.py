@@ -74,7 +74,7 @@ class GovernanceMatrixTest(unittest.TestCase):
 
     def test_candidates_reference_pinned_prompt_baselines(self):
         registry = matrix.load_registry(ROOT / "docs/governance/skill-governance-registry.yaml")
-        self.assertEqual(len(registry.candidates), 26)
+        self.assertEqual(len(registry.candidates), 33)
         self.assertTrue((ROOT / "docs/governance/PHASE_0_PROMPT_BASELINE_SOURCES.md").is_file())
         self.assertTrue((ROOT / "docs/governance/PHASE_0_PROMPT_BASELINE_SOURCES_EN.md").is_file())
         proposed_v1_1 = {
@@ -83,18 +83,38 @@ class GovernanceMatrixTest(unittest.TestCase):
             "requirement-consistency-analysis": "NEW",
             "requirement-conflict-detection": "NEW",
             "requirement-traceability-analysis": "NEW",
+            "business-rule-extraction": "NEW",
+            "technical-design-quality-review": "NEW",
+            "api-design-quality-review": "NEW",
+            "database-design-quality-review": "NEW",
+            "observability-design-review": "NEW",
+            "error-handling-design-review": "NEW",
+            "test-scope-analysis": "NEW",
             "business-rule-consistency-review": "ENHANCE",
             "architecture-testability-review": "ENHANCE",
             "test-coverage-analysis": "ENHANCE",
+        }
+        proposed_specs = {
+            "requirement-quality-review": "docs/superpowers/specs/2026-09-14-v1-1-requirements-quality-skills-design.md",
+            "requirement-ambiguity-analysis": "docs/superpowers/specs/2026-09-14-v1-1-requirements-quality-skills-design.md",
+            "requirement-consistency-analysis": "docs/superpowers/specs/2026-09-14-v1-1-requirements-quality-skills-design.md",
+            "requirement-conflict-detection": "docs/superpowers/specs/2026-09-14-v1-1-requirements-quality-skills-design.md",
+            "requirement-traceability-analysis": "docs/superpowers/specs/2026-09-14-v1-1-requirements-quality-skills-design.md",
+            "business-rule-extraction": "docs/superpowers/specs/2026-09-14-v1-1-next-five-quality-skills-design.md",
+            "technical-design-quality-review": "docs/superpowers/specs/2026-09-14-v1-1-next-five-quality-skills-design.md",
+            "api-design-quality-review": "docs/superpowers/specs/2026-09-14-v1-1-next-five-quality-skills-design.md",
+            "database-design-quality-review": "docs/superpowers/specs/2026-09-14-v1-1-following-five-quality-skills-design.md",
+            "observability-design-review": "docs/superpowers/specs/2026-09-14-v1-1-following-five-quality-skills-design.md",
+            "error-handling-design-review": "docs/superpowers/specs/2026-09-14-v1-1-following-five-quality-skills-design.md",
+            "test-scope-analysis": "docs/superpowers/specs/2026-09-14-v1-1-following-five-quality-skills-design.md",
         }
         for candidate in registry.candidates:
             if candidate["decision_state"] == "PROPOSED":
                 self.assertIn(candidate["slug"], proposed_v1_1)
                 self.assertEqual(candidate["conclusion"], proposed_v1_1[candidate["slug"]])
-                expected_spec = (
-                    "docs/superpowers/specs/2026-09-14-v1-1-requirements-quality-skills-design.md"
-                    if candidate["conclusion"] == "NEW"
-                    else "docs/superpowers/specs/2026-09-14-v1-1-following-five-quality-skills-design.md"
+                expected_spec = proposed_specs.get(
+                    candidate["slug"],
+                    "docs/superpowers/specs/2026-09-14-v1-1-following-five-quality-skills-design.md",
                 )
                 self.assertIn(expected_spec, candidate["candidate_source"])
                 target_paths = candidate["target_evidence_paths"]

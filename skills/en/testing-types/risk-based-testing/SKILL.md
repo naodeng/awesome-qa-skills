@@ -15,6 +15,17 @@ Translate supplied quality risks, failure modes, and delivery constraints into e
 
 Do not use it only to identify quality risks, write a complete test strategy, select an existing executable set, or announce release readiness.
 
+## Output Format Options
+
+- Use Markdown by default; when a table, CSV, or JSON is requested, preserve the same evidence, status, impact, owner, and validation fields.
+- Do not present a structured format or static inventory as execution, pass, approval, or release evidence.
+
+## How to Use
+
+1. Read this Skill's primary prompt and provide the objective, scope, material, environment, and available evidence.
+2. Follow the prompt's input audit and output contract; deliver a bounded first pass when information is incomplete.
+3. Retain source, evidence status, impact, owner role, close condition, and validation method for every finding.
+
 ## Workflow
 
 1. Read and follow `prompts/risk-based-testing.md`, starting with the six-part input audit.
@@ -30,11 +41,16 @@ Do not use it only to identify quality risks, write a complete test strategy, se
 - Do not generate a full test strategy or replace `quality-risk-analysis`, `test-strategy`, or regression-test selection.
 - Do not select concrete existing test IDs, execute tests, or invent environments, thresholds, defects, or pass results.
 
-## Progressive Disclosure
+## Reference Files
 
 - Always read `prompts/risk-based-testing.md` before producing an analysis.
 - For regression, read `evals/eval.yaml` and its cases; configuration and recommendations do not prove that risks are controlled.
 - For trigger checks, use `evals/trigger-prompts.csv` and `evals/local-rules.json`; missing selection trace is `BLOCKED`.
+
+## Best Practices
+
+- Prioritize high-impact gaps with a verifiable next action, using the smallest useful experiment or evidence request.
+- Separate facts, evidence-backed inferences, recommendations, and Human decisions; never upgrade an assumption into a conclusion.
 
 ## Pre-delivery Check
 

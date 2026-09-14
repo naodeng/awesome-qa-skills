@@ -15,6 +15,17 @@ Discover boundary candidates across data domains, state models, time rules, reso
 
 Do not use it only to analyze requirement gaps, write a complete test case suite, review existing cases, or execute boundary tests.
 
+## Output Format Options
+
+- Use Markdown by default; when a table, CSV, or JSON is requested, preserve the same evidence, status, impact, owner, and validation fields.
+- Do not present a structured format or static inventory as execution, pass, approval, or release evidence.
+
+## How to Use
+
+1. Read this Skill's primary prompt and provide the objective, scope, material, environment, and available evidence.
+2. Follow the prompt's input audit and output contract; deliver a bounded first pass when information is incomplete.
+3. Retain source, evidence status, impact, owner role, close condition, and validation method for every finding.
+
 ## Workflow
 
 1. Read and follow `prompts/edge-case-discovery.md`, beginning with the six-part input audit.
@@ -30,11 +41,16 @@ Do not use it only to analyze requirement gaps, write a complete test case suite
 - `EC-##` is a candidate discovery, not executed, passed, complete-coverage, or zero-risk evidence.
 - Do not expand candidates into full test cases, execute tests, or modify the target system.
 
-## Progressive Disclosure
+## Reference Files
 
 - Always read `prompts/edge-case-discovery.md` before producing an analysis.
 - For regression, read `evals/eval.yaml` and matching cases; configuration does not prove that boundaries were verified.
 - For trigger checks, use `evals/trigger-prompts.csv` and `evals/local-rules.json`; missing selection trace is `BLOCKED`.
+
+## Best Practices
+
+- Prioritize high-impact gaps with a verifiable next action, using the smallest useful experiment or evidence request.
+- Separate facts, evidence-backed inferences, recommendations, and Human decisions; never upgrade an assumption into a conclusion.
 
 ## Pre-delivery Check
 

@@ -15,6 +15,17 @@ Identify wording that cannot be uniquely understood or decided, preserve the sta
 
 Do not use it to make a final decision between mutually exclusive rules, execute tests, or fill in business rules from convention.
 
+## Output Format Options
+
+- Use Markdown by default; when a table, CSV, or JSON is requested, preserve the same evidence, status, impact, owner, and validation fields.
+- Do not present a structured format or static inventory as execution, pass, approval, or release evidence.
+
+## How to Use
+
+1. Read this Skill's primary prompt and provide the objective, scope, material, environment, and available evidence.
+2. Follow the prompt's input audit and output contract; deliver a bounded first pass when information is incomplete.
+3. Retain source, evidence status, impact, owner role, close condition, and validation method for every finding.
+
 ## Workflow
 
 1. Read and follow `prompts/requirement-ambiguity-analysis.md`.
@@ -31,12 +42,17 @@ Do not use it to make a final decision between mutually exclusive rules, execute
 - With incomplete input, return a minimum usable draft and explicitly list assumptions and 3–5 high-value questions.
 - Do not decide the final interpretation for product, business, legal, or compliance roles.
 
-## Progressive Disclosure
+## Reference Files
 
 - Always read `prompts/requirement-ambiguity-analysis.md` before producing an analysis.
 - Use `evals/eval.yaml` and `evals/cases/` to regress this Skill; structural or rule-based checks do not prove real-project effectiveness.
 - To check discovery behavior, run `scripts/run_skill_trace_eval.py` with `evals/trigger-prompts.csv` and `evals/local-rules.json`; missing `skill.selection` evidence is `BLOCKED`, not a trigger pass.
 - This is a repository-root development check; a standalone Skill package does not include the repository runner and does not depend on it at runtime.
+
+## Best Practices
+
+- Prioritize high-impact gaps with a verifiable next action, using the smallest useful experiment or evidence request.
+- Separate facts, evidence-backed inferences, recommendations, and Human decisions; never upgrade an assumption into a conclusion.
 
 ## Pre-delivery Checklist
 

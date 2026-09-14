@@ -15,6 +15,17 @@ Identify mutually exclusive rules and constraints across supplied requirements, 
 
 Do not use it for an ordinary one-source requirement review without mutually exclusive statements, to accept business risk, to choose precedence, or to invent an unapproved compromise rule.
 
+## Output Format Options
+
+- Use Markdown by default; when a table, CSV, or JSON is requested, preserve the same evidence, status, impact, owner, and validation fields.
+- Do not present a structured format or static inventory as execution, pass, approval, or release evidence.
+
+## How to Use
+
+1. Read this Skill's primary prompt and provide the objective, scope, material, environment, and available evidence.
+2. Follow the prompt's input audit and output contract; deliver a bounded first pass when information is incomplete.
+3. Retain source, evidence status, impact, owner role, close condition, and validation method for every finding.
+
 ## Workflow
 
 1. Read and follow `prompts/requirement-conflict-detection.md`.
@@ -31,12 +42,17 @@ Do not use it for an ordinary one-source requirement review without mutually exc
 - When version, scope, source, or context is missing, mark `missing`/`stale`/`unassessed` and ask for evidence.
 - Do not present static document wording, an existing implementation, or a report table as runtime verification evidence.
 
-## Progressive Disclosure
+## Reference Files
 
 - Always read `prompts/requirement-conflict-detection.md` before producing an analysis.
 - Use `evals/eval.yaml` and `evals/cases/` to regress this Skill; structural gates do not prove conflict semantics were runtime-tested.
 - To check discovery behavior, run `scripts/run_skill_trace_eval.py` with `evals/trigger-prompts.csv` and `evals/local-rules.json`; missing `skill.selection` evidence is `BLOCKED`, not a trigger pass.
 - This is a repository-root development check; a standalone Skill package does not include the repository runner and does not depend on it at runtime.
+
+## Best Practices
+
+- Prioritize high-impact gaps with a verifiable next action, using the smallest useful experiment or evidence request.
+- Separate facts, evidence-backed inferences, recommendations, and Human decisions; never upgrade an assumption into a conclusion.
 
 ## Pre-delivery Checklist
 

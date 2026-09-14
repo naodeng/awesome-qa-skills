@@ -296,6 +296,28 @@ class SkillEvalRulesTest(unittest.TestCase):
             result = next(item for item in report.results if item.rule_id == "TRIGGER-004")
             self.assertEqual(result.status, "BLOCKED")
 
+    def test_trigger_evidence_requires_the_canonical_skill_selection_event(self):
+        with TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            trace_path = root / "trace.jsonl"
+            write_trace(
+                trace_path,
+                [{
+                    "type": "skill.invoked",
+                    "skill": "demo-skill",
+                    "mode": "explicit",
+                    "selected": True,
+                }],
+            )
+
+            report = rules.evaluate_trace(
+                rules.load_jsonl(trace_path),
+                {"skill": "demo-skill", "trigger_mode": "explicit"},
+                root,
+            )
+            result = next(item for item in report.results if item.rule_id == "TRIGGER-001")
+            self.assertEqual(result.status, "BLOCKED")
+
     def test_command_matching_requires_a_token_boundary(self):
         self.assertTrue(rules._command_matches("npm test", "npm test -- --runInBand"))
         self.assertFalse(rules._command_matches("npm test", "npm test-extra"))

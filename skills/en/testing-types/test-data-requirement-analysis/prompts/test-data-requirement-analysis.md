@@ -45,7 +45,7 @@ When key material is missing, deliver a bounded first pass and state what cannot
 
 `TDR-##` describes preparation requirements only. Without evidence, do not write that data was created, available, compliant, complete, or test-passed.
 
-## Output Order
+## Output
 
 1. Objective, scenario, in/out-of-scope boundaries, and data-preparation success criteria;
 2. six-part input audit;
@@ -61,7 +61,18 @@ When key material is missing, deliver a bounded first pass and state what cannot
 - Do not treat a schema, placeholder, generation script, or directory as proof that data is ready.
 - Do not replace `test-data-generation`, write full test cases, execute tests, or approve compliance/release.
 
-## Self-Check
+## Execution Rules
+
+- Complete the input audit first; reason only from supplied material and retain source and minimum evidence for every finding.
+- Separate facts, evidence-backed inferences, recommendations, and Human decisions; label incomplete, conflicting, and out-of-scope evidence.
+
+## Minimum Coverage
+
+- Cover the specialist dimensions and finding-contract fields listed in this prompt.
+- Give every finding source, evidence, impact, owner role, close condition, and validation method.
+- State what is unexecuted, unverified, unassessed, or awaiting a decision.
+
+## Quality Requirements
 
 - Did you map the scenario to entities, fields, relationships, states, and roles?
 - Did you separately check valid/invalid/boundary/combination, privacy, source, setup, isolation, and cleanup?

@@ -15,6 +15,17 @@ Review API designs, OpenAPI/contracts, request/response examples, error models, 
 
 Do not use it to send requests, load-test, execute security tests, or choose a final API versioning policy for a team.
 
+## Output Format Options
+
+- Use Markdown by default; when a table, CSV, or JSON is requested, preserve the same evidence, status, impact, owner, and validation fields.
+- Do not present a structured format or static inventory as execution, pass, approval, or release evidence.
+
+## How to Use
+
+1. Read this Skill's primary prompt and provide the objective, scope, material, environment, and available evidence.
+2. Follow the prompt's input audit and output contract; deliver a bounded first pass when information is incomplete.
+3. Retain source, evidence status, impact, owner role, close condition, and validation method for every finding.
+
 ## Workflow
 
 1. Read `prompts/api-design-quality-review.md` and audit objective, version, consumers, scope, and evidence.
@@ -30,11 +41,16 @@ Do not use it to send requests, load-test, execute security tests, or choose a f
 - Every `API-##` includes operation, source/evidence, impact, compatibility risk, owner role, decision question, and validation method.
 - Without execution identity, time, environment, inputs, responses, and raw results, runtime status remains `unverified`, `unexecuted`, or `unassessed`.
 
-## On-Demand Loading
+## Reference Files
 
 - Always read `prompts/api-design-quality-review.md` before producing a review.
 - For regression, read `evals/eval.yaml` and its cases; structural validation is not API behavior evidence.
 - For trigger checks, use `evals/trigger-prompts.csv` and `evals/local-rules.json`; missing selection trace is `BLOCKED`.
+
+## Best Practices
+
+- Prioritize high-impact gaps with a verifiable next action, using the smallest useful experiment or evidence request.
+- Separate facts, evidence-backed inferences, recommendations, and Human decisions; never upgrade an assumption into a conclusion.
 
 ## Delivery Checklist
 

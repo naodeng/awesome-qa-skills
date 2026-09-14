@@ -1,14 +1,14 @@
 from __future__ import annotations
 
-import csv
 import json
 from pathlib import Path
 import unittest
 
+from scripts.tests.v11_contract_helpers import assert_trigger_contract
+
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 LANGUAGES = ("zh", "en")
-TRIGGER_MODES = {"explicit", "implicit", "contextual", "negative"}
 
 NEW_SLUGS = (
     "business-rule-extraction",
@@ -18,6 +18,22 @@ NEW_SLUGS = (
     "observability-design-review",
     "error-handling-design-review",
     "test-scope-analysis",
+)
+
+REQUIREMENT_SLUGS = (
+    "requirement-quality-review",
+    "requirement-ambiguity-analysis",
+    "requirement-consistency-analysis",
+    "requirement-conflict-detection",
+    "requirement-traceability-analysis",
+)
+
+TEST_DESIGN_SLUGS = (
+    "test-gap-analysis",
+    "risk-based-testing",
+    "edge-case-discovery",
+    "negative-scenario-discovery",
+    "test-data-requirement-analysis",
 )
 
 ENHANCEMENTS = {
@@ -68,22 +84,36 @@ def package_path(language: str, slug: str) -> Path:
     return REPO_ROOT / "skills" / language / "testing-types" / slug
 
 
-def read_trigger_rows(package: Path) -> list[dict[str, str]]:
-    path = package / "evals" / "trigger-prompts.csv"
-    with path.open(encoding="utf-8", newline="") as stream:
-        return list(csv.DictReader(stream))
-
-
-def assert_trigger_contract(test: unittest.TestCase, package: Path) -> list[dict[str, str]]:
-    rows = read_trigger_rows(package)
-    test.assertEqual({row.get("mode") for row in rows}, TRIGGER_MODES, package)
-    test.assertEqual({row.get("should_trigger") for row in rows}, {"true", "false"}, package)
-    test.assertEqual(len(rows), len({row.get("id") for row in rows}), package)
-    test.assertTrue(all((row.get("prompt") or "").strip() for row in rows), package)
-    return rows
-
-
 class V11TenQualitySkillContractTest(unittest.TestCase):
+    def test_new_packages_follow_the_repository_skill_and_prompt_skeleton(self):
+        skill_headings = {
+            "zh": ("## 何时使用", "## 输出格式选项", "## 如何使用", "## 参考文件", "## 常见误区", "## 最佳实践"),
+            "en": ("## When to Use", "## Output Format Options", "## How to Use", "## Reference Files", "## Common Pitfalls", "## Best Practices"),
+        }
+        prompt_headings = {
+            "zh": ("## 输入", "## 你要做的事", "## 执行规则", "## 最低覆盖清单", "## 输出", "## 质量要求"),
+            "en": ("## Input", "## What to Do", "## Execution Rules", "## Minimum Coverage", "## Output", "## Quality Requirements"),
+        }
+        for language in LANGUAGES:
+            for target_slug in (*REQUIREMENT_SLUGS, *NEW_SLUGS, *TEST_DESIGN_SLUGS):
+                package = package_path(language, target_slug)
+                skill_text = (package / "SKILL.md").read_text(encoding="utf-8")
+                prompt_text = (package / "prompts" / f"{target_slug}.md").read_text(encoding="utf-8")
+                for heading in skill_headings[language]:
+                    self.assertIn(heading, skill_text, f"missing {heading}: {package / 'SKILL.md'}")
+                for heading in prompt_headings[language]:
+                    self.assertIn(heading, prompt_text, f"missing {heading}: {package / 'prompts' / f'{target_slug}.md'}")
+
+    def test_new_skills_have_capability_match_records(self):
+        registry = json.loads(
+            (REPO_ROOT / "docs" / "governance" / "skill-governance-registry.yaml").read_text(encoding="utf-8")
+        )
+        candidates = {entry.get("slug"): entry for entry in registry.get("candidates", [])}
+        for slug in NEW_SLUGS:
+            self.assertIn(slug, candidates)
+            self.assertEqual(candidates[slug].get("conclusion"), "NEW")
+            self.assertTrue(candidates[slug].get("target_evidence_paths"), slug)
+
     def test_new_packages_have_required_bilingual_contract(self):
         required_files = (
             "SKILL.md",
@@ -142,6 +172,24 @@ class V11TenQualitySkillContractTest(unittest.TestCase):
             ).read_text(encoding="utf-8")
             for field in required_fields:
                 self.assertIn(field, prompt, f"missing {field} in {language} database prompt")
+
+    def test_specialized_findings_include_the_specified_fields(self):
+        specialized_fields = {
+            "observability-design-review": ("Covered Object", "Expected Semantics"),
+            "error-handling-design-review": ("Caller-Visible Result", "Observable Evidence"),
+        }
+        for language in LANGUAGES:
+            for slug, fields in specialized_fields.items():
+                prompt = (package_path(language, slug) / "prompts" / f"{slug}.md").read_text(encoding="utf-8")
+                for field in fields:
+                    self.assertIn(field, prompt, f"missing {field} in {language} {slug} prompt")
+
+            edge_prompt = (
+                package_path(language, "edge-case-discovery")
+                / "prompts"
+                / "edge-case-discovery.md"
+            ).read_text(encoding="utf-8")
+            self.assertIn("Unresolved Questions", edge_prompt, f"missing per-finding questions in {language} edge-case prompt")
 
     def test_enhancements_use_strong_mode_contracts_without_alias_directories(self):
         for candidate, contract in ENHANCEMENTS.items():

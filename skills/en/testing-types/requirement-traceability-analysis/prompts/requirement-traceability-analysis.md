@@ -50,7 +50,7 @@ When the user requests `test-coverage-analysis` or `coverage_analysis`, retain b
 
 Relationship types remain limited to `direct`, `derived`, `indirect`, `contradictory`, and `missing`; coverage statuses remain `complete`, `partial`, `unverified`, `stale`, `unexecuted`, and `unassessed`. A test file, name, report summary, or static presence cannot alone produce `complete`, and absent runtime evidence cannot be written as `passed`.
 
-## Output Order
+## Output
 
 1. Input audit and traceability scope;
 2. Timeline, versions, traceability model, and evidence chain;
@@ -60,7 +60,26 @@ Relationship types remain limited to `direct`, `derived`, `indirect`, `contradic
 6. Actions, owner roles, close conditions, and validation methods;
 7. Assumptions, unassessed items, and self-check.
 
-## Self-Check
+## Input
+
+Accept the user-provided objective, scope, material, environment, constraints, and evidence; the input audit above determines what can be used safely.
+
+## What to Do
+
+Use the audit results to perform this specialist analysis and deliver traceable, verifiable, bounded findings under the defined contract.
+
+## Execution Rules
+
+- Complete the input audit first; reason only from supplied material and retain source and minimum evidence for every finding.
+- Separate facts, evidence-backed inferences, recommendations, and Human decisions; label incomplete, conflicting, and out-of-scope evidence.
+
+## Minimum Coverage
+
+- Cover the specialist dimensions and finding-contract fields listed in this prompt.
+- Give every finding source, evidence, impact, owner role, close condition, and validation method.
+- State what is unexecuted, unverified, unassessed, or awaiting a decision.
+
+## Quality Requirements
 
 - Did you trace from requirements to artifacts and back from artifacts to requirements?
 - Does every link have a stable identifier, source, applicability, and minimum evidence?

@@ -28,7 +28,7 @@ Build an operation-level matrix for resources/naming, request/response schema, r
 | `Owner` / `Decision` | Owner role, decision question, and migration question |
 | `Validation` | Preconditions, action, expected result, and raw evidence required |
 
-## Output Order
+## Output
 
 1. Objective, consumers, version, and scope;
 2. Six-part input audit;
@@ -43,7 +43,26 @@ Build an operation-level matrix for resources/naming, request/response schema, r
 - Do not fill fields, permissions, errors, idempotency, rate limits, or version rules from convention alone.
 - Without real call identity, time, environment, inputs, responses, and logs, runtime status remains `unverified`, `unexecuted`, or `unassessed`.
 
-## Self-Check
+## Input
+
+Accept the user-provided objective, scope, material, environment, constraints, and evidence; the input audit above determines what can be used safely.
+
+## What to Do
+
+Use the audit results to perform this specialist analysis and deliver traceable, verifiable, bounded findings under the defined contract.
+
+## Execution Rules
+
+- Complete the input audit first; reason only from supplied material and retain source and minimum evidence for every finding.
+- Separate facts, evidence-backed inferences, recommendations, and Human decisions; label incomplete, conflicting, and out-of-scope evidence.
+
+## Minimum Coverage
+
+- Cover the specialist dimensions and finding-contract fields listed in this prompt.
+- Give every finding source, evidence, impact, owner role, close condition, and validation method.
+- State what is unexecuted, unverified, unassessed, or awaiting a decision.
+
+## Quality Requirements
 
 - Does every operation retain source, version, scope, and evidence?
 - Did you cover success, error, retry, authorization, compatibility, and consumer migration?

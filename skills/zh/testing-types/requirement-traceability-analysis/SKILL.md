@@ -15,6 +15,17 @@ description: Use this skill when requirements, acceptance criteria, design, code
 
 不适用于只需要编写测试用例、执行测试或替业务确认需求优先级的任务；本 Skill 只分析用户提供的映射和证据。
 
+## 输出格式选项
+
+- 默认输出 Markdown；用户要求表格、CSV 或 JSON 时，保留相同的证据、状态、影响、责任角色和验证字段。
+- 不把结构化格式或静态清单写成执行、通过、批准或发布证据。
+
+## 如何使用
+
+1. 先读取本 Skill 的主 Prompt，并提供目标、范围、材料、环境和已有证据。
+2. 按 Prompt 的输入审计和输出合同执行；缺少信息时交付带边界的初版。
+3. 对每条发现保留来源、证据状态、影响、责任角色、关闭条件和验证方法。
+
 ## 工作方式
 
 1. 阅读并遵循 `prompts/requirement-traceability-analysis.md`，先审计目标、版本、范围、时间窗口和输入边界。
@@ -35,13 +46,18 @@ description: Use this skill when requirements, acceptance criteria, design, code
 - 缺少制品、稳定 ID、版本、执行记录、数据或环境时，标记 `unassessed`/`unverified`/`unexecuted` 并提出补证问题。
 - 不编造需求、关系、阈值、负责人、审批或运行结果；建议必须说明依据和关闭条件。
 
-## 按需加载
+## 参考文件
 
 - 每次产出前必须阅读 `prompts/requirement-traceability-analysis.md`。
 - 需要回归本 Skill 时使用 `evals/eval.yaml` 和 `evals/cases/`；评测配置和静态映射不证明真实系统已执行。
 - 需要验证发现行为时，使用 `evals/trigger-prompts.csv` 与 `evals/local-rules.json` 运行仓库的 `scripts/run_skill_trace_eval.py`；缺少 `skill.selection` 证据时必须报告 `BLOCKED`，不能推断触发成功。
 - 以上是仓库根目录下的开发验证步骤；独立安装的 Skill 包不包含仓库级 runner，运行时不依赖该脚本。
 - 需要回归 `test-coverage-analysis` 时使用 `coverage-*` Eval 和包含 coverage analysis 短语的本地触发数据；目标仍是本 Skill 的物理目录，不创建别名目录。
+
+## 最佳实践
+
+- 优先处理高影响且可验证的缺口，使用最小实验或补证动作降低不确定性。
+- 将事实、证据支持的推断、建议和 Human 决策分开，避免把假设升级为结论。
 
 ## 交付前自检
 

@@ -42,7 +42,7 @@ Use `RF-##` for each item and include at least:
 | `Suggested action` / `Close condition` | Clarification or revision and how the issue is closed |
 | `Validation method` | Documentation, test, contract, approval, or runtime validation after decision |
 
-## Output Order
+## Output
 
 1. Input audit and applicability;
 2. Source, version, and condition inventory;
@@ -52,7 +52,26 @@ Use `RF-##` for each item and include at least:
 6. Human decision questions, owner roles, and close conditions;
 7. Unassessed items, assumptions, and self-check.
 
-## Self-Check
+## Input
+
+Accept the user-provided objective, scope, material, environment, constraints, and evidence; the input audit above determines what can be used safely.
+
+## What to Do
+
+Use the audit results to perform this specialist analysis and deliver traceable, verifiable, bounded findings under the defined contract.
+
+## Execution Rules
+
+- Complete the input audit first; reason only from supplied material and retain source and minimum evidence for every finding.
+- Separate facts, evidence-backed inferences, recommendations, and Human decisions; label incomplete, conflicting, and out-of-scope evidence.
+
+## Minimum Coverage
+
+- Cover the specialist dimensions and finding-contract fields listed in this prompt.
+- Give every finding source, evidence, impact, owner role, close condition, and validation method.
+- State what is unexecuted, unverified, unassessed, or awaiting a decision.
+
+## Quality Requirements
 
 - Are the original statements and sources for both sides preserved?
 - Are the same object, action, and applicability scope established?

@@ -15,6 +15,17 @@ Review logging, metrics, tracing, context propagation, SLO/SLI, alerts, dashboar
 
 Do not use it to query production logs, execute probes, analyze a real incident, or declare system health.
 
+## Output Format Options
+
+- Use Markdown by default; when a table, CSV, or JSON is requested, preserve the same evidence, status, impact, owner, and validation fields.
+- Do not present a structured format or static inventory as execution, pass, approval, or release evidence.
+
+## How to Use
+
+1. Read this Skill's primary prompt and provide the objective, scope, material, environment, and available evidence.
+2. Follow the prompt's input audit and output contract; deliver a bounded first pass when information is incomplete.
+3. Retain source, evidence status, impact, owner role, close condition, and validation method for every finding.
+
 ## Workflow
 
 1. Read `prompts/observability-design-review.md` and audit objective, service scope, time window, privacy, and sources.
@@ -30,11 +41,16 @@ Do not use it to query production logs, execute probes, analyze a real incident,
 - Every `OBS-##` includes signal, object, fields/dimensions, semantics, source/evidence, gap, impact, detection action, owner, and validation.
 - Without runtime identity, time, environment, and raw signals, runtime conclusions remain `unverified`, `unexecuted`, or `unassessed`.
 
-## On-Demand Loading
+## Reference Files
 
 - Always read `prompts/observability-design-review.md` before producing a review.
 - For regression, read `evals/eval.yaml` and its cases; a design check is not log, trace, or metric analysis.
 - For trigger checks, use `evals/trigger-prompts.csv` and `evals/local-rules.json`; missing selection trace is `BLOCKED`.
+
+## Best Practices
+
+- Prioritize high-impact gaps with a verifiable next action, using the smallest useful experiment or evidence request.
+- Separate facts, evidence-backed inferences, recommendations, and Human decisions; never upgrade an assumption into a conclusion.
 
 ## Delivery Checklist
 

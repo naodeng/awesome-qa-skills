@@ -15,6 +15,17 @@ description: Use this skill when multiple requirement artifacts may disagree on 
 
 不适用于只有一个来源且只需要通用需求分析的任务，也不用于替业务裁决显式冲突。
 
+## 输出格式选项
+
+- 默认输出 Markdown；用户要求表格、CSV 或 JSON 时，保留相同的证据、状态、影响、责任角色和验证字段。
+- 不把结构化格式或静态清单写成执行、通过、批准或发布证据。
+
+## 如何使用
+
+1. 先读取本 Skill 的主 Prompt，并提供目标、范围、材料、环境和已有证据。
+2. 按 Prompt 的输入审计和输出合同执行；缺少信息时交付带边界的初版。
+3. 对每条发现保留来源、证据状态、影响、责任角色、关闭条件和验证方法。
+
 ## 工作方式
 
 1. 阅读并遵循 `prompts/requirement-consistency-analysis.md`。
@@ -33,13 +44,18 @@ description: Use this skill when multiple requirement artifacts may disagree on 
 - 显式互斥规则建议使用 `requirement-conflict-detection`，只写 Skill 名称，不链接内部文件。
 - 不补造状态迁移、字段含义、平台支持或最终规范。
 
-## 按需加载
+## 参考文件
 
 - 每次产出前必须阅读 `prompts/requirement-consistency-analysis.md`。
 - 需要回归本 Skill 时使用 `evals/eval.yaml` 和 `evals/cases/`；结构门禁不证明跨来源语义正确。
 - 需要验证发现行为时，使用 `evals/trigger-prompts.csv` 与 `evals/local-rules.json` 运行仓库的 `scripts/run_skill_trace_eval.py`；缺少 `skill.selection` 证据时必须报告 `BLOCKED`，不能推断触发成功。
 - 以上是仓库根目录下的开发验证步骤；独立安装的 Skill 包不包含仓库级 runner，运行时不依赖该脚本。
 - 需要验证 `business-rule` 模式时，使用 `business-rule-*` Eval 和带业务规则短语的本地触发样本；目录仍是本 Skill 的物理目录，不创建别名目录。
+
+## 最佳实践
+
+- 优先处理高影响且可验证的缺口，使用最小实验或补证动作降低不确定性。
+- 将事实、证据支持的推断、建议和 Human 决策分开，避免把假设升级为结论。
 
 ## 交付前自检
 

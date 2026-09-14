@@ -15,6 +15,17 @@ description: Use this skill when you need to identify missing or weak test oblig
 
 不适用于只写测试用例、建立完整 `RT-##`/`TC-##` 追踪矩阵、执行测试或替 Human 接受剩余风险。
 
+## 输出格式选项
+
+- 默认输出 Markdown；用户要求表格、CSV 或 JSON 时，保留相同的证据、状态、影响、责任角色和验证字段。
+- 不把结构化格式或静态清单写成执行、通过、批准或发布证据。
+
+## 如何使用
+
+1. 先读取本 Skill 的主 Prompt，并提供目标、范围、材料、环境和已有证据。
+2. 按 Prompt 的输入审计和输出合同执行；缺少信息时交付带边界的初版。
+3. 对每条发现保留来源、证据状态、影响、责任角色、关闭条件和验证方法。
+
 ## 工作方式
 
 1. 阅读并遵循 `prompts/test-gap-analysis.md`，先做六类输入审计。
@@ -31,11 +42,16 @@ description: Use this skill when you need to identify missing or weak test oblig
 - 不编造需求、优先级、测试结果、缺陷状态、责任人或关闭事实。
 - 不把完整追踪分析、具体测试用例编写和执行集合选择复制进本 Skill。
 
-## 按需加载
+## 参考文件
 
 - 每次产出前必须阅读 `prompts/test-gap-analysis.md`。
 - 回归本 Skill 时读取 `evals/eval.yaml` 和匹配的 `evals/cases/`；Eval 配置不证明真实项目结果。
 - 触发验证使用 `evals/trigger-prompts.csv` 和 `evals/local-rules.json`；缺少 `skill.selection` 时报告 `BLOCKED`。
+
+## 最佳实践
+
+- 优先处理高影响且可验证的缺口，使用最小实验或补证动作降低不确定性。
+- 将事实、证据支持的推断、建议和 Human 决策分开，避免把假设升级为结论。
 
 ## 交付前自检
 
