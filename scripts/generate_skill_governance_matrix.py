@@ -119,13 +119,13 @@ def render_matching_register(registry: GovernanceRegistry, locale: str) -> str:
     switch = "中文" if english else "English"
     target = "SKILL_MATCHING_REGISTER.md" if english else "SKILL_MATCHING_REGISTER_EN.md"
     title = "Skill Capability Match Register" if english else "Skill 能力匹配决策登记表"
-    lines = [f'<div align="right"><a href="./{target}">{switch}</a></div>', "", f"# {title}", "", "| Candidate | Conclusion | Target | Evidence (six fields) | Next action |", "| --- | --- | --- | --- | --- |"]
+    lines = [f'<div align="right"><a href="./{target}">{switch}</a></div>', "", f"# {title}", "", "| Candidate | Decision state | Proposed conclusion | Target | Evidence (six fields) | Next action |", "| --- | --- | --- | --- | --- | --- |"]
     for candidate in sorted(registry.candidates, key=lambda item: str(item.get("slug", ""))):
         evidence = candidate.get("evidence", {})
         evidence_text = "; ".join(f"{field}: {evidence.get(field, 'UNASSESSED')}" for field in MATCH_FIELDS)
-        lines.append(f"| `{candidate.get('slug', '')}` | `{candidate.get('conclusion', 'UNASSESSED')}` | `{candidate.get('target', 'UNASSESSED')}` | {evidence_text} | {candidate.get('next_action', 'UNASSESSED')} |")
+        lines.append(f"| `{candidate.get('slug', '')}` | `{candidate.get('decision_state', 'UNASSESSED')}` | `{candidate.get('conclusion', 'UNASSESSED')}` | `{candidate.get('target', 'UNASSESSED')}` | {evidence_text} | {candidate.get('next_action', 'UNASSESSED')} |")
     if not registry.candidates:
-        lines.append("| _No candidate decisions recorded yet_ | `UNASSESSED` | — | Six-field evidence pending | Record evidence before implementation |" if not english else "| _No candidate decisions recorded yet_ | `UNASSESSED` | — | Six-field evidence pending | Record evidence before implementation |")
+        lines.append("| _No candidate decisions recorded yet_ | `UNASSESSED` | — | — | Six-field evidence pending | Record evidence before implementation |")
     return "\n".join(lines) + "\n"
 
 
