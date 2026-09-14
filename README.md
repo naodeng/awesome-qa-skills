@@ -394,6 +394,8 @@ bash scripts/check_skills_quality.sh
 
 该门禁覆盖目录整理、agents 元数据、独立安装约束、完整性校验，以及 skill-up evals YAML 校验。
 
+需要对 `codex exec --json` 运行结果做本地确定性检测时，使用 [Skill 本地评测规则](docs/SKILL_EVAL_RULES.md) 与 `scripts/grade_skill_trace.py`；它会把缺失证据标记为 `BLOCKED`，不会替代模型辅助的语义评分。
+
 用 [skill-up](https://github.com/alibaba/skill-up) 校验 / 实跑（可选）：
 
 ```bash
@@ -414,6 +416,7 @@ bash scripts/run_skill_eval.sh skills/zh/testing-types/functional-testing/evals/
 | [DOCUMENTATION_POLICY.md](docs/governance/DOCUMENTATION_POLICY.md) | 中文优先的双语文档治理策略 |
 | [SKILL_GOVERNANCE_V1.md](docs/governance/SKILL_GOVERNANCE_V1.md) | v1.0 源代码治理基线与 79 对静态记录入口（不代表运行质量） |
 | [PHASE_1_REQUIREMENTS_QUALITY.md](docs/governance/PHASE_1_REQUIREMENTS_QUALITY.md) | v1.1 Phase 1 前五个需求质量 Skill 的范围、卡片、证据和验收边界 |
+| [SKILL_EVAL_RULES.md](docs/SKILL_EVAL_RULES.md) | `codex exec --json` trace 的 20 条本地确定性 Skill 评测规则 |
 | [skills/DIRECTORY_GUIDE.md](skills/DIRECTORY_GUIDE.md) | 目录与命名规范 |
 | [skills/SKILL_AUTHORING.md](skills/SKILL_AUTHORING.md) | 编写与 skill-up 评测约定 |
 | [scripts/INSTALL_SKILLS.md](scripts/INSTALL_SKILLS.md) | 安装参数与工具路径 |

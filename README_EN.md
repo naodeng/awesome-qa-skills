@@ -394,6 +394,8 @@ bash scripts/check_skills_quality.sh
 
 This gate covers directory hygiene, agents metadata, install independence, integrity checks, and skill-up evals YAML validation.
 
+For local deterministic checks over a `codex exec --json` run, use [Local Skill Evaluation Rules](docs/SKILL_EVAL_RULES_EN.md) and `scripts/grade_skill_trace.py`; missing evidence is reported as `BLOCKED` rather than being treated as a substitute for model-assisted semantic grading.
+
 Optional validate / run with [skill-up](https://github.com/alibaba/skill-up):
 
 ```bash
@@ -414,6 +416,7 @@ Suggested pilots: `functional-testing`, `api-testing`, `api-test-bruno`, `bug-re
 | [DOCUMENTATION_POLICY_EN.md](docs/governance/DOCUMENTATION_POLICY_EN.md) | Chinese-first bilingual documentation policy |
 | [SKILL_GOVERNANCE_V1_EN.md](docs/governance/SKILL_GOVERNANCE_V1_EN.md) | v1.0 source-governance baseline and 79-pair static-record entry point (not runtime quality) |
 | [PHASE_1_REQUIREMENTS_QUALITY_EN.md](docs/governance/PHASE_1_REQUIREMENTS_QUALITY_EN.md) | v1.1 Phase 1 scope, cards, evidence, and acceptance boundaries for the first five requirement-quality Skills |
+| [SKILL_EVAL_RULES_EN.md](docs/SKILL_EVAL_RULES_EN.md) | Twenty local deterministic evaluation rules for `codex exec --json` Skill traces |
 | [skills/DIRECTORY_GUIDE.md](skills/DIRECTORY_GUIDE.md) | Directory and naming rules |
 | [skills/SKILL_AUTHORING.md](skills/SKILL_AUTHORING.md) | Authoring and skill-up eval conventions |
 | [scripts/INSTALL_SKILLS.md](scripts/INSTALL_SKILLS.md) | Install options and tool paths |

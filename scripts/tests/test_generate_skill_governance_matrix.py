@@ -70,14 +70,29 @@ class GovernanceMatrixTest(unittest.TestCase):
     def test_repository_registry_covers_every_logical_skill_once(self):
         registry = matrix.load_registry(ROOT / "docs/governance/skill-governance-registry.yaml")
         self.assertEqual(matrix.validate_registry(registry, matrix.discover_physical_skills(ROOT)), [])
-        self.assertEqual(len(registry.skills), 79)
+        self.assertEqual(len(registry.skills), 84)
 
     def test_candidates_reference_pinned_prompt_baselines(self):
         registry = matrix.load_registry(ROOT / "docs/governance/skill-governance-registry.yaml")
-        self.assertEqual(len(registry.candidates), 13)
+        self.assertEqual(len(registry.candidates), 18)
         self.assertTrue((ROOT / "docs/governance/PHASE_0_PROMPT_BASELINE_SOURCES.md").is_file())
         self.assertTrue((ROOT / "docs/governance/PHASE_0_PROMPT_BASELINE_SOURCES_EN.md").is_file())
+        proposed_v1_1 = {
+            "requirement-quality-review",
+            "requirement-ambiguity-analysis",
+            "requirement-consistency-analysis",
+            "requirement-conflict-detection",
+            "requirement-traceability-analysis",
+        }
         for candidate in registry.candidates:
+            if candidate["decision_state"] == "PROPOSED":
+                self.assertIn(candidate["slug"], proposed_v1_1)
+                self.assertEqual(candidate["conclusion"], "NEW")
+                self.assertIn("docs/superpowers/specs/2026-09-14-v1-1-requirements-quality-skills-design.md", candidate["candidate_source"])
+                target_paths = candidate["target_evidence_paths"]
+                self.assertTrue(target_paths)
+                self.assertTrue(all((ROOT / path).is_file() for path in target_paths))
+                continue
             self.assertEqual(candidate["decision_state"], "REVIEWED_WITH_LIMITATION")
             self.assertTrue(candidate["candidate_source"].startswith(
                 "awesome-qa-prompt@554178fe9b93d851ec01388597ceb7996d22bd1c: "

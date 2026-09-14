@@ -1,0 +1,24 @@
+{
+  "skill": "demo-skill",
+  "trigger_mode": "explicit",
+  "should_trigger": true,
+  "required_commands": ["python build.py", "python smoke.py"],
+  "command_order": ["python build.py", "python smoke.py"],
+  "required_artifacts": [
+    {"path": "package.json", "contains": "demo"}
+  ],
+  "build_command": "python build.py",
+  "smoke_command": "python smoke.py",
+  "expected_files": ["package.json", "src/main.py"],
+  "content_checks": [
+    {"path": "src/main.py", "contains": "main"}
+  ],
+  "persisted_paths": ["package.json", "src/main.py"],
+  "required_tools": ["python3"],
+  "max_commands": 20,
+  "max_repeated_commands": 2,
+  "max_total_tokens": 100000,
+  "forbidden_commands": ["git reset --hard", "rm -rf /"],
+  "permissions": {"max_escalations": 0},
+  "require_command_lifecycle": true
+}

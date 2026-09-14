@@ -39,4 +39,7 @@ cat /tmp/skills-eval-validate.out
 echo "[9/10] Validate bilingual documentation and Skill catalog"
 python3 scripts/check_docs_bilingual.py --repo-root .
 
+echo "[10/10] Validate local Skill eval rule catalog"
+python3 scripts/validate_skill_eval_rules.py
+
 echo "Skills quality checks passed."
