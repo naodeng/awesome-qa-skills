@@ -2849,40 +2849,40 @@
   "candidates": [
     {
       "slug": "requirement-change-impact-analysis",
-      "decision_state": "PROPOSED",
+      "decision_state": "REVIEWED_WITH_LIMITATION",
       "conclusion": "MATCH",
       "target": "change-impact-analysis",
       "evidence": {
-        "name": "REVIEWED_WITH_LIMITATION: candidate label is user-supplied; no candidate source artifact is recorded",
-        "purpose": "UNASSESSED: no candidate purpose artifact is available for comparison",
-        "inputs": "UNASSESSED: no candidate input contract is available for comparison",
-        "outputs": "UNASSESSED: no candidate output contract is available for comparison",
-        "decision_logic": "UNASSESSED: no candidate decision logic is available for comparison",
-        "workflow_role": "UNASSESSED: no candidate workflow-role artifact is available for comparison"
+        "name": "awesome-qa-prompt/testing-types/zh/change-impact-analysis/README.md#title; testing-types/en/change-impact-analysis/README.md#title",
+        "purpose": "awesome-qa-prompt/testing-types/{zh,en}/change-impact-analysis/README.md#usage; Standard-version/ChangeImpactAnalyzerPrompt.md#Prompt-purpose",
+        "inputs": "awesome-qa-prompt/testing-types/{zh,en}/change-impact-analysis/Standard-version/ChangeImpactAnalyzerPrompt.md#必要输入 / #Required inputs",
+        "outputs": "awesome-qa-prompt/testing-types/{zh,en}/change-impact-analysis/Standard-version/ChangeImpactAnalyzerPrompt.md#执行指令 / #Execution instructions",
+        "decision_logic": "awesome-qa-prompt/testing-types/{zh,en}/change-impact-analysis/Standard-version/ChangeImpactAnalyzerPrompt.md#分析方法; #专项聚焦; #使用约束与降级规则",
+        "workflow_role": "docs/governance/QA_SKILLS_EVOLUTION_ROADMAP.md#L46-L46; Change Intelligence: change to affected areas"
       },
-      "next_action": "Obtain candidate source material, then re-run all six comparison steps before implementation.",
+      "next_action": "Use the pinned baseline in Phase 1; retain business/runtime semantic equivalence as UNASSESSED and do not create or change a Skill from this row alone.",
       "target_evidence_paths": [
         "skills/zh/testing-types/change-impact-analysis/SKILL.md",
         "skills/en/testing-types/change-impact-analysis/SKILL.md",
         "skills/zh/testing-types/change-impact-analysis/prompts",
         "skills/en/testing-types/change-impact-analysis/prompts"
       ],
-      "candidate_source": "UNASSESSED: no candidate source artifact exists in the reviewed repository materials"
+      "candidate_source": "docs/governance/PHASE_0_PROMPT_BASELINE_SOURCES.md#requirement-change-impact-analysis; awesome-qa-prompt@554178fe9b93d851ec01388597ceb7996d22bd1c"
     },
     {
       "slug": "test-impact-analysis",
-      "decision_state": "PROPOSED",
+      "decision_state": "REVIEWED_WITH_LIMITATION",
       "conclusion": "MERGE",
       "target": "change-impact-analysis, pr-test-impact-analysis",
       "evidence": {
-        "name": "REVIEWED_WITH_LIMITATION: candidate label is user-supplied; no candidate source artifact is recorded",
-        "purpose": "UNASSESSED: no candidate purpose artifact is available for comparison",
-        "inputs": "UNASSESSED: no candidate input contract is available for comparison",
-        "outputs": "UNASSESSED: no candidate output contract is available for comparison",
-        "decision_logic": "UNASSESSED: no candidate decision logic is available for comparison",
-        "workflow_role": "UNASSESSED: no candidate workflow-role artifact is available for comparison"
+        "name": "awesome-qa-prompt/testing-types/{zh,en}/change-impact-analysis/README.md#title + pr-risk-analysis/README.md#title",
+        "purpose": "awesome-qa-prompt/testing-types/{zh,en}/change-impact-analysis/README.md#usage + pr-risk-analysis/README.md#usage",
+        "inputs": "awesome-qa-prompt/testing-types/{zh,en}/change-impact-analysis/Standard-version/ChangeImpactAnalyzerPrompt.md#必要输入 + pr-risk-analysis/Standard-version/PRRiskAnalyzerPrompt.md#必要输入",
+        "outputs": "awesome-qa-prompt/testing-types/{zh,en}/change-impact-analysis/Standard-version/ChangeImpactAnalyzerPrompt.md#执行指令 + PRRiskAnalyzerPrompt.md#执行指令",
+        "decision_logic": "awesome-qa-prompt/testing-types/{zh,en}/change-impact-analysis/Standard-version/ChangeImpactAnalyzerPrompt.md#分析方法 + PRRiskAnalyzerPrompt.md#分析方法; both focused scopes and degradation rules",
+        "workflow_role": "docs/governance/QA_SKILLS_EVOLUTION_ROADMAP.md#L46-L49; combine change impact with PR test impact, not execution evidence"
       },
-      "next_action": "Obtain candidate source material, then re-run all six comparison steps before implementation.",
+      "next_action": "Use both pinned baselines in Phase 1; review the merge boundary against real PR/test assets before changing a Skill.",
       "target_evidence_paths": [
         "skills/zh/testing-types/change-impact-analysis/SKILL.md",
         "skills/en/testing-types/change-impact-analysis/SKILL.md",
@@ -2893,88 +2893,88 @@
         "skills/zh/testing-types/pr-test-impact-analysis/prompts",
         "skills/en/testing-types/pr-test-impact-analysis/prompts"
       ],
-      "candidate_source": "UNASSESSED: no candidate source artifact exists in the reviewed repository materials"
+      "candidate_source": "docs/governance/PHASE_0_PROMPT_BASELINE_SOURCES.md#test-impact-analysis; awesome-qa-prompt@554178fe9b93d851ec01388597ceb7996d22bd1c"
     },
     {
       "slug": "code-change-risk-analysis",
-      "decision_state": "PROPOSED",
+      "decision_state": "REVIEWED_WITH_LIMITATION",
       "conclusion": "MERGE",
       "target": "pr-test-impact-analysis",
       "evidence": {
-        "name": "REVIEWED_WITH_LIMITATION: candidate label is user-supplied; no candidate source artifact is recorded",
-        "purpose": "UNASSESSED: no candidate purpose artifact is available for comparison",
-        "inputs": "UNASSESSED: no candidate input contract is available for comparison",
-        "outputs": "UNASSESSED: no candidate output contract is available for comparison",
-        "decision_logic": "UNASSESSED: no candidate decision logic is available for comparison",
-        "workflow_role": "UNASSESSED: no candidate workflow-role artifact is available for comparison"
+        "name": "awesome-qa-prompt/testing-types/{zh,en}/pr-risk-analysis/README.md#title",
+        "purpose": "awesome-qa-prompt/testing-types/{zh,en}/pr-risk-analysis/README.md#usage; Standard-version/PRRiskAnalyzerPrompt.md#Prompt-purpose",
+        "inputs": "awesome-qa-prompt/testing-types/{zh,en}/pr-risk-analysis/Standard-version/PRRiskAnalyzerPrompt.md#必要输入 / #Required inputs",
+        "outputs": "awesome-qa-prompt/testing-types/{zh,en}/pr-risk-analysis/Standard-version/PRRiskAnalyzerPrompt.md#执行指令 / #Execution instructions",
+        "decision_logic": "awesome-qa-prompt/testing-types/{zh,en}/pr-risk-analysis/Standard-version/PRRiskAnalyzerPrompt.md#分析方法; #专项聚焦; #使用约束与降级规则",
+        "workflow_role": "docs/governance/QA_SKILLS_EVOLUTION_ROADMAP.md#L47-L47; PR/Diff input and test-impact output"
       },
-      "next_action": "Obtain candidate source material, then re-run all six comparison steps before implementation.",
+      "next_action": "Use the pinned PR baseline in Phase 1; compare against real repository and test-asset contracts before changing a Skill.",
       "target_evidence_paths": [
         "skills/zh/testing-types/pr-test-impact-analysis/SKILL.md",
         "skills/en/testing-types/pr-test-impact-analysis/SKILL.md",
         "skills/zh/testing-types/pr-test-impact-analysis/prompts",
         "skills/en/testing-types/pr-test-impact-analysis/prompts"
       ],
-      "candidate_source": "UNASSESSED: no candidate source artifact exists in the reviewed repository materials"
+      "candidate_source": "docs/governance/PHASE_0_PROMPT_BASELINE_SOURCES.md#code-change-risk-analysis; awesome-qa-prompt@554178fe9b93d851ec01388597ceb7996d22bd1c"
     },
     {
       "slug": "workload-modeling",
-      "decision_state": "PROPOSED",
+      "decision_state": "REVIEWED_WITH_LIMITATION",
       "conclusion": "MATCH",
       "target": "performance-workload-modeling",
       "evidence": {
-        "name": "REVIEWED_WITH_LIMITATION: candidate label is user-supplied; no candidate source artifact is recorded",
-        "purpose": "UNASSESSED: no candidate purpose artifact is available for comparison",
-        "inputs": "UNASSESSED: no candidate input contract is available for comparison",
-        "outputs": "UNASSESSED: no candidate output contract is available for comparison",
-        "decision_logic": "UNASSESSED: no candidate decision logic is available for comparison",
-        "workflow_role": "UNASSESSED: no candidate workflow-role artifact is available for comparison"
+        "name": "awesome-qa-prompt/testing-types/{zh,en}/workload-model-design/README.md#title",
+        "purpose": "awesome-qa-prompt/testing-types/{zh,en}/workload-model-design/README.md#usage; Standard-version/WorkloadModelDesignerPrompt.md#Prompt-purpose",
+        "inputs": "awesome-qa-prompt/testing-types/{zh,en}/workload-model-design/Standard-version/WorkloadModelDesignerPrompt.md#必要输入 / #Required inputs",
+        "outputs": "awesome-qa-prompt/testing-types/{zh,en}/workload-model-design/Standard-version/WorkloadModelDesignerPrompt.md#执行指令 / #Execution instructions",
+        "decision_logic": "awesome-qa-prompt/testing-types/{zh,en}/workload-model-design/Standard-version/WorkloadModelDesignerPrompt.md#分析方法; #专项聚焦; #使用约束与降级规则",
+        "workflow_role": "docs/governance/QA_SKILLS_EVOLUTION_ROADMAP.md#L55-L55; Performance workload model with explicit assumptions"
       },
-      "next_action": "Obtain candidate source material, then re-run all six comparison steps before implementation.",
+      "next_action": "Use the pinned workload baseline in Phase 1; validate workload assumptions against project evidence before changing a Skill.",
       "target_evidence_paths": [
         "skills/zh/testing-types/performance-workload-modeling/SKILL.md",
         "skills/en/testing-types/performance-workload-modeling/SKILL.md",
         "skills/zh/testing-types/performance-workload-modeling/prompts",
         "skills/en/testing-types/performance-workload-modeling/prompts"
       ],
-      "candidate_source": "UNASSESSED: no candidate source artifact exists in the reviewed repository materials"
+      "candidate_source": "docs/governance/PHASE_0_PROMPT_BASELINE_SOURCES.md#workload-modeling; awesome-qa-prompt@554178fe9b93d851ec01388597ceb7996d22bd1c"
     },
     {
       "slug": "capacity-planning",
-      "decision_state": "PROPOSED",
+      "decision_state": "REVIEWED_WITH_LIMITATION",
       "conclusion": "MATCH",
       "target": "capacity-planning-analysis",
       "evidence": {
-        "name": "REVIEWED_WITH_LIMITATION: candidate label is user-supplied; no candidate source artifact is recorded",
-        "purpose": "UNASSESSED: no candidate purpose artifact is available for comparison",
-        "inputs": "UNASSESSED: no candidate input contract is available for comparison",
-        "outputs": "UNASSESSED: no candidate output contract is available for comparison",
-        "decision_logic": "UNASSESSED: no candidate decision logic is available for comparison",
-        "workflow_role": "UNASSESSED: no candidate workflow-role artifact is available for comparison"
+        "name": "awesome-qa-prompt/testing-types/{zh,en}/capacity-planning-analysis/README.md#title",
+        "purpose": "awesome-qa-prompt/testing-types/{zh,en}/capacity-planning-analysis/README.md#usage; Standard-version/CapacityPlanningAnalyzerPrompt.md#Prompt-purpose",
+        "inputs": "awesome-qa-prompt/testing-types/{zh,en}/capacity-planning-analysis/Standard-version/CapacityPlanningAnalyzerPrompt.md#必要输入 / #Required inputs",
+        "outputs": "awesome-qa-prompt/testing-types/{zh,en}/capacity-planning-analysis/Standard-version/CapacityPlanningAnalyzerPrompt.md#执行指令 / #Execution instructions",
+        "decision_logic": "awesome-qa-prompt/testing-types/{zh,en}/capacity-planning-analysis/Standard-version/CapacityPlanningAnalyzerPrompt.md#分析方法; #专项聚焦; #使用约束与降级规则",
+        "workflow_role": "docs/governance/QA_SKILLS_EVOLUTION_ROADMAP.md#L59-L59; Performance capacity assumptions and evidence gaps"
       },
-      "next_action": "Obtain candidate source material, then re-run all six comparison steps before implementation.",
+      "next_action": "Use the pinned capacity baseline in Phase 1; validate growth and resource evidence before changing a Skill.",
       "target_evidence_paths": [
         "skills/zh/testing-types/capacity-planning-analysis/SKILL.md",
         "skills/en/testing-types/capacity-planning-analysis/SKILL.md",
         "skills/zh/testing-types/capacity-planning-analysis/prompts",
         "skills/en/testing-types/capacity-planning-analysis/prompts"
       ],
-      "candidate_source": "UNASSESSED: no candidate source artifact exists in the reviewed repository materials"
+      "candidate_source": "docs/governance/PHASE_0_PROMPT_BASELINE_SOURCES.md#capacity-planning; awesome-qa-prompt@554178fe9b93d851ec01388597ceb7996d22bd1c"
     },
     {
       "slug": "regression-scope-selection",
-      "decision_state": "PROPOSED",
+      "decision_state": "REVIEWED_WITH_LIMITATION",
       "conclusion": "MERGE",
       "target": "regression-scope-analysis, regression-test-selection",
       "evidence": {
-        "name": "REVIEWED_WITH_LIMITATION: candidate label is user-supplied; no candidate source artifact is recorded",
-        "purpose": "UNASSESSED: no candidate purpose artifact is available for comparison",
-        "inputs": "UNASSESSED: no candidate input contract is available for comparison",
-        "outputs": "UNASSESSED: no candidate output contract is available for comparison",
-        "decision_logic": "UNASSESSED: no candidate decision logic is available for comparison",
-        "workflow_role": "UNASSESSED: no candidate workflow-role artifact is available for comparison"
+        "name": "awesome-qa-prompt/testing-types/{zh,en}/regression-scope-analysis/README.md#title + regression-test-selection/README.md#title",
+        "purpose": "awesome-qa-prompt/testing-types/{zh,en}/regression-scope-analysis/README.md#usage + regression-test-selection/README.md#usage",
+        "inputs": "awesome-qa-prompt/testing-types/{zh,en}/regression-scope-analysis/Standard-version/RegressionScopeAnalyzerPrompt.md#必要输入 + RegressionTestSelectorPrompt.md#必要输入",
+        "outputs": "awesome-qa-prompt/testing-types/{zh,en}/regression-scope-analysis/Standard-version/RegressionScopeAnalyzerPrompt.md#执行指令 + RegressionTestSelectorPrompt.md#执行指令",
+        "decision_logic": "awesome-qa-prompt/testing-types/{zh,en}/regression-scope-analysis/Standard-version/RegressionScopeAnalyzerPrompt.md#分析方法 + RegressionTestSelectorPrompt.md#分析方法; separate scope from selection",
+        "workflow_role": "docs/governance/QA_SKILLS_EVOLUTION_ROADMAP.md#L48-L49; define regression scope before selecting known assets"
       },
-      "next_action": "Obtain candidate source material, then re-run all six comparison steps before implementation.",
+      "next_action": "Use both pinned regression baselines in Phase 1; verify the scope/selection split against real test assets before changing a Skill.",
       "target_evidence_paths": [
         "skills/zh/testing-types/regression-scope-analysis/SKILL.md",
         "skills/en/testing-types/regression-scope-analysis/SKILL.md",
@@ -2985,161 +2985,161 @@
         "skills/zh/testing-types/regression-test-selection/prompts",
         "skills/en/testing-types/regression-test-selection/prompts"
       ],
-      "candidate_source": "UNASSESSED: no candidate source artifact exists in the reviewed repository materials"
+      "candidate_source": "docs/governance/PHASE_0_PROMPT_BASELINE_SOURCES.md#regression-scope-selection; awesome-qa-prompt@554178fe9b93d851ec01388597ceb7996d22bd1c"
     },
     {
       "slug": "ai-test-case-review",
-      "decision_state": "PROPOSED",
+      "decision_state": "REVIEWED_WITH_LIMITATION",
       "conclusion": "MATCH",
       "target": "ai-generated-test-review",
       "evidence": {
-        "name": "REVIEWED_WITH_LIMITATION: candidate label is user-supplied; no candidate source artifact is recorded",
-        "purpose": "UNASSESSED: no candidate purpose artifact is available for comparison",
-        "inputs": "UNASSESSED: no candidate input contract is available for comparison",
-        "outputs": "UNASSESSED: no candidate output contract is available for comparison",
-        "decision_logic": "UNASSESSED: no candidate decision logic is available for comparison",
-        "workflow_role": "UNASSESSED: no candidate workflow-role artifact is available for comparison"
+        "name": "awesome-qa-prompt/testing-types/{zh,en}/ai-generated-test-review/README.md#title",
+        "purpose": "awesome-qa-prompt/testing-types/{zh,en}/ai-generated-test-review/README.md#usage; Standard-version/AIGeneratedTestReviewPrompt.md#Prompt-purpose",
+        "inputs": "awesome-qa-prompt/testing-types/{zh,en}/ai-generated-test-review/Standard-version/AIGeneratedTestReviewPrompt.md#必要输入 / #Required inputs",
+        "outputs": "awesome-qa-prompt/testing-types/{zh,en}/ai-generated-test-review/Standard-version/AIGeneratedTestReviewPrompt.md#执行指令 / #Execution instructions",
+        "decision_logic": "awesome-qa-prompt/testing-types/{zh,en}/ai-generated-test-review/Standard-version/AIGeneratedTestReviewPrompt.md#审核方法; #专项聚焦; #使用约束与降级规则",
+        "workflow_role": "docs/governance/QA_SKILLS_EVOLUTION_ROADMAP.md#L64-L70; AI Native QA review of generated test cases"
       },
-      "next_action": "Obtain candidate source material, then re-run all six comparison steps before implementation.",
+      "next_action": "Use the pinned review baseline in Phase 1; validate supplied requirements and technical evidence before changing a Skill.",
       "target_evidence_paths": [
         "skills/zh/testing-types/ai-generated-test-review/SKILL.md",
         "skills/en/testing-types/ai-generated-test-review/SKILL.md",
         "skills/zh/testing-types/ai-generated-test-review/prompts",
         "skills/en/testing-types/ai-generated-test-review/prompts"
       ],
-      "candidate_source": "UNASSESSED: no candidate source artifact exists in the reviewed repository materials"
+      "candidate_source": "docs/governance/PHASE_0_PROMPT_BASELINE_SOURCES.md#ai-test-case-review; awesome-qa-prompt@554178fe9b93d851ec01388597ceb7996d22bd1c"
     },
     {
       "slug": "ai-log-analysis",
-      "decision_state": "PROPOSED",
+      "decision_state": "REVIEWED_WITH_LIMITATION",
       "conclusion": "ENHANCE",
       "target": "log-analysis",
       "evidence": {
-        "name": "REVIEWED_WITH_LIMITATION: candidate label is user-supplied; no candidate source artifact is recorded",
-        "purpose": "UNASSESSED: no candidate purpose artifact is available for comparison",
-        "inputs": "UNASSESSED: no candidate input contract is available for comparison",
-        "outputs": "UNASSESSED: no candidate output contract is available for comparison",
-        "decision_logic": "UNASSESSED: no candidate decision logic is available for comparison",
-        "workflow_role": "UNASSESSED: no candidate workflow-role artifact is available for comparison"
+        "name": "awesome-qa-prompt/testing-types/{zh,en}/log-analysis/README.md#title",
+        "purpose": "awesome-qa-prompt/testing-types/{zh,en}/log-analysis/README.md#usage; Standard-version/LogAnalyzerPrompt.md#Prompt-purpose",
+        "inputs": "awesome-qa-prompt/testing-types/{zh,en}/log-analysis/Standard-version/LogAnalyzerPrompt.md#必要输入 / #Required inputs",
+        "outputs": "awesome-qa-prompt/testing-types/{zh,en}/log-analysis/Standard-version/LogAnalyzerPrompt.md#执行指令 / #Execution instructions",
+        "decision_logic": "awesome-qa-prompt/testing-types/{zh,en}/log-analysis/Standard-version/LogAnalyzerPrompt.md#分析方法; #专项聚焦; #使用约束与降级规则",
+        "workflow_role": "docs/governance/QA_SKILLS_EVOLUTION_ROADMAP.md#L54-L54; Execution Intelligence log evidence"
       },
-      "next_action": "Obtain candidate source material, then re-run all six comparison steps before implementation.",
+      "next_action": "Use the pinned log baseline in Phase 1; validate real events and correlated evidence before changing a Skill.",
       "target_evidence_paths": [
         "skills/zh/testing-types/log-analysis/SKILL.md",
         "skills/en/testing-types/log-analysis/SKILL.md",
         "skills/zh/testing-types/log-analysis/prompts",
         "skills/en/testing-types/log-analysis/prompts"
       ],
-      "candidate_source": "UNASSESSED: no candidate source artifact exists in the reviewed repository materials"
+      "candidate_source": "docs/governance/PHASE_0_PROMPT_BASELINE_SOURCES.md#ai-log-analysis; awesome-qa-prompt@554178fe9b93d851ec01388597ceb7996d22bd1c"
     },
     {
       "slug": "ai-root-cause-analysis",
-      "decision_state": "PROPOSED",
+      "decision_state": "REVIEWED_WITH_LIMITATION",
       "conclusion": "ENHANCE",
       "target": "root-cause-analysis",
       "evidence": {
-        "name": "REVIEWED_WITH_LIMITATION: candidate label is user-supplied; no candidate source artifact is recorded",
-        "purpose": "UNASSESSED: no candidate purpose artifact is available for comparison",
-        "inputs": "UNASSESSED: no candidate input contract is available for comparison",
-        "outputs": "UNASSESSED: no candidate output contract is available for comparison",
-        "decision_logic": "UNASSESSED: no candidate decision logic is available for comparison",
-        "workflow_role": "UNASSESSED: no candidate workflow-role artifact is available for comparison"
+        "name": "awesome-qa-prompt/testing-types/{zh,en}/root-cause-analysis/README.md#title",
+        "purpose": "awesome-qa-prompt/testing-types/{zh,en}/root-cause-analysis/README.md#usage; Standard-version/RootCauseAnalyzerPrompt.md#Prompt-purpose",
+        "inputs": "awesome-qa-prompt/testing-types/{zh,en}/root-cause-analysis/Standard-version/RootCauseAnalyzerPrompt.md#必要输入 / #Required inputs",
+        "outputs": "awesome-qa-prompt/testing-types/{zh,en}/root-cause-analysis/Standard-version/RootCauseAnalyzerPrompt.md#执行指令 / #Execution instructions",
+        "decision_logic": "awesome-qa-prompt/testing-types/{zh,en}/root-cause-analysis/Standard-version/RootCauseAnalyzerPrompt.md#分析方法; #专项聚焦; #使用约束与降级规则",
+        "workflow_role": "docs/governance/QA_SKILLS_EVOLUTION_ROADMAP.md#L53-L53; evidence-based cause hypotheses and validation paths"
       },
-      "next_action": "Obtain candidate source material, then re-run all six comparison steps before implementation.",
+      "next_action": "Use the pinned root-cause baseline in Phase 1; validate hypotheses with project evidence before changing a Skill.",
       "target_evidence_paths": [
         "skills/zh/testing-types/root-cause-analysis/SKILL.md",
         "skills/en/testing-types/root-cause-analysis/SKILL.md",
         "skills/zh/testing-types/root-cause-analysis/prompts",
         "skills/en/testing-types/root-cause-analysis/prompts"
       ],
-      "candidate_source": "UNASSESSED: no candidate source artifact exists in the reviewed repository materials"
+      "candidate_source": "docs/governance/PHASE_0_PROMPT_BASELINE_SOURCES.md#ai-root-cause-analysis; awesome-qa-prompt@554178fe9b93d851ec01388597ceb7996d22bd1c"
     },
     {
       "slug": "quality-risk-identification",
-      "decision_state": "PROPOSED",
+      "decision_state": "REVIEWED_WITH_LIMITATION",
       "conclusion": "MATCH",
       "target": "quality-risk-analysis",
       "evidence": {
-        "name": "REVIEWED_WITH_LIMITATION: candidate label is user-supplied; no candidate source artifact is recorded",
-        "purpose": "UNASSESSED: no candidate purpose artifact is available for comparison",
-        "inputs": "UNASSESSED: no candidate input contract is available for comparison",
-        "outputs": "UNASSESSED: no candidate output contract is available for comparison",
-        "decision_logic": "UNASSESSED: no candidate decision logic is available for comparison",
-        "workflow_role": "UNASSESSED: no candidate workflow-role artifact is available for comparison"
+        "name": "awesome-qa-prompt/testing-types/{zh,en}/quality-risk-analysis/README.md#title",
+        "purpose": "awesome-qa-prompt/testing-types/{zh,en}/quality-risk-analysis/README.md#usage; Standard-version/QualityRiskAnalyzerPrompt.md#Prompt-purpose",
+        "inputs": "awesome-qa-prompt/testing-types/{zh,en}/quality-risk-analysis/Standard-version/QualityRiskAnalyzerPrompt.md#必要输入 / #Required inputs",
+        "outputs": "awesome-qa-prompt/testing-types/{zh,en}/quality-risk-analysis/Standard-version/QualityRiskAnalyzerPrompt.md#执行指令 / #Execution instructions",
+        "decision_logic": "awesome-qa-prompt/testing-types/{zh,en}/quality-risk-analysis/Standard-version/QualityRiskAnalyzerPrompt.md#分析方法; #专项聚焦; #使用约束与降级规则",
+        "workflow_role": "docs/governance/QA_SKILLS_EVOLUTION_ROADMAP.md#L44-L44; Shift-Left quality-risk prioritization"
       },
-      "next_action": "Obtain candidate source material, then re-run all six comparison steps before implementation.",
+      "next_action": "Use the pinned risk baseline in Phase 1; validate risk evidence and mitigation options against the project context.",
       "target_evidence_paths": [
         "skills/zh/testing-types/quality-risk-analysis/SKILL.md",
         "skills/en/testing-types/quality-risk-analysis/SKILL.md",
         "skills/zh/testing-types/quality-risk-analysis/prompts",
         "skills/en/testing-types/quality-risk-analysis/prompts"
       ],
-      "candidate_source": "UNASSESSED: no candidate source artifact exists in the reviewed repository materials"
+      "candidate_source": "docs/governance/PHASE_0_PROMPT_BASELINE_SOURCES.md#quality-risk-identification; awesome-qa-prompt@554178fe9b93d851ec01388597ceb7996d22bd1c"
     },
     {
       "slug": "ai-test-data-generation",
-      "decision_state": "PROPOSED",
+      "decision_state": "REVIEWED_WITH_LIMITATION",
       "conclusion": "ENHANCE",
       "target": "test-data-generation",
       "evidence": {
-        "name": "REVIEWED_WITH_LIMITATION: candidate label is user-supplied; no candidate source artifact is recorded",
-        "purpose": "UNASSESSED: no candidate purpose artifact is available for comparison",
-        "inputs": "UNASSESSED: no candidate input contract is available for comparison",
-        "outputs": "UNASSESSED: no candidate output contract is available for comparison",
-        "decision_logic": "UNASSESSED: no candidate decision logic is available for comparison",
-        "workflow_role": "UNASSESSED: no candidate workflow-role artifact is available for comparison"
+        "name": "awesome-qa-prompt/testing-types/{zh,en}/test-data-generation/README.md#title",
+        "purpose": "awesome-qa-prompt/testing-types/{zh,en}/test-data-generation/README.md#usage; Standard-version/TestDataGeneratorPrompt.md#Prompt-purpose",
+        "inputs": "awesome-qa-prompt/testing-types/{zh,en}/test-data-generation/Standard-version/TestDataGeneratorPrompt.md#必要输入 / #Required inputs",
+        "outputs": "awesome-qa-prompt/testing-types/{zh,en}/test-data-generation/Standard-version/TestDataGeneratorPrompt.md#执行指令 / #Execution instructions",
+        "decision_logic": "awesome-qa-prompt/testing-types/{zh,en}/test-data-generation/Standard-version/TestDataGeneratorPrompt.md#分析方法; #专项聚焦; #使用约束与降级规则",
+        "workflow_role": "docs/governance/QA_SKILLS_EVOLUTION_ROADMAP.md#L50-L50; traceable test-data design with privacy constraints"
       },
-      "next_action": "Obtain candidate source material, then re-run all six comparison steps before implementation.",
+      "next_action": "Use the pinned data-generation baseline in Phase 1; validate privacy, constraints, and traceability against project material.",
       "target_evidence_paths": [
         "skills/zh/testing-types/test-data-generation/SKILL.md",
         "skills/en/testing-types/test-data-generation/SKILL.md",
         "skills/zh/testing-types/test-data-generation/prompts",
         "skills/en/testing-types/test-data-generation/prompts"
       ],
-      "candidate_source": "UNASSESSED: no candidate source artifact exists in the reviewed repository materials"
+      "candidate_source": "docs/governance/PHASE_0_PROMPT_BASELINE_SOURCES.md#ai-test-data-generation; awesome-qa-prompt@554178fe9b93d851ec01388597ceb7996d22bd1c"
     },
     {
       "slug": "llm-output-quality-testing",
-      "decision_state": "PROPOSED",
+      "decision_state": "REVIEWED_WITH_LIMITATION",
       "conclusion": "ENHANCE",
       "target": "llm-testing",
       "evidence": {
-        "name": "REVIEWED_WITH_LIMITATION: candidate label is user-supplied; no candidate source artifact is recorded",
-        "purpose": "UNASSESSED: no candidate purpose artifact is available for comparison",
-        "inputs": "UNASSESSED: no candidate input contract is available for comparison",
-        "outputs": "UNASSESSED: no candidate output contract is available for comparison",
-        "decision_logic": "UNASSESSED: no candidate decision logic is available for comparison",
-        "workflow_role": "UNASSESSED: no candidate workflow-role artifact is available for comparison"
+        "name": "awesome-qa-prompt/testing-types/{zh,en}/llm-output-quality-evaluation/README.md#title",
+        "purpose": "awesome-qa-prompt/testing-types/{zh,en}/llm-output-quality-evaluation/README.md#usage; Standard-version/LLMOutputQualityEvaluatorPrompt.md#Prompt-purpose",
+        "inputs": "awesome-qa-prompt/testing-types/{zh,en}/llm-output-quality-evaluation/Standard-version/LLMOutputQualityEvaluatorPrompt.md#必要输入 / #Required inputs",
+        "outputs": "awesome-qa-prompt/testing-types/{zh,en}/llm-output-quality-evaluation/Standard-version/LLMOutputQualityEvaluatorPrompt.md#执行指令 / #Execution instructions",
+        "decision_logic": "awesome-qa-prompt/testing-types/{zh,en}/llm-output-quality-evaluation/Standard-version/LLMOutputQualityEvaluatorPrompt.md#分析与设计方法; #专项聚焦; #使用约束与降级规则",
+        "workflow_role": "docs/governance/QA_SKILLS_EVOLUTION_ROADMAP.md#L65-L66; AI Native LLM behavior and quality evidence"
       },
-      "next_action": "Obtain candidate source material, then re-run all six comparison steps before implementation.",
+      "next_action": "Use the pinned LLM quality baseline in Phase 1; separate designed criteria from executed evaluation results.",
       "target_evidence_paths": [
         "skills/zh/testing-types/llm-testing/SKILL.md",
         "skills/en/testing-types/llm-testing/SKILL.md",
         "skills/zh/testing-types/llm-testing/prompts",
         "skills/en/testing-types/llm-testing/prompts"
       ],
-      "candidate_source": "UNASSESSED: no candidate source artifact exists in the reviewed repository materials"
+      "candidate_source": "docs/governance/PHASE_0_PROMPT_BASELINE_SOURCES.md#llm-output-quality-testing; awesome-qa-prompt@554178fe9b93d851ec01388597ceb7996d22bd1c"
     },
     {
       "slug": "llm-evaluation",
-      "decision_state": "PROPOSED",
+      "decision_state": "REVIEWED_WITH_LIMITATION",
       "conclusion": "MATCH",
       "target": "llm-evaluation-design",
       "evidence": {
-        "name": "REVIEWED_WITH_LIMITATION: candidate label is user-supplied; no candidate source artifact is recorded",
-        "purpose": "UNASSESSED: no candidate purpose artifact is available for comparison",
-        "inputs": "UNASSESSED: no candidate input contract is available for comparison",
-        "outputs": "UNASSESSED: no candidate output contract is available for comparison",
-        "decision_logic": "UNASSESSED: no candidate decision logic is available for comparison",
-        "workflow_role": "UNASSESSED: no candidate workflow-role artifact is available for comparison"
+        "name": "awesome-qa-prompt/testing-types/{zh,en}/ai-evaluation-design/README.md#title + llm-output-quality-evaluation/README.md#title",
+        "purpose": "awesome-qa-prompt/testing-types/{zh,en}/ai-evaluation-design/README.md#usage + llm-output-quality-evaluation/README.md#usage",
+        "inputs": "awesome-qa-prompt/testing-types/{zh,en}/ai-evaluation-design/Standard-version/AIEvaluationDesignerPrompt.md#必要输入 + LLMOutputQualityEvaluatorPrompt.md#必要输入",
+        "outputs": "awesome-qa-prompt/testing-types/{zh,en}/ai-evaluation-design/Standard-version/AIEvaluationDesignerPrompt.md#执行指令 + LLMOutputQualityEvaluatorPrompt.md#执行指令",
+        "decision_logic": "awesome-qa-prompt/testing-types/{zh,en}/ai-evaluation-design/Standard-version/AIEvaluationDesignerPrompt.md#分析与设计方法 + LLMOutputQualityEvaluatorPrompt.md#分析与设计方法; metrics and reproducibility",
+        "workflow_role": "docs/governance/QA_SKILLS_EVOLUTION_ROADMAP.md#L66-L66; AI Native evaluation-set, metric, and human-review design"
       },
-      "next_action": "Obtain candidate source material, then re-run all six comparison steps before implementation.",
+      "next_action": "Use the pinned evaluation baselines in Phase 1; validate datasets, thresholds, and review policy before changing a Skill.",
       "target_evidence_paths": [
         "skills/zh/testing-types/llm-evaluation-design/SKILL.md",
         "skills/en/testing-types/llm-evaluation-design/SKILL.md",
         "skills/zh/testing-types/llm-evaluation-design/prompts",
         "skills/en/testing-types/llm-evaluation-design/prompts"
       ],
-      "candidate_source": "UNASSESSED: no candidate source artifact exists in the reviewed repository materials"
+      "candidate_source": "docs/governance/PHASE_0_PROMPT_BASELINE_SOURCES.md#llm-evaluation; awesome-qa-prompt@554178fe9b93d851ec01388597ceb7996d22bd1c"
     }
   ]
 }
