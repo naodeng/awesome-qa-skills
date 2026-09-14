@@ -394,7 +394,7 @@ bash scripts/check_skills_quality.sh
 
 This gate covers directory hygiene, agents metadata, install independence, integrity checks, and skill-up evals YAML validation.
 
-For local deterministic checks over a `codex exec --json` run, use [Local Skill Evaluation Rules](docs/SKILL_EVAL_RULES_EN.md) and `scripts/grade_skill_trace.py`; missing evidence is reported as `BLOCKED` rather than being treated as a substitute for model-assisted semantic grading.
+For local deterministic checks over a `codex exec --json` run, use [Local Skill Evaluation Rules](docs/SKILL_EVAL_RULES_EN.md), `scripts/run_skill_trace_eval.py`, and `scripts/grade_skill_trace.py`; missing evidence is reported as `BLOCKED` rather than being treated as a substitute for model-assisted semantic grading.
 
 Optional validate / run with [skill-up](https://github.com/alibaba/skill-up):
 

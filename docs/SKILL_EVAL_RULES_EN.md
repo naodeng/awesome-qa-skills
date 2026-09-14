@@ -24,6 +24,18 @@ Prepare the configuration with:
 cp docs/examples/skill-eval.rules.json /tmp/demo-skill.rules.json
 ```
 
+To run a batch from the article-style prompt set, preview the commands first:
+
+```bash
+python3 scripts/run_skill_trace_eval.py \
+  --prompts docs/examples/skill-eval.prompts.csv \
+  --config docs/examples/skill-eval.rules.json \
+  --project-root /tmp/demo-skill-projects \
+  --output-dir /tmp/demo-skill-reports
+```
+
+Only add `--run` after confirming the isolated directories and commands; add `--full-auto` only when the project really needs writes. Each case gets its own directory, and the trace, stderr, and rule report are persisted separately. Existing case directories are rejected rather than reused.
+
 Exit codes are: `0` when no rule is failed or evidence-blocked, `1` when at least one rule is `FAIL`, and `2` when there are no failures but at least one rule is `BLOCKED`. `BLOCKED` is not a pass; it means the trace or environment cannot prove the assertion.
 
 ## Twenty local rules

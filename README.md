@@ -394,7 +394,7 @@ bash scripts/check_skills_quality.sh
 
 该门禁覆盖目录整理、agents 元数据、独立安装约束、完整性校验，以及 skill-up evals YAML 校验。
 
-需要对 `codex exec --json` 运行结果做本地确定性检测时，使用 [Skill 本地评测规则](docs/SKILL_EVAL_RULES.md) 与 `scripts/grade_skill_trace.py`；它会把缺失证据标记为 `BLOCKED`，不会替代模型辅助的语义评分。
+需要对 `codex exec --json` 运行结果做本地确定性检测时，使用 [Skill 本地评测规则](docs/SKILL_EVAL_RULES.md)、`scripts/run_skill_trace_eval.py` 和 `scripts/grade_skill_trace.py`；它会把缺失证据标记为 `BLOCKED`，不会替代模型辅助的语义评分。
 
 用 [skill-up](https://github.com/alibaba/skill-up) 校验 / 实跑（可选）：
 

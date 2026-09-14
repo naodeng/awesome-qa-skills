@@ -1,0 +1,4 @@
+id,should_trigger,prompt,mode
+case-01,true,"Create a demo project using the $demo-skill skill",explicit
+case-02,true,"Create the kind of demo project this skill is designed for",implicit
+case-03,false,"Make a small unrelated documentation edit",negative

@@ -24,6 +24,18 @@ python3 scripts/grade_skill_trace.py \
 cp docs/examples/skill-eval.rules.json /tmp/demo-skill.rules.json
 ```
 
+如果需要按文章中的 prompt 集合批量执行，可先只预览命令：
+
+```bash
+python3 scripts/run_skill_trace_eval.py \
+  --prompts docs/examples/skill-eval.prompts.csv \
+  --config docs/examples/skill-eval.rules.json \
+  --project-root /tmp/demo-skill-projects \
+  --output-dir /tmp/demo-skill-reports
+```
+
+确认隔离目录和命令无误后，显式增加 `--run` 才会调用 `codex`；只有确实需要写入项目时才增加 `--full-auto`。每个 case 使用独立目录，trace、stderr 和规则报告分别保存，已有 case 目录会被拒绝复用。
+
 退出码含义：`0` 表示没有失败或缺证据的规则，`1` 表示至少一条 `FAIL`，`2` 表示没有失败但至少一条规则为 `BLOCKED`。`BLOCKED` 不等于通过，表示当前 trace 或环境不足以证明该规则。
 
 ## 二十条本地规则
