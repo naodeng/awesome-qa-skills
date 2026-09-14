@@ -2,7 +2,7 @@
 
 # Skills 全量索引
 
-每种语言包含 10 个工作流、66 个测试类型和 3 个 Skill Engineering，共 79 个；中英文合计 158 个目录。以下是逻辑导航，实际目录不变。
+每种语言包含 10 个工作流、66 个测试类型和 3 个 Skill Engineering，共 79 个；中英文合计 158 个目录。以下是逻辑导航，实际目录不变。长期治理入口见 [Skill 治理路线图](../governance/SKILL_GOVERNANCE_ROADMAP.md)、[治理矩阵](../SKILL_MATRIX.md) 和 [匹配登记表](../SKILL_MATCHING_REGISTER.md)。
 
 ## 跨阶段工作流
 

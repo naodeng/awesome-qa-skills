@@ -30,6 +30,10 @@ def _skill_identity(path: Path) -> tuple[str, str] | None:
         i = parts.index("testing-workflows")
         if i + 1 < len(parts):
             return ("testing-workflows", parts[i + 1])
+    if "skill-engineering" in parts:
+        i = parts.index("skill-engineering")
+        if i + 1 < len(parts):
+            return ("skill-engineering", parts[i + 1])
     return None
 
 
@@ -60,8 +64,10 @@ def iter_skill_markdown(skills_root: Path):
     canonical_bases = [
         skills_root / "zh" / "testing-types",
         skills_root / "zh" / "testing-workflows",
+        skills_root / "zh" / "skill-engineering",
         skills_root / "en" / "testing-types",
         skills_root / "en" / "testing-workflows",
+        skills_root / "en" / "skill-engineering",
     ]
     if any(b.exists() for b in canonical_bases):
         bases = canonical_bases

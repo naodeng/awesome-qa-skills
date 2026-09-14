@@ -12,6 +12,7 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+SECTIONS = ("testing-types", "testing-workflows", "skill-engineering")
 
 # Weak / incomplete descriptions → WHAT + WHEN + bilingual triggers
 DESC_FIXES: dict[tuple[str, str], str] = {
@@ -442,9 +443,9 @@ def optimize_skill(skill_dir: Path, dry_run: bool = False) -> bool:
 def iter_skills(lang: str | None = None) -> list[Path]:
     roots = []
     if lang in (None, "zh"):
-        roots += [ROOT / "skills/zh/testing-types", ROOT / "skills/zh/testing-workflows"]
+        roots += [ROOT / "skills/zh" / section for section in SECTIONS]
     if lang in (None, "en"):
-        roots += [ROOT / "skills/en/testing-types", ROOT / "skills/en/testing-workflows"]
+        roots += [ROOT / "skills/en" / section for section in SECTIONS]
     out: list[Path] = []
     for root in roots:
         out.extend(sorted(p for p in root.iterdir() if p.is_dir() and (p / "SKILL.md").exists()))

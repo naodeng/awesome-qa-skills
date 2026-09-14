@@ -10,23 +10,24 @@ ROOT = Path(__file__).resolve().parents[1]
 SKILLS_ROOT = ROOT / "skills"
 CANON_EN = SKILLS_ROOT / "en"
 CANON_ZH = SKILLS_ROOT / "zh"
+SECTIONS = ("testing-types", "testing-workflows", "skill-engineering")
 
 
 def ensure_canonical_layout() -> None:
     for lang in (CANON_EN, CANON_ZH):
-        (lang / "testing-types").mkdir(parents=True, exist_ok=True)
-        (lang / "testing-workflows").mkdir(parents=True, exist_ok=True)
+        for section in SECTIONS:
+            (lang / section).mkdir(parents=True, exist_ok=True)
 
 
-def sync_canonical() -> tuple[int, int]:
+def sync_canonical() -> tuple[int, int, int]:
     ensure_canonical_layout()
     # No external source to sync from.
-    return (0, 0)
+    return (0, 0, 0)
 
 
 def cleanup_en_suffix_aliases() -> int:
     removed = 0
-    for section in ("testing-types", "testing-workflows"):
+    for section in SECTIONS:
         for root in (CANON_ZH / section, CANON_EN / section):
             if not root.exists():
                 continue
@@ -42,14 +43,16 @@ def validate_structure() -> list[str]:
     for path in (
         CANON_ZH / "testing-types",
         CANON_ZH / "testing-workflows",
+        CANON_ZH / "skill-engineering",
         CANON_EN / "testing-types",
         CANON_EN / "testing-workflows",
+        CANON_EN / "skill-engineering",
     ):
         if not path.exists():
             issues.append(f"missing {path.relative_to(ROOT)}")
 
     # Check aliases resolve
-    for section in ("testing-types", "testing-workflows"):
+    for section in SECTIONS:
         for root in (CANON_ZH / section, CANON_EN / section):
             if not root.exists():
                 continue
@@ -58,7 +61,7 @@ def validate_structure() -> list[str]:
                     issues.append(f"broken symlink: {p.relative_to(ROOT)}")
 
     for lang_root, lang in ((CANON_ZH, "zh"), (CANON_EN, "en")):
-        for section in ("testing-types", "testing-workflows"):
+        for section in SECTIONS:
             base = lang_root / section
             if not base.exists():
                 continue
@@ -86,9 +89,10 @@ def main() -> int:
     do_check = args.check or not (args.sync_canonical or args.rebuild_language_views or args.check)
 
     if do_sync:
-        copied_types, copied_workflows = sync_canonical()
+        copied_types, copied_workflows, copied_skill_engineering = sync_canonical()
         print(f"canonical_sync_copied_types={copied_types}")
         print(f"canonical_sync_copied_workflows={copied_workflows}")
+        print(f"canonical_sync_copied_skill_engineering={copied_skill_engineering}")
 
     if do_rebuild:
         removed_aliases = cleanup_en_suffix_aliases()

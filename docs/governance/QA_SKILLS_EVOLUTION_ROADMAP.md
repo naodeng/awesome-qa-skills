@@ -16,7 +16,7 @@ Core QA Skills → Engineering QA Skills → Production Quality Skills → AI Na
 skills/{zh|en}/{testing-types|testing-workflows|skill-engineering}/<skill-name>/
 ```
 
-当前每种语言有 78 个 Skill（10 个工作流、65 个测试类型、3 个 Skill Engineering），中英双语共 156 个目录。
+当前每种语言有 79 个 Skill（10 个工作流、66 个测试类型、3 个 Skill Engineering），中英双语共 158 个目录。
 
 ## 研发与测试阶段细分
 

@@ -2,7 +2,7 @@
 
 # Skill Relationship Graph
 
-This is a navigation aid, not an installation dependency. Physical packages remain under `skills/{zh|en}/`.
+This is a navigation aid, not an installation dependency. Physical packages remain under `skills/{zh|en}/`. See the [governance matrix](../SKILL_MATRIX_EN.md) for governance status and matching relationships.
 
 ## Capability Landscape
 

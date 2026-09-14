@@ -57,7 +57,7 @@ Core QA Skills → Engineering QA Skills → Production Quality Skills → AI Na
 | Production Quality Skills | How do we make quality decisions from release and production evidence? | `release-testing-workflow`, `test-reporting` | Production verification, incidents, and observability |
 | AI Native QA Skills | How do we test AI features, LLMs, prompts, agents, and safety boundaries? | AI feature, LLM, prompt, agent, and safety Skills are available | Testing-for-AI specialized Skills |
 
-`ai-assisted-testing` is cross-cutting **AI for QA**, not the Testing-for-AI scope of AI Native QA. The six-iteration roadmap, 29 added Skills, and Prompt Baseline mapping are in the [evolution roadmap](docs/governance/QA_SKILLS_EVOLUTION_ROADMAP_EN.md).
+`ai-assisted-testing` is cross-cutting **AI for QA**, not the Testing-for-AI scope of AI Native QA. The completed six-iteration roadmap, 29 added Skills, and Prompt Baseline mapping are in the [evolution roadmap](docs/governance/QA_SKILLS_EVOLUTION_ROADMAP_EN.md); long-term Existing / Enhance / Merge / Match / New governance is in the [Skill governance roadmap](docs/governance/SKILL_GOVERNANCE_ROADMAP_EN.md).
 
 ## Supported AI tools
 

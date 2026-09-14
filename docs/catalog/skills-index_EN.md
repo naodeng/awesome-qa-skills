@@ -2,7 +2,7 @@
 
 # Complete Skills Index
 
-Each language contains 10 workflows, 66 testing types, and 3 Skill Engineering packages: 79 per language and 158 directories total. This is logical navigation; physical directories do not change.
+Each language contains 10 workflows, 66 testing types, and 3 Skill Engineering packages: 79 per language and 158 directories total. This is logical navigation; physical directories do not change. See the [Skill governance roadmap](../governance/SKILL_GOVERNANCE_ROADMAP_EN.md), [governance matrix](../SKILL_MATRIX_EN.md), and [matching register](../SKILL_MATCHING_REGISTER_EN.md) for long-term governance.
 
 ## Cross-phase workflows
 

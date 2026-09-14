@@ -84,7 +84,7 @@ function Install-ForTool {
   Write-Host "    Target: $targetRoot"
   Write-Host "    Language: $Lang"
 
-  $sections = @("testing-types", "testing-workflows")
+  $sections = @("testing-types", "testing-workflows", "skill-engineering")
   $langs = @()
   if ($Lang -eq "all") {
     $langs = @("zh", "en")

@@ -57,7 +57,7 @@ Core QA Skills → Engineering QA Skills → Production Quality Skills → AI Na
 | Production Quality Skills | 如何基于发布和生产证据进行质量决策 | `release-testing-workflow`、`test-reporting` | 生产验证、事故和可观测性 |
 | AI Native QA Skills | 如何验证 AI 功能、LLM、Prompt、Agent 和安全边界 | AI 功能、LLM、Prompt、Agent 与安全专项能力已提供 | Testing for AI 专项 Skill |
 
-`ai-assisted-testing` 是横向的 **AI for QA**，不等同于 AI Native QA 的 Testing for AI。完整的六迭代路线、29 个新增 Skill 和跨仓 Prompt Baseline 映射见 [演进路线图](docs/governance/QA_SKILLS_EVOLUTION_ROADMAP.md)。
+`ai-assisted-testing` 是横向的 **AI for QA**，不等同于 AI Native QA 的 Testing for AI。已完成的六迭代路线、29 个新增 Skill 和跨仓 Prompt Baseline 映射见 [演进路线图](docs/governance/QA_SKILLS_EVOLUTION_ROADMAP.md)；长期 Existing / Enhance / Merge / Match / New 治理见 [Skill 治理路线图](docs/governance/SKILL_GOVERNANCE_ROADMAP.md)。
 
 ## 支持的 AI 工具
 

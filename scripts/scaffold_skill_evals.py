@@ -7,6 +7,7 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+SECTIONS = ("testing-types", "testing-workflows", "skill-engineering")
 
 EVAL_YAML = """\
 schema_version: v1alpha1
@@ -238,15 +239,9 @@ def scaffold(skill_dir: Path, force: bool = False) -> bool:
 def iter_skills(lang: str | None = None) -> list[Path]:
     roots = []
     if lang in (None, "zh"):
-        roots += [
-            ROOT / "skills/zh/testing-types",
-            ROOT / "skills/zh/testing-workflows",
-        ]
+        roots += [ROOT / "skills/zh" / section for section in SECTIONS]
     if lang in (None, "en"):
-        roots += [
-            ROOT / "skills/en/testing-types",
-            ROOT / "skills/en/testing-workflows",
-        ]
+        roots += [ROOT / "skills/en" / section for section in SECTIONS]
     out: list[Path] = []
     for root in roots:
         if not root.exists():
