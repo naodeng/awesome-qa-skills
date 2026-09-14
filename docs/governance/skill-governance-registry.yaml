@@ -1,5 +1,1507 @@
 {
   "format": "json-compatible-yaml",
-  "skills": [],
+  "skills": [
+    {
+      "slug": "daily-testing-workflow",
+      "section": "testing-workflows",
+      "zh_path": "skills/zh/testing-workflows/daily-testing-workflow",
+      "en_path": "skills/en/testing-workflows/daily-testing-workflow",
+      "virtual_domain": "Workflow orchestration",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "No explicit Plus/similar relation recorded; semantic similarity UNASSESSED",
+      "governance_evidence": "skills/zh/testing-workflows/daily-testing-workflow/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "discover-testing",
+      "section": "testing-workflows",
+      "zh_path": "skills/zh/testing-workflows/discover-testing",
+      "en_path": "skills/en/testing-workflows/discover-testing",
+      "virtual_domain": "Workflow orchestration",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "No explicit Plus/similar relation recorded; semantic similarity UNASSESSED",
+      "governance_evidence": "skills/zh/testing-workflows/discover-testing/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "multi-role-quality-synthesis",
+      "section": "testing-workflows",
+      "zh_path": "skills/zh/testing-workflows/multi-role-quality-synthesis",
+      "en_path": "skills/en/testing-workflows/multi-role-quality-synthesis",
+      "virtual_domain": "Workflow orchestration",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "No explicit Plus/similar relation recorded; semantic similarity UNASSESSED",
+      "governance_evidence": "skills/zh/testing-workflows/multi-role-quality-synthesis/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "product-quality-perspective",
+      "section": "testing-workflows",
+      "zh_path": "skills/zh/testing-workflows/product-quality-perspective",
+      "en_path": "skills/en/testing-workflows/product-quality-perspective",
+      "virtual_domain": "Workflow orchestration",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "No explicit Plus/similar relation recorded; semantic similarity UNASSESSED",
+      "governance_evidence": "skills/zh/testing-workflows/product-quality-perspective/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "project-delivery-perspective",
+      "section": "testing-workflows",
+      "zh_path": "skills/zh/testing-workflows/project-delivery-perspective",
+      "en_path": "skills/en/testing-workflows/project-delivery-perspective",
+      "virtual_domain": "Workflow orchestration",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "No explicit Plus/similar relation recorded; semantic similarity UNASSESSED",
+      "governance_evidence": "skills/zh/testing-workflows/project-delivery-perspective/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "qa-quality-perspective",
+      "section": "testing-workflows",
+      "zh_path": "skills/zh/testing-workflows/qa-quality-perspective",
+      "en_path": "skills/en/testing-workflows/qa-quality-perspective",
+      "virtual_domain": "Workflow orchestration",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "No explicit Plus/similar relation recorded; semantic similarity UNASSESSED",
+      "governance_evidence": "skills/zh/testing-workflows/qa-quality-perspective/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "release-testing-workflow",
+      "section": "testing-workflows",
+      "zh_path": "skills/zh/testing-workflows/release-testing-workflow",
+      "en_path": "skills/en/testing-workflows/release-testing-workflow",
+      "virtual_domain": "Workflow orchestration",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "No explicit Plus/similar relation recorded; semantic similarity UNASSESSED",
+      "governance_evidence": "skills/zh/testing-workflows/release-testing-workflow/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "sprint-testing-workflow",
+      "section": "testing-workflows",
+      "zh_path": "skills/zh/testing-workflows/sprint-testing-workflow",
+      "en_path": "skills/en/testing-workflows/sprint-testing-workflow",
+      "virtual_domain": "Workflow orchestration",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "No explicit Plus/similar relation recorded; semantic similarity UNASSESSED",
+      "governance_evidence": "skills/zh/testing-workflows/sprint-testing-workflow/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "technical-quality-perspective",
+      "section": "testing-workflows",
+      "zh_path": "skills/zh/testing-workflows/technical-quality-perspective",
+      "en_path": "skills/en/testing-workflows/technical-quality-perspective",
+      "virtual_domain": "Workflow orchestration",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "No explicit Plus/similar relation recorded; semantic similarity UNASSESSED",
+      "governance_evidence": "skills/zh/testing-workflows/technical-quality-perspective/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "ux-quality-perspective",
+      "section": "testing-workflows",
+      "zh_path": "skills/zh/testing-workflows/ux-quality-perspective",
+      "en_path": "skills/en/testing-workflows/ux-quality-perspective",
+      "virtual_domain": "Workflow orchestration",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "No explicit Plus/similar relation recorded; semantic similarity UNASSESSED",
+      "governance_evidence": "skills/zh/testing-workflows/ux-quality-perspective/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "acceptance-criteria-review",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/acceptance-criteria-review",
+      "en_path": "skills/en/testing-types/acceptance-criteria-review",
+      "virtual_domain": "Engineering QA",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "No explicit Plus/similar relation recorded; semantic similarity UNASSESSED",
+      "governance_evidence": "skills/zh/testing-types/acceptance-criteria-review/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "accessibility-testing",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/accessibility-testing",
+      "en_path": "skills/en/testing-types/accessibility-testing",
+      "virtual_domain": "Core QA",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "No explicit Plus/similar relation recorded; semantic similarity UNASSESSED",
+      "governance_evidence": "skills/zh/testing-types/accessibility-testing/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "agent-tool-testing",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/agent-tool-testing",
+      "en_path": "skills/en/testing-types/agent-tool-testing",
+      "virtual_domain": "AI Native QA",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "No explicit Plus/similar relation recorded; semantic similarity UNASSESSED",
+      "governance_evidence": "skills/zh/testing-types/agent-tool-testing/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "ai-agent-testing",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/ai-agent-testing",
+      "en_path": "skills/en/testing-types/ai-agent-testing",
+      "virtual_domain": "AI Native QA",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "No explicit Plus/similar relation recorded; semantic similarity UNASSESSED",
+      "governance_evidence": "skills/zh/testing-types/ai-agent-testing/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "ai-assisted-testing",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/ai-assisted-testing",
+      "en_path": "skills/en/testing-types/ai-assisted-testing",
+      "virtual_domain": "Engineering QA",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "No explicit Plus/similar relation recorded; semantic similarity UNASSESSED",
+      "governance_evidence": "skills/zh/testing-types/ai-assisted-testing/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "ai-feature-testing",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/ai-feature-testing",
+      "en_path": "skills/en/testing-types/ai-feature-testing",
+      "virtual_domain": "AI Native QA",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "No explicit Plus/similar relation recorded; semantic similarity UNASSESSED",
+      "governance_evidence": "skills/zh/testing-types/ai-feature-testing/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "ai-generated-test-review",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/ai-generated-test-review",
+      "en_path": "skills/en/testing-types/ai-generated-test-review",
+      "virtual_domain": "Engineering QA",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "No explicit Plus/similar relation recorded; semantic similarity UNASSESSED",
+      "governance_evidence": "skills/zh/testing-types/ai-generated-test-review/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "api-contract-testing",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/api-contract-testing",
+      "en_path": "skills/en/testing-types/api-contract-testing",
+      "virtual_domain": "Engineering QA",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "No explicit Plus/similar relation recorded; semantic similarity UNASSESSED",
+      "governance_evidence": "skills/zh/testing-types/api-contract-testing/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "api-test-bruno",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/api-test-bruno",
+      "en_path": "skills/en/testing-types/api-test-bruno",
+      "virtual_domain": "Engineering QA",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "Comparable tool-specific family: `api-test-postman`, `api-test-pytest`, `api-test-restassure`, `api-test-supertest`",
+      "governance_evidence": "skills/zh/testing-types/api-test-bruno/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "api-test-postman",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/api-test-postman",
+      "en_path": "skills/en/testing-types/api-test-postman",
+      "virtual_domain": "Engineering QA",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "Comparable tool-specific family: `api-test-bruno`, `api-test-pytest`, `api-test-restassure`, `api-test-supertest`",
+      "governance_evidence": "skills/zh/testing-types/api-test-postman/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "api-test-pytest",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/api-test-pytest",
+      "en_path": "skills/en/testing-types/api-test-pytest",
+      "virtual_domain": "Engineering QA",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "Comparable tool-specific family: `api-test-bruno`, `api-test-postman`, `api-test-restassure`, `api-test-supertest`",
+      "governance_evidence": "skills/zh/testing-types/api-test-pytest/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "api-test-restassure",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/api-test-restassure",
+      "en_path": "skills/en/testing-types/api-test-restassure",
+      "virtual_domain": "Engineering QA",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "Comparable tool-specific family: `api-test-bruno`, `api-test-postman`, `api-test-pytest`, `api-test-supertest`",
+      "governance_evidence": "skills/zh/testing-types/api-test-restassure/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "api-test-supertest",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/api-test-supertest",
+      "en_path": "skills/en/testing-types/api-test-supertest",
+      "virtual_domain": "Engineering QA",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "Comparable tool-specific family: `api-test-bruno`, `api-test-postman`, `api-test-pytest`, `api-test-restassure`",
+      "governance_evidence": "skills/zh/testing-types/api-test-supertest/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "api-testing",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/api-testing",
+      "en_path": "skills/en/testing-types/api-testing",
+      "virtual_domain": "Core QA",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "No explicit Plus/similar relation recorded; semantic similarity UNASSESSED",
+      "governance_evidence": "skills/zh/testing-types/api-testing/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "automation-testing",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/automation-testing",
+      "en_path": "skills/en/testing-types/automation-testing",
+      "virtual_domain": "Engineering QA",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "No explicit Plus/similar relation recorded; semantic similarity UNASSESSED",
+      "governance_evidence": "skills/zh/testing-types/automation-testing/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "bug-reporting",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/bug-reporting",
+      "en_path": "skills/en/testing-types/bug-reporting",
+      "virtual_domain": "Core QA",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "No explicit Plus/similar relation recorded; semantic similarity UNASSESSED",
+      "governance_evidence": "skills/zh/testing-types/bug-reporting/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "capacity-planning-analysis",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/capacity-planning-analysis",
+      "en_path": "skills/en/testing-types/capacity-planning-analysis",
+      "virtual_domain": "Engineering QA",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "No explicit Plus/similar relation recorded; semantic similarity UNASSESSED",
+      "governance_evidence": "skills/zh/testing-types/capacity-planning-analysis/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "change-impact-analysis",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/change-impact-analysis",
+      "en_path": "skills/en/testing-types/change-impact-analysis",
+      "virtual_domain": "Engineering QA",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "No explicit Plus/similar relation recorded; semantic similarity UNASSESSED",
+      "governance_evidence": "skills/zh/testing-types/change-impact-analysis/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "code-review",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/code-review",
+      "en_path": "skills/en/testing-types/code-review",
+      "virtual_domain": "Engineering QA",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "No explicit Plus/similar relation recorded; semantic similarity UNASSESSED",
+      "governance_evidence": "skills/zh/testing-types/code-review/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "distributed-trace-analysis",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/distributed-trace-analysis",
+      "en_path": "skills/en/testing-types/distributed-trace-analysis",
+      "virtual_domain": "Production Quality",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "No explicit Plus/similar relation recorded; semantic similarity UNASSESSED",
+      "governance_evidence": "skills/zh/testing-types/distributed-trace-analysis/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "flaky-test-analysis",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/flaky-test-analysis",
+      "en_path": "skills/en/testing-types/flaky-test-analysis",
+      "virtual_domain": "Engineering QA",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "No explicit Plus/similar relation recorded; semantic similarity UNASSESSED",
+      "governance_evidence": "skills/zh/testing-types/flaky-test-analysis/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "functional-testing",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/functional-testing",
+      "en_path": "skills/en/testing-types/functional-testing",
+      "virtual_domain": "Core QA",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "No explicit Plus/similar relation recorded; semantic similarity UNASSESSED",
+      "governance_evidence": "skills/zh/testing-types/functional-testing/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "llm-evaluation-design",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/llm-evaluation-design",
+      "en_path": "skills/en/testing-types/llm-evaluation-design",
+      "virtual_domain": "AI Native QA",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "No explicit Plus/similar relation recorded; semantic similarity UNASSESSED",
+      "governance_evidence": "skills/zh/testing-types/llm-evaluation-design/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "llm-testing",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/llm-testing",
+      "en_path": "skills/en/testing-types/llm-testing",
+      "virtual_domain": "AI Native QA",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "No explicit Plus/similar relation recorded; semantic similarity UNASSESSED",
+      "governance_evidence": "skills/zh/testing-types/llm-testing/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "log-analysis",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/log-analysis",
+      "en_path": "skills/en/testing-types/log-analysis",
+      "virtual_domain": "Engineering QA",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "No explicit Plus/similar relation recorded; semantic similarity UNASSESSED",
+      "governance_evidence": "skills/zh/testing-types/log-analysis/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "manual-testing",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/manual-testing",
+      "en_path": "skills/en/testing-types/manual-testing",
+      "virtual_domain": "Core QA",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "No explicit Plus/similar relation recorded; semantic similarity UNASSESSED",
+      "governance_evidence": "skills/zh/testing-types/manual-testing/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "metrics-anomaly-analysis",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/metrics-anomaly-analysis",
+      "en_path": "skills/en/testing-types/metrics-anomaly-analysis",
+      "virtual_domain": "Production Quality",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "No explicit Plus/similar relation recorded; semantic similarity UNASSESSED",
+      "governance_evidence": "skills/zh/testing-types/metrics-anomaly-analysis/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "mobile-testing",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/mobile-testing",
+      "en_path": "skills/en/testing-types/mobile-testing",
+      "virtual_domain": "Core QA",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "No explicit Plus/similar relation recorded; semantic similarity UNASSESSED",
+      "governance_evidence": "skills/zh/testing-types/mobile-testing/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "performance-bottleneck-analysis",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/performance-bottleneck-analysis",
+      "en_path": "skills/en/testing-types/performance-bottleneck-analysis",
+      "virtual_domain": "Engineering QA",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "No explicit Plus/similar relation recorded; semantic similarity UNASSESSED",
+      "governance_evidence": "skills/zh/testing-types/performance-bottleneck-analysis/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "performance-regression-analysis",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/performance-regression-analysis",
+      "en_path": "skills/en/testing-types/performance-regression-analysis",
+      "virtual_domain": "Engineering QA",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "No explicit Plus/similar relation recorded; semantic similarity UNASSESSED",
+      "governance_evidence": "skills/zh/testing-types/performance-regression-analysis/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "performance-result-analysis",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/performance-result-analysis",
+      "en_path": "skills/en/testing-types/performance-result-analysis",
+      "virtual_domain": "Engineering QA",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "No explicit Plus/similar relation recorded; semantic similarity UNASSESSED",
+      "governance_evidence": "skills/zh/testing-types/performance-result-analysis/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "performance-test-gatling",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/performance-test-gatling",
+      "en_path": "skills/en/testing-types/performance-test-gatling",
+      "virtual_domain": "Engineering QA",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "Comparable tool-specific family: `performance-test-jmeter`, `performance-test-k6`",
+      "governance_evidence": "skills/zh/testing-types/performance-test-gatling/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "performance-test-jmeter",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/performance-test-jmeter",
+      "en_path": "skills/en/testing-types/performance-test-jmeter",
+      "virtual_domain": "Engineering QA",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "Comparable tool-specific family: `performance-test-gatling`, `performance-test-k6`",
+      "governance_evidence": "skills/zh/testing-types/performance-test-jmeter/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "performance-test-k6",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/performance-test-k6",
+      "en_path": "skills/en/testing-types/performance-test-k6",
+      "virtual_domain": "Engineering QA",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "Comparable tool-specific family: `performance-test-gatling`, `performance-test-jmeter`",
+      "governance_evidence": "skills/zh/testing-types/performance-test-k6/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "performance-testing",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/performance-testing",
+      "en_path": "skills/en/testing-types/performance-testing",
+      "virtual_domain": "Engineering QA",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "No explicit Plus/similar relation recorded; semantic similarity UNASSESSED",
+      "governance_evidence": "skills/zh/testing-types/performance-testing/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "performance-workload-modeling",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/performance-workload-modeling",
+      "en_path": "skills/en/testing-types/performance-workload-modeling",
+      "virtual_domain": "Engineering QA",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "No explicit Plus/similar relation recorded; semantic similarity UNASSESSED",
+      "governance_evidence": "skills/zh/testing-types/performance-workload-modeling/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "pr-test-impact-analysis",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/pr-test-impact-analysis",
+      "en_path": "skills/en/testing-types/pr-test-impact-analysis",
+      "virtual_domain": "Engineering QA",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "No explicit Plus/similar relation recorded; semantic similarity UNASSESSED",
+      "governance_evidence": "skills/zh/testing-types/pr-test-impact-analysis/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "production-incident-analysis",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/production-incident-analysis",
+      "en_path": "skills/en/testing-types/production-incident-analysis",
+      "virtual_domain": "Production Quality",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "No explicit Plus/similar relation recorded; semantic similarity UNASSESSED",
+      "governance_evidence": "skills/zh/testing-types/production-incident-analysis/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "production-verification",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/production-verification",
+      "en_path": "skills/en/testing-types/production-verification",
+      "virtual_domain": "Production Quality",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "No explicit Plus/similar relation recorded; semantic similarity UNASSESSED",
+      "governance_evidence": "skills/zh/testing-types/production-verification/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "prompt-injection-testing",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/prompt-injection-testing",
+      "en_path": "skills/en/testing-types/prompt-injection-testing",
+      "virtual_domain": "AI Native QA",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "No explicit Plus/similar relation recorded; semantic similarity UNASSESSED",
+      "governance_evidence": "skills/zh/testing-types/prompt-injection-testing/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "prompt-testing",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/prompt-testing",
+      "en_path": "skills/en/testing-types/prompt-testing",
+      "virtual_domain": "AI Native QA",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "No explicit Plus/similar relation recorded; semantic similarity UNASSESSED",
+      "governance_evidence": "skills/zh/testing-types/prompt-testing/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "quality-risk-analysis",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/quality-risk-analysis",
+      "en_path": "skills/en/testing-types/quality-risk-analysis",
+      "virtual_domain": "Engineering QA",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "No explicit Plus/similar relation recorded; semantic similarity UNASSESSED",
+      "governance_evidence": "skills/zh/testing-types/quality-risk-analysis/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "regression-scope-analysis",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/regression-scope-analysis",
+      "en_path": "skills/en/testing-types/regression-scope-analysis",
+      "virtual_domain": "Engineering QA",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "No explicit Plus/similar relation recorded; semantic similarity UNASSESSED",
+      "governance_evidence": "skills/zh/testing-types/regression-scope-analysis/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "regression-test-selection",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/regression-test-selection",
+      "en_path": "skills/en/testing-types/regression-test-selection",
+      "virtual_domain": "Engineering QA",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "No explicit Plus/similar relation recorded; semantic similarity UNASSESSED",
+      "governance_evidence": "skills/zh/testing-types/regression-test-selection/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "requirement-gap-analysis",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/requirement-gap-analysis",
+      "en_path": "skills/en/testing-types/requirement-gap-analysis",
+      "virtual_domain": "Engineering QA",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "No explicit Plus/similar relation recorded; semantic similarity UNASSESSED",
+      "governance_evidence": "skills/zh/testing-types/requirement-gap-analysis/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "requirements-analysis",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/requirements-analysis",
+      "en_path": "skills/en/testing-types/requirements-analysis",
+      "virtual_domain": "Core QA",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "No explicit Plus/similar relation recorded; semantic similarity UNASSESSED",
+      "governance_evidence": "skills/zh/testing-types/requirements-analysis/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "requirements-analysis-plus",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/requirements-analysis-plus",
+      "en_path": "skills/en/testing-types/requirements-analysis-plus",
+      "virtual_domain": "Core QA",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "Plus variant of `requirements-analysis`",
+      "governance_evidence": "skills/zh/testing-types/requirements-analysis-plus/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "root-cause-analysis",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/root-cause-analysis",
+      "en_path": "skills/en/testing-types/root-cause-analysis",
+      "virtual_domain": "Engineering QA",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "No explicit Plus/similar relation recorded; semantic similarity UNASSESSED",
+      "governance_evidence": "skills/zh/testing-types/root-cause-analysis/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "security-testing",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/security-testing",
+      "en_path": "skills/en/testing-types/security-testing",
+      "virtual_domain": "Core QA",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "No explicit Plus/similar relation recorded; semantic similarity UNASSESSED",
+      "governance_evidence": "skills/zh/testing-types/security-testing/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "test-case-reviewer",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/test-case-reviewer",
+      "en_path": "skills/en/testing-types/test-case-reviewer",
+      "virtual_domain": "Core QA",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "No explicit Plus/similar relation recorded; semantic similarity UNASSESSED",
+      "governance_evidence": "skills/zh/testing-types/test-case-reviewer/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "test-case-reviewer-plus",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/test-case-reviewer-plus",
+      "en_path": "skills/en/testing-types/test-case-reviewer-plus",
+      "virtual_domain": "Core QA",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "Plus variant of `test-case-reviewer`",
+      "governance_evidence": "skills/zh/testing-types/test-case-reviewer-plus/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "test-case-writing",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/test-case-writing",
+      "en_path": "skills/en/testing-types/test-case-writing",
+      "virtual_domain": "Core QA",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "No explicit Plus/similar relation recorded; semantic similarity UNASSESSED",
+      "governance_evidence": "skills/zh/testing-types/test-case-writing/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "test-data-generation",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/test-data-generation",
+      "en_path": "skills/en/testing-types/test-data-generation",
+      "virtual_domain": "Engineering QA",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "No explicit Plus/similar relation recorded; semantic similarity UNASSESSED",
+      "governance_evidence": "skills/zh/testing-types/test-data-generation/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "test-report-review",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/test-report-review",
+      "en_path": "skills/en/testing-types/test-report-review",
+      "virtual_domain": "Core QA",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "No explicit Plus/similar relation recorded; semantic similarity UNASSESSED",
+      "governance_evidence": "skills/zh/testing-types/test-report-review/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "test-reporting",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/test-reporting",
+      "en_path": "skills/en/testing-types/test-reporting",
+      "virtual_domain": "Core QA",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "No explicit Plus/similar relation recorded; semantic similarity UNASSESSED",
+      "governance_evidence": "skills/zh/testing-types/test-reporting/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "test-strategy",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/test-strategy",
+      "en_path": "skills/en/testing-types/test-strategy",
+      "virtual_domain": "Core QA",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "No explicit Plus/similar relation recorded; semantic similarity UNASSESSED",
+      "governance_evidence": "skills/zh/testing-types/test-strategy/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "test-strategy-plus",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/test-strategy-plus",
+      "en_path": "skills/en/testing-types/test-strategy-plus",
+      "virtual_domain": "Core QA",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "Plus variant of `test-strategy`",
+      "governance_evidence": "skills/zh/testing-types/test-strategy-plus/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "test-strategy-review",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/test-strategy-review",
+      "en_path": "skills/en/testing-types/test-strategy-review",
+      "virtual_domain": "Core QA",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "No explicit Plus/similar relation recorded; semantic similarity UNASSESSED",
+      "governance_evidence": "skills/zh/testing-types/test-strategy-review/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "testability-analysis",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/testability-analysis",
+      "en_path": "skills/en/testing-types/testability-analysis",
+      "virtual_domain": "Engineering QA",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "No explicit Plus/similar relation recorded; semantic similarity UNASSESSED",
+      "governance_evidence": "skills/zh/testing-types/testability-analysis/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "testcase-writer-plus",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/testcase-writer-plus",
+      "en_path": "skills/en/testing-types/testcase-writer-plus",
+      "virtual_domain": "Core QA",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "Plus variant of `test-case-writing`",
+      "governance_evidence": "skills/zh/testing-types/testcase-writer-plus/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "ui-test-cypress",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/ui-test-cypress",
+      "en_path": "skills/en/testing-types/ui-test-cypress",
+      "virtual_domain": "Engineering QA",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "Comparable tool-specific family: `ui-test-playwright`, `ui-test-puppeteer`, `ui-test-selenium`, `ui-test-testcafe`, `ui-test-webdriverio`",
+      "governance_evidence": "skills/zh/testing-types/ui-test-cypress/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "ui-test-playwright",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/ui-test-playwright",
+      "en_path": "skills/en/testing-types/ui-test-playwright",
+      "virtual_domain": "Engineering QA",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "Comparable tool-specific family: `ui-test-cypress`, `ui-test-puppeteer`, `ui-test-selenium`, `ui-test-testcafe`, `ui-test-webdriverio`",
+      "governance_evidence": "skills/zh/testing-types/ui-test-playwright/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "ui-test-puppeteer",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/ui-test-puppeteer",
+      "en_path": "skills/en/testing-types/ui-test-puppeteer",
+      "virtual_domain": "Engineering QA",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "Comparable tool-specific family: `ui-test-cypress`, `ui-test-playwright`, `ui-test-selenium`, `ui-test-testcafe`, `ui-test-webdriverio`",
+      "governance_evidence": "skills/zh/testing-types/ui-test-puppeteer/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "ui-test-selenium",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/ui-test-selenium",
+      "en_path": "skills/en/testing-types/ui-test-selenium",
+      "virtual_domain": "Engineering QA",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "Comparable tool-specific family: `ui-test-cypress`, `ui-test-playwright`, `ui-test-puppeteer`, `ui-test-testcafe`, `ui-test-webdriverio`",
+      "governance_evidence": "skills/zh/testing-types/ui-test-selenium/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "ui-test-testcafe",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/ui-test-testcafe",
+      "en_path": "skills/en/testing-types/ui-test-testcafe",
+      "virtual_domain": "Engineering QA",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "Comparable tool-specific family: `ui-test-cypress`, `ui-test-playwright`, `ui-test-puppeteer`, `ui-test-selenium`, `ui-test-webdriverio`",
+      "governance_evidence": "skills/zh/testing-types/ui-test-testcafe/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "ui-test-webdriverio",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/ui-test-webdriverio",
+      "en_path": "skills/en/testing-types/ui-test-webdriverio",
+      "virtual_domain": "Engineering QA",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "Comparable tool-specific family: `ui-test-cypress`, `ui-test-playwright`, `ui-test-puppeteer`, `ui-test-selenium`, `ui-test-testcafe`",
+      "governance_evidence": "skills/zh/testing-types/ui-test-webdriverio/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "skill-change-verification",
+      "section": "skill-engineering",
+      "zh_path": "skills/zh/skill-engineering/skill-change-verification",
+      "en_path": "skills/en/skill-engineering/skill-change-verification",
+      "virtual_domain": "Cross-cutting Skill governance",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "No explicit Plus/similar relation recorded; semantic similarity UNASSESSED",
+      "governance_evidence": "skills/zh/skill-engineering/skill-change-verification/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "skill-prose-review",
+      "section": "skill-engineering",
+      "zh_path": "skills/zh/skill-engineering/skill-prose-review",
+      "en_path": "skills/en/skill-engineering/skill-prose-review",
+      "virtual_domain": "Cross-cutting Skill governance",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "No explicit Plus/similar relation recorded; semantic similarity UNASSESSED",
+      "governance_evidence": "skills/zh/skill-engineering/skill-prose-review/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    },
+    {
+      "slug": "skill-prose-trim",
+      "section": "skill-engineering",
+      "zh_path": "skills/zh/skill-engineering/skill-prose-trim",
+      "en_path": "skills/en/skill-engineering/skill-prose-trim",
+      "virtual_domain": "Cross-cutting Skill governance",
+      "status": "Candidate",
+      "priority": "UNASSESSED",
+      "related": "No explicit Plus/similar relation recorded; semantic similarity UNASSESSED",
+      "governance_evidence": "skills/zh/skill-engineering/skill-prose-trim/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension review evidence recorded"
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Structural Eval files exist; execution evidence is not recorded"
+      }
+    }
+  ],
   "candidates": []
 }

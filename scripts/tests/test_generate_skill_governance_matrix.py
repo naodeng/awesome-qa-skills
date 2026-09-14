@@ -50,6 +50,11 @@ class GovernanceMatrixTest(unittest.TestCase):
                     (root / "skills" / language / section).mkdir(parents=True, exist_ok=True)
             self.assertEqual(matrix.discover_physical_skills(root), {"zh-only", "en-only"})
 
+    def test_repository_registry_covers_every_logical_skill_once(self):
+        registry = matrix.load_registry(ROOT / "docs/governance/skill-governance-registry.yaml")
+        self.assertEqual(matrix.validate_registry(registry, matrix.discover_physical_skills(ROOT)), [])
+        self.assertEqual(len(registry.skills), 79)
+
     def test_rejects_new_candidate_without_boundaries(self):
         candidate = {
             "slug": "new-capability",

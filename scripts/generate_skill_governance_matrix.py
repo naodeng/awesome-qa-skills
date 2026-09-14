@@ -8,7 +8,7 @@ from pathlib import Path
 
 VALID_STATUSES = {
     "Existing", "Enhance", "Merge", "Match", "Planned-P0", "Planned-P1",
-    "Planned-P2", "Experimental", "Deprecated", "Archived",
+    "Planned-P2", "Experimental", "Deprecated", "Archived", "Candidate",
 }
 VALID_CONCLUSIONS = {"EXISTING", "MATCH", "ENHANCE", "MERGE", "NEW"}
 VALID_SCORE_STATES = {"NOT_SCORED", "PARTIALLY_SCORED", "SCORED"}
