@@ -4,7 +4,7 @@
 
 ## 状态
 
-“DRAFT_FOR_REVIEW”（2026-09-15）。聊天中的两批拆分方案已获确认；本文是进入实施计划前的书面规格，仍需用户复核。
+“APPROVED_FOR_PLAN”（2026-09-15）。聊天中的两批拆分方案已获确认，本轮复核已修正执行顺序歧义；本文可作为实施计划的规格来源。
 
 本设计基于 develop 当前基线 15c3804。该提交已将最新 origin/main 快进合入 develop；本次不 push、不创建 Release，也不把路线图实现自动宣称为版本发布。
 
@@ -90,6 +90,8 @@ prompt-regression-testing 默认遵循既有四阶段路线图：作为 prompt-t
 
 本设计不预先把所有候选标为 NEW。Batch 验收可以包含新包、增强包和 Match/Merge 记录，但每张卡都必须有独立、可追溯的交付物。
 
+批次合同测试的目标集合在初始 Match 完成后确定。合同测试只对结论为 NEW 的物理包，以及需要改动的 ENHANCE/MERGE 目标写失败断言；EXISTING/MATCH 只写治理证据，不因没有新目录而被误判为 RED。
+
 ## Skill 包与 Prompt 合同
 
 对每个新增或被增强的语言包：
@@ -132,7 +134,7 @@ prompt-regression-testing 默认遵循既有四阶段路线图：作为 prompt-t
 
 卡片状态是执行记录，不是运行质量、业务批准、风险接受或 Release 证据。每批执行：
 
-1. 先写该批次的结构合同测试，并在任何包创建前确认因目标目录/合同缺失而 RED。
+1. 先完成该批次的初始 Capability Match ledger，再为实际 NEW 物理包和 ENHANCE/MERGE 目标写结构合同测试，并在内容创建前确认相应交付目标为 RED。
 2. 只将该批次的精确 item ID 从 Todo 移到 In Progress；用实时 Project 字段和选项 ID，不能猜测或按标题模糊匹配。
 3. 完成 Match ledger、Skill 包/增强、Eval、治理同步和目标质量门禁。
 4. 重新读取 Project #4，确认只影响本批卡片；证据完整的卡片才移到 Done，其余保持真实状态并登记原因。
@@ -170,4 +172,4 @@ prompt-regression-testing 默认遵循既有四阶段路线图：作为 prompt-t
 
 ## 计划前置决策
 
-本文确认的实现顺序是：先写规格与实施计划；Batch 1 RED 后移动 17 张卡片；完成 Batch 1 验收；再为 Batch 2 写 RED 合同并移动 25 张卡片。任何 Capability Match 发现的重复能力，都以证据为准改为增强、合并或已有能力记录，不以卡片数量为完成标准。
+本文确认的实现顺序是：先写规格与实施计划；对 Batch 1 完成初始 Match 后确认实际交付目标 RED，再移动 17 张卡片；完成 Batch 1 验收；再对 Batch 2 完成初始 Match、确认 RED 并移动 25 张卡片。任何 Capability Match 发现的重复能力，都以证据为准改为增强、合并或已有能力记录，不以卡片数量为完成标准。

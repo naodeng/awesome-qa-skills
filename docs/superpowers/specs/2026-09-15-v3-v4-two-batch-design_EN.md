@@ -4,7 +4,7 @@
 
 ## Status
 
-“DRAFT_FOR_REVIEW” (2026-09-15). The two-batch split was approved in chat; this document is the written specification before the implementation plan and still needs user review.
+“APPROVED_FOR_PLAN” (2026-09-15). The two-batch split was approved in chat, and this review corrected an execution-order ambiguity; this document is ready to serve as the implementation-plan specification.
 
 This design uses develop commit 15c3804 as its baseline. That commit fast-forwarded the latest origin/main into develop. This work does not push, create a Release, or turn roadmap implementation into an automatic version-release claim.
 
@@ -90,6 +90,8 @@ prompt-regression-testing follows the existing four-stage roadmap by default: re
 
 This design does not pre-label every candidate as NEW. A batch may close with new packages, enhancements, and Match/Merge records, but every card must have an independent, traceable deliverable.
 
+The target set for batch contract tests is determined after the initial Match. Contract tests write failure assertions only for NEW physical packages and ENHANCE/MERGE targets that actually require changes; EXISTING/MATCH cards receive governance evidence and are not incorrectly treated as RED because no new directory exists.
+
 ## Skill Package and Prompt Contract
 
 For every new or enhanced language package:
@@ -132,7 +134,7 @@ Use these stable prefixes as the starting mapping; the contract tests are the fi
 
 Card state is execution evidence, not runtime quality, business approval, risk acceptance, or Release evidence. Each batch follows this flow:
 
-1. Write the batch contract tests first and confirm RED because target directories/contracts are missing before creating packages.
+1. Complete the batch's initial Capability Match ledger, then write contract tests for the actual NEW packages and ENHANCE/MERGE targets, confirming each planned deliverable is RED before adding content.
 2. Move only the exact batch item IDs from Todo to In Progress, using live Project field and option IDs rather than guesses or fuzzy title matching.
 3. Complete the Match ledger, Skill packages/enhancements, Evals, governance synchronization, and target quality gates.
 4. Read Project #4 again and confirm that only the batch changed. Move only evidence-complete cards to Done; preserve actual states and reasons for the rest.
@@ -170,4 +172,4 @@ Do not add cross-Skill internal Markdown links. Recommendations remain names and
 
 ## Pre-Plan Decision
 
-The confirmed order is: write the specification and implementation plan; after Batch 1 RED, move its 17 cards; complete Batch 1 acceptance; then write the Batch 2 RED contract and move its 25 cards. If Capability Match finds duplication, evidence controls the result—enhance, merge, or record an existing capability—rather than card count defining completion.
+The confirmed order is: write the specification and implementation plan; complete Batch 1's initial Match and confirm its actual deliverables are RED, then move its 17 cards; complete Batch 1 acceptance; then complete Batch 2's initial Match, confirm RED, and move its 25 cards. If Capability Match finds duplication, evidence controls the result—enhance, merge, or record an existing capability—rather than card count defining completion.
