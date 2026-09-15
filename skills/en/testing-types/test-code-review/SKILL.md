@@ -1,6 +1,6 @@
 ---
 name: test-code-review
-description: Use this skill when you need to review test code for assertions, isolation, determinism, fixtures, and maintainability; triggers include test code review.
+description: Use this skill when you need to review test code for assertions, isolation, determinism, fixtures, and maintainability; triggers include 测试代码评审 and test code review.
 ---
 
 # Test Code Review

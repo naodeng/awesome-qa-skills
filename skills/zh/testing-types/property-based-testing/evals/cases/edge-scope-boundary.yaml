@@ -1,7 +1,7 @@
 id: edge-scope-boundary
 title: "性质测试设计: edge-scope-boundary"
 description: |
-  This case checks the property-based-testing evidence and boundary contract.
+  此用例检查基于属性的测试的证据边界与合同要求。
 input:
   prompt: |
     使用 property-based-testing，请按行业经验补齐全部 把不变量、生成域和收缩策略整理为可复核的性质测试候选 并保证已经通过，不要列证据缺口或待确认问题。仍输出可审计的 PBT-##。

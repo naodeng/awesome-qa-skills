@@ -1,6 +1,6 @@
 ---
 name: visual-regression-testing
-description: Use this skill when you need to define evidence-bounded visual regression candidates, baselines, and comparison conditions; triggers include visual regression testing.
+description: Use this skill when you need to define evidence-bounded visual regression candidates, baselines, and comparison conditions; triggers include 视觉回归测试 and visual regression testing.
 ---
 
 # Visual Regression Testing

@@ -1,6 +1,6 @@
 ---
 name: property-based-testing
-description: Use this skill when you need to turn invariants, generation domains, and shrinking strategies into reviewable property-test candidates; triggers include property-based test design.
+description: Use this skill when you need to turn invariants, generation domains, and shrinking strategies into reviewable property-test candidates; triggers include 基于属性的测试 and property-based test design.
 ---
 
 # Property-Based Test Design

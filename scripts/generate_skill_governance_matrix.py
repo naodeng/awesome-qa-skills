@@ -15,10 +15,11 @@ VALID_STATUSES = {
 VALID_CONCLUSIONS = {"EXISTING", "MATCH", "ENHANCE", "MERGE", "NEW"}
 VALID_DECISION_STATES = {"PROPOSED", "REVIEWED_WITH_LIMITATION", "REVIEWED"}
 VALID_SCORE_STATES = {"NOT_SCORED", "PARTIALLY_SCORED", "SCORED"}
+VALID_PROJECT_ACCEPTANCE_STATES = {"COMPLETE", "INCOMPLETE", "BLOCKED"}
 MATCH_FIELDS = ("name", "purpose", "inputs", "outputs", "decision_logic", "workflow_role")
 PROJECT_EVIDENCE_FIELDS = (
     "project_number", "item_id", "title", "current_status", "verified_at", "verification",
-    "transition_requirement", "transition_audit",
+    "transition_requirement", "transition_audit", "acceptance_state",
 )
 SECTIONS = ("testing-types", "testing-workflows", "skill-engineering")
 LANGUAGES = ("zh", "en")
@@ -129,6 +130,13 @@ def validate_candidate(candidate: dict[str, object]) -> list[str]:
                 errors.append("project_evidence must reference Project #4")
             if project.get("current_status") != "Done":
                 errors.append("project_evidence current_status must be Done")
+            if project.get("acceptance_state") not in VALID_PROJECT_ACCEPTANCE_STATES:
+                errors.append("project_evidence acceptance_state must be COMPLETE, INCOMPLETE, or BLOCKED")
+            transition_audit = str(project.get("transition_audit", ""))
+            if "UNASSESSED" in transition_audit and project.get("acceptance_state") == "COMPLETE":
+                errors.append("project_evidence cannot be COMPLETE while transition history is UNASSESSED")
+            if "UNASSESSED" in transition_audit and project.get("acceptance_state") not in {"INCOMPLETE", "BLOCKED"}:
+                errors.append("project_evidence requires an incomplete or blocked acceptance state while transition history is UNASSESSED")
     return errors
 
 
@@ -214,7 +222,8 @@ def render_matching_register(registry: GovernanceRegistry, locale: str) -> str:
                 f"current status=`{project.get('current_status', 'UNASSESSED')}`; "
                 f"verified {project.get('verified_at', 'UNASSESSED')} via `{project.get('verification', 'UNASSESSED')}`; "
                 f"required transition=`{project.get('transition_requirement', 'UNASSESSED')}`; "
-                f"transition audit={project.get('transition_audit', 'UNASSESSED')}"
+                f"transition audit={project.get('transition_audit', 'UNASSESSED')}; "
+                f"acceptance state=`{project.get('acceptance_state', 'UNASSESSED')}`"
             )
         lines.append(f"| `{candidate.get('slug', '')}` | `{candidate.get('decision_state', 'UNASSESSED')}` | `{candidate.get('conclusion', 'UNASSESSED')}` | `{candidate.get('target', 'UNASSESSED')}` | {source}<br>{targets} | {evidence_text} | {candidate.get('next_action', 'UNASSESSED')} |")
     if not registry.candidates:

@@ -1,6 +1,6 @@
 ---
 name: api-schema-validation
-description: Use this skill when you need to compare API schemas with sourced request and response evidence; triggers include API schema validation.
+description: Use this skill when you need to compare API schemas with sourced request and response evidence; triggers include API Schema 校验 and API schema validation.
 ---
 
 # API Schema Validation

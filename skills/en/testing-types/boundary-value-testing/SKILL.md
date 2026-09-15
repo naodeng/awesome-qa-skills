@@ -1,6 +1,6 @@
 ---
 name: boundary-value-testing
-description: Use this skill when you need to select boundary and near-boundary candidates from sourced value, length, time, and resource constraints; triggers include boundary value test design.
+description: Use this skill when you need to select boundary and near-boundary candidates from sourced value, length, time, and resource constraints; triggers include 边界值分析 and boundary value test design.
 ---
 
 # Boundary Value Test Design

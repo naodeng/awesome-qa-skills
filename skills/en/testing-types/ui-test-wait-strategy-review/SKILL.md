@@ -1,6 +1,6 @@
 ---
 name: ui-test-wait-strategy-review
-description: Use this skill when you need to review asynchronous UI waits, polling conditions, and timeout evidence; triggers include UI test wait strategy review.
+description: Use this skill when you need to review asynchronous UI waits, polling conditions, and timeout evidence; triggers include UI 测试等待策略评审 and UI test wait strategy review.
 ---
 
 # UI Test Wait Strategy Review

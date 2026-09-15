@@ -1,6 +1,6 @@
 ---
 name: api-idempotency-testing
-description: Use this skill when you need to assess API retry and duplicate-request behavior against sourced side-effect evidence; triggers include API idempotency testing.
+description: Use this skill when you need to assess API retry and duplicate-request behavior against sourced side-effect evidence; triggers include API 幂等性测试 and API idempotency testing.
 ---
 
 # API Idempotency Testing

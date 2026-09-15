@@ -1,6 +1,6 @@
 ---
 name: mutation-testing-analysis
-description: Use this skill when you need to interpret mutation operators, killed and survived mutants, and evidence limits; triggers include mutation testing analysis.
+description: Use this skill when you need to interpret mutation operators, killed and survived mutants, and evidence limits; triggers include 变异测试分析 and mutation testing analysis.
 ---
 
 # Mutation Testing Analysis

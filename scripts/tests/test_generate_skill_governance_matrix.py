@@ -6,6 +6,8 @@ import unittest
 from scripts import generate_skill_governance_matrix as matrix
 
 ROOT = Path(__file__).resolve().parents[2]
+EXPECTED_LOGICAL_SKILL_COUNT = 121
+EXPECTED_CANDIDATE_COUNT = 58
 V20_CANDIDATE_SLUGS = {
     "decision-table-testing",
     "state-transition-testing",
@@ -32,6 +34,13 @@ V20_CANDIDATE_SLUGS = {
     "mutation-testing-analysis",
     "mock-quality-review",
     "test-suite-health-analysis",
+}
+V11_REVIEWED_CANDIDATE_SLUGS = {
+    "test-gap-analysis",
+    "risk-based-testing",
+    "edge-case-discovery",
+    "negative-scenario-discovery",
+    "test-data-requirement-analysis",
 }
 
 
@@ -99,11 +108,13 @@ class GovernanceMatrixTest(unittest.TestCase):
         registry = matrix.load_registry(ROOT / "docs/governance/skill-governance-registry.yaml")
         physical = matrix.discover_physical_skills(ROOT)
         self.assertEqual(matrix.validate_registry(registry, physical), [])
+        self.assertEqual(len(registry.skills), EXPECTED_LOGICAL_SKILL_COUNT)
         self.assertEqual(len(registry.skills), len(physical))
         self.assertEqual(len({skill["slug"] for skill in registry.skills}), len(registry.skills))
 
     def test_candidates_reference_pinned_prompt_baselines(self):
         registry = matrix.load_registry(ROOT / "docs/governance/skill-governance-registry.yaml")
+        self.assertEqual(len(registry.candidates), EXPECTED_CANDIDATE_COUNT)
         self.assertEqual(len({candidate["slug"] for candidate in registry.candidates}), len(registry.candidates))
         candidate_slugs = {candidate["slug"] for candidate in registry.candidates}
         self.assertTrue(V20_CANDIDATE_SLUGS <= candidate_slugs)
@@ -157,9 +168,19 @@ class GovernanceMatrixTest(unittest.TestCase):
                 self.assertEqual(candidate["conclusion"], "NEW")
                 self.assertTrue(candidate.get("scope"))
                 self.assertTrue(candidate.get("non_goals"))
-                source_paths = re.findall(r"(?:docs|skills)/[A-Za-z0-9_./-]+", candidate["candidate_source"])
-                self.assertTrue(source_paths, candidate["slug"])
-                self.assertTrue(all((ROOT / path).is_file() for path in source_paths), candidate["slug"])
+                if candidate["slug"] in V11_REVIEWED_CANDIDATE_SLUGS:
+                    self.assertIn(
+                        "docs/superpowers/specs/2026-09-14-v1-1-test-design-discovery-five-design.md",
+                        candidate["candidate_source"],
+                    )
+                    self.assertIn(
+                        "docs/superpowers/plans/2026-09-14-v1-1-test-design-discovery-five.md",
+                        candidate["candidate_source"],
+                    )
+                else:
+                    source_paths = re.findall(r"(?:docs|skills)/[A-Za-z0-9_./-]+", candidate["candidate_source"])
+                    self.assertTrue(source_paths, candidate["slug"])
+                    self.assertTrue(all((ROOT / path).is_file() for path in source_paths), candidate["slug"])
                 target_paths = candidate["target_evidence_paths"]
                 self.assertTrue(target_paths)
                 self.assertTrue(all((ROOT / path).is_file() for path in target_paths))
@@ -243,6 +264,8 @@ class GovernanceMatrixTest(unittest.TestCase):
                 self.assertIn("gh project item-list 4", project.get("verification", ""))
                 self.assertEqual(project.get("transition_requirement"), "In Progress -> Done")
                 self.assertIn("UNASSESSED", project.get("transition_audit", ""))
+                self.assertEqual(project.get("acceptance_state"), "INCOMPLETE")
+                self.assertNotEqual(project.get("acceptance_state"), "COMPLETE")
 
     def test_matrix_uses_skill_description_as_scope_evidence(self):
         with TemporaryDirectory() as temporary:
@@ -295,6 +318,34 @@ class GovernanceMatrixTest(unittest.TestCase):
             },
         }
         self.assertIn("REVIEWED v2 candidate requires project_evidence", matrix.validate_candidate(candidate))
+
+    def test_rejects_complete_v2_candidate_with_unassessed_transition_history(self):
+        candidate = {
+            "slug": "v2-sample",
+            "decision_state": "REVIEWED",
+            "conclusion": "NEW",
+            "scope": "bounded scope",
+            "non_goals": "runtime execution",
+            "candidate_source": "docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md",
+            "evidence": {field: "reviewed" for field in matrix.MATCH_FIELDS},
+            "capability_match": {
+                "decision": "NEW",
+                "existing_targets": ["skills/zh/testing-types/test-case-writing/SKILL.md"],
+                "difference": "specialized bounded capability",
+            },
+            "project_evidence": {
+                field: "present"
+                for field in matrix.PROJECT_EVIDENCE_FIELDS
+            },
+        }
+        candidate["project_evidence"].update({
+            "project_number": 4,
+            "current_status": "Done",
+            "acceptance_state": "COMPLETE",
+            "transition_audit": "UNASSESSED: history unavailable",
+        })
+        errors = matrix.validate_candidate(candidate)
+        self.assertIn("project_evidence cannot be COMPLETE while transition history is UNASSESSED", errors)
 
     def test_rejects_scored_entry_without_dimensions_and_evidence(self):
         skill = complete_skill(quality_score={"state": "SCORED", "dimensions": {}})

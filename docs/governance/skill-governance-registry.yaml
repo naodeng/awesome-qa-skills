@@ -3516,7 +3516,7 @@
     "Engineering"
   ],
   "inputs": "skills/zh/testing-types/decision-table-testing/prompts/decision-table-testing.md#输入; skills/en/testing-types/decision-table-testing/prompts/decision-table-testing.md#Input",
-  "outputs": "skills/zh/testing-types/decision-table-testing/prompts/decision-table-testing.md#DTT-## 发现合同; skills/en/testing-types/decision-table-testing/prompts/decision-table-testing.md#DTT-## Contract",
+  "outputs": "skills/zh/testing-types/decision-table-testing/prompts/decision-table-testing.md#DTT-## 发现合同; skills/en/testing-types/decision-table-testing/prompts/decision-table-testing.md#DTT-## Finding Contract",
   "workflow": "v2.0 Test Engineering Batch 1 specialist; optional navigation only",
   "evidence_paths": [
     "skills/zh/testing-types/decision-table-testing/SKILL.md",
@@ -3553,7 +3553,7 @@
     "Engineering"
   ],
   "inputs": "skills/zh/testing-types/state-transition-testing/prompts/state-transition-testing.md#输入; skills/en/testing-types/state-transition-testing/prompts/state-transition-testing.md#Input",
-  "outputs": "skills/zh/testing-types/state-transition-testing/prompts/state-transition-testing.md#STT-## 发现合同; skills/en/testing-types/state-transition-testing/prompts/state-transition-testing.md#STT-## Contract",
+  "outputs": "skills/zh/testing-types/state-transition-testing/prompts/state-transition-testing.md#STT-## 发现合同; skills/en/testing-types/state-transition-testing/prompts/state-transition-testing.md#STT-## Finding Contract",
   "workflow": "v2.0 Test Engineering Batch 1 specialist; optional navigation only",
   "evidence_paths": [
     "skills/zh/testing-types/state-transition-testing/SKILL.md",
@@ -3590,7 +3590,7 @@
     "Engineering"
   ],
   "inputs": "skills/zh/testing-types/boundary-value-testing/prompts/boundary-value-testing.md#输入; skills/en/testing-types/boundary-value-testing/prompts/boundary-value-testing.md#Input",
-  "outputs": "skills/zh/testing-types/boundary-value-testing/prompts/boundary-value-testing.md#BVT-## 发现合同; skills/en/testing-types/boundary-value-testing/prompts/boundary-value-testing.md#BVT-## Contract",
+  "outputs": "skills/zh/testing-types/boundary-value-testing/prompts/boundary-value-testing.md#BVT-## 发现合同; skills/en/testing-types/boundary-value-testing/prompts/boundary-value-testing.md#BVT-## Finding Contract",
   "workflow": "v2.0 Test Engineering Batch 1 specialist; optional navigation only",
   "evidence_paths": [
     "skills/zh/testing-types/boundary-value-testing/SKILL.md",
@@ -3627,7 +3627,7 @@
     "Engineering"
   ],
   "inputs": "skills/zh/testing-types/equivalence-partitioning/prompts/equivalence-partitioning.md#输入; skills/en/testing-types/equivalence-partitioning/prompts/equivalence-partitioning.md#Input",
-  "outputs": "skills/zh/testing-types/equivalence-partitioning/prompts/equivalence-partitioning.md#EP-## 发现合同; skills/en/testing-types/equivalence-partitioning/prompts/equivalence-partitioning.md#EP-## Contract",
+  "outputs": "skills/zh/testing-types/equivalence-partitioning/prompts/equivalence-partitioning.md#EP-## 发现合同; skills/en/testing-types/equivalence-partitioning/prompts/equivalence-partitioning.md#EP-## Finding Contract",
   "workflow": "v2.0 Test Engineering Batch 1 specialist; optional navigation only",
   "evidence_paths": [
     "skills/zh/testing-types/equivalence-partitioning/SKILL.md",
@@ -3664,7 +3664,7 @@
     "Engineering"
   ],
   "inputs": "skills/zh/testing-types/pairwise-testing/prompts/pairwise-testing.md#输入; skills/en/testing-types/pairwise-testing/prompts/pairwise-testing.md#Input",
-  "outputs": "skills/zh/testing-types/pairwise-testing/prompts/pairwise-testing.md#PWT-## 发现合同; skills/en/testing-types/pairwise-testing/prompts/pairwise-testing.md#PWT-## Contract",
+  "outputs": "skills/zh/testing-types/pairwise-testing/prompts/pairwise-testing.md#PWT-## 发现合同; skills/en/testing-types/pairwise-testing/prompts/pairwise-testing.md#PWT-## Finding Contract",
   "workflow": "v2.0 Test Engineering Batch 1 specialist; optional navigation only",
   "evidence_paths": [
     "skills/zh/testing-types/pairwise-testing/SKILL.md",
@@ -3701,7 +3701,7 @@
     "Engineering"
   ],
   "inputs": "skills/zh/testing-types/combinatorial-testing/prompts/combinatorial-testing.md#输入; skills/en/testing-types/combinatorial-testing/prompts/combinatorial-testing.md#Input",
-  "outputs": "skills/zh/testing-types/combinatorial-testing/prompts/combinatorial-testing.md#CT-## 发现合同; skills/en/testing-types/combinatorial-testing/prompts/combinatorial-testing.md#CT-## Contract",
+  "outputs": "skills/zh/testing-types/combinatorial-testing/prompts/combinatorial-testing.md#CT-## 发现合同; skills/en/testing-types/combinatorial-testing/prompts/combinatorial-testing.md#CT-## Finding Contract",
   "workflow": "v2.0 Test Engineering Batch 1 specialist; optional navigation only",
   "evidence_paths": [
     "skills/zh/testing-types/combinatorial-testing/SKILL.md",
@@ -3738,7 +3738,7 @@
     "Engineering"
   ],
   "inputs": "skills/zh/testing-types/model-based-testing/prompts/model-based-testing.md#输入; skills/en/testing-types/model-based-testing/prompts/model-based-testing.md#Input",
-  "outputs": "skills/zh/testing-types/model-based-testing/prompts/model-based-testing.md#MBT-## 发现合同; skills/en/testing-types/model-based-testing/prompts/model-based-testing.md#MBT-## Contract",
+  "outputs": "skills/zh/testing-types/model-based-testing/prompts/model-based-testing.md#MBT-## 发现合同; skills/en/testing-types/model-based-testing/prompts/model-based-testing.md#MBT-## Finding Contract",
   "workflow": "v2.0 Test Engineering Batch 1 specialist; optional navigation only",
   "evidence_paths": [
     "skills/zh/testing-types/model-based-testing/SKILL.md",
@@ -3775,7 +3775,7 @@
     "Engineering"
   ],
   "inputs": "skills/zh/testing-types/property-based-testing/prompts/property-based-testing.md#输入; skills/en/testing-types/property-based-testing/prompts/property-based-testing.md#Input",
-  "outputs": "skills/zh/testing-types/property-based-testing/prompts/property-based-testing.md#PBT-## 发现合同; skills/en/testing-types/property-based-testing/prompts/property-based-testing.md#PBT-## Contract",
+  "outputs": "skills/zh/testing-types/property-based-testing/prompts/property-based-testing.md#PBT-## 发现合同; skills/en/testing-types/property-based-testing/prompts/property-based-testing.md#PBT-## Finding Contract",
   "workflow": "v2.0 Test Engineering Batch 1 specialist; optional navigation only",
   "evidence_paths": [
     "skills/zh/testing-types/property-based-testing/SKILL.md",
@@ -3812,7 +3812,7 @@
     "Engineering"
   ],
   "inputs": "skills/zh/testing-types/metamorphic-testing/prompts/metamorphic-testing.md#输入; skills/en/testing-types/metamorphic-testing/prompts/metamorphic-testing.md#Input",
-  "outputs": "skills/zh/testing-types/metamorphic-testing/prompts/metamorphic-testing.md#MT-## 发现合同; skills/en/testing-types/metamorphic-testing/prompts/metamorphic-testing.md#MT-## Contract",
+  "outputs": "skills/zh/testing-types/metamorphic-testing/prompts/metamorphic-testing.md#MT-## 发现合同; skills/en/testing-types/metamorphic-testing/prompts/metamorphic-testing.md#MT-## Finding Contract",
   "workflow": "v2.0 Test Engineering Batch 1 specialist; optional navigation only",
   "evidence_paths": [
     "skills/zh/testing-types/metamorphic-testing/SKILL.md",
@@ -5226,7 +5226,8 @@
     "verified_at": "2026-09-15",
     "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
     "transition_requirement": "In Progress -> Done",
-    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned"
+    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned",
+    "acceptance_state": "INCOMPLETE"
   }
 },
 {
@@ -5268,7 +5269,8 @@
     "verified_at": "2026-09-15",
     "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
     "transition_requirement": "In Progress -> Done",
-    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned"
+    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned",
+    "acceptance_state": "INCOMPLETE"
   }
 },
 {
@@ -5310,7 +5312,8 @@
     "verified_at": "2026-09-15",
     "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
     "transition_requirement": "In Progress -> Done",
-    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned"
+    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned",
+    "acceptance_state": "INCOMPLETE"
   }
 },
 {
@@ -5352,7 +5355,8 @@
     "verified_at": "2026-09-15",
     "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
     "transition_requirement": "In Progress -> Done",
-    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned"
+    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned",
+    "acceptance_state": "INCOMPLETE"
   }
 },
 {
@@ -5394,7 +5398,8 @@
     "verified_at": "2026-09-15",
     "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
     "transition_requirement": "In Progress -> Done",
-    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned"
+    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned",
+    "acceptance_state": "INCOMPLETE"
   }
 },
 {
@@ -5436,7 +5441,8 @@
     "verified_at": "2026-09-15",
     "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
     "transition_requirement": "In Progress -> Done",
-    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned"
+    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned",
+    "acceptance_state": "INCOMPLETE"
   }
 },
 {
@@ -5478,7 +5484,8 @@
     "verified_at": "2026-09-15",
     "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
     "transition_requirement": "In Progress -> Done",
-    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned"
+    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned",
+    "acceptance_state": "INCOMPLETE"
   }
 },
 {
@@ -5520,7 +5527,8 @@
     "verified_at": "2026-09-15",
     "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
     "transition_requirement": "In Progress -> Done",
-    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned"
+    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned",
+    "acceptance_state": "INCOMPLETE"
   }
 },
 {
@@ -5562,7 +5570,8 @@
     "verified_at": "2026-09-15",
     "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
     "transition_requirement": "In Progress -> Done",
-    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned"
+    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned",
+    "acceptance_state": "INCOMPLETE"
   }
 },
 {
@@ -5604,7 +5613,8 @@
     "verified_at": "2026-09-15",
     "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
     "transition_requirement": "In Progress -> Done",
-    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned"
+    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned",
+    "acceptance_state": "INCOMPLETE"
   }
 },
 {
@@ -5646,7 +5656,8 @@
     "verified_at": "2026-09-15",
     "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
     "transition_requirement": "In Progress -> Done",
-    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned"
+    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned",
+    "acceptance_state": "INCOMPLETE"
   }
 },
 {
@@ -5688,7 +5699,8 @@
     "verified_at": "2026-09-15",
     "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
     "transition_requirement": "In Progress -> Done",
-    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned"
+    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned",
+    "acceptance_state": "INCOMPLETE"
   }
 },
 {
@@ -5730,7 +5742,8 @@
     "verified_at": "2026-09-15",
     "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
     "transition_requirement": "In Progress -> Done",
-    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned"
+    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned",
+    "acceptance_state": "INCOMPLETE"
   }
 },
 {
@@ -5772,7 +5785,8 @@
     "verified_at": "2026-09-15",
     "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
     "transition_requirement": "In Progress -> Done",
-    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned"
+    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned",
+    "acceptance_state": "INCOMPLETE"
   }
 },
 {
@@ -5814,7 +5828,8 @@
     "verified_at": "2026-09-15",
     "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
     "transition_requirement": "In Progress -> Done",
-    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned"
+    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned",
+    "acceptance_state": "INCOMPLETE"
   }
 },
 {
@@ -5856,7 +5871,8 @@
     "verified_at": "2026-09-15",
     "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
     "transition_requirement": "In Progress -> Done",
-    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned"
+    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned",
+    "acceptance_state": "INCOMPLETE"
   }
 },
 {
@@ -5900,7 +5916,8 @@
     "verified_at": "2026-09-15",
     "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
     "transition_requirement": "In Progress -> Done",
-    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned"
+    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned",
+    "acceptance_state": "INCOMPLETE"
   }
 },
 {
@@ -5942,7 +5959,8 @@
     "verified_at": "2026-09-15",
     "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
     "transition_requirement": "In Progress -> Done",
-    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned"
+    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned",
+    "acceptance_state": "INCOMPLETE"
   }
 },
 {
@@ -5984,7 +6002,8 @@
     "verified_at": "2026-09-15",
     "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
     "transition_requirement": "In Progress -> Done",
-    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned"
+    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned",
+    "acceptance_state": "INCOMPLETE"
   }
 },
 {
@@ -6026,7 +6045,8 @@
     "verified_at": "2026-09-15",
     "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
     "transition_requirement": "In Progress -> Done",
-    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned"
+    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned",
+    "acceptance_state": "INCOMPLETE"
   }
 },
 {
@@ -6068,7 +6088,8 @@
     "verified_at": "2026-09-15",
     "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
     "transition_requirement": "In Progress -> Done",
-    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned"
+    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned",
+    "acceptance_state": "INCOMPLETE"
   }
 },
 {
@@ -6111,7 +6132,8 @@
     "verified_at": "2026-09-15",
     "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
     "transition_requirement": "In Progress -> Done",
-    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned"
+    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned",
+    "acceptance_state": "INCOMPLETE"
   }
 },
 {
@@ -6153,7 +6175,8 @@
     "verified_at": "2026-09-15",
     "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
     "transition_requirement": "In Progress -> Done",
-    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned"
+    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned",
+    "acceptance_state": "INCOMPLETE"
   }
 },
 {
@@ -6195,7 +6218,8 @@
     "verified_at": "2026-09-15",
     "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
     "transition_requirement": "In Progress -> Done",
-    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned"
+    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned",
+    "acceptance_state": "INCOMPLETE"
   }
 },
 {
@@ -6238,7 +6262,8 @@
     "verified_at": "2026-09-15",
     "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
     "transition_requirement": "In Progress -> Done",
-    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned"
+    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned",
+    "acceptance_state": "INCOMPLETE"
   }
 }
   ]

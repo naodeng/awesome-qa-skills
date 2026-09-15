@@ -1,6 +1,6 @@
 ---
 name: metamorphic-testing
-description: Use this skill when you need to derive test candidates from input transformations and expected relations when a direct oracle is limited; triggers include metamorphic test design.
+description: Use this skill when you need to derive test candidates from input transformations and expected relations when a direct oracle is limited; triggers include 变形测试 and metamorphic test design.
 ---
 
 # Metamorphic Test Design

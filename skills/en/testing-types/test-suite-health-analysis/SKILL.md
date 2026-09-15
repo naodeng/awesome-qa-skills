@@ -1,6 +1,6 @@
 ---
 name: test-suite-health-analysis
-description: Use this skill when you need to assess test-suite health from duration, flakiness, duplication, quarantine, and maintenance evidence; triggers include test suite health analysis.
+description: Use this skill when you need to assess test-suite health from duration, flakiness, duplication, quarantine, and maintenance evidence; triggers include 测试套件健康分析 and test suite health analysis.
 ---
 
 # Test Suite Health Analysis

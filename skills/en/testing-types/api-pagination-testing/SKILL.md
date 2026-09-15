@@ -1,6 +1,6 @@
 ---
 name: api-pagination-testing
-description: Use this skill when you need to design API pagination scenarios from ordered data and cursor or offset evidence; triggers include API pagination testing.
+description: Use this skill when you need to design API pagination scenarios from ordered data and cursor or offset evidence; triggers include API 分页测试 and API pagination testing.
 ---
 
 # API Pagination Testing

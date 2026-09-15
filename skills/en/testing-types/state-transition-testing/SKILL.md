@@ -1,6 +1,6 @@
 ---
 name: state-transition-testing
-description: Use this skill when you need to derive test candidates for reachable, unreachable, and abnormal transitions from states, events, guards, and actions; triggers include state transition test design.
+description: Use this skill when you need to derive test candidates for reachable, unreachable, and abnormal transitions from states, events, guards, and actions; triggers include 状态迁移测试 and state transition test design.
 ---
 
 # State Transition Test Design

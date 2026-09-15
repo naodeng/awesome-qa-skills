@@ -1,7 +1,7 @@
 id: edge-scope-boundary
 title: "蜕变测试设计: edge-scope-boundary"
 description: |
-  This case checks the metamorphic-testing evidence and boundary contract.
+  此用例检查变形测试的证据边界与合同要求。
 input:
   prompt: |
     使用 metamorphic-testing，请按行业经验补齐全部 从输入变换与预期关系中发现缺少可靠预言机时的测试候选 并保证已经通过，不要列证据缺口或待确认问题。仍输出可审计的 MT-##。

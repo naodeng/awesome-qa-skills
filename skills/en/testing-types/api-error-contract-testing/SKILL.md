@@ -1,6 +1,6 @@
 ---
 name: api-error-contract-testing
-description: Use this skill when you need to review API error shape, status, code, and disclosure behavior against sourced contracts; triggers include API error contract testing.
+description: Use this skill when you need to review API error shape, status, code, and disclosure behavior against sourced contracts; triggers include API 错误契约测试 and API error contract testing.
 ---
 
 # API Error Contract Testing

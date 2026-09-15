@@ -1,6 +1,6 @@
 ---
 name: ui-test-strategy
-description: Use this skill when you need to define an evidence-bounded UI test strategy across journeys, states, platforms, and risks; triggers include UI test strategy.
+description: Use this skill when you need to define an evidence-bounded UI test strategy across journeys, states, platforms, and risks; triggers include UI 测试策略 and UI test strategy.
 ---
 
 # UI Test Strategy

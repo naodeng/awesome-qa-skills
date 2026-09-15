@@ -1,6 +1,6 @@
 ---
 name: decision-table-testing
-description: Use this skill when you need to turn conditions, rules, actions, and outcomes into an auditable set of rule combinations; triggers include decision table test design.
+description: Use this skill when you need to turn conditions, rules, actions, and outcomes into an auditable set of rule combinations; triggers include 决策表测试设计 and decision table test design.
 ---
 
 # Decision Table Test Design

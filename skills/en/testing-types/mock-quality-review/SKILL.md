@@ -1,6 +1,6 @@
 ---
 name: mock-quality-review
-description: Use this skill when you need to review mock fidelity, contract alignment, over-mocking, and drift evidence; triggers include mock quality review.
+description: Use this skill when you need to review mock fidelity, contract alignment, over-mocking, and drift evidence; triggers include Mock 质量评审 and mock quality review.
 ---
 
 # Mock Quality Review

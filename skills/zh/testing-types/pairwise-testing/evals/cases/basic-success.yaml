@@ -1,7 +1,7 @@
 id: basic-success
 title: "成对组合测试设计: basic-success"
 description: |
-  This case checks the pairwise-testing evidence and boundary contract.
+  此用例检查成对测试的证据边界与合同要求。
 
 input:
   prompt: |

@@ -1,6 +1,6 @@
 ---
 name: equivalence-partitioning
-description: Use this skill when you need to partition inputs into evidence-backed valid, invalid, and unknown classes based on constraints, rules, and response differences; triggers include equivalence partitioning test design.
+description: Use this skill when you need to partition inputs into evidence-backed valid, invalid, and unknown classes based on constraints, rules, and response differences; triggers include 等价类划分 and equivalence partitioning test design.
 ---
 
 # Equivalence Partitioning Test Design

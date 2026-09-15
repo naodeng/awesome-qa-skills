@@ -4,7 +4,7 @@
 
 ## Status
 
-`APPROVED_FOR_IMPLEMENTATION` (2026-09-15). The confirmed meaning of “drag cards” is moving roadmap cards in GitHub Project #4. Local `develop` has fast-forwarded `origin/main` at `d63a9fa`. Implementation stays local on `develop`; no push is implied.
+`IMPLEMENTED_PENDING_ACCEPTANCE` (2026-09-15). The confirmed meaning of “drag cards” is moving roadmap cards in GitHub Project #4. Local `develop` has fast-forwarded `origin/main` at `d63a9fa`. Both batches, review fixes, and static gates are complete and are delivered through existing PR #12; Project history events are still unavailable, so overall acceptance remains incomplete.
 
 ## Goal and boundaries
 
@@ -49,9 +49,11 @@ Real-model Evals, external test targets, semantic equivalence, quality scores, a
 2. After confirming the RED cause, move only the exact batch cards to `In Progress`.
 3. Complete every Skill through RED → minimal GREEN → REFACTOR, including both languages and three Eval cases.
 4. Update the registry, Matrix/Register, bilingual README/Catalog/Graph, and any required routing documentation.
-5. Run target checks, repository contracts, and quality gates; move only evidenced cards to `Done`.
-6. Leave all other Project cards unchanged; do not create repository Issues, push, or create a Release.
+5. Run target checks, repository contracts, and quality gates; mark a card complete in the acceptance record only when its evidence is complete.
+6. Leave all other Project cards unchanged; do not create repository Issues or a Release; deliver this code through the existing PR.
 
-## Acceptance
+## Acceptance conditions and current conclusion
 
-The minimum completion bar is evidence for all 25 exact cards passing through `In Progress` and `Done`; 25 matching physical Skill packages in each language; structural, metadata, Eval, independence, integrity, and bilingual gates passing; generated governance views reproducible from the current registry; `git diff --check` passing; and an explicit report separating static structure evidence from unrun model or external validation.
+The complete acceptance bar is historical evidence for all 25 exact cards passing through `In Progress` and `Done`; 25 matching physical Skill packages in each language; structural, metadata, Eval, independence, integrity, and bilingual gates passing; generated governance views reproducible from the current registry; `git diff --check` passing; and an explicit report separating static structure evidence from unrun model or external validation.
+
+The 25 bilingual physical packages, structural and quality gates, generated governance views, and static evidence boundaries are complete. Project #4 can be checked with `gh project item-list 4 --owner naodeng --format json --limit 200`, which exposes the current `Done` status but not the historical `In Progress -> Done` events. The registry therefore records `acceptance_state: INCOMPLETE` for all 25 cards; overall acceptance remains `INCOMPLETE`, and this delivery does not claim that all 25 state transitions have been historically verified.

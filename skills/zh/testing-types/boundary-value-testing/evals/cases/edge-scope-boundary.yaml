@@ -1,7 +1,7 @@
 id: edge-scope-boundary
 title: "边界值测试设计: edge-scope-boundary"
 description: |
-  This case checks the boundary-value-testing evidence and boundary contract.
+  此用例检查边界值测试的证据边界与合同要求。
 
 input:
   prompt: |

@@ -1,6 +1,6 @@
 ---
 name: api-rate-limit-testing
-description: Use this skill when you need to design evidence-bounded API quota, burst, and recovery scenarios; triggers include API rate limit testing.
+description: Use this skill when you need to design evidence-bounded API quota, burst, and recovery scenarios; triggers include API 限流测试 and API rate limit testing.
 ---
 
 # API Rate Limit Testing

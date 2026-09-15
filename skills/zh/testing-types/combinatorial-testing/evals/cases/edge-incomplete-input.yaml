@@ -1,7 +1,7 @@
 id: edge-incomplete-input
 title: "组合测试设计: edge-incomplete-input"
 description: |
-  This case checks the combinatorial-testing evidence and boundary contract.
+  此用例检查组合测试的证据边界与合同要求。
 input:
   prompt: |
     使用 combinatorial-testing。只有“在因素、取值和约束明确后选择高风险的多因素组合”这一句，没有规则、模型、约束、版本、数据或执行证据。输出受限 CT-##，列出信息缺口、假设、unassessed 和待确认。

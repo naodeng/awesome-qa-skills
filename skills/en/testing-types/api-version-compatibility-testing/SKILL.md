@@ -1,6 +1,6 @@
 ---
 name: api-version-compatibility-testing
-description: Use this skill when you need to assess API version compatibility from old-client, new-server, and deprecation evidence; triggers include API version compatibility testing.
+description: Use this skill when you need to assess API version compatibility from old-client, new-server, and deprecation evidence; triggers include API 版本兼容性测试 and API version compatibility testing.
 ---
 
 # API Version Compatibility Testing

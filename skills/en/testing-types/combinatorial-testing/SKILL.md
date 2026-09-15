@@ -1,6 +1,6 @@
 ---
 name: combinatorial-testing
-description: Use this skill when you need to select high-risk multi-factor combinations after factors, values, and constraints are explicit; triggers include combinatorial test design.
+description: Use this skill when you need to select high-risk multi-factor combinations after factors, values, and constraints are explicit; triggers include 组合测试 and combinatorial test design.
 ---
 
 # Combinatorial Test Design

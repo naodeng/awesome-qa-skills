@@ -1,6 +1,6 @@
 ---
 name: pairwise-testing
-description: Use this skill when you need to identify interactions that need at least pairwise coverage after factors, values, and constraints are explicit; triggers include pairwise test design.
+description: Use this skill when you need to identify interactions that need at least pairwise coverage after factors, values, and constraints are explicit; triggers include 成对测试 and pairwise test design.
 ---
 
 # Pairwise Test Design

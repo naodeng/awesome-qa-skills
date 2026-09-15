@@ -4,7 +4,7 @@
 
 ## 状态
 
-`APPROVED_FOR_IMPLEMENTATION`（2026-09-15）。本设计已经确认“拖动卡片”指 GitHub Project #4 的路线图卡片状态流转；本地 `develop` 已将 `origin/main` 的 `d63a9fa` 快进合入。实现只在本地 `develop` 进行，不自动 push。
+`IMPLEMENTED_PENDING_ACCEPTANCE`（2026-09-15）。本设计已经确认“拖动卡片”指 GitHub Project #4 的路线图卡片状态流转；本地 `develop` 已将 `origin/main` 的 `d63a9fa` 快进合入。两批实现、修复和静态门禁已完成，代码通过现有 PR #12 交付；但 Project 历史状态事件仍未取得，整体验收保持未完成。
 
 ## 目标与边界
 
@@ -49,9 +49,11 @@ v2.0 先实现 Project #4 中 25 张 `v2 P1` 候选 Skill 卡片，分成两批�
 2. RED 原因确认后，只移动对应批次的精确 Project 卡片到 `In Progress`。
 3. 每个 Skill 按 RED → 最小 GREEN → REFACTOR 完成中英文包与三类 Eval。
 4. 更新 registry、Matrix/Register、双语 README/Catalog/Graph 和必要的路由文档。
-5. 运行目标验证、全仓合同与质量门禁；只有证据完整的卡片才移动到 `Done`。
-6. 其他 Project 卡片保持原状态；不创建仓库 Issue，不 push，不创建 Release。
+5. 运行目标验证、全仓合同与质量门禁；只有证据完整的卡片才在验收结论中标记为完成。
+6. 其他 Project 卡片保持原状态；不创建仓库 Issue 或 Release；本次代码交付通过现有 PR 完成。
 
-## 验收结论
+## 验收条件与当前结论
 
-两批完成的最低条件是：25 张精确卡片均经过 `In Progress` 和 `Done` 状态证据；中文/英文各新增 25 个同名物理 Skill 包；所有包通过结构、metadata、Eval、独立性、完整性和双语门禁；治理生成视图可从当前 registry 复现；`git diff --check` 通过；报告明确静态结构证据与未运行的真实模型/外部验证之间的边界。
+完整验收的最低条件是：25 张精确卡片均有经过 `In Progress` 和 `Done` 的历史状态证据；中文/英文各新增 25 个同名物理 Skill 包；所有包通过结构、metadata、Eval、独立性、完整性和双语门禁；治理生成视图可从当前 registry 复现；`git diff --check` 通过；报告明确静态结构证据与未运行的真实模型/外部验证之间的边界。
+
+当前已完成 25 个双语物理 Skill 包、结构与质量门禁、治理生成视图和静态边界记录。Project #4 仅能由 `gh project item-list 4 --owner naodeng --format json --limit 200` 核实 25 张卡片的当前 `Done` 状态，无法返回 `In Progress -> Done` 历史事件；因此 registry 将 25 条记录标为 `acceptance_state: INCOMPLETE`，整体验收保持 `INCOMPLETE`，不能声称 25 张卡片均已完成状态流转验收。

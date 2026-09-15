@@ -1,6 +1,6 @@
 ---
 name: ui-test-selector-review
-description: Use this skill when you need to review UI automation selectors for stability, semantics, and maintainability using source evidence; triggers include UI test selector review.
+description: Use this skill when you need to review UI automation selectors for stability, semantics, and maintainability using source evidence; triggers include UI 测试选择器评审 and UI test selector review.
 ---
 
 # UI Test Selector Review
