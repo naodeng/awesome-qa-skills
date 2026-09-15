@@ -100,6 +100,19 @@ class V34PromptRegressionContractTest(unittest.TestCase):
                 for phrase in forbidden:
                     self.assertIn(phrase, boundary)
 
+    def test_regression_basic_case_requires_finding_prefix(self):
+        for language in LANGUAGES:
+            path = self.package(language) / "evals/cases/prompt-regression-basic-success.yaml"
+            text = path.read_text(encoding="utf-8")
+            with self.subTest(language=language):
+                expect_block = text.split("expect:", 1)[1].split("judge:", 1)[0]
+                self.assertIn("PRT-", expect_block)
+                judge_block = text.split("judge:", 1)[1]
+                self.assertIn("PRT-", judge_block)
+                for term in REQUIRED_TERMS[language]:
+                    self.assertIn(term, expect_block)
+                    self.assertIn(term, judge_block)
+
     def test_regression_trigger_rows_and_local_rules_are_explicit(self):
         for language in LANGUAGES:
             package = self.package(language)

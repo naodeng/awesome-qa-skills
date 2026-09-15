@@ -9,6 +9,16 @@ input:
 
 expect:
   must_contain:
+    - "object/rule"
+    - "source"
+    - "trigger or applicability"
+    - "expected concern/rationale"
+    - "evidence state"
+    - "impact/priority"
+    - "owner role"
+    - "close condition"
+    - "validation method"
+    - "AGP-"
     - "Task Understanding"
     - "Input Audit"
     - "Agent permission"
@@ -22,6 +32,16 @@ judge:
   success:
     - output_contains:
         all:
+          - "object/rule"
+          - "source"
+          - "trigger or applicability"
+          - "expected concern/rationale"
+          - "evidence state"
+          - "impact/priority"
+          - "owner role"
+          - "close condition"
+          - "validation method"
+          - "AGP-"
           - "Task Understanding"
           - "Input Audit"
           - "Agent permission"

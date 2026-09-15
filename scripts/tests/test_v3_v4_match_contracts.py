@@ -1,10 +1,12 @@
 import importlib.util
+import json
 import unittest
 from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[2]
 CONTRACT_PATH = ROOT / "scripts/tests/v3_v4_skill_contracts.py"
+REGISTRY_PATH = ROOT / "docs/governance/skill-governance-registry.yaml"
 
 EXPECTED_BATCH_1 = {
     "reliability-testing": "PVTI_lAHOAHP1as4BjBhVzg6Sc5w",
@@ -161,6 +163,17 @@ class V34MatchContractsTest(unittest.TestCase):
         enhancement = contract.ENHANCEMENTS["prompt-regression-testing"]
         self.assertEqual("prompt-testing", enhancement["target"])
         self.assertEqual("PRT-", enhancement["prefix"])
+
+    def test_registry_targets_follow_shared_match_ledger_for_new_skills(self):
+        contract = self.load_contract()
+        registry = json.loads(REGISTRY_PATH.read_text(encoding="utf-8"))
+        candidates = {candidate["slug"]: candidate for candidate in registry["candidates"]}
+        for slug in contract.NEW_SKILLS:
+            with self.subTest(slug=slug):
+                self.assertEqual(
+                    contract.MATCH_RECORDS[slug]["existing_targets"],
+                    candidates[slug]["capability_match"]["existing_targets"],
+                )
 
     def test_package_contract_is_explicit(self):
         contract = self.load_contract()

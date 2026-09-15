@@ -202,6 +202,17 @@ def _targets(*slugs):
     ]
 
 
+def assert_packages_exist(test_case, slugs):
+    missing_packages = [
+        f"skills/{language}/{TARGET_SECTION}/{slug}"
+        for language in LANGUAGES
+        for slug in slugs
+        if not (ROOT / "skills" / language / TARGET_SECTION / slug).is_dir()
+    ]
+    if missing_packages:
+        test_case.fail("v3-v4 packages are not created yet: " + ", ".join(missing_packages))
+
+
 def _record(slug, conclusion, existing_targets, difference, *, target=None):
     return {
         "slug": slug,

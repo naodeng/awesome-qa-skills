@@ -9,6 +9,16 @@ input:
 
 expect:
   must_contain:
+    - "object/rule"
+    - "source"
+    - "trigger or applicability"
+    - "expected concern/rationale"
+    - "evidence state"
+    - "impact/priority"
+    - "owner role"
+    - "close condition"
+    - "validation method"
+    - "AZT-"
     - "authorization decision"
     - "priority"
     - "evidence"
@@ -21,5 +31,15 @@ judge:
   success:
     - output_contains:
         all:
+          - "object/rule"
+          - "source"
+          - "trigger or applicability"
+          - "expected concern/rationale"
+          - "evidence state"
+          - "impact/priority"
+          - "owner role"
+          - "close condition"
+          - "validation method"
+          - "AZT-"
           - "authorization decision"
           - "open"

@@ -12,6 +12,10 @@ input:
 
 expect:
   must_contain:
+    - "预期行为"
+    - "观察到的行为"
+    - "Human"
+    - "PRT-"
     - "基线"
     - "候选版本"
     - "数据集"
@@ -27,6 +31,13 @@ judge:
   success:
     - output_contains:
         all:
+          - "数据集"
+          - "预期行为"
+          - "观察到的行为"
+          - "证据状态"
+          - "验证方法"
+          - "Human"
+          - "PRT-"
           - "基线"
           - "候选版本"
           - "差异"

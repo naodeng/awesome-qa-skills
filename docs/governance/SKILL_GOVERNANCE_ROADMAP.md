@@ -31,7 +31,7 @@ GitHub Project `Awesome QA Skills — Governance & Roadmap` 是执行看板。�
 
 ## Phase 3 当前工作项（2026-09-15）
 
-`ACCEPTED_WITH_DEFERRED_EVAL`：v3-v4 Phase 3 的 Batch 1（Reliability + Security）17 张卡片和 Batch 2（Quality Engineering + AI Native）25 张卡片均已完成 `Match → RED 契约 → In Progress → 实现 → 质量门禁 → Done`。Batch 2 交付 24 个双语物理 Skill 包，并将 `prompt-regression-testing` 作为 `prompt-testing` 的增强模式，不创建别名目录。Project 状态只证明当前列状态；没有事件历史时，transition audit 仍为 `UNASSESSED`，真实模型 Eval、外部目标执行、质量分数和业务验收继续保持 `NOT_RUN` / `NOT_SCORED` / `INCOMPLETE`。详见 [v3-v4 Phase 3 记录](./PHASE_3_V3_V4.md)。
+`ACCEPTED_WITH_DEFERRED_EVAL`：v3-v4 Phase 3 的 Batch 1（Reliability + Security）17 张卡片和 Batch 2（Quality Engineering + AI Native）25 张卡片，其 Match、RED 契约、Skill 实现、治理同步和质量门禁交付物均已完成；Project 当前快照显示 42 张卡片为 `Done`。现有 Project 查询不能证明历史上完整经历过 `In Progress → Done`，因此 transition audit 保持 `UNASSESSED`。Batch 2 交付 24 个双语物理 Skill 包，并将 `prompt-regression-testing` 作为 `prompt-testing` 的增强模式，不创建别名目录。真实模型 Eval、外部目标执行、质量分数和业务验收继续保持 `NOT_RUN` / `NOT_SCORED` / `INCOMPLETE`。详见 [v3-v4 Phase 3 记录](./PHASE_3_V3_V4.md)。
 
 ## 阶段复盘
 

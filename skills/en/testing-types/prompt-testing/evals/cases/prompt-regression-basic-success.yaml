@@ -12,6 +12,10 @@ input:
 
 expect:
   must_contain:
+    - "expected behavior"
+    - "observed behavior"
+    - "Human"
+    - "PRT-"
     - "baseline"
     - "candidate version"
     - "dataset"
@@ -27,6 +31,13 @@ judge:
   success:
     - output_contains:
         all:
+          - "dataset"
+          - "expected behavior"
+          - "observed behavior"
+          - "evidence state"
+          - "validation method"
+          - "Human"
+          - "PRT-"
           - "baseline"
           - "candidate version"
           - "difference"

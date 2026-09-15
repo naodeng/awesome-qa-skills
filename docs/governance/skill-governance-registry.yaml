@@ -8568,10 +8568,10 @@
       "capability_match": {
         "decision": "NEW",
         "existing_targets": [
-          "skills/zh/testing-types/test-strategy/SKILL.md",
-          "skills/en/testing-types/test-strategy/SKILL.md",
-          "skills/zh/testing-types/production-verification/SKILL.md",
-          "skills/en/testing-types/production-verification/SKILL.md"
+          "skills/zh/testing-types/test-reporting/SKILL.md",
+          "skills/en/testing-types/test-reporting/SKILL.md",
+          "skills/zh/testing-types/quality-risk-analysis/SKILL.md",
+          "skills/en/testing-types/quality-risk-analysis/SKILL.md"
         ],
         "difference": "Existing adjacent packages do not own the quality gate contract; a bilingual quality-gate-design package isolates it with QGD-## and explicit evidence boundaries."
       },
@@ -8660,8 +8660,8 @@
         "existing_targets": [
           "skills/zh/testing-types/test-reporting/SKILL.md",
           "skills/en/testing-types/test-reporting/SKILL.md",
-          "skills/zh/testing-types/observability-design-review/SKILL.md",
-          "skills/en/testing-types/observability-design-review/SKILL.md"
+          "skills/zh/testing-types/metrics-anomaly-analysis/SKILL.md",
+          "skills/en/testing-types/metrics-anomaly-analysis/SKILL.md"
         ],
         "difference": "Existing adjacent packages do not own the quality dashboard contract; a bilingual quality-dashboard-design package isolates it with QDD-## and explicit evidence boundaries."
       },
@@ -8705,8 +8705,8 @@
         "existing_targets": [
           "skills/zh/testing-types/quality-risk-analysis/SKILL.md",
           "skills/en/testing-types/quality-risk-analysis/SKILL.md",
-          "skills/zh/testing-types/test-suite-health-analysis/SKILL.md",
-          "skills/en/testing-types/test-suite-health-analysis/SKILL.md"
+          "skills/zh/testing-types/production-incident-analysis/SKILL.md",
+          "skills/en/testing-types/production-incident-analysis/SKILL.md"
         ],
         "difference": "Existing adjacent packages do not own the quality debt contract; a bilingual quality-debt-analysis package isolates it with QDA-## and explicit evidence boundaries."
       },
@@ -8748,10 +8748,10 @@
       "capability_match": {
         "decision": "NEW",
         "existing_targets": [
-          "skills/zh/testing-types/test-strategy/SKILL.md",
-          "skills/en/testing-types/test-strategy/SKILL.md",
           "skills/zh/testing-types/quality-risk-analysis/SKILL.md",
-          "skills/en/testing-types/quality-risk-analysis/SKILL.md"
+          "skills/en/testing-types/quality-risk-analysis/SKILL.md",
+          "skills/zh/testing-types/requirement-quality-review/SKILL.md",
+          "skills/en/testing-types/requirement-quality-review/SKILL.md"
         ],
         "difference": "Existing adjacent packages do not own the quality maturity contract; a bilingual quality-maturity-assessment package isolates it with QMA-## and explicit evidence boundaries."
       },
@@ -8793,10 +8793,10 @@
       "capability_match": {
         "decision": "NEW",
         "existing_targets": [
-          "skills/zh/testing-types/test-report-review/SKILL.md",
-          "skills/en/testing-types/test-report-review/SKILL.md",
-          "skills/zh/testing-types/test-coverage-analysis/SKILL.md",
-          "skills/en/testing-types/test-coverage-analysis/SKILL.md"
+          "skills/zh/testing-types/test-reporting/SKILL.md",
+          "skills/en/testing-types/test-reporting/SKILL.md",
+          "skills/zh/testing-types/quality-risk-analysis/SKILL.md",
+          "skills/en/testing-types/quality-risk-analysis/SKILL.md"
         ],
         "difference": "Existing adjacent packages do not own the test effectiveness contract; a bilingual test-effectiveness-analysis package isolates it with TEA-## and explicit evidence boundaries."
       },
@@ -8840,8 +8840,8 @@
         "existing_targets": [
           "skills/zh/testing-types/automation-testing/SKILL.md",
           "skills/en/testing-types/automation-testing/SKILL.md",
-          "skills/zh/testing-types/test-reporting/SKILL.md",
-          "skills/en/testing-types/test-reporting/SKILL.md"
+          "skills/zh/testing-types/quality-risk-analysis/SKILL.md",
+          "skills/en/testing-types/quality-risk-analysis/SKILL.md"
         ],
         "difference": "Existing adjacent packages do not own the automation ROI contract; a bilingual automation-roi-analysis package isolates it with ARO-## and explicit evidence boundaries."
       },
@@ -8885,8 +8885,8 @@
         "existing_targets": [
           "skills/zh/testing-types/performance-bottleneck-analysis/SKILL.md",
           "skills/en/testing-types/performance-bottleneck-analysis/SKILL.md",
-          "skills/zh/testing-types/test-suite-health-analysis/SKILL.md",
-          "skills/en/testing-types/test-suite-health-analysis/SKILL.md"
+          "skills/zh/testing-types/quality-risk-analysis/SKILL.md",
+          "skills/en/testing-types/quality-risk-analysis/SKILL.md"
         ],
         "difference": "Existing adjacent packages do not own the testing bottleneck contract; a bilingual testing-bottleneck-analysis package isolates it with TBA-## and explicit evidence boundaries."
       },
@@ -8973,10 +8973,10 @@
       "capability_match": {
         "decision": "NEW",
         "existing_targets": [
+          "skills/zh/testing-types/automation-testing/SKILL.md",
+          "skills/en/testing-types/automation-testing/SKILL.md",
           "skills/zh/testing-types/test-reporting/SKILL.md",
-          "skills/en/testing-types/test-reporting/SKILL.md",
-          "skills/zh/testing-types/performance-testing/SKILL.md",
-          "skills/en/testing-types/performance-testing/SKILL.md"
+          "skills/en/testing-types/test-reporting/SKILL.md"
         ],
         "difference": "Existing adjacent packages do not own the CI test pipeline contract; a bilingual ci-test-optimization package isolates it with CTO-## and explicit evidence boundaries."
       },
@@ -9018,10 +9018,10 @@
       "capability_match": {
         "decision": "NEW",
         "existing_targets": [
-          "skills/zh/testing-types/performance-testing/SKILL.md",
-          "skills/en/testing-types/performance-testing/SKILL.md",
-          "skills/zh/testing-types/test-suite-health-analysis/SKILL.md",
-          "skills/en/testing-types/test-suite-health-analysis/SKILL.md"
+          "skills/zh/testing-types/performance-bottleneck-analysis/SKILL.md",
+          "skills/en/testing-types/performance-bottleneck-analysis/SKILL.md",
+          "skills/zh/testing-types/automation-testing/SKILL.md",
+          "skills/en/testing-types/automation-testing/SKILL.md"
         ],
         "difference": "Existing adjacent packages do not own the test runtime contract; a bilingual test-runtime-optimization package isolates it with TRO-## and explicit evidence boundaries."
       },
@@ -9063,10 +9063,10 @@
       "capability_match": {
         "decision": "NEW",
         "existing_targets": [
-          "skills/zh/testing-types/test-code-review/SKILL.md",
-          "skills/en/testing-types/test-code-review/SKILL.md",
-          "skills/zh/testing-types/flaky-test-analysis/SKILL.md",
-          "skills/en/testing-types/flaky-test-analysis/SKILL.md"
+          "skills/zh/testing-types/automation-testing/SKILL.md",
+          "skills/en/testing-types/automation-testing/SKILL.md",
+          "skills/zh/testing-types/quality-risk-analysis/SKILL.md",
+          "skills/en/testing-types/quality-risk-analysis/SKILL.md"
         ],
         "difference": "Existing adjacent packages do not own the maintenance cost contract; a bilingual test-maintenance-cost-analysis package isolates it with TMC-## and explicit evidence boundaries."
       },
@@ -9110,8 +9110,8 @@
         "existing_targets": [
           "skills/zh/testing-types/test-reporting/SKILL.md",
           "skills/en/testing-types/test-reporting/SKILL.md",
-          "skills/zh/testing-types/quality-risk-analysis/SKILL.md",
-          "skills/en/testing-types/quality-risk-analysis/SKILL.md"
+          "skills/zh/testing-types/metrics-anomaly-analysis/SKILL.md",
+          "skills/en/testing-types/metrics-anomaly-analysis/SKILL.md"
         ],
         "difference": "Existing adjacent packages do not own the quality productivity contract; a bilingual quality-productivity-metrics package isolates it with QPM-## and explicit evidence boundaries."
       },
@@ -9155,8 +9155,8 @@
         "existing_targets": [
           "skills/zh/testing-types/llm-testing/SKILL.md",
           "skills/en/testing-types/llm-testing/SKILL.md",
-          "skills/zh/testing-types/ai-assisted-testing/SKILL.md",
-          "skills/en/testing-types/ai-assisted-testing/SKILL.md"
+          "skills/zh/testing-types/llm-evaluation-design/SKILL.md",
+          "skills/en/testing-types/llm-evaluation-design/SKILL.md"
         ],
         "difference": "Existing adjacent packages do not own the RAG quality contract; a bilingual rag-quality-testing package isolates it with RAGQ-## and explicit evidence boundaries."
       },
@@ -9200,8 +9200,8 @@
         "existing_targets": [
           "skills/zh/testing-types/llm-testing/SKILL.md",
           "skills/en/testing-types/llm-testing/SKILL.md",
-          "skills/zh/testing-types/test-data-requirement-analysis/SKILL.md",
-          "skills/en/testing-types/test-data-requirement-analysis/SKILL.md"
+          "skills/zh/testing-types/llm-evaluation-design/SKILL.md",
+          "skills/en/testing-types/llm-evaluation-design/SKILL.md"
         ],
         "difference": "Existing adjacent packages do not own the retrieval result contract; a bilingual rag-retrieval-testing package isolates it with RAGT-## and explicit evidence boundaries."
       },
@@ -9289,9 +9289,7 @@
         "decision": "NEW",
         "existing_targets": [
           "skills/zh/testing-types/ai-agent-testing/SKILL.md",
-          "skills/en/testing-types/ai-agent-testing/SKILL.md",
-          "skills/zh/testing-types/agent-tool-testing/SKILL.md",
-          "skills/en/testing-types/agent-tool-testing/SKILL.md"
+          "skills/en/testing-types/ai-agent-testing/SKILL.md"
         ],
         "difference": "Existing adjacent packages do not own the Agent memory contract; a bilingual agent-memory-testing package isolates it with AMT-## and explicit evidence boundaries."
       },
@@ -9378,10 +9376,10 @@
       "capability_match": {
         "decision": "NEW",
         "existing_targets": [
-          "skills/zh/testing-types/error-handling-design-review/SKILL.md",
-          "skills/en/testing-types/error-handling-design-review/SKILL.md",
           "skills/zh/testing-types/ai-agent-testing/SKILL.md",
-          "skills/en/testing-types/ai-agent-testing/SKILL.md"
+          "skills/en/testing-types/ai-agent-testing/SKILL.md",
+          "skills/zh/testing-types/production-incident-analysis/SKILL.md",
+          "skills/en/testing-types/production-incident-analysis/SKILL.md"
         ],
         "difference": "Existing adjacent packages do not own the Agent failure recovery contract; a bilingual agent-failure-recovery-testing package isolates it with AFR-## and explicit evidence boundaries."
       },
@@ -9423,10 +9421,10 @@
       "capability_match": {
         "decision": "NEW",
         "existing_targets": [
-          "skills/zh/testing-types/performance-testing/SKILL.md",
-          "skills/en/testing-types/performance-testing/SKILL.md",
           "skills/zh/testing-types/ai-agent-testing/SKILL.md",
-          "skills/en/testing-types/ai-agent-testing/SKILL.md"
+          "skills/en/testing-types/ai-agent-testing/SKILL.md",
+          "skills/zh/testing-types/performance-testing/SKILL.md",
+          "skills/en/testing-types/performance-testing/SKILL.md"
         ],
         "difference": "Existing adjacent packages do not own the long-running Agent contract; a bilingual agent-long-running-testing package isolates it with ALR-## and explicit evidence boundaries."
       },
@@ -9603,10 +9601,10 @@
       "capability_match": {
         "decision": "NEW",
         "existing_targets": [
-          "skills/zh/testing-types/security-testing/SKILL.md",
-          "skills/en/testing-types/security-testing/SKILL.md",
           "skills/zh/testing-types/ai-agent-testing/SKILL.md",
-          "skills/en/testing-types/ai-agent-testing/SKILL.md"
+          "skills/en/testing-types/ai-agent-testing/SKILL.md",
+          "skills/zh/testing-types/security-testing/SKILL.md",
+          "skills/en/testing-types/security-testing/SKILL.md"
         ],
         "difference": "Existing adjacent packages do not own the AI safety contract; a bilingual ai-safety-testing package isolates it with AIS-## and explicit evidence boundaries."
       },
