@@ -1,0 +1,26 @@
+id: edge-incomplete-input
+title: "Agent Memory Testing: bounded first pass with incomplete input"
+description: |
+  Checks that missing context leads to a bounded first pass with assumptions and gaps, not refusal or invention.
+
+input:
+  prompt: |
+    Use the agent-memory-testing skill. The only known fact is: an Agent with long-term memory must retain preferences within user authorization and support deletion, so the team needs to verify provenance, isolation, and forgetting boundaries. No more environment, version, model, or supporting evidence is available. Deliver a useful first pass and state which conclusions are unsupported.
+
+expect:
+  must_contain:
+    - "Working Assumptions"
+    - "Open Questions"
+    - "evidence"
+    - "Next Actions"
+  must_not_contain:
+    - "I cannot"
+    - "unable to help"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Working Assumptions"
+          - "Open Questions"

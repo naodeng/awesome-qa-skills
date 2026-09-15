@@ -1,0 +1,5 @@
+mode,should_trigger,prompt
+"explicit","true","请使用 test-runtime-optimization Skill 分析测试运行时间。"
+"implicit","true","请审查慢测试、分析证据、setup/teardown、并行、隔离与基线并列出证据缺口。"
+"contextual","true","端到端套件运行时间持续增长，团队怀疑初始化、清理和串行依赖造成延迟，但尚未有可复核的基线，如何准备有边界的分析？"
+"negative","false","请设计营销页面的颜色和字体，不做测试或质量分析。"

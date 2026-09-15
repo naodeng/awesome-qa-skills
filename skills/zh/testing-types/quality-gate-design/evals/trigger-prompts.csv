@@ -1,0 +1,5 @@
+mode,should_trigger,prompt
+"explicit","true","请使用 quality-gate-design Skill 分析质量门禁。"
+"implicit","true","请审查发布或交付入口的准入条件、证据要求、责任人与例外路径并列出证据缺口。"
+"contextual","true","支付服务发布前的质量门禁需要同时检查关键业务风险、自动化结果、已知缺陷和人工批准边界，如何准备有边界的分析？"
+"negative","false","请设计营销页面的颜色和字体，不做测试或质量分析。"

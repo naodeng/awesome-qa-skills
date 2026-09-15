@@ -1,0 +1,5 @@
+mode,should_trigger,prompt
+"explicit","true","请使用 quality-productivity-metrics Skill 分析质量生产力。"
+"implicit","true","请审查质量与交付指标、分母、归因边界、操纵风险与 Human 使用边界并列出证据缺口。"
+"contextual","true","组织希望用交付速度、缺陷逃逸和测试产出来比较团队，但需要避免把指标变成个人绩效或鼓励规避风险，如何准备有边界的分析？"
+"negative","false","请设计营销页面的颜色和字体，不做测试或质量分析。"

@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: test-effectiveness-analysis
+interface:
+  display_name: "Test Effectiveness Analysis"
+  short_description: "Produce evidence-bounded test effectiveness analysis"
+  default_prompt: "Use the test-effectiveness-analysis skill to perform test effectiveness analysis."
+policy:
+  allow_implicit_invocation: true

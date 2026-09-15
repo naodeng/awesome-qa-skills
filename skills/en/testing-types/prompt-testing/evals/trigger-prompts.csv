@@ -1,0 +1,7 @@
+mode,should_trigger,prompt
+"explicit","true","Use the prompt-testing skill to design prompt tests."
+"implicit","true","Review prompt behavior, boundaries, and evidence gaps."
+"contextual","true","A prompt version changed; how should format and refusal behavior be tested?"
+"negative","false","Design the login page colors and fonts; do not test prompts."
+"prompt-regression","true","Use prompt-testing prompt-regression to compare a baseline and candidate version."
+"prompt-regression","false","Create a marketing page; do not perform prompt version regression."

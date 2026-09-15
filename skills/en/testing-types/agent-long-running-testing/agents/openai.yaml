@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: agent-long-running-testing
+interface:
+  display_name: "Long-Running Agent Testing"
+  short_description: "Produce evidence-bounded long-running Agent analysis"
+  default_prompt: "Use the agent-long-running-testing skill to perform long-running Agent analysis."
+policy:
+  allow_implicit_invocation: true

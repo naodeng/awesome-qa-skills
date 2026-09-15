@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: rag-quality-testing
+interface:
+  display_name: "RAG 质量测试"
+  short_description: "围绕RAG 质量输出证据边界与可执行分析"
+  default_prompt: "Use the rag-quality-testing skill to perform RAG quality analysis."
+policy:
+  allow_implicit_invocation: true

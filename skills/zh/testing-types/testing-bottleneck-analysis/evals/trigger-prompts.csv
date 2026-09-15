@@ -1,0 +1,5 @@
+mode,should_trigger,prompt
+"explicit","true","请使用 testing-bottleneck-analysis Skill 分析测试瓶颈。"
+"implicit","true","请审查等待队列、依赖、容量、交接和约束证据并列出证据缺口。"
+"contextual","true","迭代测试经常在环境、数据准备和人工审批处等待，团队需要定位真正的测试瓶颈而不是凭感觉加人，如何准备有边界的分析？"
+"negative","false","请设计营销页面的颜色和字体，不做测试或质量分析。"

@@ -61,8 +61,11 @@ flowchart LR
 | --- | --- | --- |
 | 可靠性与故障路径 | `reliability-testing` → `resilience-testing` → `failover-testing` / `recovery-testing`；按需使用 `retry-testing` / `timeout-testing` / `circuit-breaker-testing` / `dependency-failure-testing` / `disaster-recovery-testing` / `chaos-testing` | 可靠性目标、故障模式、降级、切换和恢复证据准备 |
 | 身份与 API 安全 | `security-requirement-review` → `authentication-testing` / `authorization-testing` → `session-security-testing` / `api-security-testing`; 按需使用 `threat-modeling` / `secrets-exposure-review` | 安全需求、身份、授权、会话、攻击面和暴露证据 |
+| 质量工程与效能 | `quality-gate-design` → `quality-metrics-design` → `quality-dashboard-design`；按需使用 `quality-debt-analysis` / `quality-maturity-assessment` / `test-effectiveness-analysis` / `automation-roi-analysis` / `testing-bottleneck-analysis` / `regression-optimization` / `ci-test-optimization` / `test-runtime-optimization` / `test-maintenance-cost-analysis` / `quality-productivity-metrics` | 质量门禁、指标、仪表盘、债务、成熟度和效能分析 |
+| AI Native quality | `rag-retrieval-testing` → `rag-quality-testing` → `llm-hallucination-testing` / `llm-consistency-testing`；`prompt-testing` 的 `prompt-regression` 模式用于版本对比 | RAG 与 LLM 的检索、grounding、声明证据和一致性分析 |
+| Agent quality and safety | `agent-loop-testing` → `agent-memory-testing` / `agent-permission-testing` → `agent-failure-recovery-testing` / `agent-long-running-testing` / `multi-agent-testing` / `ai-safety-testing` | Agent 状态、工具权限、恢复、协作、长运行和安全边界 |
 
-v3-v4 Phase 3 的 17 个 Batch 1 卡片已按 `Match → RED 契约 → In Progress → 实现 → 质量门禁 → Done` 执行。`prompt-regression-testing` 等 Batch 2 能力仍以治理记录为准，物理包是否新增由后续 Match 结论决定。
+v3-v4 Phase 3 的 17 个 Batch 1 卡片和 25 个 Batch 2 卡片均已按 `Match → RED 契约 → In Progress → 实现 → 质量门禁 → Done` 执行。`prompt-regression-testing` 作为 `prompt-testing` 的增强模式交付，不创建别名目录。
 
 ## 使用边界
 
@@ -75,6 +78,7 @@ v3-v4 Phase 3 的 17 个 Batch 1 卡片已按 `Match → RED 契约 → In Progr
 - v2.0 Test Engineering 组合是可选导航；25 个候选卡片以独立双语物理 Skill 交付，不产生安装依赖、跨 Skill 内部链接或运行时执行结论。
 - v2.0 Skill 只基于提供的规格、代码、测试资产或报告提出发现；真实模型 Eval、API/UI/数据库/变异执行和发布审批仍保持未运行或待人工决策。
 - v3-v4 Phase 3 的可靠性与安全 Skill 只形成证据有界的测试/审查准备，不注入故障、不读取实时凭据、不宣称安全认证或恢复演练已执行；Project 卡片状态也不等于发布或风险接受。
+- v3-v4 Phase 3 的 QE 与 AI Native Skill 只形成指标、效能、RAG/LLM、Agent 和安全分析的证据有界准备；不把静态契约、触发词或目录存在写成真实模型效果、运行时覆盖、质量分数或业务验收。
 
 ## 导航
 

@@ -1,0 +1,5 @@
+mode,should_trigger,prompt
+"explicit","true","Use the agent-memory-testing skill to analyze Agent memory."
+"implicit","true","Review memory write/read/update/delete, retention, contamination, isolation, provenance, and forgetting behavior and list evidence gaps."
+"contextual","true","an Agent with long-term memory must retain preferences within user authorization and support deletion, so the team needs to verify provenance, isolation, and forgetting boundaries; how should a bounded analysis be prepared?"
+"negative","false","Design the marketing page colors and fonts; do not perform testing or quality analysis."

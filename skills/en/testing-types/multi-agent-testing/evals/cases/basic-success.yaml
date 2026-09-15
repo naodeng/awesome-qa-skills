@@ -1,0 +1,27 @@
+id: basic-success
+title: "Multi-Agent Testing: domain-complete scenario"
+description: |
+  Checks that the skill produces domain-specific multi-agent coordination analysis that is evidence-based, prioritized, and executable.
+
+input:
+  prompt: |
+    Use the multi-agent-testing skill for this scenario: a planning Agent delegates to retrieval and execution Agents, and the team needs to review shared state, conflicts, ownership, and termination conditions. Provide multi-agent coordination priorities, core execution items, expected behavior or decision criteria, evidence, and open questions.
+
+expect:
+  must_contain:
+    - "Task Understanding"
+    - "Input Audit"
+    - "multi-agent coordination"
+    - "expected"
+  must_not_contain:
+    - "I cannot"
+    - "unable to help"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Task Understanding"
+          - "Input Audit"
+          - "multi-agent coordination"

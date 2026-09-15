@@ -1,0 +1,27 @@
+id: basic-success
+title: "Long-Running Agent Testing: domain-complete scenario"
+description: |
+  Checks that the skill produces domain-specific long-running Agent analysis that is evidence-based, prioritized, and executable.
+
+input:
+  prompt: |
+    Use the agent-long-running-testing skill for this scenario: a data-migration Agent may run for hours, and the team needs evidence boundaries for checkpoints, heartbeats, resume, cancellation, and duplicate submission. Provide long-running Agent priorities, core execution items, expected behavior or decision criteria, evidence, and open questions.
+
+expect:
+  must_contain:
+    - "Task Understanding"
+    - "Input Audit"
+    - "long-running Agent"
+    - "expected"
+  must_not_contain:
+    - "I cannot"
+    - "unable to help"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Task Understanding"
+          - "Input Audit"
+          - "long-running Agent"

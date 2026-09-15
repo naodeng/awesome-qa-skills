@@ -1,0 +1,5 @@
+mode,should_trigger,prompt
+"explicit","true","请使用 automation-roi-analysis Skill 分析自动化投资回报。"
+"implicit","true","请审查自动化候选、建设/运行/维护成本、收益假设、时间窗与敏感性并列出证据缺口。"
+"contextual","true","团队要决定是否自动化一组回归流程，但只有粗略的执行频率和维护估计，缺少可比的时间窗与敏感性分析，如何准备有边界的分析？"
+"negative","false","请设计营销页面的颜色和字体，不做测试或质量分析。"

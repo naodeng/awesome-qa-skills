@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: llm-hallucination-testing
+interface:
+  display_name: "LLM 幻觉测试"
+  short_description: "围绕LLM 幻觉输出证据边界与可执行分析"
+  default_prompt: "Use the llm-hallucination-testing skill to perform LLM hallucination analysis."
+policy:
+  allow_implicit_invocation: true

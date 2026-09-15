@@ -1,0 +1,5 @@
+mode,should_trigger,prompt
+"explicit","true","请使用 agent-failure-recovery-testing Skill 分析Agent 故障恢复。"
+"implicit","true","请审查故障分类、重试/回退/升级、状态一致性、用户通知与恢复证据并列出证据缺口。"
+"contextual","true","Agent 调用外部工具超时或返回不完整结果时，团队需要判断重试、回退、升级和状态一致性是否可复核，如何准备有边界的分析？"
+"negative","false","请设计营销页面的颜色和字体，不做测试或质量分析。"

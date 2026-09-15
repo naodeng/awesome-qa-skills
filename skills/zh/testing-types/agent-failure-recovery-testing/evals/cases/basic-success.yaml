@@ -1,0 +1,27 @@
+id: basic-success
+title: "Agent 故障恢复测试：领域完整场景"
+description: |
+  验证 Skill 能针对Agent 故障恢复输入给出有证据、有优先级、可执行的产出。
+
+input:
+  prompt: |
+    请使用 agent-failure-recovery-testing Skill 分析以下场景：Agent 调用外部工具超时或返回不完整结果时，团队需要判断重试、回退、升级和状态一致性是否可复核。请给出Agent 故障恢复相关的风险优先级、核心执行项、预期结果或判断标准，并标明证据和待确认问题。
+
+expect:
+  must_contain:
+    - "任务理解"
+    - "输入审计"
+    - "Agent 故障恢复"
+    - "预期"
+  must_not_contain:
+    - "我无法"
+    - "无法提供帮助"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "任务理解"
+          - "输入审计"
+          - "Agent 故障恢复"

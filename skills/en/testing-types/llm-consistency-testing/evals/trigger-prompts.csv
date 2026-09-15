@@ -1,0 +1,5 @@
+mode,should_trigger,prompt
+"explicit","true","Use the llm-consistency-testing skill to analyze LLM consistency."
+"implicit","true","Review repeat inputs, version/model/prompt factors, invariants, variance evidence, and comparison boundaries and list evidence gaps."
+"contextual","true","the same business question returns different structures over time, and the team needs pinned versions, model, and prompt factors to identify required invariants; how should a bounded analysis be prepared?"
+"negative","false","Design the marketing page colors and fonts; do not perform testing or quality analysis."

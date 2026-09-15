@@ -1,0 +1,26 @@
+id: edge-incomplete-input
+title: "Agent 循环测试：信息不完整时的受限初版"
+description: |
+  验证输入不足时不会拒绝或编造，而是交付受限初版并标出假设与缺口。
+
+input:
+  prompt: |
+    请使用 agent-loop-testing Skill。当前只知道：工具型 Agent 在任务失败后反复调用同一工具，团队需要审查循环状态、停止条件、预算和 trace 证据。没有更多环境、版本、模型或证据，请先给出可用初版，并明确哪些结论不能成立。
+
+expect:
+  must_contain:
+    - "当前假设"
+    - "信息缺口"
+    - "待确认"
+    - "下一步"
+  must_not_contain:
+    - "我无法"
+    - "无法提供帮助"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "当前假设"
+          - "信息缺口"

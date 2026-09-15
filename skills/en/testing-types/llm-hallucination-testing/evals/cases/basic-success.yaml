@@ -1,0 +1,27 @@
+id: basic-success
+title: "LLM Hallucination Testing: domain-complete scenario"
+description: |
+  Checks that the skill produces domain-specific LLM hallucination analysis that is evidence-based, prioritized, and executable.
+
+input:
+  prompt: |
+    Use the llm-hallucination-testing skill for this scenario: an answer assistant may state nonexistent policy clauses as facts, and the team needs claim-level evidence to separate supported, contradicted, and unsourced content. Provide LLM hallucination priorities, core execution items, expected behavior or decision criteria, evidence, and open questions.
+
+expect:
+  must_contain:
+    - "Task Understanding"
+    - "Input Audit"
+    - "LLM hallucination"
+    - "expected"
+  must_not_contain:
+    - "I cannot"
+    - "unable to help"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Task Understanding"
+          - "Input Audit"
+          - "LLM hallucination"

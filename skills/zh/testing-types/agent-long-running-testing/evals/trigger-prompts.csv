@@ -1,0 +1,5 @@
+mode,should_trigger,prompt
+"explicit","true","请使用 agent-long-running-testing Skill 分析长运行 Agent。"
+"implicit","true","请审查检查点、心跳、恢复、取消、重复提交、超时与资源生命周期并列出证据缺口。"
+"contextual","true","数据迁移 Agent 可能运行数小时，团队需要设计检查点、心跳、恢复、取消和重复提交的证据边界，如何准备有边界的分析？"
+"negative","false","请设计营销页面的颜色和字体，不做测试或质量分析。"

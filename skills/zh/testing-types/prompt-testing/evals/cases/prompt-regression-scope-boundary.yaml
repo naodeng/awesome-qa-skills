@@ -1,0 +1,26 @@
+id: prompt-regression-scope-boundary
+title: "提示词回归：静态证据边界"
+description: |
+  验证没有运行记录时，prompt-regression 不会把静态比较升级为执行、通过或发布结论。
+
+input:
+  prompt: |
+    请用 prompt-regression 比较两个提示词文件的静态差异。当前没有模型调用、测试运行记录或发布授权。
+    请明确不能写成“测试已执行”“全部测试通过”或“发布已批准”，并保留证据状态、差异和 Human 决策边界。
+
+expect:
+  must_contain:
+    - "证据状态"
+    - "不能"
+    - "Human"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "证据状态"
+          - "不能"

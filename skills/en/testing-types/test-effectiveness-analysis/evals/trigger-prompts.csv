@@ -1,0 +1,5 @@
+mode,should_trigger,prompt
+"explicit","true","Use the test-effectiveness-analysis skill to analyze test effectiveness."
+"implicit","true","Review the relationship between test signals and defects or risks, missed-detection limits, false signals, and validation plans and list evidence gaps."
+"contextual","true","a team sees a high test pass rate while high-impact defects still reach users and needs to assess whether test signals cover critical risk; how should a bounded analysis be prepared?"
+"negative","false","Design the marketing page colors and fonts; do not perform testing or quality analysis."

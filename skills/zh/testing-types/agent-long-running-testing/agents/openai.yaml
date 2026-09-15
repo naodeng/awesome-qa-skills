@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: agent-long-running-testing
+interface:
+  display_name: "长运行 Agent 测试"
+  short_description: "围绕长运行 Agent输出证据边界与可执行分析"
+  default_prompt: "Use the agent-long-running-testing skill to perform long-running Agent analysis."
+policy:
+  allow_implicit_invocation: true

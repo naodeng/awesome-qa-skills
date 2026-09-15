@@ -1,0 +1,27 @@
+id: basic-success
+title: "质量成熟度评估：领域完整场景"
+description: |
+  验证 Skill 能针对质量成熟度输入给出有证据、有优先级、可执行的产出。
+
+input:
+  prompt: |
+    请使用 quality-maturity-assessment Skill 分析以下场景：多个交付团队要评估测试策略、缺陷预防、自动化、可观测性和质量治理的成熟度，但现有结论缺少证据锚点。请给出质量成熟度相关的风险优先级、核心执行项、预期结果或判断标准，并标明证据和待确认问题。
+
+expect:
+  must_contain:
+    - "任务理解"
+    - "输入审计"
+    - "质量成熟度"
+    - "预期"
+  must_not_contain:
+    - "我无法"
+    - "无法提供帮助"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "任务理解"
+          - "输入审计"
+          - "质量成熟度"

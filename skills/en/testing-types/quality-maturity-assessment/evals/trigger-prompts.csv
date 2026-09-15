@@ -1,0 +1,5 @@
+mode,should_trigger,prompt
+"explicit","true","Use the quality-maturity-assessment skill to analyze quality maturity."
+"implicit","true","Review quality-practice maturity dimensions, rubric anchors, evidence sufficiency, and improvement gaps and list evidence gaps."
+"contextual","true","several delivery teams need to assess test strategy, defect prevention, automation, observability, and quality governance, but current ratings lack evidence anchors; how should a bounded analysis be prepared?"
+"negative","false","Design the marketing page colors and fonts; do not perform testing or quality analysis."

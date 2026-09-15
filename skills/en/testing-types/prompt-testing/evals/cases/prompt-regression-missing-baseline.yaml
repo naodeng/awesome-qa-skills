@@ -1,0 +1,27 @@
+id: prompt-regression-missing-baseline
+title: "Prompt Regression: bounded pass without a baseline"
+description: |
+  Checks that missing baseline or dataset identity produces gaps and pending evidence rather than an invented regression conclusion.
+
+input:
+  prompt: |
+    Use the prompt-testing prompt-regression mode to review a prompt upgrade. Only the candidate prompt is available; there is no baseline, dataset identity, model parameter set, or run result.
+    List working assumptions, open questions, evidence state, and the smallest validation method. Do not decide that a regression has occurred.
+
+expect:
+  must_contain:
+    - "baseline"
+    - "Open Questions"
+    - "evidence state"
+    - "validation method"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Open Questions"
+          - "evidence state"

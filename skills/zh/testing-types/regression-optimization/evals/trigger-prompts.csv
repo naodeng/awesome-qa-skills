@@ -1,0 +1,5 @@
+mode,should_trigger,prompt
+"explicit","true","请使用 regression-optimization Skill 分析回归范围。"
+"implicit","true","请审查回归选择、排序、并行、缓存与风险保留之间的权衡并列出证据缺口。"
+"contextual","true","单体拆分后回归套件变慢，团队想缩小范围并并行执行，但不能丢失高风险路径的覆盖，如何准备有边界的分析？"
+"negative","false","请设计营销页面的颜色和字体，不做测试或质量分析。"

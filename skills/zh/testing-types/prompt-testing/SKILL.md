@@ -1,6 +1,6 @@
 ---
 name: prompt-testing
-description: Use this skill when you need to test prompt behavior, regression risk, and output boundaries across versions; triggers include Prompt 测试 and prompt testing.
+description: Use this skill when you need to test prompt behavior, regression risk, and output boundaries across versions; triggers include Prompt 测试, prompt testing, and prompt-regression.
 ---
 
 # 提示词测试（中文版）
@@ -8,6 +8,7 @@ description: Use this skill when you need to test prompt behavior, regression ri
 ## 何时使用
 
 - 需要验证提示词在代表性、边界、对抗和版本变化下的正确性、稳定性与可控性。
+- 需要使用 `prompt-regression` 模式比较基线与候选版本，并记录数据集身份、行为差异和证据状态。
 - 需要对现有方案、结果或证据做风险评审，并形成可执行改进项。
 - 输入不完整，但仍需先给出带假设和信息缺口的可用初版。
 
@@ -20,10 +21,11 @@ description: Use this skill when you need to test prompt behavior, regression ri
 ## 如何使用
 
 1. 先阅读并遵循 `prompts/prompt-testing.md` 的输入、执行规则、最低覆盖清单和输出顺序。
-2. 补充真正影响判断的范围、环境、版本、限制、证据和成功标准。
-3. 先做输入审计，再区分已确认事实、合理假设和待确认问题。
-4. 按风险和证据强度排序，产出可直接执行、评审或验证的结果。
-5. 信息不足时不要停在提问：先交付受限初版，并说明哪些结论暂不能成立。
+2. 选择普通测试或 `prompt-regression` 模式；回归模式必须读取基线、候选版本、数据集/测试提示词身份和可比性信息。
+3. 补充真正影响判断的范围、环境、版本、限制、证据和成功标准。
+4. 先做输入审计，再区分已确认事实、合理假设和待确认问题。
+5. 按风险和证据强度排序，产出可直接执行、评审或验证的结果。
+6. 信息不足时不要停在提问：先交付受限初版，并说明哪些结论暂不能成立。
 
 ## 参考文件
 
@@ -39,6 +41,8 @@ description: Use this skill when you need to test prompt behavior, regression ri
 - 不编造输入中不存在的系统行为、字段、数据、指标或根因。
 - 关键结论必须关联证据；证据不足时标记为假设并给出验证方法。
 - 优先级必须说明业务影响、发生可能性或可探测性依据。
+- `prompt-regression` 模式使用 `PRT-##` 发现编号，必须区分基线、候选版本、预期行为、观察到的行为、差异和验证方法。
+- 版本差异只能基于可比输入和现有证据，不能把静态分析写成模型已运行或回归已通过。
 
 ## 交付前自检
 
@@ -46,6 +50,7 @@ description: Use this skill when you need to test prompt behavior, regression ri
 - [ ] 已区分事实、假设、缺口和建议。
 - [ ] 高风险项有明确优先级、证据、负责人或下一步。
 - [ ] 输出包含可验证的判断标准，而非泛泛而谈。
+- [ ] 回归模式保留数据集/测试提示词身份、证据状态、差异和 Human 决策边界。
 - [ ] 未执行未经授权的生产写操作或破坏性动作。
 
 ## 常见误区
@@ -54,6 +59,7 @@ description: Use this skill when you need to test prompt behavior, regression ri
 - 把所有事项都标为高优先级，失去取舍价值。
 - 用工具名或通用理论替代领域判断。
 - 输入不完整时直接拒绝，或反过来假装结论已经确定。
+- 把候选版本与基线的表面差异直接写成回归缺陷，或遗漏可比性和证据状态。
 
 ## 最佳实践
 

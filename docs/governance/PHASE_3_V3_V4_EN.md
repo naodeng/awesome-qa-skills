@@ -4,7 +4,7 @@
 
 ## Current status
 
-`BATCH_1_ACCEPTED_WITH_DEFERRED_EVAL` (2026-09-15). This phase uses develop commit `15c3804` as its baseline; that commit fast-forwarded the latest `origin/main` into develop. A live read of Project #4 found 42 cards whose titles start with `v3-v4 P2｜候选 Skill｜`: 17 Batch 1 cards are now `Done`, while the 25 Batch 2 cards remain `Todo`. Batch 1 now has 17 bilingual physical Skill packages, contract tests, Eval structure, metadata, registry, navigation updates, and a full quality-gate pass; real-model Eval, external-target execution, quality scores, and business acceptance remain incomplete.
+`BATCH_2_ACCEPTED_WITH_DEFERRED_EVAL` (2026-09-15). This phase uses develop commit `15c3804` as its baseline; that commit fast-forwarded the latest `origin/main` into develop. A live read of Project #4 found 42 cards whose titles start with `v3-v4 P2｜候选 Skill｜`; all 17 Batch 1 cards and 25 Batch 2 cards are now `Done`. Batch 2 now has 24 bilingual physical Skill packages, a `prompt-regression` enhancement mode inside `prompt-testing`, contract tests, Eval structure, metadata, registry, navigation updates, and a full quality-gate pass; real-model Eval, external-target execution, quality scores, and business acceptance remain incomplete.
 
 The initial Match conclusion is 41 `NEW` physical Skills (one package in each language) and one `ENHANCE`: `prompt-regression-testing` becomes a `prompt-regression` mode on `prompt-testing`, with no alias directory. The conclusion is based on the current bilingual Skill tree, adjacent Prompts/Workflows, governance records, and the specification. If implementation evidence changes a conclusion, update this record and the shared contract before creating or changing a directory.
 
@@ -76,9 +76,13 @@ Each row keeps the exact Project item ID, delivery target, existing capability f
 
 ```bash
 python3 -m unittest scripts.tests.test_v3_v4_match_contracts -v
+python3 -m unittest scripts.tests.test_v3_v4_batch1_skill_contracts scripts.tests.test_v3_v4_batch2_skill_contracts scripts.tests.test_v3_v4_prompt_regression_contract -v
 python3 scripts/validate_agents_metadata.py --report /tmp/v3-v4-match-metadata.md
 python3 scripts/generate_skill_governance_matrix.py --check
 python3 scripts/generate_skill_governance_inventory.py --check
+python3 scripts/check_docs_bilingual.py --repo-root .
+bash scripts/validate_skill_evals.sh
+bash scripts/check_skills_quality.sh
 ```
 
 Project snapshot:

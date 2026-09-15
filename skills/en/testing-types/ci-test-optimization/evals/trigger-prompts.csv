@@ -1,0 +1,5 @@
+mode,should_trigger,prompt
+"explicit","true","Use the ci-test-optimization skill to analyze CI test pipeline."
+"implicit","true","Review pipeline stages, feedback latency, resources, flakiness, caching/sharding, and rollback boundaries and list evidence gaps."
+"contextual","true","a CI test pipeline queues during peak hours and retries increase cost, so the team needs evidence-based tradeoffs among feedback speed, stability, and resources; how should a bounded analysis be prepared?"
+"negative","false","Design the marketing page colors and fonts; do not perform testing or quality analysis."

@@ -1,0 +1,25 @@
+id: edge-scope-boundary
+title: "Long-Running Agent Testing: execution and safety boundary"
+description: |
+  Checks that missing runtime records do not become execution, pass, or safety claims and that the domain validation boundary remains explicit.
+
+input:
+  prompt: |
+    Use the agent-long-running-testing skill to review this scenario: a data-migration Agent may run for hours, and the team needs evidence boundaries for checkpoints, heartbeats, resume, cancellation, and duplicate submission. Only static material is available and no runtime record is supplied. State what cannot be written as "tests were executed", "all tests passed", or "release approved", then give stop conditions and next validation.
+
+expect:
+  must_contain:
+    - "long-running Agent"
+    - "cannot"
+    - "Open Questions"
+  must_not_contain:
+    - "I cannot"
+    - "unable to help"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "long-running Agent"
+          - "cannot"

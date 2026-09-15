@@ -1,0 +1,5 @@
+mode,should_trigger,prompt
+"explicit","true","Use the llm-hallucination-testing skill to analyze LLM hallucination."
+"implicit","true","Review claim-to-source relations, unsupported assertions, abstention, uncertainty, and evidence review and list evidence gaps."
+"contextual","true","an answer assistant may state nonexistent policy clauses as facts, and the team needs claim-level evidence to separate supported, contradicted, and unsourced content; how should a bounded analysis be prepared?"
+"negative","false","Design the marketing page colors and fonts; do not perform testing or quality analysis."

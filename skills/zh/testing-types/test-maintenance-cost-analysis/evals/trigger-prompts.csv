@@ -1,0 +1,5 @@
+mode,should_trigger,prompt
+"explicit","true","请使用 test-maintenance-cost-analysis Skill 分析维护成本。"
+"implicit","true","请审查变更频率、修复工时、flaky 成本、所有权、可维护性与置信度并列出证据缺口。"
+"contextual","true","测试套件频繁因产品变更和环境波动需要修复，团队需要拆分真实维护成本、责任归属和改进优先级，如何准备有边界的分析？"
+"negative","false","请设计营销页面的颜色和字体，不做测试或质量分析。"

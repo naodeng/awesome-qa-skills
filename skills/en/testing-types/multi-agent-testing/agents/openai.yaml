@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: multi-agent-testing
+interface:
+  display_name: "Multi-Agent Testing"
+  short_description: "Produce evidence-bounded multi-agent coordination analysis"
+  default_prompt: "Use the multi-agent-testing skill to perform multi-agent coordination analysis."
+policy:
+  allow_implicit_invocation: true

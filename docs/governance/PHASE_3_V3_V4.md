@@ -4,7 +4,7 @@
 
 ## 当前状态
 
-`BATCH_1_ACCEPTED_WITH_DEFERRED_EVAL`（2026-09-15）。本阶段基于 develop 的 `15c3804` 基线：该提交已将最新 `origin/main` 快进合入 develop。Project #4 当前读到 42 张标题以 `v3-v4 P2｜候选 Skill｜` 开头的卡片，其中 Batch 1 的 17 张为 `Done`，Batch 2 的 25 张仍为 `Todo`。Batch 1 已完成 17 个双语物理 Skill 包、契约测试、Eval 结构、metadata、治理 registry、导航同步和完整质量门禁；真实模型 Eval、外部目标执行、质量分数和业务验收仍未完成。
+`BATCH_2_ACCEPTED_WITH_DEFERRED_EVAL`（2026-09-15）。本阶段基于 develop 的 `15c3804` 基线：该提交已将最新 `origin/main` 快进合入 develop。Project #4 当前读到 42 张标题以 `v3-v4 P2｜候选 Skill｜` 开头的卡片，Batch 1 的 17 张和 Batch 2 的 25 张均为 `Done`。Batch 2 已完成 24 个双语物理 Skill 包、`prompt-testing` 的 `prompt-regression` 增强模式、契约测试、Eval 结构、metadata、治理 registry、导航同步和完整质量门禁；真实模型 Eval、外部目标执行、质量分数和业务验收仍未完成。
 
 初始 Match 结论为 41 个 `NEW` 物理 Skill（中英文各一个包）和 1 个 `ENHANCE`：`prompt-regression-testing` 作为 `prompt-testing` 的 `prompt-regression` 模式增强，不创建别名目录。结论来源是当前中英文 Skill 树、相邻 Prompt/Workflow、治理记录和规格文件；如果后续实现证据改变结论，必须先更新本记录与共享合同，再创建或修改目录。
 
@@ -76,9 +76,13 @@
 
 ```bash
 python3 -m unittest scripts.tests.test_v3_v4_match_contracts -v
+python3 -m unittest scripts.tests.test_v3_v4_batch1_skill_contracts scripts.tests.test_v3_v4_batch2_skill_contracts scripts.tests.test_v3_v4_prompt_regression_contract -v
 python3 scripts/validate_agents_metadata.py --report /tmp/v3-v4-match-metadata.md
 python3 scripts/generate_skill_governance_matrix.py --check
 python3 scripts/generate_skill_governance_inventory.py --check
+python3 scripts/check_docs_bilingual.py --repo-root .
+bash scripts/validate_skill_evals.sh
+bash scripts/check_skills_quality.sh
 ```
 
 Project 快照：

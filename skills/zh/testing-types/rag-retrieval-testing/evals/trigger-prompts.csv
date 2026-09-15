@@ -1,0 +1,5 @@
+mode,should_trigger,prompt
+"explicit","true","请使用 rag-retrieval-testing Skill 分析检索结果。"
+"implicit","true","请审查查询变体、分块、过滤、召回/精确率代理、排序、新鲜度与检索证据并列出证据缺口。"
+"contextual","true","企业知识库改版后检索结果变少，团队需要区分查询改写、分块、过滤和排序造成的证据差异，如何准备有边界的分析？"
+"negative","false","请设计营销页面的颜色和字体，不做测试或质量分析。"

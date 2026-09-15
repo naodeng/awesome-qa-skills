@@ -1,0 +1,27 @@
+id: basic-success
+title: "Quality Productivity Metrics: domain-complete scenario"
+description: |
+  Checks that the skill produces domain-specific quality productivity analysis that is evidence-based, prioritized, and executable.
+
+input:
+  prompt: |
+    Use the quality-productivity-metrics skill for this scenario: an organization wants to compare teams using delivery speed, escaped defects, and test output while avoiding individual-performance misuse and risk-avoidance incentives. Provide quality productivity priorities, core execution items, expected behavior or decision criteria, evidence, and open questions.
+
+expect:
+  must_contain:
+    - "Task Understanding"
+    - "Input Audit"
+    - "quality productivity"
+    - "expected"
+  must_not_contain:
+    - "I cannot"
+    - "unable to help"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Task Understanding"
+          - "Input Audit"
+          - "quality productivity"

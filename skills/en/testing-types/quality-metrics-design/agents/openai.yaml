@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: quality-metrics-design
+interface:
+  display_name: "Quality Metrics Design"
+  short_description: "Produce evidence-bounded quality metric analysis"
+  default_prompt: "Use the quality-metrics-design skill to perform quality metric analysis."
+policy:
+  allow_implicit_invocation: true

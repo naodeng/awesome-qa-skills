@@ -1,0 +1,25 @@
+id: edge-scope-boundary
+title: "Test Effectiveness Analysis: execution and release boundary"
+description: |
+  Checks that missing runtime records do not become execution, pass, or release claims and that the domain validation boundary remains explicit.
+
+input:
+  prompt: |
+    Use the test-effectiveness-analysis skill to review this scenario: a team sees a high test pass rate while high-impact defects still reach users and needs to assess whether test signals cover critical risk. Only static material is available and no runtime record is supplied. State what cannot be written as "tests were executed", "all tests passed", or "release approved", then give stop conditions and next validation.
+
+expect:
+  must_contain:
+    - "test effectiveness"
+    - "cannot"
+    - "Open Questions"
+  must_not_contain:
+    - "I cannot"
+    - "unable to help"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "test effectiveness"
+          - "cannot"

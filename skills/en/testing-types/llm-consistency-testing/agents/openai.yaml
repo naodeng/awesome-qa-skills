@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: llm-consistency-testing
+interface:
+  display_name: "LLM Consistency Testing"
+  short_description: "Produce evidence-bounded LLM consistency analysis"
+  default_prompt: "Use the llm-consistency-testing skill to perform LLM consistency analysis."
+policy:
+  allow_implicit_invocation: true

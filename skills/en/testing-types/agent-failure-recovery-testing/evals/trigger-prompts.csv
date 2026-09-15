@@ -1,0 +1,5 @@
+mode,should_trigger,prompt
+"explicit","true","Use the agent-failure-recovery-testing skill to analyze Agent failure recovery."
+"implicit","true","Review failure classification, retry/fallback/escalation, state consistency, user notice, and recovery evidence and list evidence gaps."
+"contextual","true","when an Agent tool call times out or returns incomplete data, the team needs to assess retry, fallback, escalation, and state consistency with reviewable evidence; how should a bounded analysis be prepared?"
+"negative","false","Design the marketing page colors and fonts; do not perform testing or quality analysis."

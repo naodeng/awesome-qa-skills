@@ -1,0 +1,5 @@
+mode,should_trigger,prompt
+"explicit","true","请使用 agent-memory-testing Skill 分析Agent 记忆。"
+"implicit","true","请审查记忆写入/读取/更新/删除、保留、污染、隔离、来源和遗忘行为并列出证据缺口。"
+"contextual","true","带长期记忆的 Agent 需要在用户授权范围内保存偏好并支持删除，团队要验证记忆来源、隔离和遗忘边界，如何准备有边界的分析？"
+"negative","false","请设计营销页面的颜色和字体，不做测试或质量分析。"

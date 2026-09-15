@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: automation-roi-analysis
+interface:
+  display_name: "Automation ROI Analysis"
+  short_description: "Produce evidence-bounded automation ROI analysis"
+  default_prompt: "Use the automation-roi-analysis skill to perform automation ROI analysis."
+policy:
+  allow_implicit_invocation: true

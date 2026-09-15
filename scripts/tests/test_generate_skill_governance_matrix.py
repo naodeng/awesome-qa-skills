@@ -7,8 +7,8 @@ from scripts import generate_skill_governance_matrix as matrix
 from scripts.tests.v3_v4_skill_contracts import CARD_IDS as V34_CANDIDATE_SLUGS
 
 ROOT = Path(__file__).resolve().parents[2]
-EXPECTED_LOGICAL_SKILL_COUNT = 138
-EXPECTED_CANDIDATE_COUNT = 75
+EXPECTED_LOGICAL_SKILL_COUNT = 162
+EXPECTED_CANDIDATE_COUNT = 100
 V20_CANDIDATE_SLUGS = {
     "decision-table-testing",
     "state-transition-testing",

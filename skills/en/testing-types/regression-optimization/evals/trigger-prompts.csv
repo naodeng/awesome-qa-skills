@@ -1,0 +1,5 @@
+mode,should_trigger,prompt
+"explicit","true","Use the regression-optimization skill to analyze regression scope."
+"implicit","true","Review tradeoffs among regression selection, ordering, parallelism, caching, and risk preservation and list evidence gaps."
+"contextual","true","a monolith split made the regression suite slower, and the team wants smaller scope and more parallelism without losing high-risk path coverage; how should a bounded analysis be prepared?"
+"negative","false","Design the marketing page colors and fonts; do not perform testing or quality analysis."

@@ -1,0 +1,5 @@
+mode,should_trigger,prompt
+"explicit","true","请使用 llm-consistency-testing Skill 分析LLM 一致性。"
+"implicit","true","请审查重复输入、版本/模型/提示词因素、不变量、方差证据与比较边界并列出证据缺口。"
+"contextual","true","同一业务问题在不同时间返回不同结构，团队需要固定版本、模型和提示词因素，判断哪些不变量必须保持，如何准备有边界的分析？"
+"negative","false","请设计营销页面的颜色和字体，不做测试或质量分析。"

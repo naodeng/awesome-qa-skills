@@ -1,0 +1,25 @@
+id: edge-scope-boundary
+title: "质量门禁设计：执行与发布结论边界"
+description: |
+  验证没有运行记录时，Skill 会拒绝把执行、通过或发布结论写成事实，并保留领域验证边界。
+
+input:
+  prompt: |
+    请使用 quality-gate-design Skill 审查支付服务发布前的质量门禁需要同时检查关键业务风险、自动化结果、已知缺陷和人工批准边界。只有静态材料，没有实际运行记录。请明确哪些内容不能写成“测试已执行”“全部测试通过”或“发布已批准”，并给出停止条件和下一步验证。
+
+expect:
+  must_contain:
+    - "质量门禁"
+    - "不能"
+    - "待确认"
+  must_not_contain:
+    - "我无法"
+    - "无法提供帮助"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "质量门禁"
+          - "不能"

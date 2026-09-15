@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: ci-test-optimization
+interface:
+  display_name: "CI Test Pipeline Optimization"
+  short_description: "Produce evidence-bounded CI test pipeline analysis"
+  default_prompt: "Use the ci-test-optimization skill to perform CI test pipeline analysis."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,5 @@
+mode,should_trigger,prompt
+"explicit","true","请使用 rag-quality-testing Skill 分析RAG 质量。"
+"implicit","true","请审查RAG 输出的 grounding、relevance、completeness、citation/support、abstention 和答案级证据并列出证据缺口。"
+"contextual","true","知识库问答需要回答有来源支持、覆盖问题要点，并在检索不足时明确拒答，但当前只有零散示例，如何准备有边界的分析？"
+"negative","false","请设计营销页面的颜色和字体，不做测试或质量分析。"

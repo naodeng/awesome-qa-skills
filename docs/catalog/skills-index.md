@@ -2,7 +2,7 @@
 
 # Skills 全量索引
 
-每种语言包含 10 个工作流、125 个测试类型和 3 个 Skill Engineering，共 138 个；中英文合计 276 个目录。以下是逻辑导航，实际目录不变。长期治理入口见 [Skill 治理路线图](../governance/SKILL_GOVERNANCE_ROADMAP.md)、[治理矩阵](../SKILL_MATRIX.md) 和 [匹配登记表](../SKILL_MATCHING_REGISTER.md)。
+每种语言包含 10 个工作流、149 个测试类型和 3 个 Skill Engineering，共 162 个；中英文合计 324 个目录。以下是逻辑导航，实际目录不变。长期治理入口见 [Skill 治理路线图](../governance/SKILL_GOVERNANCE_ROADMAP.md)、[治理矩阵](../SKILL_MATRIX.md) 和 [匹配登记表](../SKILL_MATCHING_REGISTER.md)。
 
 ## 跨阶段工作流
 
@@ -138,6 +138,24 @@
 | `threat-modeling` | [中文](../../skills/zh/testing-types/threat-modeling/) | [English](../../skills/en/testing-types/threat-modeling/) |
 | `secrets-exposure-review` | [中文](../../skills/zh/testing-types/secrets-exposure-review/) | [English](../../skills/en/testing-types/secrets-exposure-review/) |
 
+#### 质量工程与效能
+
+| Skill | 中文 | English |
+| --- | --- | --- |
+| `quality-gate-design` | [中文](../../skills/zh/testing-types/quality-gate-design/) | [English](../../skills/en/testing-types/quality-gate-design/) |
+| `quality-metrics-design` | [中文](../../skills/zh/testing-types/quality-metrics-design/) | [English](../../skills/en/testing-types/quality-metrics-design/) |
+| `quality-dashboard-design` | [中文](../../skills/zh/testing-types/quality-dashboard-design/) | [English](../../skills/en/testing-types/quality-dashboard-design/) |
+| `quality-debt-analysis` | [中文](../../skills/zh/testing-types/quality-debt-analysis/) | [English](../../skills/en/testing-types/quality-debt-analysis/) |
+| `quality-maturity-assessment` | [中文](../../skills/zh/testing-types/quality-maturity-assessment/) | [English](../../skills/en/testing-types/quality-maturity-assessment/) |
+| `test-effectiveness-analysis` | [中文](../../skills/zh/testing-types/test-effectiveness-analysis/) | [English](../../skills/en/testing-types/test-effectiveness-analysis/) |
+| `automation-roi-analysis` | [中文](../../skills/zh/testing-types/automation-roi-analysis/) | [English](../../skills/en/testing-types/automation-roi-analysis/) |
+| `testing-bottleneck-analysis` | [中文](../../skills/zh/testing-types/testing-bottleneck-analysis/) | [English](../../skills/en/testing-types/testing-bottleneck-analysis/) |
+| `regression-optimization` | [中文](../../skills/zh/testing-types/regression-optimization/) | [English](../../skills/en/testing-types/regression-optimization/) |
+| `ci-test-optimization` | [中文](../../skills/zh/testing-types/ci-test-optimization/) | [English](../../skills/en/testing-types/ci-test-optimization/) |
+| `test-runtime-optimization` | [中文](../../skills/zh/testing-types/test-runtime-optimization/) | [English](../../skills/en/testing-types/test-runtime-optimization/) |
+| `test-maintenance-cost-analysis` | [中文](../../skills/zh/testing-types/test-maintenance-cost-analysis/) | [English](../../skills/en/testing-types/test-maintenance-cost-analysis/) |
+| `quality-productivity-metrics` | [中文](../../skills/zh/testing-types/quality-productivity-metrics/) | [English](../../skills/en/testing-types/quality-productivity-metrics/) |
+
 #### 开发与持续集成
 
 | Skill | 中文 | English |
@@ -244,6 +262,12 @@
 | `llm-evaluation-design` | [中文](../../skills/zh/testing-types/llm-evaluation-design/) | [English](../../skills/en/testing-types/llm-evaluation-design/) |
 | `llm-testing` | [中文](../../skills/zh/testing-types/llm-testing/) | [English](../../skills/en/testing-types/llm-testing/) |
 | `prompt-testing` | [中文](../../skills/zh/testing-types/prompt-testing/) | [English](../../skills/en/testing-types/prompt-testing/) |
+| `rag-quality-testing` | [中文](../../skills/zh/testing-types/rag-quality-testing/) | [English](../../skills/en/testing-types/rag-quality-testing/) |
+| `rag-retrieval-testing` | [中文](../../skills/zh/testing-types/rag-retrieval-testing/) | [English](../../skills/en/testing-types/rag-retrieval-testing/) |
+| `llm-hallucination-testing` | [中文](../../skills/zh/testing-types/llm-hallucination-testing/) | [English](../../skills/en/testing-types/llm-hallucination-testing/) |
+| `llm-consistency-testing` | [中文](../../skills/zh/testing-types/llm-consistency-testing/) | [English](../../skills/en/testing-types/llm-consistency-testing/) |
+
+> `prompt-regression-testing` is an enhancement mode named `prompt-regression` inside `prompt-testing`; no alias directory is created.
 
 #### Agent、工具与安全测试
 
@@ -252,6 +276,13 @@
 | `ai-agent-testing` | [中文](../../skills/zh/testing-types/ai-agent-testing/) | [English](../../skills/en/testing-types/ai-agent-testing/) |
 | `agent-tool-testing` | [中文](../../skills/zh/testing-types/agent-tool-testing/) | [English](../../skills/en/testing-types/agent-tool-testing/) |
 | `prompt-injection-testing` | [中文](../../skills/zh/testing-types/prompt-injection-testing/) | [English](../../skills/en/testing-types/prompt-injection-testing/) |
+| `agent-loop-testing` | [中文](../../skills/zh/testing-types/agent-loop-testing/) | [English](../../skills/en/testing-types/agent-loop-testing/) |
+| `agent-memory-testing` | [中文](../../skills/zh/testing-types/agent-memory-testing/) | [English](../../skills/en/testing-types/agent-memory-testing/) |
+| `agent-permission-testing` | [中文](../../skills/zh/testing-types/agent-permission-testing/) | [English](../../skills/en/testing-types/agent-permission-testing/) |
+| `agent-failure-recovery-testing` | [中文](../../skills/zh/testing-types/agent-failure-recovery-testing/) | [English](../../skills/en/testing-types/agent-failure-recovery-testing/) |
+| `agent-long-running-testing` | [中文](../../skills/zh/testing-types/agent-long-running-testing/) | [English](../../skills/en/testing-types/agent-long-running-testing/) |
+| `multi-agent-testing` | [中文](../../skills/zh/testing-types/multi-agent-testing/) | [English](../../skills/en/testing-types/multi-agent-testing/) |
+| `ai-safety-testing` | [中文](../../skills/zh/testing-types/ai-safety-testing/) | [English](../../skills/en/testing-types/ai-safety-testing/) |
 
 ## Skill Engineering（横向治理）
 

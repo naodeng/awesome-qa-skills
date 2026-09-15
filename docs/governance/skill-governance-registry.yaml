@@ -5045,6 +5045,894 @@
         "skills/zh/testing-types/secrets-exposure-review/agents/openai.yaml",
         "skills/en/testing-types/secrets-exposure-review/agents/openai.yaml"
       ]
+    },
+    {
+      "slug": "quality-gate-design",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/quality-gate-design",
+      "en_path": "skills/en/testing-types/quality-gate-design",
+      "virtual_domain": "Engineering QA",
+      "status": "Planned-P2",
+      "priority": "P2",
+      "related": "REVIEWED_WITH_LIMITATION: adjacent capabilities are recorded in the v3-v4 Capability Match ledger; route by evidence and scope.",
+      "governance_evidence": "skills/zh/testing-types/quality-gate-design/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension Quality Score evidence was run for this static package delivery."
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Eval files and local checks exist, but no real model or external target execution was run."
+      },
+      "sdlc_stage": "test-design-and-preparation",
+      "roles": [
+        "QA",
+        "QE"
+      ],
+      "inputs": "skills/zh/testing-types/quality-gate-design/prompts/quality-gate-design.md#输入; skills/en/testing-types/quality-gate-design/prompts/quality-gate-design.md#Input",
+      "outputs": "skills/zh/testing-types/quality-gate-design/prompts/quality-gate-design.md#QGD-## 发现合同; skills/en/testing-types/quality-gate-design/prompts/quality-gate-design.md#QGD-## Finding Contract",
+      "workflow": "v3-v4 Phase 3 Batch 2 Engineering QA specialist; optional navigation only",
+      "evidence_paths": [
+        "skills/zh/testing-types/quality-gate-design/SKILL.md",
+        "skills/en/testing-types/quality-gate-design/SKILL.md",
+        "skills/zh/testing-types/quality-gate-design/prompts/quality-gate-design.md",
+        "skills/en/testing-types/quality-gate-design/prompts/quality-gate-design.md",
+        "skills/zh/testing-types/quality-gate-design/evals/eval.yaml",
+        "skills/en/testing-types/quality-gate-design/evals/eval.yaml",
+        "skills/zh/testing-types/quality-gate-design/agents/openai.yaml",
+        "skills/en/testing-types/quality-gate-design/agents/openai.yaml"
+      ]
+    },
+    {
+      "slug": "quality-metrics-design",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/quality-metrics-design",
+      "en_path": "skills/en/testing-types/quality-metrics-design",
+      "virtual_domain": "Engineering QA",
+      "status": "Planned-P2",
+      "priority": "P2",
+      "related": "REVIEWED_WITH_LIMITATION: adjacent capabilities are recorded in the v3-v4 Capability Match ledger; route by evidence and scope.",
+      "governance_evidence": "skills/zh/testing-types/quality-metrics-design/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension Quality Score evidence was run for this static package delivery."
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Eval files and local checks exist, but no real model or external target execution was run."
+      },
+      "sdlc_stage": "test-design-and-preparation",
+      "roles": [
+        "QA",
+        "QE"
+      ],
+      "inputs": "skills/zh/testing-types/quality-metrics-design/prompts/quality-metrics-design.md#输入; skills/en/testing-types/quality-metrics-design/prompts/quality-metrics-design.md#Input",
+      "outputs": "skills/zh/testing-types/quality-metrics-design/prompts/quality-metrics-design.md#QMD-## 发现合同; skills/en/testing-types/quality-metrics-design/prompts/quality-metrics-design.md#QMD-## Finding Contract",
+      "workflow": "v3-v4 Phase 3 Batch 2 Engineering QA specialist; optional navigation only",
+      "evidence_paths": [
+        "skills/zh/testing-types/quality-metrics-design/SKILL.md",
+        "skills/en/testing-types/quality-metrics-design/SKILL.md",
+        "skills/zh/testing-types/quality-metrics-design/prompts/quality-metrics-design.md",
+        "skills/en/testing-types/quality-metrics-design/prompts/quality-metrics-design.md",
+        "skills/zh/testing-types/quality-metrics-design/evals/eval.yaml",
+        "skills/en/testing-types/quality-metrics-design/evals/eval.yaml",
+        "skills/zh/testing-types/quality-metrics-design/agents/openai.yaml",
+        "skills/en/testing-types/quality-metrics-design/agents/openai.yaml"
+      ]
+    },
+    {
+      "slug": "quality-dashboard-design",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/quality-dashboard-design",
+      "en_path": "skills/en/testing-types/quality-dashboard-design",
+      "virtual_domain": "Engineering QA",
+      "status": "Planned-P2",
+      "priority": "P2",
+      "related": "REVIEWED_WITH_LIMITATION: adjacent capabilities are recorded in the v3-v4 Capability Match ledger; route by evidence and scope.",
+      "governance_evidence": "skills/zh/testing-types/quality-dashboard-design/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension Quality Score evidence was run for this static package delivery."
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Eval files and local checks exist, but no real model or external target execution was run."
+      },
+      "sdlc_stage": "test-design-and-preparation",
+      "roles": [
+        "QA",
+        "QE"
+      ],
+      "inputs": "skills/zh/testing-types/quality-dashboard-design/prompts/quality-dashboard-design.md#输入; skills/en/testing-types/quality-dashboard-design/prompts/quality-dashboard-design.md#Input",
+      "outputs": "skills/zh/testing-types/quality-dashboard-design/prompts/quality-dashboard-design.md#QDD-## 发现合同; skills/en/testing-types/quality-dashboard-design/prompts/quality-dashboard-design.md#QDD-## Finding Contract",
+      "workflow": "v3-v4 Phase 3 Batch 2 Engineering QA specialist; optional navigation only",
+      "evidence_paths": [
+        "skills/zh/testing-types/quality-dashboard-design/SKILL.md",
+        "skills/en/testing-types/quality-dashboard-design/SKILL.md",
+        "skills/zh/testing-types/quality-dashboard-design/prompts/quality-dashboard-design.md",
+        "skills/en/testing-types/quality-dashboard-design/prompts/quality-dashboard-design.md",
+        "skills/zh/testing-types/quality-dashboard-design/evals/eval.yaml",
+        "skills/en/testing-types/quality-dashboard-design/evals/eval.yaml",
+        "skills/zh/testing-types/quality-dashboard-design/agents/openai.yaml",
+        "skills/en/testing-types/quality-dashboard-design/agents/openai.yaml"
+      ]
+    },
+    {
+      "slug": "quality-debt-analysis",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/quality-debt-analysis",
+      "en_path": "skills/en/testing-types/quality-debt-analysis",
+      "virtual_domain": "Engineering QA",
+      "status": "Planned-P2",
+      "priority": "P2",
+      "related": "REVIEWED_WITH_LIMITATION: adjacent capabilities are recorded in the v3-v4 Capability Match ledger; route by evidence and scope.",
+      "governance_evidence": "skills/zh/testing-types/quality-debt-analysis/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension Quality Score evidence was run for this static package delivery."
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Eval files and local checks exist, but no real model or external target execution was run."
+      },
+      "sdlc_stage": "test-design-and-preparation",
+      "roles": [
+        "QA",
+        "QE"
+      ],
+      "inputs": "skills/zh/testing-types/quality-debt-analysis/prompts/quality-debt-analysis.md#输入; skills/en/testing-types/quality-debt-analysis/prompts/quality-debt-analysis.md#Input",
+      "outputs": "skills/zh/testing-types/quality-debt-analysis/prompts/quality-debt-analysis.md#QDA-## 发现合同; skills/en/testing-types/quality-debt-analysis/prompts/quality-debt-analysis.md#QDA-## Finding Contract",
+      "workflow": "v3-v4 Phase 3 Batch 2 Engineering QA specialist; optional navigation only",
+      "evidence_paths": [
+        "skills/zh/testing-types/quality-debt-analysis/SKILL.md",
+        "skills/en/testing-types/quality-debt-analysis/SKILL.md",
+        "skills/zh/testing-types/quality-debt-analysis/prompts/quality-debt-analysis.md",
+        "skills/en/testing-types/quality-debt-analysis/prompts/quality-debt-analysis.md",
+        "skills/zh/testing-types/quality-debt-analysis/evals/eval.yaml",
+        "skills/en/testing-types/quality-debt-analysis/evals/eval.yaml",
+        "skills/zh/testing-types/quality-debt-analysis/agents/openai.yaml",
+        "skills/en/testing-types/quality-debt-analysis/agents/openai.yaml"
+      ]
+    },
+    {
+      "slug": "quality-maturity-assessment",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/quality-maturity-assessment",
+      "en_path": "skills/en/testing-types/quality-maturity-assessment",
+      "virtual_domain": "Engineering QA",
+      "status": "Planned-P2",
+      "priority": "P2",
+      "related": "REVIEWED_WITH_LIMITATION: adjacent capabilities are recorded in the v3-v4 Capability Match ledger; route by evidence and scope.",
+      "governance_evidence": "skills/zh/testing-types/quality-maturity-assessment/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension Quality Score evidence was run for this static package delivery."
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Eval files and local checks exist, but no real model or external target execution was run."
+      },
+      "sdlc_stage": "test-design-and-preparation",
+      "roles": [
+        "QA",
+        "QE"
+      ],
+      "inputs": "skills/zh/testing-types/quality-maturity-assessment/prompts/quality-maturity-assessment.md#输入; skills/en/testing-types/quality-maturity-assessment/prompts/quality-maturity-assessment.md#Input",
+      "outputs": "skills/zh/testing-types/quality-maturity-assessment/prompts/quality-maturity-assessment.md#QMA-## 发现合同; skills/en/testing-types/quality-maturity-assessment/prompts/quality-maturity-assessment.md#QMA-## Finding Contract",
+      "workflow": "v3-v4 Phase 3 Batch 2 Engineering QA specialist; optional navigation only",
+      "evidence_paths": [
+        "skills/zh/testing-types/quality-maturity-assessment/SKILL.md",
+        "skills/en/testing-types/quality-maturity-assessment/SKILL.md",
+        "skills/zh/testing-types/quality-maturity-assessment/prompts/quality-maturity-assessment.md",
+        "skills/en/testing-types/quality-maturity-assessment/prompts/quality-maturity-assessment.md",
+        "skills/zh/testing-types/quality-maturity-assessment/evals/eval.yaml",
+        "skills/en/testing-types/quality-maturity-assessment/evals/eval.yaml",
+        "skills/zh/testing-types/quality-maturity-assessment/agents/openai.yaml",
+        "skills/en/testing-types/quality-maturity-assessment/agents/openai.yaml"
+      ]
+    },
+    {
+      "slug": "test-effectiveness-analysis",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/test-effectiveness-analysis",
+      "en_path": "skills/en/testing-types/test-effectiveness-analysis",
+      "virtual_domain": "Engineering QA",
+      "status": "Planned-P2",
+      "priority": "P2",
+      "related": "REVIEWED_WITH_LIMITATION: adjacent capabilities are recorded in the v3-v4 Capability Match ledger; route by evidence and scope.",
+      "governance_evidence": "skills/zh/testing-types/test-effectiveness-analysis/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension Quality Score evidence was run for this static package delivery."
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Eval files and local checks exist, but no real model or external target execution was run."
+      },
+      "sdlc_stage": "test-design-and-preparation",
+      "roles": [
+        "QA",
+        "QE"
+      ],
+      "inputs": "skills/zh/testing-types/test-effectiveness-analysis/prompts/test-effectiveness-analysis.md#输入; skills/en/testing-types/test-effectiveness-analysis/prompts/test-effectiveness-analysis.md#Input",
+      "outputs": "skills/zh/testing-types/test-effectiveness-analysis/prompts/test-effectiveness-analysis.md#TEA-## 发现合同; skills/en/testing-types/test-effectiveness-analysis/prompts/test-effectiveness-analysis.md#TEA-## Finding Contract",
+      "workflow": "v3-v4 Phase 3 Batch 2 Engineering QA specialist; optional navigation only",
+      "evidence_paths": [
+        "skills/zh/testing-types/test-effectiveness-analysis/SKILL.md",
+        "skills/en/testing-types/test-effectiveness-analysis/SKILL.md",
+        "skills/zh/testing-types/test-effectiveness-analysis/prompts/test-effectiveness-analysis.md",
+        "skills/en/testing-types/test-effectiveness-analysis/prompts/test-effectiveness-analysis.md",
+        "skills/zh/testing-types/test-effectiveness-analysis/evals/eval.yaml",
+        "skills/en/testing-types/test-effectiveness-analysis/evals/eval.yaml",
+        "skills/zh/testing-types/test-effectiveness-analysis/agents/openai.yaml",
+        "skills/en/testing-types/test-effectiveness-analysis/agents/openai.yaml"
+      ]
+    },
+    {
+      "slug": "automation-roi-analysis",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/automation-roi-analysis",
+      "en_path": "skills/en/testing-types/automation-roi-analysis",
+      "virtual_domain": "Engineering QA",
+      "status": "Planned-P2",
+      "priority": "P2",
+      "related": "REVIEWED_WITH_LIMITATION: adjacent capabilities are recorded in the v3-v4 Capability Match ledger; route by evidence and scope.",
+      "governance_evidence": "skills/zh/testing-types/automation-roi-analysis/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension Quality Score evidence was run for this static package delivery."
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Eval files and local checks exist, but no real model or external target execution was run."
+      },
+      "sdlc_stage": "test-design-and-preparation",
+      "roles": [
+        "QA",
+        "QE"
+      ],
+      "inputs": "skills/zh/testing-types/automation-roi-analysis/prompts/automation-roi-analysis.md#输入; skills/en/testing-types/automation-roi-analysis/prompts/automation-roi-analysis.md#Input",
+      "outputs": "skills/zh/testing-types/automation-roi-analysis/prompts/automation-roi-analysis.md#ARO-## 发现合同; skills/en/testing-types/automation-roi-analysis/prompts/automation-roi-analysis.md#ARO-## Finding Contract",
+      "workflow": "v3-v4 Phase 3 Batch 2 Engineering QA specialist; optional navigation only",
+      "evidence_paths": [
+        "skills/zh/testing-types/automation-roi-analysis/SKILL.md",
+        "skills/en/testing-types/automation-roi-analysis/SKILL.md",
+        "skills/zh/testing-types/automation-roi-analysis/prompts/automation-roi-analysis.md",
+        "skills/en/testing-types/automation-roi-analysis/prompts/automation-roi-analysis.md",
+        "skills/zh/testing-types/automation-roi-analysis/evals/eval.yaml",
+        "skills/en/testing-types/automation-roi-analysis/evals/eval.yaml",
+        "skills/zh/testing-types/automation-roi-analysis/agents/openai.yaml",
+        "skills/en/testing-types/automation-roi-analysis/agents/openai.yaml"
+      ]
+    },
+    {
+      "slug": "testing-bottleneck-analysis",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/testing-bottleneck-analysis",
+      "en_path": "skills/en/testing-types/testing-bottleneck-analysis",
+      "virtual_domain": "Engineering QA",
+      "status": "Planned-P2",
+      "priority": "P2",
+      "related": "REVIEWED_WITH_LIMITATION: adjacent capabilities are recorded in the v3-v4 Capability Match ledger; route by evidence and scope.",
+      "governance_evidence": "skills/zh/testing-types/testing-bottleneck-analysis/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension Quality Score evidence was run for this static package delivery."
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Eval files and local checks exist, but no real model or external target execution was run."
+      },
+      "sdlc_stage": "test-design-and-preparation",
+      "roles": [
+        "QA",
+        "QE"
+      ],
+      "inputs": "skills/zh/testing-types/testing-bottleneck-analysis/prompts/testing-bottleneck-analysis.md#输入; skills/en/testing-types/testing-bottleneck-analysis/prompts/testing-bottleneck-analysis.md#Input",
+      "outputs": "skills/zh/testing-types/testing-bottleneck-analysis/prompts/testing-bottleneck-analysis.md#TBA-## 发现合同; skills/en/testing-types/testing-bottleneck-analysis/prompts/testing-bottleneck-analysis.md#TBA-## Finding Contract",
+      "workflow": "v3-v4 Phase 3 Batch 2 Engineering QA specialist; optional navigation only",
+      "evidence_paths": [
+        "skills/zh/testing-types/testing-bottleneck-analysis/SKILL.md",
+        "skills/en/testing-types/testing-bottleneck-analysis/SKILL.md",
+        "skills/zh/testing-types/testing-bottleneck-analysis/prompts/testing-bottleneck-analysis.md",
+        "skills/en/testing-types/testing-bottleneck-analysis/prompts/testing-bottleneck-analysis.md",
+        "skills/zh/testing-types/testing-bottleneck-analysis/evals/eval.yaml",
+        "skills/en/testing-types/testing-bottleneck-analysis/evals/eval.yaml",
+        "skills/zh/testing-types/testing-bottleneck-analysis/agents/openai.yaml",
+        "skills/en/testing-types/testing-bottleneck-analysis/agents/openai.yaml"
+      ]
+    },
+    {
+      "slug": "regression-optimization",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/regression-optimization",
+      "en_path": "skills/en/testing-types/regression-optimization",
+      "virtual_domain": "Engineering QA",
+      "status": "Planned-P2",
+      "priority": "P2",
+      "related": "REVIEWED_WITH_LIMITATION: adjacent capabilities are recorded in the v3-v4 Capability Match ledger; route by evidence and scope.",
+      "governance_evidence": "skills/zh/testing-types/regression-optimization/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension Quality Score evidence was run for this static package delivery."
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Eval files and local checks exist, but no real model or external target execution was run."
+      },
+      "sdlc_stage": "test-design-and-preparation",
+      "roles": [
+        "QA",
+        "QE"
+      ],
+      "inputs": "skills/zh/testing-types/regression-optimization/prompts/regression-optimization.md#输入; skills/en/testing-types/regression-optimization/prompts/regression-optimization.md#Input",
+      "outputs": "skills/zh/testing-types/regression-optimization/prompts/regression-optimization.md#RGO-## 发现合同; skills/en/testing-types/regression-optimization/prompts/regression-optimization.md#RGO-## Finding Contract",
+      "workflow": "v3-v4 Phase 3 Batch 2 Engineering QA specialist; optional navigation only",
+      "evidence_paths": [
+        "skills/zh/testing-types/regression-optimization/SKILL.md",
+        "skills/en/testing-types/regression-optimization/SKILL.md",
+        "skills/zh/testing-types/regression-optimization/prompts/regression-optimization.md",
+        "skills/en/testing-types/regression-optimization/prompts/regression-optimization.md",
+        "skills/zh/testing-types/regression-optimization/evals/eval.yaml",
+        "skills/en/testing-types/regression-optimization/evals/eval.yaml",
+        "skills/zh/testing-types/regression-optimization/agents/openai.yaml",
+        "skills/en/testing-types/regression-optimization/agents/openai.yaml"
+      ]
+    },
+    {
+      "slug": "ci-test-optimization",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/ci-test-optimization",
+      "en_path": "skills/en/testing-types/ci-test-optimization",
+      "virtual_domain": "Engineering QA",
+      "status": "Planned-P2",
+      "priority": "P2",
+      "related": "REVIEWED_WITH_LIMITATION: adjacent capabilities are recorded in the v3-v4 Capability Match ledger; route by evidence and scope.",
+      "governance_evidence": "skills/zh/testing-types/ci-test-optimization/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension Quality Score evidence was run for this static package delivery."
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Eval files and local checks exist, but no real model or external target execution was run."
+      },
+      "sdlc_stage": "test-design-and-preparation",
+      "roles": [
+        "QA",
+        "QE"
+      ],
+      "inputs": "skills/zh/testing-types/ci-test-optimization/prompts/ci-test-optimization.md#输入; skills/en/testing-types/ci-test-optimization/prompts/ci-test-optimization.md#Input",
+      "outputs": "skills/zh/testing-types/ci-test-optimization/prompts/ci-test-optimization.md#CTO-## 发现合同; skills/en/testing-types/ci-test-optimization/prompts/ci-test-optimization.md#CTO-## Finding Contract",
+      "workflow": "v3-v4 Phase 3 Batch 2 Engineering QA specialist; optional navigation only",
+      "evidence_paths": [
+        "skills/zh/testing-types/ci-test-optimization/SKILL.md",
+        "skills/en/testing-types/ci-test-optimization/SKILL.md",
+        "skills/zh/testing-types/ci-test-optimization/prompts/ci-test-optimization.md",
+        "skills/en/testing-types/ci-test-optimization/prompts/ci-test-optimization.md",
+        "skills/zh/testing-types/ci-test-optimization/evals/eval.yaml",
+        "skills/en/testing-types/ci-test-optimization/evals/eval.yaml",
+        "skills/zh/testing-types/ci-test-optimization/agents/openai.yaml",
+        "skills/en/testing-types/ci-test-optimization/agents/openai.yaml"
+      ]
+    },
+    {
+      "slug": "test-runtime-optimization",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/test-runtime-optimization",
+      "en_path": "skills/en/testing-types/test-runtime-optimization",
+      "virtual_domain": "Engineering QA",
+      "status": "Planned-P2",
+      "priority": "P2",
+      "related": "REVIEWED_WITH_LIMITATION: adjacent capabilities are recorded in the v3-v4 Capability Match ledger; route by evidence and scope.",
+      "governance_evidence": "skills/zh/testing-types/test-runtime-optimization/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension Quality Score evidence was run for this static package delivery."
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Eval files and local checks exist, but no real model or external target execution was run."
+      },
+      "sdlc_stage": "test-design-and-preparation",
+      "roles": [
+        "QA",
+        "QE"
+      ],
+      "inputs": "skills/zh/testing-types/test-runtime-optimization/prompts/test-runtime-optimization.md#输入; skills/en/testing-types/test-runtime-optimization/prompts/test-runtime-optimization.md#Input",
+      "outputs": "skills/zh/testing-types/test-runtime-optimization/prompts/test-runtime-optimization.md#TRO-## 发现合同; skills/en/testing-types/test-runtime-optimization/prompts/test-runtime-optimization.md#TRO-## Finding Contract",
+      "workflow": "v3-v4 Phase 3 Batch 2 Engineering QA specialist; optional navigation only",
+      "evidence_paths": [
+        "skills/zh/testing-types/test-runtime-optimization/SKILL.md",
+        "skills/en/testing-types/test-runtime-optimization/SKILL.md",
+        "skills/zh/testing-types/test-runtime-optimization/prompts/test-runtime-optimization.md",
+        "skills/en/testing-types/test-runtime-optimization/prompts/test-runtime-optimization.md",
+        "skills/zh/testing-types/test-runtime-optimization/evals/eval.yaml",
+        "skills/en/testing-types/test-runtime-optimization/evals/eval.yaml",
+        "skills/zh/testing-types/test-runtime-optimization/agents/openai.yaml",
+        "skills/en/testing-types/test-runtime-optimization/agents/openai.yaml"
+      ]
+    },
+    {
+      "slug": "test-maintenance-cost-analysis",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/test-maintenance-cost-analysis",
+      "en_path": "skills/en/testing-types/test-maintenance-cost-analysis",
+      "virtual_domain": "Engineering QA",
+      "status": "Planned-P2",
+      "priority": "P2",
+      "related": "REVIEWED_WITH_LIMITATION: adjacent capabilities are recorded in the v3-v4 Capability Match ledger; route by evidence and scope.",
+      "governance_evidence": "skills/zh/testing-types/test-maintenance-cost-analysis/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension Quality Score evidence was run for this static package delivery."
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Eval files and local checks exist, but no real model or external target execution was run."
+      },
+      "sdlc_stage": "test-design-and-preparation",
+      "roles": [
+        "QA",
+        "QE"
+      ],
+      "inputs": "skills/zh/testing-types/test-maintenance-cost-analysis/prompts/test-maintenance-cost-analysis.md#输入; skills/en/testing-types/test-maintenance-cost-analysis/prompts/test-maintenance-cost-analysis.md#Input",
+      "outputs": "skills/zh/testing-types/test-maintenance-cost-analysis/prompts/test-maintenance-cost-analysis.md#TMC-## 发现合同; skills/en/testing-types/test-maintenance-cost-analysis/prompts/test-maintenance-cost-analysis.md#TMC-## Finding Contract",
+      "workflow": "v3-v4 Phase 3 Batch 2 Engineering QA specialist; optional navigation only",
+      "evidence_paths": [
+        "skills/zh/testing-types/test-maintenance-cost-analysis/SKILL.md",
+        "skills/en/testing-types/test-maintenance-cost-analysis/SKILL.md",
+        "skills/zh/testing-types/test-maintenance-cost-analysis/prompts/test-maintenance-cost-analysis.md",
+        "skills/en/testing-types/test-maintenance-cost-analysis/prompts/test-maintenance-cost-analysis.md",
+        "skills/zh/testing-types/test-maintenance-cost-analysis/evals/eval.yaml",
+        "skills/en/testing-types/test-maintenance-cost-analysis/evals/eval.yaml",
+        "skills/zh/testing-types/test-maintenance-cost-analysis/agents/openai.yaml",
+        "skills/en/testing-types/test-maintenance-cost-analysis/agents/openai.yaml"
+      ]
+    },
+    {
+      "slug": "quality-productivity-metrics",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/quality-productivity-metrics",
+      "en_path": "skills/en/testing-types/quality-productivity-metrics",
+      "virtual_domain": "Engineering QA",
+      "status": "Planned-P2",
+      "priority": "P2",
+      "related": "REVIEWED_WITH_LIMITATION: adjacent capabilities are recorded in the v3-v4 Capability Match ledger; route by evidence and scope.",
+      "governance_evidence": "skills/zh/testing-types/quality-productivity-metrics/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension Quality Score evidence was run for this static package delivery."
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Eval files and local checks exist, but no real model or external target execution was run."
+      },
+      "sdlc_stage": "test-design-and-preparation",
+      "roles": [
+        "QA",
+        "QE"
+      ],
+      "inputs": "skills/zh/testing-types/quality-productivity-metrics/prompts/quality-productivity-metrics.md#输入; skills/en/testing-types/quality-productivity-metrics/prompts/quality-productivity-metrics.md#Input",
+      "outputs": "skills/zh/testing-types/quality-productivity-metrics/prompts/quality-productivity-metrics.md#QPM-## 发现合同; skills/en/testing-types/quality-productivity-metrics/prompts/quality-productivity-metrics.md#QPM-## Finding Contract",
+      "workflow": "v3-v4 Phase 3 Batch 2 Engineering QA specialist; optional navigation only",
+      "evidence_paths": [
+        "skills/zh/testing-types/quality-productivity-metrics/SKILL.md",
+        "skills/en/testing-types/quality-productivity-metrics/SKILL.md",
+        "skills/zh/testing-types/quality-productivity-metrics/prompts/quality-productivity-metrics.md",
+        "skills/en/testing-types/quality-productivity-metrics/prompts/quality-productivity-metrics.md",
+        "skills/zh/testing-types/quality-productivity-metrics/evals/eval.yaml",
+        "skills/en/testing-types/quality-productivity-metrics/evals/eval.yaml",
+        "skills/zh/testing-types/quality-productivity-metrics/agents/openai.yaml",
+        "skills/en/testing-types/quality-productivity-metrics/agents/openai.yaml"
+      ]
+    },
+    {
+      "slug": "rag-quality-testing",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/rag-quality-testing",
+      "en_path": "skills/en/testing-types/rag-quality-testing",
+      "virtual_domain": "AI Native QA",
+      "status": "Planned-P2",
+      "priority": "P2",
+      "related": "REVIEWED_WITH_LIMITATION: adjacent capabilities are recorded in the v3-v4 Capability Match ledger; route by evidence and scope.",
+      "governance_evidence": "skills/zh/testing-types/rag-quality-testing/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension Quality Score evidence was run for this static package delivery."
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Eval files and local checks exist, but no real model or external target execution was run."
+      },
+      "sdlc_stage": "test-design-and-preparation",
+      "roles": [
+        "QA",
+        "AI Quality"
+      ],
+      "inputs": "skills/zh/testing-types/rag-quality-testing/prompts/rag-quality-testing.md#输入; skills/en/testing-types/rag-quality-testing/prompts/rag-quality-testing.md#Input",
+      "outputs": "skills/zh/testing-types/rag-quality-testing/prompts/rag-quality-testing.md#RAGQ-## 发现合同; skills/en/testing-types/rag-quality-testing/prompts/rag-quality-testing.md#RAGQ-## Finding Contract",
+      "workflow": "v3-v4 Phase 3 Batch 2 AI Native QA specialist; optional navigation only",
+      "evidence_paths": [
+        "skills/zh/testing-types/rag-quality-testing/SKILL.md",
+        "skills/en/testing-types/rag-quality-testing/SKILL.md",
+        "skills/zh/testing-types/rag-quality-testing/prompts/rag-quality-testing.md",
+        "skills/en/testing-types/rag-quality-testing/prompts/rag-quality-testing.md",
+        "skills/zh/testing-types/rag-quality-testing/evals/eval.yaml",
+        "skills/en/testing-types/rag-quality-testing/evals/eval.yaml",
+        "skills/zh/testing-types/rag-quality-testing/agents/openai.yaml",
+        "skills/en/testing-types/rag-quality-testing/agents/openai.yaml"
+      ]
+    },
+    {
+      "slug": "rag-retrieval-testing",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/rag-retrieval-testing",
+      "en_path": "skills/en/testing-types/rag-retrieval-testing",
+      "virtual_domain": "AI Native QA",
+      "status": "Planned-P2",
+      "priority": "P2",
+      "related": "REVIEWED_WITH_LIMITATION: adjacent capabilities are recorded in the v3-v4 Capability Match ledger; route by evidence and scope.",
+      "governance_evidence": "skills/zh/testing-types/rag-retrieval-testing/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension Quality Score evidence was run for this static package delivery."
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Eval files and local checks exist, but no real model or external target execution was run."
+      },
+      "sdlc_stage": "test-design-and-preparation",
+      "roles": [
+        "QA",
+        "AI Quality"
+      ],
+      "inputs": "skills/zh/testing-types/rag-retrieval-testing/prompts/rag-retrieval-testing.md#输入; skills/en/testing-types/rag-retrieval-testing/prompts/rag-retrieval-testing.md#Input",
+      "outputs": "skills/zh/testing-types/rag-retrieval-testing/prompts/rag-retrieval-testing.md#RAGT-## 发现合同; skills/en/testing-types/rag-retrieval-testing/prompts/rag-retrieval-testing.md#RAGT-## Finding Contract",
+      "workflow": "v3-v4 Phase 3 Batch 2 AI Native QA specialist; optional navigation only",
+      "evidence_paths": [
+        "skills/zh/testing-types/rag-retrieval-testing/SKILL.md",
+        "skills/en/testing-types/rag-retrieval-testing/SKILL.md",
+        "skills/zh/testing-types/rag-retrieval-testing/prompts/rag-retrieval-testing.md",
+        "skills/en/testing-types/rag-retrieval-testing/prompts/rag-retrieval-testing.md",
+        "skills/zh/testing-types/rag-retrieval-testing/evals/eval.yaml",
+        "skills/en/testing-types/rag-retrieval-testing/evals/eval.yaml",
+        "skills/zh/testing-types/rag-retrieval-testing/agents/openai.yaml",
+        "skills/en/testing-types/rag-retrieval-testing/agents/openai.yaml"
+      ]
+    },
+    {
+      "slug": "agent-loop-testing",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/agent-loop-testing",
+      "en_path": "skills/en/testing-types/agent-loop-testing",
+      "virtual_domain": "AI Native QA",
+      "status": "Planned-P2",
+      "priority": "P2",
+      "related": "REVIEWED_WITH_LIMITATION: adjacent capabilities are recorded in the v3-v4 Capability Match ledger; route by evidence and scope.",
+      "governance_evidence": "skills/zh/testing-types/agent-loop-testing/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension Quality Score evidence was run for this static package delivery."
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Eval files and local checks exist, but no real model or external target execution was run."
+      },
+      "sdlc_stage": "test-design-and-preparation",
+      "roles": [
+        "QA",
+        "AI Quality"
+      ],
+      "inputs": "skills/zh/testing-types/agent-loop-testing/prompts/agent-loop-testing.md#输入; skills/en/testing-types/agent-loop-testing/prompts/agent-loop-testing.md#Input",
+      "outputs": "skills/zh/testing-types/agent-loop-testing/prompts/agent-loop-testing.md#ALT-## 发现合同; skills/en/testing-types/agent-loop-testing/prompts/agent-loop-testing.md#ALT-## Finding Contract",
+      "workflow": "v3-v4 Phase 3 Batch 2 AI Native QA specialist; optional navigation only",
+      "evidence_paths": [
+        "skills/zh/testing-types/agent-loop-testing/SKILL.md",
+        "skills/en/testing-types/agent-loop-testing/SKILL.md",
+        "skills/zh/testing-types/agent-loop-testing/prompts/agent-loop-testing.md",
+        "skills/en/testing-types/agent-loop-testing/prompts/agent-loop-testing.md",
+        "skills/zh/testing-types/agent-loop-testing/evals/eval.yaml",
+        "skills/en/testing-types/agent-loop-testing/evals/eval.yaml",
+        "skills/zh/testing-types/agent-loop-testing/agents/openai.yaml",
+        "skills/en/testing-types/agent-loop-testing/agents/openai.yaml"
+      ]
+    },
+    {
+      "slug": "agent-memory-testing",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/agent-memory-testing",
+      "en_path": "skills/en/testing-types/agent-memory-testing",
+      "virtual_domain": "AI Native QA",
+      "status": "Planned-P2",
+      "priority": "P2",
+      "related": "REVIEWED_WITH_LIMITATION: adjacent capabilities are recorded in the v3-v4 Capability Match ledger; route by evidence and scope.",
+      "governance_evidence": "skills/zh/testing-types/agent-memory-testing/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension Quality Score evidence was run for this static package delivery."
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Eval files and local checks exist, but no real model or external target execution was run."
+      },
+      "sdlc_stage": "test-design-and-preparation",
+      "roles": [
+        "QA",
+        "AI Quality"
+      ],
+      "inputs": "skills/zh/testing-types/agent-memory-testing/prompts/agent-memory-testing.md#输入; skills/en/testing-types/agent-memory-testing/prompts/agent-memory-testing.md#Input",
+      "outputs": "skills/zh/testing-types/agent-memory-testing/prompts/agent-memory-testing.md#AMT-## 发现合同; skills/en/testing-types/agent-memory-testing/prompts/agent-memory-testing.md#AMT-## Finding Contract",
+      "workflow": "v3-v4 Phase 3 Batch 2 AI Native QA specialist; optional navigation only",
+      "evidence_paths": [
+        "skills/zh/testing-types/agent-memory-testing/SKILL.md",
+        "skills/en/testing-types/agent-memory-testing/SKILL.md",
+        "skills/zh/testing-types/agent-memory-testing/prompts/agent-memory-testing.md",
+        "skills/en/testing-types/agent-memory-testing/prompts/agent-memory-testing.md",
+        "skills/zh/testing-types/agent-memory-testing/evals/eval.yaml",
+        "skills/en/testing-types/agent-memory-testing/evals/eval.yaml",
+        "skills/zh/testing-types/agent-memory-testing/agents/openai.yaml",
+        "skills/en/testing-types/agent-memory-testing/agents/openai.yaml"
+      ]
+    },
+    {
+      "slug": "agent-permission-testing",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/agent-permission-testing",
+      "en_path": "skills/en/testing-types/agent-permission-testing",
+      "virtual_domain": "AI Native QA",
+      "status": "Planned-P2",
+      "priority": "P2",
+      "related": "REVIEWED_WITH_LIMITATION: adjacent capabilities are recorded in the v3-v4 Capability Match ledger; route by evidence and scope.",
+      "governance_evidence": "skills/zh/testing-types/agent-permission-testing/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension Quality Score evidence was run for this static package delivery."
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Eval files and local checks exist, but no real model or external target execution was run."
+      },
+      "sdlc_stage": "test-design-and-preparation",
+      "roles": [
+        "QA",
+        "AI Quality"
+      ],
+      "inputs": "skills/zh/testing-types/agent-permission-testing/prompts/agent-permission-testing.md#输入; skills/en/testing-types/agent-permission-testing/prompts/agent-permission-testing.md#Input",
+      "outputs": "skills/zh/testing-types/agent-permission-testing/prompts/agent-permission-testing.md#AGP-## 发现合同; skills/en/testing-types/agent-permission-testing/prompts/agent-permission-testing.md#AGP-## Finding Contract",
+      "workflow": "v3-v4 Phase 3 Batch 2 AI Native QA specialist; optional navigation only",
+      "evidence_paths": [
+        "skills/zh/testing-types/agent-permission-testing/SKILL.md",
+        "skills/en/testing-types/agent-permission-testing/SKILL.md",
+        "skills/zh/testing-types/agent-permission-testing/prompts/agent-permission-testing.md",
+        "skills/en/testing-types/agent-permission-testing/prompts/agent-permission-testing.md",
+        "skills/zh/testing-types/agent-permission-testing/evals/eval.yaml",
+        "skills/en/testing-types/agent-permission-testing/evals/eval.yaml",
+        "skills/zh/testing-types/agent-permission-testing/agents/openai.yaml",
+        "skills/en/testing-types/agent-permission-testing/agents/openai.yaml"
+      ]
+    },
+    {
+      "slug": "agent-failure-recovery-testing",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/agent-failure-recovery-testing",
+      "en_path": "skills/en/testing-types/agent-failure-recovery-testing",
+      "virtual_domain": "AI Native QA",
+      "status": "Planned-P2",
+      "priority": "P2",
+      "related": "REVIEWED_WITH_LIMITATION: adjacent capabilities are recorded in the v3-v4 Capability Match ledger; route by evidence and scope.",
+      "governance_evidence": "skills/zh/testing-types/agent-failure-recovery-testing/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension Quality Score evidence was run for this static package delivery."
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Eval files and local checks exist, but no real model or external target execution was run."
+      },
+      "sdlc_stage": "test-design-and-preparation",
+      "roles": [
+        "QA",
+        "AI Quality"
+      ],
+      "inputs": "skills/zh/testing-types/agent-failure-recovery-testing/prompts/agent-failure-recovery-testing.md#输入; skills/en/testing-types/agent-failure-recovery-testing/prompts/agent-failure-recovery-testing.md#Input",
+      "outputs": "skills/zh/testing-types/agent-failure-recovery-testing/prompts/agent-failure-recovery-testing.md#AFR-## 发现合同; skills/en/testing-types/agent-failure-recovery-testing/prompts/agent-failure-recovery-testing.md#AFR-## Finding Contract",
+      "workflow": "v3-v4 Phase 3 Batch 2 AI Native QA specialist; optional navigation only",
+      "evidence_paths": [
+        "skills/zh/testing-types/agent-failure-recovery-testing/SKILL.md",
+        "skills/en/testing-types/agent-failure-recovery-testing/SKILL.md",
+        "skills/zh/testing-types/agent-failure-recovery-testing/prompts/agent-failure-recovery-testing.md",
+        "skills/en/testing-types/agent-failure-recovery-testing/prompts/agent-failure-recovery-testing.md",
+        "skills/zh/testing-types/agent-failure-recovery-testing/evals/eval.yaml",
+        "skills/en/testing-types/agent-failure-recovery-testing/evals/eval.yaml",
+        "skills/zh/testing-types/agent-failure-recovery-testing/agents/openai.yaml",
+        "skills/en/testing-types/agent-failure-recovery-testing/agents/openai.yaml"
+      ]
+    },
+    {
+      "slug": "agent-long-running-testing",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/agent-long-running-testing",
+      "en_path": "skills/en/testing-types/agent-long-running-testing",
+      "virtual_domain": "AI Native QA",
+      "status": "Planned-P2",
+      "priority": "P2",
+      "related": "REVIEWED_WITH_LIMITATION: adjacent capabilities are recorded in the v3-v4 Capability Match ledger; route by evidence and scope.",
+      "governance_evidence": "skills/zh/testing-types/agent-long-running-testing/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension Quality Score evidence was run for this static package delivery."
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Eval files and local checks exist, but no real model or external target execution was run."
+      },
+      "sdlc_stage": "test-design-and-preparation",
+      "roles": [
+        "QA",
+        "AI Quality"
+      ],
+      "inputs": "skills/zh/testing-types/agent-long-running-testing/prompts/agent-long-running-testing.md#输入; skills/en/testing-types/agent-long-running-testing/prompts/agent-long-running-testing.md#Input",
+      "outputs": "skills/zh/testing-types/agent-long-running-testing/prompts/agent-long-running-testing.md#ALR-## 发现合同; skills/en/testing-types/agent-long-running-testing/prompts/agent-long-running-testing.md#ALR-## Finding Contract",
+      "workflow": "v3-v4 Phase 3 Batch 2 AI Native QA specialist; optional navigation only",
+      "evidence_paths": [
+        "skills/zh/testing-types/agent-long-running-testing/SKILL.md",
+        "skills/en/testing-types/agent-long-running-testing/SKILL.md",
+        "skills/zh/testing-types/agent-long-running-testing/prompts/agent-long-running-testing.md",
+        "skills/en/testing-types/agent-long-running-testing/prompts/agent-long-running-testing.md",
+        "skills/zh/testing-types/agent-long-running-testing/evals/eval.yaml",
+        "skills/en/testing-types/agent-long-running-testing/evals/eval.yaml",
+        "skills/zh/testing-types/agent-long-running-testing/agents/openai.yaml",
+        "skills/en/testing-types/agent-long-running-testing/agents/openai.yaml"
+      ]
+    },
+    {
+      "slug": "multi-agent-testing",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/multi-agent-testing",
+      "en_path": "skills/en/testing-types/multi-agent-testing",
+      "virtual_domain": "AI Native QA",
+      "status": "Planned-P2",
+      "priority": "P2",
+      "related": "REVIEWED_WITH_LIMITATION: adjacent capabilities are recorded in the v3-v4 Capability Match ledger; route by evidence and scope.",
+      "governance_evidence": "skills/zh/testing-types/multi-agent-testing/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension Quality Score evidence was run for this static package delivery."
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Eval files and local checks exist, but no real model or external target execution was run."
+      },
+      "sdlc_stage": "test-design-and-preparation",
+      "roles": [
+        "QA",
+        "AI Quality"
+      ],
+      "inputs": "skills/zh/testing-types/multi-agent-testing/prompts/multi-agent-testing.md#输入; skills/en/testing-types/multi-agent-testing/prompts/multi-agent-testing.md#Input",
+      "outputs": "skills/zh/testing-types/multi-agent-testing/prompts/multi-agent-testing.md#MAT-## 发现合同; skills/en/testing-types/multi-agent-testing/prompts/multi-agent-testing.md#MAT-## Finding Contract",
+      "workflow": "v3-v4 Phase 3 Batch 2 AI Native QA specialist; optional navigation only",
+      "evidence_paths": [
+        "skills/zh/testing-types/multi-agent-testing/SKILL.md",
+        "skills/en/testing-types/multi-agent-testing/SKILL.md",
+        "skills/zh/testing-types/multi-agent-testing/prompts/multi-agent-testing.md",
+        "skills/en/testing-types/multi-agent-testing/prompts/multi-agent-testing.md",
+        "skills/zh/testing-types/multi-agent-testing/evals/eval.yaml",
+        "skills/en/testing-types/multi-agent-testing/evals/eval.yaml",
+        "skills/zh/testing-types/multi-agent-testing/agents/openai.yaml",
+        "skills/en/testing-types/multi-agent-testing/agents/openai.yaml"
+      ]
+    },
+    {
+      "slug": "llm-hallucination-testing",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/llm-hallucination-testing",
+      "en_path": "skills/en/testing-types/llm-hallucination-testing",
+      "virtual_domain": "AI Native QA",
+      "status": "Planned-P2",
+      "priority": "P2",
+      "related": "REVIEWED_WITH_LIMITATION: adjacent capabilities are recorded in the v3-v4 Capability Match ledger; route by evidence and scope.",
+      "governance_evidence": "skills/zh/testing-types/llm-hallucination-testing/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension Quality Score evidence was run for this static package delivery."
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Eval files and local checks exist, but no real model or external target execution was run."
+      },
+      "sdlc_stage": "test-design-and-preparation",
+      "roles": [
+        "QA",
+        "AI Quality"
+      ],
+      "inputs": "skills/zh/testing-types/llm-hallucination-testing/prompts/llm-hallucination-testing.md#输入; skills/en/testing-types/llm-hallucination-testing/prompts/llm-hallucination-testing.md#Input",
+      "outputs": "skills/zh/testing-types/llm-hallucination-testing/prompts/llm-hallucination-testing.md#LHT-## 发现合同; skills/en/testing-types/llm-hallucination-testing/prompts/llm-hallucination-testing.md#LHT-## Finding Contract",
+      "workflow": "v3-v4 Phase 3 Batch 2 AI Native QA specialist; optional navigation only",
+      "evidence_paths": [
+        "skills/zh/testing-types/llm-hallucination-testing/SKILL.md",
+        "skills/en/testing-types/llm-hallucination-testing/SKILL.md",
+        "skills/zh/testing-types/llm-hallucination-testing/prompts/llm-hallucination-testing.md",
+        "skills/en/testing-types/llm-hallucination-testing/prompts/llm-hallucination-testing.md",
+        "skills/zh/testing-types/llm-hallucination-testing/evals/eval.yaml",
+        "skills/en/testing-types/llm-hallucination-testing/evals/eval.yaml",
+        "skills/zh/testing-types/llm-hallucination-testing/agents/openai.yaml",
+        "skills/en/testing-types/llm-hallucination-testing/agents/openai.yaml"
+      ]
+    },
+    {
+      "slug": "llm-consistency-testing",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/llm-consistency-testing",
+      "en_path": "skills/en/testing-types/llm-consistency-testing",
+      "virtual_domain": "AI Native QA",
+      "status": "Planned-P2",
+      "priority": "P2",
+      "related": "REVIEWED_WITH_LIMITATION: adjacent capabilities are recorded in the v3-v4 Capability Match ledger; route by evidence and scope.",
+      "governance_evidence": "skills/zh/testing-types/llm-consistency-testing/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension Quality Score evidence was run for this static package delivery."
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Eval files and local checks exist, but no real model or external target execution was run."
+      },
+      "sdlc_stage": "test-design-and-preparation",
+      "roles": [
+        "QA",
+        "AI Quality"
+      ],
+      "inputs": "skills/zh/testing-types/llm-consistency-testing/prompts/llm-consistency-testing.md#输入; skills/en/testing-types/llm-consistency-testing/prompts/llm-consistency-testing.md#Input",
+      "outputs": "skills/zh/testing-types/llm-consistency-testing/prompts/llm-consistency-testing.md#LCT-## 发现合同; skills/en/testing-types/llm-consistency-testing/prompts/llm-consistency-testing.md#LCT-## Finding Contract",
+      "workflow": "v3-v4 Phase 3 Batch 2 AI Native QA specialist; optional navigation only",
+      "evidence_paths": [
+        "skills/zh/testing-types/llm-consistency-testing/SKILL.md",
+        "skills/en/testing-types/llm-consistency-testing/SKILL.md",
+        "skills/zh/testing-types/llm-consistency-testing/prompts/llm-consistency-testing.md",
+        "skills/en/testing-types/llm-consistency-testing/prompts/llm-consistency-testing.md",
+        "skills/zh/testing-types/llm-consistency-testing/evals/eval.yaml",
+        "skills/en/testing-types/llm-consistency-testing/evals/eval.yaml",
+        "skills/zh/testing-types/llm-consistency-testing/agents/openai.yaml",
+        "skills/en/testing-types/llm-consistency-testing/agents/openai.yaml"
+      ]
+    },
+    {
+      "slug": "ai-safety-testing",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/ai-safety-testing",
+      "en_path": "skills/en/testing-types/ai-safety-testing",
+      "virtual_domain": "AI Native QA",
+      "status": "Planned-P2",
+      "priority": "P2",
+      "related": "REVIEWED_WITH_LIMITATION: adjacent capabilities are recorded in the v3-v4 Capability Match ledger; route by evidence and scope.",
+      "governance_evidence": "skills/zh/testing-types/ai-safety-testing/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension Quality Score evidence was run for this static package delivery."
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Eval files and local checks exist, but no real model or external target execution was run."
+      },
+      "sdlc_stage": "test-design-and-preparation",
+      "roles": [
+        "QA",
+        "AI Quality"
+      ],
+      "inputs": "skills/zh/testing-types/ai-safety-testing/prompts/ai-safety-testing.md#输入; skills/en/testing-types/ai-safety-testing/prompts/ai-safety-testing.md#Input",
+      "outputs": "skills/zh/testing-types/ai-safety-testing/prompts/ai-safety-testing.md#AIS-## 发现合同; skills/en/testing-types/ai-safety-testing/prompts/ai-safety-testing.md#AIS-## Finding Contract",
+      "workflow": "v3-v4 Phase 3 Batch 2 AI Native QA specialist; optional navigation only",
+      "evidence_paths": [
+        "skills/zh/testing-types/ai-safety-testing/SKILL.md",
+        "skills/en/testing-types/ai-safety-testing/SKILL.md",
+        "skills/zh/testing-types/ai-safety-testing/prompts/ai-safety-testing.md",
+        "skills/en/testing-types/ai-safety-testing/prompts/ai-safety-testing.md",
+        "skills/zh/testing-types/ai-safety-testing/evals/eval.yaml",
+        "skills/en/testing-types/ai-safety-testing/evals/eval.yaml",
+        "skills/zh/testing-types/ai-safety-testing/agents/openai.yaml",
+        "skills/en/testing-types/ai-safety-testing/agents/openai.yaml"
+      ]
     }
   ],
   "candidates": [
@@ -7646,6 +8534,1135 @@
         "project_number": 4,
         "item_id": "PVTI_lAHOAHP1as4BjBhVzg6SdUg",
         "title": "v3-v4 P2｜候选 Skill｜secrets-exposure-review",
+        "current_status": "Done",
+        "verified_at": "2026-09-15",
+        "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
+        "transition_requirement": "Todo -> In Progress -> Done",
+        "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned",
+        "acceptance_state": "INCOMPLETE"
+      }
+    },
+    {
+      "slug": "quality-gate-design",
+      "decision_state": "REVIEWED_WITH_LIMITATION",
+      "conclusion": "NEW",
+      "target": "quality-gate-design",
+      "scope": "Evidence-bounded quality-gate-design package for quality gate; findings use QGD-## and preserve source, uncertainty, and Human decisions.",
+      "non_goals": "No invented behavior, thresholds, model or runtime claims, unsupported completeness, execution, coverage proof, safety or release approval, or Human risk acceptance.",
+      "evidence": {
+        "name": "candidate_source Project #4 card and reviewed design; target: skills/zh/testing-types/quality-gate-design/SKILL.md and skills/en/testing-types/quality-gate-design/SKILL.md frontmatter name",
+        "purpose": "candidate_source 质量门禁/quality gate capability intent; target: skills/zh/testing-types/quality-gate-design/prompts/quality-gate-design.md domain mode and task instructions",
+        "inputs": "candidate_source reviewed design input contract; target: skills/zh/testing-types/quality-gate-design/prompts/quality-gate-design.md Input section and English mirror",
+        "outputs": "candidate_source reviewed design output contract; target: skills/zh/testing-types/quality-gate-design/prompts/quality-gate-design.md QGD-## contract and English mirror",
+        "decision_logic": "candidate_source reviewed design execution rules and evidence boundary; target: skills/zh/testing-types/quality-gate-design/prompts/quality-gate-design.md execution rules and quality bar",
+        "workflow_role": "candidate_source v3-v4 Phase 3 Quality Engineering role; target: skills/zh/testing-types/quality-gate-design/SKILL.md How to Use section and skills/en/testing-types/quality-gate-design/SKILL.md How to Use section"
+      },
+      "next_action": "Run a real-model Eval and isolated target validation when credentials, a controlled runner, and an authorized target are available; keep NOT_RUN and NOT_SCORED until that evidence exists.",
+      "target_evidence_paths": [
+        "skills/zh/testing-types/quality-gate-design/SKILL.md",
+        "skills/en/testing-types/quality-gate-design/SKILL.md",
+        "skills/zh/testing-types/quality-gate-design/prompts/quality-gate-design.md",
+        "skills/en/testing-types/quality-gate-design/prompts/quality-gate-design.md"
+      ],
+      "candidate_source": "Project #4 v3-v4 P2 candidate card; docs/superpowers/specs/2026-09-15-v3-v4-two-batch-design.md; docs/superpowers/plans/2026-09-15-v3-v4-two-batch-skills.md; docs/governance/PHASE_3_V3_V4.md; local bilingual package review",
+      "capability_match": {
+        "decision": "NEW",
+        "existing_targets": [
+          "skills/zh/testing-types/test-strategy/SKILL.md",
+          "skills/en/testing-types/test-strategy/SKILL.md",
+          "skills/zh/testing-types/production-verification/SKILL.md",
+          "skills/en/testing-types/production-verification/SKILL.md"
+        ],
+        "difference": "Existing adjacent packages do not own the quality gate contract; a bilingual quality-gate-design package isolates it with QGD-## and explicit evidence boundaries."
+      },
+      "project_evidence": {
+        "project_number": 4,
+        "item_id": "PVTI_lAHOAHP1as4BjBhVzg6SdWc",
+        "title": "v3-v4 P2｜候选 Skill｜quality-gate-design",
+        "current_status": "Done",
+        "verified_at": "2026-09-15",
+        "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
+        "transition_requirement": "Todo -> In Progress -> Done",
+        "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned",
+        "acceptance_state": "INCOMPLETE"
+      }
+    },
+    {
+      "slug": "quality-metrics-design",
+      "decision_state": "REVIEWED_WITH_LIMITATION",
+      "conclusion": "NEW",
+      "target": "quality-metrics-design",
+      "scope": "Evidence-bounded quality-metrics-design package for quality metric; findings use QMD-## and preserve source, uncertainty, and Human decisions.",
+      "non_goals": "No invented behavior, thresholds, model or runtime claims, unsupported completeness, execution, coverage proof, safety or release approval, or Human risk acceptance.",
+      "evidence": {
+        "name": "candidate_source Project #4 card and reviewed design; target: skills/zh/testing-types/quality-metrics-design/SKILL.md and skills/en/testing-types/quality-metrics-design/SKILL.md frontmatter name",
+        "purpose": "candidate_source 质量指标/quality metric capability intent; target: skills/zh/testing-types/quality-metrics-design/prompts/quality-metrics-design.md domain mode and task instructions",
+        "inputs": "candidate_source reviewed design input contract; target: skills/zh/testing-types/quality-metrics-design/prompts/quality-metrics-design.md Input section and English mirror",
+        "outputs": "candidate_source reviewed design output contract; target: skills/zh/testing-types/quality-metrics-design/prompts/quality-metrics-design.md QMD-## contract and English mirror",
+        "decision_logic": "candidate_source reviewed design execution rules and evidence boundary; target: skills/zh/testing-types/quality-metrics-design/prompts/quality-metrics-design.md execution rules and quality bar",
+        "workflow_role": "candidate_source v3-v4 Phase 3 Quality Engineering role; target: skills/zh/testing-types/quality-metrics-design/SKILL.md How to Use section and skills/en/testing-types/quality-metrics-design/SKILL.md How to Use section"
+      },
+      "next_action": "Run a real-model Eval and isolated target validation when credentials, a controlled runner, and an authorized target are available; keep NOT_RUN and NOT_SCORED until that evidence exists.",
+      "target_evidence_paths": [
+        "skills/zh/testing-types/quality-metrics-design/SKILL.md",
+        "skills/en/testing-types/quality-metrics-design/SKILL.md",
+        "skills/zh/testing-types/quality-metrics-design/prompts/quality-metrics-design.md",
+        "skills/en/testing-types/quality-metrics-design/prompts/quality-metrics-design.md"
+      ],
+      "candidate_source": "Project #4 v3-v4 P2 candidate card; docs/superpowers/specs/2026-09-15-v3-v4-two-batch-design.md; docs/superpowers/plans/2026-09-15-v3-v4-two-batch-skills.md; docs/governance/PHASE_3_V3_V4.md; local bilingual package review",
+      "capability_match": {
+        "decision": "NEW",
+        "existing_targets": [
+          "skills/zh/testing-types/test-reporting/SKILL.md",
+          "skills/en/testing-types/test-reporting/SKILL.md",
+          "skills/zh/testing-types/metrics-anomaly-analysis/SKILL.md",
+          "skills/en/testing-types/metrics-anomaly-analysis/SKILL.md"
+        ],
+        "difference": "Existing adjacent packages do not own the quality metric contract; a bilingual quality-metrics-design package isolates it with QMD-## and explicit evidence boundaries."
+      },
+      "project_evidence": {
+        "project_number": 4,
+        "item_id": "PVTI_lAHOAHP1as4BjBhVzg6SdY4",
+        "title": "v3-v4 P2｜候选 Skill｜quality-metrics-design",
+        "current_status": "Done",
+        "verified_at": "2026-09-15",
+        "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
+        "transition_requirement": "Todo -> In Progress -> Done",
+        "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned",
+        "acceptance_state": "INCOMPLETE"
+      }
+    },
+    {
+      "slug": "quality-dashboard-design",
+      "decision_state": "REVIEWED_WITH_LIMITATION",
+      "conclusion": "NEW",
+      "target": "quality-dashboard-design",
+      "scope": "Evidence-bounded quality-dashboard-design package for quality dashboard; findings use QDD-## and preserve source, uncertainty, and Human decisions.",
+      "non_goals": "No invented behavior, thresholds, model or runtime claims, unsupported completeness, execution, coverage proof, safety or release approval, or Human risk acceptance.",
+      "evidence": {
+        "name": "candidate_source Project #4 card and reviewed design; target: skills/zh/testing-types/quality-dashboard-design/SKILL.md and skills/en/testing-types/quality-dashboard-design/SKILL.md frontmatter name",
+        "purpose": "candidate_source 质量仪表盘/quality dashboard capability intent; target: skills/zh/testing-types/quality-dashboard-design/prompts/quality-dashboard-design.md domain mode and task instructions",
+        "inputs": "candidate_source reviewed design input contract; target: skills/zh/testing-types/quality-dashboard-design/prompts/quality-dashboard-design.md Input section and English mirror",
+        "outputs": "candidate_source reviewed design output contract; target: skills/zh/testing-types/quality-dashboard-design/prompts/quality-dashboard-design.md QDD-## contract and English mirror",
+        "decision_logic": "candidate_source reviewed design execution rules and evidence boundary; target: skills/zh/testing-types/quality-dashboard-design/prompts/quality-dashboard-design.md execution rules and quality bar",
+        "workflow_role": "candidate_source v3-v4 Phase 3 Quality Engineering role; target: skills/zh/testing-types/quality-dashboard-design/SKILL.md How to Use section and skills/en/testing-types/quality-dashboard-design/SKILL.md How to Use section"
+      },
+      "next_action": "Run a real-model Eval and isolated target validation when credentials, a controlled runner, and an authorized target are available; keep NOT_RUN and NOT_SCORED until that evidence exists.",
+      "target_evidence_paths": [
+        "skills/zh/testing-types/quality-dashboard-design/SKILL.md",
+        "skills/en/testing-types/quality-dashboard-design/SKILL.md",
+        "skills/zh/testing-types/quality-dashboard-design/prompts/quality-dashboard-design.md",
+        "skills/en/testing-types/quality-dashboard-design/prompts/quality-dashboard-design.md"
+      ],
+      "candidate_source": "Project #4 v3-v4 P2 candidate card; docs/superpowers/specs/2026-09-15-v3-v4-two-batch-design.md; docs/superpowers/plans/2026-09-15-v3-v4-two-batch-skills.md; docs/governance/PHASE_3_V3_V4.md; local bilingual package review",
+      "capability_match": {
+        "decision": "NEW",
+        "existing_targets": [
+          "skills/zh/testing-types/test-reporting/SKILL.md",
+          "skills/en/testing-types/test-reporting/SKILL.md",
+          "skills/zh/testing-types/observability-design-review/SKILL.md",
+          "skills/en/testing-types/observability-design-review/SKILL.md"
+        ],
+        "difference": "Existing adjacent packages do not own the quality dashboard contract; a bilingual quality-dashboard-design package isolates it with QDD-## and explicit evidence boundaries."
+      },
+      "project_evidence": {
+        "project_number": 4,
+        "item_id": "PVTI_lAHOAHP1as4BjBhVzg6SdaY",
+        "title": "v3-v4 P2｜候选 Skill｜quality-dashboard-design",
+        "current_status": "Done",
+        "verified_at": "2026-09-15",
+        "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
+        "transition_requirement": "Todo -> In Progress -> Done",
+        "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned",
+        "acceptance_state": "INCOMPLETE"
+      }
+    },
+    {
+      "slug": "quality-debt-analysis",
+      "decision_state": "REVIEWED_WITH_LIMITATION",
+      "conclusion": "NEW",
+      "target": "quality-debt-analysis",
+      "scope": "Evidence-bounded quality-debt-analysis package for quality debt; findings use QDA-## and preserve source, uncertainty, and Human decisions.",
+      "non_goals": "No invented behavior, thresholds, model or runtime claims, unsupported completeness, execution, coverage proof, safety or release approval, or Human risk acceptance.",
+      "evidence": {
+        "name": "candidate_source Project #4 card and reviewed design; target: skills/zh/testing-types/quality-debt-analysis/SKILL.md and skills/en/testing-types/quality-debt-analysis/SKILL.md frontmatter name",
+        "purpose": "candidate_source 质量债务/quality debt capability intent; target: skills/zh/testing-types/quality-debt-analysis/prompts/quality-debt-analysis.md domain mode and task instructions",
+        "inputs": "candidate_source reviewed design input contract; target: skills/zh/testing-types/quality-debt-analysis/prompts/quality-debt-analysis.md Input section and English mirror",
+        "outputs": "candidate_source reviewed design output contract; target: skills/zh/testing-types/quality-debt-analysis/prompts/quality-debt-analysis.md QDA-## contract and English mirror",
+        "decision_logic": "candidate_source reviewed design execution rules and evidence boundary; target: skills/zh/testing-types/quality-debt-analysis/prompts/quality-debt-analysis.md execution rules and quality bar",
+        "workflow_role": "candidate_source v3-v4 Phase 3 Quality Engineering role; target: skills/zh/testing-types/quality-debt-analysis/SKILL.md How to Use section and skills/en/testing-types/quality-debt-analysis/SKILL.md How to Use section"
+      },
+      "next_action": "Run a real-model Eval and isolated target validation when credentials, a controlled runner, and an authorized target are available; keep NOT_RUN and NOT_SCORED until that evidence exists.",
+      "target_evidence_paths": [
+        "skills/zh/testing-types/quality-debt-analysis/SKILL.md",
+        "skills/en/testing-types/quality-debt-analysis/SKILL.md",
+        "skills/zh/testing-types/quality-debt-analysis/prompts/quality-debt-analysis.md",
+        "skills/en/testing-types/quality-debt-analysis/prompts/quality-debt-analysis.md"
+      ],
+      "candidate_source": "Project #4 v3-v4 P2 candidate card; docs/superpowers/specs/2026-09-15-v3-v4-two-batch-design.md; docs/superpowers/plans/2026-09-15-v3-v4-two-batch-skills.md; docs/governance/PHASE_3_V3_V4.md; local bilingual package review",
+      "capability_match": {
+        "decision": "NEW",
+        "existing_targets": [
+          "skills/zh/testing-types/quality-risk-analysis/SKILL.md",
+          "skills/en/testing-types/quality-risk-analysis/SKILL.md",
+          "skills/zh/testing-types/test-suite-health-analysis/SKILL.md",
+          "skills/en/testing-types/test-suite-health-analysis/SKILL.md"
+        ],
+        "difference": "Existing adjacent packages do not own the quality debt contract; a bilingual quality-debt-analysis package isolates it with QDA-## and explicit evidence boundaries."
+      },
+      "project_evidence": {
+        "project_number": 4,
+        "item_id": "PVTI_lAHOAHP1as4BjBhVzg6SdcE",
+        "title": "v3-v4 P2｜候选 Skill｜quality-debt-analysis",
+        "current_status": "Done",
+        "verified_at": "2026-09-15",
+        "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
+        "transition_requirement": "Todo -> In Progress -> Done",
+        "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned",
+        "acceptance_state": "INCOMPLETE"
+      }
+    },
+    {
+      "slug": "quality-maturity-assessment",
+      "decision_state": "REVIEWED_WITH_LIMITATION",
+      "conclusion": "NEW",
+      "target": "quality-maturity-assessment",
+      "scope": "Evidence-bounded quality-maturity-assessment package for quality maturity; findings use QMA-## and preserve source, uncertainty, and Human decisions.",
+      "non_goals": "No invented behavior, thresholds, model or runtime claims, unsupported completeness, execution, coverage proof, safety or release approval, or Human risk acceptance.",
+      "evidence": {
+        "name": "candidate_source Project #4 card and reviewed design; target: skills/zh/testing-types/quality-maturity-assessment/SKILL.md and skills/en/testing-types/quality-maturity-assessment/SKILL.md frontmatter name",
+        "purpose": "candidate_source 质量成熟度/quality maturity capability intent; target: skills/zh/testing-types/quality-maturity-assessment/prompts/quality-maturity-assessment.md domain mode and task instructions",
+        "inputs": "candidate_source reviewed design input contract; target: skills/zh/testing-types/quality-maturity-assessment/prompts/quality-maturity-assessment.md Input section and English mirror",
+        "outputs": "candidate_source reviewed design output contract; target: skills/zh/testing-types/quality-maturity-assessment/prompts/quality-maturity-assessment.md QMA-## contract and English mirror",
+        "decision_logic": "candidate_source reviewed design execution rules and evidence boundary; target: skills/zh/testing-types/quality-maturity-assessment/prompts/quality-maturity-assessment.md execution rules and quality bar",
+        "workflow_role": "candidate_source v3-v4 Phase 3 Quality Engineering role; target: skills/zh/testing-types/quality-maturity-assessment/SKILL.md How to Use section and skills/en/testing-types/quality-maturity-assessment/SKILL.md How to Use section"
+      },
+      "next_action": "Run a real-model Eval and isolated target validation when credentials, a controlled runner, and an authorized target are available; keep NOT_RUN and NOT_SCORED until that evidence exists.",
+      "target_evidence_paths": [
+        "skills/zh/testing-types/quality-maturity-assessment/SKILL.md",
+        "skills/en/testing-types/quality-maturity-assessment/SKILL.md",
+        "skills/zh/testing-types/quality-maturity-assessment/prompts/quality-maturity-assessment.md",
+        "skills/en/testing-types/quality-maturity-assessment/prompts/quality-maturity-assessment.md"
+      ],
+      "candidate_source": "Project #4 v3-v4 P2 candidate card; docs/superpowers/specs/2026-09-15-v3-v4-two-batch-design.md; docs/superpowers/plans/2026-09-15-v3-v4-two-batch-skills.md; docs/governance/PHASE_3_V3_V4.md; local bilingual package review",
+      "capability_match": {
+        "decision": "NEW",
+        "existing_targets": [
+          "skills/zh/testing-types/test-strategy/SKILL.md",
+          "skills/en/testing-types/test-strategy/SKILL.md",
+          "skills/zh/testing-types/quality-risk-analysis/SKILL.md",
+          "skills/en/testing-types/quality-risk-analysis/SKILL.md"
+        ],
+        "difference": "Existing adjacent packages do not own the quality maturity contract; a bilingual quality-maturity-assessment package isolates it with QMA-## and explicit evidence boundaries."
+      },
+      "project_evidence": {
+        "project_number": 4,
+        "item_id": "PVTI_lAHOAHP1as4BjBhVzg6Sddo",
+        "title": "v3-v4 P2｜候选 Skill｜quality-maturity-assessment",
+        "current_status": "Done",
+        "verified_at": "2026-09-15",
+        "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
+        "transition_requirement": "Todo -> In Progress -> Done",
+        "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned",
+        "acceptance_state": "INCOMPLETE"
+      }
+    },
+    {
+      "slug": "test-effectiveness-analysis",
+      "decision_state": "REVIEWED_WITH_LIMITATION",
+      "conclusion": "NEW",
+      "target": "test-effectiveness-analysis",
+      "scope": "Evidence-bounded test-effectiveness-analysis package for test effectiveness; findings use TEA-## and preserve source, uncertainty, and Human decisions.",
+      "non_goals": "No invented behavior, thresholds, model or runtime claims, unsupported completeness, execution, coverage proof, safety or release approval, or Human risk acceptance.",
+      "evidence": {
+        "name": "candidate_source Project #4 card and reviewed design; target: skills/zh/testing-types/test-effectiveness-analysis/SKILL.md and skills/en/testing-types/test-effectiveness-analysis/SKILL.md frontmatter name",
+        "purpose": "candidate_source 测试有效性/test effectiveness capability intent; target: skills/zh/testing-types/test-effectiveness-analysis/prompts/test-effectiveness-analysis.md domain mode and task instructions",
+        "inputs": "candidate_source reviewed design input contract; target: skills/zh/testing-types/test-effectiveness-analysis/prompts/test-effectiveness-analysis.md Input section and English mirror",
+        "outputs": "candidate_source reviewed design output contract; target: skills/zh/testing-types/test-effectiveness-analysis/prompts/test-effectiveness-analysis.md TEA-## contract and English mirror",
+        "decision_logic": "candidate_source reviewed design execution rules and evidence boundary; target: skills/zh/testing-types/test-effectiveness-analysis/prompts/test-effectiveness-analysis.md execution rules and quality bar",
+        "workflow_role": "candidate_source v3-v4 Phase 3 Quality Engineering role; target: skills/zh/testing-types/test-effectiveness-analysis/SKILL.md How to Use section and skills/en/testing-types/test-effectiveness-analysis/SKILL.md How to Use section"
+      },
+      "next_action": "Run a real-model Eval and isolated target validation when credentials, a controlled runner, and an authorized target are available; keep NOT_RUN and NOT_SCORED until that evidence exists.",
+      "target_evidence_paths": [
+        "skills/zh/testing-types/test-effectiveness-analysis/SKILL.md",
+        "skills/en/testing-types/test-effectiveness-analysis/SKILL.md",
+        "skills/zh/testing-types/test-effectiveness-analysis/prompts/test-effectiveness-analysis.md",
+        "skills/en/testing-types/test-effectiveness-analysis/prompts/test-effectiveness-analysis.md"
+      ],
+      "candidate_source": "Project #4 v3-v4 P2 candidate card; docs/superpowers/specs/2026-09-15-v3-v4-two-batch-design.md; docs/superpowers/plans/2026-09-15-v3-v4-two-batch-skills.md; docs/governance/PHASE_3_V3_V4.md; local bilingual package review",
+      "capability_match": {
+        "decision": "NEW",
+        "existing_targets": [
+          "skills/zh/testing-types/test-report-review/SKILL.md",
+          "skills/en/testing-types/test-report-review/SKILL.md",
+          "skills/zh/testing-types/test-coverage-analysis/SKILL.md",
+          "skills/en/testing-types/test-coverage-analysis/SKILL.md"
+        ],
+        "difference": "Existing adjacent packages do not own the test effectiveness contract; a bilingual test-effectiveness-analysis package isolates it with TEA-## and explicit evidence boundaries."
+      },
+      "project_evidence": {
+        "project_number": 4,
+        "item_id": "PVTI_lAHOAHP1as4BjBhVzg6SdfA",
+        "title": "v3-v4 P2｜候选 Skill｜test-effectiveness-analysis",
+        "current_status": "Done",
+        "verified_at": "2026-09-15",
+        "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
+        "transition_requirement": "Todo -> In Progress -> Done",
+        "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned",
+        "acceptance_state": "INCOMPLETE"
+      }
+    },
+    {
+      "slug": "automation-roi-analysis",
+      "decision_state": "REVIEWED_WITH_LIMITATION",
+      "conclusion": "NEW",
+      "target": "automation-roi-analysis",
+      "scope": "Evidence-bounded automation-roi-analysis package for automation ROI; findings use ARO-## and preserve source, uncertainty, and Human decisions.",
+      "non_goals": "No invented behavior, thresholds, model or runtime claims, unsupported completeness, execution, coverage proof, safety or release approval, or Human risk acceptance.",
+      "evidence": {
+        "name": "candidate_source Project #4 card and reviewed design; target: skills/zh/testing-types/automation-roi-analysis/SKILL.md and skills/en/testing-types/automation-roi-analysis/SKILL.md frontmatter name",
+        "purpose": "candidate_source 自动化投资回报/automation ROI capability intent; target: skills/zh/testing-types/automation-roi-analysis/prompts/automation-roi-analysis.md domain mode and task instructions",
+        "inputs": "candidate_source reviewed design input contract; target: skills/zh/testing-types/automation-roi-analysis/prompts/automation-roi-analysis.md Input section and English mirror",
+        "outputs": "candidate_source reviewed design output contract; target: skills/zh/testing-types/automation-roi-analysis/prompts/automation-roi-analysis.md ARO-## contract and English mirror",
+        "decision_logic": "candidate_source reviewed design execution rules and evidence boundary; target: skills/zh/testing-types/automation-roi-analysis/prompts/automation-roi-analysis.md execution rules and quality bar",
+        "workflow_role": "candidate_source v3-v4 Phase 3 Quality Engineering role; target: skills/zh/testing-types/automation-roi-analysis/SKILL.md How to Use section and skills/en/testing-types/automation-roi-analysis/SKILL.md How to Use section"
+      },
+      "next_action": "Run a real-model Eval and isolated target validation when credentials, a controlled runner, and an authorized target are available; keep NOT_RUN and NOT_SCORED until that evidence exists.",
+      "target_evidence_paths": [
+        "skills/zh/testing-types/automation-roi-analysis/SKILL.md",
+        "skills/en/testing-types/automation-roi-analysis/SKILL.md",
+        "skills/zh/testing-types/automation-roi-analysis/prompts/automation-roi-analysis.md",
+        "skills/en/testing-types/automation-roi-analysis/prompts/automation-roi-analysis.md"
+      ],
+      "candidate_source": "Project #4 v3-v4 P2 candidate card; docs/superpowers/specs/2026-09-15-v3-v4-two-batch-design.md; docs/superpowers/plans/2026-09-15-v3-v4-two-batch-skills.md; docs/governance/PHASE_3_V3_V4.md; local bilingual package review",
+      "capability_match": {
+        "decision": "NEW",
+        "existing_targets": [
+          "skills/zh/testing-types/automation-testing/SKILL.md",
+          "skills/en/testing-types/automation-testing/SKILL.md",
+          "skills/zh/testing-types/test-reporting/SKILL.md",
+          "skills/en/testing-types/test-reporting/SKILL.md"
+        ],
+        "difference": "Existing adjacent packages do not own the automation ROI contract; a bilingual automation-roi-analysis package isolates it with ARO-## and explicit evidence boundaries."
+      },
+      "project_evidence": {
+        "project_number": 4,
+        "item_id": "PVTI_lAHOAHP1as4BjBhVzg6Sdg8",
+        "title": "v3-v4 P2｜候选 Skill｜automation-roi-analysis",
+        "current_status": "Done",
+        "verified_at": "2026-09-15",
+        "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
+        "transition_requirement": "Todo -> In Progress -> Done",
+        "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned",
+        "acceptance_state": "INCOMPLETE"
+      }
+    },
+    {
+      "slug": "testing-bottleneck-analysis",
+      "decision_state": "REVIEWED_WITH_LIMITATION",
+      "conclusion": "NEW",
+      "target": "testing-bottleneck-analysis",
+      "scope": "Evidence-bounded testing-bottleneck-analysis package for testing bottleneck; findings use TBA-## and preserve source, uncertainty, and Human decisions.",
+      "non_goals": "No invented behavior, thresholds, model or runtime claims, unsupported completeness, execution, coverage proof, safety or release approval, or Human risk acceptance.",
+      "evidence": {
+        "name": "candidate_source Project #4 card and reviewed design; target: skills/zh/testing-types/testing-bottleneck-analysis/SKILL.md and skills/en/testing-types/testing-bottleneck-analysis/SKILL.md frontmatter name",
+        "purpose": "candidate_source 测试瓶颈/testing bottleneck capability intent; target: skills/zh/testing-types/testing-bottleneck-analysis/prompts/testing-bottleneck-analysis.md domain mode and task instructions",
+        "inputs": "candidate_source reviewed design input contract; target: skills/zh/testing-types/testing-bottleneck-analysis/prompts/testing-bottleneck-analysis.md Input section and English mirror",
+        "outputs": "candidate_source reviewed design output contract; target: skills/zh/testing-types/testing-bottleneck-analysis/prompts/testing-bottleneck-analysis.md TBA-## contract and English mirror",
+        "decision_logic": "candidate_source reviewed design execution rules and evidence boundary; target: skills/zh/testing-types/testing-bottleneck-analysis/prompts/testing-bottleneck-analysis.md execution rules and quality bar",
+        "workflow_role": "candidate_source v3-v4 Phase 3 Quality Engineering role; target: skills/zh/testing-types/testing-bottleneck-analysis/SKILL.md How to Use section and skills/en/testing-types/testing-bottleneck-analysis/SKILL.md How to Use section"
+      },
+      "next_action": "Run a real-model Eval and isolated target validation when credentials, a controlled runner, and an authorized target are available; keep NOT_RUN and NOT_SCORED until that evidence exists.",
+      "target_evidence_paths": [
+        "skills/zh/testing-types/testing-bottleneck-analysis/SKILL.md",
+        "skills/en/testing-types/testing-bottleneck-analysis/SKILL.md",
+        "skills/zh/testing-types/testing-bottleneck-analysis/prompts/testing-bottleneck-analysis.md",
+        "skills/en/testing-types/testing-bottleneck-analysis/prompts/testing-bottleneck-analysis.md"
+      ],
+      "candidate_source": "Project #4 v3-v4 P2 candidate card; docs/superpowers/specs/2026-09-15-v3-v4-two-batch-design.md; docs/superpowers/plans/2026-09-15-v3-v4-two-batch-skills.md; docs/governance/PHASE_3_V3_V4.md; local bilingual package review",
+      "capability_match": {
+        "decision": "NEW",
+        "existing_targets": [
+          "skills/zh/testing-types/performance-bottleneck-analysis/SKILL.md",
+          "skills/en/testing-types/performance-bottleneck-analysis/SKILL.md",
+          "skills/zh/testing-types/test-suite-health-analysis/SKILL.md",
+          "skills/en/testing-types/test-suite-health-analysis/SKILL.md"
+        ],
+        "difference": "Existing adjacent packages do not own the testing bottleneck contract; a bilingual testing-bottleneck-analysis package isolates it with TBA-## and explicit evidence boundaries."
+      },
+      "project_evidence": {
+        "project_number": 4,
+        "item_id": "PVTI_lAHOAHP1as4BjBhVzg6Sdig",
+        "title": "v3-v4 P2｜候选 Skill｜testing-bottleneck-analysis",
+        "current_status": "Done",
+        "verified_at": "2026-09-15",
+        "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
+        "transition_requirement": "Todo -> In Progress -> Done",
+        "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned",
+        "acceptance_state": "INCOMPLETE"
+      }
+    },
+    {
+      "slug": "regression-optimization",
+      "decision_state": "REVIEWED_WITH_LIMITATION",
+      "conclusion": "NEW",
+      "target": "regression-optimization",
+      "scope": "Evidence-bounded regression-optimization package for regression scope; findings use RGO-## and preserve source, uncertainty, and Human decisions.",
+      "non_goals": "No invented behavior, thresholds, model or runtime claims, unsupported completeness, execution, coverage proof, safety or release approval, or Human risk acceptance.",
+      "evidence": {
+        "name": "candidate_source Project #4 card and reviewed design; target: skills/zh/testing-types/regression-optimization/SKILL.md and skills/en/testing-types/regression-optimization/SKILL.md frontmatter name",
+        "purpose": "candidate_source 回归范围/regression scope capability intent; target: skills/zh/testing-types/regression-optimization/prompts/regression-optimization.md domain mode and task instructions",
+        "inputs": "candidate_source reviewed design input contract; target: skills/zh/testing-types/regression-optimization/prompts/regression-optimization.md Input section and English mirror",
+        "outputs": "candidate_source reviewed design output contract; target: skills/zh/testing-types/regression-optimization/prompts/regression-optimization.md RGO-## contract and English mirror",
+        "decision_logic": "candidate_source reviewed design execution rules and evidence boundary; target: skills/zh/testing-types/regression-optimization/prompts/regression-optimization.md execution rules and quality bar",
+        "workflow_role": "candidate_source v3-v4 Phase 3 Quality Engineering role; target: skills/zh/testing-types/regression-optimization/SKILL.md How to Use section and skills/en/testing-types/regression-optimization/SKILL.md How to Use section"
+      },
+      "next_action": "Run a real-model Eval and isolated target validation when credentials, a controlled runner, and an authorized target are available; keep NOT_RUN and NOT_SCORED until that evidence exists.",
+      "target_evidence_paths": [
+        "skills/zh/testing-types/regression-optimization/SKILL.md",
+        "skills/en/testing-types/regression-optimization/SKILL.md",
+        "skills/zh/testing-types/regression-optimization/prompts/regression-optimization.md",
+        "skills/en/testing-types/regression-optimization/prompts/regression-optimization.md"
+      ],
+      "candidate_source": "Project #4 v3-v4 P2 candidate card; docs/superpowers/specs/2026-09-15-v3-v4-two-batch-design.md; docs/superpowers/plans/2026-09-15-v3-v4-two-batch-skills.md; docs/governance/PHASE_3_V3_V4.md; local bilingual package review",
+      "capability_match": {
+        "decision": "NEW",
+        "existing_targets": [
+          "skills/zh/testing-types/regression-scope-analysis/SKILL.md",
+          "skills/en/testing-types/regression-scope-analysis/SKILL.md",
+          "skills/zh/testing-types/regression-test-selection/SKILL.md",
+          "skills/en/testing-types/regression-test-selection/SKILL.md"
+        ],
+        "difference": "Existing adjacent packages do not own the regression scope contract; a bilingual regression-optimization package isolates it with RGO-## and explicit evidence boundaries."
+      },
+      "project_evidence": {
+        "project_number": 4,
+        "item_id": "PVTI_lAHOAHP1as4BjBhVzg6SdkQ",
+        "title": "v3-v4 P2｜候选 Skill｜regression-optimization",
+        "current_status": "Done",
+        "verified_at": "2026-09-15",
+        "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
+        "transition_requirement": "Todo -> In Progress -> Done",
+        "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned",
+        "acceptance_state": "INCOMPLETE"
+      }
+    },
+    {
+      "slug": "ci-test-optimization",
+      "decision_state": "REVIEWED_WITH_LIMITATION",
+      "conclusion": "NEW",
+      "target": "ci-test-optimization",
+      "scope": "Evidence-bounded ci-test-optimization package for CI test pipeline; findings use CTO-## and preserve source, uncertainty, and Human decisions.",
+      "non_goals": "No invented behavior, thresholds, model or runtime claims, unsupported completeness, execution, coverage proof, safety or release approval, or Human risk acceptance.",
+      "evidence": {
+        "name": "candidate_source Project #4 card and reviewed design; target: skills/zh/testing-types/ci-test-optimization/SKILL.md and skills/en/testing-types/ci-test-optimization/SKILL.md frontmatter name",
+        "purpose": "candidate_source CI 测试流水线/CI test pipeline capability intent; target: skills/zh/testing-types/ci-test-optimization/prompts/ci-test-optimization.md domain mode and task instructions",
+        "inputs": "candidate_source reviewed design input contract; target: skills/zh/testing-types/ci-test-optimization/prompts/ci-test-optimization.md Input section and English mirror",
+        "outputs": "candidate_source reviewed design output contract; target: skills/zh/testing-types/ci-test-optimization/prompts/ci-test-optimization.md CTO-## contract and English mirror",
+        "decision_logic": "candidate_source reviewed design execution rules and evidence boundary; target: skills/zh/testing-types/ci-test-optimization/prompts/ci-test-optimization.md execution rules and quality bar",
+        "workflow_role": "candidate_source v3-v4 Phase 3 Quality Engineering role; target: skills/zh/testing-types/ci-test-optimization/SKILL.md How to Use section and skills/en/testing-types/ci-test-optimization/SKILL.md How to Use section"
+      },
+      "next_action": "Run a real-model Eval and isolated target validation when credentials, a controlled runner, and an authorized target are available; keep NOT_RUN and NOT_SCORED until that evidence exists.",
+      "target_evidence_paths": [
+        "skills/zh/testing-types/ci-test-optimization/SKILL.md",
+        "skills/en/testing-types/ci-test-optimization/SKILL.md",
+        "skills/zh/testing-types/ci-test-optimization/prompts/ci-test-optimization.md",
+        "skills/en/testing-types/ci-test-optimization/prompts/ci-test-optimization.md"
+      ],
+      "candidate_source": "Project #4 v3-v4 P2 candidate card; docs/superpowers/specs/2026-09-15-v3-v4-two-batch-design.md; docs/superpowers/plans/2026-09-15-v3-v4-two-batch-skills.md; docs/governance/PHASE_3_V3_V4.md; local bilingual package review",
+      "capability_match": {
+        "decision": "NEW",
+        "existing_targets": [
+          "skills/zh/testing-types/test-reporting/SKILL.md",
+          "skills/en/testing-types/test-reporting/SKILL.md",
+          "skills/zh/testing-types/performance-testing/SKILL.md",
+          "skills/en/testing-types/performance-testing/SKILL.md"
+        ],
+        "difference": "Existing adjacent packages do not own the CI test pipeline contract; a bilingual ci-test-optimization package isolates it with CTO-## and explicit evidence boundaries."
+      },
+      "project_evidence": {
+        "project_number": 4,
+        "item_id": "PVTI_lAHOAHP1as4BjBhVzg6SdnA",
+        "title": "v3-v4 P2｜候选 Skill｜ci-test-optimization",
+        "current_status": "Done",
+        "verified_at": "2026-09-15",
+        "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
+        "transition_requirement": "Todo -> In Progress -> Done",
+        "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned",
+        "acceptance_state": "INCOMPLETE"
+      }
+    },
+    {
+      "slug": "test-runtime-optimization",
+      "decision_state": "REVIEWED_WITH_LIMITATION",
+      "conclusion": "NEW",
+      "target": "test-runtime-optimization",
+      "scope": "Evidence-bounded test-runtime-optimization package for test runtime; findings use TRO-## and preserve source, uncertainty, and Human decisions.",
+      "non_goals": "No invented behavior, thresholds, model or runtime claims, unsupported completeness, execution, coverage proof, safety or release approval, or Human risk acceptance.",
+      "evidence": {
+        "name": "candidate_source Project #4 card and reviewed design; target: skills/zh/testing-types/test-runtime-optimization/SKILL.md and skills/en/testing-types/test-runtime-optimization/SKILL.md frontmatter name",
+        "purpose": "candidate_source 测试运行时间/test runtime capability intent; target: skills/zh/testing-types/test-runtime-optimization/prompts/test-runtime-optimization.md domain mode and task instructions",
+        "inputs": "candidate_source reviewed design input contract; target: skills/zh/testing-types/test-runtime-optimization/prompts/test-runtime-optimization.md Input section and English mirror",
+        "outputs": "candidate_source reviewed design output contract; target: skills/zh/testing-types/test-runtime-optimization/prompts/test-runtime-optimization.md TRO-## contract and English mirror",
+        "decision_logic": "candidate_source reviewed design execution rules and evidence boundary; target: skills/zh/testing-types/test-runtime-optimization/prompts/test-runtime-optimization.md execution rules and quality bar",
+        "workflow_role": "candidate_source v3-v4 Phase 3 Quality Engineering role; target: skills/zh/testing-types/test-runtime-optimization/SKILL.md How to Use section and skills/en/testing-types/test-runtime-optimization/SKILL.md How to Use section"
+      },
+      "next_action": "Run a real-model Eval and isolated target validation when credentials, a controlled runner, and an authorized target are available; keep NOT_RUN and NOT_SCORED until that evidence exists.",
+      "target_evidence_paths": [
+        "skills/zh/testing-types/test-runtime-optimization/SKILL.md",
+        "skills/en/testing-types/test-runtime-optimization/SKILL.md",
+        "skills/zh/testing-types/test-runtime-optimization/prompts/test-runtime-optimization.md",
+        "skills/en/testing-types/test-runtime-optimization/prompts/test-runtime-optimization.md"
+      ],
+      "candidate_source": "Project #4 v3-v4 P2 candidate card; docs/superpowers/specs/2026-09-15-v3-v4-two-batch-design.md; docs/superpowers/plans/2026-09-15-v3-v4-two-batch-skills.md; docs/governance/PHASE_3_V3_V4.md; local bilingual package review",
+      "capability_match": {
+        "decision": "NEW",
+        "existing_targets": [
+          "skills/zh/testing-types/performance-testing/SKILL.md",
+          "skills/en/testing-types/performance-testing/SKILL.md",
+          "skills/zh/testing-types/test-suite-health-analysis/SKILL.md",
+          "skills/en/testing-types/test-suite-health-analysis/SKILL.md"
+        ],
+        "difference": "Existing adjacent packages do not own the test runtime contract; a bilingual test-runtime-optimization package isolates it with TRO-## and explicit evidence boundaries."
+      },
+      "project_evidence": {
+        "project_number": 4,
+        "item_id": "PVTI_lAHOAHP1as4BjBhVzg6Sdo4",
+        "title": "v3-v4 P2｜候选 Skill｜test-runtime-optimization",
+        "current_status": "Done",
+        "verified_at": "2026-09-15",
+        "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
+        "transition_requirement": "Todo -> In Progress -> Done",
+        "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned",
+        "acceptance_state": "INCOMPLETE"
+      }
+    },
+    {
+      "slug": "test-maintenance-cost-analysis",
+      "decision_state": "REVIEWED_WITH_LIMITATION",
+      "conclusion": "NEW",
+      "target": "test-maintenance-cost-analysis",
+      "scope": "Evidence-bounded test-maintenance-cost-analysis package for maintenance cost; findings use TMC-## and preserve source, uncertainty, and Human decisions.",
+      "non_goals": "No invented behavior, thresholds, model or runtime claims, unsupported completeness, execution, coverage proof, safety or release approval, or Human risk acceptance.",
+      "evidence": {
+        "name": "candidate_source Project #4 card and reviewed design; target: skills/zh/testing-types/test-maintenance-cost-analysis/SKILL.md and skills/en/testing-types/test-maintenance-cost-analysis/SKILL.md frontmatter name",
+        "purpose": "candidate_source 维护成本/maintenance cost capability intent; target: skills/zh/testing-types/test-maintenance-cost-analysis/prompts/test-maintenance-cost-analysis.md domain mode and task instructions",
+        "inputs": "candidate_source reviewed design input contract; target: skills/zh/testing-types/test-maintenance-cost-analysis/prompts/test-maintenance-cost-analysis.md Input section and English mirror",
+        "outputs": "candidate_source reviewed design output contract; target: skills/zh/testing-types/test-maintenance-cost-analysis/prompts/test-maintenance-cost-analysis.md TMC-## contract and English mirror",
+        "decision_logic": "candidate_source reviewed design execution rules and evidence boundary; target: skills/zh/testing-types/test-maintenance-cost-analysis/prompts/test-maintenance-cost-analysis.md execution rules and quality bar",
+        "workflow_role": "candidate_source v3-v4 Phase 3 Quality Engineering role; target: skills/zh/testing-types/test-maintenance-cost-analysis/SKILL.md How to Use section and skills/en/testing-types/test-maintenance-cost-analysis/SKILL.md How to Use section"
+      },
+      "next_action": "Run a real-model Eval and isolated target validation when credentials, a controlled runner, and an authorized target are available; keep NOT_RUN and NOT_SCORED until that evidence exists.",
+      "target_evidence_paths": [
+        "skills/zh/testing-types/test-maintenance-cost-analysis/SKILL.md",
+        "skills/en/testing-types/test-maintenance-cost-analysis/SKILL.md",
+        "skills/zh/testing-types/test-maintenance-cost-analysis/prompts/test-maintenance-cost-analysis.md",
+        "skills/en/testing-types/test-maintenance-cost-analysis/prompts/test-maintenance-cost-analysis.md"
+      ],
+      "candidate_source": "Project #4 v3-v4 P2 candidate card; docs/superpowers/specs/2026-09-15-v3-v4-two-batch-design.md; docs/superpowers/plans/2026-09-15-v3-v4-two-batch-skills.md; docs/governance/PHASE_3_V3_V4.md; local bilingual package review",
+      "capability_match": {
+        "decision": "NEW",
+        "existing_targets": [
+          "skills/zh/testing-types/test-code-review/SKILL.md",
+          "skills/en/testing-types/test-code-review/SKILL.md",
+          "skills/zh/testing-types/flaky-test-analysis/SKILL.md",
+          "skills/en/testing-types/flaky-test-analysis/SKILL.md"
+        ],
+        "difference": "Existing adjacent packages do not own the maintenance cost contract; a bilingual test-maintenance-cost-analysis package isolates it with TMC-## and explicit evidence boundaries."
+      },
+      "project_evidence": {
+        "project_number": 4,
+        "item_id": "PVTI_lAHOAHP1as4BjBhVzg6Sdqc",
+        "title": "v3-v4 P2｜候选 Skill｜test-maintenance-cost-analysis",
+        "current_status": "Done",
+        "verified_at": "2026-09-15",
+        "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
+        "transition_requirement": "Todo -> In Progress -> Done",
+        "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned",
+        "acceptance_state": "INCOMPLETE"
+      }
+    },
+    {
+      "slug": "quality-productivity-metrics",
+      "decision_state": "REVIEWED_WITH_LIMITATION",
+      "conclusion": "NEW",
+      "target": "quality-productivity-metrics",
+      "scope": "Evidence-bounded quality-productivity-metrics package for quality productivity; findings use QPM-## and preserve source, uncertainty, and Human decisions.",
+      "non_goals": "No invented behavior, thresholds, model or runtime claims, unsupported completeness, execution, coverage proof, safety or release approval, or Human risk acceptance.",
+      "evidence": {
+        "name": "candidate_source Project #4 card and reviewed design; target: skills/zh/testing-types/quality-productivity-metrics/SKILL.md and skills/en/testing-types/quality-productivity-metrics/SKILL.md frontmatter name",
+        "purpose": "candidate_source 质量生产力/quality productivity capability intent; target: skills/zh/testing-types/quality-productivity-metrics/prompts/quality-productivity-metrics.md domain mode and task instructions",
+        "inputs": "candidate_source reviewed design input contract; target: skills/zh/testing-types/quality-productivity-metrics/prompts/quality-productivity-metrics.md Input section and English mirror",
+        "outputs": "candidate_source reviewed design output contract; target: skills/zh/testing-types/quality-productivity-metrics/prompts/quality-productivity-metrics.md QPM-## contract and English mirror",
+        "decision_logic": "candidate_source reviewed design execution rules and evidence boundary; target: skills/zh/testing-types/quality-productivity-metrics/prompts/quality-productivity-metrics.md execution rules and quality bar",
+        "workflow_role": "candidate_source v3-v4 Phase 3 Quality Engineering role; target: skills/zh/testing-types/quality-productivity-metrics/SKILL.md How to Use section and skills/en/testing-types/quality-productivity-metrics/SKILL.md How to Use section"
+      },
+      "next_action": "Run a real-model Eval and isolated target validation when credentials, a controlled runner, and an authorized target are available; keep NOT_RUN and NOT_SCORED until that evidence exists.",
+      "target_evidence_paths": [
+        "skills/zh/testing-types/quality-productivity-metrics/SKILL.md",
+        "skills/en/testing-types/quality-productivity-metrics/SKILL.md",
+        "skills/zh/testing-types/quality-productivity-metrics/prompts/quality-productivity-metrics.md",
+        "skills/en/testing-types/quality-productivity-metrics/prompts/quality-productivity-metrics.md"
+      ],
+      "candidate_source": "Project #4 v3-v4 P2 candidate card; docs/superpowers/specs/2026-09-15-v3-v4-two-batch-design.md; docs/superpowers/plans/2026-09-15-v3-v4-two-batch-skills.md; docs/governance/PHASE_3_V3_V4.md; local bilingual package review",
+      "capability_match": {
+        "decision": "NEW",
+        "existing_targets": [
+          "skills/zh/testing-types/test-reporting/SKILL.md",
+          "skills/en/testing-types/test-reporting/SKILL.md",
+          "skills/zh/testing-types/quality-risk-analysis/SKILL.md",
+          "skills/en/testing-types/quality-risk-analysis/SKILL.md"
+        ],
+        "difference": "Existing adjacent packages do not own the quality productivity contract; a bilingual quality-productivity-metrics package isolates it with QPM-## and explicit evidence boundaries."
+      },
+      "project_evidence": {
+        "project_number": 4,
+        "item_id": "PVTI_lAHOAHP1as4BjBhVzg6SdsA",
+        "title": "v3-v4 P2｜候选 Skill｜quality-productivity-metrics",
+        "current_status": "Done",
+        "verified_at": "2026-09-15",
+        "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
+        "transition_requirement": "Todo -> In Progress -> Done",
+        "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned",
+        "acceptance_state": "INCOMPLETE"
+      }
+    },
+    {
+      "slug": "rag-quality-testing",
+      "decision_state": "REVIEWED_WITH_LIMITATION",
+      "conclusion": "NEW",
+      "target": "rag-quality-testing",
+      "scope": "Evidence-bounded rag-quality-testing package for RAG quality; findings use RAGQ-## and preserve source, uncertainty, and Human decisions.",
+      "non_goals": "No invented behavior, thresholds, model or runtime claims, unsupported completeness, execution, coverage proof, safety or release approval, or Human risk acceptance.",
+      "evidence": {
+        "name": "candidate_source Project #4 card and reviewed design; target: skills/zh/testing-types/rag-quality-testing/SKILL.md and skills/en/testing-types/rag-quality-testing/SKILL.md frontmatter name",
+        "purpose": "candidate_source RAG 质量/RAG quality capability intent; target: skills/zh/testing-types/rag-quality-testing/prompts/rag-quality-testing.md domain mode and task instructions",
+        "inputs": "candidate_source reviewed design input contract; target: skills/zh/testing-types/rag-quality-testing/prompts/rag-quality-testing.md Input section and English mirror",
+        "outputs": "candidate_source reviewed design output contract; target: skills/zh/testing-types/rag-quality-testing/prompts/rag-quality-testing.md RAGQ-## contract and English mirror",
+        "decision_logic": "candidate_source reviewed design execution rules and evidence boundary; target: skills/zh/testing-types/rag-quality-testing/prompts/rag-quality-testing.md execution rules and quality bar",
+        "workflow_role": "candidate_source v3-v4 Phase 3 AI Native QA role; target: skills/zh/testing-types/rag-quality-testing/SKILL.md How to Use section and skills/en/testing-types/rag-quality-testing/SKILL.md How to Use section"
+      },
+      "next_action": "Run a real-model Eval and isolated target validation when credentials, a controlled runner, and an authorized target are available; keep NOT_RUN and NOT_SCORED until that evidence exists.",
+      "target_evidence_paths": [
+        "skills/zh/testing-types/rag-quality-testing/SKILL.md",
+        "skills/en/testing-types/rag-quality-testing/SKILL.md",
+        "skills/zh/testing-types/rag-quality-testing/prompts/rag-quality-testing.md",
+        "skills/en/testing-types/rag-quality-testing/prompts/rag-quality-testing.md"
+      ],
+      "candidate_source": "Project #4 v3-v4 P2 candidate card; docs/superpowers/specs/2026-09-15-v3-v4-two-batch-design.md; docs/superpowers/plans/2026-09-15-v3-v4-two-batch-skills.md; docs/governance/PHASE_3_V3_V4.md; local bilingual package review",
+      "capability_match": {
+        "decision": "NEW",
+        "existing_targets": [
+          "skills/zh/testing-types/llm-testing/SKILL.md",
+          "skills/en/testing-types/llm-testing/SKILL.md",
+          "skills/zh/testing-types/ai-assisted-testing/SKILL.md",
+          "skills/en/testing-types/ai-assisted-testing/SKILL.md"
+        ],
+        "difference": "Existing adjacent packages do not own the RAG quality contract; a bilingual rag-quality-testing package isolates it with RAGQ-## and explicit evidence boundaries."
+      },
+      "project_evidence": {
+        "project_number": 4,
+        "item_id": "PVTI_lAHOAHP1as4BjBhVzg6Sdus",
+        "title": "v3-v4 P2｜候选 Skill｜rag-quality-testing",
+        "current_status": "Done",
+        "verified_at": "2026-09-15",
+        "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
+        "transition_requirement": "Todo -> In Progress -> Done",
+        "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned",
+        "acceptance_state": "INCOMPLETE"
+      }
+    },
+    {
+      "slug": "rag-retrieval-testing",
+      "decision_state": "REVIEWED_WITH_LIMITATION",
+      "conclusion": "NEW",
+      "target": "rag-retrieval-testing",
+      "scope": "Evidence-bounded rag-retrieval-testing package for retrieval result; findings use RAGT-## and preserve source, uncertainty, and Human decisions.",
+      "non_goals": "No invented behavior, thresholds, model or runtime claims, unsupported completeness, execution, coverage proof, safety or release approval, or Human risk acceptance.",
+      "evidence": {
+        "name": "candidate_source Project #4 card and reviewed design; target: skills/zh/testing-types/rag-retrieval-testing/SKILL.md and skills/en/testing-types/rag-retrieval-testing/SKILL.md frontmatter name",
+        "purpose": "candidate_source 检索结果/retrieval result capability intent; target: skills/zh/testing-types/rag-retrieval-testing/prompts/rag-retrieval-testing.md domain mode and task instructions",
+        "inputs": "candidate_source reviewed design input contract; target: skills/zh/testing-types/rag-retrieval-testing/prompts/rag-retrieval-testing.md Input section and English mirror",
+        "outputs": "candidate_source reviewed design output contract; target: skills/zh/testing-types/rag-retrieval-testing/prompts/rag-retrieval-testing.md RAGT-## contract and English mirror",
+        "decision_logic": "candidate_source reviewed design execution rules and evidence boundary; target: skills/zh/testing-types/rag-retrieval-testing/prompts/rag-retrieval-testing.md execution rules and quality bar",
+        "workflow_role": "candidate_source v3-v4 Phase 3 AI Native QA role; target: skills/zh/testing-types/rag-retrieval-testing/SKILL.md How to Use section and skills/en/testing-types/rag-retrieval-testing/SKILL.md How to Use section"
+      },
+      "next_action": "Run a real-model Eval and isolated target validation when credentials, a controlled runner, and an authorized target are available; keep NOT_RUN and NOT_SCORED until that evidence exists.",
+      "target_evidence_paths": [
+        "skills/zh/testing-types/rag-retrieval-testing/SKILL.md",
+        "skills/en/testing-types/rag-retrieval-testing/SKILL.md",
+        "skills/zh/testing-types/rag-retrieval-testing/prompts/rag-retrieval-testing.md",
+        "skills/en/testing-types/rag-retrieval-testing/prompts/rag-retrieval-testing.md"
+      ],
+      "candidate_source": "Project #4 v3-v4 P2 candidate card; docs/superpowers/specs/2026-09-15-v3-v4-two-batch-design.md; docs/superpowers/plans/2026-09-15-v3-v4-two-batch-skills.md; docs/governance/PHASE_3_V3_V4.md; local bilingual package review",
+      "capability_match": {
+        "decision": "NEW",
+        "existing_targets": [
+          "skills/zh/testing-types/llm-testing/SKILL.md",
+          "skills/en/testing-types/llm-testing/SKILL.md",
+          "skills/zh/testing-types/test-data-requirement-analysis/SKILL.md",
+          "skills/en/testing-types/test-data-requirement-analysis/SKILL.md"
+        ],
+        "difference": "Existing adjacent packages do not own the retrieval result contract; a bilingual rag-retrieval-testing package isolates it with RAGT-## and explicit evidence boundaries."
+      },
+      "project_evidence": {
+        "project_number": 4,
+        "item_id": "PVTI_lAHOAHP1as4BjBhVzg6Sdwg",
+        "title": "v3-v4 P2｜候选 Skill｜rag-retrieval-testing",
+        "current_status": "Done",
+        "verified_at": "2026-09-15",
+        "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
+        "transition_requirement": "Todo -> In Progress -> Done",
+        "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned",
+        "acceptance_state": "INCOMPLETE"
+      }
+    },
+    {
+      "slug": "agent-loop-testing",
+      "decision_state": "REVIEWED_WITH_LIMITATION",
+      "conclusion": "NEW",
+      "target": "agent-loop-testing",
+      "scope": "Evidence-bounded agent-loop-testing package for Agent loop; findings use ALT-## and preserve source, uncertainty, and Human decisions.",
+      "non_goals": "No invented behavior, thresholds, model or runtime claims, unsupported completeness, execution, coverage proof, safety or release approval, or Human risk acceptance.",
+      "evidence": {
+        "name": "candidate_source Project #4 card and reviewed design; target: skills/zh/testing-types/agent-loop-testing/SKILL.md and skills/en/testing-types/agent-loop-testing/SKILL.md frontmatter name",
+        "purpose": "candidate_source Agent 循环/Agent loop capability intent; target: skills/zh/testing-types/agent-loop-testing/prompts/agent-loop-testing.md domain mode and task instructions",
+        "inputs": "candidate_source reviewed design input contract; target: skills/zh/testing-types/agent-loop-testing/prompts/agent-loop-testing.md Input section and English mirror",
+        "outputs": "candidate_source reviewed design output contract; target: skills/zh/testing-types/agent-loop-testing/prompts/agent-loop-testing.md ALT-## contract and English mirror",
+        "decision_logic": "candidate_source reviewed design execution rules and evidence boundary; target: skills/zh/testing-types/agent-loop-testing/prompts/agent-loop-testing.md execution rules and quality bar",
+        "workflow_role": "candidate_source v3-v4 Phase 3 AI Native QA role; target: skills/zh/testing-types/agent-loop-testing/SKILL.md How to Use section and skills/en/testing-types/agent-loop-testing/SKILL.md How to Use section"
+      },
+      "next_action": "Run a real-model Eval and isolated target validation when credentials, a controlled runner, and an authorized target are available; keep NOT_RUN and NOT_SCORED until that evidence exists.",
+      "target_evidence_paths": [
+        "skills/zh/testing-types/agent-loop-testing/SKILL.md",
+        "skills/en/testing-types/agent-loop-testing/SKILL.md",
+        "skills/zh/testing-types/agent-loop-testing/prompts/agent-loop-testing.md",
+        "skills/en/testing-types/agent-loop-testing/prompts/agent-loop-testing.md"
+      ],
+      "candidate_source": "Project #4 v3-v4 P2 candidate card; docs/superpowers/specs/2026-09-15-v3-v4-two-batch-design.md; docs/superpowers/plans/2026-09-15-v3-v4-two-batch-skills.md; docs/governance/PHASE_3_V3_V4.md; local bilingual package review",
+      "capability_match": {
+        "decision": "NEW",
+        "existing_targets": [
+          "skills/zh/testing-types/ai-agent-testing/SKILL.md",
+          "skills/en/testing-types/ai-agent-testing/SKILL.md",
+          "skills/zh/testing-types/agent-tool-testing/SKILL.md",
+          "skills/en/testing-types/agent-tool-testing/SKILL.md"
+        ],
+        "difference": "Existing adjacent packages do not own the Agent loop contract; a bilingual agent-loop-testing package isolates it with ALT-## and explicit evidence boundaries."
+      },
+      "project_evidence": {
+        "project_number": 4,
+        "item_id": "PVTI_lAHOAHP1as4BjBhVzg6SdyQ",
+        "title": "v3-v4 P2｜候选 Skill｜agent-loop-testing",
+        "current_status": "Done",
+        "verified_at": "2026-09-15",
+        "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
+        "transition_requirement": "Todo -> In Progress -> Done",
+        "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned",
+        "acceptance_state": "INCOMPLETE"
+      }
+    },
+    {
+      "slug": "agent-memory-testing",
+      "decision_state": "REVIEWED_WITH_LIMITATION",
+      "conclusion": "NEW",
+      "target": "agent-memory-testing",
+      "scope": "Evidence-bounded agent-memory-testing package for Agent memory; findings use AMT-## and preserve source, uncertainty, and Human decisions.",
+      "non_goals": "No invented behavior, thresholds, model or runtime claims, unsupported completeness, execution, coverage proof, safety or release approval, or Human risk acceptance.",
+      "evidence": {
+        "name": "candidate_source Project #4 card and reviewed design; target: skills/zh/testing-types/agent-memory-testing/SKILL.md and skills/en/testing-types/agent-memory-testing/SKILL.md frontmatter name",
+        "purpose": "candidate_source Agent 记忆/Agent memory capability intent; target: skills/zh/testing-types/agent-memory-testing/prompts/agent-memory-testing.md domain mode and task instructions",
+        "inputs": "candidate_source reviewed design input contract; target: skills/zh/testing-types/agent-memory-testing/prompts/agent-memory-testing.md Input section and English mirror",
+        "outputs": "candidate_source reviewed design output contract; target: skills/zh/testing-types/agent-memory-testing/prompts/agent-memory-testing.md AMT-## contract and English mirror",
+        "decision_logic": "candidate_source reviewed design execution rules and evidence boundary; target: skills/zh/testing-types/agent-memory-testing/prompts/agent-memory-testing.md execution rules and quality bar",
+        "workflow_role": "candidate_source v3-v4 Phase 3 AI Native QA role; target: skills/zh/testing-types/agent-memory-testing/SKILL.md How to Use section and skills/en/testing-types/agent-memory-testing/SKILL.md How to Use section"
+      },
+      "next_action": "Run a real-model Eval and isolated target validation when credentials, a controlled runner, and an authorized target are available; keep NOT_RUN and NOT_SCORED until that evidence exists.",
+      "target_evidence_paths": [
+        "skills/zh/testing-types/agent-memory-testing/SKILL.md",
+        "skills/en/testing-types/agent-memory-testing/SKILL.md",
+        "skills/zh/testing-types/agent-memory-testing/prompts/agent-memory-testing.md",
+        "skills/en/testing-types/agent-memory-testing/prompts/agent-memory-testing.md"
+      ],
+      "candidate_source": "Project #4 v3-v4 P2 candidate card; docs/superpowers/specs/2026-09-15-v3-v4-two-batch-design.md; docs/superpowers/plans/2026-09-15-v3-v4-two-batch-skills.md; docs/governance/PHASE_3_V3_V4.md; local bilingual package review",
+      "capability_match": {
+        "decision": "NEW",
+        "existing_targets": [
+          "skills/zh/testing-types/ai-agent-testing/SKILL.md",
+          "skills/en/testing-types/ai-agent-testing/SKILL.md",
+          "skills/zh/testing-types/agent-tool-testing/SKILL.md",
+          "skills/en/testing-types/agent-tool-testing/SKILL.md"
+        ],
+        "difference": "Existing adjacent packages do not own the Agent memory contract; a bilingual agent-memory-testing package isolates it with AMT-## and explicit evidence boundaries."
+      },
+      "project_evidence": {
+        "project_number": 4,
+        "item_id": "PVTI_lAHOAHP1as4BjBhVzg6Sdzo",
+        "title": "v3-v4 P2｜候选 Skill｜agent-memory-testing",
+        "current_status": "Done",
+        "verified_at": "2026-09-15",
+        "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
+        "transition_requirement": "Todo -> In Progress -> Done",
+        "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned",
+        "acceptance_state": "INCOMPLETE"
+      }
+    },
+    {
+      "slug": "agent-permission-testing",
+      "decision_state": "REVIEWED_WITH_LIMITATION",
+      "conclusion": "NEW",
+      "target": "agent-permission-testing",
+      "scope": "Evidence-bounded agent-permission-testing package for Agent permission; findings use AGP-## and preserve source, uncertainty, and Human decisions.",
+      "non_goals": "No invented behavior, thresholds, model or runtime claims, unsupported completeness, execution, coverage proof, safety or release approval, or Human risk acceptance.",
+      "evidence": {
+        "name": "candidate_source Project #4 card and reviewed design; target: skills/zh/testing-types/agent-permission-testing/SKILL.md and skills/en/testing-types/agent-permission-testing/SKILL.md frontmatter name",
+        "purpose": "candidate_source Agent 权限/Agent permission capability intent; target: skills/zh/testing-types/agent-permission-testing/prompts/agent-permission-testing.md domain mode and task instructions",
+        "inputs": "candidate_source reviewed design input contract; target: skills/zh/testing-types/agent-permission-testing/prompts/agent-permission-testing.md Input section and English mirror",
+        "outputs": "candidate_source reviewed design output contract; target: skills/zh/testing-types/agent-permission-testing/prompts/agent-permission-testing.md AGP-## contract and English mirror",
+        "decision_logic": "candidate_source reviewed design execution rules and evidence boundary; target: skills/zh/testing-types/agent-permission-testing/prompts/agent-permission-testing.md execution rules and quality bar",
+        "workflow_role": "candidate_source v3-v4 Phase 3 AI Native QA role; target: skills/zh/testing-types/agent-permission-testing/SKILL.md How to Use section and skills/en/testing-types/agent-permission-testing/SKILL.md How to Use section"
+      },
+      "next_action": "Run a real-model Eval and isolated target validation when credentials, a controlled runner, and an authorized target are available; keep NOT_RUN and NOT_SCORED until that evidence exists.",
+      "target_evidence_paths": [
+        "skills/zh/testing-types/agent-permission-testing/SKILL.md",
+        "skills/en/testing-types/agent-permission-testing/SKILL.md",
+        "skills/zh/testing-types/agent-permission-testing/prompts/agent-permission-testing.md",
+        "skills/en/testing-types/agent-permission-testing/prompts/agent-permission-testing.md"
+      ],
+      "candidate_source": "Project #4 v3-v4 P2 candidate card; docs/superpowers/specs/2026-09-15-v3-v4-two-batch-design.md; docs/superpowers/plans/2026-09-15-v3-v4-two-batch-skills.md; docs/governance/PHASE_3_V3_V4.md; local bilingual package review",
+      "capability_match": {
+        "decision": "NEW",
+        "existing_targets": [
+          "skills/zh/testing-types/agent-tool-testing/SKILL.md",
+          "skills/en/testing-types/agent-tool-testing/SKILL.md",
+          "skills/zh/testing-types/security-testing/SKILL.md",
+          "skills/en/testing-types/security-testing/SKILL.md"
+        ],
+        "difference": "Existing adjacent packages do not own the Agent permission contract; a bilingual agent-permission-testing package isolates it with AGP-## and explicit evidence boundaries."
+      },
+      "project_evidence": {
+        "project_number": 4,
+        "item_id": "PVTI_lAHOAHP1as4BjBhVzg6Sd1E",
+        "title": "v3-v4 P2｜候选 Skill｜agent-permission-testing",
+        "current_status": "Done",
+        "verified_at": "2026-09-15",
+        "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
+        "transition_requirement": "Todo -> In Progress -> Done",
+        "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned",
+        "acceptance_state": "INCOMPLETE"
+      }
+    },
+    {
+      "slug": "agent-failure-recovery-testing",
+      "decision_state": "REVIEWED_WITH_LIMITATION",
+      "conclusion": "NEW",
+      "target": "agent-failure-recovery-testing",
+      "scope": "Evidence-bounded agent-failure-recovery-testing package for Agent failure recovery; findings use AFR-## and preserve source, uncertainty, and Human decisions.",
+      "non_goals": "No invented behavior, thresholds, model or runtime claims, unsupported completeness, execution, coverage proof, safety or release approval, or Human risk acceptance.",
+      "evidence": {
+        "name": "candidate_source Project #4 card and reviewed design; target: skills/zh/testing-types/agent-failure-recovery-testing/SKILL.md and skills/en/testing-types/agent-failure-recovery-testing/SKILL.md frontmatter name",
+        "purpose": "candidate_source Agent 故障恢复/Agent failure recovery capability intent; target: skills/zh/testing-types/agent-failure-recovery-testing/prompts/agent-failure-recovery-testing.md domain mode and task instructions",
+        "inputs": "candidate_source reviewed design input contract; target: skills/zh/testing-types/agent-failure-recovery-testing/prompts/agent-failure-recovery-testing.md Input section and English mirror",
+        "outputs": "candidate_source reviewed design output contract; target: skills/zh/testing-types/agent-failure-recovery-testing/prompts/agent-failure-recovery-testing.md AFR-## contract and English mirror",
+        "decision_logic": "candidate_source reviewed design execution rules and evidence boundary; target: skills/zh/testing-types/agent-failure-recovery-testing/prompts/agent-failure-recovery-testing.md execution rules and quality bar",
+        "workflow_role": "candidate_source v3-v4 Phase 3 AI Native QA role; target: skills/zh/testing-types/agent-failure-recovery-testing/SKILL.md How to Use section and skills/en/testing-types/agent-failure-recovery-testing/SKILL.md How to Use section"
+      },
+      "next_action": "Run a real-model Eval and isolated target validation when credentials, a controlled runner, and an authorized target are available; keep NOT_RUN and NOT_SCORED until that evidence exists.",
+      "target_evidence_paths": [
+        "skills/zh/testing-types/agent-failure-recovery-testing/SKILL.md",
+        "skills/en/testing-types/agent-failure-recovery-testing/SKILL.md",
+        "skills/zh/testing-types/agent-failure-recovery-testing/prompts/agent-failure-recovery-testing.md",
+        "skills/en/testing-types/agent-failure-recovery-testing/prompts/agent-failure-recovery-testing.md"
+      ],
+      "candidate_source": "Project #4 v3-v4 P2 candidate card; docs/superpowers/specs/2026-09-15-v3-v4-two-batch-design.md; docs/superpowers/plans/2026-09-15-v3-v4-two-batch-skills.md; docs/governance/PHASE_3_V3_V4.md; local bilingual package review",
+      "capability_match": {
+        "decision": "NEW",
+        "existing_targets": [
+          "skills/zh/testing-types/error-handling-design-review/SKILL.md",
+          "skills/en/testing-types/error-handling-design-review/SKILL.md",
+          "skills/zh/testing-types/ai-agent-testing/SKILL.md",
+          "skills/en/testing-types/ai-agent-testing/SKILL.md"
+        ],
+        "difference": "Existing adjacent packages do not own the Agent failure recovery contract; a bilingual agent-failure-recovery-testing package isolates it with AFR-## and explicit evidence boundaries."
+      },
+      "project_evidence": {
+        "project_number": 4,
+        "item_id": "PVTI_lAHOAHP1as4BjBhVzg6Sd2I",
+        "title": "v3-v4 P2｜候选 Skill｜agent-failure-recovery-testing",
+        "current_status": "Done",
+        "verified_at": "2026-09-15",
+        "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
+        "transition_requirement": "Todo -> In Progress -> Done",
+        "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned",
+        "acceptance_state": "INCOMPLETE"
+      }
+    },
+    {
+      "slug": "agent-long-running-testing",
+      "decision_state": "REVIEWED_WITH_LIMITATION",
+      "conclusion": "NEW",
+      "target": "agent-long-running-testing",
+      "scope": "Evidence-bounded agent-long-running-testing package for long-running Agent; findings use ALR-## and preserve source, uncertainty, and Human decisions.",
+      "non_goals": "No invented behavior, thresholds, model or runtime claims, unsupported completeness, execution, coverage proof, safety or release approval, or Human risk acceptance.",
+      "evidence": {
+        "name": "candidate_source Project #4 card and reviewed design; target: skills/zh/testing-types/agent-long-running-testing/SKILL.md and skills/en/testing-types/agent-long-running-testing/SKILL.md frontmatter name",
+        "purpose": "candidate_source 长运行 Agent/long-running Agent capability intent; target: skills/zh/testing-types/agent-long-running-testing/prompts/agent-long-running-testing.md domain mode and task instructions",
+        "inputs": "candidate_source reviewed design input contract; target: skills/zh/testing-types/agent-long-running-testing/prompts/agent-long-running-testing.md Input section and English mirror",
+        "outputs": "candidate_source reviewed design output contract; target: skills/zh/testing-types/agent-long-running-testing/prompts/agent-long-running-testing.md ALR-## contract and English mirror",
+        "decision_logic": "candidate_source reviewed design execution rules and evidence boundary; target: skills/zh/testing-types/agent-long-running-testing/prompts/agent-long-running-testing.md execution rules and quality bar",
+        "workflow_role": "candidate_source v3-v4 Phase 3 AI Native QA role; target: skills/zh/testing-types/agent-long-running-testing/SKILL.md How to Use section and skills/en/testing-types/agent-long-running-testing/SKILL.md How to Use section"
+      },
+      "next_action": "Run a real-model Eval and isolated target validation when credentials, a controlled runner, and an authorized target are available; keep NOT_RUN and NOT_SCORED until that evidence exists.",
+      "target_evidence_paths": [
+        "skills/zh/testing-types/agent-long-running-testing/SKILL.md",
+        "skills/en/testing-types/agent-long-running-testing/SKILL.md",
+        "skills/zh/testing-types/agent-long-running-testing/prompts/agent-long-running-testing.md",
+        "skills/en/testing-types/agent-long-running-testing/prompts/agent-long-running-testing.md"
+      ],
+      "candidate_source": "Project #4 v3-v4 P2 candidate card; docs/superpowers/specs/2026-09-15-v3-v4-two-batch-design.md; docs/superpowers/plans/2026-09-15-v3-v4-two-batch-skills.md; docs/governance/PHASE_3_V3_V4.md; local bilingual package review",
+      "capability_match": {
+        "decision": "NEW",
+        "existing_targets": [
+          "skills/zh/testing-types/performance-testing/SKILL.md",
+          "skills/en/testing-types/performance-testing/SKILL.md",
+          "skills/zh/testing-types/ai-agent-testing/SKILL.md",
+          "skills/en/testing-types/ai-agent-testing/SKILL.md"
+        ],
+        "difference": "Existing adjacent packages do not own the long-running Agent contract; a bilingual agent-long-running-testing package isolates it with ALR-## and explicit evidence boundaries."
+      },
+      "project_evidence": {
+        "project_number": 4,
+        "item_id": "PVTI_lAHOAHP1as4BjBhVzg6Sd3w",
+        "title": "v3-v4 P2｜候选 Skill｜agent-long-running-testing",
+        "current_status": "Done",
+        "verified_at": "2026-09-15",
+        "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
+        "transition_requirement": "Todo -> In Progress -> Done",
+        "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned",
+        "acceptance_state": "INCOMPLETE"
+      }
+    },
+    {
+      "slug": "multi-agent-testing",
+      "decision_state": "REVIEWED_WITH_LIMITATION",
+      "conclusion": "NEW",
+      "target": "multi-agent-testing",
+      "scope": "Evidence-bounded multi-agent-testing package for multi-agent coordination; findings use MAT-## and preserve source, uncertainty, and Human decisions.",
+      "non_goals": "No invented behavior, thresholds, model or runtime claims, unsupported completeness, execution, coverage proof, safety or release approval, or Human risk acceptance.",
+      "evidence": {
+        "name": "candidate_source Project #4 card and reviewed design; target: skills/zh/testing-types/multi-agent-testing/SKILL.md and skills/en/testing-types/multi-agent-testing/SKILL.md frontmatter name",
+        "purpose": "candidate_source 多 Agent 协作/multi-agent coordination capability intent; target: skills/zh/testing-types/multi-agent-testing/prompts/multi-agent-testing.md domain mode and task instructions",
+        "inputs": "candidate_source reviewed design input contract; target: skills/zh/testing-types/multi-agent-testing/prompts/multi-agent-testing.md Input section and English mirror",
+        "outputs": "candidate_source reviewed design output contract; target: skills/zh/testing-types/multi-agent-testing/prompts/multi-agent-testing.md MAT-## contract and English mirror",
+        "decision_logic": "candidate_source reviewed design execution rules and evidence boundary; target: skills/zh/testing-types/multi-agent-testing/prompts/multi-agent-testing.md execution rules and quality bar",
+        "workflow_role": "candidate_source v3-v4 Phase 3 AI Native QA role; target: skills/zh/testing-types/multi-agent-testing/SKILL.md How to Use section and skills/en/testing-types/multi-agent-testing/SKILL.md How to Use section"
+      },
+      "next_action": "Run a real-model Eval and isolated target validation when credentials, a controlled runner, and an authorized target are available; keep NOT_RUN and NOT_SCORED until that evidence exists.",
+      "target_evidence_paths": [
+        "skills/zh/testing-types/multi-agent-testing/SKILL.md",
+        "skills/en/testing-types/multi-agent-testing/SKILL.md",
+        "skills/zh/testing-types/multi-agent-testing/prompts/multi-agent-testing.md",
+        "skills/en/testing-types/multi-agent-testing/prompts/multi-agent-testing.md"
+      ],
+      "candidate_source": "Project #4 v3-v4 P2 candidate card; docs/superpowers/specs/2026-09-15-v3-v4-two-batch-design.md; docs/superpowers/plans/2026-09-15-v3-v4-two-batch-skills.md; docs/governance/PHASE_3_V3_V4.md; local bilingual package review",
+      "capability_match": {
+        "decision": "NEW",
+        "existing_targets": [
+          "skills/zh/testing-types/ai-agent-testing/SKILL.md",
+          "skills/en/testing-types/ai-agent-testing/SKILL.md",
+          "skills/zh/testing-types/agent-tool-testing/SKILL.md",
+          "skills/en/testing-types/agent-tool-testing/SKILL.md"
+        ],
+        "difference": "Existing adjacent packages do not own the multi-agent coordination contract; a bilingual multi-agent-testing package isolates it with MAT-## and explicit evidence boundaries."
+      },
+      "project_evidence": {
+        "project_number": 4,
+        "item_id": "PVTI_lAHOAHP1as4BjBhVzg6Sd5g",
+        "title": "v3-v4 P2｜候选 Skill｜multi-agent-testing",
+        "current_status": "Done",
+        "verified_at": "2026-09-15",
+        "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
+        "transition_requirement": "Todo -> In Progress -> Done",
+        "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned",
+        "acceptance_state": "INCOMPLETE"
+      }
+    },
+    {
+      "slug": "llm-hallucination-testing",
+      "decision_state": "REVIEWED_WITH_LIMITATION",
+      "conclusion": "NEW",
+      "target": "llm-hallucination-testing",
+      "scope": "Evidence-bounded llm-hallucination-testing package for LLM hallucination; findings use LHT-## and preserve source, uncertainty, and Human decisions.",
+      "non_goals": "No invented behavior, thresholds, model or runtime claims, unsupported completeness, execution, coverage proof, safety or release approval, or Human risk acceptance.",
+      "evidence": {
+        "name": "candidate_source Project #4 card and reviewed design; target: skills/zh/testing-types/llm-hallucination-testing/SKILL.md and skills/en/testing-types/llm-hallucination-testing/SKILL.md frontmatter name",
+        "purpose": "candidate_source LLM 幻觉/LLM hallucination capability intent; target: skills/zh/testing-types/llm-hallucination-testing/prompts/llm-hallucination-testing.md domain mode and task instructions",
+        "inputs": "candidate_source reviewed design input contract; target: skills/zh/testing-types/llm-hallucination-testing/prompts/llm-hallucination-testing.md Input section and English mirror",
+        "outputs": "candidate_source reviewed design output contract; target: skills/zh/testing-types/llm-hallucination-testing/prompts/llm-hallucination-testing.md LHT-## contract and English mirror",
+        "decision_logic": "candidate_source reviewed design execution rules and evidence boundary; target: skills/zh/testing-types/llm-hallucination-testing/prompts/llm-hallucination-testing.md execution rules and quality bar",
+        "workflow_role": "candidate_source v3-v4 Phase 3 AI Native QA role; target: skills/zh/testing-types/llm-hallucination-testing/SKILL.md How to Use section and skills/en/testing-types/llm-hallucination-testing/SKILL.md How to Use section"
+      },
+      "next_action": "Run a real-model Eval and isolated target validation when credentials, a controlled runner, and an authorized target are available; keep NOT_RUN and NOT_SCORED until that evidence exists.",
+      "target_evidence_paths": [
+        "skills/zh/testing-types/llm-hallucination-testing/SKILL.md",
+        "skills/en/testing-types/llm-hallucination-testing/SKILL.md",
+        "skills/zh/testing-types/llm-hallucination-testing/prompts/llm-hallucination-testing.md",
+        "skills/en/testing-types/llm-hallucination-testing/prompts/llm-hallucination-testing.md"
+      ],
+      "candidate_source": "Project #4 v3-v4 P2 candidate card; docs/superpowers/specs/2026-09-15-v3-v4-two-batch-design.md; docs/superpowers/plans/2026-09-15-v3-v4-two-batch-skills.md; docs/governance/PHASE_3_V3_V4.md; local bilingual package review",
+      "capability_match": {
+        "decision": "NEW",
+        "existing_targets": [
+          "skills/zh/testing-types/llm-testing/SKILL.md",
+          "skills/en/testing-types/llm-testing/SKILL.md",
+          "skills/zh/testing-types/llm-evaluation-design/SKILL.md",
+          "skills/en/testing-types/llm-evaluation-design/SKILL.md"
+        ],
+        "difference": "Existing adjacent packages do not own the LLM hallucination contract; a bilingual llm-hallucination-testing package isolates it with LHT-## and explicit evidence boundaries."
+      },
+      "project_evidence": {
+        "project_number": 4,
+        "item_id": "PVTI_lAHOAHP1as4BjBhVzg6Sd7Q",
+        "title": "v3-v4 P2｜候选 Skill｜llm-hallucination-testing",
+        "current_status": "Done",
+        "verified_at": "2026-09-15",
+        "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
+        "transition_requirement": "Todo -> In Progress -> Done",
+        "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned",
+        "acceptance_state": "INCOMPLETE"
+      }
+    },
+    {
+      "slug": "llm-consistency-testing",
+      "decision_state": "REVIEWED_WITH_LIMITATION",
+      "conclusion": "NEW",
+      "target": "llm-consistency-testing",
+      "scope": "Evidence-bounded llm-consistency-testing package for LLM consistency; findings use LCT-## and preserve source, uncertainty, and Human decisions.",
+      "non_goals": "No invented behavior, thresholds, model or runtime claims, unsupported completeness, execution, coverage proof, safety or release approval, or Human risk acceptance.",
+      "evidence": {
+        "name": "candidate_source Project #4 card and reviewed design; target: skills/zh/testing-types/llm-consistency-testing/SKILL.md and skills/en/testing-types/llm-consistency-testing/SKILL.md frontmatter name",
+        "purpose": "candidate_source LLM 一致性/LLM consistency capability intent; target: skills/zh/testing-types/llm-consistency-testing/prompts/llm-consistency-testing.md domain mode and task instructions",
+        "inputs": "candidate_source reviewed design input contract; target: skills/zh/testing-types/llm-consistency-testing/prompts/llm-consistency-testing.md Input section and English mirror",
+        "outputs": "candidate_source reviewed design output contract; target: skills/zh/testing-types/llm-consistency-testing/prompts/llm-consistency-testing.md LCT-## contract and English mirror",
+        "decision_logic": "candidate_source reviewed design execution rules and evidence boundary; target: skills/zh/testing-types/llm-consistency-testing/prompts/llm-consistency-testing.md execution rules and quality bar",
+        "workflow_role": "candidate_source v3-v4 Phase 3 AI Native QA role; target: skills/zh/testing-types/llm-consistency-testing/SKILL.md How to Use section and skills/en/testing-types/llm-consistency-testing/SKILL.md How to Use section"
+      },
+      "next_action": "Run a real-model Eval and isolated target validation when credentials, a controlled runner, and an authorized target are available; keep NOT_RUN and NOT_SCORED until that evidence exists.",
+      "target_evidence_paths": [
+        "skills/zh/testing-types/llm-consistency-testing/SKILL.md",
+        "skills/en/testing-types/llm-consistency-testing/SKILL.md",
+        "skills/zh/testing-types/llm-consistency-testing/prompts/llm-consistency-testing.md",
+        "skills/en/testing-types/llm-consistency-testing/prompts/llm-consistency-testing.md"
+      ],
+      "candidate_source": "Project #4 v3-v4 P2 candidate card; docs/superpowers/specs/2026-09-15-v3-v4-two-batch-design.md; docs/superpowers/plans/2026-09-15-v3-v4-two-batch-skills.md; docs/governance/PHASE_3_V3_V4.md; local bilingual package review",
+      "capability_match": {
+        "decision": "NEW",
+        "existing_targets": [
+          "skills/zh/testing-types/llm-testing/SKILL.md",
+          "skills/en/testing-types/llm-testing/SKILL.md",
+          "skills/zh/testing-types/llm-evaluation-design/SKILL.md",
+          "skills/en/testing-types/llm-evaluation-design/SKILL.md"
+        ],
+        "difference": "Existing adjacent packages do not own the LLM consistency contract; a bilingual llm-consistency-testing package isolates it with LCT-## and explicit evidence boundaries."
+      },
+      "project_evidence": {
+        "project_number": 4,
+        "item_id": "PVTI_lAHOAHP1as4BjBhVzg6Sd8Q",
+        "title": "v3-v4 P2｜候选 Skill｜llm-consistency-testing",
+        "current_status": "Done",
+        "verified_at": "2026-09-15",
+        "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
+        "transition_requirement": "Todo -> In Progress -> Done",
+        "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned",
+        "acceptance_state": "INCOMPLETE"
+      }
+    },
+    {
+      "slug": "ai-safety-testing",
+      "decision_state": "REVIEWED_WITH_LIMITATION",
+      "conclusion": "NEW",
+      "target": "ai-safety-testing",
+      "scope": "Evidence-bounded ai-safety-testing package for AI safety; findings use AIS-## and preserve source, uncertainty, and Human decisions.",
+      "non_goals": "No invented behavior, thresholds, model or runtime claims, unsupported completeness, execution, coverage proof, safety or release approval, or Human risk acceptance.",
+      "evidence": {
+        "name": "candidate_source Project #4 card and reviewed design; target: skills/zh/testing-types/ai-safety-testing/SKILL.md and skills/en/testing-types/ai-safety-testing/SKILL.md frontmatter name",
+        "purpose": "candidate_source AI 安全/AI safety capability intent; target: skills/zh/testing-types/ai-safety-testing/prompts/ai-safety-testing.md domain mode and task instructions",
+        "inputs": "candidate_source reviewed design input contract; target: skills/zh/testing-types/ai-safety-testing/prompts/ai-safety-testing.md Input section and English mirror",
+        "outputs": "candidate_source reviewed design output contract; target: skills/zh/testing-types/ai-safety-testing/prompts/ai-safety-testing.md AIS-## contract and English mirror",
+        "decision_logic": "candidate_source reviewed design execution rules and evidence boundary; target: skills/zh/testing-types/ai-safety-testing/prompts/ai-safety-testing.md execution rules and quality bar",
+        "workflow_role": "candidate_source v3-v4 Phase 3 AI Native QA role; target: skills/zh/testing-types/ai-safety-testing/SKILL.md How to Use section and skills/en/testing-types/ai-safety-testing/SKILL.md How to Use section"
+      },
+      "next_action": "Run a real-model Eval and isolated target validation when credentials, a controlled runner, and an authorized target are available; keep NOT_RUN and NOT_SCORED until that evidence exists.",
+      "target_evidence_paths": [
+        "skills/zh/testing-types/ai-safety-testing/SKILL.md",
+        "skills/en/testing-types/ai-safety-testing/SKILL.md",
+        "skills/zh/testing-types/ai-safety-testing/prompts/ai-safety-testing.md",
+        "skills/en/testing-types/ai-safety-testing/prompts/ai-safety-testing.md"
+      ],
+      "candidate_source": "Project #4 v3-v4 P2 candidate card; docs/superpowers/specs/2026-09-15-v3-v4-two-batch-design.md; docs/superpowers/plans/2026-09-15-v3-v4-two-batch-skills.md; docs/governance/PHASE_3_V3_V4.md; local bilingual package review",
+      "capability_match": {
+        "decision": "NEW",
+        "existing_targets": [
+          "skills/zh/testing-types/security-testing/SKILL.md",
+          "skills/en/testing-types/security-testing/SKILL.md",
+          "skills/zh/testing-types/ai-agent-testing/SKILL.md",
+          "skills/en/testing-types/ai-agent-testing/SKILL.md"
+        ],
+        "difference": "Existing adjacent packages do not own the AI safety contract; a bilingual ai-safety-testing package isolates it with AIS-## and explicit evidence boundaries."
+      },
+      "project_evidence": {
+        "project_number": 4,
+        "item_id": "PVTI_lAHOAHP1as4BjBhVzg6Sd9w",
+        "title": "v3-v4 P2｜候选 Skill｜ai-safety-testing",
+        "current_status": "Done",
+        "verified_at": "2026-09-15",
+        "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
+        "transition_requirement": "Todo -> In Progress -> Done",
+        "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned",
+        "acceptance_state": "INCOMPLETE"
+      }
+    },
+    {
+      "slug": "prompt-regression-testing",
+      "decision_state": "REVIEWED_WITH_LIMITATION",
+      "conclusion": "ENHANCE",
+      "target": "prompt-testing",
+      "scope": "Evidence-bounded prompt-regression enhancement for baseline/candidate comparison, dataset identity, behavior differences, evidence state, and Human decisions; findings use PRT-##.",
+      "non_goals": "No invented behavior, thresholds, model or runtime claims, unsupported completeness, execution, coverage proof, safety or release approval, or Human risk acceptance. No duplicate prompt-regression-testing directory.",
+      "evidence": {
+        "name": "candidate_source Project #4 card and reviewed design; target: skills/zh/testing-types/prompt-testing/SKILL.md and skills/en/testing-types/prompt-testing/SKILL.md frontmatter name",
+        "purpose": "candidate_source 提示词回归/prompt regression capability intent; target: skills/zh/testing-types/prompt-testing/prompts/prompt-testing.md domain mode and task instructions",
+        "inputs": "candidate_source reviewed design input contract; target: skills/zh/testing-types/prompt-testing/prompts/prompt-testing.md Input section and English mirror",
+        "outputs": "candidate_source reviewed design output contract; target: skills/zh/testing-types/prompt-testing/prompts/prompt-testing.md PRT-## contract and English mirror",
+        "decision_logic": "candidate_source reviewed design execution rules and evidence boundary; target: skills/zh/testing-types/prompt-testing/prompts/prompt-testing.md execution rules and quality bar",
+        "workflow_role": "candidate_source v3-v4 Phase 3 Prompt Testing role; target: skills/zh/testing-types/prompt-testing/SKILL.md How to Use section and skills/en/testing-types/prompt-testing/SKILL.md How to Use section"
+      },
+      "next_action": "Use the regression cases with a real model and pinned versions when authorized; keep semantic effectiveness, model score, and release approval unassessed until that evidence exists.",
+      "target_evidence_paths": [
+        "skills/zh/testing-types/prompt-testing/SKILL.md",
+        "skills/en/testing-types/prompt-testing/SKILL.md",
+        "skills/zh/testing-types/prompt-testing/prompts/prompt-testing.md",
+        "skills/en/testing-types/prompt-testing/prompts/prompt-testing.md",
+        "skills/zh/testing-types/prompt-testing/evals/eval.yaml",
+        "skills/en/testing-types/prompt-testing/evals/eval.yaml",
+        "skills/zh/testing-types/prompt-testing/evals/cases/prompt-regression-basic-success.yaml",
+        "skills/en/testing-types/prompt-testing/evals/cases/prompt-regression-basic-success.yaml"
+      ],
+      "candidate_source": "Project #4 v3-v4 P2 candidate card; docs/superpowers/specs/2026-09-15-v3-v4-two-batch-design.md; docs/superpowers/plans/2026-09-15-v3-v4-two-batch-skills.md; docs/governance/PHASE_3_V3_V4.md; local bilingual package review",
+      "capability_match": {
+        "decision": "ENHANCE",
+        "existing_targets": [
+          "skills/zh/testing-types/prompt-testing/SKILL.md",
+          "skills/en/testing-types/prompt-testing/SKILL.md",
+          "skills/zh/testing-types/prompt-testing/prompts/prompt-testing.md",
+          "skills/en/testing-types/prompt-testing/prompts/prompt-testing.md"
+        ],
+        "difference": "The existing prompt-testing capability already owns generic prompt behavior analysis; this enhancement adds explicit version-comparison fields, PRT-## findings, and regression gates without creating an alias package."
+      },
+      "project_evidence": {
+        "project_number": 4,
+        "item_id": "PVTI_lAHOAHP1as4BjBhVzg6SdtI",
+        "title": "v3-v4 P2｜候选 Skill｜prompt-regression-testing",
         "current_status": "Done",
         "verified_at": "2026-09-15",
         "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",

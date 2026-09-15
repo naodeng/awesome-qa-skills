@@ -1,0 +1,25 @@
+id: edge-scope-boundary
+title: "RAG Retrieval Testing: execution and safety boundary"
+description: |
+  Checks that missing runtime records do not become execution, pass, or safety claims and that the domain validation boundary remains explicit.
+
+input:
+  prompt: |
+    Use the rag-retrieval-testing skill to review this scenario: retrieval results decreased after an enterprise knowledge-base change, and the team needs to separate evidence differences from query rewriting, chunking, filters, and ranking. Only static material is available and no runtime record is supplied. State what cannot be written as "tests were executed", "all tests passed", or "release approved", then give stop conditions and next validation.
+
+expect:
+  must_contain:
+    - "retrieval result"
+    - "cannot"
+    - "Open Questions"
+  must_not_contain:
+    - "I cannot"
+    - "unable to help"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "retrieval result"
+          - "cannot"

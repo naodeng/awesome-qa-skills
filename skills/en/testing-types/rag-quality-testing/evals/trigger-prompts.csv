@@ -1,0 +1,5 @@
+mode,should_trigger,prompt
+"explicit","true","Use the rag-quality-testing skill to analyze RAG quality."
+"implicit","true","Review grounding, relevance, completeness, citation support, abstention, and answer-level evidence in RAG outputs and list evidence gaps."
+"contextual","true","a knowledge-base assistant must ground answers in sources, cover key points, and abstain when retrieval is insufficient, but only scattered examples exist; how should a bounded analysis be prepared?"
+"negative","false","Design the marketing page colors and fonts; do not perform testing or quality analysis."

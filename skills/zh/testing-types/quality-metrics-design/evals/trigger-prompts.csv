@@ -1,0 +1,5 @@
+mode,should_trigger,prompt
+"explicit","true","请使用 quality-metrics-design Skill 分析质量指标。"
+"implicit","true","请审查质量指标的定义、计算口径、数据源、时效与反操纵边界并列出证据缺口。"
+"contextual","true","团队希望用缺陷逃逸率、回归通过率和修复时长衡量质量，但尚未统一分子分母、数据源和时间窗口，如何准备有边界的分析？"
+"negative","false","请设计营销页面的颜色和字体，不做测试或质量分析。"

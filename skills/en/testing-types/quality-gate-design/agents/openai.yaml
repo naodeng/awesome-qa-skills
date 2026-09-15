@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: quality-gate-design
+interface:
+  display_name: "Quality Gate Design"
+  short_description: "Produce evidence-bounded quality gate analysis"
+  default_prompt: "Use the quality-gate-design skill to perform quality gate analysis."
+policy:
+  allow_implicit_invocation: true

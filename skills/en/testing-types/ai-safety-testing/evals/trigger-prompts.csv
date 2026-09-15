@@ -1,0 +1,5 @@
+mode,should_trigger,prompt
+"explicit","true","Use the ai-safety-testing skill to analyze AI safety."
+"implicit","true","Review safety policy, abuse categories, refusal/redirect behavior, privacy, escalation, and Human risk decisions and list evidence gaps."
+"contextual","true","a user-facing AI assistant must handle self-harm, privacy, and unauthorized requests, and the team needs to review refusal, redirect, escalation, and human risk-decision boundaries; how should a bounded analysis be prepared?"
+"negative","false","Design the marketing page colors and fonts; do not perform testing or quality analysis."

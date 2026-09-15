@@ -1,0 +1,27 @@
+id: basic-success
+title: "CI 测试流水线优化：领域完整场景"
+description: |
+  验证 Skill 能针对CI 测试流水线输入给出有证据、有优先级、可执行的产出。
+
+input:
+  prompt: |
+    请使用 ci-test-optimization Skill 分析以下场景：CI 测试流水线在高峰期排队，失败重跑增加成本，团队需要在反馈速度、稳定性和资源之间做有证据的优化。请给出CI 测试流水线相关的风险优先级、核心执行项、预期结果或判断标准，并标明证据和待确认问题。
+
+expect:
+  must_contain:
+    - "任务理解"
+    - "输入审计"
+    - "CI 测试流水线"
+    - "预期"
+  must_not_contain:
+    - "我无法"
+    - "无法提供帮助"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "任务理解"
+          - "输入审计"
+          - "CI 测试流水线"

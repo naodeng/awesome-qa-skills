@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: quality-dashboard-design
+interface:
+  display_name: "Quality Dashboard Design"
+  short_description: "Produce evidence-bounded quality dashboard analysis"
+  default_prompt: "Use the quality-dashboard-design skill to perform quality dashboard analysis."
+policy:
+  allow_implicit_invocation: true

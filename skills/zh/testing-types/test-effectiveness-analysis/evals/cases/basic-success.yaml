@@ -1,0 +1,27 @@
+id: basic-success
+title: "测试有效性分析：领域完整场景"
+description: |
+  验证 Skill 能针对测试有效性输入给出有证据、有优先级、可执行的产出。
+
+input:
+  prompt: |
+    请使用 test-effectiveness-analysis Skill 分析以下场景：团队看到测试通过率很高但线上仍有高影响缺陷，需要分析测试信号是否真的覆盖关键风险。请给出测试有效性相关的风险优先级、核心执行项、预期结果或判断标准，并标明证据和待确认问题。
+
+expect:
+  must_contain:
+    - "任务理解"
+    - "输入审计"
+    - "测试有效性"
+    - "预期"
+  must_not_contain:
+    - "我无法"
+    - "无法提供帮助"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "任务理解"
+          - "输入审计"
+          - "测试有效性"

@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: agent-permission-testing
+interface:
+  display_name: "Agent Permission Testing"
+  short_description: "Produce evidence-bounded Agent permission analysis"
+  default_prompt: "Use the agent-permission-testing skill to perform Agent permission analysis."
+policy:
+  allow_implicit_invocation: true

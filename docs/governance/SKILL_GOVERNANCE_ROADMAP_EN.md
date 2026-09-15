@@ -28,7 +28,7 @@ For every lifecycle change, check the Matrix, bilingual entry READMEs, Catalog/G
 
 ## Phase 3 current work item (2026-09-15)
 
-`IN_PROGRESS_WITH_DEFERRED_EVAL`: v3-v4 Batch 1 focuses on Reliability + Security: 17 candidate cards and the first batch of the 41 NEW physical candidates. The 17 cards move to `Done` only after the 17 bilingual packages, static contracts, Eval structure, metadata, and navigation are synchronized. `prompt-regression-testing` is recorded as an enhancement mode on `prompt-testing`, with no alias directory. See the [v3-v4 Phase 3 record](./PHASE_3_V3_V4_EN.md). Project status proves only the current column; without event history, transition audit remains `UNASSESSED`, while real-model Eval, external-target execution, quality scores, and business acceptance remain `NOT_RUN` / `NOT_SCORED` / `INCOMPLETE`.
+`ACCEPTED_WITH_DEFERRED_EVAL`: v3-v4 Phase 3 Batch 1 (Reliability + Security) has 17 cards and Batch 2 (Quality Engineering + AI Native) has 25 cards; all have completed `Match → RED contract → In Progress → implementation → quality gate → Done`. Batch 2 delivers 24 bilingual physical Skill packages and records `prompt-regression-testing` as an enhancement mode inside `prompt-testing`, with no alias directory. Project status proves only the current column; without event history, transition audit remains `UNASSESSED`, while real-model Eval, external-target execution, quality scores, and business acceptance remain `NOT_RUN` / `NOT_SCORED` / `INCOMPLETE`. See the [v3-v4 Phase 3 record](./PHASE_3_V3_V4_EN.md).
 
 ## Phase reviews
 

@@ -1,0 +1,5 @@
+mode,should_trigger,prompt
+"explicit","true","Use the quality-productivity-metrics skill to analyze quality productivity."
+"implicit","true","Review quality and delivery metrics, denominators, attribution limits, gaming risk, and the Human-use boundary and list evidence gaps."
+"contextual","true","an organization wants to compare teams using delivery speed, escaped defects, and test output while avoiding individual-performance misuse and risk-avoidance incentives; how should a bounded analysis be prepared?"
+"negative","false","Design the marketing page colors and fonts; do not perform testing or quality analysis."

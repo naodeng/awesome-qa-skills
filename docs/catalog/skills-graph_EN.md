@@ -61,8 +61,11 @@ Every composition is optional. Use `discover-testing` when the entry point or se
 | --- | --- | --- |
 | Reliability and failure paths | `reliability-testing` → `resilience-testing` → `failover-testing` / `recovery-testing`; use `retry-testing` / `timeout-testing` / `circuit-breaker-testing` / `dependency-failure-testing` / `disaster-recovery-testing` / `chaos-testing` as needed | Reliability objectives, failure modes, degradation, failover, and recovery evidence preparation |
 | Identity and API security | `security-requirement-review` → `authentication-testing` / `authorization-testing` → `session-security-testing` / `api-security-testing`; use `threat-modeling` / `secrets-exposure-review` as needed | Security requirements, identity, authorization, session, attack-surface, and exposure evidence |
+| Quality engineering and productivity | `quality-gate-design` → `quality-metrics-design` → `quality-dashboard-design`; use `quality-debt-analysis` / `quality-maturity-assessment` / `test-effectiveness-analysis` / `automation-roi-analysis` / `testing-bottleneck-analysis` / `regression-optimization` / `ci-test-optimization` / `test-runtime-optimization` / `test-maintenance-cost-analysis` / `quality-productivity-metrics` as needed | Quality gates, metrics, dashboards, debt, maturity, and productivity analysis |
+| AI Native quality | `rag-retrieval-testing` → `rag-quality-testing` → `llm-hallucination-testing` / `llm-consistency-testing`; use the `prompt-regression` mode in `prompt-testing` for version comparison | Retrieval, grounding, claim evidence, and consistency analysis for RAG and LLM systems |
+| Agent quality and safety | `agent-loop-testing` → `agent-memory-testing` / `agent-permission-testing` → `agent-failure-recovery-testing` / `agent-long-running-testing` / `multi-agent-testing` / `ai-safety-testing` | Agent state, tool permissions, recovery, coordination, long-running, and safety boundaries |
 
-The 17 v3-v4 Phase 3 Batch 1 cards follow `Match → RED contract → In Progress → implementation → quality gate → Done`. Batch 2 capabilities such as `prompt-regression-testing` remain governed by the register; whether they receive physical packages follows the later Match conclusion.
+The 17 v3-v4 Phase 3 Batch 1 cards and 25 Batch 2 cards have all followed `Match → RED contract → In Progress → implementation → quality gate → Done`. `prompt-regression-testing` is delivered as an enhancement mode inside `prompt-testing`, with no alias directory.
 
 ## Boundaries
 
@@ -75,6 +78,7 @@ The 17 v3-v4 Phase 3 Batch 1 cards follow `Match → RED contract → In Progres
 - The v2.0 Test Engineering compositions are optional navigation; the 25 candidate cards are delivered as independent bilingual physical Skills without installation dependencies, cross-Skill internal links, or runtime-execution claims.
 - v2.0 Skills produce findings from supplied specifications, code, test assets, or reports; real-model Eval, API/UI/database/mutator execution, and release approval remain unrun or require Human decisions.
 - v3-v4 Phase 3 reliability and security Skills prepare evidence-bounded testing/review only: they do not inject faults, read live credentials, claim security certification, or claim a recovery drill ran; Project card status is not release approval or risk acceptance.
+- v3-v4 Phase 3 QE and AI Native Skills prepare evidence-bounded metric, productivity, RAG/LLM, Agent, and safety analysis only; static contracts, triggers, or directory presence do not prove real-model effectiveness, runtime coverage, quality scores, or business acceptance.
 
 ## Navigation
 

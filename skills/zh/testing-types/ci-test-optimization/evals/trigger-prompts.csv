@@ -1,0 +1,5 @@
+mode,should_trigger,prompt
+"explicit","true","请使用 ci-test-optimization Skill 分析CI 测试流水线。"
+"implicit","true","请审查流水线阶段、反馈延迟、资源、波动、缓存/分片与回滚边界并列出证据缺口。"
+"contextual","true","CI 测试流水线在高峰期排队，失败重跑增加成本，团队需要在反馈速度、稳定性和资源之间做有证据的优化，如何准备有边界的分析？"
+"negative","false","请设计营销页面的颜色和字体，不做测试或质量分析。"

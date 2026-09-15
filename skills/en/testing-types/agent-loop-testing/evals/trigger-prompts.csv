@@ -1,0 +1,5 @@
+mode,should_trigger,prompt
+"explicit","true","Use the agent-loop-testing skill to analyze Agent loop."
+"implicit","true","Review loop state, plan/action/observation cycles, stop conditions, budgets, repetition, and trace evidence and list evidence gaps."
+"contextual","true","a tool-using Agent repeats the same tool call after task failure, and the team needs to review loop state, stop conditions, budgets, and trace evidence; how should a bounded analysis be prepared?"
+"negative","false","Design the marketing page colors and fonts; do not perform testing or quality analysis."

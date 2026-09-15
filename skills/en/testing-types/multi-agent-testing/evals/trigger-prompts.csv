@@ -1,0 +1,5 @@
+mode,should_trigger,prompt
+"explicit","true","Use the multi-agent-testing skill to analyze multi-agent coordination."
+"implicit","true","Review delegation, coordination, shared state, conflicts, ownership, termination, and traceability and list evidence gaps."
+"contextual","true","a planning Agent delegates to retrieval and execution Agents, and the team needs to review shared state, conflicts, ownership, and termination conditions; how should a bounded analysis be prepared?"
+"negative","false","Design the marketing page colors and fonts; do not perform testing or quality analysis."

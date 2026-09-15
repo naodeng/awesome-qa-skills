@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: testing-bottleneck-analysis
+interface:
+  display_name: "Testing Bottleneck Analysis"
+  short_description: "Produce evidence-bounded testing bottleneck analysis"
+  default_prompt: "Use the testing-bottleneck-analysis skill to perform testing bottleneck analysis."
+policy:
+  allow_implicit_invocation: true

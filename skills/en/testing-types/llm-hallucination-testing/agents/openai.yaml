@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: llm-hallucination-testing
+interface:
+  display_name: "LLM Hallucination Testing"
+  short_description: "Produce evidence-bounded LLM hallucination analysis"
+  default_prompt: "Use the llm-hallucination-testing skill to perform LLM hallucination analysis."
+policy:
+  allow_implicit_invocation: true

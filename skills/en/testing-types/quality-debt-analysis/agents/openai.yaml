@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: quality-debt-analysis
+interface:
+  display_name: "Quality Debt Analysis"
+  short_description: "Produce evidence-bounded quality debt analysis"
+  default_prompt: "Use the quality-debt-analysis skill to perform quality debt analysis."
+policy:
+  allow_implicit_invocation: true

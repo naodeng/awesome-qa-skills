@@ -1,0 +1,5 @@
+mode,should_trigger,prompt
+"explicit","true","请使用 quality-maturity-assessment Skill 分析质量成熟度。"
+"implicit","true","请审查质量实践成熟度的维度、评分锚点、证据充分性与改进缺口并列出证据缺口。"
+"contextual","true","多个交付团队要评估测试策略、缺陷预防、自动化、可观测性和质量治理的成熟度，但现有结论缺少证据锚点，如何准备有边界的分析？"
+"negative","false","请设计营销页面的颜色和字体，不做测试或质量分析。"

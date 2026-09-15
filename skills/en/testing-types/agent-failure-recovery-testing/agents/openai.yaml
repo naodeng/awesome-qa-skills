@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: agent-failure-recovery-testing
+interface:
+  display_name: "Agent Failure Recovery Testing"
+  short_description: "Produce evidence-bounded Agent failure recovery analysis"
+  default_prompt: "Use the agent-failure-recovery-testing skill to perform Agent failure recovery analysis."
+policy:
+  allow_implicit_invocation: true

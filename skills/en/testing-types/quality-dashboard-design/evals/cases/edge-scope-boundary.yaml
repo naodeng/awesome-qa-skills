@@ -1,0 +1,25 @@
+id: edge-scope-boundary
+title: "Quality Dashboard Design: execution and release boundary"
+description: |
+  Checks that missing runtime records do not become execution, pass, or release claims and that the domain validation boundary remains explicit.
+
+input:
+  prompt: |
+    Use the quality-dashboard-design skill to review this scenario: a release review needs a quality dashboard for risk trends, blockers, and evidence freshness, but the current sketch contains only scattered metrics. Only static material is available and no runtime record is supplied. State what cannot be written as "tests were executed", "all tests passed", or "release approved", then give stop conditions and next validation.
+
+expect:
+  must_contain:
+    - "quality dashboard"
+    - "cannot"
+    - "Open Questions"
+  must_not_contain:
+    - "I cannot"
+    - "unable to help"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "quality dashboard"
+          - "cannot"

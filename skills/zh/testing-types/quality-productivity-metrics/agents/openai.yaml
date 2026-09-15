@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: quality-productivity-metrics
+interface:
+  display_name: "质量生产力指标"
+  short_description: "围绕质量生产力输出证据边界与可执行分析"
+  default_prompt: "Use the quality-productivity-metrics skill to perform quality productivity analysis."
+policy:
+  allow_implicit_invocation: true

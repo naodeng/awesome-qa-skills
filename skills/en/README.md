@@ -4,7 +4,7 @@
 
 This is the English Skill root and mirrors `skills/zh` with identical Skill names and physical structure.
 
-Each language provides **138** Skills: 10 workflows + 125 testing types + 3 Skill Engineering. See the [Chinese README](../../README.md) and [English README](../../README_EN.md); see the [governance roadmap](../../docs/governance/SKILL_GOVERNANCE_ROADMAP_EN.md) and [governance matrix](../../docs/SKILL_MATRIX_EN.md) for long-term governance.
+Each language provides **162** Skills: 10 workflows + 149 testing types + 3 Skill Engineering. See the [Chinese README](../../README.md) and [English README](../../README_EN.md); see the [governance roadmap](../../docs/governance/SKILL_GOVERNANCE_ROADMAP_EN.md) and [governance matrix](../../docs/SKILL_MATRIX_EN.md) for long-term governance.
 
 ## Cross-phase workflows
 
@@ -138,6 +138,24 @@ Each language provides **138** Skills: 10 workflows + 125 testing types + 3 Skil
 | Threat Modeling | [`threat-modeling`](testing-types/threat-modeling/) |
 | Secrets Exposure Review | [`secrets-exposure-review`](testing-types/secrets-exposure-review/) |
 
+#### Quality Engineering and Productivity
+
+| Skill | Directory |
+| --- | --- |
+| Quality Gate Design | [`quality-gate-design`](testing-types/quality-gate-design/) |
+| Quality Metrics Design | [`quality-metrics-design`](testing-types/quality-metrics-design/) |
+| Quality Dashboard Design | [`quality-dashboard-design`](testing-types/quality-dashboard-design/) |
+| Quality Debt Analysis | [`quality-debt-analysis`](testing-types/quality-debt-analysis/) |
+| Quality Maturity Assessment | [`quality-maturity-assessment`](testing-types/quality-maturity-assessment/) |
+| Test Effectiveness Analysis | [`test-effectiveness-analysis`](testing-types/test-effectiveness-analysis/) |
+| Automation ROI Analysis | [`automation-roi-analysis`](testing-types/automation-roi-analysis/) |
+| Testing Bottleneck Analysis | [`testing-bottleneck-analysis`](testing-types/testing-bottleneck-analysis/) |
+| Regression Optimization | [`regression-optimization`](testing-types/regression-optimization/) |
+| CI Test Optimization | [`ci-test-optimization`](testing-types/ci-test-optimization/) |
+| Test Runtime Optimization | [`test-runtime-optimization`](testing-types/test-runtime-optimization/) |
+| Test Maintenance Cost Analysis | [`test-maintenance-cost-analysis`](testing-types/test-maintenance-cost-analysis/) |
+| Quality Productivity Metrics | [`quality-productivity-metrics`](testing-types/quality-productivity-metrics/) |
+
 #### Development and Continuous Integration
 
 | Skill | Directory |
@@ -244,6 +262,12 @@ Each language provides **138** Skills: 10 workflows + 125 testing types + 3 Skil
 | LLM Evaluation Design | [`llm-evaluation-design`](testing-types/llm-evaluation-design/) |
 | LLM Testing | [`llm-testing`](testing-types/llm-testing/) |
 | Prompt Testing | [`prompt-testing`](testing-types/prompt-testing/) |
+| RAG Quality Testing | [`rag-quality-testing`](testing-types/rag-quality-testing/) |
+| RAG Retrieval Testing | [`rag-retrieval-testing`](testing-types/rag-retrieval-testing/) |
+| LLM Hallucination Testing | [`llm-hallucination-testing`](testing-types/llm-hallucination-testing/) |
+| LLM Consistency Testing | [`llm-consistency-testing`](testing-types/llm-consistency-testing/) |
+
+> `prompt-regression-testing` is an enhancement mode named `prompt-regression` inside `prompt-testing`; no alias directory is created.
 
 #### Agent, Tool, and Safety Testing
 
@@ -252,6 +276,13 @@ Each language provides **138** Skills: 10 workflows + 125 testing types + 3 Skil
 | AI Agent Testing | [`ai-agent-testing`](testing-types/ai-agent-testing/) |
 | Agent Tool Testing | [`agent-tool-testing`](testing-types/agent-tool-testing/) |
 | Prompt Injection Testing | [`prompt-injection-testing`](testing-types/prompt-injection-testing/) |
+| Agent Loop Testing | [`agent-loop-testing`](testing-types/agent-loop-testing/) |
+| Agent Memory Testing | [`agent-memory-testing`](testing-types/agent-memory-testing/) |
+| Agent Permission Testing | [`agent-permission-testing`](testing-types/agent-permission-testing/) |
+| Agent Failure Recovery Testing | [`agent-failure-recovery-testing`](testing-types/agent-failure-recovery-testing/) |
+| Agent Long-Running Testing | [`agent-long-running-testing`](testing-types/agent-long-running-testing/) |
+| Multi-Agent Testing | [`multi-agent-testing`](testing-types/multi-agent-testing/) |
+| AI Safety Testing | [`ai-safety-testing`](testing-types/ai-safety-testing/) |
 
 ## Skill Engineering (Cross-cutting Governance)
 

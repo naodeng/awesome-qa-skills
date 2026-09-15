@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: test-maintenance-cost-analysis
+interface:
+  display_name: "Test Maintenance Cost Analysis"
+  short_description: "Produce evidence-bounded maintenance cost analysis"
+  default_prompt: "Use the test-maintenance-cost-analysis skill to perform maintenance cost analysis."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: test-maintenance-cost-analysis
+interface:
+  display_name: "测试维护成本分析"
+  short_description: "围绕维护成本输出证据边界与可执行分析"
+  default_prompt: "Use the test-maintenance-cost-analysis skill to perform maintenance cost analysis."
+policy:
+  allow_implicit_invocation: true
