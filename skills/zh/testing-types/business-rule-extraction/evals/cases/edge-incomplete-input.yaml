@@ -1,0 +1,29 @@
+id: edge-incomplete-input
+title: 业务规则提取：材料不完整
+description: |
+  只有一句业务目标，没有角色、阈值、例外或适用范围；输出应交付受限初版并标出缺口，而不是补造规则。
+
+input:
+  prompt: |
+    使用 business-rule-extraction。
+    唯一材料是“会员可以快速兑换积分”。没有版本、角色、兑换比例、失败处理、地区、数据来源或验收标准。
+    请给出最小可用规则初版，区分 known、missing、assumptions 和需要业务确认的问题，不要自行定义“快速”的时间。
+
+expect:
+  must_contain:
+    - "known"
+    - "missing"
+    - "assumptions"
+    - "未决"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "输入审计"
+          - "信息不足"
+          - "验证"

@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "database-design-quality-review"
+interface:
+  display_name: "Database Design Quality Review"
+  short_description: "Review database designs for integrity, constraints, migrations, recovery, privacy, concurrency, and evidence gaps."
+  default_prompt: "Use the database-design-quality-review skill to assess this database design before implementation or migration."
+policy:
+  allow_implicit_invocation: true

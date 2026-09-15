@@ -1,0 +1,29 @@
+id: edge-incomplete-input
+title: "Requirement traceability analysis: requirement and test name only"
+description: |
+  Only a requirement and test name are supplied without a stable link or execution record; analysis must mark the relationship as indirect and the coverage status as unassessed rather than claiming complete coverage.
+
+input:
+  prompt: |
+    Use requirement-traceability-analysis on: REQ-9 supports invoice export; the test is named test_export_invoice.
+    No acceptance criteria, code commit, test content, execution time, environment, result, log, or defect record is supplied.
+    State what relationship can be established, what evidence is missing, and what material should be requested next.
+
+expect:
+  must_contain:
+    - "missing"
+    - "unassessed"
+    - "execution"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "REQ-9"
+          - "test_export_invoice"
+          - "evidence"
+          - "open"

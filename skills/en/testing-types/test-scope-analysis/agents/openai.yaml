@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "test-scope-analysis"
+interface:
+  display_name: "Test Scope Analysis"
+  short_description: "Define evidence-backed test inclusion, exclusion, depth, dependencies, stop conditions, and expansion triggers."
+  default_prompt: "Use the test-scope-analysis skill to define a bounded test scope before execution."
+policy:
+  allow_implicit_invocation: true

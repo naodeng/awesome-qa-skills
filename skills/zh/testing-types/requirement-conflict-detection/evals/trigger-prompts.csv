@@ -1,0 +1,5 @@
+id,should_trigger,prompt,mode
+explicit,true,"使用 $requirement-conflict-detection，识别同一适用范围内互相排斥的规则并保留双方证据。",explicit
+implicit,true,"产品说明允许导出个人数据，合规规则禁止导出；请先核对版本、地区、租户和数据分类，识别是否存在需要 Human 裁决的互斥约束，不要替团队选优先级。",implicit
+contextual,true,"在支付平台的合规变更评审中，对产品政策、地区法规和验收标准做范围化冲突分析，输出双方陈述、最小证据、待决策问题和验证方式。",contextual
+negative,false,"实现已经批准的登录策略并补充服务端单元测试。",negative

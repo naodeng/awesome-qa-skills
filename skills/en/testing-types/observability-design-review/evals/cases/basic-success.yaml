@@ -1,0 +1,28 @@
+id: basic-success
+title: "Observability design review: signal semantics and alert actionability"
+description: |
+  The input supplies order metrics, a trace, and an alert draft but omits label cardinality, sensitive-data handling, and alert action; review should produce OBS-## findings.
+
+input:
+  prompt: |
+    Use observability-design-review for this design: Order Service has request_count, latency, and payment_trace; the team plans to use user_id as a metric label and alert when error rate exceeds 5%; a dashboard says "healthy". No unit, aggregation window, cardinality limit, masking, sampling, retention, recipient, or runtime signal is supplied.
+    Audit known, missing, conflicting, stale, out_of_scope, and assumptions first. Then provide a signal matrix and OBS-## findings. Do not confirm health or choose an SLO.
+
+expect:
+  must_contain:
+    - "OBS-"
+    - "cardinality"
+    - "alert"
+    - "privacy"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Input Audit"
+          - "sampling"
+          - "validation"

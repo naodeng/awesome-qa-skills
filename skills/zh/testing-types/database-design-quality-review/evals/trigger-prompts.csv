@@ -1,0 +1,5 @@
+id,should_trigger,prompt,mode
+explicit,true,"使用 $database-design-quality-review，在迁移前评审 ERD、约束、事务并发、回滚和恢复设计。",explicit
+implicit,true,"这份订单 schema 没有状态约束和迁移回滚说明，请找出数据库设计缺口和最小验证动作。",implicit
+contextual,true,"作为数据变更的 QA 入口，检查生命周期、隐私、索引、并发、备份恢复和测试准备度。",contextual
+negative,false,"连接生产数据库执行 DDL 并直接批准迁移上线。",negative

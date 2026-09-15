@@ -22,20 +22,23 @@ description: Use this skill when you need to assess whether a requirement or des
 1. Read and follow `prompts/testability-analysis.md`, including its input contract, execution rules, minimum coverage, and output order.
 2. Add only context that changes the decision: scope, environment, version, constraints, evidence, and success criteria.
 3. Audit the input, then separate confirmed facts, working assumptions, and open questions.
-4. Rank by risk and evidence strength, and produce an artifact that can be executed or reviewed directly.
-5. If information is missing, deliver a bounded first pass and state which conclusions remain unsupported.
+4. When the task requests `architecture-testability-review` or `architecture` mode, start from architecture artifacts, dependency topology, asynchronous boundaries, test seams, substitute strategy, fault-injection entry points, and environment reproduction while retaining the generic testability dimensions.
+5. Rank by risk and evidence strength, and produce an artifact that can be executed or reviewed directly.
+6. If information is missing, deliver a bounded first pass and state which conclusions remain unsupported.
 
 ## Reference Files
 
 - Always read `prompts/testability-analysis.md`; it is the complete execution specification for this skill.
 - For evaluation or regression, read `evals/eval.yaml` and the relevant cases under `evals/cases/`.
 - Load `references/`, `examples/`, `scripts/`, or `output-formats.md` only when those directories exist and the task needs them.
+- To regress `architecture-testability-review`, use the `architecture-*` Evals and local trigger data while retaining this physical Skill directory; do not create an alias directory.
 
 ## Core Constraints
 
 - do not confuse framework choice with testability
 - state value and cost for each improvement
 - never expose unsafe backdoors for testing
+- In `architecture` mode, bind seam, substitute, isolation, and fault-injection judgments to architecture-level sources; a framework name is not testability evidence.
 - Never invent system behavior, fields, data, metrics, or root causes absent from the evidence.
 - Link important conclusions to evidence; mark unsupported conclusions as hypotheses with a verification method.
 - Explain priority using business impact, likelihood, or detectability.

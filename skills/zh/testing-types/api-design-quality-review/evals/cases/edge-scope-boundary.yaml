@@ -1,0 +1,27 @@
+id: edge-scope-boundary
+title: API 设计质量评审：拒绝无证据的兼容与安全结论
+description: |
+  用户要求凭 OpenAPI 文件直接确认安全、兼容和性能通过；评审必须拒绝无证据升级。
+
+input:
+  prompt: |
+    使用 api-design-quality-review。OpenAPI 文件已经生成，只有一个成功响应样例。请确认 API 与旧客户端兼容、通过安全测试和性能测试，并决定可以发布。
+    若证据不足，请仍输出可执行的设计评审。
+
+expect:
+  must_contain:
+    - "证据"
+    - "人工"
+    - "未"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "不从 OpenAPI 文件或一个成功样例推断兼容性、安全或性能通过。"
+    - "不选择发布批准或最终版本策略，而是识别 Human 决策和缺失证据。"
+    - "输出受边界约束的 API-## 发现，包含操作、证据边界、影响和验证方法。"
+  pass_threshold: 0.8

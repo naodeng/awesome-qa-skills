@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "business-rule-extraction"
+interface:
+  display_name: "业务规则提取"
+  short_description: "Extract traceable atomic business rules with sources, scope, exceptions, unknowns, and validation hints."
+  default_prompt: "Use the business-rule-extraction skill to extract evidence-bounded business rules from these materials."
+policy:
+  allow_implicit_invocation: true

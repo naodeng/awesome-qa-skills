@@ -1,0 +1,28 @@
+id: edge-incomplete-input
+title: "Requirement consistency analysis: missing comparison artifact"
+description: |
+  With one requirement only, the analysis must state that cross-source comparison is unavailable and provide a bounded single-source result.
+
+input:
+  prompt: |
+    Use requirement-consistency-analysis for: users can redeem points.
+    There is no second document, version, actor definition, state model, or acceptance criteria.
+    State what is currently confirmable and what comparison material is needed.
+
+expect:
+  must_contain:
+    - "missing"
+    - "comparison"
+    - "unassessed"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Input Audit"
+          - "open"
+          - "source"

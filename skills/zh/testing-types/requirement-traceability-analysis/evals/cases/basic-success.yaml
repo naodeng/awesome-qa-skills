@@ -1,0 +1,36 @@
+id: basic-success
+title: 需求可追踪性分析：需求到测试和缺陷的双向映射
+description: |
+  提供需求、验收标准、测试和缺陷的稳定 ID；分析应分别处理关系类型与覆盖状态，并反查孤立制品与执行证据。
+
+input:
+  prompt: |
+    请使用 requirement-traceability-analysis 分析 v1.1 的以下材料。
+    REQ-1：用户可以重置密码。
+    REQ-2：连续 5 次失败后账户锁定 15 分钟。
+    AC-1：重置链接发送到已验证邮箱。
+    TC-1：验证有效邮箱收到重置链接。
+    DEF-1：发现锁定时长实际为 5 分钟，状态为 Open，关联 REQ-2。
+    没有提供 REQ-2 对应的验收标准、测试执行记录、环境、日志或修复提交。
+    请建立需求到下游、下游到需求的结果表，使用 RT-##；关系类型使用 direct、derived、indirect、contradictory、missing，覆盖状态使用 complete、partial、unverified、stale、unexecuted、unassessed，并给出缺口、责任角色和验证方法；不要声称测试已运行。
+
+expect:
+  must_contain:
+    - "REQ-1"
+    - "REQ-2"
+    - "RT-"
+    - "未执行"
+    - "缺口"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "AC-1"
+          - "TC-1"
+          - "DEF-1"
+          - "双向"

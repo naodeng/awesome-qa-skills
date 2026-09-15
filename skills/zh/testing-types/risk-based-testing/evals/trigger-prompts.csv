@@ -1,0 +1,5 @@
+id,should_trigger,prompt,mode
+explicit,true,"使用 $risk-based-testing，把已知质量风险转成测试优先级、层级、深度和范围取舍。",explicit
+implicit,true,"时间只有两天，支付变更有重复扣款历史，请按风险决定先测什么和测到什么深度。",implicit
+contextual,true,"作为迭代质量评审入口，分析失败模式、可探测性、资源约束、停止条件和扩大范围触发器。",contextual
+negative,false,"直接执行全量回归并批准发布，不需要说明风险依据。",negative

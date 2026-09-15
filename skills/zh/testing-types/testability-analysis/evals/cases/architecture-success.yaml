@@ -1,0 +1,28 @@
+id: architecture-success
+title: 架构可测试性评审：接缝与环境复现
+description: |
+  输入包含异步架构、外部依赖和环境说明；评审应输出架构级接缝、替身、故障注入和证据缺口。
+
+input:
+  prompt: |
+    使用 testability-analysis 的 architecture-testability-review 模式。
+    架构图显示订单服务通过消息队列调用支付适配器，适配器依赖外部支付商；沙箱有回调模拟器但没有故障注入入口，消息队列可配置隔离主题。请分析组件边界、测试 seam、substitute strategy、isolation、fault injection、environment reproduction 和 evidence gaps，并保留 observability、controllability、determinism 维度。
+
+expect:
+  must_contain:
+    - "architecture"
+    - "seam"
+    - "替身"
+    - "证据"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "输入审计"
+          - "隔离"
+          - "验证"

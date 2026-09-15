@@ -1,0 +1,28 @@
+id: edge-incomplete-input
+title: "Risk-based testing: insufficient risk material"
+description: |
+  Only "test the new payment feature" is supplied; analysis should provide bounded priorities without inventing risk numbers.
+
+input:
+  prompt: |
+    Use risk-based-testing. The only input is "Test the new payment feature." No business impact, failure modes, change surface, past defects, user data, environment, team, time, or existing controls are supplied.
+    Separate known, missing, conflicting, stale, out_of_scope, and assumptions. Provide bounded RBT-## priorities and do not create pseudo-precise scores or a release conclusion.
+
+expect:
+  must_contain:
+    - "RBT-"
+    - "missing"
+    - "assumptions"
+    - "bounded"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "evidence"
+          - "open"
+          - "validation"

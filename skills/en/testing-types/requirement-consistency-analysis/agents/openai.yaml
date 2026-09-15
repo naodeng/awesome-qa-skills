@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "requirement-consistency-analysis"
+interface:
+  display_name: "Requirement Consistency Analysis"
+  short_description: "Compare terminology, identifiers, states, rules, and behavior across requirement sources with evidence."
+  default_prompt: "Use the requirement-consistency-analysis skill to compare these requirement artifacts and preserve source and scope evidence."
+policy:
+  allow_implicit_invocation: true

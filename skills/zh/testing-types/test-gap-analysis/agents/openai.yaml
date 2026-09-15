@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "test-gap-analysis"
+interface:
+  display_name: "测试缺口分析"
+  short_description: "Identify evidence-backed missing test obligations and prioritized closure actions."
+  default_prompt: "Use the test-gap-analysis skill to identify missing test obligations and bounded next actions."
+policy:
+  allow_implicit_invocation: true

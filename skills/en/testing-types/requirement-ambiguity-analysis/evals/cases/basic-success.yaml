@@ -1,0 +1,28 @@
+id: basic-success
+title: "Requirement ambiguity analysis: missing decision conditions"
+description: |
+  The requirement is ambiguous about actor, condition, and scope; the analysis must preserve the phrase and produce closeable questions.
+
+input:
+  prompt: |
+    Use requirement-ambiguity-analysis for this statement:
+    "An administrator may export orders when necessary."
+    Identify what is not uniquely decidable about the actor, necessary condition, export scope, format, and timing. Give impact, priority, and clarification questions.
+
+expect:
+  must_contain:
+    - "ambigu"
+    - "open"
+    - "RA-"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "quoted"
+          - "missing"
+          - "validation"

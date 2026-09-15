@@ -1,0 +1,31 @@
+id: coverage-success
+title: "Requirement traceability: coverage analysis mode"
+description: |
+  Requirements, test assets, and one identified execution record are supplied; analysis should retain RT-## and add a TC-## coverage view.
+
+input:
+  prompt: |
+    Use requirement-traceability-analysis in coverage_analysis mode.
+    REQ-1: a valid email receives a reset link. AC-1 links to REQ-1. TC-1 tests it; execution identity qa-17, time 2026-09-14, environment staging, and raw result passed are supplied.
+    REQ-2: lockout policy. Only a test name TC-2 exists, with no execution record and no acceptance criterion.
+    Output bidirectional RT-## and TC-## views. Keep direct/derived/indirect/contradictory/missing separate from complete/partial/unverified/stale/unexecuted/unassessed, and do not treat a name match as execution coverage.
+
+expect:
+  must_contain:
+    - "coverage_analysis"
+    - "RT-"
+    - "TC-"
+    - "complete"
+    - "unexecuted"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Input Audit"
+          - "bidirectional"
+          - "evidence"

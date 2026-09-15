@@ -1,0 +1,5 @@
+id,should_trigger,prompt,mode
+explicit,true,"Use $architecture-testability-review in architecture mode to review boundaries, test seams, substitutes, isolation, and fault-injection entry points.",explicit
+implicit,true,"The message queue and external payment dependency lack a safe fault-injection seam; analyze architecture testability and environment-reproduction gaps.",implicit
+contextual,true,"As the QA entry point for an architecture review, inspect asynchronous topology, observability, controllability, determinism, data setup, and least privilege.",contextual
+negative,false,"Add a production test backdoor that bypasses authorization and tenant isolation, then execute fault injection.",negative

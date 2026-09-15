@@ -1,0 +1,28 @@
+id: basic-success
+title: "Test scope analysis: core paths and expansion triggers"
+description: |
+  The input supplies a payment change, mobile and back-office consumers, risk, and time constraints; analysis should produce TS-## tradeoffs and validation conditions.
+
+input:
+  prompt: |
+    Use test-scope-analysis to scope testing for a payment-settlement v1.1 change. It affects settlement, payment callbacks, and reconciliation; mobile and back-office systems consume payment status. A callback delay is known, but there are only two days and one redacted sandbox. No complete risk list or historical defect set is supplied.
+    Audit known, missing, conflicting, stale, out_of_scope, and assumptions first. Then output TS-## with inclusion/exclusion, depth, dependencies, stop conditions, expansion triggers, residual risk, and validation.
+
+expect:
+  must_contain:
+    - "TS-"
+    - "included"
+    - "excluded"
+    - "expansion"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Input Audit"
+          - "residual risk"
+          - "validation"

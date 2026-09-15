@@ -1,0 +1,5 @@
+id,should_trigger,prompt,mode
+explicit,true,"使用 $requirement-ambiguity-analysis，找出这份需求中无法唯一判定的表达并列出缺少的区分条件。",explicit
+implicit,true,"需求写着“退款及时到账”，请保留原句和来源，说明可能理解、缺失的时间定义和需要谁确认的问题，不要替业务选解释。",implicit
+contextual,true,"在支付产品验收评审中，分析角色、时间、数量和状态表述是否足以让测试人员写出唯一可执行的判定，并给出关闭问题的方法。",contextual
+negative,false,"执行已有退款接口测试，汇总失败用例和响应差异。",negative

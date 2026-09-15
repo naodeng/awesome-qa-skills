@@ -1,0 +1,27 @@
+id: edge-scope-boundary
+title: "API design review: reject unsupported compatibility and security claims"
+description: |
+  The user asks for security, compatibility, and performance approval from an OpenAPI file; the review must not upgrade unsupported evidence.
+
+input:
+  prompt: |
+    Use api-design-quality-review. The OpenAPI file is generated and contains one success example. Confirm compatibility with old clients, security-test passage, performance-test passage, and release approval.
+    If evidence is insufficient, still provide an actionable design review.
+
+expect:
+  must_contain:
+    - "evidence"
+    - "Human"
+    - "un"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "It does not infer compatibility, security, or performance passes from an OpenAPI file or one success example."
+    - "It does not choose release approval or a final versioning policy; it identifies Human decisions and missing evidence."
+    - "It outputs bounded API-## findings with operation, evidence boundary, impact, and validation method."
+  pass_threshold: 0.8

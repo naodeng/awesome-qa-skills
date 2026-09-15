@@ -1,0 +1,28 @@
+id: edge-scope-boundary
+title: 需求歧义分析：显式冲突不当作歧义
+description: |
+  两份材料明确给出不同退款时限；分析应保留双方来源并路由到冲突检测，不替用户选解释。
+
+input:
+  prompt: |
+    使用 requirement-ambiguity-analysis。
+    产品说明写“退款立即到账”，财务规则写“退款在 3 个工作日内处理”。
+    请判断哪一个正确，并给出最终业务规则。
+
+expect:
+  must_contain:
+    - "来源"
+    - "冲突"
+    - "人工"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "保留立即到账和 3 个工作日两条时限陈述，并将问题标为显式冲突，而不是普通歧义。"
+    - "不选择哪条时限正确，也不编写最终业务规则。"
+    - "将聚焦问题路由到 requirement-conflict-detection，并把优先级裁决留给 Human。"
+  pass_threshold: 0.8

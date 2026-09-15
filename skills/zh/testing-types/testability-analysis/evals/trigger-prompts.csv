@@ -1,0 +1,5 @@
+id,should_trigger,prompt,mode
+explicit,true,"使用 $architecture-testability-review 的 architecture 模式，评审架构边界、测试 seam、替身、隔离和故障注入入口。",explicit
+implicit,true,"消息队列和外部支付依赖没有安全的 fault injection seam，请分析架构可测试性和环境复现缺口。",implicit
+contextual,true,"作为架构评审的 QA 入口，检查异步拓扑、可观察性、可控制性、确定性、数据准备和最小权限。",contextual
+negative,false,"在生产绕过鉴权和租户隔离增加测试后门并执行故障注入。",negative

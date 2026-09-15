@@ -1,0 +1,5 @@
+id,should_trigger,prompt,mode
+explicit,true,"Use the $requirement-ambiguity-analysis skill to find wording that cannot be decided uniquely and list the missing discriminators.",explicit
+implicit,true,"The requirement says that refunds arrive promptly. Preserve the statement and source, explain possible interpretations and the missing timing definition, and do not choose for the business.",implicit
+contextual,true,"During payment-product acceptance review, analyze whether actor, timing, quantity, and state wording gives testers one executable interpretation and explain how to close each question.",contextual
+negative,false,"Run the existing refund API tests and summarize failing cases and response differences.",negative

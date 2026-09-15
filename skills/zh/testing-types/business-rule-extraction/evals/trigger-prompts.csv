@@ -1,0 +1,5 @@
+id,should_trigger,prompt,mode
+explicit,true,"使用 $business-rule-extraction，从这份政策和验收材料中提取带来源和例外的 BR-## 业务规则。",explicit
+implicit,true,"把以下支付说明拆成可追溯的原子业务规则，保留触发条件、适用范围和未知项，不补造阈值。",implicit
+contextual,true,"作为结算变更的 QA 入口，整理 PRD、客服政策和流程中的业务规则，输出证据和待业务裁决项。",contextual
+negative,false,"请连接生产数据库执行退款测试并直接批准合规上线。",negative

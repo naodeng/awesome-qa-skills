@@ -1,0 +1,28 @@
+id: basic-success
+title: 错误处理设计评审：重试、幂等与传播
+description: |
+  输入包含外部支付超时、重试和降级草案，但没有幂等、预算、错误翻译、数据一致性和告警细节；评审应输出 EH-##。
+
+input:
+  prompt: |
+    请使用 error-handling-design-review 评审支付服务：外部支付商超时时重试，连续失败后“降级”；没有重试上限、退避、幂等键、订单状态、消费者错误契约、告警或人工接管条件。
+    先列 known、missing、conflicting、stale、out_of_scope、assumptions，再输出失败矩阵和 EH-##，区分可重试、不可重试和人工接管。
+
+expect:
+  must_contain:
+    - "EH-"
+    - "重试"
+    - "幂等"
+    - "验证"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "输入审计"
+          - "失败模式"
+          - "证据"

@@ -1,0 +1,29 @@
+id: edge-scope-boundary
+title: 需求一致性分析：版本范围不同不直接判冲突
+description: |
+  v1 和 v2 文档对同一流程有不同规则；分析应先区分适用范围和时效性，不能无证据判定冲突。
+
+input:
+  prompt: |
+    使用 requirement-consistency-analysis。
+    v1 需求写“订单可以取消”，v2 需求写“支付后订单不可取消”。
+    没有说明本次评审目标版本。
+    请判断两份文档是否冲突，并选择最终规则。
+
+expect:
+  must_contain:
+    - "版本"
+    - "范围"
+    - "待确认"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "保留 v1 和 v2 作为不同适用范围，不在缺少目标版本时把它们称为同范围冲突。"
+    - "不选择最终的订单取消规则。"
+    - "将未知适用范围标为 stale 或 unassessed，并提出可关闭的问题。"
+  pass_threshold: 0.8

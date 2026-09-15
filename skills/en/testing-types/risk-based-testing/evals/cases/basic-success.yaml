@@ -1,0 +1,27 @@
+id: basic-success
+title: "Risk-based testing: priority and depth tradeoffs"
+description: |
+  The input supplies business impact, past defects, change surface, and limited capacity; analysis should produce RBT-## decisions.
+
+input:
+  prompt: |
+    Use risk-based-testing to prioritize testing for a payment-settlement v1.1 change. Charging and settlement state are high-impact paths; duplicate charges and delayed callbacks occurred before. There are two QA engineers, two days, and one redacted sandbox. Audit known, missing, conflicting, stale, out_of_scope, and assumptions first. Then output RBT-## with test objective, level/method, depth, priority rationale, tradeoffs, stop conditions, expansion triggers, and required evidence.
+
+expect:
+  must_contain:
+    - "RBT-"
+    - "priority"
+    - "depth"
+    - "expansion"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Input Audit"
+          - "tradeoff"
+          - "residual risk"

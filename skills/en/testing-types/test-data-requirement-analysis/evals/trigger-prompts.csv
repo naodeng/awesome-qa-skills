@@ -1,0 +1,5 @@
+id,should_trigger,prompt,mode
+explicit,true,"Use $test-data-requirement-analysis to analyze entity, field, relationship, state, privacy, setup, and cleanup requirements before data generation and output TDR-##.",explicit
+implicit,true,"Checkout testing needs customer, order, and payment relationships, but source and masking are unclear; analyze the data prerequisites first.",implicit
+contextual,true,"As a pre-test-design data review, check schema, referential integrity, roles, isolation, lifecycle, and cleanup blockers.",contextual
+negative,false,"Copy production data and generate test accounts directly, guaranteeing that the data is usable.",negative

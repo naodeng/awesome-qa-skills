@@ -1,0 +1,28 @@
+id: edge-incomplete-input
+title: "Database design review: table name only"
+description: |
+  Only a table name and "store user profiles" are supplied; review should be bounded and should not infer privacy or retention.
+
+input:
+  prompt: |
+    Use database-design-quality-review. The only material is "Create a user_profile table to store user profiles." No fields, data classification, owner, deletion policy, index, backup, environment, or migration plan is supplied.
+    Separate known, missing, assumptions, and open questions without inferring a privacy level or retention period from the name.
+
+expect:
+  must_contain:
+    - "known"
+    - "missing"
+    - "assumptions"
+    - "DB-"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Input Audit"
+          - "open"
+          - "validation"

@@ -1,0 +1,5 @@
+id,should_trigger,prompt,mode
+explicit,true,"使用 $test-data-requirement-analysis，在生成数据前分析实体、字段、关系、状态、隐私、初始化和清理需求并输出 TDR-##。",explicit
+implicit,true,"结账测试需要关联客户、订单和支付状态，但数据来源和脱敏要求不清楚，请先分析数据前置条件。",implicit
+contextual,true,"作为测试设计前的数据准备评审，检查 schema、关联完整性、角色、环境隔离、生命周期和清理阻塞。",contextual
+negative,false,"直接复制生产数据并生成测试账号，保证数据可用。",negative

@@ -1,0 +1,30 @@
+id: basic-success
+title: 业务规则提取：来源与例外可追溯
+description: |
+  输入包含支付积分抵扣的规则、角色、触发条件和一个回调例外；输出应形成原子 BR-## 规则并保留证据。
+
+input:
+  prompt: |
+    请使用 business-rule-extraction。
+    来源《结算规则 v2.1》：买家在订单金额大于 0 且积分余额足够时可以抵扣；提交后支付回调失败允许在 15 分钟内重试一次。客服只能查看抵扣记录，不能修改余额。
+    请先做 known、missing、conflicting、stale、out_of_scope、assumptions 审计，再输出 BR-##、来源、触发、前置条件、动作/结果、例外、不变量和验证提示。不要把“15 分钟”扩展到其他流程。
+
+expect:
+  must_contain:
+    - "BR-"
+    - "来源"
+    - "例外"
+    - "验证"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "输入审计"
+          - "known"
+          - "missing"
+          - "BR-"

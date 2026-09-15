@@ -1,0 +1,5 @@
+id,should_trigger,prompt,mode
+explicit,true,"Use $observability-design-review to review logging, metrics, traces, SLOs, alerts, sampling, privacy, and cost before implementation.",explicit
+implicit,true,"This metric uses user_id as a label and its alert has no action; find observability design, cardinality, and privacy gaps.",implicit
+contextual,true,"As the QA entry point for a production observability proposal, inspect signal semantics, context propagation, dashboards, sampling, retention, and alert actionability.",contextual
+negative,false,"Read production logs to find the root cause of this incident and declare the system healthy.",negative

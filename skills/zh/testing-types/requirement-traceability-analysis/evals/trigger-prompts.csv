@@ -1,0 +1,5 @@
+id,should_trigger,prompt,mode
+explicit,true,"使用 $requirement-traceability-analysis，建立需求到制品以及制品回溯需求的双向追踪矩阵，并区分覆盖状态与执行证据。",explicit
+implicit,true,"需求 REQ-20 有验收标准、代码和测试名称，但没有运行身份和原始日志；请识别孤立项、关系类型、覆盖状态和需要补齐的证据，不要把报告里的 passed 当成已执行。",implicit
+contextual,true,"在发布变更评审中，使用 coverage analysis 模式沿需求、验收、设计、代码、测试、缺陷和 CI 证据两条方向核对稳定 ID、版本、环境和执行记录，输出 TC-## 覆盖视图、可审计缺口与关闭条件。",contextual
+negative,false,"运行现有测试套件并汇总 CI 结果。",negative

@@ -2844,6 +2844,653 @@
         "skills/zh/skill-engineering/skill-prose-trim/agents/openai.yaml",
         "skills/en/skill-engineering/skill-prose-trim/agents/openai.yaml"
       ]
+    },
+    {
+      "slug": "requirement-quality-review",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/requirement-quality-review",
+      "en_path": "skills/en/testing-types/requirement-quality-review",
+      "virtual_domain": "Engineering QA",
+      "status": "Planned-P0",
+      "priority": "P0",
+      "related": "Requirement-quality specialist family; semantic overlap with existing requirement Skills remains UNASSESSED",
+      "governance_evidence": "skills/zh/testing-types/requirement-quality-review/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No model or quality-scoring evidence has been run for the v1.1 implementation; Phase 1 static package checks do not produce a score."
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Eval YAML validation and dry-run are structural checks; real model execution is not run because the current environment has no Claude login."
+      },
+      "sdlc_stage": "requirements",
+      "roles": [
+        "QA",
+        "BA",
+        "Product",
+        "Engineering"
+      ],
+      "inputs": "skills/zh/testing-types/requirement-quality-review/prompts/requirement-quality-review.md#输入审计与范围; skills/en/testing-types/requirement-quality-review/prompts/requirement-quality-review.md#Input Audit and Scope",
+      "outputs": "skills/zh/testing-types/requirement-quality-review/prompts/requirement-quality-review.md#结构化发现; skills/en/testing-types/requirement-quality-review/prompts/requirement-quality-review.md#Structured Findings",
+      "workflow": "v1.1 Phase 1 requirement-quality overview; optional navigation only",
+      "evidence_paths": [
+        "skills/zh/testing-types/requirement-quality-review/SKILL.md",
+        "skills/en/testing-types/requirement-quality-review/SKILL.md",
+        "skills/zh/testing-types/requirement-quality-review/prompts/requirement-quality-review.md",
+        "skills/en/testing-types/requirement-quality-review/prompts/requirement-quality-review.md",
+        "skills/zh/testing-types/requirement-quality-review/evals/eval.yaml",
+        "skills/en/testing-types/requirement-quality-review/evals/eval.yaml",
+        "skills/zh/testing-types/requirement-quality-review/agents/openai.yaml",
+        "skills/en/testing-types/requirement-quality-review/agents/openai.yaml"
+      ]
+    },
+    {
+      "slug": "requirement-ambiguity-analysis",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/requirement-ambiguity-analysis",
+      "en_path": "skills/en/testing-types/requirement-ambiguity-analysis",
+      "virtual_domain": "Engineering QA",
+      "status": "Planned-P0",
+      "priority": "P0",
+      "related": "Requirement-quality specialist family; semantic overlap with existing requirement Skills remains UNASSESSED",
+      "governance_evidence": "skills/zh/testing-types/requirement-ambiguity-analysis/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No model or quality-scoring evidence has been run for the v1.1 implementation; Phase 1 static package checks do not produce a score."
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Eval YAML validation and dry-run are structural checks; real model execution is not run because the current environment has no Claude login."
+      },
+      "sdlc_stage": "requirements",
+      "roles": [
+        "QA",
+        "BA",
+        "Product"
+      ],
+      "inputs": "skills/zh/testing-types/requirement-ambiguity-analysis/prompts/requirement-ambiguity-analysis.md#输入审计与分析范围; skills/en/testing-types/requirement-ambiguity-analysis/prompts/requirement-ambiguity-analysis.md#Input Audit and Analysis Scope",
+      "outputs": "skills/zh/testing-types/requirement-ambiguity-analysis/prompts/requirement-ambiguity-analysis.md#结构化发现; skills/en/testing-types/requirement-ambiguity-analysis/prompts/requirement-ambiguity-analysis.md#Structured Findings",
+      "workflow": "v1.1 Phase 1 requirement-quality specialist; optional navigation only",
+      "evidence_paths": [
+        "skills/zh/testing-types/requirement-ambiguity-analysis/SKILL.md",
+        "skills/en/testing-types/requirement-ambiguity-analysis/SKILL.md",
+        "skills/zh/testing-types/requirement-ambiguity-analysis/prompts/requirement-ambiguity-analysis.md",
+        "skills/en/testing-types/requirement-ambiguity-analysis/prompts/requirement-ambiguity-analysis.md",
+        "skills/zh/testing-types/requirement-ambiguity-analysis/evals/eval.yaml",
+        "skills/en/testing-types/requirement-ambiguity-analysis/evals/eval.yaml",
+        "skills/zh/testing-types/requirement-ambiguity-analysis/agents/openai.yaml",
+        "skills/en/testing-types/requirement-ambiguity-analysis/agents/openai.yaml"
+      ]
+    },
+    {
+      "slug": "requirement-consistency-analysis",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/requirement-consistency-analysis",
+      "en_path": "skills/en/testing-types/requirement-consistency-analysis",
+      "virtual_domain": "Engineering QA",
+      "status": "Planned-P0",
+      "priority": "P0",
+      "related": "Requirement-quality specialist family; semantic overlap with existing requirement Skills remains UNASSESSED",
+      "governance_evidence": "skills/zh/testing-types/requirement-consistency-analysis/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No model or quality-scoring evidence has been run for the v1.1 implementation; Phase 1 static package checks do not produce a score."
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Eval YAML validation and dry-run are structural checks; real model execution is not run because the current environment has no Claude login."
+      },
+      "sdlc_stage": "requirements",
+      "roles": [
+        "QA",
+        "BA",
+        "Engineering"
+      ],
+      "inputs": "skills/zh/testing-types/requirement-consistency-analysis/prompts/requirement-consistency-analysis.md#输入审计与比较范围; skills/en/testing-types/requirement-consistency-analysis/prompts/requirement-consistency-analysis.md#Input Audit and Comparison Scope",
+      "outputs": "skills/zh/testing-types/requirement-consistency-analysis/prompts/requirement-consistency-analysis.md#结构化发现; skills/en/testing-types/requirement-consistency-analysis/prompts/requirement-consistency-analysis.md#Structured Findings",
+      "workflow": "v1.1 Phase 1 requirement-quality specialist; optional navigation only",
+      "evidence_paths": [
+        "skills/zh/testing-types/requirement-consistency-analysis/SKILL.md",
+        "skills/en/testing-types/requirement-consistency-analysis/SKILL.md",
+        "skills/zh/testing-types/requirement-consistency-analysis/prompts/requirement-consistency-analysis.md",
+        "skills/en/testing-types/requirement-consistency-analysis/prompts/requirement-consistency-analysis.md",
+        "skills/zh/testing-types/requirement-consistency-analysis/evals/eval.yaml",
+        "skills/en/testing-types/requirement-consistency-analysis/evals/eval.yaml",
+        "skills/zh/testing-types/requirement-consistency-analysis/agents/openai.yaml",
+        "skills/en/testing-types/requirement-consistency-analysis/agents/openai.yaml"
+      ]
+    },
+    {
+      "slug": "requirement-conflict-detection",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/requirement-conflict-detection",
+      "en_path": "skills/en/testing-types/requirement-conflict-detection",
+      "virtual_domain": "Engineering QA",
+      "status": "Planned-P0",
+      "priority": "P0",
+      "related": "Requirement-quality specialist family; semantic overlap with existing requirement Skills remains UNASSESSED",
+      "governance_evidence": "skills/zh/testing-types/requirement-conflict-detection/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No model or quality-scoring evidence has been run for the v1.1 implementation; Phase 1 static package checks do not produce a score."
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Eval YAML validation and dry-run are structural checks; real model execution is not run because the current environment has no Claude login."
+      },
+      "sdlc_stage": "requirements",
+      "roles": [
+        "QA",
+        "BA",
+        "Product",
+        "Engineering"
+      ],
+      "inputs": "skills/zh/testing-types/requirement-conflict-detection/prompts/requirement-conflict-detection.md#输入审计与适用范围; skills/en/testing-types/requirement-conflict-detection/prompts/requirement-conflict-detection.md#Input Audit and Applicability",
+      "outputs": "skills/zh/testing-types/requirement-conflict-detection/prompts/requirement-conflict-detection.md#结构化发现; skills/en/testing-types/requirement-conflict-detection/prompts/requirement-conflict-detection.md#Structured Findings",
+      "workflow": "v1.1 Phase 1 requirement-quality specialist; optional navigation only",
+      "evidence_paths": [
+        "skills/zh/testing-types/requirement-conflict-detection/SKILL.md",
+        "skills/en/testing-types/requirement-conflict-detection/SKILL.md",
+        "skills/zh/testing-types/requirement-conflict-detection/prompts/requirement-conflict-detection.md",
+        "skills/en/testing-types/requirement-conflict-detection/prompts/requirement-conflict-detection.md",
+        "skills/zh/testing-types/requirement-conflict-detection/evals/eval.yaml",
+        "skills/en/testing-types/requirement-conflict-detection/evals/eval.yaml",
+        "skills/zh/testing-types/requirement-conflict-detection/agents/openai.yaml",
+        "skills/en/testing-types/requirement-conflict-detection/agents/openai.yaml"
+      ]
+    },
+    {
+      "slug": "business-rule-extraction",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/business-rule-extraction",
+      "en_path": "skills/en/testing-types/business-rule-extraction",
+      "virtual_domain": "Engineering QA",
+      "status": "Planned-P0",
+      "priority": "P0",
+      "related": "Requirement and design-quality specialist family; semantic overlap with existing Skills remains UNASSESSED",
+      "governance_evidence": "skills/zh/testing-types/business-rule-extraction/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No model or quality-scoring evidence has been run for the v1.1 implementation; static package checks do not produce a score."
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Eval YAML validation and dry-run are structural checks; real model execution is not run because the current environment has no Claude login."
+      },
+      "sdlc_stage": "requirements",
+      "roles": [
+        "QA",
+        "BA",
+        "Product",
+        "Engineering"
+      ],
+      "inputs": "skills/zh/testing-types/business-rule-extraction/prompts/business-rule-extraction.md#输入审计与范围; skills/en/testing-types/business-rule-extraction/prompts/business-rule-extraction.md#Input Audit and Scope",
+      "outputs": "skills/zh/testing-types/business-rule-extraction/prompts/business-rule-extraction.md#输出顺序; skills/en/testing-types/business-rule-extraction/prompts/business-rule-extraction.md#Output Order",
+      "workflow": "v1.1 Phase 1 quality-shift specialist; optional navigation only",
+      "evidence_paths": [
+        "skills/zh/testing-types/business-rule-extraction/SKILL.md",
+        "skills/en/testing-types/business-rule-extraction/SKILL.md",
+        "skills/zh/testing-types/business-rule-extraction/prompts/business-rule-extraction.md",
+        "skills/en/testing-types/business-rule-extraction/prompts/business-rule-extraction.md",
+        "skills/zh/testing-types/business-rule-extraction/evals/eval.yaml",
+        "skills/en/testing-types/business-rule-extraction/evals/eval.yaml",
+        "skills/zh/testing-types/business-rule-extraction/agents/openai.yaml",
+        "skills/en/testing-types/business-rule-extraction/agents/openai.yaml"
+      ]
+    },
+    {
+      "slug": "technical-design-quality-review",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/technical-design-quality-review",
+      "en_path": "skills/en/testing-types/technical-design-quality-review",
+      "virtual_domain": "Engineering QA",
+      "status": "Planned-P0",
+      "priority": "P0",
+      "related": "Design-quality specialist family; semantic overlap with existing Skills remains UNASSESSED",
+      "governance_evidence": "skills/zh/testing-types/technical-design-quality-review/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No model or quality-scoring evidence has been run for the v1.1 implementation; static package checks do not produce a score."
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Eval YAML validation and dry-run are structural checks; real model execution is not run because the current environment has no Claude login."
+      },
+      "sdlc_stage": "design",
+      "roles": [
+        "QA",
+        "Engineering",
+        "Architecture"
+      ],
+      "inputs": "skills/zh/testing-types/technical-design-quality-review/prompts/technical-design-quality-review.md#输入审计与范围; skills/en/testing-types/technical-design-quality-review/prompts/technical-design-quality-review.md#Input Audit and Scope",
+      "outputs": "skills/zh/testing-types/technical-design-quality-review/prompts/technical-design-quality-review.md#输出顺序; skills/en/testing-types/technical-design-quality-review/prompts/technical-design-quality-review.md#Output Order",
+      "workflow": "v1.1 Phase 1 design-quality specialist; optional navigation only",
+      "evidence_paths": [
+        "skills/zh/testing-types/technical-design-quality-review/SKILL.md",
+        "skills/en/testing-types/technical-design-quality-review/SKILL.md",
+        "skills/zh/testing-types/technical-design-quality-review/prompts/technical-design-quality-review.md",
+        "skills/en/testing-types/technical-design-quality-review/prompts/technical-design-quality-review.md",
+        "skills/zh/testing-types/technical-design-quality-review/evals/eval.yaml",
+        "skills/en/testing-types/technical-design-quality-review/evals/eval.yaml",
+        "skills/zh/testing-types/technical-design-quality-review/agents/openai.yaml",
+        "skills/en/testing-types/technical-design-quality-review/agents/openai.yaml"
+      ]
+    },
+    {
+      "slug": "api-design-quality-review",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/api-design-quality-review",
+      "en_path": "skills/en/testing-types/api-design-quality-review",
+      "virtual_domain": "Engineering QA",
+      "status": "Planned-P0",
+      "priority": "P0",
+      "related": "Design-quality specialist family; semantic overlap with existing API Skills remains UNASSESSED",
+      "governance_evidence": "skills/zh/testing-types/api-design-quality-review/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No model or quality-scoring evidence has been run for the v1.1 implementation; static package checks do not produce a score."
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Eval YAML validation and dry-run are structural checks; real model execution is not run because the current environment has no Claude login."
+      },
+      "sdlc_stage": "design",
+      "roles": [
+        "QA",
+        "Engineering",
+        "Architecture"
+      ],
+      "inputs": "skills/zh/testing-types/api-design-quality-review/prompts/api-design-quality-review.md#输入审计与范围; skills/en/testing-types/api-design-quality-review/prompts/api-design-quality-review.md#Input Audit and Scope",
+      "outputs": "skills/zh/testing-types/api-design-quality-review/prompts/api-design-quality-review.md#输出顺序; skills/en/testing-types/api-design-quality-review/prompts/api-design-quality-review.md#Output Order",
+      "workflow": "v1.1 Phase 1 design-quality specialist; optional navigation only",
+      "evidence_paths": [
+        "skills/zh/testing-types/api-design-quality-review/SKILL.md",
+        "skills/en/testing-types/api-design-quality-review/SKILL.md",
+        "skills/zh/testing-types/api-design-quality-review/prompts/api-design-quality-review.md",
+        "skills/en/testing-types/api-design-quality-review/prompts/api-design-quality-review.md",
+        "skills/zh/testing-types/api-design-quality-review/evals/eval.yaml",
+        "skills/en/testing-types/api-design-quality-review/evals/eval.yaml",
+        "skills/zh/testing-types/api-design-quality-review/agents/openai.yaml",
+        "skills/en/testing-types/api-design-quality-review/agents/openai.yaml"
+      ]
+    },
+    {
+      "slug": "database-design-quality-review",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/database-design-quality-review",
+      "en_path": "skills/en/testing-types/database-design-quality-review",
+      "virtual_domain": "Engineering QA",
+      "status": "Planned-P0",
+      "priority": "P0",
+      "related": "Design-quality specialist family; semantic overlap with existing data and persistence Skills remains UNASSESSED",
+      "governance_evidence": "skills/zh/testing-types/database-design-quality-review/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No model or quality-scoring evidence has been run for the v1.1 implementation; static package checks do not produce a score."
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Eval YAML validation and dry-run are structural checks; real model execution is not run because the current environment has no Claude login."
+      },
+      "sdlc_stage": "design",
+      "roles": [
+        "QA",
+        "Engineering",
+        "Architecture"
+      ],
+      "inputs": "skills/zh/testing-types/database-design-quality-review/prompts/database-design-quality-review.md#输入审计与范围; skills/en/testing-types/database-design-quality-review/prompts/database-design-quality-review.md#Input Audit and Scope",
+      "outputs": "skills/zh/testing-types/database-design-quality-review/prompts/database-design-quality-review.md#输出顺序; skills/en/testing-types/database-design-quality-review/prompts/database-design-quality-review.md#Output Order",
+      "workflow": "v1.1 Phase 1 design-quality specialist; optional navigation only",
+      "evidence_paths": [
+        "skills/zh/testing-types/database-design-quality-review/SKILL.md",
+        "skills/en/testing-types/database-design-quality-review/SKILL.md",
+        "skills/zh/testing-types/database-design-quality-review/prompts/database-design-quality-review.md",
+        "skills/en/testing-types/database-design-quality-review/prompts/database-design-quality-review.md",
+        "skills/zh/testing-types/database-design-quality-review/evals/eval.yaml",
+        "skills/en/testing-types/database-design-quality-review/evals/eval.yaml",
+        "skills/zh/testing-types/database-design-quality-review/agents/openai.yaml",
+        "skills/en/testing-types/database-design-quality-review/agents/openai.yaml"
+      ]
+    },
+    {
+      "slug": "observability-design-review",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/observability-design-review",
+      "en_path": "skills/en/testing-types/observability-design-review",
+      "virtual_domain": "Engineering QA",
+      "status": "Planned-P0",
+      "priority": "P0",
+      "related": "Design-quality and production-quality specialist family; semantic overlap with observability Skills remains UNASSESSED",
+      "governance_evidence": "skills/zh/testing-types/observability-design-review/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No model or quality-scoring evidence has been run for the v1.1 implementation; static package checks do not produce a score."
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Eval YAML validation and dry-run are structural checks; real model execution is not run because the current environment has no Claude login."
+      },
+      "sdlc_stage": "design",
+      "roles": [
+        "QA",
+        "Engineering",
+        "SRE"
+      ],
+      "inputs": "skills/zh/testing-types/observability-design-review/prompts/observability-design-review.md#输入审计与范围; skills/en/testing-types/observability-design-review/prompts/observability-design-review.md#Input Audit and Scope",
+      "outputs": "skills/zh/testing-types/observability-design-review/prompts/observability-design-review.md#输出顺序; skills/en/testing-types/observability-design-review/prompts/observability-design-review.md#Output Order",
+      "workflow": "v1.1 Phase 1 design-quality specialist; optional navigation only",
+      "evidence_paths": [
+        "skills/zh/testing-types/observability-design-review/SKILL.md",
+        "skills/en/testing-types/observability-design-review/SKILL.md",
+        "skills/zh/testing-types/observability-design-review/prompts/observability-design-review.md",
+        "skills/en/testing-types/observability-design-review/prompts/observability-design-review.md",
+        "skills/zh/testing-types/observability-design-review/evals/eval.yaml",
+        "skills/en/testing-types/observability-design-review/evals/eval.yaml",
+        "skills/zh/testing-types/observability-design-review/agents/openai.yaml",
+        "skills/en/testing-types/observability-design-review/agents/openai.yaml"
+      ]
+    },
+    {
+      "slug": "error-handling-design-review",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/error-handling-design-review",
+      "en_path": "skills/en/testing-types/error-handling-design-review",
+      "virtual_domain": "Engineering QA",
+      "status": "Planned-P0",
+      "priority": "P0",
+      "related": "Design-quality and production-quality specialist family; semantic overlap with resilience Skills remains UNASSESSED",
+      "governance_evidence": "skills/zh/testing-types/error-handling-design-review/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No model or quality-scoring evidence has been run for the v1.1 implementation; static package checks do not produce a score."
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Eval YAML validation and dry-run are structural checks; real model execution is not run because the current environment has no Claude login."
+      },
+      "sdlc_stage": "design",
+      "roles": [
+        "QA",
+        "Engineering",
+        "SRE"
+      ],
+      "inputs": "skills/zh/testing-types/error-handling-design-review/prompts/error-handling-design-review.md#输入审计与范围; skills/en/testing-types/error-handling-design-review/prompts/error-handling-design-review.md#Input Audit and Scope",
+      "outputs": "skills/zh/testing-types/error-handling-design-review/prompts/error-handling-design-review.md#输出顺序; skills/en/testing-types/error-handling-design-review/prompts/error-handling-design-review.md#Output Order",
+      "workflow": "v1.1 Phase 1 design-quality specialist; optional navigation only",
+      "evidence_paths": [
+        "skills/zh/testing-types/error-handling-design-review/SKILL.md",
+        "skills/en/testing-types/error-handling-design-review/SKILL.md",
+        "skills/zh/testing-types/error-handling-design-review/prompts/error-handling-design-review.md",
+        "skills/en/testing-types/error-handling-design-review/prompts/error-handling-design-review.md",
+        "skills/zh/testing-types/error-handling-design-review/evals/eval.yaml",
+        "skills/en/testing-types/error-handling-design-review/evals/eval.yaml",
+        "skills/zh/testing-types/error-handling-design-review/agents/openai.yaml",
+        "skills/en/testing-types/error-handling-design-review/agents/openai.yaml"
+      ]
+    },
+    {
+      "slug": "test-scope-analysis",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/test-scope-analysis",
+      "en_path": "skills/en/testing-types/test-scope-analysis",
+      "virtual_domain": "Engineering QA",
+      "status": "Planned-P0",
+      "priority": "P0",
+      "related": "Requirement-quality and test-strategy specialist family; semantic overlap with existing planning Skills remains UNASSESSED",
+      "governance_evidence": "skills/zh/testing-types/test-scope-analysis/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No model or quality-scoring evidence has been run for the v1.1 implementation; static package checks do not produce a score."
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Eval YAML validation and dry-run are structural checks; real model execution is not run because the current environment has no Claude login."
+      },
+      "sdlc_stage": "test-planning",
+      "roles": [
+        "QA",
+        "Engineering",
+        "Product"
+      ],
+      "inputs": "skills/zh/testing-types/test-scope-analysis/prompts/test-scope-analysis.md#输入审计与范围; skills/en/testing-types/test-scope-analysis/prompts/test-scope-analysis.md#Input Audit and Scope",
+      "outputs": "skills/zh/testing-types/test-scope-analysis/prompts/test-scope-analysis.md#输出顺序; skills/en/testing-types/test-scope-analysis/prompts/test-scope-analysis.md#Output Order",
+      "workflow": "v1.1 Phase 1 test-planning specialist; optional navigation only",
+      "evidence_paths": [
+        "skills/zh/testing-types/test-scope-analysis/SKILL.md",
+        "skills/en/testing-types/test-scope-analysis/SKILL.md",
+        "skills/zh/testing-types/test-scope-analysis/prompts/test-scope-analysis.md",
+        "skills/en/testing-types/test-scope-analysis/prompts/test-scope-analysis.md",
+        "skills/zh/testing-types/test-scope-analysis/evals/eval.yaml",
+        "skills/en/testing-types/test-scope-analysis/evals/eval.yaml",
+        "skills/zh/testing-types/test-scope-analysis/agents/openai.yaml",
+        "skills/en/testing-types/test-scope-analysis/agents/openai.yaml"
+      ]
+    },
+    {
+      "slug": "requirement-traceability-analysis",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/requirement-traceability-analysis",
+      "en_path": "skills/en/testing-types/requirement-traceability-analysis",
+      "virtual_domain": "Engineering QA",
+      "status": "Planned-P0",
+      "priority": "P0",
+      "related": "Requirement-quality specialist family; semantic overlap with existing requirement Skills remains UNASSESSED",
+      "governance_evidence": "skills/zh/testing-types/requirement-traceability-analysis/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No model or quality-scoring evidence has been run for the v1.1 implementation; Phase 1 static package checks do not produce a score."
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Eval YAML validation and dry-run are structural checks; real model execution is not run because the current environment has no Claude login."
+      },
+      "sdlc_stage": "requirements",
+      "roles": [
+        "QA",
+        "BA",
+        "Engineering"
+      ],
+      "inputs": "skills/zh/testing-types/requirement-traceability-analysis/prompts/requirement-traceability-analysis.md#输入边界与审计; skills/en/testing-types/requirement-traceability-analysis/prompts/requirement-traceability-analysis.md#Input Boundary And Audit",
+      "outputs": "skills/zh/testing-types/requirement-traceability-analysis/prompts/requirement-traceability-analysis.md#结构化结果; skills/en/testing-types/requirement-traceability-analysis/prompts/requirement-traceability-analysis.md#Structured Results",
+      "workflow": "v1.1 Phase 1 requirement-quality specialist; optional navigation only",
+      "evidence_paths": [
+        "skills/zh/testing-types/requirement-traceability-analysis/SKILL.md",
+        "skills/en/testing-types/requirement-traceability-analysis/SKILL.md",
+        "skills/zh/testing-types/requirement-traceability-analysis/prompts/requirement-traceability-analysis.md",
+        "skills/en/testing-types/requirement-traceability-analysis/prompts/requirement-traceability-analysis.md",
+        "skills/zh/testing-types/requirement-traceability-analysis/evals/eval.yaml",
+        "skills/en/testing-types/requirement-traceability-analysis/evals/eval.yaml",
+        "skills/zh/testing-types/requirement-traceability-analysis/agents/openai.yaml",
+        "skills/en/testing-types/requirement-traceability-analysis/agents/openai.yaml"
+      ]
+    },
+    {
+      "slug": "test-gap-analysis",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/test-gap-analysis",
+      "en_path": "skills/en/testing-types/test-gap-analysis",
+      "virtual_domain": "Engineering QA",
+      "status": "Planned-P0",
+      "priority": "P0",
+      "related": "Test-design discovery family; complements requirement-traceability-analysis and test-case-reviewer; semantic overlap remains bounded by TG-## gap findings",
+      "governance_evidence": "skills/zh/testing-types/test-gap-analysis/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No model or quality-scoring evidence has been run for the v1.1 implementation; static package checks do not produce a score."
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Eval YAML validation and dry-run are structural checks; real model execution is not run because the current environment has no usable Claude login."
+      },
+      "sdlc_stage": "test-design-and-preparation",
+      "roles": [
+        "QA",
+        "Engineering",
+        "Product"
+      ],
+      "inputs": "skills/zh/testing-types/test-gap-analysis/prompts/test-gap-analysis.md#输入; skills/en/testing-types/test-gap-analysis/prompts/test-gap-analysis.md#Input",
+      "outputs": "skills/zh/testing-types/test-gap-analysis/prompts/test-gap-analysis.md#TG-## 缺口合同; skills/en/testing-types/test-gap-analysis/prompts/test-gap-analysis.md#TG-## Gap Contract",
+      "workflow": "v1.1 Phase 1 test-design-and-preparation specialist; optional navigation only",
+      "evidence_paths": [
+        "skills/zh/testing-types/test-gap-analysis/SKILL.md",
+        "skills/en/testing-types/test-gap-analysis/SKILL.md",
+        "skills/zh/testing-types/test-gap-analysis/prompts/test-gap-analysis.md",
+        "skills/en/testing-types/test-gap-analysis/prompts/test-gap-analysis.md",
+        "skills/zh/testing-types/test-gap-analysis/evals/eval.yaml",
+        "skills/en/testing-types/test-gap-analysis/evals/eval.yaml",
+        "skills/zh/testing-types/test-gap-analysis/agents/openai.yaml",
+        "skills/en/testing-types/test-gap-analysis/agents/openai.yaml"
+      ]
+    },
+    {
+      "slug": "risk-based-testing",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/risk-based-testing",
+      "en_path": "skills/en/testing-types/risk-based-testing",
+      "virtual_domain": "Engineering QA",
+      "status": "Planned-P0",
+      "priority": "P0",
+      "related": "Test-priority decision family; complements quality-risk-analysis, test-strategy, and regression-scope-analysis; semantic overlap remains bounded by RBT-## tradeoffs",
+      "governance_evidence": "skills/zh/testing-types/risk-based-testing/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No model or quality-scoring evidence has been run for the v1.1 implementation; static package checks do not produce a score."
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Eval YAML validation and dry-run are structural checks; real model execution is not run because the current environment has no usable Claude login."
+      },
+      "sdlc_stage": "test-design-and-preparation",
+      "roles": [
+        "QA",
+        "Product",
+        "Engineering"
+      ],
+      "inputs": "skills/zh/testing-types/risk-based-testing/prompts/risk-based-testing.md#输入; skills/en/testing-types/risk-based-testing/prompts/risk-based-testing.md#Input",
+      "outputs": "skills/zh/testing-types/risk-based-testing/prompts/risk-based-testing.md#RBT-## 决策合同; skills/en/testing-types/risk-based-testing/prompts/risk-based-testing.md#RBT-## Decision Contract",
+      "workflow": "v1.1 Phase 1 test-design-and-preparation specialist; optional navigation only",
+      "evidence_paths": [
+        "skills/zh/testing-types/risk-based-testing/SKILL.md",
+        "skills/en/testing-types/risk-based-testing/SKILL.md",
+        "skills/zh/testing-types/risk-based-testing/prompts/risk-based-testing.md",
+        "skills/en/testing-types/risk-based-testing/prompts/risk-based-testing.md",
+        "skills/zh/testing-types/risk-based-testing/evals/eval.yaml",
+        "skills/en/testing-types/risk-based-testing/evals/eval.yaml",
+        "skills/zh/testing-types/risk-based-testing/agents/openai.yaml",
+        "skills/en/testing-types/risk-based-testing/agents/openai.yaml"
+      ]
+    },
+    {
+      "slug": "edge-case-discovery",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/edge-case-discovery",
+      "en_path": "skills/en/testing-types/edge-case-discovery",
+      "virtual_domain": "Engineering QA",
+      "status": "Planned-P0",
+      "priority": "P0",
+      "related": "Test-design discovery family; complements requirements analysis and test-case writing; semantic overlap remains bounded by EC-## boundary candidates",
+      "governance_evidence": "skills/zh/testing-types/edge-case-discovery/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No model or quality-scoring evidence has been run for the v1.1 implementation; static package checks do not produce a score."
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Eval YAML validation and dry-run are structural checks; real model execution is not run because the current environment has no usable Claude login."
+      },
+      "sdlc_stage": "test-design-and-preparation",
+      "roles": [
+        "QA",
+        "Engineering"
+      ],
+      "inputs": "skills/zh/testing-types/edge-case-discovery/prompts/edge-case-discovery.md#输入; skills/en/testing-types/edge-case-discovery/prompts/edge-case-discovery.md#Input",
+      "outputs": "skills/zh/testing-types/edge-case-discovery/prompts/edge-case-discovery.md#EC-## 候选合同; skills/en/testing-types/edge-case-discovery/prompts/edge-case-discovery.md#EC-## Candidate Contract",
+      "workflow": "v1.1 Phase 1 test-design-and-preparation specialist; optional navigation only",
+      "evidence_paths": [
+        "skills/zh/testing-types/edge-case-discovery/SKILL.md",
+        "skills/en/testing-types/edge-case-discovery/SKILL.md",
+        "skills/zh/testing-types/edge-case-discovery/prompts/edge-case-discovery.md",
+        "skills/en/testing-types/edge-case-discovery/prompts/edge-case-discovery.md",
+        "skills/zh/testing-types/edge-case-discovery/evals/eval.yaml",
+        "skills/en/testing-types/edge-case-discovery/evals/eval.yaml",
+        "skills/zh/testing-types/edge-case-discovery/agents/openai.yaml",
+        "skills/en/testing-types/edge-case-discovery/agents/openai.yaml"
+      ]
+    },
+    {
+      "slug": "negative-scenario-discovery",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/negative-scenario-discovery",
+      "en_path": "skills/en/testing-types/negative-scenario-discovery",
+      "virtual_domain": "Engineering QA",
+      "status": "Planned-P0",
+      "priority": "P0",
+      "related": "Failure-path discovery family; complements exception and resilience analysis; semantic overlap remains bounded by NS-## candidates",
+      "governance_evidence": "skills/zh/testing-types/negative-scenario-discovery/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No model or quality-scoring evidence has been run for the v1.1 implementation; static package checks do not produce a score."
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Eval YAML validation and dry-run are structural checks; real model execution is not run because the current environment has no usable Claude login."
+      },
+      "sdlc_stage": "test-design-and-preparation",
+      "roles": [
+        "QA",
+        "Engineering"
+      ],
+      "inputs": "skills/zh/testing-types/negative-scenario-discovery/prompts/negative-scenario-discovery.md#输入; skills/en/testing-types/negative-scenario-discovery/prompts/negative-scenario-discovery.md#Input",
+      "outputs": "skills/zh/testing-types/negative-scenario-discovery/prompts/negative-scenario-discovery.md#NS-## 失败路径合同; skills/en/testing-types/negative-scenario-discovery/prompts/negative-scenario-discovery.md#NS-## Failure-Path Contract",
+      "workflow": "v1.1 Phase 1 test-design-and-preparation specialist; optional navigation only",
+      "evidence_paths": [
+        "skills/zh/testing-types/negative-scenario-discovery/SKILL.md",
+        "skills/en/testing-types/negative-scenario-discovery/SKILL.md",
+        "skills/zh/testing-types/negative-scenario-discovery/prompts/negative-scenario-discovery.md",
+        "skills/en/testing-types/negative-scenario-discovery/prompts/negative-scenario-discovery.md",
+        "skills/zh/testing-types/negative-scenario-discovery/evals/eval.yaml",
+        "skills/en/testing-types/negative-scenario-discovery/evals/eval.yaml",
+        "skills/zh/testing-types/negative-scenario-discovery/agents/openai.yaml",
+        "skills/en/testing-types/negative-scenario-discovery/agents/openai.yaml"
+      ]
+    },
+    {
+      "slug": "test-data-requirement-analysis",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/test-data-requirement-analysis",
+      "en_path": "skills/en/testing-types/test-data-requirement-analysis",
+      "virtual_domain": "Engineering QA",
+      "status": "Planned-P0",
+      "priority": "P0",
+      "related": "Test-data preparation family; complements test-data-generation; semantic overlap remains bounded by TDR-## prerequisites and blockers",
+      "governance_evidence": "skills/zh/testing-types/test-data-requirement-analysis/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No model or quality-scoring evidence has been run for the v1.1 implementation; static package checks do not produce a score."
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Eval YAML validation and dry-run are structural checks; real model execution is not run because the current environment has no usable Claude login."
+      },
+      "sdlc_stage": "test-design-and-preparation",
+      "roles": [
+        "QA",
+        "Engineering",
+        "Data"
+      ],
+      "inputs": "skills/zh/testing-types/test-data-requirement-analysis/prompts/test-data-requirement-analysis.md#输入; skills/en/testing-types/test-data-requirement-analysis/prompts/test-data-requirement-analysis.md#Input",
+      "outputs": "skills/zh/testing-types/test-data-requirement-analysis/prompts/test-data-requirement-analysis.md#TDR-## 数据需求合同; skills/en/testing-types/test-data-requirement-analysis/prompts/test-data-requirement-analysis.md#TDR-## Data Requirement Contract",
+      "workflow": "v1.1 Phase 1 test-design-and-preparation specialist; optional navigation only",
+      "evidence_paths": [
+        "skills/zh/testing-types/test-data-requirement-analysis/SKILL.md",
+        "skills/en/testing-types/test-data-requirement-analysis/SKILL.md",
+        "skills/zh/testing-types/test-data-requirement-analysis/prompts/test-data-requirement-analysis.md",
+        "skills/en/testing-types/test-data-requirement-analysis/prompts/test-data-requirement-analysis.md",
+        "skills/zh/testing-types/test-data-requirement-analysis/evals/eval.yaml",
+        "skills/en/testing-types/test-data-requirement-analysis/evals/eval.yaml",
+        "skills/zh/testing-types/test-data-requirement-analysis/agents/openai.yaml",
+        "skills/en/testing-types/test-data-requirement-analysis/agents/openai.yaml"
+      ]
     }
   ],
   "candidates": [
@@ -3140,6 +3787,480 @@
         "skills/en/testing-types/llm-evaluation-design/prompts/llm-evaluation-design.md"
       ],
       "candidate_source": "awesome-qa-prompt@554178fe9b93d851ec01388597ceb7996d22bd1c: testing-types/zh/ai-evaluation-design/README.md; testing-types/en/ai-evaluation-design/README.md; testing-types/zh/ai-evaluation-design/Standard-version/AIEvaluationDesignerPrompt.md; testing-types/en/ai-evaluation-design/Standard-version/AIEvaluationDesignerPrompt.md; testing-types/zh/llm-output-quality-evaluation/README.md; testing-types/en/llm-output-quality-evaluation/README.md; testing-types/zh/llm-output-quality-evaluation/Standard-version/LLMOutputQualityEvaluatorPrompt.md; testing-types/en/llm-output-quality-evaluation/Standard-version/LLMOutputQualityEvaluatorPrompt.md"
+    },
+    {
+      "slug": "requirement-quality-review",
+      "decision_state": "PROPOSED",
+      "conclusion": "NEW",
+      "target": "requirement-quality-review",
+      "scope": "Evidence-bounded overview review of requirement completeness, clarity, verifiability, feasibility, scope, and evidence quality before design or testing.",
+      "non_goals": "No numeric quality score, Go/No-Go decision, runtime test execution, business risk acceptance, or invocation of specialist Skills on the user's behalf.",
+      "evidence": {
+        "name": "v1.1 Phase 1 design and local package frontmatter name establish a distinct overview Skill",
+        "purpose": "Local Prompt covers evidence-bounded quality dimensions and specialist routing without a release decision",
+        "inputs": "skills/zh/testing-types/requirement-quality-review/prompts/requirement-quality-review.md input audit; English mirror Input Audit and Scope",
+        "outputs": "skills/zh/testing-types/requirement-quality-review/prompts/requirement-quality-review.md structured findings and routing; English mirror Structured Findings",
+        "decision_logic": "Separate missing, ambiguous, untestable, conflict, and unassessed findings while preserving Human decision boundaries",
+        "workflow_role": "Optional v1.1 Phase 1 overview before requirements-analysis; navigation only"
+      },
+      "next_action": "Run real model Eval when Claude login is available and review semantic coverage against project requirements before changing the proposed state.",
+      "target_evidence_paths": [
+        "skills/zh/testing-types/requirement-quality-review/SKILL.md",
+        "skills/en/testing-types/requirement-quality-review/SKILL.md",
+        "skills/zh/testing-types/requirement-quality-review/prompts/requirement-quality-review.md",
+        "skills/en/testing-types/requirement-quality-review/prompts/requirement-quality-review.md"
+      ],
+      "candidate_source": "docs/superpowers/specs/2026-09-14-v1-1-requirements-quality-skills-design.md; docs/governance/PHASE_1_REQUIREMENTS_QUALITY.md; local bilingual package review"
+    },
+    {
+      "slug": "requirement-ambiguity-analysis",
+      "decision_state": "PROPOSED",
+      "conclusion": "NEW",
+      "target": "requirement-ambiguity-analysis",
+      "scope": "Phrase-level analysis of missing discriminators in actors, objects, conditions, quantities, timing, states, and acceptance statements.",
+      "non_goals": "No selection of a possible reading, invented default, fabricated threshold, explicit conflict resolution, runtime execution, or business approval.",
+      "evidence": {
+        "name": "v1.1 Phase 1 design and local package frontmatter name establish a distinct ambiguity Skill",
+        "purpose": "Local Prompt requires phrase-level ambiguity findings with possible readings preserved and no invented interpretation",
+        "inputs": "skills/zh/testing-types/requirement-ambiguity-analysis/prompts/requirement-ambiguity-analysis.md input audit; English mirror Input Audit",
+        "outputs": "skills/zh/testing-types/requirement-ambiguity-analysis/prompts/requirement-ambiguity-analysis.md structured findings; English mirror Structured Findings",
+        "decision_logic": "Classify ambiguity by missing discriminator and route explicit incompatibility without normalizing it",
+        "workflow_role": "Optional v1.1 Phase 1 specialist check after overview; navigation only"
+      },
+      "next_action": "Run real model Eval when Claude login is available and compare boundary behavior with supplied requirement artifacts before changing the proposed state.",
+      "target_evidence_paths": [
+        "skills/zh/testing-types/requirement-ambiguity-analysis/SKILL.md",
+        "skills/en/testing-types/requirement-ambiguity-analysis/SKILL.md",
+        "skills/zh/testing-types/requirement-ambiguity-analysis/prompts/requirement-ambiguity-analysis.md",
+        "skills/en/testing-types/requirement-ambiguity-analysis/prompts/requirement-ambiguity-analysis.md"
+      ],
+      "candidate_source": "docs/superpowers/specs/2026-09-14-v1-1-requirements-quality-skills-design.md; docs/governance/PHASE_1_REQUIREMENTS_QUALITY.md; local bilingual package review"
+    },
+    {
+      "slug": "requirement-consistency-analysis",
+      "decision_state": "PROPOSED",
+      "conclusion": "NEW",
+      "target": "requirement-consistency-analysis",
+      "scope": "Cross-source comparison of terminology, identifiers, formats, states, rules, behavior, and version or applicability scope.",
+      "non_goals": "No silent synonym merge, cross-version normalization, final specification, explicit conflict precedence, runtime execution, or business decision.",
+      "evidence": {
+        "name": "v1.1 Phase 1 design and local package frontmatter name establish a distinct consistency Skill",
+        "purpose": "Local Prompt defines stable comparison keys and preserves source, version, relation, and evidence per row",
+        "inputs": "skills/zh/testing-types/requirement-consistency-analysis/prompts/requirement-consistency-analysis.md comparison scope; English mirror Input Audit and Comparison Scope",
+        "outputs": "skills/zh/testing-types/requirement-consistency-analysis/prompts/requirement-consistency-analysis.md structured findings; English mirror Structured Findings",
+        "decision_logic": "Distinguish aligned, inconsistent, missing, stale, unassessed, and conflict candidates by same-scope evidence",
+        "workflow_role": "Optional v1.1 Phase 1 specialist check after overview; navigation only"
+      },
+      "next_action": "Run real model Eval when Claude login is available and review same-scope comparison behavior against project artifacts before changing the proposed state.",
+      "target_evidence_paths": [
+        "skills/zh/testing-types/requirement-consistency-analysis/SKILL.md",
+        "skills/en/testing-types/requirement-consistency-analysis/SKILL.md",
+        "skills/zh/testing-types/requirement-consistency-analysis/prompts/requirement-consistency-analysis.md",
+        "skills/en/testing-types/requirement-consistency-analysis/prompts/requirement-consistency-analysis.md"
+      ],
+      "candidate_source": "docs/superpowers/specs/2026-09-14-v1-1-requirements-quality-skills-design.md; docs/governance/PHASE_1_REQUIREMENTS_QUALITY.md; local bilingual package review"
+    },
+    {
+      "slug": "requirement-conflict-detection",
+      "decision_state": "PROPOSED",
+      "conclusion": "NEW",
+      "target": "requirement-conflict-detection",
+      "scope": "Detection of mutually exclusive rules or constraints within the same object, action, actor, condition, version, and applicability scope.",
+      "non_goals": "No precedence selection, risk acceptance, final rule, compromise wording, defect declaration without evidence, runtime execution, or approval on behalf of a Human.",
+      "evidence": {
+        "name": "v1.1 Phase 1 design and local package frontmatter name establish a distinct conflict Skill",
+        "purpose": "Local Prompt preserves both statements, sources, conditions, decision owner, close condition, and validation method",
+        "inputs": "skills/zh/testing-types/requirement-conflict-detection/prompts/requirement-conflict-detection.md applicability audit; English mirror Input Audit and Applicability",
+        "outputs": "skills/zh/testing-types/requirement-conflict-detection/prompts/requirement-conflict-detection.md structured findings; English mirror Structured Findings",
+        "decision_logic": "Distinguish conflict from ambiguous, missing, stale, and unassessed scope and leave precedence to Human decision",
+        "workflow_role": "Optional v1.1 Phase 1 specialist check after overview; navigation only"
+      },
+      "next_action": "Run real model Eval when Claude login is available and inspect that no boundary case selects a stronger-sounding rule before changing the proposed state.",
+      "target_evidence_paths": [
+        "skills/zh/testing-types/requirement-conflict-detection/SKILL.md",
+        "skills/en/testing-types/requirement-conflict-detection/SKILL.md",
+        "skills/zh/testing-types/requirement-conflict-detection/prompts/requirement-conflict-detection.md",
+        "skills/en/testing-types/requirement-conflict-detection/prompts/requirement-conflict-detection.md"
+      ],
+      "candidate_source": "docs/superpowers/specs/2026-09-14-v1-1-requirements-quality-skills-design.md; docs/governance/PHASE_1_REQUIREMENTS_QUALITY.md; local bilingual package review"
+    },
+    {
+      "slug": "requirement-traceability-analysis",
+      "decision_state": "PROPOSED",
+      "conclusion": "NEW",
+      "target": "requirement-traceability-analysis",
+      "scope": "Bidirectional mapping of requirements and controls to acceptance, design, code, tests, defects, execution records, and observable evidence.",
+      "non_goals": "No claim of coverage from names alone, no execution or pass result without evidence, no defect closure, release approval, or fabricated relationship.",
+      "evidence": {
+        "name": "v1.1 Phase 1 design and local package frontmatter name establish a distinct traceability Skill",
+        "purpose": "Local Prompt adapts the inspected requirement-traceability baseline into a bidirectional evidence-bounded matrix",
+        "inputs": "skills/zh/testing-types/requirement-traceability-analysis/prompts/requirement-traceability-analysis.md input audit; English mirror Input Boundary and Audit",
+        "outputs": "skills/zh/testing-types/requirement-traceability-analysis/prompts/requirement-traceability-analysis.md structured results; English mirror Structured Results",
+        "decision_logic": "Separate direct, derived, indirect, contradictory, and missing relationships from complete, partial, stale, unverified, unexecuted, and unassessed coverage",
+        "workflow_role": "Optional v1.1 Phase 1 specialist check after overview; navigation only"
+      },
+      "next_action": "Run real model Eval when Claude login is available and compare bidirectional mapping and report-claim boundaries with project evidence before changing the proposed state.",
+      "target_evidence_paths": [
+        "skills/zh/testing-types/requirement-traceability-analysis/SKILL.md",
+        "skills/en/testing-types/requirement-traceability-analysis/SKILL.md",
+        "skills/zh/testing-types/requirement-traceability-analysis/prompts/requirement-traceability-analysis.md",
+        "skills/en/testing-types/requirement-traceability-analysis/prompts/requirement-traceability-analysis.md"
+      ],
+      "candidate_source": "awesome-qa-prompt@554178fe9b93d851ec01388597ceb7996d22bd1c requirement-traceability baseline; docs/superpowers/specs/2026-09-14-v1-1-requirements-quality-skills-design.md; local bilingual package review"
+    },
+    {
+      "slug": "business-rule-extraction",
+      "decision_state": "PROPOSED",
+      "conclusion": "NEW",
+      "target": "business-rule-extraction",
+      "scope": "Evidence-bounded extraction of atomic BR-## business rules from requirements, policies, contracts, workflows, acceptance criteria, and supplied examples.",
+      "non_goals": "No invented thresholds, precedence, state transitions, exceptions, execution result, compliance approval, or business decision.",
+      "evidence": {
+        "name": "The v1.1 design and bilingual package frontmatter define a distinct business-rule extraction capability.",
+        "purpose": "The Prompt converts distributed source material into traceable atomic rules while preserving scope, exceptions, and unknowns.",
+        "inputs": "Requirements, policies, contracts, workflows, acceptance criteria, and examples; target skills/zh/testing-types/business-rule-extraction/prompts/business-rule-extraction.md and English mirror Input Audit and Scope.",
+        "outputs": "BR-## rule contract with source, subject/object, trigger, preconditions, action/outcome, constraints, exceptions, evidence, impact, and validation.",
+        "decision_logic": "Split or merge statements only when source evidence supports it; preserve conflicting sources and label facts, inferences, recommendations, and Human decisions separately.",
+        "workflow_role": "Optional v1.1 Phase 1 quality-shift specialist before design or testing; navigation only, with no approval or execution."
+      },
+      "next_action": "Run real model Eval when Claude login is available and verify source retention, atomicity, and no-invented-rule boundaries before changing the reviewed state.",
+      "target_evidence_paths": [
+        "skills/zh/testing-types/business-rule-extraction/SKILL.md",
+        "skills/en/testing-types/business-rule-extraction/SKILL.md",
+        "skills/zh/testing-types/business-rule-extraction/prompts/business-rule-extraction.md",
+        "skills/en/testing-types/business-rule-extraction/prompts/business-rule-extraction.md"
+      ],
+      "candidate_source": "docs/superpowers/specs/2026-09-14-v1-1-next-five-quality-skills-design.md; docs/superpowers/plans/2026-09-14-v1-1-ten-quality-skills.md; local bilingual package review"
+    },
+    {
+      "slug": "technical-design-quality-review",
+      "decision_state": "PROPOSED",
+      "conclusion": "NEW",
+      "target": "technical-design-quality-review",
+      "scope": "Evidence-bounded review of architecture notes, ADRs, component/data-flow designs, technical proposals, and non-functional constraints before implementation.",
+      "non_goals": "No code review without supplied code, build or test execution, architecture approval, risk acceptance, or release decision.",
+      "evidence": {
+        "name": "The v1.1 design and bilingual package frontmatter define a distinct implementation-preparation design review capability.",
+        "purpose": "The Prompt evaluates design boundaries, dependencies, failure modes, consistency, security, performance, observability, compatibility, maintainability, and verification readiness.",
+        "inputs": "Architecture notes, ADRs, component/data-flow designs, technical proposals, and non-functional constraints; target skills/zh/testing-types/technical-design-quality-review/prompts/technical-design-quality-review.md and English mirror Input Audit and Scope.",
+        "outputs": "TD-## findings with source, evidence, impact/severity, gaps, action, owner, and validation method.",
+        "decision_logic": "Separate design statements, evidence-backed inference, missing evidence, recommendations, and Human decisions; do not upgrade design presence into implementation correctness.",
+        "workflow_role": "Optional v1.1 Phase 1 technical-design specialist before implementation or test design; navigation only, with no execution."
+      },
+      "next_action": "Run real model Eval when Claude login is available and verify design-boundary coverage and implementation-evidence limits before changing the reviewed state.",
+      "target_evidence_paths": [
+        "skills/zh/testing-types/technical-design-quality-review/SKILL.md",
+        "skills/en/testing-types/technical-design-quality-review/SKILL.md",
+        "skills/zh/testing-types/technical-design-quality-review/prompts/technical-design-quality-review.md",
+        "skills/en/testing-types/technical-design-quality-review/prompts/technical-design-quality-review.md"
+      ],
+      "candidate_source": "docs/superpowers/specs/2026-09-14-v1-1-next-five-quality-skills-design.md; docs/superpowers/plans/2026-09-14-v1-1-ten-quality-skills.md; local bilingual package review"
+    },
+    {
+      "slug": "api-design-quality-review",
+      "decision_state": "PROPOSED",
+      "conclusion": "NEW",
+      "target": "api-design-quality-review",
+      "scope": "Evidence-bounded review of API/OpenAPI design, request/response contracts, errors, authorization, idempotency, pagination, version evolution, compatibility, consumers, and observability before implementation.",
+      "non_goals": "No API execution, consumer approval, compatibility or security pass claim, or final versioning decision.",
+      "evidence": {
+        "name": "The v1.1 design and bilingual package frontmatter define a distinct implementation-time API design quality capability.",
+        "purpose": "The Prompt retains operation, source, evidence, impact, compatibility risk, migration issue, owner, and validation details.",
+        "inputs": "API designs, OpenAPI/contracts, examples, error models, authorization, idempotency, pagination, status, version, consumer, and telemetry material; target skills/zh/testing-types/api-design-quality-review/prompts/api-design-quality-review.md and English mirror Input Audit and Scope.",
+        "outputs": "API-## findings with operation, source/evidence, impact, compatibility risk, migration issue, owner, and validation method.",
+        "decision_logic": "Treat examples as partial evidence, preserve missing contract fields and consumer assumptions, and separate design review from runtime compatibility or security testing.",
+        "workflow_role": "Optional v1.1 Phase 1 API design specialist before implementation or versioning; navigation only, with no API calls."
+      },
+      "next_action": "Run real model Eval when Claude login is available and verify example-boundary, consumer-impact, and no-compatibility-claim behavior before changing the reviewed state.",
+      "target_evidence_paths": [
+        "skills/zh/testing-types/api-design-quality-review/SKILL.md",
+        "skills/en/testing-types/api-design-quality-review/SKILL.md",
+        "skills/zh/testing-types/api-design-quality-review/prompts/api-design-quality-review.md",
+        "skills/en/testing-types/api-design-quality-review/prompts/api-design-quality-review.md"
+      ],
+      "candidate_source": "docs/superpowers/specs/2026-09-14-v1-1-next-five-quality-skills-design.md; docs/superpowers/plans/2026-09-14-v1-1-ten-quality-skills.md; local bilingual package review"
+    },
+    {
+      "slug": "database-design-quality-review",
+      "decision_state": "PROPOSED",
+      "conclusion": "NEW",
+      "target": "database-design-quality-review",
+      "scope": "Evidence-bounded review of ERDs, DDL, ORM schemas, migration plans, ownership, lifecycle, query constraints, transactions, concurrency, and recovery before implementation or migration.",
+      "non_goals": "No connection to or mutation of a real database, query or benchmark execution, invented data thresholds, schema approval, risk acceptance, or release decision.",
+      "evidence": {
+        "name": "The v1.1 design and bilingual package frontmatter define a distinct database design review capability.",
+        "purpose": "The Prompt covers model integrity, keys/constraints, indexes, transaction/concurrency, lifecycle/privacy, migration compatibility, recovery, and test readiness.",
+        "inputs": "ERDs, DDL, ORM schemas, migration plans, ownership, lifecycle, query constraints, transaction/concurrency, and recovery material; target skills/zh/testing-types/database-design-quality-review/prompts/database-design-quality-review.md and English mirror Input Audit and Scope.",
+        "outputs": "DB-## findings with object, scope, source, evidence, design rule, impact/severity, constraint/index risk, transaction/concurrency, migration/rollback, owner, and validation.",
+        "decision_logic": "Review supplied data design evidence without inferring business rules from table names or filling absent consistency, volume, or recovery thresholds.",
+        "workflow_role": "Optional v1.1 Phase 1 database-design specialist before implementation or migration; navigation only, with no database operation."
+      },
+      "next_action": "Run real model Eval when Claude login is available and verify transaction, migration, privacy, and no-real-database-operation boundaries before changing the reviewed state.",
+      "target_evidence_paths": [
+        "skills/zh/testing-types/database-design-quality-review/SKILL.md",
+        "skills/en/testing-types/database-design-quality-review/SKILL.md",
+        "skills/zh/testing-types/database-design-quality-review/prompts/database-design-quality-review.md",
+        "skills/en/testing-types/database-design-quality-review/prompts/database-design-quality-review.md"
+      ],
+      "candidate_source": "docs/superpowers/specs/2026-09-14-v1-1-following-five-quality-skills-design.md; docs/superpowers/plans/2026-09-14-v1-1-ten-quality-skills.md; local bilingual package review"
+    },
+    {
+      "slug": "observability-design-review",
+      "decision_state": "PROPOSED",
+      "conclusion": "NEW",
+      "target": "observability-design-review",
+      "scope": "Evidence-bounded review of logging, metrics, traces, context propagation, SLO/SLI, alerts, dashboards, sampling, retention, privacy, and cost design before implementation.",
+      "non_goals": "No production signal query, health declaration, probe execution, SLO or incident decision, or tool-name-as-evidence claim.",
+      "evidence": {
+        "name": "The v1.1 design and bilingual package frontmatter define a distinct pre-implementation observability design review capability.",
+        "purpose": "The Prompt requires signal type, source, covered object, dimensions, expected semantics, evidence, gap, impact, detection action, owner, and validation.",
+        "inputs": "Logging, metrics, traces, context propagation, SLO/SLI, alert, dashboard, sampling, retention, privacy, and cost design; target skills/zh/testing-types/observability-design-review/prompts/observability-design-review.md and English mirror Input Audit and Scope.",
+        "outputs": "OBS-## findings that keep covered object and expected semantics distinct from signal dimensions and evidence status.",
+        "decision_logic": "Assess supplied design semantics and actionability while preserving undefined thresholds, privacy, cardinality, sampling, cost, and runtime evidence gaps.",
+        "workflow_role": "Optional v1.1 Phase 1 observability specialist before implementation; navigation only, with no production probe."
+      },
+      "next_action": "Run real model Eval when Claude login is available and verify signal semantics, actionability, privacy, and no-health-claim boundaries before changing the reviewed state.",
+      "target_evidence_paths": [
+        "skills/zh/testing-types/observability-design-review/SKILL.md",
+        "skills/en/testing-types/observability-design-review/SKILL.md",
+        "skills/zh/testing-types/observability-design-review/prompts/observability-design-review.md",
+        "skills/en/testing-types/observability-design-review/prompts/observability-design-review.md"
+      ],
+      "candidate_source": "docs/superpowers/specs/2026-09-14-v1-1-following-five-quality-skills-design.md; docs/superpowers/plans/2026-09-14-v1-1-ten-quality-skills.md; local bilingual package review"
+    },
+    {
+      "slug": "error-handling-design-review",
+      "decision_state": "PROPOSED",
+      "conclusion": "NEW",
+      "target": "error-handling-design-review",
+      "scope": "Evidence-bounded review of error taxonomy, exception boundaries, timeout/retry, degradation, idempotency, propagation, caller-visible results, telemetry, consistency, and recovery design before implementation.",
+      "non_goals": "No fault injection, incident replay, production rollback, invented retry/SLA/copy values, risk acceptance, or recovery approval.",
+      "evidence": {
+        "name": "The v1.1 design and bilingual package frontmatter define a distinct pre-implementation error-handling design review capability.",
+        "purpose": "The Prompt differentiates failure modes, triggers, expected behavior, propagation/fallback, caller-visible result, observable evidence, consistency impact, owner, and validation.",
+        "inputs": "Failure models, interface contracts, exception boundaries, timeout/retry/degradation, idempotency, consistency, telemetry, recovery, and consumer material; target skills/zh/testing-types/error-handling-design-review/prompts/error-handling-design-review.md and English mirror Input Audit and Scope.",
+        "outputs": "EH-## findings with failure mode, trigger/boundary, expected behavior, propagation/fallback, caller-visible result, observable evidence, source, impact, owner, and validation.",
+        "decision_logic": "Classify retryable, non-retryable, human-handoff, and safe-rejection paths from supplied evidence without collapsing distinct failures into a generic error.",
+        "workflow_role": "Optional v1.1 Phase 1 error-handling specialist before implementation; navigation only, with no fault injection."
+      },
+      "next_action": "Run real model Eval when Claude login is available and verify failure-mode separation, caller-visible behavior, observable evidence, and no-fault-injection boundaries before changing the reviewed state.",
+      "target_evidence_paths": [
+        "skills/zh/testing-types/error-handling-design-review/SKILL.md",
+        "skills/en/testing-types/error-handling-design-review/SKILL.md",
+        "skills/zh/testing-types/error-handling-design-review/prompts/error-handling-design-review.md",
+        "skills/en/testing-types/error-handling-design-review/prompts/error-handling-design-review.md"
+      ],
+      "candidate_source": "docs/superpowers/specs/2026-09-14-v1-1-following-five-quality-skills-design.md; docs/superpowers/plans/2026-09-14-v1-1-ten-quality-skills.md; local bilingual package review"
+    },
+    {
+      "slug": "test-scope-analysis",
+      "decision_state": "PROPOSED",
+      "conclusion": "NEW",
+      "target": "test-scope-analysis",
+      "scope": "Evidence-bounded definition of test inclusion, exclusion, depth, dependencies, stop conditions, and expansion triggers for a test activity, iteration, release, or risk review.",
+      "non_goals": "No complete test strategy, concrete test-set selection, test execution, coverage proof, or release decision.",
+      "evidence": {
+        "name": "The v1.1 design and bilingual package frontmatter define a distinct test-boundary analysis capability.",
+        "purpose": "The Prompt records target/object, included and excluded areas, risk basis, depth, dependencies, stop conditions, expansion triggers, residual risk, evidence, and owner.",
+        "inputs": "Test objective, change/release/risk context, requirements, dependencies, platforms, roles, data, environments, existing assets, and constraints; target skills/zh/testing-types/test-scope-analysis/prompts/test-scope-analysis.md and English mirror Input Audit and Scope.",
+        "outputs": "TS-## scope findings with inclusion/exclusion, depth, dependency, trigger, residual risk, source evidence, owner, and validation rationale.",
+        "decision_logic": "Separate core, directly affected, transitively affected, non-functional, migration/compatibility, and unassessed areas; justify scope tradeoffs without selecting concrete tests.",
+        "workflow_role": "Optional v1.1 Phase 1 test-design-and-preparation specialist before strategy or execution; navigation only, with no test run."
+      },
+      "next_action": "Run real model Eval when Claude login is available and verify inclusion/exclusion, depth, expansion-trigger, and no-coverage-claim boundaries before changing the reviewed state.",
+      "target_evidence_paths": [
+        "skills/zh/testing-types/test-scope-analysis/SKILL.md",
+        "skills/en/testing-types/test-scope-analysis/SKILL.md",
+        "skills/zh/testing-types/test-scope-analysis/prompts/test-scope-analysis.md",
+        "skills/en/testing-types/test-scope-analysis/prompts/test-scope-analysis.md"
+      ],
+      "candidate_source": "docs/superpowers/specs/2026-09-14-v1-1-following-five-quality-skills-design.md; docs/superpowers/plans/2026-09-14-v1-1-ten-quality-skills.md; local bilingual package review"
+    },
+    {
+      "slug": "business-rule-consistency-review",
+      "decision_state": "PROPOSED",
+      "conclusion": "ENHANCE",
+      "target": "requirement-consistency-analysis",
+      "evidence": {
+        "name": "v1.1 candidate card business-rule-consistency-review is represented as a mode alias; target frontmatter remains requirement-consistency-analysis in both language packages",
+        "purpose": "Candidate asks for business-rule consistency; target Prompt adds Business-Rule Mode while retaining generic cross-source consistency analysis",
+        "inputs": "Candidate business-rule sources and applicability scope; target skills/zh/testing-types/requirement-consistency-analysis/prompts/requirement-consistency-analysis.md#输入审计与比较范围 and English Input Audit and Comparison Scope",
+        "outputs": "Candidate BR-## rule findings; target Business-Rule Mode adds stable rule keys, subjects, triggers, precedence and exceptions without removing generic findings",
+        "decision_logic": "ENHANCE because the physical target already covers consistency analysis and the added business-rule mode is a bounded specialization; no alias directory is created",
+        "workflow_role": "Optional v1.1 Phase 1 business-rule specialist mode after overview; navigation only, with Human ownership of precedence and policy decisions"
+      },
+      "next_action": "Run real model Eval when Claude login is available and verify business-rule mode separation from generic consistency findings before changing the proposed state.",
+      "target_evidence_paths": [
+        "skills/zh/testing-types/requirement-consistency-analysis/SKILL.md",
+        "skills/en/testing-types/requirement-consistency-analysis/SKILL.md",
+        "skills/zh/testing-types/requirement-consistency-analysis/prompts/requirement-consistency-analysis.md",
+        "skills/en/testing-types/requirement-consistency-analysis/prompts/requirement-consistency-analysis.md"
+      ],
+      "candidate_source": "docs/superpowers/specs/2026-09-14-v1-1-following-five-quality-skills-design.md; docs/superpowers/plans/2026-09-14-v1-1-ten-quality-skills.md; local bilingual package review"
+    },
+    {
+      "slug": "architecture-testability-review",
+      "decision_state": "PROPOSED",
+      "conclusion": "ENHANCE",
+      "target": "testability-analysis",
+      "evidence": {
+        "name": "v1.1 candidate card architecture-testability-review is represented as a mode alias; target frontmatter remains testability-analysis in both language packages",
+        "purpose": "Candidate asks for architecture-level testability; target Prompt adds Architecture Testability Mode while retaining the existing generic analysis flow",
+        "inputs": "Candidate architecture, dependency and seam evidence; target skills/zh/testing-types/testability-analysis/prompts/testability-analysis.md#输入 and English Input, plus Architecture Testability Mode",
+        "outputs": "Candidate architecture seam and fault-injection findings; target mode adds architecture-level artifacts while preserving observability, controllability, isolation and determinism boundaries",
+        "decision_logic": "ENHANCE because the physical target already owns testability analysis and the architecture mode is a bounded specialization; no alias directory is created",
+        "workflow_role": "Optional v1.1 Phase 1 architecture-testability specialist mode after design review; navigation only, with no production backdoors"
+      },
+      "next_action": "Run real model Eval when Claude login is available and verify safe isolated seams, fault injection, and environment reproduction boundaries before changing the proposed state.",
+      "target_evidence_paths": [
+        "skills/zh/testing-types/testability-analysis/SKILL.md",
+        "skills/en/testing-types/testability-analysis/SKILL.md",
+        "skills/zh/testing-types/testability-analysis/prompts/testability-analysis.md",
+        "skills/en/testing-types/testability-analysis/prompts/testability-analysis.md"
+      ],
+      "candidate_source": "docs/superpowers/specs/2026-09-14-v1-1-following-five-quality-skills-design.md; docs/superpowers/plans/2026-09-14-v1-1-ten-quality-skills.md; local bilingual package review"
+    },
+    {
+      "slug": "test-coverage-analysis",
+      "decision_state": "PROPOSED",
+      "conclusion": "ENHANCE",
+      "target": "requirement-traceability-analysis",
+      "evidence": {
+        "name": "v1.1 candidate card test-coverage-analysis is represented as a mode alias; target frontmatter remains requirement-traceability-analysis in both language packages",
+        "purpose": "Candidate asks for coverage analysis; target Prompt adds Coverage Analysis Mode while retaining bidirectional traceability and relationship semantics",
+        "inputs": "Candidate requirement-to-test and execution evidence; target skills/zh/testing-types/requirement-traceability-analysis/prompts/requirement-traceability-analysis.md#输入边界与审计 and English Input Boundary And Audit",
+        "outputs": "Candidate TC-## coverage view; target mode preserves RT-## relationships and distinguishes complete, partial, stale, unverified, unexecuted, and unassessed statuses",
+        "decision_logic": "ENHANCE because the physical target already owns requirement traceability and coverage is a bounded view over that model; no alias directory is created",
+        "workflow_role": "Optional v1.1 Phase 1 coverage-analysis specialist mode after traceability mapping; navigation only, with no coverage or pass claim from names alone"
+      },
+      "next_action": "Run real model Eval when Claude login is available and verify relationship-versus-status separation and unexecuted boundaries before changing the proposed state.",
+      "target_evidence_paths": [
+        "skills/zh/testing-types/requirement-traceability-analysis/SKILL.md",
+        "skills/en/testing-types/requirement-traceability-analysis/SKILL.md",
+        "skills/zh/testing-types/requirement-traceability-analysis/prompts/requirement-traceability-analysis.md",
+        "skills/en/testing-types/requirement-traceability-analysis/prompts/requirement-traceability-analysis.md"
+      ],
+      "candidate_source": "docs/superpowers/specs/2026-09-14-v1-1-following-five-quality-skills-design.md; docs/superpowers/plans/2026-09-14-v1-1-ten-quality-skills.md; local bilingual package review"
+    },
+    {
+      "slug": "test-gap-analysis",
+      "decision_state": "REVIEWED",
+      "conclusion": "NEW",
+      "target": "test-gap-analysis",
+      "scope": "Evidence-bounded discovery of missing mappings, orphan tests, unverified execution, stale evidence, uncovered risks, and low-value duplicates across requirements, risks, changes, defects, and test assets.",
+      "non_goals": "No complete RT/TC matrix, coverage claim, test execution, defect closure, release approval, or Human risk acceptance.",
+      "evidence": {
+        "name": "The reviewed design and bilingual package frontmatter define a distinct TG-## test-gap discovery capability.",
+        "purpose": "The Prompt preserves two-way evidence checks, gap types, close actions, and the boundary that static presence is not a coverage claim.",
+        "inputs": "skills/zh/testing-types/test-gap-analysis/prompts/test-gap-analysis.md input audit and input sections; English mirror Input Audit and Input.",
+        "outputs": "skills/zh/testing-types/test-gap-analysis/prompts/test-gap-analysis.md TG-## Gap Contract and Output Order; English mirror Gap Contract and Output Order.",
+        "decision_logic": "Distinguish missing mapping, orphan, unverified, stale, uncovered-risk, and low-value-duplicate findings while separating facts, assumptions, and execution evidence.",
+        "workflow_role": "Optional v1.1 Phase 1 test-design-and-preparation specialist after requirement/risk evidence; navigation only, with no execution or release decision."
+      },
+      "next_action": "Run real model Eval when Claude login is available and verify gap classification and coverage-claim boundaries before changing the reviewed state.",
+      "target_evidence_paths": [
+        "skills/zh/testing-types/test-gap-analysis/SKILL.md",
+        "skills/en/testing-types/test-gap-analysis/SKILL.md",
+        "skills/zh/testing-types/test-gap-analysis/prompts/test-gap-analysis.md",
+        "skills/en/testing-types/test-gap-analysis/prompts/test-gap-analysis.md"
+      ],
+      "candidate_source": "docs/superpowers/specs/2026-09-14-v1-1-test-design-discovery-five-design.md; docs/superpowers/plans/2026-09-14-v1-1-test-design-discovery-five.md; local bilingual package review"
+    },
+    {
+      "slug": "risk-based-testing",
+      "decision_state": "REVIEWED",
+      "conclusion": "NEW",
+      "target": "risk-based-testing",
+      "scope": "Evidence-bounded conversion of quality risks and delivery constraints into RBT-## test priority, level or method, depth, scope tradeoffs, stop conditions, and expansion triggers.",
+      "non_goals": "No risk-register replacement, full test strategy, regression-set selection, execution, pseudo-precise risk score, release approval, or Human risk acceptance.",
+      "evidence": {
+        "name": "The reviewed design and bilingual package frontmatter define a distinct RBT-## test-priority decision capability.",
+        "purpose": "The Prompt connects risk source to failure mode and test objective while preserving resource tradeoffs and residual-risk boundaries.",
+        "inputs": "skills/zh/testing-types/risk-based-testing/prompts/risk-based-testing.md input audit and input sections; English mirror Input Audit and Input.",
+        "outputs": "skills/zh/testing-types/risk-based-testing/prompts/risk-based-testing.md RBT-## Decision Contract and Output Order; English mirror Decision Contract and Output Order.",
+        "decision_logic": "Use sourced or explicitly qualitative risk evidence to select priority, level, method, depth, and tradeoffs; label assumptions and leave acceptance to a Human.",
+        "workflow_role": "Optional v1.1 Phase 1 test-design-and-preparation specialist after risk evidence; navigation only, with no execution or full strategy decision."
+      },
+      "next_action": "Run real model Eval when Claude login is available and verify risk-to-test tradeoffs without pseudo-precise scores or full-strategy claims before changing the reviewed state.",
+      "target_evidence_paths": [
+        "skills/zh/testing-types/risk-based-testing/SKILL.md",
+        "skills/en/testing-types/risk-based-testing/SKILL.md",
+        "skills/zh/testing-types/risk-based-testing/prompts/risk-based-testing.md",
+        "skills/en/testing-types/risk-based-testing/prompts/risk-based-testing.md"
+      ],
+      "candidate_source": "docs/superpowers/specs/2026-09-14-v1-1-test-design-discovery-five-design.md; docs/superpowers/plans/2026-09-14-v1-1-test-design-discovery-five.md; local bilingual package review"
+    },
+    {
+      "slug": "edge-case-discovery",
+      "decision_state": "REVIEWED",
+      "conclusion": "NEW",
+      "target": "edge-case-discovery",
+      "scope": "Evidence-bounded discovery of EC-## boundary candidates across value, length, null/type, time/time-zone, state, capacity/resource, concurrency/order, platform/localization, and combination dimensions.",
+      "non_goals": "No invented thresholds or product rules, complete test-case authoring, execution, coverage proof, or release conclusion.",
+      "evidence": {
+        "name": "The reviewed design and bilingual package frontmatter define a distinct EC-## boundary-candidate discovery capability.",
+        "purpose": "The Prompt records sourced boundary triggers, concerns, impact, validation suggestions, and open questions without turning candidates into full cases.",
+        "inputs": "skills/zh/testing-types/edge-case-discovery/prompts/edge-case-discovery.md input audit and input sections; English mirror Input Audit and Input.",
+        "outputs": "skills/zh/testing-types/edge-case-discovery/prompts/edge-case-discovery.md EC-## Candidate Contract and Output Order; English mirror Candidate Contract and Output Order.",
+        "decision_logic": "Select a minimal high-risk set from applicable dimensions, retain source and uncertainty, and ask closeable questions for unknown thresholds or conflicting rules.",
+        "workflow_role": "Optional v1.1 Phase 1 test-design-and-preparation specialist before test-case design; navigation only, with no execution."
+      },
+      "next_action": "Run real model Eval when Claude login is available and verify dimension coverage, source retention, and no-invented-threshold behavior before changing the reviewed state.",
+      "target_evidence_paths": [
+        "skills/zh/testing-types/edge-case-discovery/SKILL.md",
+        "skills/en/testing-types/edge-case-discovery/SKILL.md",
+        "skills/zh/testing-types/edge-case-discovery/prompts/edge-case-discovery.md",
+        "skills/en/testing-types/edge-case-discovery/prompts/edge-case-discovery.md"
+      ],
+      "candidate_source": "docs/superpowers/specs/2026-09-14-v1-1-test-design-discovery-five-design.md; docs/superpowers/plans/2026-09-14-v1-1-test-design-discovery-five.md; local bilingual package review"
+    },
+    {
+      "slug": "negative-scenario-discovery",
+      "decision_state": "REVIEWED",
+      "conclusion": "NEW",
+      "target": "negative-scenario-discovery",
+      "scope": "Evidence-bounded discovery of NS-## invalid, unauthorized, dependency-failure, timeout, retry-exhaustion, duplicate, partial-failure, and unsafe-recovery candidates.",
+      "non_goals": "No fault injection, real dependency calls, data mutation, invented error codes or thresholds, complete case writing, execution, or release safety conclusion.",
+      "evidence": {
+        "name": "The reviewed design and bilingual package frontmatter define a distinct NS-## negative-path discovery capability.",
+        "purpose": "The Prompt preserves trigger, precondition, expected behavior, visible result, consistency impact, and evidence needs for failure paths.",
+        "inputs": "skills/zh/testing-types/negative-scenario-discovery/prompts/negative-scenario-discovery.md input audit and input sections; English mirror Input Audit and Input.",
+        "outputs": "skills/zh/testing-types/negative-scenario-discovery/prompts/negative-scenario-discovery.md NS-## Failure-Path Contract and Output Order; English mirror Failure-Path Contract and Output Order.",
+        "decision_logic": "Separate product-stated contracts, evidence-backed inference, open choices, and execution prerequisites across invalid, denied, failed, degraded, retry, duplicate, partial, and recovery paths.",
+        "workflow_role": "Optional v1.1 Phase 1 test-design-and-preparation specialist before negative test design; navigation only, with no fault injection or execution."
+      },
+      "next_action": "Run real model Eval when Claude login is available and verify failure-mode separation, data-consistency impact, and no-fault-injection boundaries before changing the reviewed state.",
+      "target_evidence_paths": [
+        "skills/zh/testing-types/negative-scenario-discovery/SKILL.md",
+        "skills/en/testing-types/negative-scenario-discovery/SKILL.md",
+        "skills/zh/testing-types/negative-scenario-discovery/prompts/negative-scenario-discovery.md",
+        "skills/en/testing-types/negative-scenario-discovery/prompts/negative-scenario-discovery.md"
+      ],
+      "candidate_source": "docs/superpowers/specs/2026-09-14-v1-1-test-design-discovery-five-design.md; docs/superpowers/plans/2026-09-14-v1-1-test-design-discovery-five.md; local bilingual package review"
+    },
+    {
+      "slug": "test-data-requirement-analysis",
+      "decision_state": "REVIEWED",
+      "conclusion": "NEW",
+      "target": "test-data-requirement-analysis",
+      "scope": "Evidence-bounded analysis of TDR-## test-data prerequisites covering entities, fields, relationships, states, roles, value classes, sources, privacy, setup, isolation, cleanup, and blockers.",
+      "non_goals": "No data generation, production-data access, record creation, data export, compliance approval, complete case writing, or test execution.",
+      "evidence": {
+        "name": "The reviewed design and bilingual package frontmatter define a distinct TDR-## test-data prerequisite capability.",
+        "purpose": "The Prompt converts test scenarios into consumable data requirements while retaining privacy, lifecycle, reproducibility, and blocker boundaries.",
+        "inputs": "skills/zh/testing-types/test-data-requirement-analysis/prompts/test-data-requirement-analysis.md input audit and input sections; English mirror Input Audit and Input.",
+        "outputs": "skills/zh/testing-types/test-data-requirement-analysis/prompts/test-data-requirement-analysis.md TDR-## Data Requirement Contract and Output Order; English mirror Data Requirement Contract and Output Order.",
+        "decision_logic": "Map scenarios to entity, field, relationship, state, role, value class, source, privacy, environment, setup, and cleanup requirements, separating blockers and Human/compliance decisions.",
+        "workflow_role": "Optional v1.1 Phase 1 test-design-and-preparation specialist before data generation or test design; navigation only, with no data creation."
+      },
+      "next_action": "Run real model Eval when Claude login is available and verify prerequisite completeness, privacy boundaries, and safe handoff to data generation without dataset creation before changing the reviewed state.",
+      "target_evidence_paths": [
+        "skills/zh/testing-types/test-data-requirement-analysis/SKILL.md",
+        "skills/en/testing-types/test-data-requirement-analysis/SKILL.md",
+        "skills/zh/testing-types/test-data-requirement-analysis/prompts/test-data-requirement-analysis.md",
+        "skills/en/testing-types/test-data-requirement-analysis/prompts/test-data-requirement-analysis.md"
+      ],
+      "candidate_source": "docs/superpowers/specs/2026-09-14-v1-1-test-design-discovery-five-design.md; docs/superpowers/plans/2026-09-14-v1-1-test-design-discovery-five.md; local bilingual package review"
     }
   ]
 }

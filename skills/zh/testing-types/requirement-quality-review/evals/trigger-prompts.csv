@@ -1,0 +1,5 @@
+id,should_trigger,prompt,mode
+explicit,true,"使用 $requirement-quality-review，对这份需求做证据边界内的质量评审并列出可关闭缺口。",explicit
+implicit,true,"这份需求只有“用户可以快速退款”，请从完整性、清晰度、可验证性和证据质量识别缺口，不打分或替人放行。",implicit
+contextual,true,"作为支付产品变更的 QA 入口，审阅给出的退款需求、版本和验收材料，输出来源、风险、待确认问题和验证方式。",contextual
+negative,false,"为已经批准的退款需求编写 Playwright 测试用例并执行现有测试。",negative

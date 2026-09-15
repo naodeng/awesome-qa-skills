@@ -22,20 +22,23 @@ description: Use this skill when you need to assess whether a requirement or des
 1. 先阅读并遵循 `prompts/testability-analysis.md` 的输入、执行规则、最低覆盖清单和输出顺序。
 2. 补充真正影响判断的范围、环境、版本、限制、证据和成功标准。
 3. 先做输入审计，再区分已确认事实、合理假设和待确认问题。
-4. 按风险和证据强度排序，产出可直接执行、评审或验证的结果。
-5. 信息不足时不要停在提问：先交付受限初版，并说明哪些结论暂不能成立。
+4. 当任务要求 `architecture-testability-review` 或 `architecture` 模式时，先从架构制品、依赖拓扑、异步边界、测试接缝、替身策略、故障注入入口和环境复现分析，再保留通用可测试性维度。
+5. 按风险和证据强度排序，产出可直接执行、评审或验证的结果。
+6. 信息不足时不要停在提问：先交付受限初版，并说明哪些结论暂不能成立。
 
 ## 参考文件
 
 - 每次执行必须读取 `prompts/testability-analysis.md`；它是本 Skill 的完整执行规范。
 - 需要评测或回归本 Skill 时，读取 `evals/eval.yaml` 与匹配的 `evals/cases/` 用例。
 - 只有目录实际存在且任务需要时，才读取 `references/`、`examples/`、`scripts/` 或 `output-formats.md`，不要假设不存在的资产。
+- 需要回归 `architecture-testability-review` 时使用 `architecture-*` Eval 和本地触发数据；仍复用本 Skill 的物理目录，不创建别名目录。
 
 ## 核心约束
 
 - 不要把测试框架选择当测试性本身
 - 每项改进说明价值和成本
 - 避免为测试暴露不安全后门
+- `architecture` 模式必须用架构级来源支撑接缝、替身、隔离和故障注入判断；不把框架名称当作可测试性证据。
 - 不编造输入中不存在的系统行为、字段、数据、指标或根因。
 - 关键结论必须关联证据；证据不足时标记为假设并给出验证方法。
 - 优先级必须说明业务影响、发生可能性或可探测性依据。

@@ -1,0 +1,28 @@
+id: edge-incomplete-input
+title: "Technical design review: insufficient design material"
+description: |
+  Only a sentence about adding a cache is supplied; review should deliver a bounded first pass without guessing a TTL or performance gain.
+
+input:
+  prompt: |
+    Use technical-design-quality-review. The only input is "Add a cache in front of the user service to improve performance." No topology, cache key, invalidation, sensitive-data, capacity, fallback, or environment information is supplied.
+    Give a minimum useful review, separate known, missing, assumptions, and open questions, and do not guess a cache TTL or performance result.
+
+expect:
+  must_contain:
+    - "known"
+    - "missing"
+    - "assumptions"
+    - "TD-"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Input Audit"
+          - "open"
+          - "validation"

@@ -1,0 +1,28 @@
+id: edge-incomplete-input
+title: 基于风险的测试：风险材料不足
+description: |
+  只有“测试新支付功能”，分析应给出受限优先级，而不是假造风险数字。
+
+input:
+  prompt: |
+    使用 risk-based-testing。唯一输入是“测试新支付功能”。没有业务影响、失败模式、变更面、历史缺陷、用户数据、环境、团队、时间或现有控制。
+    请区分已知事实、信息缺口、冲突、过期信息、范围外和假设，给出受限的 RBT-##，不要制造伪精确风险分数或发布结论。
+
+expect:
+  must_contain:
+    - "RBT-"
+    - "信息缺口"
+    - "假设"
+    - "受限"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "证据"
+          - "待确认"
+          - "验证"

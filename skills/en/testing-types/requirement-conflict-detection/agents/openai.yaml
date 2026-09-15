@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "requirement-conflict-detection"
+interface:
+  display_name: "Requirement Conflict Detection"
+  short_description: "Detect mutually exclusive requirement rules while preserving both sources, scope, evidence, and human decisions."
+  default_prompt: "Use the requirement-conflict-detection skill to identify conflicting requirement statements and preserve both sources for human decision."
+policy:
+  allow_implicit_invocation: true

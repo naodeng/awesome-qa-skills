@@ -1,0 +1,28 @@
+id: basic-success
+title: "API design review: contract and consumer impact"
+description: |
+  The input supplies a paginated API success example and limited authorization notes but omits errors, idempotency, and versioning; review should produce API-## findings and evidence gaps.
+
+input:
+  prompt: |
+    Use api-design-quality-review for GET /orders?page=1. The document gives only id, status, and total in a 200 response and says "login required"; mobile and data-export services are consumers. It supplies no 401/403/429/5xx error model, stable sorting, idempotency, page limit, version migration, or execution record.
+    Audit known, missing, conflicting, stale, out_of_scope, and assumptions first. Then provide an operation matrix and API-## findings; do not treat the success example as a complete contract.
+
+expect:
+  must_contain:
+    - "API-"
+    - "operation"
+    - "compatibility"
+    - "evidence"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Input Audit"
+          - "error"
+          - "validation"

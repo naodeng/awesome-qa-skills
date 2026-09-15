@@ -1,0 +1,30 @@
+id: basic-success
+title: 需求一致性分析：术语与状态对照
+description: |
+  两份材料对角色术语和订单状态描述不同；分析应给出来源对照和适用范围，而不是猜测同义或合并状态机。
+
+input:
+  prompt: |
+    请使用 requirement-consistency-analysis 对照以下材料。
+    PRD：买家提交订单后，订单可以从 pending 进入 cancelled。
+    API 契约：接口字段使用 customer；订单状态只列出 pending → paid。
+    版本均标记为 v1，但没有状态迁移说明。
+    请分析术语、状态和行为描述的一致性，给出证据、影响和下一步。
+
+expect:
+  must_contain:
+    - "一致"
+    - "RC-"
+    - "来源"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "对照"
+          - "状态"
+          - "验证"

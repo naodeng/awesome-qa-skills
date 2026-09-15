@@ -1,0 +1,27 @@
+id: basic-success
+title: 基于风险的测试：优先级与深度取舍
+description: |
+  输入提供业务影响、历史缺陷、变更面和有限资源；分析应输出 RBT-## 测试决策。
+
+input:
+  prompt: |
+    请使用 risk-based-testing 为支付结算 v1.1 变更安排测试优先级。支付扣款和结算状态是高影响路径；历史上有重复扣款和回调延迟。只有两名 QA、两天时间和一个脱敏沙箱。请先审计已知事实、信息缺口、冲突、过期信息、范围外和假设，再输出 RBT-##，说明测试目标、层级/方法、深度、优先级依据、范围取舍、停止条件、扩大触发器和所需证据。
+
+expect:
+  must_contain:
+    - "RBT-"
+    - "优先级"
+    - "深度"
+    - "扩大"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "输入审计"
+          - "范围取舍"
+          - "剩余风险"

@@ -1,0 +1,5 @@
+id,should_trigger,prompt,mode
+explicit,true,"Use the $requirement-quality-review skill to review this requirement within its evidence boundary and list closeable gaps.",explicit
+implicit,true,"The requirement only says that users can get a fast refund. Identify gaps in completeness, clarity, verifiability, and evidence without scoring it or approving release.",implicit
+contextual,true,"As the QA entry point for a payment-product change, review the supplied refund requirement, version, and acceptance material and return sources, risks, open questions, and validation methods.",contextual
+negative,false,"Write and execute Playwright tests for an already-approved refund requirement.",negative

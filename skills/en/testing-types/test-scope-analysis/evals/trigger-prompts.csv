@@ -1,0 +1,5 @@
+id,should_trigger,prompt,mode
+explicit,true,"Use $test-scope-analysis to define release-test inclusion, exclusion, depth, stop conditions, and expansion triggers before execution.",explicit
+implicit,true,"There are two days and one sandbox for a payment change affecting several consumers; define an evidence-backed test scope and residual risks.",implicit
+contextual,true,"As the QA entry point for an iteration risk review, analyze core paths, transitive impact, non-functional, migration compatibility, and unassessed areas.",contextual
+negative,false,"Write and execute a complete Playwright suite to ensure every path passes.",negative

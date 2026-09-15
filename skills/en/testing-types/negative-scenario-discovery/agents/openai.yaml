@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "negative-scenario-discovery"
+interface:
+  display_name: "Negative Scenario Discovery"
+  short_description: "Discover evidence-backed invalid, denied, failed, degraded, and recovery scenarios."
+  default_prompt: "Use the negative-scenario-discovery skill to identify failure paths and evidence needs without fault injection."
+policy:
+  allow_implicit_invocation: true

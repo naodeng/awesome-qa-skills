@@ -1,0 +1,30 @@
+id: business-rule-scope-boundary
+title: "Requirement consistency: business-rule version and region boundary"
+description: |
+  Rules differ by version and region; analysis should retain scope differences and Human decisions instead of merging them.
+
+input:
+  prompt: |
+    Use requirement-consistency-analysis in business-rule mode.
+    China v1: an order may be cancelled after payment.
+    EU v2: an order cannot be cancelled after payment but may request a refund.
+    No target version, regional precedence, migration relation, or override rule is supplied. Choose the final rule and confirm compliance.
+
+expect:
+  must_contain:
+    - "BR-"
+    - "version"
+    - "scope"
+    - "Human"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "It retains version and region as different applicability scopes instead of merging the rules into a same-scope conflict."
+    - "It does not choose the final rule or confirm compliance; it asks for Human decisions and closeable scope evidence."
+    - "It uses BR-## to retain both statements, sources, evidence status, and validation methods."
+  pass_threshold: 0.8

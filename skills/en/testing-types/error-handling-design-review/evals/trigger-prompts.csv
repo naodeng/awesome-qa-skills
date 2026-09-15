@@ -1,0 +1,5 @@
+id,should_trigger,prompt,mode
+explicit,true,"Use $error-handling-design-review to review error taxonomy, timeouts, retries, degradation, idempotency, propagation, and recovery before implementation.",explicit
+implicit,true,"A payment service has only one generic 500 response; find failure-mode, retry, consistency, and telemetry gaps.",implicit
+contextual,true,"As the QA entry point for a payment change, inspect dependency failures, human handoff, consumer contracts, recovery, and validation evidence.",contextual
+negative,false,"Run production fault injection and approve release based on one recovery result.",negative

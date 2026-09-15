@@ -1,0 +1,28 @@
+id: basic-success
+title: API 设计质量评审：契约与消费者影响
+description: |
+  输入包含一个分页 API 的成功样例和少量鉴权说明，但缺少错误、幂等和版本信息；评审应输出 API-## 和证据缺口。
+
+input:
+  prompt: |
+    请使用 api-design-quality-review 评审 GET /orders?page=1 的设计。文档只给出 200 响应中的 id、status、total 字段和“需要登录”；移动端与数据导出服务都是消费者。没有 401/403/429/5xx 错误模型、排序稳定性、幂等策略、分页上限、版本迁移或执行记录。
+    先做 known、missing、conflicting、stale、out_of_scope、assumptions 审计，再输出 operation 覆盖矩阵和 API-##，不要把成功样例当完整契约。
+
+expect:
+  must_contain:
+    - "API-"
+    - "operation"
+    - "兼容"
+    - "证据"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "输入审计"
+          - "错误"
+          - "验证"

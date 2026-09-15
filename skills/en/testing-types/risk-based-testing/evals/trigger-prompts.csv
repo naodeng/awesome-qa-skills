@@ -1,0 +1,5 @@
+id,should_trigger,prompt,mode
+explicit,true,"Use $risk-based-testing to turn known quality risks into test priority, level, depth, and scope tradeoffs.",explicit
+implicit,true,"There are two days and a history of duplicate charges; decide what to test first and how deeply based on risk.",implicit
+contextual,true,"As an iteration-quality review entry point, analyze failure modes, detectability, capacity constraints, stop conditions, and scope-expansion triggers.",contextual
+negative,false,"Run full regression and approve release without explaining the risk basis.",negative

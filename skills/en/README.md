@@ -4,7 +4,7 @@
 
 This is the English Skill root and mirrors `skills/zh` with identical Skill names and physical structure.
 
-Each language provides **79** Skills: 10 workflows + 66 testing types + 3 Skill Engineering. See the [Chinese README](../../README.md) and [English README](../../README_EN.md); see the [governance roadmap](../../docs/governance/SKILL_GOVERNANCE_ROADMAP_EN.md) and [governance matrix](../../docs/SKILL_MATRIX_EN.md) for long-term governance.
+Each language provides **96** Skills: 10 workflows + 83 testing types + 3 Skill Engineering. See the [Chinese README](../../README.md) and [English README](../../README_EN.md); see the [governance roadmap](../../docs/governance/SKILL_GOVERNANCE_ROADMAP_EN.md) and [governance matrix](../../docs/SKILL_MATRIX_EN.md) for long-term governance.
 
 ## Cross-phase workflows
 
@@ -90,6 +90,22 @@ Each language provides **79** Skills: 10 workflows + 66 testing types + 3 Skill 
 | Requirement Gap Analysis | [`requirement-gap-analysis`](testing-types/requirement-gap-analysis/) |
 | Quality Risk Analysis | [`quality-risk-analysis`](testing-types/quality-risk-analysis/) |
 | Testability Analysis | [`testability-analysis`](testing-types/testability-analysis/) |
+| Requirement Quality Review | [`requirement-quality-review`](testing-types/requirement-quality-review/) |
+| Requirement Ambiguity Analysis | [`requirement-ambiguity-analysis`](testing-types/requirement-ambiguity-analysis/) |
+| Requirement Consistency Analysis | [`requirement-consistency-analysis`](testing-types/requirement-consistency-analysis/) |
+| Requirement Conflict Detection | [`requirement-conflict-detection`](testing-types/requirement-conflict-detection/) |
+| Requirement Traceability Analysis | [`requirement-traceability-analysis`](testing-types/requirement-traceability-analysis/) |
+| Business Rule Extraction | [`business-rule-extraction`](testing-types/business-rule-extraction/) |
+| Technical Design Quality Review | [`technical-design-quality-review`](testing-types/technical-design-quality-review/) |
+| API Design Quality Review | [`api-design-quality-review`](testing-types/api-design-quality-review/) |
+| Database Design Quality Review | [`database-design-quality-review`](testing-types/database-design-quality-review/) |
+| Observability Design Review | [`observability-design-review`](testing-types/observability-design-review/) |
+| Error Handling Design Review | [`error-handling-design-review`](testing-types/error-handling-design-review/) |
+| Test Scope Analysis | [`test-scope-analysis`](testing-types/test-scope-analysis/) |
+| Test Gap Analysis | [`test-gap-analysis`](testing-types/test-gap-analysis/) |
+| Risk-Based Testing | [`risk-based-testing`](testing-types/risk-based-testing/) |
+| Edge Case Discovery | [`edge-case-discovery`](testing-types/edge-case-discovery/) |
+| Negative Scenario Discovery | [`negative-scenario-discovery`](testing-types/negative-scenario-discovery/) |
 
 #### Development and Continuous Integration
 
@@ -105,6 +121,7 @@ Each language provides **79** Skills: 10 workflows + 66 testing types + 3 Skill 
 
 | Skill | Directory |
 | --- | --- |
+| Test Data Requirement Analysis | [`test-data-requirement-analysis`](testing-types/test-data-requirement-analysis/) |
 | Test Data Generation | [`test-data-generation`](testing-types/test-data-generation/) |
 | API Test Bruno | [`api-test-bruno`](testing-types/api-test-bruno/) |
 | Postman API Testing | [`api-test-postman`](testing-types/api-test-postman/) |

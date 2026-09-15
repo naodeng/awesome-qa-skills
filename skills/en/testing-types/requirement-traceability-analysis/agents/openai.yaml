@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "requirement-traceability-analysis"
+interface:
+  display_name: "Requirement Traceability Analysis"
+  short_description: "Map requirements bidirectionally to acceptance, design, code, tests, defects, and evidence without overstating execution."
+  default_prompt: "Use the requirement-traceability-analysis skill to build a bidirectional requirement-to-evidence mapping and expose coverage gaps."
+policy:
+  allow_implicit_invocation: true

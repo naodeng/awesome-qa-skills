@@ -1,0 +1,28 @@
+id: edge-incomplete-input
+title: 测试数据需求分析：schema 和隐私信息不足
+description: |
+  只有“准备测试数据”，分析应列出数据需求缺口而不是编造字段和数据值。
+
+input:
+  prompt: |
+    使用 test-data-requirement-analysis。唯一输入是“准备这个功能的测试数据”。没有需求、场景、schema、实体关系、角色、状态、隐私政策、来源、环境、初始化或清理规则。
+    请区分已知事实、信息缺口、冲突、过期信息、范围外和假设，输出受限 TDR-##，不要生成数据或声称数据已经可用。
+
+expect:
+  must_contain:
+    - "TDR-"
+    - "信息缺口"
+    - "假设"
+    - "数据"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "输入审计"
+          - "待确认"
+          - "验证"

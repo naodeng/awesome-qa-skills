@@ -1,0 +1,28 @@
+id: architecture-incomplete-input
+title: 架构可测试性评审：架构材料不完整
+description: |
+  只有“服务调用支付系统”，没有边界、拓扑、环境或依赖证据；评审应给受限初版。
+
+input:
+  prompt: |
+    使用 testability-analysis 的 architecture-testability-review 模式。唯一材料是“订单服务调用支付系统”。没有架构图、依赖、异步链路、数据、配置、环境、替身或故障注入资料。
+    请区分 known、missing、assumptions 和待确认问题，不要凭框架或服务名断言可测试性。
+
+expect:
+  must_contain:
+    - "known"
+    - "missing"
+    - "assumptions"
+    - "architecture"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "输入审计"
+          - "待确认"
+          - "证据"

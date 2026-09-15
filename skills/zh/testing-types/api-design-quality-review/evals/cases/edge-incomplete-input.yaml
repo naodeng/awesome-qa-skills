@@ -1,0 +1,28 @@
+id: edge-incomplete-input
+title: API 设计质量评审：只有路径和一句描述
+description: |
+  输入只有一个 POST 路径和“创建订单”，没有 schema、权限、错误、幂等或消费者资料；评审应给出受限初版。
+
+input:
+  prompt: |
+    使用 api-design-quality-review。唯一材料是 POST /orders：创建订单。没有请求体、响应、状态码、权限、重复提交处理、版本、消费者或环境。
+    请列出 known、missing、assumptions 和最优先补证问题，不要猜测字段或默认状态码。
+
+expect:
+  must_contain:
+    - "known"
+    - "missing"
+    - "assumptions"
+    - "API-"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "输入审计"
+          - "待确认"
+          - "验证"

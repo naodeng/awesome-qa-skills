@@ -1,0 +1,29 @@
+id: edge-incomplete-input
+title: "Requirement quality review: usable draft with incomplete input"
+description: |
+  With one sentence of input, the review must separate known facts, gaps, and assumptions instead of refusing or inventing rules.
+
+input:
+  prompt: |
+    Use requirement-quality-review.
+    The only input is: the new release adds points redemption.
+    There is no prototype, acceptance criteria, API description, actor definition, or release scope.
+    Produce a minimum usable review draft and list the highest-value questions to clarify first.
+
+expect:
+  must_contain:
+    - "known"
+    - "missing"
+    - "assumption"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Input Audit"
+          - "open"
+          - "gap"

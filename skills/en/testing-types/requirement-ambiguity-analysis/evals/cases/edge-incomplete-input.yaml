@@ -1,0 +1,28 @@
+id: edge-incomplete-input
+title: "Requirement ambiguity analysis: one-sentence input"
+description: |
+  With one sentence only, the analysis must list missing decision context without inventing a refund SLA or business rule.
+
+input:
+  prompt: |
+    Use requirement-ambiguity-analysis for: fast refunds are supported.
+    There are no actors, amount range, processing time, state definitions, exception rules, or acceptance criteria.
+    Give a minimum usable draft and the highest-value questions to clarify first.
+
+expect:
+  must_contain:
+    - "known"
+    - "missing"
+    - "assumption"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Input Audit"
+          - "open"
+          - "untestable"

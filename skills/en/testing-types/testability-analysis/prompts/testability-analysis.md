@@ -30,6 +30,12 @@ If critical input is absent, list `Working Assumptions` and `Open Questions`, th
 4. Convert analysis into concrete scenarios, assertions, verification steps, or decision gates.
 5. Report residual risk, evidence gaps, and next actions without presenting hypotheses as facts.
 
+## Architecture Testability Mode (`architecture-testability-review`)
+
+When the task requests `architecture-testability-review` or `architecture` mode, first locate architecture diagrams, component boundaries, dependency topology, asynchronous flows, data stores, external services, configuration, and deployment environments. For each critical path analyze test seams, substitute strategy, isolation boundaries, fault-injection entry points, environment reproduction, and evidence gaps while retaining observability, controllability, isolation, determinism, and data preparation dimensions.
+
+Architecture-mode conclusions must cite architecture-level sources and minimum evidence. A framework name, one mock, or an “injectable” claim is not proof that a seam is safe, fault injection is effective, or architecture testability passed; do not recommend bypasses that weaken authorization, data isolation, or production safety.
+
 ## Execution Rules
 
 - do not confuse framework choice with testability

@@ -1,0 +1,30 @@
+id: business-rule-incomplete-input
+title: "Requirement consistency: incomplete business-rule material"
+description: |
+  One rule and a vague second source are supplied; analysis should expose missing scope, precedence, and evidence.
+
+input:
+  prompt: |
+    Use requirement-consistency-analysis in business-rule mode.
+    Source A: high-risk orders require human review.
+    Source B: high-risk orders are handled with priority. No version, risk definition, threshold, role, state transition, or applicability scope is supplied.
+    Output a bounded BR-## comparison and distinguish known, missing, stale, and assumptions. Do not interpret “priority” as higher precedence or an automatic override of human review.
+
+expect:
+  must_contain:
+    - "known"
+    - "missing"
+    - "BR-"
+    - "assumptions"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Input Audit"
+          - "scope"
+          - "validation"

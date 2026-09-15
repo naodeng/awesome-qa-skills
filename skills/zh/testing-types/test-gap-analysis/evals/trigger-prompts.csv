@@ -1,0 +1,5 @@
+id,should_trigger,prompt,mode
+explicit,true,"使用 $test-gap-analysis，基于需求、风险、变更和测试证据发现测试缺口并输出 TG-##。",explicit
+implicit,true,"支付回调有历史重复和延迟问题，但现有测试证据不完整，请找出未被保护的测试义务。",implicit
+contextual,true,"作为发布前 QA 入口，比较需求、风险、测试资产和执行证据，识别孤立、过期和未验证的覆盖缺口。",contextual
+negative,false,"直接执行全部自动化测试并宣布版本通过。",negative

@@ -1,0 +1,32 @@
+id: basic-success
+title: "Requirement conflict detection: login rules for checkout"
+description: |
+  Two same-version artifacts give mutually exclusive rules for the same checkout flow; analysis must preserve both sources and leave the decision to a Human.
+
+input:
+  prompt: |
+    Use requirement-conflict-detection on these v1 artifacts for the same product.
+    Product note: a guest may submit an order without logging in.
+    Security policy: a user must log in and bind an account before submitting an order.
+    Both statements apply to the standard Web checkout flow, but no precedence is documented.
+    Report both statements, sources, applicability, impact, priority, decision question, owner, and validation method; do not choose the final rule.
+
+expect:
+  must_contain:
+    - "conflict"
+    - "RF-"
+    - "source"
+    - "Human"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "guest"
+          - "log in"
+          - "decision"
+          - "validation"

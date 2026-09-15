@@ -1,0 +1,28 @@
+id: basic-success
+title: 可观测性设计评审：信号语义与告警可行动性
+description: |
+  输入包含订单指标、Trace 和告警草案，但缺少标签基数、敏感字段处理和告警动作；评审应输出 OBS-##。
+
+input:
+  prompt: |
+    请使用 observability-design-review 评审：订单服务有 request_count、latency 和 payment_trace；团队计划把 user_id 作为指标标签，错误率超过 5% 时报警，dashboard 显示“健康”。没有单位、聚合窗口、基数上限、脱敏、采样、保留、告警接收人或运行信号。
+    先审计 known、missing、conflicting、stale、out_of_scope、assumptions，再输出信号矩阵和 OBS-##。不要确认系统健康或自行决定 SLO。
+
+expect:
+  must_contain:
+    - "OBS-"
+    - "基数"
+    - "告警"
+    - "隐私"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "输入审计"
+          - "采样"
+          - "验证"

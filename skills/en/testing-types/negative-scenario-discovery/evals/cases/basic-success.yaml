@@ -1,0 +1,27 @@
+id: basic-success
+title: "Negative scenario discovery: dependency failure and idempotency risks"
+description: |
+  The input supplies permissions, dependency timeout, duplicate requests, and partial failure constraints; analysis should produce NS-##.
+
+input:
+  prompt: |
+    Use negative-scenario-discovery for a refund API. Only the order owner or support role may act; the payment dependency may time out; requests carry an idempotency key; past failures included duplicate submission and payment success without local-state update. Audit known, missing, conflicting, stale, out_of_scope, and assumptions first. Then output NS-## distinguishing unauthorized access, timeout, retry exhaustion, duplicate request, partial failure, and recovery paths with visible outcomes, consistency impact, and validation.
+
+expect:
+  must_contain:
+    - "NS-"
+    - "timeout"
+    - "idempotency"
+    - "consistency"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Input Audit"
+          - "trigger"
+          - "validation"

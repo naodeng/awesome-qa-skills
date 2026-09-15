@@ -5,9 +5,9 @@
 A language-partitioned **AI testing skills library** (Agent Skills) for Codex, Cursor, Claude Code, Kiro, OpenCode, Trae, and similar tools. It ships independently installable, composable skills for testing workflows and testing types.
 
 [![License: PolyForm Noncommercial 1.0.0](https://img.shields.io/badge/License-PolyForm%20Noncommercial%201.0.0-blue.svg)](./LICENSE)
-[![Skills](https://img.shields.io/badge/skills-158%20(zh%2Ben)-0A7EA4)](./docs/catalog/skills-index.md)
+[![Skills](https://img.shields.io/badge/skills-192%20(zh%2Ben)-0A7EA4)](./docs/catalog/skills-index.md)
 [![Workflows](https://img.shields.io/badge/workflows-10-informational)](./skills/en/testing-workflows/)
-[![Testing types](https://img.shields.io/badge/testing%20types-66-informational)](./skills/en/testing-types/)
+[![Testing types](https://img.shields.io/badge/testing%20types-83-informational)](./skills/en/testing-types/)
 [![Skill engineering](https://img.shields.io/badge/skill%20engineering-3-informational)](./skills/en/skill-engineering/)
 [![skills.sh](https://skills.sh/b/naodeng/awesome-qa-skills)](https://skills.sh/naodeng/awesome-qa-skills)
 
@@ -21,7 +21,7 @@ A language-partitioned **AI testing skills library** (Agent Skills) for Codex, C
 | --- | --- |
 | Bilingual parity | `skills/zh` and `skills/en` share the same folder names and layout |
 | Full testing chain | From requirements and strategy through cases, execution, defects, and reporting |
-| Workflows + type skills | Daily / sprint / release, role-quality perspective, and multi-role synthesis workflows, composed with 65 specialized type skills |
+| Workflows + type skills | Daily / sprint / release, role-quality perspective, and multi-role synthesis workflows, composed with 83 specialized type skills |
 | Ready to install | One-click installers plus per-skill shortcut scripts |
 | Evaluable & evolvable | Every skill includes `evals/`; validate and run with [skill-up](https://github.com/alibaba/skill-up) |
 
@@ -38,7 +38,7 @@ Start with the delivery or testing stage you are in, then install or invoke a Sk
 | Make quality decisions from release and production evidence | Production Quality Skills | Release verification, incident response, trace, and metrics analysis | [View Production Quality Skills](#production-quality-skills--production-quality) |
 | Test AI features, LLMs, prompts, agents, and safety boundaries | AI Native QA Skills | AI requirements and risk, evaluation, tool use, and injection defense | [View AI Native QA Skills](#ai-native-qa-skills--ai-native-quality) |
 | Orchestrate stages, collaborate by role, or decide where to begin | Cross-phase workflows | Routing, daily / sprint / release workflows, quality perspectives, and synthesis | [View workflows](#cross-phase-workflows) |
-| You already know the Skill name | Complete index | All 79 capabilities and Chinese/English paths | [Open the complete Skills index](docs/catalog/skills-index_EN.md) |
+| You already know the Skill name | Complete index | All 96 capabilities and Chinese/English paths | [Open the complete Skills index](docs/catalog/skills-index_EN.md) |
 
 **Recommended path:** start with [`discover-testing`](skills/en/testing-workflows/discover-testing/) when uncertain, select the matching capability layer once the stage is clear, or go directly to the complete index when you know the name.
 
@@ -136,7 +136,7 @@ I need a pre-release regression — which skills should I use?
 
 ## Skill catalog
 
-Each language provides **79** Skills: 10 workflows, 66 testing types, and 3 Skill Engineering packages; **158** bilingual directories in total. Physical directories remain stable; the catalog below is logical navigation only.
+Each language provides **96** Skills: 10 workflows, 83 testing types, and 3 Skill Engineering packages; **192** bilingual directories in total. Physical directories remain stable; the catalog below is logical navigation only.
 
 ### Cross-phase workflows
 
@@ -226,6 +226,22 @@ Each testing-type Skill appears once; routers and workflows cover cross-phase co
 | Requirement Gap Analysis <!-- data-skill:requirement-gap-analysis --> | [`requirement-gap-analysis`](skills/en/testing-types/requirement-gap-analysis/) | Identify requirement gaps, conflicts, and impact |
 | Quality Risk Analysis <!-- data-skill:quality-risk-analysis --> | [`quality-risk-analysis`](skills/en/testing-types/quality-risk-analysis/) | Identify and rank evidence-based quality risks |
 | Testability Analysis <!-- data-skill:testability-analysis --> | [`testability-analysis`](skills/en/testing-types/testability-analysis/) | Assess testability and prioritized blockers |
+| Requirement Quality Review <!-- data-skill:requirement-quality-review --> | [`requirement-quality-review`](skills/en/testing-types/requirement-quality-review/) | Review completeness, clarity, verifiability, feasibility, scope, and evidence quality before design or testing |
+| Requirement Ambiguity Analysis <!-- data-skill:requirement-ambiguity-analysis --> | [`requirement-ambiguity-analysis`](skills/en/testing-types/requirement-ambiguity-analysis/) | Detect ambiguity in actors, objects, conditions, quantities, timing, states, and acceptance language |
+| Requirement Consistency Analysis <!-- data-skill:requirement-consistency-analysis --> | [`requirement-consistency-analysis`](skills/en/testing-types/requirement-consistency-analysis/) | Compare terminology, identifiers, formats, states, rules, and behavior across sources |
+| Requirement Conflict Detection <!-- data-skill:requirement-conflict-detection --> | [`requirement-conflict-detection`](skills/en/testing-types/requirement-conflict-detection/) | Detect mutually exclusive requirement rules while preserving the Human decision boundary |
+| Requirement Traceability Analysis <!-- data-skill:requirement-traceability-analysis --> | [`requirement-traceability-analysis`](skills/en/testing-types/requirement-traceability-analysis/) | Map requirements bidirectionally to acceptance, design, code, tests, defects, and evidence |
+| Business Rule Extraction <!-- data-skill:business-rule-extraction --> | [`business-rule-extraction`](skills/en/testing-types/business-rule-extraction/) | Extract sourced, scoped, exception-aware business rules from requirements, policy, and process material |
+| Technical Design Quality Review <!-- data-skill:technical-design-quality-review --> | [`technical-design-quality-review`](skills/en/testing-types/technical-design-quality-review/) | Review technical design boundaries, failures, data, security, performance, and operability |
+| API Design Quality Review <!-- data-skill:api-design-quality-review --> | [`api-design-quality-review`](skills/en/testing-types/api-design-quality-review/) | Review API contracts, errors, auth, idempotency, pagination, versioning, and consumer impact |
+| Database Design Quality Review <!-- data-skill:database-design-quality-review --> | [`database-design-quality-review`](skills/en/testing-types/database-design-quality-review/) | Review models, constraints, indexes, lifecycle, concurrency, migrations, and recovery design |
+| Observability Design Review <!-- data-skill:observability-design-review --> | [`observability-design-review`](skills/en/testing-types/observability-design-review/) | Review signals, dimensions, semantics, alerts, privacy, cardinality, sampling, and retention |
+| Error Handling Design Review <!-- data-skill:error-handling-design-review --> | [`error-handling-design-review`](skills/en/testing-types/error-handling-design-review/) | Review failure modes, retries, fallback, propagation, consistency, and telemetry design |
+| Test Scope Analysis <!-- data-skill:test-scope-analysis --> | [`test-scope-analysis`](skills/en/testing-types/test-scope-analysis/) | Define test inclusions, exclusions, depth, dependencies, and residual risk from goals and evidence |
+| Test Gap Analysis <!-- data-skill:test-gap-analysis --> | [`test-gap-analysis`](skills/en/testing-types/test-gap-analysis/) | Discover test obligations that are not sufficiently protected by intent or execution evidence |
+| Risk-Based Testing <!-- data-skill:risk-based-testing --> | [`risk-based-testing`](skills/en/testing-types/risk-based-testing/) | Translate risk evidence into test priority, method, depth, and scope tradeoffs |
+| Edge Case Discovery <!-- data-skill:edge-case-discovery --> | [`edge-case-discovery`](skills/en/testing-types/edge-case-discovery/) | Discover boundary candidates from requirement, state, time, resource, and platform evidence |
+| Negative Scenario Discovery <!-- data-skill:negative-scenario-discovery --> | [`negative-scenario-discovery`](skills/en/testing-types/negative-scenario-discovery/) | Discover invalid, denied, failed, degraded, and recovery candidates from product evidence |
 
 ##### Development and Continuous Integration
 
@@ -241,6 +257,7 @@ Each testing-type Skill appears once; routers and workflows cover cross-phase co
 
 | Skill | Directory | Primary use |
 | --- | --- | --- |
+| Test Data Requirement Analysis <!-- data-skill:test-data-requirement-analysis --> | [`test-data-requirement-analysis`](skills/en/testing-types/test-data-requirement-analysis/) | Analyze entities, relationships, privacy, lifecycle, setup, cleanup, and blockers before data generation or test design |
 | Test Data Generation <!-- data-skill:test-data-generation --> | [`test-data-generation`](skills/en/testing-types/test-data-generation/) | Design safe and representative test data |
 | API Test Bruno <!-- data-skill:api-test-bruno --> | [`api-test-bruno`](skills/en/testing-types/api-test-bruno/) | Use this skill when you need to parse multi-format API definitions and generate Bruno collections for executable regression; triggers include Bruno collections… |
 | Postman API Testing <!-- data-skill:api-test-postman --> | [`api-test-postman`](skills/en/testing-types/api-test-postman/) | Design Postman collections, environments, scripts, and Newman-ready API regression plans. |
@@ -389,6 +406,8 @@ bash scripts/check_skills_quality.sh
 
 This gate covers directory hygiene, agents metadata, install independence, integrity checks, and skill-up evals YAML validation.
 
+For local deterministic checks over a `codex exec --json` run, use [Local Skill Evaluation Rules](docs/SKILL_EVAL_RULES_EN.md), `scripts/run_skill_trace_eval.py`, and `scripts/grade_skill_trace.py`; missing evidence is reported as `BLOCKED` rather than being treated as a substitute for model-assisted semantic grading.
+
 Optional validate / run with [skill-up](https://github.com/alibaba/skill-up):
 
 ```bash
@@ -408,6 +427,8 @@ Suggested pilots: `functional-testing`, `api-testing`, `api-test-bruno`, `bug-re
 | [QA_SKILLS_EVOLUTION_ROADMAP_EN.md](docs/governance/QA_SKILLS_EVOLUTION_ROADMAP_EN.md) | Four-stage capability evolution and R&D/testing lifecycle map |
 | [DOCUMENTATION_POLICY_EN.md](docs/governance/DOCUMENTATION_POLICY_EN.md) | Chinese-first bilingual documentation policy |
 | [SKILL_GOVERNANCE_V1_EN.md](docs/governance/SKILL_GOVERNANCE_V1_EN.md) | v1.0 source-governance baseline and 79-pair static-record entry point (not runtime quality) |
+| [PHASE_1_REQUIREMENTS_QUALITY_EN.md](docs/governance/PHASE_1_REQUIREMENTS_QUALITY_EN.md) | v1.1 Phase 1 scope, cards, evidence, and acceptance boundaries for the first five requirement-quality Skills |
+| [SKILL_EVAL_RULES_EN.md](docs/SKILL_EVAL_RULES_EN.md) | Twenty local deterministic evaluation rules for `codex exec --json` Skill traces |
 | [skills/DIRECTORY_GUIDE.md](skills/DIRECTORY_GUIDE.md) | Directory and naming rules |
 | [skills/SKILL_AUTHORING.md](skills/SKILL_AUTHORING.md) | Authoring and skill-up eval conventions |
 | [scripts/INSTALL_SKILLS.md](scripts/INSTALL_SKILLS.md) | Install options and tool paths |

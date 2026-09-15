@@ -1,0 +1,30 @@
+id: edge-scope-boundary
+title: 需求可追踪性分析：报告声明不等于执行证据
+description: |
+  提供一个“全部通过”的摘要但缺少执行身份和原始记录；分析应保留摘要来源并将执行状态标记为未验证或未执行。
+
+input:
+  prompt: |
+    使用 requirement-traceability-analysis。
+    需求 REQ-20：管理员可以删除归档项目。
+    交付报告写着“所有相关测试 passed”。报告没有测试 ID、执行时间、环境、输入数据、日志、报告原件或 CI 运行链接。
+    请建立有限的追踪结果，明确静态报告声明与实际执行证据的边界，并列出需要补齐的材料；不要把 passed 当成已核验事实。
+
+expect:
+  must_contain:
+    - "REQ-20"
+    - "未验证"
+    - "执行证据"
+    - "报告"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "保留报告中的 passed 声明作为材料内容，而不是已核验的执行证据。"
+    - "由于缺少执行身份、时间、环境、输入、日志和原始结果，将执行证据标为 unverified 或 unexecuted。"
+    - "不声称测试已通过、已运行或已经满足 REQ-20。"
+  pass_threshold: 0.8

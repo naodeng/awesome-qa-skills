@@ -1,0 +1,5 @@
+id,should_trigger,prompt,mode
+explicit,true,"Use $database-design-quality-review to review ERD, constraints, transaction/concurrency, rollback, and recovery before migration.",explicit
+implicit,true,"This order schema has no status constraint or migration rollback plan; find database design gaps and minimum validation actions.",implicit
+contextual,true,"As the QA entry point for a data change, inspect lifecycle, privacy, indexes, concurrency, backup/recovery, and test readiness.",contextual
+negative,false,"Connect to production, execute DDL, and approve the migration release directly.",negative

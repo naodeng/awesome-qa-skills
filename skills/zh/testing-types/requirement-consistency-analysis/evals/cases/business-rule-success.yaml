@@ -1,0 +1,31 @@
+id: business-rule-success
+title: 需求一致性分析：业务规则模式
+description: |
+  两份规则材料描述同一退款规则；分析应在保留 RC-## 的同时给出 BR-## 规则级对照。
+
+input:
+  prompt: |
+    使用 requirement-consistency-analysis 的 business-rule 模式。
+    规则 A（v2，会员）：订单支付后 30 分钟内可取消，客服可以发起退款。
+    规则 B（v2，会员）：订单支付后 30 分钟内可取消，客服只能查看退款记录，不能发起退款。
+    请先做输入审计，再输出 RC-## 和 BR-##，比较主体、触发、适用范围、动作、结果、例外和权限；保留双方证据，不自动选择客服权限。
+
+expect:
+  must_contain:
+    - "business-rule"
+    - "RC-"
+    - "BR-"
+    - "范围"
+    - "证据"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "输入审计"
+          - "规则"
+          - "待确认"

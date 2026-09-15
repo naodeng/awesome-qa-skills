@@ -1,0 +1,28 @@
+id: edge-incomplete-input
+title: "Test data requirement analysis: missing schema and privacy material"
+description: |
+  Only "prepare test data" is supplied; analysis should list gaps instead of inventing fields or values.
+
+input:
+  prompt: |
+    Use test-data-requirement-analysis. The only input is "Prepare test data for this feature." There are no requirements, scenarios, schema, entity relationships, roles, states, privacy policy, source, environment, setup, or cleanup rules.
+    Separate known, missing, conflicting, stale, out_of_scope, and assumptions. Output bounded TDR-## requirements, do not generate data, and do not claim data is available.
+
+expect:
+  must_contain:
+    - "TDR-"
+    - "missing"
+    - "assumptions"
+    - "data"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Input Audit"
+          - "open"
+          - "validation"

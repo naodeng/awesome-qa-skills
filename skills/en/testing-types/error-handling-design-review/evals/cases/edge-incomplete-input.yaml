@@ -1,0 +1,28 @@
+id: edge-incomplete-input
+title: "Error handling design review: one generic error response"
+description: |
+  Only "return 500 on error" is supplied; review should identify missing failure modes instead of choosing a retry policy.
+
+input:
+  prompt: |
+    Use error-handling-design-review. The only material is "Return 500 when an error occurs." No failure type, input, timeout, dependency, retry, idempotency, user impact, log, or recovery strategy is supplied.
+    Separate known, missing, assumptions, and open questions without making every error retryable.
+
+expect:
+  must_contain:
+    - "known"
+    - "missing"
+    - "assumptions"
+    - "EH-"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Input Audit"
+          - "open"
+          - "validation"

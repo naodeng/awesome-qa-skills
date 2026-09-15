@@ -2,7 +2,7 @@
 
 # Complete Skills Index
 
-Each language contains 10 workflows, 66 testing types, and 3 Skill Engineering packages: 79 per language and 158 directories total. This is logical navigation; physical directories do not change. See the [Skill governance roadmap](../governance/SKILL_GOVERNANCE_ROADMAP_EN.md), [governance matrix](../SKILL_MATRIX_EN.md), and [matching register](../SKILL_MATCHING_REGISTER_EN.md) for long-term governance.
+Each language contains 10 workflows, 83 testing types, and 3 Skill Engineering packages: 96 per language and 192 directories total. This is logical navigation; physical directories do not change. See the [Skill governance roadmap](../governance/SKILL_GOVERNANCE_ROADMAP_EN.md), [governance matrix](../SKILL_MATRIX_EN.md), and [matching register](../SKILL_MATCHING_REGISTER_EN.md) for long-term governance.
 
 ## Cross-phase workflows
 
@@ -88,6 +88,24 @@ Each language contains 10 workflows, 66 testing types, and 3 Skill Engineering p
 | `requirement-gap-analysis` | [中文](../../skills/zh/testing-types/requirement-gap-analysis/) | [English](../../skills/en/testing-types/requirement-gap-analysis/) |
 | `quality-risk-analysis` | [中文](../../skills/zh/testing-types/quality-risk-analysis/) | [English](../../skills/en/testing-types/quality-risk-analysis/) |
 | `testability-analysis` | [中文](../../skills/zh/testing-types/testability-analysis/) | [English](../../skills/en/testing-types/testability-analysis/) |
+| `requirement-quality-review` | [中文](../../skills/zh/testing-types/requirement-quality-review/) | [English](../../skills/en/testing-types/requirement-quality-review/) |
+| `requirement-ambiguity-analysis` | [中文](../../skills/zh/testing-types/requirement-ambiguity-analysis/) | [English](../../skills/en/testing-types/requirement-ambiguity-analysis/) |
+| `requirement-consistency-analysis` | [中文](../../skills/zh/testing-types/requirement-consistency-analysis/) | [English](../../skills/en/testing-types/requirement-consistency-analysis/) |
+| `requirement-conflict-detection` | [中文](../../skills/zh/testing-types/requirement-conflict-detection/) | [English](../../skills/en/testing-types/requirement-conflict-detection/) |
+| `requirement-traceability-analysis` | [中文](../../skills/zh/testing-types/requirement-traceability-analysis/) | [English](../../skills/en/testing-types/requirement-traceability-analysis/) |
+| `business-rule-extraction` | [中文](../../skills/zh/testing-types/business-rule-extraction/) | [English](../../skills/en/testing-types/business-rule-extraction/) |
+| `technical-design-quality-review` | [中文](../../skills/zh/testing-types/technical-design-quality-review/) | [English](../../skills/en/testing-types/technical-design-quality-review/) |
+| `api-design-quality-review` | [中文](../../skills/zh/testing-types/api-design-quality-review/) | [English](../../skills/en/testing-types/api-design-quality-review/) |
+| `database-design-quality-review` | [中文](../../skills/zh/testing-types/database-design-quality-review/) | [English](../../skills/en/testing-types/database-design-quality-review/) |
+| `observability-design-review` | [中文](../../skills/zh/testing-types/observability-design-review/) | [English](../../skills/en/testing-types/observability-design-review/) |
+| `error-handling-design-review` | [中文](../../skills/zh/testing-types/error-handling-design-review/) | [English](../../skills/en/testing-types/error-handling-design-review/) |
+| `test-scope-analysis` | [中文](../../skills/zh/testing-types/test-scope-analysis/) | [English](../../skills/en/testing-types/test-scope-analysis/) |
+| `test-gap-analysis` | [中文](../../skills/zh/testing-types/test-gap-analysis/) | [English](../../skills/en/testing-types/test-gap-analysis/) |
+| `risk-based-testing` | [中文](../../skills/zh/testing-types/risk-based-testing/) | [English](../../skills/en/testing-types/risk-based-testing/) |
+| `edge-case-discovery` | [中文](../../skills/zh/testing-types/edge-case-discovery/) | [English](../../skills/en/testing-types/edge-case-discovery/) |
+| `negative-scenario-discovery` | [中文](../../skills/zh/testing-types/negative-scenario-discovery/) | [English](../../skills/en/testing-types/negative-scenario-discovery/) |
+
+> The v1.1 follow-on cards `business-rule-consistency-review`, `architecture-testability-review`, and `test-coverage-analysis` are recorded as enhancement modes on existing physical Skills rather than duplicate directories; see the [capability match register](../SKILL_MATCHING_REGISTER_EN.md).
 
 #### Development and Continuous Integration
 
@@ -103,6 +121,7 @@ Each language contains 10 workflows, 66 testing types, and 3 Skill Engineering p
 
 | Skill | 中文 | English |
 | --- | --- | --- |
+| `test-data-requirement-analysis` | [中文](../../skills/zh/testing-types/test-data-requirement-analysis/) | [English](../../skills/en/testing-types/test-data-requirement-analysis/) |
 | `test-data-generation` | [中文](../../skills/zh/testing-types/test-data-generation/) | [English](../../skills/en/testing-types/test-data-generation/) |
 | `api-test-bruno` | [中文](../../skills/zh/testing-types/api-test-bruno/) | [English](../../skills/en/testing-types/api-test-bruno/) |
 | `api-test-postman` | [中文](../../skills/zh/testing-types/api-test-postman/) | [English](../../skills/en/testing-types/api-test-postman/) |

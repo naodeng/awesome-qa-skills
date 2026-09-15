@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "api-design-quality-review"
+interface:
+  display_name: "API 设计质量评审"
+  short_description: "Review API contracts for schema, errors, authorization, compatibility, consumer impact, and evidence gaps."
+  default_prompt: "Use the api-design-quality-review skill to assess this API design before implementation or versioning."
+policy:
+  allow_implicit_invocation: true

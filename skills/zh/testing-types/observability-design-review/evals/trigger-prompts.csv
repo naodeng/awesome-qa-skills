@@ -1,0 +1,5 @@
+id,should_trigger,prompt,mode
+explicit,true,"使用 $observability-design-review，在实现前评审日志、指标、Trace、SLO、告警、采样、隐私和成本设计。",explicit
+implicit,true,"这个指标把 user_id 当标签且告警没有动作，请找出可观测性设计缺口、基数和隐私风险。",implicit
+contextual,true,"作为生产可观测性方案的 QA 入口，检查信号语义、上下文传播、仪表板、采样、保留和告警可行动性。",contextual
+negative,false,"读取生产日志定位本次事故根因并直接宣布系统健康。",negative

@@ -70,14 +70,73 @@ class GovernanceMatrixTest(unittest.TestCase):
     def test_repository_registry_covers_every_logical_skill_once(self):
         registry = matrix.load_registry(ROOT / "docs/governance/skill-governance-registry.yaml")
         self.assertEqual(matrix.validate_registry(registry, matrix.discover_physical_skills(ROOT)), [])
-        self.assertEqual(len(registry.skills), 79)
+        self.assertEqual(len(registry.skills), 96)
 
     def test_candidates_reference_pinned_prompt_baselines(self):
         registry = matrix.load_registry(ROOT / "docs/governance/skill-governance-registry.yaml")
-        self.assertEqual(len(registry.candidates), 13)
+        self.assertEqual(len(registry.candidates), 33)
         self.assertTrue((ROOT / "docs/governance/PHASE_0_PROMPT_BASELINE_SOURCES.md").is_file())
         self.assertTrue((ROOT / "docs/governance/PHASE_0_PROMPT_BASELINE_SOURCES_EN.md").is_file())
+        proposed_v1_1 = {
+            "requirement-quality-review": "NEW",
+            "requirement-ambiguity-analysis": "NEW",
+            "requirement-consistency-analysis": "NEW",
+            "requirement-conflict-detection": "NEW",
+            "requirement-traceability-analysis": "NEW",
+            "business-rule-extraction": "NEW",
+            "technical-design-quality-review": "NEW",
+            "api-design-quality-review": "NEW",
+            "database-design-quality-review": "NEW",
+            "observability-design-review": "NEW",
+            "error-handling-design-review": "NEW",
+            "test-scope-analysis": "NEW",
+            "business-rule-consistency-review": "ENHANCE",
+            "architecture-testability-review": "ENHANCE",
+            "test-coverage-analysis": "ENHANCE",
+        }
+        proposed_specs = {
+            "requirement-quality-review": "docs/superpowers/specs/2026-09-14-v1-1-requirements-quality-skills-design.md",
+            "requirement-ambiguity-analysis": "docs/superpowers/specs/2026-09-14-v1-1-requirements-quality-skills-design.md",
+            "requirement-consistency-analysis": "docs/superpowers/specs/2026-09-14-v1-1-requirements-quality-skills-design.md",
+            "requirement-conflict-detection": "docs/superpowers/specs/2026-09-14-v1-1-requirements-quality-skills-design.md",
+            "requirement-traceability-analysis": "docs/superpowers/specs/2026-09-14-v1-1-requirements-quality-skills-design.md",
+            "business-rule-extraction": "docs/superpowers/specs/2026-09-14-v1-1-next-five-quality-skills-design.md",
+            "technical-design-quality-review": "docs/superpowers/specs/2026-09-14-v1-1-next-five-quality-skills-design.md",
+            "api-design-quality-review": "docs/superpowers/specs/2026-09-14-v1-1-next-five-quality-skills-design.md",
+            "database-design-quality-review": "docs/superpowers/specs/2026-09-14-v1-1-following-five-quality-skills-design.md",
+            "observability-design-review": "docs/superpowers/specs/2026-09-14-v1-1-following-five-quality-skills-design.md",
+            "error-handling-design-review": "docs/superpowers/specs/2026-09-14-v1-1-following-five-quality-skills-design.md",
+            "test-scope-analysis": "docs/superpowers/specs/2026-09-14-v1-1-following-five-quality-skills-design.md",
+        }
         for candidate in registry.candidates:
+            if candidate["decision_state"] == "PROPOSED":
+                self.assertIn(candidate["slug"], proposed_v1_1)
+                self.assertEqual(candidate["conclusion"], proposed_v1_1[candidate["slug"]])
+                expected_spec = proposed_specs.get(
+                    candidate["slug"],
+                    "docs/superpowers/specs/2026-09-14-v1-1-following-five-quality-skills-design.md",
+                )
+                self.assertIn(expected_spec, candidate["candidate_source"])
+                target_paths = candidate["target_evidence_paths"]
+                self.assertTrue(target_paths)
+                self.assertTrue(all((ROOT / path).is_file() for path in target_paths))
+                continue
+            if candidate["decision_state"] == "REVIEWED":
+                self.assertEqual(candidate["conclusion"], "NEW")
+                self.assertIn(
+                    "docs/superpowers/specs/2026-09-14-v1-1-test-design-discovery-five-design.md",
+                    candidate["candidate_source"],
+                )
+                self.assertIn(
+                    "docs/superpowers/plans/2026-09-14-v1-1-test-design-discovery-five.md",
+                    candidate["candidate_source"],
+                )
+                self.assertTrue(candidate.get("scope"))
+                self.assertTrue(candidate.get("non_goals"))
+                target_paths = candidate["target_evidence_paths"]
+                self.assertTrue(target_paths)
+                self.assertTrue(all((ROOT / path).is_file() for path in target_paths))
+                continue
             self.assertEqual(candidate["decision_state"], "REVIEWED_WITH_LIMITATION")
             self.assertTrue(candidate["candidate_source"].startswith(
                 "awesome-qa-prompt@554178fe9b93d851ec01388597ceb7996d22bd1c: "

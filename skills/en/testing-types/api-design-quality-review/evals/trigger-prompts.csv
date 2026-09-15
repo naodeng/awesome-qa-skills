@@ -1,0 +1,5 @@
+id,should_trigger,prompt,mode
+explicit,true,"Use $api-design-quality-review to review this OpenAPI contract before implementation for schema, errors, authorization, idempotency, and compatibility risks.",explicit
+implicit,true,"A single success example is all we have for an order API; what design and consumer evidence is missing? Output API-## findings and validation actions.",implicit
+contextual,true,"As the QA entry point for an API version review, inspect pagination, status codes, permissions, retries, migration, and old-client impact.",contextual
+negative,false,"Call the real API for load testing and mark every 2xx response as security-passed.",negative

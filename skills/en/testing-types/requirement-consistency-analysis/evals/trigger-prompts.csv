@@ -1,0 +1,5 @@
+id,should_trigger,prompt,mode
+explicit,true,"Use the $requirement-consistency-analysis skill to compare two requirement sources within the same scope and preserve evidence for terminology, states, and rules.",explicit
+implicit,true,"Compare the PRD and API contract descriptions of order-cancellation states. Separate same-scope inconsistency, version difference, missing source, and unassessed status without merging rules for the business.",implicit
+contextual,true,"For a version review of an order service, use business-rule (business rule) mode to compare the product note, interface contract, and acceptance criteria for rules, triggers, applicability, exceptions, and override relations, with paired sources and validation methods.",contextual
+negative,false,"Run the order API contract tests and report response mismatches.",negative

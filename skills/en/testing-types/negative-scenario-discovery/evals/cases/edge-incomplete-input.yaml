@@ -1,0 +1,28 @@
+id: edge-incomplete-input
+title: "Negative scenario discovery: missing failure contracts"
+description: |
+  Only "find exception scenarios" is supplied, with no error or dependency material; analysis must mark gaps rather than invent behavior.
+
+input:
+  prompt: |
+    Use negative-scenario-discovery. The only input is "Find every exception scenario for this feature." There are no requirements, permissions, input constraints, dependencies, timeout, retry, error response, transaction, recovery, or past-failure details.
+    Separate known, missing, conflicting, stale, out_of_scope, and assumptions. Provide bounded NS-## candidates and do not invent error codes, retry counts, or recovery results.
+
+expect:
+  must_contain:
+    - "NS-"
+    - "missing"
+    - "assumptions"
+    - "error"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Input Audit"
+          - "open"
+          - "validation"

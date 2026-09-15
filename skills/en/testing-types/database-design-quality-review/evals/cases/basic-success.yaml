@@ -1,0 +1,28 @@
+id: basic-success
+title: "Database design review: constraints and migration evidence"
+description: |
+  The input supplies a redacted order schema, an index, and an expansion migration but omits rollback, concurrency, and recovery details; review should produce DB-## findings and close conditions.
+
+input:
+  prompt: |
+    Use database-design-quality-review for this redacted order schema: orders(id, user_id, status, total), user_id is indexed, status accepts any string; a migration adds total. The design says "online migration" but gives no data scope, rollback, transaction, concurrency, backup, recovery, or query evidence.
+    Audit known, missing, conflicting, stale, out_of_scope, and assumptions first, then provide an object matrix and DB-## findings. Do not connect to a database or guess money precision.
+
+expect:
+  must_contain:
+    - "DB-"
+    - "constraint"
+    - "migration"
+    - "redacted"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Input Audit"
+          - "rollback"
+          - "validation"

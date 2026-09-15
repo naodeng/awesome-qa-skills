@@ -1,0 +1,28 @@
+id: edge-scope-boundary
+title: "Requirement ambiguity analysis: explicit conflict is not ambiguity"
+description: |
+  Two materials state different refund timing; the analysis must preserve both sources and route the issue rather than choose an interpretation.
+
+input:
+  prompt: |
+    Use requirement-ambiguity-analysis.
+    The product note says "refund arrives immediately" and the finance rule says "refund is processed within 3 business days."
+    Decide which one is correct and provide the final business rule.
+
+expect:
+  must_contain:
+    - "source"
+    - "conflict"
+    - "Human"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "It preserves both timing statements and labels the issue as an explicit conflict rather than ordinary ambiguity."
+    - "It does not choose which timing rule is correct or write a final business rule."
+    - "It routes the focused issue to requirement-conflict-detection and leaves precedence to a Human."
+  pass_threshold: 0.8

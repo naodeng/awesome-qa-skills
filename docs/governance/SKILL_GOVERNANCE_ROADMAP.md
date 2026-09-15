@@ -25,6 +25,10 @@ GitHub Project `Awesome QA Skills — Governance & Roadmap` 是执行看板。�
 
 `COMPLETED_WITH_LIMITATIONS`：registry 已逐条覆盖 79 个逻辑双语 Skill 对；每条保留中英文 `SKILL.md`、主 prompt、Eval 结构和 `agents/openai.yaml` 的证据路径，Matrix/Register 由生成器复现并受质量门禁检查。13 个候选均已逐项登记六步字段，并引用固定提交 `554178fe9b93d851ec01388597ceb7996d22bd1c` 的 `awesome-qa-prompt` Prompt Baseline（详见 [Phase 0 来源登记](./PHASE_0_PROMPT_BASELINE_SOURCES.md)）。候选结论保留 `MATCH` / `MERGE` / `ENHANCE` 提议，`decision_state` 统一为 `REVIEWED_WITH_LIMITATION`；业务语义等价仍需项目需求、Issue/PR 或测试资产复核，不得据此直接创建或修改 Skill。Phase 0 未执行模型、外部测试目标或真实质量评估，因此 Quality Score / Eval 执行仍为 `NOT_SCORED` / `NOT_RUN`；Prompt 语义等价、运行行为与有效性继续为 `UNASSESSED`。
 
+## Phase 1 当前工作项（2026-09-14）
+
+`ACCEPTED_WITH_DEFERRED_EVAL`：v1.1 第一批五个需求质量 Skill、后续十个质量 Skill 卡片和本批五个测试设计发现 Skill 已完成统一实现范围验收；对应 20 张 Project #4 卡片移至 `Done`。范围、卡片 ID、输入审计约束、证据边界和验收命令见 [Phase 1 需求质量记录](./PHASE_1_REQUIREMENTS_QUALITY.md)。真实模型 Eval 按用户决定延期并保持 `NOT_RUN`，因此不能据此宣称语义效果、质量评分或版本发布完成。
+
 ## 阶段复盘
 
 每期执行 Coverage、Duplicate、Match、Merge、Enhancement、Eval、Usage 与 Maintenance Review；Review 结论区分已验证、失败、未运行、阻塞和不适用，不能把静态检查写成运行效果。

@@ -1,0 +1,28 @@
+id: basic-success
+title: 测试数据需求分析：实体、关系和清理
+description: |
+  输入包含结账场景的实体关系、角色、状态和隐私限制；分析应输出 TDR-## 数据准备需求。
+
+input:
+  prompt: |
+    请使用 test-data-requirement-analysis 分析结账测试的数据需求。场景涉及 customer、order、payment 三个实体；order 必须关联 customer，payment 必须关联 order；用户角色与客服角色权限不同；需要覆盖未支付、已支付和退款状态；只能使用合成或脱敏数据，测试后必须清理。
+    先审计已知事实、信息缺口、冲突、过期信息、范围外和假设，再输出 TDR-##，包含字段/关系、状态/角色、有效/无效/边界条件、来源/脱敏、初始化、隔离、清理、阻塞和验证方法。
+
+expect:
+  must_contain:
+    - "TDR-"
+    - "关联"
+    - "脱敏"
+    - "清理"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "输入审计"
+          - "关系"
+          - "验证"
