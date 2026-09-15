@@ -55,4 +55,3 @@ Real-model Evals, external test targets, semantic equivalence, quality scores, a
 ## Acceptance
 
 The minimum completion bar is evidence for all 25 exact cards passing through `In Progress` and `Done`; 25 matching physical Skill packages in each language; structural, metadata, Eval, independence, integrity, and bilingual gates passing; generated governance views reproducible from the current registry; `git diff --check` passing; and an explicit report separating static structure evidence from unrun model or external validation.
-

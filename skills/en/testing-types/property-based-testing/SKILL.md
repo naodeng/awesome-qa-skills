@@ -5,29 +5,53 @@ description: Use this skill when you need to turn invariants, generation domains
 
 # Property-Based Test Design
 
-turn invariants, generation domains, and shrinking strategies into reviewable property-test candidates，输出 PBT-##。它只产生证据边界内的设计候选，不执行测试，不宣称覆盖或通过。
+Turn invariants, generation domains, and shrinking strategies into reviewable property-test candidates. Produce PBT-## design candidates within the evidence boundary; do not execute tests or claim coverage or pass results.
 
-## 何时使用
+## When to Use
 
-- 需要分析 domain invariants, input generation domains, constraints, failure examples, shrinking strategies, and existing properties。
-- 需要保留选择理由、证据缺口、优先级和验证动作。
-- 输入不完整但需要交付受限初版，并标记 unassessed 或 blocked。
+- Analyze domain invariants, input generation domains, constraints, failure examples, shrinking strategies, and existing properties.
+- Preserve selection rationale, evidence gaps, priority, and validation actions.
+- Inputs are incomplete but a bounded first pass can mark items unassessed or blocked.
 
-## 如何使用
+## Output Format Options
 
-1. 阅读 prompts/property-based-testing.md，先列出 known、missing、conflicting、stale、out_of_scope、assumptions。
-2. 按方法合同形成 PBT-##，保留来源、证据状态、影响、责任角色、关闭条件和验证方法。
-3. 事实、推断、建议和 Human 决策必须分开。
-4. 只提出后续验证意图，不写成已执行结果。
+- Use Markdown by default; use tables, JSON, or CSV only when explicitly requested or required by the delivery format.
+- Separate static analysis, unexecuted work, evidence states, and Human decisions; keep items unassessed, blocked, or NOT_RUN when runtime evidence is absent.
 
-## 核心约束
+## How to Use
+
+1. Read `prompts/property-based-testing.md` and provide the objective, scope, material, environment, and evidence.
+2. Start with separate known, missing, conflicting, stale, out_of_scope, and assumptions entries.
+3. Produce PBT-## findings with source, evidence state, applicability, impact/priority, owner, close condition, and validation.
+4. Separate facts, evidence-backed inferences, recommendations, and Human decisions.
+5. Recommend follow-up validation without claiming execution.
+
+## Core Constraints
 
 - Do not invent invariants, generation domains, or shrink results, or treat a generator as proof of a finding.
-- 文件存在、名称、模板和 Eval 配置不等于真实执行证据。
-- 不修改需求、代码、测试资产或目标系统，不替 Human 接受风险。
+- File presence, names, templates, and Eval configuration are not runtime evidence.
+- Do not edit requirements, code, test assets, or target systems, or accept risk for a Human.
 
-## 交付前自检
+## Pre-delivery Check
 
-- [ ] 六类输入审计完整。
-- [ ] 每条 PBT-## 有来源、证据、影响/优先级、责任角色、关闭条件和验证方法。
-- [ ] 已明确未执行、未验证、未评估和待决策项。
+- [ ] The six-part input audit is complete.
+- [ ] Every PBT-## has source, evidence state, applicability, concern, impact/priority, owner, close condition, and validation.
+- [ ] Facts, inferences, recommendations, and Human decisions are separate.
+- [ ] Unexecuted, unverified, unassessed, and pending-decision items are explicit.
+
+## Reference Files
+
+- Read evals/eval.yaml and matching cases for regression; configuration does not prove project results.
+- Use evals/trigger-prompts.csv and evals/local-rules.json for trigger checks; missing skill.selection evidence is BLOCKED.
+
+## Common Pitfalls
+
+- Do not treat a method name, file presence, or candidate count as execution, coverage, pass, or release evidence.
+- Do not fill missing invariants, generation domains, or results with convention; preserve unassessed, blocked, and pending items.
+- Do not expand this specialist design into a complete strategy, full test cases, runtime execution, or a release decision.
+
+## Best Practices
+
+- Complete the six-part input audit before selecting the smallest traceable and verifiable finding scope.
+- Keep the source, evidence state, impact/priority, owner role, close condition, validation method, and residual risk for every finding.
+- Write validation suggestions as next actions; do not upgrade package structure, candidate counts, or local Eval configuration into real quality conclusions.

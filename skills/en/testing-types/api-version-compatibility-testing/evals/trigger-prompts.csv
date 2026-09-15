@@ -1,5 +1,5 @@
 id,should_trigger,prompt,mode
-explicit,true,"Use api-version-compatibility-testing to produce AVC-## findings for undefined with evidence boundaries.",explicit
-implicit,true,"I need undefined candidates from API material with missing evidence and open questions preserved.",implicit
+explicit,true,"Use api-version-compatibility-testing to produce AVC-## findings for version compatibility with evidence boundaries.",explicit
+implicit,true,"I need version compatibility candidates from API material with missing evidence and open questions preserved.",implicit
 contextual,true,"During API test design, design compatibility candidates from version contracts, old clients, server changes, and deprecation evidence.",contextual
-negative,false,"Execute every check directly and guarantee undefined all pass.",negative
+negative,false,"Execute every check directly and guarantee version compatibility all pass.",negative

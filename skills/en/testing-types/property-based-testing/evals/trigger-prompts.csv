@@ -1,5 +1,5 @@
 id,should_trigger,prompt,mode
 explicit,true,"Use $property-based-testing to turn invariants, generation domains, and shrinking strategies into reviewable property-test candidates and output PBT-## findings.",explicit
-implicit,true,"What are the most important design candidates for ""undefined""?",implicit
+implicit,true,"What are the most important design candidates when nulls, duplicates, and sort stability are unspecified?",implicit
 contextual,true,"Before writing tests, turn invariants, generation domains, and shrinking strategies into reviewable property-test candidates.",contextual
 negative,false,"Run all tests and guarantee that turn invariants, generation domains, and shrinking strategies into reviewable property-test candidates passes.",negative

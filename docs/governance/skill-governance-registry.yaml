@@ -3497,7 +3497,7 @@
   "section": "testing-types",
   "zh_path": "skills/zh/testing-types/decision-table-testing",
   "en_path": "skills/en/testing-types/decision-table-testing",
-  "virtual_domain": "Engineering QA",
+  "virtual_domain": "Core QA",
   "status": "Planned-P1",
   "priority": "P1",
   "related": "v2.0 Test Engineering design-method family; semantic overlap with existing Skills remains bounded and requires evidence.",
@@ -3534,7 +3534,7 @@
   "section": "testing-types",
   "zh_path": "skills/zh/testing-types/state-transition-testing",
   "en_path": "skills/en/testing-types/state-transition-testing",
-  "virtual_domain": "Engineering QA",
+  "virtual_domain": "Core QA",
   "status": "Planned-P1",
   "priority": "P1",
   "related": "v2.0 Test Engineering design-method family; semantic overlap with existing Skills remains bounded and requires evidence.",
@@ -3571,7 +3571,7 @@
   "section": "testing-types",
   "zh_path": "skills/zh/testing-types/boundary-value-testing",
   "en_path": "skills/en/testing-types/boundary-value-testing",
-  "virtual_domain": "Engineering QA",
+  "virtual_domain": "Core QA",
   "status": "Planned-P1",
   "priority": "P1",
   "related": "v2.0 Test Engineering design-method family; semantic overlap with existing Skills remains bounded and requires evidence.",
@@ -3608,7 +3608,7 @@
   "section": "testing-types",
   "zh_path": "skills/zh/testing-types/equivalence-partitioning",
   "en_path": "skills/en/testing-types/equivalence-partitioning",
-  "virtual_domain": "Engineering QA",
+  "virtual_domain": "Core QA",
   "status": "Planned-P1",
   "priority": "P1",
   "related": "v2.0 Test Engineering design-method family; semantic overlap with existing Skills remains bounded and requires evidence.",
@@ -3645,7 +3645,7 @@
   "section": "testing-types",
   "zh_path": "skills/zh/testing-types/pairwise-testing",
   "en_path": "skills/en/testing-types/pairwise-testing",
-  "virtual_domain": "Engineering QA",
+  "virtual_domain": "Core QA",
   "status": "Planned-P1",
   "priority": "P1",
   "related": "v2.0 Test Engineering design-method family; semantic overlap with existing Skills remains bounded and requires evidence.",
@@ -3682,7 +3682,7 @@
   "section": "testing-types",
   "zh_path": "skills/zh/testing-types/combinatorial-testing",
   "en_path": "skills/en/testing-types/combinatorial-testing",
-  "virtual_domain": "Engineering QA",
+  "virtual_domain": "Core QA",
   "status": "Planned-P1",
   "priority": "P1",
   "related": "v2.0 Test Engineering design-method family; semantic overlap with existing Skills remains bounded and requires evidence.",
@@ -3719,7 +3719,7 @@
   "section": "testing-types",
   "zh_path": "skills/zh/testing-types/model-based-testing",
   "en_path": "skills/en/testing-types/model-based-testing",
-  "virtual_domain": "Engineering QA",
+  "virtual_domain": "Core QA",
   "status": "Planned-P1",
   "priority": "P1",
   "related": "v2.0 Test Engineering design-method family; semantic overlap with existing Skills remains bounded and requires evidence.",
@@ -3756,7 +3756,7 @@
   "section": "testing-types",
   "zh_path": "skills/zh/testing-types/property-based-testing",
   "en_path": "skills/en/testing-types/property-based-testing",
-  "virtual_domain": "Engineering QA",
+  "virtual_domain": "Core QA",
   "status": "Planned-P1",
   "priority": "P1",
   "related": "v2.0 Test Engineering design-method family; semantic overlap with existing Skills remains bounded and requires evidence.",
@@ -3793,7 +3793,7 @@
   "section": "testing-types",
   "zh_path": "skills/zh/testing-types/metamorphic-testing",
   "en_path": "skills/en/testing-types/metamorphic-testing",
-  "virtual_domain": "Engineering QA",
+  "virtual_domain": "Core QA",
   "status": "Planned-P1",
   "priority": "P1",
   "related": "v2.0 Test Engineering design-method family; semantic overlap with existing Skills remains bounded and requires evidence.",
@@ -5209,7 +5209,25 @@
     "skills/zh/testing-types/decision-table-testing/prompts/decision-table-testing.md",
     "skills/en/testing-types/decision-table-testing/prompts/decision-table-testing.md"
   ],
-  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review"
+  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review",
+  "capability_match": {
+    "decision": "NEW",
+    "existing_targets": [
+      "skills/zh/testing-types/test-case-writing/SKILL.md",
+      "skills/zh/testing-types/test-case-writing/prompts/test-case-writing.md"
+    ],
+    "difference": "Compared with existing test-case-writing, this candidate narrows the inputs and decision logic to decision-table-testing-specific design candidates with a stable finding prefix; it does not write complete cases or claim execution."
+  },
+  "project_evidence": {
+    "project_number": 4,
+    "item_id": "PVTI_lAHOAHP1as4BjBhVzg6ScMA",
+    "title": "v2 P1｜候选 Skill｜decision-table-testing",
+    "current_status": "Done",
+    "verified_at": "2026-09-15",
+    "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
+    "transition_requirement": "In Progress -> Done",
+    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned"
+  }
 },
 {
   "slug": "state-transition-testing",
@@ -5233,7 +5251,25 @@
     "skills/zh/testing-types/state-transition-testing/prompts/state-transition-testing.md",
     "skills/en/testing-types/state-transition-testing/prompts/state-transition-testing.md"
   ],
-  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review"
+  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review",
+  "capability_match": {
+    "decision": "NEW",
+    "existing_targets": [
+      "skills/zh/testing-types/test-case-writing/SKILL.md",
+      "skills/zh/testing-types/test-case-writing/prompts/test-case-writing.md"
+    ],
+    "difference": "Compared with existing test-case-writing, this candidate narrows the inputs and decision logic to state-transition-testing-specific design candidates with a stable finding prefix; it does not write complete cases or claim execution."
+  },
+  "project_evidence": {
+    "project_number": 4,
+    "item_id": "PVTI_lAHOAHP1as4BjBhVzg6ScNk",
+    "title": "v2 P1｜候选 Skill｜state-transition-testing",
+    "current_status": "Done",
+    "verified_at": "2026-09-15",
+    "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
+    "transition_requirement": "In Progress -> Done",
+    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned"
+  }
 },
 {
   "slug": "boundary-value-testing",
@@ -5257,7 +5293,25 @@
     "skills/zh/testing-types/boundary-value-testing/prompts/boundary-value-testing.md",
     "skills/en/testing-types/boundary-value-testing/prompts/boundary-value-testing.md"
   ],
-  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review"
+  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review",
+  "capability_match": {
+    "decision": "NEW",
+    "existing_targets": [
+      "skills/zh/testing-types/test-case-writing/SKILL.md",
+      "skills/zh/testing-types/test-case-writing/prompts/test-case-writing.md"
+    ],
+    "difference": "Compared with existing test-case-writing, this candidate narrows the inputs and decision logic to boundary-value-testing-specific design candidates with a stable finding prefix; it does not write complete cases or claim execution."
+  },
+  "project_evidence": {
+    "project_number": 4,
+    "item_id": "PVTI_lAHOAHP1as4BjBhVzg6ScPM",
+    "title": "v2 P1｜候选 Skill｜boundary-value-testing",
+    "current_status": "Done",
+    "verified_at": "2026-09-15",
+    "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
+    "transition_requirement": "In Progress -> Done",
+    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned"
+  }
 },
 {
   "slug": "equivalence-partitioning",
@@ -5281,7 +5335,25 @@
     "skills/zh/testing-types/equivalence-partitioning/prompts/equivalence-partitioning.md",
     "skills/en/testing-types/equivalence-partitioning/prompts/equivalence-partitioning.md"
   ],
-  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review"
+  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review",
+  "capability_match": {
+    "decision": "NEW",
+    "existing_targets": [
+      "skills/zh/testing-types/test-case-writing/SKILL.md",
+      "skills/zh/testing-types/test-case-writing/prompts/test-case-writing.md"
+    ],
+    "difference": "Compared with existing test-case-writing, this candidate narrows the inputs and decision logic to equivalence-partitioning-specific design candidates with a stable finding prefix; it does not write complete cases or claim execution."
+  },
+  "project_evidence": {
+    "project_number": 4,
+    "item_id": "PVTI_lAHOAHP1as4BjBhVzg6ScQ8",
+    "title": "v2 P1｜候选 Skill｜equivalence-partitioning",
+    "current_status": "Done",
+    "verified_at": "2026-09-15",
+    "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
+    "transition_requirement": "In Progress -> Done",
+    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned"
+  }
 },
 {
   "slug": "pairwise-testing",
@@ -5305,7 +5377,25 @@
     "skills/zh/testing-types/pairwise-testing/prompts/pairwise-testing.md",
     "skills/en/testing-types/pairwise-testing/prompts/pairwise-testing.md"
   ],
-  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review"
+  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review",
+  "capability_match": {
+    "decision": "NEW",
+    "existing_targets": [
+      "skills/zh/testing-types/test-case-writing/SKILL.md",
+      "skills/zh/testing-types/test-case-writing/prompts/test-case-writing.md"
+    ],
+    "difference": "Compared with existing test-case-writing, this candidate narrows the inputs and decision logic to pairwise-testing-specific design candidates with a stable finding prefix; it does not write complete cases or claim execution."
+  },
+  "project_evidence": {
+    "project_number": 4,
+    "item_id": "PVTI_lAHOAHP1as4BjBhVzg6ScSQ",
+    "title": "v2 P1｜候选 Skill｜pairwise-testing",
+    "current_status": "Done",
+    "verified_at": "2026-09-15",
+    "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
+    "transition_requirement": "In Progress -> Done",
+    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned"
+  }
 },
 {
   "slug": "combinatorial-testing",
@@ -5329,7 +5419,25 @@
     "skills/zh/testing-types/combinatorial-testing/prompts/combinatorial-testing.md",
     "skills/en/testing-types/combinatorial-testing/prompts/combinatorial-testing.md"
   ],
-  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review"
+  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review",
+  "capability_match": {
+    "decision": "NEW",
+    "existing_targets": [
+      "skills/zh/testing-types/test-case-writing/SKILL.md",
+      "skills/zh/testing-types/test-case-writing/prompts/test-case-writing.md"
+    ],
+    "difference": "Compared with existing test-case-writing, this candidate narrows the inputs and decision logic to combinatorial-testing-specific design candidates with a stable finding prefix; it does not write complete cases or claim execution."
+  },
+  "project_evidence": {
+    "project_number": 4,
+    "item_id": "PVTI_lAHOAHP1as4BjBhVzg6ScUU",
+    "title": "v2 P1｜候选 Skill｜combinatorial-testing",
+    "current_status": "Done",
+    "verified_at": "2026-09-15",
+    "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
+    "transition_requirement": "In Progress -> Done",
+    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned"
+  }
 },
 {
   "slug": "model-based-testing",
@@ -5353,7 +5461,25 @@
     "skills/zh/testing-types/model-based-testing/prompts/model-based-testing.md",
     "skills/en/testing-types/model-based-testing/prompts/model-based-testing.md"
   ],
-  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review"
+  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review",
+  "capability_match": {
+    "decision": "NEW",
+    "existing_targets": [
+      "skills/zh/testing-types/test-strategy/SKILL.md",
+      "skills/zh/testing-types/test-strategy/prompts/test-strategy.md"
+    ],
+    "difference": "Compared with existing test-strategy, this candidate narrows the inputs and decision logic to model-based-testing-specific design candidates with a stable finding prefix; it does not write complete cases or claim execution."
+  },
+  "project_evidence": {
+    "project_number": 4,
+    "item_id": "PVTI_lAHOAHP1as4BjBhVzg6ScW0",
+    "title": "v2 P1｜候选 Skill｜model-based-testing",
+    "current_status": "Done",
+    "verified_at": "2026-09-15",
+    "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
+    "transition_requirement": "In Progress -> Done",
+    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned"
+  }
 },
 {
   "slug": "property-based-testing",
@@ -5377,7 +5503,25 @@
     "skills/zh/testing-types/property-based-testing/prompts/property-based-testing.md",
     "skills/en/testing-types/property-based-testing/prompts/property-based-testing.md"
   ],
-  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review"
+  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review",
+  "capability_match": {
+    "decision": "NEW",
+    "existing_targets": [
+      "skills/zh/testing-types/test-case-writing/SKILL.md",
+      "skills/zh/testing-types/test-case-writing/prompts/test-case-writing.md"
+    ],
+    "difference": "Compared with existing test-case-writing, this candidate narrows the inputs and decision logic to property-based-testing-specific design candidates with a stable finding prefix; it does not write complete cases or claim execution."
+  },
+  "project_evidence": {
+    "project_number": 4,
+    "item_id": "PVTI_lAHOAHP1as4BjBhVzg6ScZs",
+    "title": "v2 P1｜候选 Skill｜property-based-testing",
+    "current_status": "Done",
+    "verified_at": "2026-09-15",
+    "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
+    "transition_requirement": "In Progress -> Done",
+    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned"
+  }
 },
 {
   "slug": "metamorphic-testing",
@@ -5401,7 +5545,25 @@
     "skills/zh/testing-types/metamorphic-testing/prompts/metamorphic-testing.md",
     "skills/en/testing-types/metamorphic-testing/prompts/metamorphic-testing.md"
   ],
-  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review"
+  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review",
+  "capability_match": {
+    "decision": "NEW",
+    "existing_targets": [
+      "skills/zh/testing-types/test-case-writing/SKILL.md",
+      "skills/zh/testing-types/test-case-writing/prompts/test-case-writing.md"
+    ],
+    "difference": "Compared with existing test-case-writing, this candidate narrows the inputs and decision logic to metamorphic-testing-specific design candidates with a stable finding prefix; it does not write complete cases or claim execution."
+  },
+  "project_evidence": {
+    "project_number": 4,
+    "item_id": "PVTI_lAHOAHP1as4BjBhVzg6SccE",
+    "title": "v2 P1｜候选 Skill｜metamorphic-testing",
+    "current_status": "Done",
+    "verified_at": "2026-09-15",
+    "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
+    "transition_requirement": "In Progress -> Done",
+    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned"
+  }
 },
 {
   "slug": "api-schema-validation",
@@ -5425,7 +5587,25 @@
     "skills/zh/testing-types/api-schema-validation/prompts/api-schema-validation.md",
     "skills/en/testing-types/api-schema-validation/prompts/api-schema-validation.md"
   ],
-  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review"
+  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review",
+  "capability_match": {
+    "decision": "NEW",
+    "existing_targets": [
+      "skills/zh/testing-types/api-contract-testing/SKILL.md",
+      "skills/zh/testing-types/api-contract-testing/prompts/api-contract-testing.md"
+    ],
+    "difference": "Compared with existing api-contract-testing, this candidate narrows the analysis and output to api-schema-validation-specific API evidence with a stable finding prefix; it does not call an API or claim runtime validation."
+  },
+  "project_evidence": {
+    "project_number": 4,
+    "item_id": "PVTI_lAHOAHP1as4BjBhVzg6SceI",
+    "title": "v2 P1｜候选 Skill｜api-schema-validation",
+    "current_status": "Done",
+    "verified_at": "2026-09-15",
+    "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
+    "transition_requirement": "In Progress -> Done",
+    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned"
+  }
 },
 {
   "slug": "api-negative-testing",
@@ -5449,7 +5629,25 @@
     "skills/zh/testing-types/api-negative-testing/prompts/api-negative-testing.md",
     "skills/en/testing-types/api-negative-testing/prompts/api-negative-testing.md"
   ],
-  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review"
+  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review",
+  "capability_match": {
+    "decision": "NEW",
+    "existing_targets": [
+      "skills/zh/testing-types/api-contract-testing/SKILL.md",
+      "skills/zh/testing-types/api-contract-testing/prompts/api-contract-testing.md"
+    ],
+    "difference": "Compared with existing api-contract-testing, this candidate narrows the analysis and output to api-negative-testing-specific API evidence with a stable finding prefix; it does not call an API or claim runtime validation."
+  },
+  "project_evidence": {
+    "project_number": 4,
+    "item_id": "PVTI_lAHOAHP1as4BjBhVzg6Scfg",
+    "title": "v2 P1｜候选 Skill｜api-negative-testing",
+    "current_status": "Done",
+    "verified_at": "2026-09-15",
+    "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
+    "transition_requirement": "In Progress -> Done",
+    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned"
+  }
 },
 {
   "slug": "api-idempotency-testing",
@@ -5473,7 +5671,25 @@
     "skills/zh/testing-types/api-idempotency-testing/prompts/api-idempotency-testing.md",
     "skills/en/testing-types/api-idempotency-testing/prompts/api-idempotency-testing.md"
   ],
-  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review"
+  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review",
+  "capability_match": {
+    "decision": "NEW",
+    "existing_targets": [
+      "skills/zh/testing-types/api-contract-testing/SKILL.md",
+      "skills/zh/testing-types/api-contract-testing/prompts/api-contract-testing.md"
+    ],
+    "difference": "The existing api-contract-testing covers general compatibility and semantics; this candidate specializes in repeated-request, deduplication, and side-effect evidence with AIT-## without sending requests."
+  },
+  "project_evidence": {
+    "project_number": 4,
+    "item_id": "PVTI_lAHOAHP1as4BjBhVzg6Scgo",
+    "title": "v2 P1｜候选 Skill｜api-idempotency-testing",
+    "current_status": "Done",
+    "verified_at": "2026-09-15",
+    "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
+    "transition_requirement": "In Progress -> Done",
+    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned"
+  }
 },
 {
   "slug": "api-pagination-testing",
@@ -5497,7 +5713,25 @@
     "skills/zh/testing-types/api-pagination-testing/prompts/api-pagination-testing.md",
     "skills/en/testing-types/api-pagination-testing/prompts/api-pagination-testing.md"
   ],
-  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review"
+  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review",
+  "capability_match": {
+    "decision": "NEW",
+    "existing_targets": [
+      "skills/zh/testing-types/api-contract-testing/SKILL.md",
+      "skills/zh/testing-types/api-contract-testing/prompts/api-contract-testing.md"
+    ],
+    "difference": "Compared with existing api-contract-testing, this candidate narrows the analysis and output to api-pagination-testing-specific API evidence with a stable finding prefix; it does not call an API or claim runtime validation."
+  },
+  "project_evidence": {
+    "project_number": 4,
+  "item_id": "PVTI_lAHOAHP1as4BjBhVzg6Scik",
+    "title": "v2 P1｜候选 Skill｜api-pagination-testing",
+    "current_status": "Done",
+    "verified_at": "2026-09-15",
+    "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
+    "transition_requirement": "In Progress -> Done",
+    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned"
+  }
 },
 {
   "slug": "api-rate-limit-testing",
@@ -5521,7 +5755,25 @@
     "skills/zh/testing-types/api-rate-limit-testing/prompts/api-rate-limit-testing.md",
     "skills/en/testing-types/api-rate-limit-testing/prompts/api-rate-limit-testing.md"
   ],
-  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review"
+  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review",
+  "capability_match": {
+    "decision": "NEW",
+    "existing_targets": [
+      "skills/zh/testing-types/api-contract-testing/SKILL.md",
+      "skills/zh/testing-types/api-contract-testing/prompts/api-contract-testing.md"
+    ],
+    "difference": "Compared with existing api-contract-testing, this candidate narrows the analysis and output to api-rate-limit-testing-specific API evidence with a stable finding prefix; it does not call an API or claim runtime validation."
+  },
+  "project_evidence": {
+    "project_number": 4,
+    "item_id": "PVTI_lAHOAHP1as4BjBhVzg6SckI",
+    "title": "v2 P1｜候选 Skill｜api-rate-limit-testing",
+    "current_status": "Done",
+    "verified_at": "2026-09-15",
+    "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
+    "transition_requirement": "In Progress -> Done",
+    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned"
+  }
 },
 {
   "slug": "api-version-compatibility-testing",
@@ -5545,7 +5797,25 @@
     "skills/zh/testing-types/api-version-compatibility-testing/prompts/api-version-compatibility-testing.md",
     "skills/en/testing-types/api-version-compatibility-testing/prompts/api-version-compatibility-testing.md"
   ],
-  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review"
+  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review",
+  "capability_match": {
+    "decision": "NEW",
+    "existing_targets": [
+      "skills/zh/testing-types/api-contract-testing/SKILL.md",
+      "skills/zh/testing-types/api-contract-testing/prompts/api-contract-testing.md"
+    ],
+    "difference": "Compared with existing api-contract-testing, this candidate narrows the analysis and output to api-version-compatibility-testing-specific API evidence with a stable finding prefix; it does not call an API or claim runtime validation."
+  },
+  "project_evidence": {
+    "project_number": 4,
+    "item_id": "PVTI_lAHOAHP1as4BjBhVzg6SclU",
+    "title": "v2 P1｜候选 Skill｜api-version-compatibility-testing",
+    "current_status": "Done",
+    "verified_at": "2026-09-15",
+    "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
+    "transition_requirement": "In Progress -> Done",
+    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned"
+  }
 },
 {
   "slug": "api-error-contract-testing",
@@ -5569,7 +5839,25 @@
     "skills/zh/testing-types/api-error-contract-testing/prompts/api-error-contract-testing.md",
     "skills/en/testing-types/api-error-contract-testing/prompts/api-error-contract-testing.md"
   ],
-  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review"
+  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review",
+  "capability_match": {
+    "decision": "NEW",
+    "existing_targets": [
+      "skills/zh/testing-types/api-contract-testing/SKILL.md",
+      "skills/zh/testing-types/api-contract-testing/prompts/api-contract-testing.md"
+    ],
+    "difference": "Compared with existing api-contract-testing, this candidate narrows the analysis and output to api-error-contract-testing-specific API evidence with a stable finding prefix; it does not call an API or claim runtime validation."
+  },
+  "project_evidence": {
+    "project_number": 4,
+    "item_id": "PVTI_lAHOAHP1as4BjBhVzg6ScnY",
+    "title": "v2 P1｜候选 Skill｜api-error-contract-testing",
+    "current_status": "Done",
+    "verified_at": "2026-09-15",
+    "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
+    "transition_requirement": "In Progress -> Done",
+    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned"
+  }
 },
 {
   "slug": "ui-test-strategy",
@@ -5593,7 +5881,27 @@
     "skills/zh/testing-types/ui-test-strategy/prompts/ui-test-strategy.md",
     "skills/en/testing-types/ui-test-strategy/prompts/ui-test-strategy.md"
   ],
-  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review"
+  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review",
+  "capability_match": {
+    "decision": "NEW",
+    "existing_targets": [
+      "skills/zh/testing-types/test-strategy/SKILL.md",
+      "skills/zh/testing-types/test-strategy/prompts/test-strategy.md",
+      "skills/zh/testing-types/ui-test-playwright/SKILL.md",
+      "skills/zh/testing-types/ui-test-playwright/prompts/ui-test-playwright.md"
+    ],
+    "difference": "Compared with existing UI automation packages, this candidate isolates ui-test-strategy-specific review evidence with a stable finding prefix; it does not launch a browser or edit test assets."
+  },
+  "project_evidence": {
+    "project_number": 4,
+    "item_id": "PVTI_lAHOAHP1as4BjBhVzg6ScpY",
+    "title": "v2 P1｜候选 Skill｜ui-test-strategy",
+    "current_status": "Done",
+    "verified_at": "2026-09-15",
+    "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
+    "transition_requirement": "In Progress -> Done",
+    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned"
+  }
 },
 {
   "slug": "ui-test-selector-review",
@@ -5617,7 +5925,25 @@
     "skills/zh/testing-types/ui-test-selector-review/prompts/ui-test-selector-review.md",
     "skills/en/testing-types/ui-test-selector-review/prompts/ui-test-selector-review.md"
   ],
-  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review"
+  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review",
+  "capability_match": {
+    "decision": "NEW",
+    "existing_targets": [
+      "skills/zh/testing-types/ui-test-playwright/SKILL.md",
+      "skills/zh/testing-types/ui-test-playwright/prompts/ui-test-playwright.md"
+    ],
+    "difference": "Compared with existing UI automation packages, this candidate isolates ui-test-selector-review-specific review evidence with a stable finding prefix; it does not launch a browser or edit test assets."
+  },
+  "project_evidence": {
+    "project_number": 4,
+    "item_id": "PVTI_lAHOAHP1as4BjBhVzg6Scq4",
+    "title": "v2 P1｜候选 Skill｜ui-test-selector-review",
+    "current_status": "Done",
+    "verified_at": "2026-09-15",
+    "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
+    "transition_requirement": "In Progress -> Done",
+    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned"
+  }
 },
 {
   "slug": "ui-test-wait-strategy-review",
@@ -5641,7 +5967,25 @@
     "skills/zh/testing-types/ui-test-wait-strategy-review/prompts/ui-test-wait-strategy-review.md",
     "skills/en/testing-types/ui-test-wait-strategy-review/prompts/ui-test-wait-strategy-review.md"
   ],
-  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review"
+  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review",
+  "capability_match": {
+    "decision": "NEW",
+    "existing_targets": [
+      "skills/zh/testing-types/ui-test-playwright/SKILL.md",
+      "skills/zh/testing-types/ui-test-playwright/prompts/ui-test-playwright.md"
+    ],
+    "difference": "Compared with existing UI automation packages, this candidate isolates ui-test-wait-strategy-review-specific review evidence with a stable finding prefix; it does not launch a browser or edit test assets."
+  },
+  "project_evidence": {
+    "project_number": 4,
+    "item_id": "PVTI_lAHOAHP1as4BjBhVzg6ScsY",
+    "title": "v2 P1｜候选 Skill｜ui-test-wait-strategy-review",
+    "current_status": "Done",
+    "verified_at": "2026-09-15",
+    "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
+    "transition_requirement": "In Progress -> Done",
+    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned"
+  }
 },
 {
   "slug": "visual-regression-testing",
@@ -5665,7 +6009,25 @@
     "skills/zh/testing-types/visual-regression-testing/prompts/visual-regression-testing.md",
     "skills/en/testing-types/visual-regression-testing/prompts/visual-regression-testing.md"
   ],
-  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review"
+  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review",
+  "capability_match": {
+    "decision": "NEW",
+    "existing_targets": [
+      "skills/zh/testing-types/ui-test-playwright/SKILL.md",
+      "skills/zh/testing-types/ui-test-playwright/prompts/ui-test-playwright.md"
+    ],
+    "difference": "Compared with existing UI automation packages, this candidate isolates visual-regression-testing-specific review evidence with a stable finding prefix; it does not launch a browser or edit test assets."
+  },
+  "project_evidence": {
+    "project_number": 4,
+    "item_id": "PVTI_lAHOAHP1as4BjBhVzg6ScuQ",
+    "title": "v2 P1｜候选 Skill｜visual-regression-testing",
+    "current_status": "Done",
+    "verified_at": "2026-09-15",
+    "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
+    "transition_requirement": "In Progress -> Done",
+    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned"
+  }
 },
 {
   "slug": "cross-browser-testing",
@@ -5689,7 +6051,25 @@
     "skills/zh/testing-types/cross-browser-testing/prompts/cross-browser-testing.md",
     "skills/en/testing-types/cross-browser-testing/prompts/cross-browser-testing.md"
   ],
-  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review"
+  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review",
+  "capability_match": {
+    "decision": "NEW",
+    "existing_targets": [
+      "skills/zh/testing-types/ui-test-playwright/SKILL.md",
+      "skills/zh/testing-types/ui-test-playwright/prompts/ui-test-playwright.md"
+    ],
+    "difference": "Compared with existing UI automation packages, this candidate isolates cross-browser-testing-specific review evidence with a stable finding prefix; it does not launch a browser or edit test assets."
+  },
+  "project_evidence": {
+    "project_number": 4,
+    "item_id": "PVTI_lAHOAHP1as4BjBhVzg6Scvs",
+    "title": "v2 P1｜候选 Skill｜cross-browser-testing",
+    "current_status": "Done",
+    "verified_at": "2026-09-15",
+    "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
+    "transition_requirement": "In Progress -> Done",
+    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned"
+  }
 },
 {
   "slug": "test-code-review",
@@ -5713,7 +6093,26 @@
     "skills/zh/testing-types/test-code-review/prompts/test-code-review.md",
     "skills/en/testing-types/test-code-review/prompts/test-code-review.md"
   ],
-  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review"
+  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review",
+  "capability_match": {
+    "decision": "NEW",
+    "existing_targets": [
+      "skills/zh/testing-types/code-review/SKILL.md",
+      "skills/zh/testing-types/code-review/prompts/code-review.md",
+      "skills/zh/testing-types/test-case-reviewer/SKILL.md"
+    ],
+    "difference": "Compared with general code-review and test-case-reviewer, this candidate narrows the review to test-code assertions, isolation, determinism, and maintainability with TCR-##."
+  },
+  "project_evidence": {
+    "project_number": 4,
+    "item_id": "PVTI_lAHOAHP1as4BjBhVzg6ScyY",
+    "title": "v2 P1｜候选 Skill｜test-code-review",
+    "current_status": "Done",
+    "verified_at": "2026-09-15",
+    "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
+    "transition_requirement": "In Progress -> Done",
+    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned"
+  }
 },
 {
   "slug": "mutation-testing-analysis",
@@ -5737,7 +6136,25 @@
     "skills/zh/testing-types/mutation-testing-analysis/prompts/mutation-testing-analysis.md",
     "skills/en/testing-types/mutation-testing-analysis/prompts/mutation-testing-analysis.md"
   ],
-  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review"
+  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review",
+  "capability_match": {
+    "decision": "NEW",
+    "existing_targets": [
+      "skills/zh/testing-types/code-review/SKILL.md",
+      "skills/zh/testing-types/code-review/prompts/code-review.md"
+    ],
+    "difference": "Compared with general code-review, this candidate specializes in mutation adequacy and surviving-mutant evidence with MTA-## without running a mutator."
+  },
+  "project_evidence": {
+    "project_number": 4,
+    "item_id": "PVTI_lAHOAHP1as4BjBhVzg6Sc00",
+    "title": "v2 P1｜候选 Skill｜mutation-testing-analysis",
+    "current_status": "Done",
+    "verified_at": "2026-09-15",
+    "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
+    "transition_requirement": "In Progress -> Done",
+    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned"
+  }
 },
 {
   "slug": "mock-quality-review",
@@ -5761,7 +6178,25 @@
     "skills/zh/testing-types/mock-quality-review/prompts/mock-quality-review.md",
     "skills/en/testing-types/mock-quality-review/prompts/mock-quality-review.md"
   ],
-  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review"
+  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review",
+  "capability_match": {
+    "decision": "NEW",
+    "existing_targets": [
+      "skills/zh/testing-types/ai-generated-test-review/SKILL.md",
+      "skills/zh/testing-types/ai-generated-test-review/prompts/review-test.md"
+    ],
+    "difference": "Compared with ai-generated-test-review, this candidate specializes in mock fidelity, over-mocking, and interaction verification with MQR-##."
+  },
+  "project_evidence": {
+    "project_number": 4,
+    "item_id": "PVTI_lAHOAHP1as4BjBhVzg6Sc20",
+    "title": "v2 P1｜候选 Skill｜mock-quality-review",
+    "current_status": "Done",
+    "verified_at": "2026-09-15",
+    "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
+    "transition_requirement": "In Progress -> Done",
+    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned"
+  }
 },
 {
   "slug": "test-suite-health-analysis",
@@ -5785,7 +6220,26 @@
     "skills/zh/testing-types/test-suite-health-analysis/prompts/test-suite-health-analysis.md",
     "skills/en/testing-types/test-suite-health-analysis/prompts/test-suite-health-analysis.md"
   ],
-  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review"
+  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review",
+  "capability_match": {
+    "decision": "NEW",
+    "existing_targets": [
+      "skills/zh/testing-types/flaky-test-analysis/SKILL.md",
+      "skills/zh/testing-types/flaky-test-analysis/prompts/flaky-test-analysis.md",
+      "skills/zh/testing-types/test-strategy/SKILL.md"
+    ],
+    "difference": "Compared with flaky-test-analysis and test-strategy, this candidate aggregates suite-health signals, ownership, runtime, redundancy, and maintenance evidence with TSH-##."
+  },
+  "project_evidence": {
+    "project_number": 4,
+    "item_id": "PVTI_lAHOAHP1as4BjBhVzg6Sc4Q",
+    "title": "v2 P1｜候选 Skill｜test-suite-health-analysis",
+    "current_status": "Done",
+    "verified_at": "2026-09-15",
+    "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
+    "transition_requirement": "In Progress -> Done",
+    "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned"
+  }
 }
   ]
 }

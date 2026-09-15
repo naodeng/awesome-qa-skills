@@ -11,6 +11,7 @@ expect:
     - "known"
     - "evidence"
     - "validation"
+    - "transformation"
   must_not_contain:
     - "TODO"
     - "I cannot"
@@ -23,3 +24,4 @@ judge:
           - "known"
           - "evidence"
           - "validation"
+          - "transformation"

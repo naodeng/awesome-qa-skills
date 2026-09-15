@@ -25,6 +25,8 @@ Prefer input constraints, field types, business rules, role/state differences, e
 
 Each finding contains equivalence class, partition rationale, representative value, valid/invalid state, source evidence, expected concern, and validation method, plus source, version/scope, evidence state, impact/priority, owner role, close condition, and validation method.
 
+- Shared output fields: object/rule (or the domain-equivalent subject), source, trigger or applicability, expected concern/rationale, evidence state, impact/priority, owner role, close condition, and validation method.
+
 ## Output
 
 Objective and boundaries; six-part input audit; applicable dimensions and selection rules; EP-## finding table; unknown, conflicting, blocked/unassessed items and residual risk; validation suggestions, Human decisions, and self-check.

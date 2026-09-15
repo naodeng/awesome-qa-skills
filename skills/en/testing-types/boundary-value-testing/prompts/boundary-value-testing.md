@@ -25,6 +25,8 @@ Prefer field schemas, minimum/maximum rules, inclusivity, units, time rules, res
 
 Each finding contains input domain, boundary value, neighboring value, inclusivity, unit, source evidence, impact, priority, and validation method, plus source, version/scope, evidence state, impact/priority, owner role, close condition, and validation method.
 
+- Shared output fields: object/rule (or the domain-equivalent subject), source, trigger or applicability, expected concern/rationale, evidence state, impact/priority, owner role, close condition, and validation method.
+
 ## Output
 
 Objective and boundaries; six-part input audit; applicable dimensions and selection rules; BVT-## finding table; unknown, conflicting, blocked/unassessed items and residual risk; validation suggestions, Human decisions, and self-check.

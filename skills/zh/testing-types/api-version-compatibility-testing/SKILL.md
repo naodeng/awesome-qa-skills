@@ -9,11 +9,16 @@ description: Use this skill when you need to assess API version compatibility fr
 
 ## 何时使用
 
-- 需要从 版本契约、变更日志、旧客户端样例、兼容策略、弃用时间线、网关路由和响应对比 中提取 undefined 候选。
+- 需要从 版本契约、变更日志、旧客户端样例、兼容策略、弃用时间线、网关路由和响应对比 中提取 版本兼容性 候选。
 - 需要解释选择理由、适用约束、证据缺口和最小验证动作。
 - 材料不完整但仍要交付受限初版，并明确 blocked 或 unassessed 边界。
 
 不适用于直接执行测试、生成无来源的契约或行为、替代完整测试策略，或替 Human 接受风险。
+
+## 输出格式选项
+
+- 默认输出 Markdown；表格、JSON 或 CSV 仅在用户明确需要或现有交付格式要求时使用。
+- 把静态分析、未执行项、证据状态和 Human 决策分开；没有运行证据时保持 unassessed、blocked 或 NOT_RUN。
 
 ## 如何使用
 
@@ -40,3 +45,15 @@ description: Use this skill when you need to assess API version compatibility fr
 
 - 回归时读取 evals/eval.yaml 和匹配用例；配置不证明真实项目结果。
 - 触发验证使用 evals/trigger-prompts.csv 和 evals/local-rules.json；缺少 skill.selection 证据时报告 BLOCKED。
+
+## 常见误区
+
+- 范围或证据不完整时，不要把方法名称、文件存在或候选数量写成测试已执行、覆盖、通过或发布证据。
+- 不要用常识补齐未提供的规则、阈值、数据、环境或结果；保留 unassessed、blocked 和待确认项。
+- 不要把本 Skill 的专项候选扩写成完整策略、完整测试用例、真实执行或发布决定。
+
+## 最佳实践
+
+- 先完成六类输入审计，再选择最小、可追溯且可验证的发现范围。
+- 每条发现保留来源、证据状态、影响/优先级、责任角色、关闭条件和验证方法，并明确剩余风险。
+- 把验证建议写成下一步动作，不把 Skill 包结构、候选数量或本地 Eval 配置升级为真实质量结论。

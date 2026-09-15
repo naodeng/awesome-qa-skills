@@ -25,6 +25,8 @@ Prefer rate-limit policies, quota windows, tenant or user dimensions, 429 respon
 
 Each finding contains the subject, preconditions, behavior of concern, source evidence, and validation, plus evidence state, impact/priority, owner role, and close condition.
 
+- Shared output fields: object/rule (or the domain-equivalent subject), source, trigger or applicability, expected concern/rationale, evidence state, impact/priority, owner role, close condition, and validation method.
+
 ## Output
 
 Objective and boundaries; six-part input audit; applicable dimensions and selection rules; ARL-## finding table; unknown, conflicting, blocked/unassessed items and residual risk; validation suggestions, Human decisions, and self-check.

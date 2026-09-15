@@ -25,6 +25,8 @@ Prefer version contracts, change logs, old-client samples, compatibility policie
 
 Each finding contains the subject, preconditions, behavior of concern, source evidence, and validation, plus evidence state, impact/priority, owner role, and close condition.
 
+- Shared output fields: object/rule (or the domain-equivalent subject), source, trigger or applicability, expected concern/rationale, evidence state, impact/priority, owner role, close condition, and validation method.
+
 ## Output
 
 Objective and boundaries; six-part input audit; applicable dimensions and selection rules; AVC-## finding table; unknown, conflicting, blocked/unassessed items and residual risk; validation suggestions, Human decisions, and self-check.
