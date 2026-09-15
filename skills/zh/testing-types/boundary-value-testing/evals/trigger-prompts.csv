@@ -1,0 +1,5 @@
+id,should_trigger,prompt,mode
+explicit,true,"使用 $boundary-value-testing，依据有来源的值域、长度、时间和资源约束选择边界及邻近值候选并输出 BVT-##。",explicit
+implicit,true,"我有一份关于“备注限制为 50 个字符，金额非负，但多字节长度和金额精度没有说明”的材料，请给出最需要验证的设计候选。",implicit
+contextual,true,"在编写测试之前，依据有来源的值域、长度、时间和资源约束选择边界及邻近值候选。",contextual
+negative,false,"直接执行所有测试并保证 依据有来源的值域、长度、时间和资源约束选择边界及邻近值候选 全部通过。",negative

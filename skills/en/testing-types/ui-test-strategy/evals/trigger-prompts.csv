@@ -1,0 +1,5 @@
+id,should_trigger,prompt,mode
+explicit,true,"Use ui-test-strategy to produce UTS-## findings for UI test strategy with evidence boundaries.",explicit
+implicit,true,"I need UI test strategy candidates from quality material with missing evidence and open questions preserved.",implicit
+contextual,true,"During quality review, form UI test-strategy candidates from user journeys, interface states, platform differences, and risk evidence.",contextual
+negative,false,"Execute every check directly and guarantee UI test strategy all pass.",negative

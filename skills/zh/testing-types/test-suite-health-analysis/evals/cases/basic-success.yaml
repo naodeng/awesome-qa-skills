@@ -1,0 +1,29 @@
+id: basic-success
+title: "测试套件健康度分析: basic-success"
+description: |
+  验证 test-suite-health-analysis 的证据和边界契约。
+
+input:
+  prompt: |
+    请使用 test-suite-health-analysis 分析：套件耗时持续上升且重跑率很高，隔离测试没有退出条件，重复覆盖和真实缺陷保护也未量化。先列出已知事实、信息缺口、冲突、过期信息、范围外和假设，再输出 TSH-##，保留来源、证据状态、优先级、关闭条件和验证。不要声称测试已执行。
+
+expect:
+  must_contain:
+    - "TSH-"
+    - "输入审计"
+    - "证据"
+    - "验证"
+    - "健康"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "输入审计"
+          - "证据"
+          - "验证"
+          - "健康"

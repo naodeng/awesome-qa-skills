@@ -1,0 +1,27 @@
+id: edge-incomplete-input
+title: "State Transition Test Design: edge-incomplete-input"
+description: |
+  This case checks the state-transition-testing evidence and boundary contract.
+
+input:
+  prompt: |
+    Use state-transition-testing. The only request is to derive test candidates for reachable, unreachable, and abnormal transitions from states, events, guards, and actions, with no requirements, constraints, thresholds, version, data, environment, or execution evidence. Produce bounded STT-##, list missing information, assumptions, unassessed items, and pending evidence, and do not invent rules.
+
+expect:
+  must_contain:
+    - "STT-"
+    - "missing"
+    - "unassessed"
+    - "pending"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "known"
+          - "missing"
+          - "unassessed"

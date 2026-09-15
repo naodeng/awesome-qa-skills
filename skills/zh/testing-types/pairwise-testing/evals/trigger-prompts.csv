@@ -1,0 +1,5 @@
+id,should_trigger,prompt,mode
+explicit,true,"使用 $pairwise-testing，在明确因素、取值和约束后识别需要至少成对覆盖的交互候选并输出 PWT-##。",explicit
+implicit,true,"我有一份关于“浏览器、地区、账号类型和支付方式存在组合约束，需要找出高风险的成对交互”的材料，请给出最需要验证的设计候选。",implicit
+contextual,true,"在编写测试之前，在明确因素、取值和约束后识别需要至少成对覆盖的交互候选。",contextual
+negative,false,"直接执行所有测试并保证 在明确因素、取值和约束后识别需要至少成对覆盖的交互候选 全部通过。",negative

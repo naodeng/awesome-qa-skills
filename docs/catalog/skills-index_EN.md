@@ -2,7 +2,7 @@
 
 # Complete Skills Index
 
-Each language contains 10 workflows, 83 testing types, and 3 Skill Engineering packages: 96 per language and 192 directories total. This is logical navigation; physical directories do not change. See the [Skill governance roadmap](../governance/SKILL_GOVERNANCE_ROADMAP_EN.md), [governance matrix](../SKILL_MATRIX_EN.md), and [matching register](../SKILL_MATCHING_REGISTER_EN.md) for long-term governance.
+Each language contains 10 workflows, 108 testing types, and 3 Skill Engineering packages: 121 per language and 242 directories total. This is logical navigation; physical directories do not change. See the [Skill governance roadmap](../governance/SKILL_GOVERNANCE_ROADMAP_EN.md), [governance matrix](../SKILL_MATRIX_EN.md), and [matching register](../SKILL_MATCHING_REGISTER_EN.md) for long-term governance.
 
 ## Cross-phase workflows
 
@@ -58,6 +58,15 @@ Each language contains 10 workflows, 83 testing types, and 3 Skill Engineering p
 | `testcase-writer-plus` | [中文](../../skills/zh/testing-types/testcase-writer-plus/) | [English](../../skills/en/testing-types/testcase-writer-plus/) |
 | `test-case-reviewer` | [中文](../../skills/zh/testing-types/test-case-reviewer/) | [English](../../skills/en/testing-types/test-case-reviewer/) |
 | `test-case-reviewer-plus` | [中文](../../skills/zh/testing-types/test-case-reviewer-plus/) | [English](../../skills/en/testing-types/test-case-reviewer-plus/) |
+| `decision-table-testing` | [中文](../../skills/zh/testing-types/decision-table-testing/) | [English](../../skills/en/testing-types/decision-table-testing/) |
+| `state-transition-testing` | [中文](../../skills/zh/testing-types/state-transition-testing/) | [English](../../skills/en/testing-types/state-transition-testing/) |
+| `boundary-value-testing` | [中文](../../skills/zh/testing-types/boundary-value-testing/) | [English](../../skills/en/testing-types/boundary-value-testing/) |
+| `equivalence-partitioning` | [中文](../../skills/zh/testing-types/equivalence-partitioning/) | [English](../../skills/en/testing-types/equivalence-partitioning/) |
+| `pairwise-testing` | [中文](../../skills/zh/testing-types/pairwise-testing/) | [English](../../skills/en/testing-types/pairwise-testing/) |
+| `combinatorial-testing` | [中文](../../skills/zh/testing-types/combinatorial-testing/) | [English](../../skills/en/testing-types/combinatorial-testing/) |
+| `model-based-testing` | [中文](../../skills/zh/testing-types/model-based-testing/) | [English](../../skills/en/testing-types/model-based-testing/) |
+| `property-based-testing` | [中文](../../skills/zh/testing-types/property-based-testing/) | [English](../../skills/en/testing-types/property-based-testing/) |
+| `metamorphic-testing` | [中文](../../skills/zh/testing-types/metamorphic-testing/) | [English](../../skills/en/testing-types/metamorphic-testing/) |
 
 #### Test Execution and Analysis
 
@@ -116,6 +125,13 @@ Each language contains 10 workflows, 83 testing types, and 3 Skill Engineering p
 | `pr-test-impact-analysis` | [中文](../../skills/zh/testing-types/pr-test-impact-analysis/) | [English](../../skills/en/testing-types/pr-test-impact-analysis/) |
 | `api-contract-testing` | [中文](../../skills/zh/testing-types/api-contract-testing/) | [English](../../skills/en/testing-types/api-contract-testing/) |
 | `automation-testing` | [中文](../../skills/zh/testing-types/automation-testing/) | [English](../../skills/en/testing-types/automation-testing/) |
+| `api-schema-validation` | [中文](../../skills/zh/testing-types/api-schema-validation/) | [English](../../skills/en/testing-types/api-schema-validation/) |
+| `api-negative-testing` | [中文](../../skills/zh/testing-types/api-negative-testing/) | [English](../../skills/en/testing-types/api-negative-testing/) |
+| `api-idempotency-testing` | [中文](../../skills/zh/testing-types/api-idempotency-testing/) | [English](../../skills/en/testing-types/api-idempotency-testing/) |
+| `api-pagination-testing` | [中文](../../skills/zh/testing-types/api-pagination-testing/) | [English](../../skills/en/testing-types/api-pagination-testing/) |
+| `api-rate-limit-testing` | [中文](../../skills/zh/testing-types/api-rate-limit-testing/) | [English](../../skills/en/testing-types/api-rate-limit-testing/) |
+| `api-version-compatibility-testing` | [中文](../../skills/zh/testing-types/api-version-compatibility-testing/) | [English](../../skills/en/testing-types/api-version-compatibility-testing/) |
+| `api-error-contract-testing` | [中文](../../skills/zh/testing-types/api-error-contract-testing/) | [English](../../skills/en/testing-types/api-error-contract-testing/) |
 
 #### Test Data and Automation Implementation
 
@@ -134,6 +150,11 @@ Each language contains 10 workflows, 83 testing types, and 3 Skill Engineering p
 | `ui-test-cypress` | [中文](../../skills/zh/testing-types/ui-test-cypress/) | [English](../../skills/en/testing-types/ui-test-cypress/) |
 | `ui-test-puppeteer` | [中文](../../skills/zh/testing-types/ui-test-puppeteer/) | [English](../../skills/en/testing-types/ui-test-puppeteer/) |
 | `ui-test-webdriverio` | [中文](../../skills/zh/testing-types/ui-test-webdriverio/) | [English](../../skills/en/testing-types/ui-test-webdriverio/) |
+| `ui-test-strategy` | [中文](../../skills/zh/testing-types/ui-test-strategy/) | [English](../../skills/en/testing-types/ui-test-strategy/) |
+| `ui-test-selector-review` | [中文](../../skills/zh/testing-types/ui-test-selector-review/) | [English](../../skills/en/testing-types/ui-test-selector-review/) |
+| `ui-test-wait-strategy-review` | [中文](../../skills/zh/testing-types/ui-test-wait-strategy-review/) | [English](../../skills/en/testing-types/ui-test-wait-strategy-review/) |
+| `visual-regression-testing` | [中文](../../skills/zh/testing-types/visual-regression-testing/) | [English](../../skills/en/testing-types/visual-regression-testing/) |
+| `cross-browser-testing` | [中文](../../skills/zh/testing-types/cross-browser-testing/) | [English](../../skills/en/testing-types/cross-browser-testing/) |
 
 #### Test Execution and Regression Intelligence
 
@@ -144,6 +165,10 @@ Each language contains 10 workflows, 83 testing types, and 3 Skill Engineering p
 | `regression-test-selection` | [中文](../../skills/zh/testing-types/regression-test-selection/) | [English](../../skills/en/testing-types/regression-test-selection/) |
 | `ai-assisted-testing` | [中文](../../skills/zh/testing-types/ai-assisted-testing/) | [English](../../skills/en/testing-types/ai-assisted-testing/) |
 | `ai-generated-test-review` | [中文](../../skills/zh/testing-types/ai-generated-test-review/) | [English](../../skills/en/testing-types/ai-generated-test-review/) |
+| `test-code-review` | [中文](../../skills/zh/testing-types/test-code-review/) | [English](../../skills/en/testing-types/test-code-review/) |
+| `mutation-testing-analysis` | [中文](../../skills/zh/testing-types/mutation-testing-analysis/) | [English](../../skills/en/testing-types/mutation-testing-analysis/) |
+| `mock-quality-review` | [中文](../../skills/zh/testing-types/mock-quality-review/) | [English](../../skills/en/testing-types/mock-quality-review/) |
+| `test-suite-health-analysis` | [中文](../../skills/zh/testing-types/test-suite-health-analysis/) | [English](../../skills/en/testing-types/test-suite-health-analysis/) |
 
 #### Performance Engineering and Capacity Decisions
 

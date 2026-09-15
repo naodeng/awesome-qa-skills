@@ -1,0 +1,25 @@
+id: edge-incomplete-input
+title: "API Schema Validation: edge-incomplete-input"
+description: |
+  This case checks that missing inputs remain explicit and bounded.
+
+input:
+  prompt: |
+    Use api-schema-validation with only an endpoint name and one business sentence. List missing evidence and open questions, then produce bounded ASV-## candidates without inventing a contract or execution result.
+
+expect:
+  must_contain:
+    - "ASV-"
+    - "missing"
+    - "open question"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "missing"
+          - "open question"

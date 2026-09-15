@@ -1,0 +1,27 @@
+id: basic-success
+title: "性质测试设计: basic-success"
+description: |
+  此用例检查基于属性的测试的证据边界与合同要求。
+input:
+  prompt: |
+    使用 property-based-testing 分析：排序函数应保持长度且结果有序，但空值、重复值和稳定性没有定义。先做六类输入审计，再输出 PBT-##，保留来源、证据状态、优先级、关闭条件和验证方法，不要声称执行。
+expect:
+  must_contain:
+    - "PBT-"
+    - "输入审计"
+    - "证据"
+    - "验证"
+    - "不变量"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "PBT-"
+          - "输入审计"
+          - "证据"
+          - "验证"
+          - "不变量"

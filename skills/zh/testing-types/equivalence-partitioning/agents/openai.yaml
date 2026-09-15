@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "equivalence-partitioning"
+interface:
+  display_name: "等价类划分测试设计"
+  short_description: "Design evidence-backed test candidates without claiming execution."
+  default_prompt: "Use the equivalence-partitioning skill to produce EP-## findings without claiming execution."
+policy:
+  allow_implicit_invocation: true

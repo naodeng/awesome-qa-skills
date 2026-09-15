@@ -1,0 +1,24 @@
+id: edge-incomplete-input
+title: "Model-Based Test Design: edge-incomplete-input"
+description: |
+  This case checks the model-based-testing evidence and boundary contract.
+input:
+  prompt: |
+    Use model-based-testing. The only sentence is “derive test-path candidates from sourced behavior, state, or process models”, with no rules, model, constraints, version, data, or execution evidence. Produce bounded MBT-##, list missing information, assumptions, unassessed items, and pending questions.
+expect:
+  must_contain:
+    - "MBT-"
+    - "missing"
+    - "unassessed"
+    - "pending"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "known"
+          - "missing"
+          - "unassessed"

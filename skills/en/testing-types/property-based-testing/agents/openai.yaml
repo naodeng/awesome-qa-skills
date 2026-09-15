@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "property-based-testing"
+interface:
+  display_name: "Property-Based Test Design"
+  short_description: "Design evidence-backed candidates without claiming execution."
+  default_prompt: "Use the property-based-testing skill to produce PBT-## without claiming execution."
+policy:
+  allow_implicit_invocation: true

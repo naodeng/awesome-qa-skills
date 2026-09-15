@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "metamorphic-testing"
+interface:
+  display_name: "Metamorphic Test Design"
+  short_description: "Design evidence-backed candidates without claiming execution."
+  default_prompt: "Use the metamorphic-testing skill to produce MT-## without claiming execution."
+policy:
+  allow_implicit_invocation: true

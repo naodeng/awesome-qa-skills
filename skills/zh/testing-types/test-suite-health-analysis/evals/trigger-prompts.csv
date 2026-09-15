@@ -1,0 +1,5 @@
+id,should_trigger,prompt,mode
+explicit,true,"使用 test-suite-health-analysis，围绕测试套件健康度分析输出 TSH-## 并保留证据边界。",explicit
+implicit,true,"我需要从质量材料中设计测试套件健康度分析候选，请保留信息缺口和待确认问题。",implicit
+contextual,true,"在质量评审阶段，基于运行历史、耗时、波动、重复、隔离和维护记录识别测试套件健康风险。",contextual
+negative,false,"直接执行所有检查并保证测试套件健康度分析全部通过。",negative

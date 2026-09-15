@@ -1,0 +1,29 @@
+id: basic-success
+title: "Mock 质量评审: basic-success"
+description: |
+  验证 mock-quality-review 的证据和边界契约。
+
+input:
+  prompt: |
+    请使用 mock-quality-review 分析：测试 mock 只返回理想成功响应，真实服务已有超时和错误字段变更但同步机制不明确。先列出已知事实、信息缺口、冲突、过期信息、范围外和假设，再输出 MQR-##，保留来源、证据状态、优先级、关闭条件和验证。不要声称测试已执行。
+
+expect:
+  must_contain:
+    - "MQR-"
+    - "输入审计"
+    - "证据"
+    - "验证"
+    - "Mock"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "输入审计"
+          - "证据"
+          - "验证"
+          - "Mock"

@@ -1,0 +1,29 @@
+id: basic-success
+title: "成对组合测试设计: basic-success"
+description: |
+  此用例检查成对测试的证据边界与合同要求。
+
+input:
+  prompt: |
+    请使用 pairwise-testing 分析：浏览器、地区、账号类型和支付方式存在组合约束，需要找出高风险的成对交互。先列出已知事实、信息缺口、冲突、过期信息、范围外和假设，再输出 PWT-##，保留来源、证据状态、优先级、关闭条件和验证方法，不要声称测试已执行。
+
+expect:
+  must_contain:
+    - "PWT-"
+    - "输入审计"
+    - "证据"
+    - "验证"
+    - "成对"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "输入审计"
+          - "证据"
+          - "验证"
+          - "成对"

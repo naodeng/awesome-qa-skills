@@ -1,0 +1,5 @@
+id,should_trigger,prompt,mode
+explicit,true,"Use $decision-table-testing to turn conditions, rules, actions, and outcomes into an auditable set of rule combinations and output DTT-## findings.",explicit
+implicit,true,"I have material about ""membership tier, inventory, and promotion conditions determine an order discount, but one rule's precedence is unspecified"". Find the highest-risk design candidates to validate.",implicit
+contextual,true,"Before writing tests, turn conditions, rules, actions, and outcomes into an auditable set of rule combinations.",contextual
+negative,false,"Run every test and guarantee that all turn conditions, rules, actions, and outcomes into an auditable set of rule combinations pass.",negative

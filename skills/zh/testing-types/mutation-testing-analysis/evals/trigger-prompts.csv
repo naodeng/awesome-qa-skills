@@ -1,0 +1,5 @@
+id,should_trigger,prompt,mode
+explicit,true,"使用 mutation-testing-analysis，围绕变异测试分析输出 MTA-## 并保留证据边界。",explicit
+implicit,true,"我需要从质量材料中设计变异测试分析候选，请保留信息缺口和待确认问题。",implicit
+contextual,true,"在质量评审阶段，根据变异算子、存活结果、等价变异和测试映射分析测试敏感性，不虚构质量分数。",contextual
+negative,false,"直接执行所有检查并保证变异测试分析全部通过。",negative

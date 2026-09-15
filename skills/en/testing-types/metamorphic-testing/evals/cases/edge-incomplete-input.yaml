@@ -1,0 +1,24 @@
+id: edge-incomplete-input
+title: "Metamorphic Test Design: edge-incomplete-input"
+description: |
+  This case checks the metamorphic-testing evidence and boundary contract.
+input:
+  prompt: |
+    Use metamorphic-testing. The only sentence is “derive test candidates from input transformations and expected relations when a direct oracle is limited”, with no rules, model, constraints, version, data, or execution evidence. Produce bounded MT-##, list missing information, assumptions, unassessed items, and pending questions.
+expect:
+  must_contain:
+    - "MT-"
+    - "missing"
+    - "unassessed"
+    - "pending"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "known"
+          - "missing"
+          - "unassessed"

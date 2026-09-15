@@ -44,6 +44,15 @@ flowchart LR
 | AI 功能验证 | `ai-feature-testing` → `llm-evaluation-design` → `llm-testing` → `prompt-injection-testing` | 评测设计、行为证据和安全边界 |
 | Agent 工具验证 | `ai-agent-testing` → `agent-tool-testing` → `prompt-injection-testing` | 状态、工具副作用与注入防护证据 |
 
+## v2.0 Test Engineering 推荐组合
+
+| 场景 | 推荐组合 | 输出 |
+| --- | --- | --- |
+| v2.0 测试设计方法 | `decision-table-testing`、`state-transition-testing`、`boundary-value-testing`、`equivalence-partitioning`、`pairwise-testing`、`combinatorial-testing`、`model-based-testing`、`property-based-testing`、`metamorphic-testing` | 规则、状态、数据域、因素、模型和参考关系的证据有界设计候选 |
+| v2.0 API 契约与失败语义 | `api-schema-validation` → `api-negative-testing` → `api-error-contract-testing`；按需使用 `api-idempotency-testing` / `api-pagination-testing` / `api-rate-limit-testing` / `api-version-compatibility-testing` | 契约、失败语义、重复请求、分页、限流和版本兼容的待验证发现 |
+| v2.0 UI 稳定性 | `ui-test-strategy` → `ui-test-selector-review` → `ui-test-wait-strategy-review`；按需使用 `visual-regression-testing` / `cross-browser-testing` | UI 范围、选择器、等待、视觉基线和浏览器差异的证据有界发现 |
+| v2.0 测试资产质量 | `test-code-review` → `mutation-testing-analysis`；按需使用 `mock-quality-review` / `test-suite-health-analysis` | 测试代码、变异充分性、Mock 真实性和测试套件健康度的风险与验证动作 |
+
 各组合均为可选。入口或顺序不明确时使用 `discover-testing`。
 
 ## 使用边界
@@ -54,6 +63,8 @@ flowchart LR
 - v1.1 需求质量组合只是可选导航；箭头不表示安装依赖、强制顺序或跨 Skill 内部文件链接。
 - v1.1 设计质量组合是可选导航；三个候选卡片以现有物理 Skill 的增强模式交付，不产生别名目录。
 - v1.1 测试设计发现组合是可选导航；五个候选卡片以独立双语物理 Skill 交付，不产生跨 Skill 内部依赖，也不把候选发现写成执行或覆盖结论。
+- v2.0 Test Engineering 组合是可选导航；25 个候选卡片以独立双语物理 Skill 交付，不产生安装依赖、跨 Skill 内部链接或运行时执行结论。
+- v2.0 Skill 只基于提供的规格、代码、测试资产或报告提出发现；真实模型 Eval、API/UI/数据库/变异执行和发布审批仍保持未运行或待人工决策。
 
 ## 导航
 

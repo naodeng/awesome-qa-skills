@@ -1,0 +1,29 @@
+id: basic-success
+title: "UI Test Strategy: basic-success"
+description: |
+  This case checks the ui-test-strategy evidence and boundary contract.
+
+input:
+  prompt: |
+    Use ui-test-strategy for this material: a checkout flow includes login, address, payment, and recovery states, but mobile differences and risk evidence for key journeys are incomplete. Start with known, missing, conflicting, stale, out_of_scope, and assumptions, then produce UTS-## with source, evidence state, priority, close condition, and validation. Do not claim tests ran.
+
+expect:
+  must_contain:
+    - "UTS-"
+    - "known"
+    - "evidence"
+    - "validation"
+    - "UI"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "known"
+          - "evidence"
+          - "validation"
+          - "UI"

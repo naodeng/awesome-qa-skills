@@ -1,0 +1,29 @@
+id: basic-success
+title: "Mock Quality Review: basic-success"
+description: |
+  This case checks the mock-quality-review evidence and boundary contract.
+
+input:
+  prompt: |
+    Use mock-quality-review for this material: tests use mocks that return only ideal success responses while the real service changed timeout and error fields without a clear sync mechanism. Start with known, missing, conflicting, stale, out_of_scope, and assumptions, then produce MQR-## with source, evidence state, priority, close condition, and validation. Do not claim tests ran.
+
+expect:
+  must_contain:
+    - "MQR-"
+    - "known"
+    - "evidence"
+    - "validation"
+    - "mock"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "known"
+          - "evidence"
+          - "validation"
+          - "mock"

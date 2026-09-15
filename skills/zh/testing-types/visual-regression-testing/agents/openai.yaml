@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "visual-regression-testing"
+interface:
+  display_name: "视觉回归测试"
+  short_description: "Review evidence-backed quality candidates without claiming execution."
+  default_prompt: "Use the visual-regression-testing skill to produce VRT-## findings without claiming execution."
+policy:
+  allow_implicit_invocation: true

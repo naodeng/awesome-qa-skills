@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "api-pagination-testing"
+interface:
+  display_name: "API 分页测试"
+  short_description: "Design evidence-backed candidates without claiming execution."
+  default_prompt: "Use the api-pagination-testing skill to produce APT-## findings without claiming execution."
+policy:
+  allow_implicit_invocation: true

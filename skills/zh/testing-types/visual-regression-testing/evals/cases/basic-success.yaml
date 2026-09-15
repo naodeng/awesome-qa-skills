@@ -1,0 +1,29 @@
+id: basic-success
+title: "视觉回归测试: basic-success"
+description: |
+  验证 visual-regression-testing 的证据和边界契约。
+
+input:
+  prompt: |
+    请使用 visual-regression-testing 分析：登录页截图在不同字体和响应式视口下波动，产品又提交了一次有意的布局改动。先列出已知事实、信息缺口、冲突、过期信息、范围外和假设，再输出 VRT-##，保留来源、证据状态、优先级、关闭条件和验证。不要声称测试已执行。
+
+expect:
+  must_contain:
+    - "VRT-"
+    - "输入审计"
+    - "证据"
+    - "验证"
+    - "视觉"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "输入审计"
+          - "证据"
+          - "验证"
+          - "视觉"

@@ -1,0 +1,5 @@
+id,should_trigger,prompt,mode
+explicit,true,"使用 api-schema-validation，围绕API Schema 校验输出 ASV-## 并保留证据边界。",explicit
+implicit,true,"我需要从接口材料中设计API Schema 校验候选，请保留信息缺口和待确认问题。",implicit
+contextual,true,"在 API 测试设计阶段，把 API Schema 约束与请求、响应和版本证据进行可追溯比对。",contextual
+negative,false,"直接执行所有检查并保证API Schema 校验全部通过。",negative

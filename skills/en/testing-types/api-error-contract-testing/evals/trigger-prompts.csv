@@ -1,0 +1,5 @@
+id,should_trigger,prompt,mode
+explicit,true,"Use api-error-contract-testing to produce AEC-## findings for error-contract consistency with evidence boundaries.",explicit
+implicit,true,"I need error-contract consistency candidates from API material with missing evidence and open questions preserved.",implicit
+contextual,true,"During API test design, design consistency candidates from error contracts, status codes, error codes, field shapes, and sensitive-data evidence.",contextual
+negative,false,"Execute every check directly and guarantee error-contract consistency all pass.",negative

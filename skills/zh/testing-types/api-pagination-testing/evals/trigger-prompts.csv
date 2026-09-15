@@ -1,0 +1,5 @@
+id,should_trigger,prompt,mode
+explicit,true,"使用 api-pagination-testing，围绕分页连续性和一致性输出 APT-## 并保留证据边界。",explicit
+implicit,true,"我需要从接口材料中设计分页连续性和一致性候选，请保留信息缺口和待确认问题。",implicit
+contextual,true,"在 API 测试设计阶段，从分页契约、排序规则、数据集和游标证据设计边界、连续性和一致性候选。",contextual
+negative,false,"直接执行所有检查并保证分页连续性和一致性全部通过。",negative

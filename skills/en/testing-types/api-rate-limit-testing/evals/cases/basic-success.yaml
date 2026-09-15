@@ -1,0 +1,29 @@
+id: basic-success
+title: "API Rate Limit Testing: basic-success"
+description: |
+  This case checks the api-rate-limit-testing evidence and boundary contract.
+
+input:
+  prompt: |
+    Use api-rate-limit-testing for this material: a login endpoint has a per-minute quota and 429 response, but burst behavior, window rollover, tenant isolation, and recovery conditions are unspecified. Start with known, missing, conflicting, stale, out_of_scope, and assumptions, then produce ARL-## with source, evidence state, priority, close condition, and validation. Do not claim tests ran.
+
+expect:
+  must_contain:
+    - "ARL-"
+    - "known"
+    - "evidence"
+    - "validation"
+    - "rate limit"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "known"
+          - "evidence"
+          - "validation"
+          - "rate limit"

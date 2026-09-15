@@ -1,0 +1,25 @@
+id: edge-incomplete-input
+title: "Test Suite Health Analysis: edge-incomplete-input"
+description: |
+  This case checks that missing inputs remain explicit and bounded.
+
+input:
+  prompt: |
+    Use test-suite-health-analysis with only a target name and one sentence. List missing evidence and open questions, then produce bounded TSH-## candidates without inventing behavior or execution results.
+
+expect:
+  must_contain:
+    - "TSH-"
+    - "missing"
+    - "open question"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "missing"
+          - "open question"

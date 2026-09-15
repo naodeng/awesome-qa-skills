@@ -1,0 +1,29 @@
+id: basic-success
+title: "边界值测试设计: basic-success"
+description: |
+  此用例检查边界值测试的证据边界与合同要求。
+
+input:
+  prompt: |
+    请使用 boundary-value-testing 分析：备注限制为 50 个字符，金额非负，但多字节长度和金额精度没有说明。先列出已知事实、信息缺口、冲突、过期信息、范围外和假设，再输出 BVT-##，保留来源、证据状态、优先级、关闭条件和验证方法，不要声称测试已执行。
+
+expect:
+  must_contain:
+    - "BVT-"
+    - "输入审计"
+    - "证据"
+    - "验证"
+    - "边界"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "输入审计"
+          - "证据"
+          - "验证"
+          - "边界"

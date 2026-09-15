@@ -1,0 +1,5 @@
+id,should_trigger,prompt,mode
+explicit,true,"使用 ui-test-strategy，围绕UI 测试策略输出 UTS-## 并保留证据边界。",explicit
+implicit,true,"我需要从质量材料中设计UI 测试策略候选，请保留信息缺口和待确认问题。",implicit
+contextual,true,"在质量评审阶段，从用户旅程、界面状态、平台差异和风险证据中形成 UI 测试策略候选。",contextual
+negative,false,"直接执行所有检查并保证UI 测试策略全部通过。",negative

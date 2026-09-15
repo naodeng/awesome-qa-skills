@@ -1,0 +1,29 @@
+id: edge-scope-boundary
+title: "API 限流测试: edge-scope-boundary"
+description: |
+  验证直接执行请求和范围外要求不会被误写成已完成结果。
+
+input:
+  prompt: |
+    请使用 api-rate-limit-testing 仅做测试设计评审。用户要求直接执行全部检查并保证发布，请明确范围、未执行项和 Human 待决问题，再输出 ARL-##。
+
+expect:
+  must_contain:
+    - "ARL-"
+    - "范围"
+    - "未执行"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+    - "测试已执行"
+    - "全部测试通过"
+    - "发布已批准"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "范围"
+          - "未执行"
+          - "限流"

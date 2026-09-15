@@ -1,0 +1,5 @@
+id,should_trigger,prompt,mode
+explicit,true,"Use ui-test-selector-review to produce USR-## findings for UI test selector review with evidence boundaries.",explicit
+implicit,true,"I need UI test selector review candidates from quality material with missing evidence and open questions preserved.",implicit
+contextual,true,"During quality review, review UI selector stability and maintainability from DOM, component semantics, test code, and change history.",contextual
+negative,false,"Execute every check directly and guarantee UI test selector review all pass.",negative

@@ -1,0 +1,5 @@
+id,should_trigger,prompt,mode
+explicit,true,"使用 $property-based-testing，把不变量、生成域和收缩策略整理为可复核的性质测试候选并输出 PBT-##。",explicit
+implicit,true,"关于“排序函数应保持长度和顺序，但空值、重复值和稳定性未定义”的材料需要哪些最重要的设计候选？",implicit
+contextual,true,"在编写测试前，把不变量、生成域和收缩策略整理为可复核的性质测试候选。",contextual
+negative,false,"直接执行全部测试并保证 把不变量、生成域和收缩策略整理为可复核的性质测试候选 通过。",negative

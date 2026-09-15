@@ -1,0 +1,5 @@
+id,should_trigger,prompt,mode
+explicit,true,"使用 $equivalence-partitioning，依据输入约束、业务规则和响应差异划分有证据的有效、无效和未知等价类并输出 EP-##。",explicit
+implicit,true,"我有一份关于“地区字段接受明确枚举，邮编格式按地区变化，但未知地区的行为没有材料”的材料，请给出最需要验证的设计候选。",implicit
+contextual,true,"在编写测试之前，依据输入约束、业务规则和响应差异划分有证据的有效、无效和未知等价类。",contextual
+negative,false,"直接执行所有测试并保证 依据输入约束、业务规则和响应差异划分有证据的有效、无效和未知等价类 全部通过。",negative

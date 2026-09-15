@@ -1,0 +1,25 @@
+id: edge-incomplete-input
+title: "Mutation Testing Analysis: edge-incomplete-input"
+description: |
+  This case checks that missing inputs remain explicit and bounded.
+
+input:
+  prompt: |
+    Use mutation-testing-analysis with only a target name and one sentence. List missing evidence and open questions, then produce bounded MTA-## candidates without inventing behavior or execution results.
+
+expect:
+  must_contain:
+    - "MTA-"
+    - "missing"
+    - "open question"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "missing"
+          - "open question"

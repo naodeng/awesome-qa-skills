@@ -1,0 +1,5 @@
+id,should_trigger,prompt,mode
+explicit,true,"使用 $state-transition-testing，从状态、事件、守卫和动作中发现可达、不可达及异常迁移的测试候选并输出 STT-##。",explicit
+implicit,true,"我有一份关于“支付订单有 created、authorized、captured 和 refunded 状态，但退款失败后的状态没有定义”的材料，请给出最需要验证的设计候选。",implicit
+contextual,true,"在编写测试之前，从状态、事件、守卫和动作中发现可达、不可达及异常迁移的测试候选。",contextual
+negative,false,"直接执行所有测试并保证 从状态、事件、守卫和动作中发现可达、不可达及异常迁移的测试候选 全部通过。",negative

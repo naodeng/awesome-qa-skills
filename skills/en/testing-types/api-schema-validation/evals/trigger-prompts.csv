@@ -1,0 +1,5 @@
+id,should_trigger,prompt,mode
+explicit,true,"Use api-schema-validation to produce ASV-## findings for API schema validation with evidence boundaries.",explicit
+implicit,true,"I need API schema validation candidates from API material with missing evidence and open questions preserved.",implicit
+contextual,true,"During API test design, compare API schema constraints with sourced request, response, and version evidence.",contextual
+negative,false,"Execute every check directly and guarantee API schema validation all pass.",negative

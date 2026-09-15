@@ -1,0 +1,29 @@
+id: basic-success
+title: "API 幂等性测试: basic-success"
+description: |
+  验证 api-idempotency-testing 的证据和边界契约。
+
+input:
+  prompt: |
+    请使用 api-idempotency-testing 分析：创建订单接口支持幂等键，但键的有效期、重复响应和超时重试结果没有明确来源。先列出已知事实、信息缺口、冲突、过期信息、范围外和假设，再输出 AIT-##，保留来源、证据状态、优先级、关闭条件和验证。不要声称测试已执行。
+
+expect:
+  must_contain:
+    - "AIT-"
+    - "输入审计"
+    - "证据"
+    - "验证"
+    - "幂等"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "输入审计"
+          - "证据"
+          - "验证"
+          - "幂等"

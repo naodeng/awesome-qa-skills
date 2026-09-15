@@ -1,0 +1,27 @@
+id: edge-incomplete-input
+title: "Pairwise Test Design: edge-incomplete-input"
+description: |
+  This case checks the pairwise-testing evidence and boundary contract.
+
+input:
+  prompt: |
+    Use pairwise-testing. The only request is to identify interactions that need at least pairwise coverage after factors, values, and constraints are explicit, with no requirements, constraints, thresholds, version, data, environment, or execution evidence. Produce bounded PWT-##, list missing information, assumptions, unassessed items, and pending evidence, and do not invent rules.
+
+expect:
+  must_contain:
+    - "PWT-"
+    - "missing"
+    - "unassessed"
+    - "pending"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "known"
+          - "missing"
+          - "unassessed"

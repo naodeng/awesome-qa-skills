@@ -1,0 +1,27 @@
+id: edge-incomplete-input
+title: "边界值测试设计: edge-incomplete-input"
+description: |
+  此用例检查边界值测试的证据边界与合同要求。
+
+input:
+  prompt: |
+    使用 boundary-value-testing。只知道“依据有来源的值域、长度、时间和资源约束选择边界及邻近值候选”，没有需求、约束、阈值、版本、数据、环境或执行证据。输出受限 BVT-##，明确列出信息缺口、假设、unassessed 项和待确认证据，不要编造规则。
+
+expect:
+  must_contain:
+    - "BVT-"
+    - "信息缺口"
+    - "unassessed"
+    - "待确认"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "输入审计"
+          - "信息缺口"
+          - "待确认"

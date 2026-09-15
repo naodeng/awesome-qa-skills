@@ -1,0 +1,5 @@
+id,should_trigger,prompt,mode
+explicit,true,"使用 api-rate-limit-testing，围绕API 限流测试输出 ARL-## 并保留证据边界。",explicit
+implicit,true,"我需要从接口材料中设计API 限流测试候选，请保留信息缺口和待确认问题。",implicit
+contextual,true,"在 API 测试设计阶段，根据配额、窗口、突发、租户隔离和恢复响应证据设计限流候选。",contextual
+negative,false,"直接执行所有检查并保证API 限流测试全部通过。",negative

@@ -1,0 +1,29 @@
+id: basic-success
+title: "Decision Table Test Design: basic-success"
+description: |
+  This case checks the decision-table-testing evidence and boundary contract.
+
+input:
+  prompt: |
+    Use decision-table-testing for this material: membership tier, inventory, and promotion conditions determine an order discount, but one rule's precedence is unspecified. Start with known, missing, conflicting, stale, out_of_scope, and assumptions, then produce DTT-## with source, evidence state, priority, close condition, and validation. Do not claim tests ran.
+
+expect:
+  must_contain:
+    - "DTT-"
+    - "known"
+    - "evidence"
+    - "validation"
+    - "rule"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "known"
+          - "evidence"
+          - "validation"
+          - "rule"

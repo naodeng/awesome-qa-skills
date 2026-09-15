@@ -1,0 +1,5 @@
+id,should_trigger,prompt,mode
+explicit,true,"Use $equivalence-partitioning to partition inputs into evidence-backed valid, invalid, and unknown classes based on constraints, rules, and response differences and output EP-## findings.",explicit
+implicit,true,"I have material about ""a region field accepts an explicit enum and postal format varies by region, but behavior for an unknown region is undocumented"". Find the highest-risk design candidates to validate.",implicit
+contextual,true,"Before writing tests, partition inputs into evidence-backed valid, invalid, and unknown classes based on constraints, rules, and response differences.",contextual
+negative,false,"Run every test and guarantee that all partition inputs into evidence-backed valid, invalid, and unknown classes based on constraints, rules, and response differences pass.",negative

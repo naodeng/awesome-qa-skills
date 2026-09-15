@@ -1,0 +1,5 @@
+id,should_trigger,prompt,mode
+explicit,true,"使用 api-idempotency-testing，围绕API 幂等性测试输出 AIT-## 并保留证据边界。",explicit
+implicit,true,"我需要从接口材料中设计API 幂等性测试候选，请保留信息缺口和待确认问题。",implicit
+contextual,true,"在 API 测试设计阶段，围绕重复请求、重试、幂等键、超时和副作用设计可验证候选。",contextual
+negative,false,"直接执行所有检查并保证API 幂等性测试全部通过。",negative

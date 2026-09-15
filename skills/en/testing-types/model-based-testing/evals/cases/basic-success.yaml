@@ -1,0 +1,27 @@
+id: basic-success
+title: "Model-Based Test Design: basic-success"
+description: |
+  This case checks the model-based-testing evidence and boundary contract.
+input:
+  prompt: |
+    Use model-based-testing for this material: the model describes an order flow from creation to cancellation, but exception paths and model version are unspecified. Start with the six-part input audit, then produce MBT-## with source, evidence state, priority, close condition, and validation without claiming execution.
+expect:
+  must_contain:
+    - "MBT-"
+    - "known"
+    - "evidence"
+    - "validation"
+    - "model"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "MBT-"
+          - "known"
+          - "evidence"
+          - "validation"
+          - "model"

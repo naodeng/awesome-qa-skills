@@ -1,0 +1,5 @@
+id,should_trigger,prompt,mode
+explicit,true,"Use $combinatorial-testing to select high-risk multi-factor combinations after factors, values, and constraints are explicit and output CT-## findings.",explicit
+implicit,true,"What are the most important design candidates when browser, region, version, and payment method have three-factor constraints?",implicit
+contextual,true,"Before writing tests, select high-risk multi-factor combinations after factors, values, and constraints are explicit.",contextual
+negative,false,"Run all tests and guarantee that select high-risk multi-factor combinations after factors, values, and constraints are explicit passes.",negative

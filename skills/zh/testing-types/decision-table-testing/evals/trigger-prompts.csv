@@ -1,0 +1,5 @@
+id,should_trigger,prompt,mode
+explicit,true,"使用 $decision-table-testing，把条件、规则、动作和结果整理为可审计的规则组合并输出 DTT-##。",explicit
+implicit,true,"我有一份关于“会员等级、库存和优惠条件决定订单折扣，但一条规则的优先级没有说明”的材料，请给出最需要验证的设计候选。",implicit
+contextual,true,"在编写测试之前，把条件、规则、动作和结果整理为可审计的规则组合。",contextual
+negative,false,"直接执行所有测试并保证 把条件、规则、动作和结果整理为可审计的规则组合 全部通过。",negative

@@ -1,0 +1,25 @@
+id: edge-incomplete-input
+title: "API Negative Testing: edge-incomplete-input"
+description: |
+  This case checks that missing inputs remain explicit and bounded.
+
+input:
+  prompt: |
+    Use api-negative-testing with only an endpoint name and one business sentence. List missing evidence and open questions, then produce bounded ANT-## candidates without inventing a contract or execution result.
+
+expect:
+  must_contain:
+    - "ANT-"
+    - "missing"
+    - "open question"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "missing"
+          - "open question"

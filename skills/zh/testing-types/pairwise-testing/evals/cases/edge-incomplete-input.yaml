@@ -1,0 +1,27 @@
+id: edge-incomplete-input
+title: "成对组合测试设计: edge-incomplete-input"
+description: |
+  此用例检查成对测试的证据边界与合同要求。
+
+input:
+  prompt: |
+    使用 pairwise-testing。只知道“在明确因素、取值和约束后识别需要至少成对覆盖的交互候选”，没有需求、约束、阈值、版本、数据、环境或执行证据。输出受限 PWT-##，明确列出信息缺口、假设、unassessed 项和待确认证据，不要编造规则。
+
+expect:
+  must_contain:
+    - "PWT-"
+    - "信息缺口"
+    - "unassessed"
+    - "待确认"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "输入审计"
+          - "信息缺口"
+          - "待确认"

@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "pairwise-testing"
+interface:
+  display_name: "Pairwise Test Design"
+  short_description: "Design evidence-backed test candidates without claiming execution."
+  default_prompt: "Use the pairwise-testing skill to produce PWT-## findings without claiming execution."
+policy:
+  allow_implicit_invocation: true

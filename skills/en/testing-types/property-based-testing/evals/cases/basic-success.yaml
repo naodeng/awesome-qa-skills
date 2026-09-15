@@ -1,0 +1,27 @@
+id: basic-success
+title: "Property-Based Test Design: basic-success"
+description: |
+  This case checks the property-based-testing evidence and boundary contract.
+input:
+  prompt: |
+    Use property-based-testing for this material: a sort function should preserve length and ordering, but nulls, duplicates, and stability are undefined. Start with the six-part input audit, then produce PBT-## with source, evidence state, priority, close condition, and validation without claiming execution.
+expect:
+  must_contain:
+    - "PBT-"
+    - "known"
+    - "evidence"
+    - "validation"
+    - "invariant"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "PBT-"
+          - "known"
+          - "evidence"
+          - "validation"
+          - "invariant"

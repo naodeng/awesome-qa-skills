@@ -44,6 +44,15 @@ The evolution model is `Core QA Skills → Engineering QA Skills → Production 
 | AI feature validation | `ai-feature-testing` → `llm-evaluation-design` → `llm-testing` → `prompt-injection-testing` | Evaluation design, behavior evidence, and safety boundaries |
 | Agent tool validation | `ai-agent-testing` → `agent-tool-testing` → `prompt-injection-testing` | State, tool side-effect, and injection-defense evidence |
 
+## v2.0 Test Engineering Compositions
+
+| Scenario | Recommended composition | Outcome |
+| --- | --- | --- |
+| v2.0 test-design methods | `decision-table-testing`, `state-transition-testing`, `boundary-value-testing`, `equivalence-partitioning`, `pairwise-testing`, `combinatorial-testing`, `model-based-testing`, `property-based-testing`, `metamorphic-testing` | Evidence-bounded design candidates for rules, states, data domains, factors, models, and reference relations |
+| v2.0 API contracts and failure semantics | `api-schema-validation` → `api-negative-testing` → `api-error-contract-testing`; use `api-idempotency-testing` / `api-pagination-testing` / `api-rate-limit-testing` / `api-version-compatibility-testing` as needed | Validation candidates for contracts, failure semantics, repeated requests, pagination, rate limits, and version compatibility |
+| v2.0 UI stability | `ui-test-strategy` → `ui-test-selector-review` → `ui-test-wait-strategy-review`; use `visual-regression-testing` / `cross-browser-testing` as needed | Evidence-bounded findings for UI scope, selectors, waits, visual baselines, and browser differences |
+| v2.0 test-asset quality | `test-code-review` → `mutation-testing-analysis`; use `mock-quality-review` / `test-suite-health-analysis` as needed | Risks and validation actions for test code, mutation adequacy, mock fidelity, and suite health |
+
 Every composition is optional. Use `discover-testing` when the entry point or sequence is unclear.
 
 ## Boundaries
@@ -54,6 +63,8 @@ Every composition is optional. Use `discover-testing` when the entry point or se
 - The v1.1 requirement-quality composition is optional navigation; arrows do not create installation dependencies, a mandatory order, or links to another Skill's internal files.
 - The v1.1 design-quality composition is optional navigation; the three candidate cards are delivered as enhancement modes on existing physical Skills and do not create alias directories.
 - The v1.1 test-design discovery composition is optional navigation; the five candidate cards are delivered as independent bilingual physical Skills, with no cross-Skill internal dependency and no upgrade from discovery to execution or coverage evidence.
+- The v2.0 Test Engineering compositions are optional navigation; the 25 candidate cards are delivered as independent bilingual physical Skills without installation dependencies, cross-Skill internal links, or runtime-execution claims.
+- v2.0 Skills produce findings from supplied specifications, code, test assets, or reports; real-model Eval, API/UI/database/mutator execution, and release approval remain unrun or require Human decisions.
 
 ## Navigation
 

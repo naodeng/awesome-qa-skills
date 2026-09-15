@@ -1,0 +1,5 @@
+id,should_trigger,prompt,mode
+explicit,true,"Use cross-browser-testing to produce CBT-## findings for cross-browser testing with evidence boundaries.",explicit
+implicit,true,"I need cross-browser testing candidates from quality material with missing evidence and open questions preserved.",implicit
+contextual,true,"During quality review, select compatibility coverage from user distribution, browser engines, versions, devices, and known-defect evidence.",contextual
+negative,false,"Execute every check directly and guarantee cross-browser testing all pass.",negative

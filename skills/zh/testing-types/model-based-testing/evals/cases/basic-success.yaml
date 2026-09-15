@@ -1,0 +1,27 @@
+id: basic-success
+title: "基于模型的测试设计: basic-success"
+description: |
+  此用例检查基于模型的测试的证据边界与合同要求。
+input:
+  prompt: |
+    使用 model-based-testing 分析：模型描述订单从创建到取消的流程，但异常路径和模型版本没有说明。先做六类输入审计，再输出 MBT-##，保留来源、证据状态、优先级、关闭条件和验证方法，不要声称执行。
+expect:
+  must_contain:
+    - "MBT-"
+    - "输入审计"
+    - "证据"
+    - "验证"
+    - "模型"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "MBT-"
+          - "输入审计"
+          - "证据"
+          - "验证"
+          - "模型"

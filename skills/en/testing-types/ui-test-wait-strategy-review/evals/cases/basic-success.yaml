@@ -1,0 +1,29 @@
+id: basic-success
+title: "UI Test Wait Strategy Review: basic-success"
+description: |
+  This case checks the ui-test-wait-strategy-review evidence and boundary contract.
+
+input:
+  prompt: |
+    Use ui-test-wait-strategy-review for this material: tests rely heavily on fixed sleeps even though network and visibility conditions are observable, and timeout and retry evidence is incomplete. Start with known, missing, conflicting, stale, out_of_scope, and assumptions, then produce UWR-## with source, evidence state, priority, close condition, and validation. Do not claim tests ran.
+
+expect:
+  must_contain:
+    - "UWR-"
+    - "known"
+    - "evidence"
+    - "validation"
+    - "wait"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "known"
+          - "evidence"
+          - "validation"
+          - "wait"

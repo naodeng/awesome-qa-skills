@@ -1,0 +1,29 @@
+id: basic-success
+title: "Pairwise Test Design: basic-success"
+description: |
+  This case checks the pairwise-testing evidence and boundary contract.
+
+input:
+  prompt: |
+    Use pairwise-testing for this material: browser, region, account type, and payment method have combination constraints, and high-risk pair interactions need discovery. Start with known, missing, conflicting, stale, out_of_scope, and assumptions, then produce PWT-## with source, evidence state, priority, close condition, and validation. Do not claim tests ran.
+
+expect:
+  must_contain:
+    - "PWT-"
+    - "known"
+    - "evidence"
+    - "validation"
+    - "pairwise"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "known"
+          - "evidence"
+          - "validation"
+          - "pairwise"

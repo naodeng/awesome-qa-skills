@@ -1,0 +1,5 @@
+id,should_trigger,prompt,mode
+explicit,true,"Use $state-transition-testing to derive test candidates for reachable, unreachable, and abnormal transitions from states, events, guards, and actions and output STT-## findings.",explicit
+implicit,true,"I have material about ""a payment order has created, authorized, captured, and refunded states, but the post-failure refund state is undefined"". Find the highest-risk design candidates to validate.",implicit
+contextual,true,"Before writing tests, derive test candidates for reachable, unreachable, and abnormal transitions from states, events, guards, and actions.",contextual
+negative,false,"Run every test and guarantee that all derive test candidates for reachable, unreachable, and abnormal transitions from states, events, guards, and actions pass.",negative

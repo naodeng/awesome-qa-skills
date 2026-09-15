@@ -1,0 +1,5 @@
+id,should_trigger,prompt,mode
+explicit,true,"使用 ui-test-wait-strategy-review，围绕UI 测试等待策略评审输出 UWR-## 并保留证据边界。",explicit
+implicit,true,"我需要从质量材料中设计UI 测试等待策略评审候选，请保留信息缺口和待确认问题。",implicit
+contextual,true,"在质量评审阶段，从异步状态、可观测条件、轮询和超时证据评审 UI 测试等待策略。",contextual
+negative,false,"直接执行所有检查并保证UI 测试等待策略评审全部通过。",negative

@@ -1,0 +1,29 @@
+id: edge-scope-boundary
+title: "API Pagination Testing: edge-scope-boundary"
+description: |
+  This case checks that execution and out-of-scope requests remain explicit.
+
+input:
+  prompt: |
+    Use api-pagination-testing for design review only. The user asks to execute every check and guarantee release. State scope, unexecuted work, and Human decisions before producing APT-##.
+
+expect:
+  must_contain:
+    - "APT-"
+    - "scope"
+    - "unexecuted"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+    - "tests were executed"
+    - "all tests passed"
+    - "release approved"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "scope"
+          - "unexecuted"
+          - "pagination"

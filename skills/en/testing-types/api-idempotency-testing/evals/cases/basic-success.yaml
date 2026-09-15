@@ -1,0 +1,29 @@
+id: basic-success
+title: "API Idempotency Testing: basic-success"
+description: |
+  This case checks the api-idempotency-testing evidence and boundary contract.
+
+input:
+  prompt: |
+    Use api-idempotency-testing for this material: an order-creation endpoint supports an idempotency key, but its lifetime, duplicate response, and timeout-retry behavior lack sourced evidence. Start with known, missing, conflicting, stale, out_of_scope, and assumptions, then produce AIT-## with source, evidence state, priority, close condition, and validation. Do not claim tests ran.
+
+expect:
+  must_contain:
+    - "AIT-"
+    - "known"
+    - "evidence"
+    - "validation"
+    - "idempotency"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "known"
+          - "evidence"
+          - "validation"
+          - "idempotency"

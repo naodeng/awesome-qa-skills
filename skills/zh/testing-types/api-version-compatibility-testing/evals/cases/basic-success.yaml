@@ -1,0 +1,29 @@
+id: basic-success
+title: "API 版本兼容性测试: basic-success"
+description: |
+  验证 api-version-compatibility-testing 的证据和边界契约。
+
+input:
+  prompt: |
+    请使用 api-version-compatibility-testing 分析：API v2 新增字段并调整错误码，但 v1 客户端的容忍范围、弃用日期和路由行为没有证据。先列出已知事实、信息缺口、冲突、过期信息、范围外和假设，再输出 AVC-##，保留来源、证据状态、优先级、关闭条件和验证。不要声称测试已执行。
+
+expect:
+  must_contain:
+    - "AVC-"
+    - "输入审计"
+    - "证据"
+    - "验证"
+    - "兼容"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "输入审计"
+          - "证据"
+          - "验证"
+          - "兼容"

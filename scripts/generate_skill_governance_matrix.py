@@ -15,7 +15,12 @@ VALID_STATUSES = {
 VALID_CONCLUSIONS = {"EXISTING", "MATCH", "ENHANCE", "MERGE", "NEW"}
 VALID_DECISION_STATES = {"PROPOSED", "REVIEWED_WITH_LIMITATION", "REVIEWED"}
 VALID_SCORE_STATES = {"NOT_SCORED", "PARTIALLY_SCORED", "SCORED"}
+VALID_PROJECT_ACCEPTANCE_STATES = {"COMPLETE", "INCOMPLETE", "BLOCKED"}
 MATCH_FIELDS = ("name", "purpose", "inputs", "outputs", "decision_logic", "workflow_role")
+PROJECT_EVIDENCE_FIELDS = (
+    "project_number", "item_id", "title", "current_status", "verified_at", "verification",
+    "transition_requirement", "transition_audit", "acceptance_state",
+)
 SECTIONS = ("testing-types", "testing-workflows", "skill-engineering")
 LANGUAGES = ("zh", "en")
 SCORE_DIMENSIONS = (
@@ -98,6 +103,40 @@ def validate_candidate(candidate: dict[str, object]) -> list[str]:
     errors.extend(field for field in MATCH_FIELDS if not str(evidence.get(field, "")).strip())
     if candidate.get("conclusion") == "NEW":
         errors.extend(field for field in ("scope", "non_goals") if not str(candidate.get(field, "")).strip())
+    if (
+        candidate.get("decision_state") == "REVIEWED"
+        and "2026-09-15-v2-test-engineering-two-batch-design.md" in str(candidate.get("candidate_source", ""))
+    ):
+        comparison = candidate.get("capability_match")
+        if not isinstance(comparison, dict):
+            errors.append("REVIEWED v2 candidate requires capability_match")
+        else:
+            if comparison.get("decision") not in VALID_CONCLUSIONS:
+                errors.append("capability_match requires a valid decision")
+            if not comparison.get("existing_targets"):
+                errors.append("capability_match requires existing_targets")
+            if not str(comparison.get("difference", "")).strip():
+                errors.append("capability_match requires difference")
+        project = candidate.get("project_evidence")
+        if not isinstance(project, dict):
+            errors.append("REVIEWED v2 candidate requires project_evidence")
+        else:
+            errors.extend(
+                f"project_evidence requires {field}"
+                for field in PROJECT_EVIDENCE_FIELDS
+                if project.get(field) in (None, "", [])
+            )
+            if project.get("project_number") != 4:
+                errors.append("project_evidence must reference Project #4")
+            if project.get("current_status") != "Done":
+                errors.append("project_evidence current_status must be Done")
+            if project.get("acceptance_state") not in VALID_PROJECT_ACCEPTANCE_STATES:
+                errors.append("project_evidence acceptance_state must be COMPLETE, INCOMPLETE, or BLOCKED")
+            transition_audit = str(project.get("transition_audit", ""))
+            if "UNASSESSED" in transition_audit and project.get("acceptance_state") == "COMPLETE":
+                errors.append("project_evidence cannot be COMPLETE while transition history is UNASSESSED")
+            if "UNASSESSED" in transition_audit and project.get("acceptance_state") not in {"INCOMPLETE", "BLOCKED"}:
+                errors.append("project_evidence requires an incomplete or blocked acceptance state while transition history is UNASSESSED")
     return errors
 
 
@@ -168,6 +207,24 @@ def render_matching_register(registry: GovernanceRegistry, locale: str) -> str:
         evidence_text = "; ".join(f"{field}: {evidence.get(field, 'UNASSESSED')}" for field in MATCH_FIELDS)
         source = candidate.get("candidate_source", "UNASSESSED")
         targets = "<br>".join(str(path) for path in candidate.get("target_evidence_paths", []))
+        comparison = candidate.get("capability_match")
+        if isinstance(comparison, dict):
+            comparison_targets = "<br>".join(str(path) for path in comparison.get("existing_targets", []))
+            source = (
+                f"{source}<br>Capability Match: decision={comparison.get('decision', 'UNASSESSED')}; "
+                f"existing targets:<br>{comparison_targets}<br>difference: {comparison.get('difference', 'UNASSESSED')}"
+            )
+        project = candidate.get("project_evidence")
+        if isinstance(project, dict):
+            source = (
+                f"{source}<br>Project #{project.get('project_number', 'UNASSESSED')} item "
+                f"`{project.get('item_id', 'UNASSESSED')}` ({project.get('title', 'UNASSESSED')}) "
+                f"current status=`{project.get('current_status', 'UNASSESSED')}`; "
+                f"verified {project.get('verified_at', 'UNASSESSED')} via `{project.get('verification', 'UNASSESSED')}`; "
+                f"required transition=`{project.get('transition_requirement', 'UNASSESSED')}`; "
+                f"transition audit={project.get('transition_audit', 'UNASSESSED')}; "
+                f"acceptance state=`{project.get('acceptance_state', 'UNASSESSED')}`"
+            )
         lines.append(f"| `{candidate.get('slug', '')}` | `{candidate.get('decision_state', 'UNASSESSED')}` | `{candidate.get('conclusion', 'UNASSESSED')}` | `{candidate.get('target', 'UNASSESSED')}` | {source}<br>{targets} | {evidence_text} | {candidate.get('next_action', 'UNASSESSED')} |")
     if not registry.candidates:
         lines.append("| _No candidate decisions recorded yet_ | `UNASSESSED` | — | — | Six-field evidence pending | Record evidence before implementation |")
