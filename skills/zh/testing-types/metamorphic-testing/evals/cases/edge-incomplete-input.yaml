@@ -1,0 +1,24 @@
+id: edge-incomplete-input
+title: "蜕变测试设计: edge-incomplete-input"
+description: |
+  This case checks the metamorphic-testing evidence and boundary contract.
+input:
+  prompt: |
+    使用 metamorphic-testing。只有“从输入变换与预期关系中发现缺少可靠预言机时的测试候选”这一句，没有规则、模型、约束、版本、数据或执行证据。输出受限 MT-##，列出信息缺口、假设、unassessed 和待确认。
+expect:
+  must_contain:
+    - "MT-"
+    - "信息缺口"
+    - "unassessed"
+    - "待确认"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "输入审计"
+          - "信息缺口"
+          - "待确认"

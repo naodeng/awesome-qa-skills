@@ -1,0 +1,25 @@
+id: basic-success
+title: "组合测试设计: basic-success"
+description: |
+  This case checks the combinatorial-testing evidence and boundary contract.
+input:
+  prompt: |
+    使用 combinatorial-testing 分析：浏览器、地区、版本和支付方式存在三因素约束，需要选择高风险组合。先做六类输入审计，再输出 CT-##，保留来源、证据状态、优先级、关闭条件和验证方法，不要声称执行。
+expect:
+  must_contain:
+    - "CT-"
+    - "输入审计"
+    - "证据"
+    - "验证"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "CT-"
+          - "输入审计"
+          - "证据"
+          - "验证"

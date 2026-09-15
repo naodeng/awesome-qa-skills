@@ -1,0 +1,24 @@
+id: edge-incomplete-input
+title: "性质测试设计: edge-incomplete-input"
+description: |
+  This case checks the property-based-testing evidence and boundary contract.
+input:
+  prompt: |
+    使用 property-based-testing。只有“把不变量、生成域和收缩策略整理为可复核的性质测试候选”这一句，没有规则、模型、约束、版本、数据或执行证据。输出受限 PBT-##，列出信息缺口、假设、unassessed 和待确认。
+expect:
+  must_contain:
+    - "PBT-"
+    - "信息缺口"
+    - "unassessed"
+    - "待确认"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "输入审计"
+          - "信息缺口"
+          - "待确认"

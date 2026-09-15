@@ -4,7 +4,7 @@
 
 This is the English Skill root and mirrors `skills/zh` with identical Skill names and physical structure.
 
-Each language provides **96** Skills: 10 workflows + 83 testing types + 3 Skill Engineering. See the [Chinese README](../../README.md) and [English README](../../README_EN.md); see the [governance roadmap](../../docs/governance/SKILL_GOVERNANCE_ROADMAP_EN.md) and [governance matrix](../../docs/SKILL_MATRIX_EN.md) for long-term governance.
+Each language provides **105** Skills: 10 workflows + 92 testing types + 3 Skill Engineering. See the [Chinese README](../../README.md) and [English README](../../README_EN.md); see the [governance roadmap](../../docs/governance/SKILL_GOVERNANCE_ROADMAP_EN.md) and [governance matrix](../../docs/SKILL_MATRIX_EN.md) for long-term governance.
 
 ## Cross-phase workflows
 
@@ -60,6 +60,15 @@ Each language provides **96** Skills: 10 workflows + 83 testing types + 3 Skill 
 | Testcase Writer Plus | [`testcase-writer-plus`](testing-types/testcase-writer-plus/) |
 | Test Case Review | [`test-case-reviewer`](testing-types/test-case-reviewer/) |
 | Test Case Reviewer Plus | [`test-case-reviewer-plus`](testing-types/test-case-reviewer-plus/) |
+| Decision Table Testing | [`decision-table-testing`](testing-types/decision-table-testing/) |
+| State Transition Testing | [`state-transition-testing`](testing-types/state-transition-testing/) |
+| Boundary Value Testing | [`boundary-value-testing`](testing-types/boundary-value-testing/) |
+| Equivalence Partitioning | [`equivalence-partitioning`](testing-types/equivalence-partitioning/) |
+| Pairwise Testing | [`pairwise-testing`](testing-types/pairwise-testing/) |
+| Combinatorial Testing | [`combinatorial-testing`](testing-types/combinatorial-testing/) |
+| Model-Based Testing | [`model-based-testing`](testing-types/model-based-testing/) |
+| Property-Based Testing | [`property-based-testing`](testing-types/property-based-testing/) |
+| Metamorphic Testing | [`metamorphic-testing`](testing-types/metamorphic-testing/) |
 
 #### Test Execution and Analysis
 

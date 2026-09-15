@@ -2,7 +2,7 @@
 
 # Complete Skills Index
 
-Each language contains 10 workflows, 83 testing types, and 3 Skill Engineering packages: 96 per language and 192 directories total. This is logical navigation; physical directories do not change. See the [Skill governance roadmap](../governance/SKILL_GOVERNANCE_ROADMAP_EN.md), [governance matrix](../SKILL_MATRIX_EN.md), and [matching register](../SKILL_MATCHING_REGISTER_EN.md) for long-term governance.
+Each language contains 10 workflows, 92 testing types, and 3 Skill Engineering packages: 105 per language and 210 directories total. This is logical navigation; physical directories do not change. See the [Skill governance roadmap](../governance/SKILL_GOVERNANCE_ROADMAP_EN.md), [governance matrix](../SKILL_MATRIX_EN.md), and [matching register](../SKILL_MATCHING_REGISTER_EN.md) for long-term governance.
 
 ## Cross-phase workflows
 
@@ -58,6 +58,15 @@ Each language contains 10 workflows, 83 testing types, and 3 Skill Engineering p
 | `testcase-writer-plus` | [中文](../../skills/zh/testing-types/testcase-writer-plus/) | [English](../../skills/en/testing-types/testcase-writer-plus/) |
 | `test-case-reviewer` | [中文](../../skills/zh/testing-types/test-case-reviewer/) | [English](../../skills/en/testing-types/test-case-reviewer/) |
 | `test-case-reviewer-plus` | [中文](../../skills/zh/testing-types/test-case-reviewer-plus/) | [English](../../skills/en/testing-types/test-case-reviewer-plus/) |
+| `decision-table-testing` | [中文](../../skills/zh/testing-types/decision-table-testing/) | [English](../../skills/en/testing-types/decision-table-testing/) |
+| `state-transition-testing` | [中文](../../skills/zh/testing-types/state-transition-testing/) | [English](../../skills/en/testing-types/state-transition-testing/) |
+| `boundary-value-testing` | [中文](../../skills/zh/testing-types/boundary-value-testing/) | [English](../../skills/en/testing-types/boundary-value-testing/) |
+| `equivalence-partitioning` | [中文](../../skills/zh/testing-types/equivalence-partitioning/) | [English](../../skills/en/testing-types/equivalence-partitioning/) |
+| `pairwise-testing` | [中文](../../skills/zh/testing-types/pairwise-testing/) | [English](../../skills/en/testing-types/pairwise-testing/) |
+| `combinatorial-testing` | [中文](../../skills/zh/testing-types/combinatorial-testing/) | [English](../../skills/en/testing-types/combinatorial-testing/) |
+| `model-based-testing` | [中文](../../skills/zh/testing-types/model-based-testing/) | [English](../../skills/en/testing-types/model-based-testing/) |
+| `property-based-testing` | [中文](../../skills/zh/testing-types/property-based-testing/) | [English](../../skills/en/testing-types/property-based-testing/) |
+| `metamorphic-testing` | [中文](../../skills/zh/testing-types/metamorphic-testing/) | [English](../../skills/en/testing-types/metamorphic-testing/) |
 
 #### Test Execution and Analysis
 

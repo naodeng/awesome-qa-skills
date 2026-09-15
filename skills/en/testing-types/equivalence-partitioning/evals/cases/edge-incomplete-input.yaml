@@ -1,0 +1,27 @@
+id: edge-incomplete-input
+title: "Equivalence Partitioning Test Design: edge-incomplete-input"
+description: |
+  This case checks the equivalence-partitioning evidence and boundary contract.
+
+input:
+  prompt: |
+    Use equivalence-partitioning. The only request is to partition inputs into evidence-backed valid, invalid, and unknown classes based on constraints, rules, and response differences, with no requirements, constraints, thresholds, version, data, environment, or execution evidence. Produce bounded EP-##, list missing information, assumptions, unassessed items, and pending evidence, and do not invent rules.
+
+expect:
+  must_contain:
+    - "EP-"
+    - "missing"
+    - "unassessed"
+    - "pending"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "known"
+          - "missing"
+          - "unassessed"

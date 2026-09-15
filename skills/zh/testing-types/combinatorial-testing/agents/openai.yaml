@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "combinatorial-testing"
+interface:
+  display_name: "组合测试设计"
+  short_description: "Design evidence-backed candidates without claiming execution."
+  default_prompt: "Use the combinatorial-testing skill to produce CT-## without claiming execution."
+policy:
+  allow_implicit_invocation: true

@@ -5,9 +5,9 @@
 A language-partitioned **AI testing skills library** (Agent Skills) for Codex, Cursor, Claude Code, Kiro, OpenCode, Trae, and similar tools. It ships independently installable, composable skills for testing workflows and testing types.
 
 [![License: PolyForm Noncommercial 1.0.0](https://img.shields.io/badge/License-PolyForm%20Noncommercial%201.0.0-blue.svg)](./LICENSE)
-[![Skills](https://img.shields.io/badge/skills-192%20(zh%2Ben)-0A7EA4)](./docs/catalog/skills-index.md)
+[![Skills](https://img.shields.io/badge/skills-210%20(zh%2Ben)-0A7EA4)](./docs/catalog/skills-index.md)
 [![Workflows](https://img.shields.io/badge/workflows-10-informational)](./skills/en/testing-workflows/)
-[![Testing types](https://img.shields.io/badge/testing%20types-83-informational)](./skills/en/testing-types/)
+[![Testing types](https://img.shields.io/badge/testing%20types-92-informational)](./skills/en/testing-types/)
 [![Skill engineering](https://img.shields.io/badge/skill%20engineering-3-informational)](./skills/en/skill-engineering/)
 [![skills.sh](https://skills.sh/b/naodeng/awesome-qa-skills)](https://skills.sh/naodeng/awesome-qa-skills)
 
@@ -21,7 +21,7 @@ A language-partitioned **AI testing skills library** (Agent Skills) for Codex, C
 | --- | --- |
 | Bilingual parity | `skills/zh` and `skills/en` share the same folder names and layout |
 | Full testing chain | From requirements and strategy through cases, execution, defects, and reporting |
-| Workflows + type skills | Daily / sprint / release, role-quality perspective, and multi-role synthesis workflows, composed with 83 specialized type skills |
+| Workflows + type skills | Daily / sprint / release, role-quality perspective, and multi-role synthesis workflows, composed with 92 specialized type skills |
 | Ready to install | One-click installers plus per-skill shortcut scripts |
 | Evaluable & evolvable | Every skill includes `evals/`; validate and run with [skill-up](https://github.com/alibaba/skill-up) |
 
@@ -38,7 +38,7 @@ Start with the delivery or testing stage you are in, then install or invoke a Sk
 | Make quality decisions from release and production evidence | Production Quality Skills | Release verification, incident response, trace, and metrics analysis | [View Production Quality Skills](#production-quality-skills--production-quality) |
 | Test AI features, LLMs, prompts, agents, and safety boundaries | AI Native QA Skills | AI requirements and risk, evaluation, tool use, and injection defense | [View AI Native QA Skills](#ai-native-qa-skills--ai-native-quality) |
 | Orchestrate stages, collaborate by role, or decide where to begin | Cross-phase workflows | Routing, daily / sprint / release workflows, quality perspectives, and synthesis | [View workflows](#cross-phase-workflows) |
-| You already know the Skill name | Complete index | All 96 capabilities and Chinese/English paths | [Open the complete Skills index](docs/catalog/skills-index_EN.md) |
+| You already know the Skill name | Complete index | All 105 capabilities and Chinese/English paths | [Open the complete Skills index](docs/catalog/skills-index_EN.md) |
 
 **Recommended path:** start with [`discover-testing`](skills/en/testing-workflows/discover-testing/) when uncertain, select the matching capability layer once the stage is clear, or go directly to the complete index when you know the name.
 
@@ -136,7 +136,7 @@ I need a pre-release regression — which skills should I use?
 
 ## Skill catalog
 
-Each language provides **96** Skills: 10 workflows, 83 testing types, and 3 Skill Engineering packages; **192** bilingual directories in total. Physical directories remain stable; the catalog below is logical navigation only.
+Each language provides **105** Skills: 10 workflows, 92 testing types, and 3 Skill Engineering packages; **210** bilingual directories in total. Physical directories remain stable; the catalog below is logical navigation only.
 
 ### Cross-phase workflows
 
@@ -196,6 +196,15 @@ Each testing-type Skill appears once; routers and workflows cover cross-phase co
 | Testcase Writer Plus <!-- data-skill:testcase-writer-plus --> | [`testcase-writer-plus`](skills/en/testing-types/testcase-writer-plus/) | Use this skill when you need high-quality test cases from requirements and analysis artifacts; triggers include testcase writer plus and advanced test case wri… |
 | Test Case Review <!-- data-skill:test-case-reviewer --> | [`test-case-reviewer`](skills/en/testing-types/test-case-reviewer/) | Use this skill when you need to review test cases for completeness, clarity, maintainability, and missing scenarios; triggers include test case review and test… |
 | Test Case Reviewer Plus <!-- data-skill:test-case-reviewer-plus --> | [`test-case-reviewer-plus`](skills/en/testing-types/test-case-reviewer-plus/) | Use this skill when you need structured test-case review findings from requirements, strategy, and case docs; triggers include test case reviewer plus and adva… |
+| Decision Table Testing <!-- data-skill:decision-table-testing --> | [`decision-table-testing`](skills/en/testing-types/decision-table-testing/) | Turn conditions, rules, actions, and outcomes into an auditable rule-combination set. |
+| State Transition Testing <!-- data-skill:state-transition-testing --> | [`state-transition-testing`](skills/en/testing-types/state-transition-testing/) | Design traceable tests from states, events, transitions, and invalid paths. |
+| Boundary Value Testing <!-- data-skill:boundary-value-testing --> | [`boundary-value-testing`](skills/en/testing-types/boundary-value-testing/) | Select a minimal, risk-focused boundary test set from a boundary model. |
+| Equivalence Partitioning <!-- data-skill:equivalence-partitioning --> | [`equivalence-partitioning`](skills/en/testing-types/equivalence-partitioning/) | Partition the input space into explainable, coverable equivalence classes. |
+| Pairwise Testing <!-- data-skill:pairwise-testing --> | [`pairwise-testing`](skills/en/testing-types/pairwise-testing/) | Control multi-parameter combination growth with pairwise interaction coverage. |
+| Combinatorial Testing <!-- data-skill:combinatorial-testing --> | [`combinatorial-testing`](skills/en/testing-types/combinatorial-testing/) | Select a combination-coverage strategy from interaction strength and risk. |
+| Model-Based Testing <!-- data-skill:model-based-testing --> | [`model-based-testing`](skills/en/testing-types/model-based-testing/) | Derive traceable tests from state, workflow, or behavioral models. |
+| Property-Based Testing <!-- data-skill:property-based-testing --> | [`property-based-testing`](skills/en/testing-types/property-based-testing/) | Verify properties with invariants, generation strategies, and shrinking rules. |
+| Metamorphic Testing <!-- data-skill:metamorphic-testing --> | [`metamorphic-testing`](skills/en/testing-types/metamorphic-testing/) | Use input transformations and relation assertions when a reliable oracle is missing. |
 
 ##### Test Execution and Analysis
 

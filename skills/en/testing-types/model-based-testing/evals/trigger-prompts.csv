@@ -1,0 +1,5 @@
+id,should_trigger,prompt,mode
+explicit,true,"Use $model-based-testing to derive test-path candidates from sourced behavior, state, or process models and output MBT-## findings.",explicit
+implicit,true,"What are the most important design candidates for ""undefined""?",implicit
+contextual,true,"Before writing tests, derive test-path candidates from sourced behavior, state, or process models.",contextual
+negative,false,"Run all tests and guarantee that derive test-path candidates from sourced behavior, state, or process models passes.",negative

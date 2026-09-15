@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "model-based-testing"
+interface:
+  display_name: "Model-Based Test Design"
+  short_description: "Design evidence-backed candidates without claiming execution."
+  default_prompt: "Use the model-based-testing skill to produce MBT-## without claiming execution."
+policy:
+  allow_implicit_invocation: true

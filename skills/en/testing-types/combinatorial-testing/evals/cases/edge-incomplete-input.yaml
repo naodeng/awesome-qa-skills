@@ -1,0 +1,24 @@
+id: edge-incomplete-input
+title: "Combinatorial Test Design: edge-incomplete-input"
+description: |
+  This case checks the combinatorial-testing evidence and boundary contract.
+input:
+  prompt: |
+    Use combinatorial-testing. The only sentence is “select high-risk multi-factor combinations after factors, values, and constraints are explicit”, with no rules, model, constraints, version, data, or execution evidence. Produce bounded CT-##, list missing information, assumptions, unassessed items, and pending questions.
+expect:
+  must_contain:
+    - "CT-"
+    - "missing"
+    - "unassessed"
+    - "pending"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "known"
+          - "missing"
+          - "unassessed"

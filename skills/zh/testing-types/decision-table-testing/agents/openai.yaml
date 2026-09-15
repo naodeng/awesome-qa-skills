@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "decision-table-testing"
+interface:
+  display_name: "决策表测试设计"
+  short_description: "Design evidence-backed test candidates without claiming execution."
+  default_prompt: "Use the decision-table-testing skill to produce DTT-## findings without claiming execution."
+policy:
+  allow_implicit_invocation: true

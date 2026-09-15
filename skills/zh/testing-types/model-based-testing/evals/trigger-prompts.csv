@@ -1,0 +1,5 @@
+id,should_trigger,prompt,mode
+explicit,true,"使用 $model-based-testing，从有来源的行为模型、状态图或流程模型导出测试路径候选并输出 MBT-##。",explicit
+implicit,true,"关于“the model describes an order flow from creation to cancellation, but exception paths and model version are unspecified”的材料需要哪些最重要的设计候选？",implicit
+contextual,true,"在编写测试前，从有来源的行为模型、状态图或流程模型导出测试路径候选。",contextual
+negative,false,"直接执行全部测试并保证 从有来源的行为模型、状态图或流程模型导出测试路径候选 通过。",negative

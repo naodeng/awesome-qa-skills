@@ -64,7 +64,8 @@ class V20Batch1SkillContractsTest(unittest.TestCase):
                 with self.subTest(language=language, slug=slug):
                     if not path.is_file():
                         continue
-                    rows = list(csv.DictReader(path.open(newline="")))
+                    with path.open(newline="") as handle:
+                        rows = list(csv.DictReader(handle))
                     self.assertTrue(rows)
                     self.assertEqual(
                         {"explicit", "implicit", "contextual", "negative"},

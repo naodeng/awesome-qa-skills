@@ -1,0 +1,5 @@
+id,should_trigger,prompt,mode
+explicit,true,"使用 $combinatorial-testing，在因素、取值和约束明确后选择高风险的多因素组合并输出 CT-##。",explicit
+implicit,true,"关于“browser, region, version, and payment method have three-factor constraints, and high-risk combinations need selection”的材料需要哪些最重要的设计候选？",implicit
+contextual,true,"在编写测试前，在因素、取值和约束明确后选择高风险的多因素组合。",contextual
+negative,false,"直接执行全部测试并保证 在因素、取值和约束明确后选择高风险的多因素组合 通过。",negative

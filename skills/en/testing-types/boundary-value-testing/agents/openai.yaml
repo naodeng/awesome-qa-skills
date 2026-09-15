@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "boundary-value-testing"
+interface:
+  display_name: "Boundary Value Test Design"
+  short_description: "Design evidence-backed test candidates without claiming execution."
+  default_prompt: "Use the boundary-value-testing skill to produce BVT-## findings without claiming execution."
+policy:
+  allow_implicit_invocation: true

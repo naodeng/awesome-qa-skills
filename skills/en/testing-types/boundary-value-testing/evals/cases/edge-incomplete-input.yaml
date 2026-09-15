@@ -1,0 +1,27 @@
+id: edge-incomplete-input
+title: "Boundary Value Test Design: edge-incomplete-input"
+description: |
+  This case checks the boundary-value-testing evidence and boundary contract.
+
+input:
+  prompt: |
+    Use boundary-value-testing. The only request is to select boundary and near-boundary candidates from sourced value, length, time, and resource constraints, with no requirements, constraints, thresholds, version, data, environment, or execution evidence. Produce bounded BVT-##, list missing information, assumptions, unassessed items, and pending evidence, and do not invent rules.
+
+expect:
+  must_contain:
+    - "BVT-"
+    - "missing"
+    - "unassessed"
+    - "pending"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "known"
+          - "missing"
+          - "unassessed"

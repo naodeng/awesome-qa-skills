@@ -1,0 +1,24 @@
+id: edge-incomplete-input
+title: "Property-Based Test Design: edge-incomplete-input"
+description: |
+  This case checks the property-based-testing evidence and boundary contract.
+input:
+  prompt: |
+    Use property-based-testing. The only sentence is “turn invariants, generation domains, and shrinking strategies into reviewable property-test candidates”, with no rules, model, constraints, version, data, or execution evidence. Produce bounded PBT-##, list missing information, assumptions, unassessed items, and pending questions.
+expect:
+  must_contain:
+    - "PBT-"
+    - "missing"
+    - "unassessed"
+    - "pending"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "known"
+          - "missing"
+          - "unassessed"

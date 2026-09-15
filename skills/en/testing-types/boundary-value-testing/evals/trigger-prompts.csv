@@ -1,0 +1,5 @@
+id,should_trigger,prompt,mode
+explicit,true,"Use $boundary-value-testing to select boundary and near-boundary candidates from sourced value, length, time, and resource constraints and output BVT-## findings.",explicit
+implicit,true,"I have material about ""a note is limited to 50 characters and an amount is non-negative, but multibyte length and amount precision are unspecified"". Find the highest-risk design candidates to validate.",implicit
+contextual,true,"Before writing tests, select boundary and near-boundary candidates from sourced value, length, time, and resource constraints.",contextual
+negative,false,"Run every test and guarantee that all select boundary and near-boundary candidates from sourced value, length, time, and resource constraints pass.",negative

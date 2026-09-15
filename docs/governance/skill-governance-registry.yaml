@@ -3491,7 +3491,340 @@
         "skills/zh/testing-types/test-data-requirement-analysis/agents/openai.yaml",
         "skills/en/testing-types/test-data-requirement-analysis/agents/openai.yaml"
       ]
-    }
+    },
+{
+  "slug": "decision-table-testing",
+  "section": "testing-types",
+  "zh_path": "skills/zh/testing-types/decision-table-testing",
+  "en_path": "skills/en/testing-types/decision-table-testing",
+  "virtual_domain": "Engineering QA",
+  "status": "Planned-P1",
+  "priority": "P1",
+  "related": "v2.0 Test Engineering design-method family; semantic overlap with existing Skills remains bounded and requires evidence.",
+  "governance_evidence": "skills/zh/testing-types/decision-table-testing/SKILL.md",
+  "quality_score": {
+    "state": "NOT_SCORED",
+    "reason": "No model-backed quality score has been run; static package checks do not produce a score."
+  },
+  "eval_execution": {
+    "state": "NOT_RUN",
+    "reason": "Eval configuration and local structure checks do not run a real model or external target."
+  },
+  "sdlc_stage": "test-design-and-preparation",
+  "roles": [
+    "QA",
+    "Engineering"
+  ],
+  "inputs": "skills/zh/testing-types/decision-table-testing/prompts/decision-table-testing.md#输入; skills/en/testing-types/decision-table-testing/prompts/decision-table-testing.md#Input",
+  "outputs": "skills/zh/testing-types/decision-table-testing/prompts/decision-table-testing.md#DTT-## 发现合同; skills/en/testing-types/decision-table-testing/prompts/decision-table-testing.md#DTT-## Contract",
+  "workflow": "v2.0 Test Engineering Batch 1 specialist; optional navigation only",
+  "evidence_paths": [
+    "skills/zh/testing-types/decision-table-testing/SKILL.md",
+    "skills/en/testing-types/decision-table-testing/SKILL.md",
+    "skills/zh/testing-types/decision-table-testing/prompts/decision-table-testing.md",
+    "skills/en/testing-types/decision-table-testing/prompts/decision-table-testing.md",
+    "skills/zh/testing-types/decision-table-testing/evals/eval.yaml",
+    "skills/en/testing-types/decision-table-testing/evals/eval.yaml",
+    "skills/zh/testing-types/decision-table-testing/agents/openai.yaml",
+    "skills/en/testing-types/decision-table-testing/agents/openai.yaml"
+  ]
+},
+{
+  "slug": "state-transition-testing",
+  "section": "testing-types",
+  "zh_path": "skills/zh/testing-types/state-transition-testing",
+  "en_path": "skills/en/testing-types/state-transition-testing",
+  "virtual_domain": "Engineering QA",
+  "status": "Planned-P1",
+  "priority": "P1",
+  "related": "v2.0 Test Engineering design-method family; semantic overlap with existing Skills remains bounded and requires evidence.",
+  "governance_evidence": "skills/zh/testing-types/state-transition-testing/SKILL.md",
+  "quality_score": {
+    "state": "NOT_SCORED",
+    "reason": "No model-backed quality score has been run; static package checks do not produce a score."
+  },
+  "eval_execution": {
+    "state": "NOT_RUN",
+    "reason": "Eval configuration and local structure checks do not run a real model or external target."
+  },
+  "sdlc_stage": "test-design-and-preparation",
+  "roles": [
+    "QA",
+    "Engineering"
+  ],
+  "inputs": "skills/zh/testing-types/state-transition-testing/prompts/state-transition-testing.md#输入; skills/en/testing-types/state-transition-testing/prompts/state-transition-testing.md#Input",
+  "outputs": "skills/zh/testing-types/state-transition-testing/prompts/state-transition-testing.md#STT-## 发现合同; skills/en/testing-types/state-transition-testing/prompts/state-transition-testing.md#STT-## Contract",
+  "workflow": "v2.0 Test Engineering Batch 1 specialist; optional navigation only",
+  "evidence_paths": [
+    "skills/zh/testing-types/state-transition-testing/SKILL.md",
+    "skills/en/testing-types/state-transition-testing/SKILL.md",
+    "skills/zh/testing-types/state-transition-testing/prompts/state-transition-testing.md",
+    "skills/en/testing-types/state-transition-testing/prompts/state-transition-testing.md",
+    "skills/zh/testing-types/state-transition-testing/evals/eval.yaml",
+    "skills/en/testing-types/state-transition-testing/evals/eval.yaml",
+    "skills/zh/testing-types/state-transition-testing/agents/openai.yaml",
+    "skills/en/testing-types/state-transition-testing/agents/openai.yaml"
+  ]
+},
+{
+  "slug": "boundary-value-testing",
+  "section": "testing-types",
+  "zh_path": "skills/zh/testing-types/boundary-value-testing",
+  "en_path": "skills/en/testing-types/boundary-value-testing",
+  "virtual_domain": "Engineering QA",
+  "status": "Planned-P1",
+  "priority": "P1",
+  "related": "v2.0 Test Engineering design-method family; semantic overlap with existing Skills remains bounded and requires evidence.",
+  "governance_evidence": "skills/zh/testing-types/boundary-value-testing/SKILL.md",
+  "quality_score": {
+    "state": "NOT_SCORED",
+    "reason": "No model-backed quality score has been run; static package checks do not produce a score."
+  },
+  "eval_execution": {
+    "state": "NOT_RUN",
+    "reason": "Eval configuration and local structure checks do not run a real model or external target."
+  },
+  "sdlc_stage": "test-design-and-preparation",
+  "roles": [
+    "QA",
+    "Engineering"
+  ],
+  "inputs": "skills/zh/testing-types/boundary-value-testing/prompts/boundary-value-testing.md#输入; skills/en/testing-types/boundary-value-testing/prompts/boundary-value-testing.md#Input",
+  "outputs": "skills/zh/testing-types/boundary-value-testing/prompts/boundary-value-testing.md#BVT-## 发现合同; skills/en/testing-types/boundary-value-testing/prompts/boundary-value-testing.md#BVT-## Contract",
+  "workflow": "v2.0 Test Engineering Batch 1 specialist; optional navigation only",
+  "evidence_paths": [
+    "skills/zh/testing-types/boundary-value-testing/SKILL.md",
+    "skills/en/testing-types/boundary-value-testing/SKILL.md",
+    "skills/zh/testing-types/boundary-value-testing/prompts/boundary-value-testing.md",
+    "skills/en/testing-types/boundary-value-testing/prompts/boundary-value-testing.md",
+    "skills/zh/testing-types/boundary-value-testing/evals/eval.yaml",
+    "skills/en/testing-types/boundary-value-testing/evals/eval.yaml",
+    "skills/zh/testing-types/boundary-value-testing/agents/openai.yaml",
+    "skills/en/testing-types/boundary-value-testing/agents/openai.yaml"
+  ]
+},
+{
+  "slug": "equivalence-partitioning",
+  "section": "testing-types",
+  "zh_path": "skills/zh/testing-types/equivalence-partitioning",
+  "en_path": "skills/en/testing-types/equivalence-partitioning",
+  "virtual_domain": "Engineering QA",
+  "status": "Planned-P1",
+  "priority": "P1",
+  "related": "v2.0 Test Engineering design-method family; semantic overlap with existing Skills remains bounded and requires evidence.",
+  "governance_evidence": "skills/zh/testing-types/equivalence-partitioning/SKILL.md",
+  "quality_score": {
+    "state": "NOT_SCORED",
+    "reason": "No model-backed quality score has been run; static package checks do not produce a score."
+  },
+  "eval_execution": {
+    "state": "NOT_RUN",
+    "reason": "Eval configuration and local structure checks do not run a real model or external target."
+  },
+  "sdlc_stage": "test-design-and-preparation",
+  "roles": [
+    "QA",
+    "Engineering"
+  ],
+  "inputs": "skills/zh/testing-types/equivalence-partitioning/prompts/equivalence-partitioning.md#输入; skills/en/testing-types/equivalence-partitioning/prompts/equivalence-partitioning.md#Input",
+  "outputs": "skills/zh/testing-types/equivalence-partitioning/prompts/equivalence-partitioning.md#EP-## 发现合同; skills/en/testing-types/equivalence-partitioning/prompts/equivalence-partitioning.md#EP-## Contract",
+  "workflow": "v2.0 Test Engineering Batch 1 specialist; optional navigation only",
+  "evidence_paths": [
+    "skills/zh/testing-types/equivalence-partitioning/SKILL.md",
+    "skills/en/testing-types/equivalence-partitioning/SKILL.md",
+    "skills/zh/testing-types/equivalence-partitioning/prompts/equivalence-partitioning.md",
+    "skills/en/testing-types/equivalence-partitioning/prompts/equivalence-partitioning.md",
+    "skills/zh/testing-types/equivalence-partitioning/evals/eval.yaml",
+    "skills/en/testing-types/equivalence-partitioning/evals/eval.yaml",
+    "skills/zh/testing-types/equivalence-partitioning/agents/openai.yaml",
+    "skills/en/testing-types/equivalence-partitioning/agents/openai.yaml"
+  ]
+},
+{
+  "slug": "pairwise-testing",
+  "section": "testing-types",
+  "zh_path": "skills/zh/testing-types/pairwise-testing",
+  "en_path": "skills/en/testing-types/pairwise-testing",
+  "virtual_domain": "Engineering QA",
+  "status": "Planned-P1",
+  "priority": "P1",
+  "related": "v2.0 Test Engineering design-method family; semantic overlap with existing Skills remains bounded and requires evidence.",
+  "governance_evidence": "skills/zh/testing-types/pairwise-testing/SKILL.md",
+  "quality_score": {
+    "state": "NOT_SCORED",
+    "reason": "No model-backed quality score has been run; static package checks do not produce a score."
+  },
+  "eval_execution": {
+    "state": "NOT_RUN",
+    "reason": "Eval configuration and local structure checks do not run a real model or external target."
+  },
+  "sdlc_stage": "test-design-and-preparation",
+  "roles": [
+    "QA",
+    "Engineering"
+  ],
+  "inputs": "skills/zh/testing-types/pairwise-testing/prompts/pairwise-testing.md#输入; skills/en/testing-types/pairwise-testing/prompts/pairwise-testing.md#Input",
+  "outputs": "skills/zh/testing-types/pairwise-testing/prompts/pairwise-testing.md#PWT-## 发现合同; skills/en/testing-types/pairwise-testing/prompts/pairwise-testing.md#PWT-## Contract",
+  "workflow": "v2.0 Test Engineering Batch 1 specialist; optional navigation only",
+  "evidence_paths": [
+    "skills/zh/testing-types/pairwise-testing/SKILL.md",
+    "skills/en/testing-types/pairwise-testing/SKILL.md",
+    "skills/zh/testing-types/pairwise-testing/prompts/pairwise-testing.md",
+    "skills/en/testing-types/pairwise-testing/prompts/pairwise-testing.md",
+    "skills/zh/testing-types/pairwise-testing/evals/eval.yaml",
+    "skills/en/testing-types/pairwise-testing/evals/eval.yaml",
+    "skills/zh/testing-types/pairwise-testing/agents/openai.yaml",
+    "skills/en/testing-types/pairwise-testing/agents/openai.yaml"
+  ]
+},
+{
+  "slug": "combinatorial-testing",
+  "section": "testing-types",
+  "zh_path": "skills/zh/testing-types/combinatorial-testing",
+  "en_path": "skills/en/testing-types/combinatorial-testing",
+  "virtual_domain": "Engineering QA",
+  "status": "Planned-P1",
+  "priority": "P1",
+  "related": "v2.0 Test Engineering design-method family; semantic overlap with existing Skills remains bounded and requires evidence.",
+  "governance_evidence": "skills/zh/testing-types/combinatorial-testing/SKILL.md",
+  "quality_score": {
+    "state": "NOT_SCORED",
+    "reason": "No model-backed quality score has been run; static package checks do not produce a score."
+  },
+  "eval_execution": {
+    "state": "NOT_RUN",
+    "reason": "Eval configuration and local structure checks do not run a real model or external target."
+  },
+  "sdlc_stage": "test-design-and-preparation",
+  "roles": [
+    "QA",
+    "Engineering"
+  ],
+  "inputs": "skills/zh/testing-types/combinatorial-testing/prompts/combinatorial-testing.md#输入; skills/en/testing-types/combinatorial-testing/prompts/combinatorial-testing.md#Input",
+  "outputs": "skills/zh/testing-types/combinatorial-testing/prompts/combinatorial-testing.md#CT-## 发现合同; skills/en/testing-types/combinatorial-testing/prompts/combinatorial-testing.md#CT-## Contract",
+  "workflow": "v2.0 Test Engineering Batch 1 specialist; optional navigation only",
+  "evidence_paths": [
+    "skills/zh/testing-types/combinatorial-testing/SKILL.md",
+    "skills/en/testing-types/combinatorial-testing/SKILL.md",
+    "skills/zh/testing-types/combinatorial-testing/prompts/combinatorial-testing.md",
+    "skills/en/testing-types/combinatorial-testing/prompts/combinatorial-testing.md",
+    "skills/zh/testing-types/combinatorial-testing/evals/eval.yaml",
+    "skills/en/testing-types/combinatorial-testing/evals/eval.yaml",
+    "skills/zh/testing-types/combinatorial-testing/agents/openai.yaml",
+    "skills/en/testing-types/combinatorial-testing/agents/openai.yaml"
+  ]
+},
+{
+  "slug": "model-based-testing",
+  "section": "testing-types",
+  "zh_path": "skills/zh/testing-types/model-based-testing",
+  "en_path": "skills/en/testing-types/model-based-testing",
+  "virtual_domain": "Engineering QA",
+  "status": "Planned-P1",
+  "priority": "P1",
+  "related": "v2.0 Test Engineering design-method family; semantic overlap with existing Skills remains bounded and requires evidence.",
+  "governance_evidence": "skills/zh/testing-types/model-based-testing/SKILL.md",
+  "quality_score": {
+    "state": "NOT_SCORED",
+    "reason": "No model-backed quality score has been run; static package checks do not produce a score."
+  },
+  "eval_execution": {
+    "state": "NOT_RUN",
+    "reason": "Eval configuration and local structure checks do not run a real model or external target."
+  },
+  "sdlc_stage": "test-design-and-preparation",
+  "roles": [
+    "QA",
+    "Engineering"
+  ],
+  "inputs": "skills/zh/testing-types/model-based-testing/prompts/model-based-testing.md#输入; skills/en/testing-types/model-based-testing/prompts/model-based-testing.md#Input",
+  "outputs": "skills/zh/testing-types/model-based-testing/prompts/model-based-testing.md#MBT-## 发现合同; skills/en/testing-types/model-based-testing/prompts/model-based-testing.md#MBT-## Contract",
+  "workflow": "v2.0 Test Engineering Batch 1 specialist; optional navigation only",
+  "evidence_paths": [
+    "skills/zh/testing-types/model-based-testing/SKILL.md",
+    "skills/en/testing-types/model-based-testing/SKILL.md",
+    "skills/zh/testing-types/model-based-testing/prompts/model-based-testing.md",
+    "skills/en/testing-types/model-based-testing/prompts/model-based-testing.md",
+    "skills/zh/testing-types/model-based-testing/evals/eval.yaml",
+    "skills/en/testing-types/model-based-testing/evals/eval.yaml",
+    "skills/zh/testing-types/model-based-testing/agents/openai.yaml",
+    "skills/en/testing-types/model-based-testing/agents/openai.yaml"
+  ]
+},
+{
+  "slug": "property-based-testing",
+  "section": "testing-types",
+  "zh_path": "skills/zh/testing-types/property-based-testing",
+  "en_path": "skills/en/testing-types/property-based-testing",
+  "virtual_domain": "Engineering QA",
+  "status": "Planned-P1",
+  "priority": "P1",
+  "related": "v2.0 Test Engineering design-method family; semantic overlap with existing Skills remains bounded and requires evidence.",
+  "governance_evidence": "skills/zh/testing-types/property-based-testing/SKILL.md",
+  "quality_score": {
+    "state": "NOT_SCORED",
+    "reason": "No model-backed quality score has been run; static package checks do not produce a score."
+  },
+  "eval_execution": {
+    "state": "NOT_RUN",
+    "reason": "Eval configuration and local structure checks do not run a real model or external target."
+  },
+  "sdlc_stage": "test-design-and-preparation",
+  "roles": [
+    "QA",
+    "Engineering"
+  ],
+  "inputs": "skills/zh/testing-types/property-based-testing/prompts/property-based-testing.md#输入; skills/en/testing-types/property-based-testing/prompts/property-based-testing.md#Input",
+  "outputs": "skills/zh/testing-types/property-based-testing/prompts/property-based-testing.md#PBT-## 发现合同; skills/en/testing-types/property-based-testing/prompts/property-based-testing.md#PBT-## Contract",
+  "workflow": "v2.0 Test Engineering Batch 1 specialist; optional navigation only",
+  "evidence_paths": [
+    "skills/zh/testing-types/property-based-testing/SKILL.md",
+    "skills/en/testing-types/property-based-testing/SKILL.md",
+    "skills/zh/testing-types/property-based-testing/prompts/property-based-testing.md",
+    "skills/en/testing-types/property-based-testing/prompts/property-based-testing.md",
+    "skills/zh/testing-types/property-based-testing/evals/eval.yaml",
+    "skills/en/testing-types/property-based-testing/evals/eval.yaml",
+    "skills/zh/testing-types/property-based-testing/agents/openai.yaml",
+    "skills/en/testing-types/property-based-testing/agents/openai.yaml"
+  ]
+},
+{
+  "slug": "metamorphic-testing",
+  "section": "testing-types",
+  "zh_path": "skills/zh/testing-types/metamorphic-testing",
+  "en_path": "skills/en/testing-types/metamorphic-testing",
+  "virtual_domain": "Engineering QA",
+  "status": "Planned-P1",
+  "priority": "P1",
+  "related": "v2.0 Test Engineering design-method family; semantic overlap with existing Skills remains bounded and requires evidence.",
+  "governance_evidence": "skills/zh/testing-types/metamorphic-testing/SKILL.md",
+  "quality_score": {
+    "state": "NOT_SCORED",
+    "reason": "No model-backed quality score has been run; static package checks do not produce a score."
+  },
+  "eval_execution": {
+    "state": "NOT_RUN",
+    "reason": "Eval configuration and local structure checks do not run a real model or external target."
+  },
+  "sdlc_stage": "test-design-and-preparation",
+  "roles": [
+    "QA",
+    "Engineering"
+  ],
+  "inputs": "skills/zh/testing-types/metamorphic-testing/prompts/metamorphic-testing.md#输入; skills/en/testing-types/metamorphic-testing/prompts/metamorphic-testing.md#Input",
+  "outputs": "skills/zh/testing-types/metamorphic-testing/prompts/metamorphic-testing.md#MT-## 发现合同; skills/en/testing-types/metamorphic-testing/prompts/metamorphic-testing.md#MT-## Contract",
+  "workflow": "v2.0 Test Engineering Batch 1 specialist; optional navigation only",
+  "evidence_paths": [
+    "skills/zh/testing-types/metamorphic-testing/SKILL.md",
+    "skills/en/testing-types/metamorphic-testing/SKILL.md",
+    "skills/zh/testing-types/metamorphic-testing/prompts/metamorphic-testing.md",
+    "skills/en/testing-types/metamorphic-testing/prompts/metamorphic-testing.md",
+    "skills/zh/testing-types/metamorphic-testing/evals/eval.yaml",
+    "skills/en/testing-types/metamorphic-testing/evals/eval.yaml",
+    "skills/zh/testing-types/metamorphic-testing/agents/openai.yaml",
+    "skills/en/testing-types/metamorphic-testing/agents/openai.yaml"
+  ]
+}
   ],
   "candidates": [
     {
@@ -4261,6 +4594,222 @@
         "skills/en/testing-types/test-data-requirement-analysis/prompts/test-data-requirement-analysis.md"
       ],
       "candidate_source": "docs/superpowers/specs/2026-09-14-v1-1-test-design-discovery-five-design.md; docs/superpowers/plans/2026-09-14-v1-1-test-design-discovery-five.md; local bilingual package review"
-    }
+    },
+{
+  "slug": "decision-table-testing",
+  "decision_state": "REVIEWED",
+  "conclusion": "NEW",
+  "target": "decision-table-testing",
+  "scope": "Evidence-bounded decision table test design candidates identified from supplied decision-table-testing material; findings use DTT-## and preserve source and uncertainty.",
+  "non_goals": "No invented rules or thresholds, complete test-case authoring, execution, coverage proof, release approval, or Human risk acceptance.",
+  "evidence": {
+    "name": "The v2.0 card name and bilingual package frontmatter define a distinct decision-table-testing capability.",
+    "purpose": "The bilingual Prompt focuses on decision table test design and uses a stable DTT-## finding contract rather than a generic test-writing output.",
+    "inputs": "skills/zh/testing-types/decision-table-testing/prompts/decision-table-testing.md Input and input audit; English mirror Input and Input Audit.",
+    "outputs": "skills/zh/testing-types/decision-table-testing/prompts/decision-table-testing.md DTT-## contract; English mirror DTT-## contract.",
+    "decision_logic": "Select a minimal evidence-backed set, preserve missing and conflicting material, and propose validation without upgrading static design to execution.",
+    "workflow_role": "v2.0 Test Engineering test-design-and-preparation specialist; optional navigation only, with no runtime or release decision."
+  },
+  "next_action": "Run real model Eval when credentials and a controlled runner are available; keep NOT_RUN and NOT_SCORED until that evidence exists.",
+  "target_evidence_paths": [
+    "skills/zh/testing-types/decision-table-testing/SKILL.md",
+    "skills/en/testing-types/decision-table-testing/SKILL.md",
+    "skills/zh/testing-types/decision-table-testing/prompts/decision-table-testing.md",
+    "skills/en/testing-types/decision-table-testing/prompts/decision-table-testing.md"
+  ],
+  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review"
+},
+{
+  "slug": "state-transition-testing",
+  "decision_state": "REVIEWED",
+  "conclusion": "NEW",
+  "target": "state-transition-testing",
+  "scope": "Evidence-bounded state transition test design candidates identified from supplied state-transition-testing material; findings use STT-## and preserve source and uncertainty.",
+  "non_goals": "No invented rules or thresholds, complete test-case authoring, execution, coverage proof, release approval, or Human risk acceptance.",
+  "evidence": {
+    "name": "The v2.0 card name and bilingual package frontmatter define a distinct state-transition-testing capability.",
+    "purpose": "The bilingual Prompt focuses on state transition test design and uses a stable STT-## finding contract rather than a generic test-writing output.",
+    "inputs": "skills/zh/testing-types/state-transition-testing/prompts/state-transition-testing.md Input and input audit; English mirror Input and Input Audit.",
+    "outputs": "skills/zh/testing-types/state-transition-testing/prompts/state-transition-testing.md STT-## contract; English mirror STT-## contract.",
+    "decision_logic": "Select a minimal evidence-backed set, preserve missing and conflicting material, and propose validation without upgrading static design to execution.",
+    "workflow_role": "v2.0 Test Engineering test-design-and-preparation specialist; optional navigation only, with no runtime or release decision."
+  },
+  "next_action": "Run real model Eval when credentials and a controlled runner are available; keep NOT_RUN and NOT_SCORED until that evidence exists.",
+  "target_evidence_paths": [
+    "skills/zh/testing-types/state-transition-testing/SKILL.md",
+    "skills/en/testing-types/state-transition-testing/SKILL.md",
+    "skills/zh/testing-types/state-transition-testing/prompts/state-transition-testing.md",
+    "skills/en/testing-types/state-transition-testing/prompts/state-transition-testing.md"
+  ],
+  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review"
+},
+{
+  "slug": "boundary-value-testing",
+  "decision_state": "REVIEWED",
+  "conclusion": "NEW",
+  "target": "boundary-value-testing",
+  "scope": "Evidence-bounded boundary value test design candidates identified from supplied boundary-value-testing material; findings use BVT-## and preserve source and uncertainty.",
+  "non_goals": "No invented rules or thresholds, complete test-case authoring, execution, coverage proof, release approval, or Human risk acceptance.",
+  "evidence": {
+    "name": "The v2.0 card name and bilingual package frontmatter define a distinct boundary-value-testing capability.",
+    "purpose": "The bilingual Prompt focuses on boundary value test design and uses a stable BVT-## finding contract rather than a generic test-writing output.",
+    "inputs": "skills/zh/testing-types/boundary-value-testing/prompts/boundary-value-testing.md Input and input audit; English mirror Input and Input Audit.",
+    "outputs": "skills/zh/testing-types/boundary-value-testing/prompts/boundary-value-testing.md BVT-## contract; English mirror BVT-## contract.",
+    "decision_logic": "Select a minimal evidence-backed set, preserve missing and conflicting material, and propose validation without upgrading static design to execution.",
+    "workflow_role": "v2.0 Test Engineering test-design-and-preparation specialist; optional navigation only, with no runtime or release decision."
+  },
+  "next_action": "Run real model Eval when credentials and a controlled runner are available; keep NOT_RUN and NOT_SCORED until that evidence exists.",
+  "target_evidence_paths": [
+    "skills/zh/testing-types/boundary-value-testing/SKILL.md",
+    "skills/en/testing-types/boundary-value-testing/SKILL.md",
+    "skills/zh/testing-types/boundary-value-testing/prompts/boundary-value-testing.md",
+    "skills/en/testing-types/boundary-value-testing/prompts/boundary-value-testing.md"
+  ],
+  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review"
+},
+{
+  "slug": "equivalence-partitioning",
+  "decision_state": "REVIEWED",
+  "conclusion": "NEW",
+  "target": "equivalence-partitioning",
+  "scope": "Evidence-bounded equivalence partitioning test design candidates identified from supplied equivalence-partitioning material; findings use EP-## and preserve source and uncertainty.",
+  "non_goals": "No invented rules or thresholds, complete test-case authoring, execution, coverage proof, release approval, or Human risk acceptance.",
+  "evidence": {
+    "name": "The v2.0 card name and bilingual package frontmatter define a distinct equivalence-partitioning capability.",
+    "purpose": "The bilingual Prompt focuses on equivalence partitioning test design and uses a stable EP-## finding contract rather than a generic test-writing output.",
+    "inputs": "skills/zh/testing-types/equivalence-partitioning/prompts/equivalence-partitioning.md Input and input audit; English mirror Input and Input Audit.",
+    "outputs": "skills/zh/testing-types/equivalence-partitioning/prompts/equivalence-partitioning.md EP-## contract; English mirror EP-## contract.",
+    "decision_logic": "Select a minimal evidence-backed set, preserve missing and conflicting material, and propose validation without upgrading static design to execution.",
+    "workflow_role": "v2.0 Test Engineering test-design-and-preparation specialist; optional navigation only, with no runtime or release decision."
+  },
+  "next_action": "Run real model Eval when credentials and a controlled runner are available; keep NOT_RUN and NOT_SCORED until that evidence exists.",
+  "target_evidence_paths": [
+    "skills/zh/testing-types/equivalence-partitioning/SKILL.md",
+    "skills/en/testing-types/equivalence-partitioning/SKILL.md",
+    "skills/zh/testing-types/equivalence-partitioning/prompts/equivalence-partitioning.md",
+    "skills/en/testing-types/equivalence-partitioning/prompts/equivalence-partitioning.md"
+  ],
+  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review"
+},
+{
+  "slug": "pairwise-testing",
+  "decision_state": "REVIEWED",
+  "conclusion": "NEW",
+  "target": "pairwise-testing",
+  "scope": "Evidence-bounded pairwise test design candidates identified from supplied pairwise-testing material; findings use PWT-## and preserve source and uncertainty.",
+  "non_goals": "No invented rules or thresholds, complete test-case authoring, execution, coverage proof, release approval, or Human risk acceptance.",
+  "evidence": {
+    "name": "The v2.0 card name and bilingual package frontmatter define a distinct pairwise-testing capability.",
+    "purpose": "The bilingual Prompt focuses on pairwise test design and uses a stable PWT-## finding contract rather than a generic test-writing output.",
+    "inputs": "skills/zh/testing-types/pairwise-testing/prompts/pairwise-testing.md Input and input audit; English mirror Input and Input Audit.",
+    "outputs": "skills/zh/testing-types/pairwise-testing/prompts/pairwise-testing.md PWT-## contract; English mirror PWT-## contract.",
+    "decision_logic": "Select a minimal evidence-backed set, preserve missing and conflicting material, and propose validation without upgrading static design to execution.",
+    "workflow_role": "v2.0 Test Engineering test-design-and-preparation specialist; optional navigation only, with no runtime or release decision."
+  },
+  "next_action": "Run real model Eval when credentials and a controlled runner are available; keep NOT_RUN and NOT_SCORED until that evidence exists.",
+  "target_evidence_paths": [
+    "skills/zh/testing-types/pairwise-testing/SKILL.md",
+    "skills/en/testing-types/pairwise-testing/SKILL.md",
+    "skills/zh/testing-types/pairwise-testing/prompts/pairwise-testing.md",
+    "skills/en/testing-types/pairwise-testing/prompts/pairwise-testing.md"
+  ],
+  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review"
+},
+{
+  "slug": "combinatorial-testing",
+  "decision_state": "REVIEWED",
+  "conclusion": "NEW",
+  "target": "combinatorial-testing",
+  "scope": "Evidence-bounded combinatorial test design candidates identified from supplied combinatorial-testing material; findings use CT-## and preserve source and uncertainty.",
+  "non_goals": "No invented rules or thresholds, complete test-case authoring, execution, coverage proof, release approval, or Human risk acceptance.",
+  "evidence": {
+    "name": "The v2.0 card name and bilingual package frontmatter define a distinct combinatorial-testing capability.",
+    "purpose": "The bilingual Prompt focuses on combinatorial test design and uses a stable CT-## finding contract rather than a generic test-writing output.",
+    "inputs": "skills/zh/testing-types/combinatorial-testing/prompts/combinatorial-testing.md Input and input audit; English mirror Input and Input Audit.",
+    "outputs": "skills/zh/testing-types/combinatorial-testing/prompts/combinatorial-testing.md CT-## contract; English mirror CT-## contract.",
+    "decision_logic": "Select a minimal evidence-backed set, preserve missing and conflicting material, and propose validation without upgrading static design to execution.",
+    "workflow_role": "v2.0 Test Engineering test-design-and-preparation specialist; optional navigation only, with no runtime or release decision."
+  },
+  "next_action": "Run real model Eval when credentials and a controlled runner are available; keep NOT_RUN and NOT_SCORED until that evidence exists.",
+  "target_evidence_paths": [
+    "skills/zh/testing-types/combinatorial-testing/SKILL.md",
+    "skills/en/testing-types/combinatorial-testing/SKILL.md",
+    "skills/zh/testing-types/combinatorial-testing/prompts/combinatorial-testing.md",
+    "skills/en/testing-types/combinatorial-testing/prompts/combinatorial-testing.md"
+  ],
+  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review"
+},
+{
+  "slug": "model-based-testing",
+  "decision_state": "REVIEWED",
+  "conclusion": "NEW",
+  "target": "model-based-testing",
+  "scope": "Evidence-bounded model-based test design candidates identified from supplied model-based-testing material; findings use MBT-## and preserve source and uncertainty.",
+  "non_goals": "No invented rules or thresholds, complete test-case authoring, execution, coverage proof, release approval, or Human risk acceptance.",
+  "evidence": {
+    "name": "The v2.0 card name and bilingual package frontmatter define a distinct model-based-testing capability.",
+    "purpose": "The bilingual Prompt focuses on model-based test design and uses a stable MBT-## finding contract rather than a generic test-writing output.",
+    "inputs": "skills/zh/testing-types/model-based-testing/prompts/model-based-testing.md Input and input audit; English mirror Input and Input Audit.",
+    "outputs": "skills/zh/testing-types/model-based-testing/prompts/model-based-testing.md MBT-## contract; English mirror MBT-## contract.",
+    "decision_logic": "Select a minimal evidence-backed set, preserve missing and conflicting material, and propose validation without upgrading static design to execution.",
+    "workflow_role": "v2.0 Test Engineering test-design-and-preparation specialist; optional navigation only, with no runtime or release decision."
+  },
+  "next_action": "Run real model Eval when credentials and a controlled runner are available; keep NOT_RUN and NOT_SCORED until that evidence exists.",
+  "target_evidence_paths": [
+    "skills/zh/testing-types/model-based-testing/SKILL.md",
+    "skills/en/testing-types/model-based-testing/SKILL.md",
+    "skills/zh/testing-types/model-based-testing/prompts/model-based-testing.md",
+    "skills/en/testing-types/model-based-testing/prompts/model-based-testing.md"
+  ],
+  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review"
+},
+{
+  "slug": "property-based-testing",
+  "decision_state": "REVIEWED",
+  "conclusion": "NEW",
+  "target": "property-based-testing",
+  "scope": "Evidence-bounded property-based test design candidates identified from supplied property-based-testing material; findings use PBT-## and preserve source and uncertainty.",
+  "non_goals": "No invented rules or thresholds, complete test-case authoring, execution, coverage proof, release approval, or Human risk acceptance.",
+  "evidence": {
+    "name": "The v2.0 card name and bilingual package frontmatter define a distinct property-based-testing capability.",
+    "purpose": "The bilingual Prompt focuses on property-based test design and uses a stable PBT-## finding contract rather than a generic test-writing output.",
+    "inputs": "skills/zh/testing-types/property-based-testing/prompts/property-based-testing.md Input and input audit; English mirror Input and Input Audit.",
+    "outputs": "skills/zh/testing-types/property-based-testing/prompts/property-based-testing.md PBT-## contract; English mirror PBT-## contract.",
+    "decision_logic": "Select a minimal evidence-backed set, preserve missing and conflicting material, and propose validation without upgrading static design to execution.",
+    "workflow_role": "v2.0 Test Engineering test-design-and-preparation specialist; optional navigation only, with no runtime or release decision."
+  },
+  "next_action": "Run real model Eval when credentials and a controlled runner are available; keep NOT_RUN and NOT_SCORED until that evidence exists.",
+  "target_evidence_paths": [
+    "skills/zh/testing-types/property-based-testing/SKILL.md",
+    "skills/en/testing-types/property-based-testing/SKILL.md",
+    "skills/zh/testing-types/property-based-testing/prompts/property-based-testing.md",
+    "skills/en/testing-types/property-based-testing/prompts/property-based-testing.md"
+  ],
+  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review"
+},
+{
+  "slug": "metamorphic-testing",
+  "decision_state": "REVIEWED",
+  "conclusion": "NEW",
+  "target": "metamorphic-testing",
+  "scope": "Evidence-bounded metamorphic test design candidates identified from supplied metamorphic-testing material; findings use MT-## and preserve source and uncertainty.",
+  "non_goals": "No invented rules or thresholds, complete test-case authoring, execution, coverage proof, release approval, or Human risk acceptance.",
+  "evidence": {
+    "name": "The v2.0 card name and bilingual package frontmatter define a distinct metamorphic-testing capability.",
+    "purpose": "The bilingual Prompt focuses on metamorphic test design and uses a stable MT-## finding contract rather than a generic test-writing output.",
+    "inputs": "skills/zh/testing-types/metamorphic-testing/prompts/metamorphic-testing.md Input and input audit; English mirror Input and Input Audit.",
+    "outputs": "skills/zh/testing-types/metamorphic-testing/prompts/metamorphic-testing.md MT-## contract; English mirror MT-## contract.",
+    "decision_logic": "Select a minimal evidence-backed set, preserve missing and conflicting material, and propose validation without upgrading static design to execution.",
+    "workflow_role": "v2.0 Test Engineering test-design-and-preparation specialist; optional navigation only, with no runtime or release decision."
+  },
+  "next_action": "Run real model Eval when credentials and a controlled runner are available; keep NOT_RUN and NOT_SCORED until that evidence exists.",
+  "target_evidence_paths": [
+    "skills/zh/testing-types/metamorphic-testing/SKILL.md",
+    "skills/en/testing-types/metamorphic-testing/SKILL.md",
+    "skills/zh/testing-types/metamorphic-testing/prompts/metamorphic-testing.md",
+    "skills/en/testing-types/metamorphic-testing/prompts/metamorphic-testing.md"
+  ],
+  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review"
+}
   ]
 }

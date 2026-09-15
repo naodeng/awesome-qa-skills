@@ -5,9 +5,9 @@
 按语言分区的 **AI 测试辅助技能库**（Agent Skills）。面向 Codex、Cursor、Claude Code、Kiro、OpenCode、Trae 等工具，提供可独立安装、可组合调用的测试工作流与测试类型技能。
 
 [![License: PolyForm Noncommercial 1.0.0](https://img.shields.io/badge/License-PolyForm%20Noncommercial%201.0.0-blue.svg)](./LICENSE)
-[![Skills](https://img.shields.io/badge/skills-192%20(zh%2Ben)-0A7EA4)](./docs/catalog/skills-index.md)
+[![Skills](https://img.shields.io/badge/skills-210%20(zh%2Ben)-0A7EA4)](./docs/catalog/skills-index.md)
 [![Workflows](https://img.shields.io/badge/workflows-10-informational)](./skills/zh/testing-workflows/)
-[![Testing types](https://img.shields.io/badge/testing%20types-83-informational)](./skills/zh/testing-types/)
+[![Testing types](https://img.shields.io/badge/testing%20types-92-informational)](./skills/zh/testing-types/)
 [![Skill engineering](https://img.shields.io/badge/skill%20engineering-3-informational)](./skills/zh/skill-engineering/)
 [![skills.sh](https://skills.sh/b/naodeng/awesome-qa-skills)](https://skills.sh/naodeng/awesome-qa-skills)
 
@@ -21,7 +21,7 @@
 | --- | --- |
 | 双语对齐 | `skills/zh` 与 `skills/en` 同名目录、同结构，团队可按语言选用 |
 | 覆盖完整测试链 | 从需求分析、策略、用例、执行到缺陷与报告 |
-| 工作流 + 类型技能 | 日常 / 迭代 / 发布、角色质量视角与多角色汇总工作流，配合 83 类专项技能按需组合 |
+| 工作流 + 类型技能 | 日常 / 迭代 / 发布、角色质量视角与多角色汇总工作流，配合 92 类专项技能按需组合 |
 | 开箱即装 | 支持一键安装与单 skill 安装脚本 |
 | 可评测可演进 | 全量 skill 附带 `evals/`，可用 [skill-up](https://github.com/alibaba/skill-up) 校验与实跑 |
 
@@ -38,7 +38,7 @@
 | 基于发布与生产证据作质量决策 | Production Quality Skills | 发布验证、事故响应、Trace 与指标分析 | [查看生产质量能力](#production-quality-skills--生产质量能力) |
 | 测试 AI 功能、LLM、Prompt、Agent 与安全边界 | AI Native QA Skills | AI 需求与风险、评测、工具调用与注入防护 | [查看 AI 原生质量能力](#ai-native-qa-skills--ai-原生质量能力) |
 | 串联多个阶段、按角色协作或不确定从哪里开始 | 跨阶段工作流 | 路由、日常 / 迭代 / 发布、质量视角与汇总 | [查看工作流](#跨阶段工作流) |
-| 已经知道要找的 Skill 名称 | 全量索引 | 全部 96 项能力与中英文路径 | [打开全量技能索引](docs/catalog/skills-index.md) |
+| 已经知道要找的 Skill 名称 | 全量索引 | 全部 105 项能力与中英文路径 | [打开全量技能索引](docs/catalog/skills-index.md) |
 
 **推荐路径：** 不确定选哪个，先调用 [`discover-testing`](skills/zh/testing-workflows/discover-testing/)；确定阶段后，再进入对应能力层；只需具体名称时，直接使用全量索引。
 
@@ -136,7 +136,7 @@ cp -r skills/zh/testing-types/functional-testing ~/.cursor/skills/
 
 ## 技能目录
 
-每种语言共 **96** 个 Skill：10 个工作流、83 个测试类型和 3 个 Skill Engineering；中英文合计 **192** 个目录。物理目录保持稳定，下面只提供逻辑导航。
+每种语言共 **105** 个 Skill：10 个工作流、92 个测试类型和 3 个 Skill Engineering；中英文合计 **210** 个目录。物理目录保持稳定，下面只提供逻辑导航。
 
 ### 跨阶段工作流
 
@@ -196,6 +196,15 @@ cp -r skills/zh/testing-types/functional-testing ~/.cursor/skills/
 | 测试用例编写加强版 <!-- data-skill:testcase-writer-plus --> | [`testcase-writer-plus`](skills/zh/testing-types/testcase-writer-plus/) | 根据需求与分析产物生成高质量测试用例。 |
 | 测试用例评审 <!-- data-skill:test-case-reviewer --> | [`test-case-reviewer`](skills/zh/testing-types/test-case-reviewer/) | 评审测试用例的完整性、清晰度、可维护性和遗漏场景。 |
 | 测试用例评审加强版 <!-- data-skill:test-case-reviewer-plus --> | [`test-case-reviewer-plus`](skills/zh/testing-types/test-case-reviewer-plus/) | 从需求、策略和用例文档中形成结构化评审发现。 |
+| 决策表测试 <!-- data-skill:decision-table-testing --> | [`decision-table-testing`](skills/zh/testing-types/decision-table-testing/) | 将条件、规则、动作和结果整理为可审计的规则组合。 |
+| 状态迁移测试 <!-- data-skill:state-transition-testing --> | [`state-transition-testing`](skills/zh/testing-types/state-transition-testing/) | 从状态、事件、迁移和非法路径设计可追溯测试。 |
+| 边界值测试 <!-- data-skill:boundary-value-testing --> | [`boundary-value-testing`](skills/zh/testing-types/boundary-value-testing/) | 基于边界模型选择最小且高风险的边界测试集。 |
+| 等价类划分 <!-- data-skill:equivalence-partitioning --> | [`equivalence-partitioning`](skills/zh/testing-types/equivalence-partitioning/) | 将输入空间划分为可解释、可覆盖的等价类。 |
+| 成对组合测试 <!-- data-skill:pairwise-testing --> | [`pairwise-testing`](skills/zh/testing-types/pairwise-testing/) | 用成对交互覆盖控制多参数组合爆炸。 |
+| 组合测试 <!-- data-skill:combinatorial-testing --> | [`combinatorial-testing`](skills/zh/testing-types/combinatorial-testing/) | 根据交互强度和风险选择组合覆盖策略。 |
+| 基于模型测试 <!-- data-skill:model-based-testing --> | [`model-based-testing`](skills/zh/testing-types/model-based-testing/) | 从状态、流程或行为模型派生可追溯测试。 |
+| 基于属性测试 <!-- data-skill:property-based-testing --> | [`property-based-testing`](skills/zh/testing-types/property-based-testing/) | 用不变量、生成策略和收缩规则验证属性。 |
+| 变形测试 <!-- data-skill:metamorphic-testing --> | [`metamorphic-testing`](skills/zh/testing-types/metamorphic-testing/) | 在缺少可靠预言机时用输入变换和关系断言验证结果。 |
 
 ##### 测试执行与分析
 

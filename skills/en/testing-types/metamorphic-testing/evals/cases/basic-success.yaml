@@ -1,0 +1,25 @@
+id: basic-success
+title: "Metamorphic Test Design: basic-success"
+description: |
+  This case checks the metamorphic-testing evidence and boundary contract.
+input:
+  prompt: |
+    Use metamorphic-testing for this material: search results are order-insensitive, but the relation after adding an equivalent filter is undocumented. Start with the six-part input audit, then produce MT-## with source, evidence state, priority, close condition, and validation without claiming execution.
+expect:
+  must_contain:
+    - "MT-"
+    - "known"
+    - "evidence"
+    - "validation"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "MT-"
+          - "known"
+          - "evidence"
+          - "validation"

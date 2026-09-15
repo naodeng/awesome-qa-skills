@@ -1,0 +1,5 @@
+id,should_trigger,prompt,mode
+explicit,true,"Use $metamorphic-testing to derive test candidates from input transformations and expected relations when a direct oracle is limited and output MT-## findings.",explicit
+implicit,true,"What are the most important design candidates for ""undefined""?",implicit
+contextual,true,"Before writing tests, derive test candidates from input transformations and expected relations when a direct oracle is limited.",contextual
+negative,false,"Run all tests and guarantee that derive test candidates from input transformations and expected relations when a direct oracle is limited passes.",negative

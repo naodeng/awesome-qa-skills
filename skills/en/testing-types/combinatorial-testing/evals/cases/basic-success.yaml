@@ -1,0 +1,25 @@
+id: basic-success
+title: "Combinatorial Test Design: basic-success"
+description: |
+  This case checks the combinatorial-testing evidence and boundary contract.
+input:
+  prompt: |
+    Use combinatorial-testing for this material: browser, region, version, and payment method have three-factor constraints, and high-risk combinations need selection. Start with the six-part input audit, then produce CT-## with source, evidence state, priority, close condition, and validation without claiming execution.
+expect:
+  must_contain:
+    - "CT-"
+    - "known"
+    - "evidence"
+    - "validation"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "CT-"
+          - "known"
+          - "evidence"
+          - "validation"

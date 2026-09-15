@@ -1,0 +1,25 @@
+id: basic-success
+title: "蜕变测试设计: basic-success"
+description: |
+  This case checks the metamorphic-testing evidence and boundary contract.
+input:
+  prompt: |
+    使用 metamorphic-testing 分析：搜索结果对结果顺序不敏感，但增加等价筛选条件后的关系没有材料。先做六类输入审计，再输出 MT-##，保留来源、证据状态、优先级、关闭条件和验证方法，不要声称执行。
+expect:
+  must_contain:
+    - "MT-"
+    - "输入审计"
+    - "证据"
+    - "验证"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "MT-"
+          - "输入审计"
+          - "证据"
+          - "验证"

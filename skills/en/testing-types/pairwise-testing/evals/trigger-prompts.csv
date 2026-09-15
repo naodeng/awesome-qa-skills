@@ -1,0 +1,5 @@
+id,should_trigger,prompt,mode
+explicit,true,"Use $pairwise-testing to identify interactions that need at least pairwise coverage after factors, values, and constraints are explicit and output PWT-## findings.",explicit
+implicit,true,"I have material about ""browser, region, account type, and payment method have combination constraints, and high-risk pair interactions need discovery"". Find the highest-risk design candidates to validate.",implicit
+contextual,true,"Before writing tests, identify interactions that need at least pairwise coverage after factors, values, and constraints are explicit.",contextual
+negative,false,"Run every test and guarantee that all identify interactions that need at least pairwise coverage after factors, values, and constraints are explicit pass.",negative

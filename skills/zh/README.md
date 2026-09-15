@@ -4,7 +4,7 @@
 
 本目录是中文主语言 Skill 根目录，与 `skills/en` 使用相同 Skill 名和物理结构。
 
-每种语言共 **96** 个 Skill：10 workflows + 83 testing types + 3 Skill Engineering。完整项目说明见 [中文 README](../../README.md) 和 [English README](../../README_EN.md)；长期治理见 [治理路线图](../../docs/governance/SKILL_GOVERNANCE_ROADMAP.md) 与 [治理矩阵](../../docs/SKILL_MATRIX.md)。
+每种语言共 **105** 个 Skill：10 workflows + 92 testing types + 3 Skill Engineering。完整项目说明见 [中文 README](../../README.md) 和 [English README](../../README_EN.md)；长期治理见 [治理路线图](../../docs/governance/SKILL_GOVERNANCE_ROADMAP.md) 与 [治理矩阵](../../docs/SKILL_MATRIX.md)。
 
 ## 跨阶段工作流
 
@@ -60,6 +60,15 @@
 | 测试用例编写加强版 | [`testcase-writer-plus`](testing-types/testcase-writer-plus/) |
 | 测试用例评审（中文版） | [`test-case-reviewer`](testing-types/test-case-reviewer/) |
 | 测试用例评审加强版 | [`test-case-reviewer-plus`](testing-types/test-case-reviewer-plus/) |
+| 决策表测试 | [`decision-table-testing`](testing-types/decision-table-testing/) |
+| 状态迁移测试 | [`state-transition-testing`](testing-types/state-transition-testing/) |
+| 边界值测试 | [`boundary-value-testing`](testing-types/boundary-value-testing/) |
+| 等价类划分 | [`equivalence-partitioning`](testing-types/equivalence-partitioning/) |
+| 成对组合测试 | [`pairwise-testing`](testing-types/pairwise-testing/) |
+| 组合测试 | [`combinatorial-testing`](testing-types/combinatorial-testing/) |
+| 基于模型测试 | [`model-based-testing`](testing-types/model-based-testing/) |
+| 基于属性测试 | [`property-based-testing`](testing-types/property-based-testing/) |
+| 变形测试 | [`metamorphic-testing`](testing-types/metamorphic-testing/) |
 
 #### 测试执行与分析
 
