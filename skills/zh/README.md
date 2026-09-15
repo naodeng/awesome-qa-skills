@@ -4,7 +4,7 @@
 
 本目录是中文主语言 Skill 根目录，与 `skills/en` 使用相同 Skill 名和物理结构。
 
-每种语言共 **105** 个 Skill：10 workflows + 92 testing types + 3 Skill Engineering。完整项目说明见 [中文 README](../../README.md) 和 [English README](../../README_EN.md)；长期治理见 [治理路线图](../../docs/governance/SKILL_GOVERNANCE_ROADMAP.md) 与 [治理矩阵](../../docs/SKILL_MATRIX.md)。
+每种语言共 **121** 个 Skill：10 workflows + 108 testing types + 3 Skill Engineering。完整项目说明见 [中文 README](../../README.md) 和 [English README](../../README_EN.md)；长期治理见 [治理路线图](../../docs/governance/SKILL_GOVERNANCE_ROADMAP.md) 与 [治理矩阵](../../docs/SKILL_MATRIX.md)。
 
 ## 跨阶段工作流
 
@@ -125,6 +125,13 @@
 | PR 测试影响分析 | [`pr-test-impact-analysis`](testing-types/pr-test-impact-analysis/) |
 | API 契约测试 | [`api-contract-testing`](testing-types/api-contract-testing/) |
 | 自动化测试（中文版） | [`automation-testing`](testing-types/automation-testing/) |
+| API Schema 校验 | [`api-schema-validation`](testing-types/api-schema-validation/) |
+| API 负向测试 | [`api-negative-testing`](testing-types/api-negative-testing/) |
+| API 幂等性测试 | [`api-idempotency-testing`](testing-types/api-idempotency-testing/) |
+| API 分页测试 | [`api-pagination-testing`](testing-types/api-pagination-testing/) |
+| API 限流测试 | [`api-rate-limit-testing`](testing-types/api-rate-limit-testing/) |
+| API 版本兼容性测试 | [`api-version-compatibility-testing`](testing-types/api-version-compatibility-testing/) |
+| API 错误契约测试 | [`api-error-contract-testing`](testing-types/api-error-contract-testing/) |
 
 #### 测试数据与自动化实现
 
@@ -143,6 +150,11 @@
 | Cypress UI 自动化测试 | [`ui-test-cypress`](testing-types/ui-test-cypress/) |
 | Puppeteer UI 自动化测试 | [`ui-test-puppeteer`](testing-types/ui-test-puppeteer/) |
 | WebdriverIO UI 自动化测试 | [`ui-test-webdriverio`](testing-types/ui-test-webdriverio/) |
+| UI 测试策略 | [`ui-test-strategy`](testing-types/ui-test-strategy/) |
+| UI 测试选择器评审 | [`ui-test-selector-review`](testing-types/ui-test-selector-review/) |
+| UI 测试等待策略评审 | [`ui-test-wait-strategy-review`](testing-types/ui-test-wait-strategy-review/) |
+| 视觉回归测试 | [`visual-regression-testing`](testing-types/visual-regression-testing/) |
+| 跨浏览器测试 | [`cross-browser-testing`](testing-types/cross-browser-testing/) |
 
 #### 测试执行与回归智能
 
@@ -153,6 +165,10 @@
 | 回归测试选择 | [`regression-test-selection`](testing-types/regression-test-selection/) |
 | AI 辅助测试（中文版） | [`ai-assisted-testing`](testing-types/ai-assisted-testing/) |
 | AI 生成测试评审 | [`ai-generated-test-review`](testing-types/ai-generated-test-review/) |
+| 测试代码评审 | [`test-code-review`](testing-types/test-code-review/) |
+| 变异测试分析 | [`mutation-testing-analysis`](testing-types/mutation-testing-analysis/) |
+| Mock 质量评审 | [`mock-quality-review`](testing-types/mock-quality-review/) |
+| 测试套件健康度分析 | [`test-suite-health-analysis`](testing-types/test-suite-health-analysis/) |
 
 #### 性能工程与容量决策
 

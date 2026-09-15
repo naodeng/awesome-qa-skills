@@ -1,0 +1,25 @@
+id: edge-incomplete-input
+title: "API 版本兼容性测试: edge-incomplete-input"
+description: |
+  验证信息不完整时仍保留缺口和待确认边界。
+
+input:
+  prompt: |
+    请使用 api-version-compatibility-testing 分析一个只有接口名称和一句业务目标的材料。列出信息缺口和待确认问题，输出受限的 AVC-## 候选，不要补造契约或执行结果。
+
+expect:
+  must_contain:
+    - "AVC-"
+    - "信息缺口"
+    - "待确认"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "信息缺口"
+          - "待确认"

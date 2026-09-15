@@ -1,0 +1,27 @@
+id: basic-success
+title: "API Pagination Testing: basic-success"
+description: |
+  This case checks the api-pagination-testing evidence and boundary contract.
+
+input:
+  prompt: |
+    Use api-pagination-testing for this material: a list endpoint supports page, limit, and cursor modes, but empty pages, duplicates, data changes, and ordering stability lack evidence. Start with known, missing, conflicting, stale, out_of_scope, and assumptions, then produce APT-## with source, evidence state, priority, close condition, and validation. Do not claim tests ran.
+
+expect:
+  must_contain:
+    - "APT-"
+    - "known"
+    - "evidence"
+    - "validation"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "known"
+          - "evidence"
+          - "validation"

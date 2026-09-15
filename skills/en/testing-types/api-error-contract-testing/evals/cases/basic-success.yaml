@@ -1,0 +1,27 @@
+id: basic-success
+title: "API Error Contract Testing: basic-success"
+description: |
+  This case checks the api-error-contract-testing evidence and boundary contract.
+
+input:
+  prompt: |
+    Use api-error-contract-testing for this material: multiple APIs return different statuses and field shapes for the same validation error, and internal-error redaction lacks clear evidence. Start with known, missing, conflicting, stale, out_of_scope, and assumptions, then produce AEC-## with source, evidence state, priority, close condition, and validation. Do not claim tests ran.
+
+expect:
+  must_contain:
+    - "AEC-"
+    - "known"
+    - "evidence"
+    - "validation"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "known"
+          - "evidence"
+          - "validation"

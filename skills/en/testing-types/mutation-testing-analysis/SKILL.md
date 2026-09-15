@@ -1,0 +1,42 @@
+---
+name: mutation-testing-analysis
+description: Use this skill when you need to interpret mutation operators, killed and survived mutants, and evidence limits; triggers include mutation testing analysis.
+---
+
+# Mutation Testing Analysis
+
+analyze test sensitivity from mutation operators, surviving results, equivalent mutants, and test mappings without inventing a quality score. Produce MTA-## findings. This Skill organizes traceable test-effectiveness evidence candidates only; it does not execute tests or turn a design inventory into coverage, pass, or release evidence.
+
+## When to Use
+
+- When you need mutation testing analysis candidates from mutation reports, operator configuration, killed and surviving results, equivalent-mutant notes, test mappings, coverage, and run logs.
+- When you need selection rationale, applicability constraints, evidence gaps, and the smallest validation action.
+- When inputs are incomplete but a bounded first pass can preserve blocked or unassessed boundaries.
+
+Do not use it to execute tests, invent behavior conclusions, replace a complete strategy, or accept risk for a Human.
+
+## How to Use
+
+1. Read prompts/mutation-testing-analysis.md and provide the objective, scope, material, environment, and evidence.
+2. Complete the known, missing, conflicting, stale, out_of_scope, and assumptions input audit before findings.
+3. Record MTA-## with the subject, preconditions, concern, source evidence, and validation, plus impact/priority, owner role, close condition, and evidence state.
+4. Preserve conflicts, unknown constraints, and open questions when evidence is incomplete.
+
+## Core Constraints
+
+- Do not execute tests, assume missing rules, versions, thresholds, data, or outcomes, or treat candidate counts as coverage proof.
+- File presence, names, design declarations, and Eval configuration are not runtime evidence.
+- Mark unknowns unassessed, blocked, or pending clarification instead of filling them with convention.
+- Do not edit requirements, code, test assets, or target systems.
+
+## Pre-delivery Check
+
+- [ ] Recorded the known, missing, conflicting, stale, out_of_scope, and assumptions input audit.
+- [ ] Every MTA-## has source, evidence state, impact/priority, owner role, close condition, and validation.
+- [ ] Facts, inferences, recommendations, unexecuted work, and Human decisions remain separate.
+- [ ] Findings are not execution results, coverage proof, or release claims.
+
+## Reference Files
+
+- Read evals/eval.yaml and matching cases for regression; configuration does not prove project results.
+- Use evals/trigger-prompts.csv and evals/local-rules.json for trigger checks; missing skill.selection evidence is BLOCKED.

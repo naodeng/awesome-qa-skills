@@ -1,0 +1,5 @@
+id,should_trigger,prompt,mode
+explicit,true,"使用 mock-quality-review，围绕Mock 质量评审输出 MQR-## 并保留证据边界。",explicit
+implicit,true,"我需要从质量材料中设计Mock 质量评审候选，请保留信息缺口和待确认问题。",implicit
+contextual,true,"在质量评审阶段，从真实契约、mock 实现、交互断言和环境差异证据评审 mock 是否保护了真实风险。",contextual
+negative,false,"直接执行所有检查并保证Mock 质量评审全部通过。",negative

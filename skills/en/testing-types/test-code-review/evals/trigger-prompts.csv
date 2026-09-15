@@ -1,0 +1,5 @@
+id,should_trigger,prompt,mode
+explicit,true,"Use test-code-review to produce TCR-## findings for test code review with evidence boundaries.",explicit
+implicit,true,"I need test code review candidates from quality material with missing evidence and open questions preserved.",implicit
+contextual,true,"During quality review, identify assertion, isolation, fixture, determinism, and maintainability risks from test code, run evidence, and change scope.",contextual
+negative,false,"Execute every check directly and guarantee test code review all pass.",negative

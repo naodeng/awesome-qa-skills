@@ -1,0 +1,27 @@
+id: basic-success
+title: "API 限流测试: basic-success"
+description: |
+  验证 api-rate-limit-testing 的证据和边界契约。
+
+input:
+  prompt: |
+    请使用 api-rate-limit-testing 分析：登录接口有每分钟配额和 429 响应，但突发请求、窗口切换、租户隔离和恢复条件未说明。先列出已知事实、信息缺口、冲突、过期信息、范围外和假设，再输出 ARL-##，保留来源、证据状态、优先级、关闭条件和验证。不要声称测试已执行。
+
+expect:
+  must_contain:
+    - "ARL-"
+    - "输入审计"
+    - "证据"
+    - "验证"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "输入审计"
+          - "证据"
+          - "验证"

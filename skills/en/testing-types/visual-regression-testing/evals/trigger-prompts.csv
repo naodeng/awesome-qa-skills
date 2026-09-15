@@ -1,0 +1,5 @@
+id,should_trigger,prompt,mode
+explicit,true,"Use visual-regression-testing to produce VRT-## findings for visual regression testing with evidence boundaries.",explicit
+implicit,true,"I need visual regression testing candidates from quality material with missing evidence and open questions preserved.",implicit
+contextual,true,"During quality review, design visual-regression candidates around baselines, viewports, fonts, data, diff thresholds, and intentional changes.",contextual
+negative,false,"Execute every check directly and guarantee visual regression testing all pass.",negative

@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "ui-test-selector-review"
+interface:
+  display_name: "UI 测试选择器评审"
+  short_description: "Review evidence-backed quality candidates without claiming execution."
+  default_prompt: "Use the ui-test-selector-review skill to produce USR-## findings without claiming execution."
+policy:
+  allow_implicit_invocation: true

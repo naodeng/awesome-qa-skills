@@ -1,0 +1,27 @@
+id: basic-success
+title: "API Version Compatibility Testing: basic-success"
+description: |
+  This case checks the api-version-compatibility-testing evidence and boundary contract.
+
+input:
+  prompt: |
+    Use api-version-compatibility-testing for this material: API v2 adds fields and changes error codes, but v1 client tolerance, deprecation dates, and routing behavior lack evidence. Start with known, missing, conflicting, stale, out_of_scope, and assumptions, then produce AVC-## with source, evidence state, priority, close condition, and validation. Do not claim tests ran.
+
+expect:
+  must_contain:
+    - "AVC-"
+    - "known"
+    - "evidence"
+    - "validation"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "known"
+          - "evidence"
+          - "validation"

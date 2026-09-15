@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "cross-browser-testing"
+interface:
+  display_name: "Cross-Browser Testing"
+  short_description: "Review evidence-backed quality candidates without claiming execution."
+  default_prompt: "Use the cross-browser-testing skill to produce CBT-## findings without claiming execution."
+policy:
+  allow_implicit_invocation: true

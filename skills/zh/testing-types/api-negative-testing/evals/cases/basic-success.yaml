@@ -1,0 +1,27 @@
+id: basic-success
+title: "API 负向测试: basic-success"
+description: |
+  验证 api-negative-testing 的证据和边界契约。
+
+input:
+  prompt: |
+    请使用 api-negative-testing 分析：接口对缺少字段、非法枚举、过大 payload 和过期 token 的行为没有完整记录。先列出已知事实、信息缺口、冲突、过期信息、范围外和假设，再输出 ANT-##，保留来源、证据状态、优先级、关闭条件和验证。不要声称测试已执行。
+
+expect:
+  must_contain:
+    - "ANT-"
+    - "输入审计"
+    - "证据"
+    - "验证"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "输入审计"
+          - "证据"
+          - "验证"

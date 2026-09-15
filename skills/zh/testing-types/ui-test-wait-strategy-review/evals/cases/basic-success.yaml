@@ -1,0 +1,27 @@
+id: basic-success
+title: "UI 测试等待策略评审: basic-success"
+description: |
+  验证 ui-test-wait-strategy-review 的证据和边界契约。
+
+input:
+  prompt: |
+    请使用 ui-test-wait-strategy-review 分析：测试大量使用固定 sleep，页面有可等待的网络和可见性条件，但超时和重试证据不完整。先列出已知事实、信息缺口、冲突、过期信息、范围外和假设，再输出 UWR-##，保留来源、证据状态、优先级、关闭条件和验证。不要声称测试已执行。
+
+expect:
+  must_contain:
+    - "UWR-"
+    - "输入审计"
+    - "证据"
+    - "验证"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "输入审计"
+          - "证据"
+          - "验证"

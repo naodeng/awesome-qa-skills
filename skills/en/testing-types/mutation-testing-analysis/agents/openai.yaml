@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "mutation-testing-analysis"
+interface:
+  display_name: "Mutation Testing Analysis"
+  short_description: "Review evidence-backed quality candidates without claiming execution."
+  default_prompt: "Use the mutation-testing-analysis skill to produce MTA-## findings without claiming execution."
+policy:
+  allow_implicit_invocation: true

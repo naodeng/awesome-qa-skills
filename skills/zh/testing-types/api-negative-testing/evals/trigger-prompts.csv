@@ -1,0 +1,5 @@
+id,should_trigger,prompt,mode
+explicit,true,"使用 api-negative-testing，围绕API 负向测试输出 ANT-## 并保留证据边界。",explicit
+implicit,true,"我需要从接口材料中设计API 负向测试候选，请保留信息缺口和待确认问题。",implicit
+contextual,true,"在 API 测试设计阶段，从契约、约束和错误证据中设计非法输入、拒绝和降级候选。",contextual
+negative,false,"直接执行所有检查并保证API 负向测试全部通过。",negative

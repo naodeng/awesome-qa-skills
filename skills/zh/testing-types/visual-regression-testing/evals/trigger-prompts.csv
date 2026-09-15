@@ -1,0 +1,5 @@
+id,should_trigger,prompt,mode
+explicit,true,"使用 visual-regression-testing，围绕视觉回归测试输出 VRT-## 并保留证据边界。",explicit
+implicit,true,"我需要从质量材料中设计视觉回归测试候选，请保留信息缺口和待确认问题。",implicit
+contextual,true,"在质量评审阶段，围绕基线、视口、字体、数据、差异阈值和有意变更设计视觉回归候选。",contextual
+negative,false,"直接执行所有检查并保证视觉回归测试全部通过。",negative

@@ -5,9 +5,9 @@
 按语言分区的 **AI 测试辅助技能库**（Agent Skills）。面向 Codex、Cursor、Claude Code、Kiro、OpenCode、Trae 等工具，提供可独立安装、可组合调用的测试工作流与测试类型技能。
 
 [![License: PolyForm Noncommercial 1.0.0](https://img.shields.io/badge/License-PolyForm%20Noncommercial%201.0.0-blue.svg)](./LICENSE)
-[![Skills](https://img.shields.io/badge/skills-210%20(zh%2Ben)-0A7EA4)](./docs/catalog/skills-index.md)
+[![Skills](https://img.shields.io/badge/skills-242%20(zh%2Ben)-0A7EA4)](./docs/catalog/skills-index.md)
 [![Workflows](https://img.shields.io/badge/workflows-10-informational)](./skills/zh/testing-workflows/)
-[![Testing types](https://img.shields.io/badge/testing%20types-92-informational)](./skills/zh/testing-types/)
+[![Testing types](https://img.shields.io/badge/testing%20types-108-informational)](./skills/zh/testing-types/)
 [![Skill engineering](https://img.shields.io/badge/skill%20engineering-3-informational)](./skills/zh/skill-engineering/)
 [![skills.sh](https://skills.sh/b/naodeng/awesome-qa-skills)](https://skills.sh/naodeng/awesome-qa-skills)
 
@@ -21,7 +21,7 @@
 | --- | --- |
 | 双语对齐 | `skills/zh` 与 `skills/en` 同名目录、同结构，团队可按语言选用 |
 | 覆盖完整测试链 | 从需求分析、策略、用例、执行到缺陷与报告 |
-| 工作流 + 类型技能 | 日常 / 迭代 / 发布、角色质量视角与多角色汇总工作流，配合 92 类专项技能按需组合 |
+| 工作流 + 类型技能 | 日常 / 迭代 / 发布、角色质量视角与多角色汇总工作流，配合 108 类专项技能按需组合 |
 | 开箱即装 | 支持一键安装与单 skill 安装脚本 |
 | 可评测可演进 | 全量 skill 附带 `evals/`，可用 [skill-up](https://github.com/alibaba/skill-up) 校验与实跑 |
 
@@ -38,7 +38,7 @@
 | 基于发布与生产证据作质量决策 | Production Quality Skills | 发布验证、事故响应、Trace 与指标分析 | [查看生产质量能力](#production-quality-skills--生产质量能力) |
 | 测试 AI 功能、LLM、Prompt、Agent 与安全边界 | AI Native QA Skills | AI 需求与风险、评测、工具调用与注入防护 | [查看 AI 原生质量能力](#ai-native-qa-skills--ai-原生质量能力) |
 | 串联多个阶段、按角色协作或不确定从哪里开始 | 跨阶段工作流 | 路由、日常 / 迭代 / 发布、质量视角与汇总 | [查看工作流](#跨阶段工作流) |
-| 已经知道要找的 Skill 名称 | 全量索引 | 全部 105 项能力与中英文路径 | [打开全量技能索引](docs/catalog/skills-index.md) |
+| 已经知道要找的 Skill 名称 | 全量索引 | 全部 121 项能力与中英文路径 | [打开全量技能索引](docs/catalog/skills-index.md) |
 
 **推荐路径：** 不确定选哪个，先调用 [`discover-testing`](skills/zh/testing-workflows/discover-testing/)；确定阶段后，再进入对应能力层；只需具体名称时，直接使用全量索引。
 
@@ -136,7 +136,7 @@ cp -r skills/zh/testing-types/functional-testing ~/.cursor/skills/
 
 ## 技能目录
 
-每种语言共 **105** 个 Skill：10 个工作流、92 个测试类型和 3 个 Skill Engineering；中英文合计 **210** 个目录。物理目录保持稳定，下面只提供逻辑导航。
+每种语言共 **121** 个 Skill：10 个工作流、108 个测试类型和 3 个 Skill Engineering；中英文合计 **242** 个目录。物理目录保持稳定，下面只提供逻辑导航。
 
 ### 跨阶段工作流
 
@@ -261,6 +261,13 @@ cp -r skills/zh/testing-types/functional-testing ~/.cursor/skills/
 | PR 测试影响分析 <!-- data-skill:pr-test-impact-analysis --> | [`pr-test-impact-analysis`](skills/zh/testing-types/pr-test-impact-analysis/) | 从 PR 或 Diff 分析测试影响 |
 | API 契约测试 <!-- data-skill:api-contract-testing --> | [`api-contract-testing`](skills/zh/testing-types/api-contract-testing/) | 验证 API 契约兼容性与变更风险 |
 | 自动化测试 <!-- data-skill:automation-testing --> | [`automation-testing`](skills/zh/testing-types/automation-testing/) | 使用 POM、数据驱动或 BDD 等模式设计自动化测试方案。 |
+| API Schema 校验 <!-- data-skill:api-schema-validation --> | [`api-schema-validation`](skills/zh/testing-types/api-schema-validation/) | 将 API Schema 与请求、响应和版本证据进行可追溯比对。 |
+| API 负向测试 <!-- data-skill:api-negative-testing --> | [`api-negative-testing`](skills/zh/testing-types/api-negative-testing/) | 从契约和错误证据设计非法输入、拒绝与降级候选。 |
+| API 幂等性测试 <!-- data-skill:api-idempotency-testing --> | [`api-idempotency-testing`](skills/zh/testing-types/api-idempotency-testing/) | 围绕重复请求、重试、幂等键和副作用设计验证候选。 |
+| API 分页测试 <!-- data-skill:api-pagination-testing --> | [`api-pagination-testing`](skills/zh/testing-types/api-pagination-testing/) | 根据分页、排序和数据集证据识别边界、连续性和一致性风险。 |
+| API 限流测试 <!-- data-skill:api-rate-limit-testing --> | [`api-rate-limit-testing`](skills/zh/testing-types/api-rate-limit-testing/) | 根据配额、窗口、突发和恢复证据设计限流候选。 |
+| API 版本兼容性测试 <!-- data-skill:api-version-compatibility-testing --> | [`api-version-compatibility-testing`](skills/zh/testing-types/api-version-compatibility-testing/) | 从版本契约、旧客户端和弃用证据评估兼容性风险。 |
+| API 错误契约测试 <!-- data-skill:api-error-contract-testing --> | [`api-error-contract-testing`](skills/zh/testing-types/api-error-contract-testing/) | 评审错误状态码、错误码、字段结构和脱敏行为的一致性。 |
 
 ##### 测试数据与自动化实现
 
@@ -279,6 +286,11 @@ cp -r skills/zh/testing-types/functional-testing ~/.cursor/skills/
 | Cypress UI 自动化测试 <!-- data-skill:ui-test-cypress --> | [`ui-test-cypress`](skills/zh/testing-types/ui-test-cypress/) | 设计 Cypress e2e 与组件测试方案，覆盖 commands、fixtures、网络桩和 CI 报告。 |
 | Puppeteer UI 自动化测试 <!-- data-skill:ui-test-puppeteer --> | [`ui-test-puppeteer`](skills/zh/testing-types/ui-test-puppeteer/) | 设计 Puppeteer 自动化方案，覆盖 Chromium 检查、截图、PDF、网络拦截和 CDP 场景。 |
 | WebdriverIO UI 自动化测试 <!-- data-skill:ui-test-webdriverio --> | [`ui-test-webdriverio`](skills/zh/testing-types/ui-test-webdriverio/) | 设计 WebdriverIO 套件，覆盖配置、services、runner、Page Object、capabilities 和 reporters。 |
+| UI 测试策略 <!-- data-skill:ui-test-strategy --> | [`ui-test-strategy`](skills/zh/testing-types/ui-test-strategy/) | 从用户旅程、界面状态、平台差异和风险证据形成 UI 测试策略。 |
+| UI 测试选择器评审 <!-- data-skill:ui-test-selector-review --> | [`ui-test-selector-review`](skills/zh/testing-types/ui-test-selector-review/) | 基于 DOM、组件语义和测试代码评审选择器稳定性与可维护性。 |
+| UI 测试等待策略评审 <!-- data-skill:ui-test-wait-strategy-review --> | [`ui-test-wait-strategy-review`](skills/zh/testing-types/ui-test-wait-strategy-review/) | 从异步状态和可观察条件评审等待、轮询与超时策略。 |
+| 视觉回归测试 <!-- data-skill:visual-regression-testing --> | [`visual-regression-testing`](skills/zh/testing-types/visual-regression-testing/) | 围绕基线、视口、字体、数据和差异阈值设计视觉回归候选。 |
+| 跨浏览器测试 <!-- data-skill:cross-browser-testing --> | [`cross-browser-testing`](skills/zh/testing-types/cross-browser-testing/) | 根据用户分布、引擎、版本、设备和缺陷证据选择兼容性覆盖。 |
 
 ##### 测试执行与回归智能
 
@@ -289,6 +301,10 @@ cp -r skills/zh/testing-types/functional-testing ~/.cursor/skills/
 | 回归测试选择 <!-- data-skill:regression-test-selection --> | [`regression-test-selection`](skills/zh/testing-types/regression-test-selection/) | 从测试资产选择最小风险覆盖回归集 |
 | AI 辅助测试 <!-- data-skill:ai-assisted-testing --> | [`ai-assisted-testing`](skills/zh/testing-types/ai-assisted-testing/) | 使用 AI 辅助测试数据生成、根因分析和优先级判断等工作。 |
 | AI 生成测试评审 <!-- data-skill:ai-generated-test-review --> | [`ai-generated-test-review`](skills/zh/testing-types/ai-generated-test-review/) | 审查 AI 生成测试是否具备真实回归保护，识别伪测试、弱断言和缺失业务结果。 |
+| 测试代码评审 <!-- data-skill:test-code-review --> | [`test-code-review`](skills/zh/testing-types/test-code-review/) | 基于测试代码和运行证据识别断言、隔离、夹具、确定性和维护风险。 |
+| 变异测试分析 <!-- data-skill:mutation-testing-analysis --> | [`mutation-testing-analysis`](skills/zh/testing-types/mutation-testing-analysis/) | 根据变异算子和存活结果分析测试敏感性，不虚构质量分数。 |
+| Mock 质量评审 <!-- data-skill:mock-quality-review --> | [`mock-quality-review`](skills/zh/testing-types/mock-quality-review/) | 评审 mock 的契约一致性、逼真度、过度模拟和漂移风险。 |
+| 测试套件健康度分析 <!-- data-skill:test-suite-health-analysis --> | [`test-suite-health-analysis`](skills/zh/testing-types/test-suite-health-analysis/) | 基于耗时、波动、重复、隔离和维护证据评估测试套件健康度。 |
 
 ##### 性能工程与容量决策
 

@@ -1,0 +1,27 @@
+id: basic-success
+title: "UI 测试策略: basic-success"
+description: |
+  验证 ui-test-strategy 的证据和边界契约。
+
+input:
+  prompt: |
+    请使用 ui-test-strategy 分析：结账流程包含登录、地址、支付和失败恢复状态，但移动端差异和关键用户旅程的风险证据不完整。先列出已知事实、信息缺口、冲突、过期信息、范围外和假设，再输出 UTS-##，保留来源、证据状态、优先级、关闭条件和验证。不要声称测试已执行。
+
+expect:
+  must_contain:
+    - "UTS-"
+    - "输入审计"
+    - "证据"
+    - "验证"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "输入审计"
+          - "证据"
+          - "验证"

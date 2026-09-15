@@ -1,0 +1,27 @@
+id: basic-success
+title: "跨浏览器测试: basic-success"
+description: |
+  验证 cross-browser-testing 的证据和边界契约。
+
+input:
+  prompt: |
+    请使用 cross-browser-testing 分析：产品声称支持主流桌面和移动浏览器，但支持版本、WebKit 差异和真实设备证据没有对齐。先列出已知事实、信息缺口、冲突、过期信息、范围外和假设，再输出 CBT-##，保留来源、证据状态、优先级、关闭条件和验证。不要声称测试已执行。
+
+expect:
+  must_contain:
+    - "CBT-"
+    - "输入审计"
+    - "证据"
+    - "验证"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "输入审计"
+          - "证据"
+          - "验证"

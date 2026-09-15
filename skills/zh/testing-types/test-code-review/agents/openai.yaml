@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "test-code-review"
+interface:
+  display_name: "测试代码评审"
+  short_description: "Review evidence-backed quality candidates without claiming execution."
+  default_prompt: "Use the test-code-review skill to produce TCR-## findings without claiming execution."
+policy:
+  allow_implicit_invocation: true

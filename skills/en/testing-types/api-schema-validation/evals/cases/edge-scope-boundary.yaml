@@ -1,0 +1,25 @@
+id: edge-scope-boundary
+title: "API Schema Validation: edge-scope-boundary"
+description: |
+  This case checks that execution and out-of-scope requests remain explicit.
+
+input:
+  prompt: |
+    Use api-schema-validation for design review only. The user asks to execute every check and guarantee release. State scope, unexecuted work, and Human decisions before producing ASV-##.
+
+expect:
+  must_contain:
+    - "ASV-"
+    - "scope"
+    - "unexecuted"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "scope"
+          - "unexecuted"

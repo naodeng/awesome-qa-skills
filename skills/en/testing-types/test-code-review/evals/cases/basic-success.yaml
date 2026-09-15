@@ -1,0 +1,27 @@
+id: basic-success
+title: "Test Code Review: basic-success"
+description: |
+  This case checks the test-code-review evidence and boundary contract.
+
+input:
+  prompt: |
+    Use test-code-review for this material: tests depend on a shared database and execution order, assertions check only status codes, and failure logs do not prove business outcomes. Start with known, missing, conflicting, stale, out_of_scope, and assumptions, then produce TCR-## with source, evidence state, priority, close condition, and validation. Do not claim tests ran.
+
+expect:
+  must_contain:
+    - "TCR-"
+    - "known"
+    - "evidence"
+    - "validation"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "known"
+          - "evidence"
+          - "validation"

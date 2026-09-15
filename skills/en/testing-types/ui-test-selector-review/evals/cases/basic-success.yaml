@@ -1,0 +1,27 @@
+id: basic-success
+title: "UI Test Selector Review: basic-success"
+description: |
+  This case checks the ui-test-selector-review evidence and boundary contract.
+
+input:
+  prompt: |
+    Use ui-test-selector-review for this material: UI tests mix dynamic classes, XPath, and text locators while components have accessible names and selector risk is undocumented. Start with known, missing, conflicting, stale, out_of_scope, and assumptions, then produce USR-## with source, evidence state, priority, close condition, and validation. Do not claim tests ran.
+
+expect:
+  must_contain:
+    - "USR-"
+    - "known"
+    - "evidence"
+    - "validation"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "known"
+          - "evidence"
+          - "validation"

@@ -4,7 +4,7 @@
 
 This is the English Skill root and mirrors `skills/zh` with identical Skill names and physical structure.
 
-Each language provides **105** Skills: 10 workflows + 92 testing types + 3 Skill Engineering. See the [Chinese README](../../README.md) and [English README](../../README_EN.md); see the [governance roadmap](../../docs/governance/SKILL_GOVERNANCE_ROADMAP_EN.md) and [governance matrix](../../docs/SKILL_MATRIX_EN.md) for long-term governance.
+Each language provides **121** Skills: 10 workflows + 108 testing types + 3 Skill Engineering. See the [Chinese README](../../README.md) and [English README](../../README_EN.md); see the [governance roadmap](../../docs/governance/SKILL_GOVERNANCE_ROADMAP_EN.md) and [governance matrix](../../docs/SKILL_MATRIX_EN.md) for long-term governance.
 
 ## Cross-phase workflows
 
@@ -125,6 +125,13 @@ Each language provides **105** Skills: 10 workflows + 92 testing types + 3 Skill
 | PR Test Impact Analysis | [`pr-test-impact-analysis`](testing-types/pr-test-impact-analysis/) |
 | API Contract Testing | [`api-contract-testing`](testing-types/api-contract-testing/) |
 | Automation Testing (English) | [`automation-testing`](testing-types/automation-testing/) |
+| API Schema Validation | [`api-schema-validation`](testing-types/api-schema-validation/) |
+| API Negative Testing | [`api-negative-testing`](testing-types/api-negative-testing/) |
+| API Idempotency Testing | [`api-idempotency-testing`](testing-types/api-idempotency-testing/) |
+| API Pagination Testing | [`api-pagination-testing`](testing-types/api-pagination-testing/) |
+| API Rate Limit Testing | [`api-rate-limit-testing`](testing-types/api-rate-limit-testing/) |
+| API Version Compatibility Testing | [`api-version-compatibility-testing`](testing-types/api-version-compatibility-testing/) |
+| API Error Contract Testing | [`api-error-contract-testing`](testing-types/api-error-contract-testing/) |
 
 #### Test Data and Automation Implementation
 
@@ -143,6 +150,11 @@ Each language provides **105** Skills: 10 workflows + 92 testing types + 3 Skill
 | Cypress UI Testing | [`ui-test-cypress`](testing-types/ui-test-cypress/) |
 | Puppeteer UI Testing | [`ui-test-puppeteer`](testing-types/ui-test-puppeteer/) |
 | WebdriverIO UI Testing | [`ui-test-webdriverio`](testing-types/ui-test-webdriverio/) |
+| UI Test Strategy | [`ui-test-strategy`](testing-types/ui-test-strategy/) |
+| UI Test Selector Review | [`ui-test-selector-review`](testing-types/ui-test-selector-review/) |
+| UI Test Wait Strategy Review | [`ui-test-wait-strategy-review`](testing-types/ui-test-wait-strategy-review/) |
+| Visual Regression Testing | [`visual-regression-testing`](testing-types/visual-regression-testing/) |
+| Cross-Browser Testing | [`cross-browser-testing`](testing-types/cross-browser-testing/) |
 
 #### Test Execution and Regression Intelligence
 
@@ -153,6 +165,10 @@ Each language provides **105** Skills: 10 workflows + 92 testing types + 3 Skill
 | Regression Test Selection | [`regression-test-selection`](testing-types/regression-test-selection/) |
 | AI-Assisted Testing | [`ai-assisted-testing`](testing-types/ai-assisted-testing/) |
 | AI-Generated Test Review | [`ai-generated-test-review`](testing-types/ai-generated-test-review/) |
+| Test Code Review | [`test-code-review`](testing-types/test-code-review/) |
+| Mutation Testing Analysis | [`mutation-testing-analysis`](testing-types/mutation-testing-analysis/) |
+| Mock Quality Review | [`mock-quality-review`](testing-types/mock-quality-review/) |
+| Test Suite Health Analysis | [`test-suite-health-analysis`](testing-types/test-suite-health-analysis/) |
 
 #### Performance Engineering and Capacity Decisions
 

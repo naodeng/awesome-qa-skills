@@ -3824,6 +3824,598 @@
     "skills/zh/testing-types/metamorphic-testing/agents/openai.yaml",
     "skills/en/testing-types/metamorphic-testing/agents/openai.yaml"
   ]
+},
+{
+  "slug": "api-schema-validation",
+  "section": "testing-types",
+  "zh_path": "skills/zh/testing-types/api-schema-validation",
+  "en_path": "skills/en/testing-types/api-schema-validation",
+  "virtual_domain": "Engineering QA",
+  "status": "Planned-P1",
+  "priority": "P1",
+  "related": "v2.0 Test Engineering Batch 2 API quality family; semantic overlap with existing Skills remains bounded and requires evidence.",
+  "governance_evidence": "skills/zh/testing-types/api-schema-validation/SKILL.md",
+  "quality_score": {
+    "state": "NOT_SCORED",
+    "reason": "No model-backed quality score has been run; static package checks do not produce a score."
+  },
+  "eval_execution": {
+    "state": "NOT_RUN",
+    "reason": "Eval configuration and local structure checks do not run a real model or external target."
+  },
+  "sdlc_stage": "test-design-and-preparation",
+  "roles": [
+    "QA",
+    "Engineering"
+  ],
+  "inputs": "skills/zh/testing-types/api-schema-validation/prompts/api-schema-validation.md#输入审计; skills/en/testing-types/api-schema-validation/prompts/api-schema-validation.md#Input Audit",
+  "outputs": "skills/zh/testing-types/api-schema-validation/prompts/api-schema-validation.md#ASV-## 发现合同; skills/en/testing-types/api-schema-validation/prompts/api-schema-validation.md#ASV-## Finding Contract",
+  "workflow": "v2.0 Test Engineering Batch 2 specialist; optional navigation only",
+  "evidence_paths": [
+    "skills/zh/testing-types/api-schema-validation/SKILL.md",
+    "skills/en/testing-types/api-schema-validation/SKILL.md",
+    "skills/zh/testing-types/api-schema-validation/prompts/api-schema-validation.md",
+    "skills/en/testing-types/api-schema-validation/prompts/api-schema-validation.md",
+    "skills/zh/testing-types/api-schema-validation/evals/eval.yaml",
+    "skills/en/testing-types/api-schema-validation/evals/eval.yaml",
+    "skills/zh/testing-types/api-schema-validation/agents/openai.yaml",
+    "skills/en/testing-types/api-schema-validation/agents/openai.yaml"
+  ]
+},
+{
+  "slug": "api-negative-testing",
+  "section": "testing-types",
+  "zh_path": "skills/zh/testing-types/api-negative-testing",
+  "en_path": "skills/en/testing-types/api-negative-testing",
+  "virtual_domain": "Engineering QA",
+  "status": "Planned-P1",
+  "priority": "P1",
+  "related": "v2.0 Test Engineering Batch 2 API quality family; semantic overlap with existing Skills remains bounded and requires evidence.",
+  "governance_evidence": "skills/zh/testing-types/api-negative-testing/SKILL.md",
+  "quality_score": {
+    "state": "NOT_SCORED",
+    "reason": "No model-backed quality score has been run; static package checks do not produce a score."
+  },
+  "eval_execution": {
+    "state": "NOT_RUN",
+    "reason": "Eval configuration and local structure checks do not run a real model or external target."
+  },
+  "sdlc_stage": "test-design-and-preparation",
+  "roles": [
+    "QA",
+    "Engineering"
+  ],
+  "inputs": "skills/zh/testing-types/api-negative-testing/prompts/api-negative-testing.md#输入审计; skills/en/testing-types/api-negative-testing/prompts/api-negative-testing.md#Input Audit",
+  "outputs": "skills/zh/testing-types/api-negative-testing/prompts/api-negative-testing.md#ANT-## 发现合同; skills/en/testing-types/api-negative-testing/prompts/api-negative-testing.md#ANT-## Finding Contract",
+  "workflow": "v2.0 Test Engineering Batch 2 specialist; optional navigation only",
+  "evidence_paths": [
+    "skills/zh/testing-types/api-negative-testing/SKILL.md",
+    "skills/en/testing-types/api-negative-testing/SKILL.md",
+    "skills/zh/testing-types/api-negative-testing/prompts/api-negative-testing.md",
+    "skills/en/testing-types/api-negative-testing/prompts/api-negative-testing.md",
+    "skills/zh/testing-types/api-negative-testing/evals/eval.yaml",
+    "skills/en/testing-types/api-negative-testing/evals/eval.yaml",
+    "skills/zh/testing-types/api-negative-testing/agents/openai.yaml",
+    "skills/en/testing-types/api-negative-testing/agents/openai.yaml"
+  ]
+},
+{
+  "slug": "api-idempotency-testing",
+  "section": "testing-types",
+  "zh_path": "skills/zh/testing-types/api-idempotency-testing",
+  "en_path": "skills/en/testing-types/api-idempotency-testing",
+  "virtual_domain": "Engineering QA",
+  "status": "Planned-P1",
+  "priority": "P1",
+  "related": "v2.0 Test Engineering Batch 2 API quality family; semantic overlap with existing Skills remains bounded and requires evidence.",
+  "governance_evidence": "skills/zh/testing-types/api-idempotency-testing/SKILL.md",
+  "quality_score": {
+    "state": "NOT_SCORED",
+    "reason": "No model-backed quality score has been run; static package checks do not produce a score."
+  },
+  "eval_execution": {
+    "state": "NOT_RUN",
+    "reason": "Eval configuration and local structure checks do not run a real model or external target."
+  },
+  "sdlc_stage": "test-design-and-preparation",
+  "roles": [
+    "QA",
+    "Engineering"
+  ],
+  "inputs": "skills/zh/testing-types/api-idempotency-testing/prompts/api-idempotency-testing.md#输入审计; skills/en/testing-types/api-idempotency-testing/prompts/api-idempotency-testing.md#Input Audit",
+  "outputs": "skills/zh/testing-types/api-idempotency-testing/prompts/api-idempotency-testing.md#AIT-## 发现合同; skills/en/testing-types/api-idempotency-testing/prompts/api-idempotency-testing.md#AIT-## Finding Contract",
+  "workflow": "v2.0 Test Engineering Batch 2 specialist; optional navigation only",
+  "evidence_paths": [
+    "skills/zh/testing-types/api-idempotency-testing/SKILL.md",
+    "skills/en/testing-types/api-idempotency-testing/SKILL.md",
+    "skills/zh/testing-types/api-idempotency-testing/prompts/api-idempotency-testing.md",
+    "skills/en/testing-types/api-idempotency-testing/prompts/api-idempotency-testing.md",
+    "skills/zh/testing-types/api-idempotency-testing/evals/eval.yaml",
+    "skills/en/testing-types/api-idempotency-testing/evals/eval.yaml",
+    "skills/zh/testing-types/api-idempotency-testing/agents/openai.yaml",
+    "skills/en/testing-types/api-idempotency-testing/agents/openai.yaml"
+  ]
+},
+{
+  "slug": "api-pagination-testing",
+  "section": "testing-types",
+  "zh_path": "skills/zh/testing-types/api-pagination-testing",
+  "en_path": "skills/en/testing-types/api-pagination-testing",
+  "virtual_domain": "Engineering QA",
+  "status": "Planned-P1",
+  "priority": "P1",
+  "related": "v2.0 Test Engineering Batch 2 API quality family; semantic overlap with existing Skills remains bounded and requires evidence.",
+  "governance_evidence": "skills/zh/testing-types/api-pagination-testing/SKILL.md",
+  "quality_score": {
+    "state": "NOT_SCORED",
+    "reason": "No model-backed quality score has been run; static package checks do not produce a score."
+  },
+  "eval_execution": {
+    "state": "NOT_RUN",
+    "reason": "Eval configuration and local structure checks do not run a real model or external target."
+  },
+  "sdlc_stage": "test-design-and-preparation",
+  "roles": [
+    "QA",
+    "Engineering"
+  ],
+  "inputs": "skills/zh/testing-types/api-pagination-testing/prompts/api-pagination-testing.md#输入审计; skills/en/testing-types/api-pagination-testing/prompts/api-pagination-testing.md#Input Audit",
+  "outputs": "skills/zh/testing-types/api-pagination-testing/prompts/api-pagination-testing.md#APT-## 发现合同; skills/en/testing-types/api-pagination-testing/prompts/api-pagination-testing.md#APT-## Finding Contract",
+  "workflow": "v2.0 Test Engineering Batch 2 specialist; optional navigation only",
+  "evidence_paths": [
+    "skills/zh/testing-types/api-pagination-testing/SKILL.md",
+    "skills/en/testing-types/api-pagination-testing/SKILL.md",
+    "skills/zh/testing-types/api-pagination-testing/prompts/api-pagination-testing.md",
+    "skills/en/testing-types/api-pagination-testing/prompts/api-pagination-testing.md",
+    "skills/zh/testing-types/api-pagination-testing/evals/eval.yaml",
+    "skills/en/testing-types/api-pagination-testing/evals/eval.yaml",
+    "skills/zh/testing-types/api-pagination-testing/agents/openai.yaml",
+    "skills/en/testing-types/api-pagination-testing/agents/openai.yaml"
+  ]
+},
+{
+  "slug": "api-rate-limit-testing",
+  "section": "testing-types",
+  "zh_path": "skills/zh/testing-types/api-rate-limit-testing",
+  "en_path": "skills/en/testing-types/api-rate-limit-testing",
+  "virtual_domain": "Engineering QA",
+  "status": "Planned-P1",
+  "priority": "P1",
+  "related": "v2.0 Test Engineering Batch 2 API quality family; semantic overlap with existing Skills remains bounded and requires evidence.",
+  "governance_evidence": "skills/zh/testing-types/api-rate-limit-testing/SKILL.md",
+  "quality_score": {
+    "state": "NOT_SCORED",
+    "reason": "No model-backed quality score has been run; static package checks do not produce a score."
+  },
+  "eval_execution": {
+    "state": "NOT_RUN",
+    "reason": "Eval configuration and local structure checks do not run a real model or external target."
+  },
+  "sdlc_stage": "test-design-and-preparation",
+  "roles": [
+    "QA",
+    "Engineering"
+  ],
+  "inputs": "skills/zh/testing-types/api-rate-limit-testing/prompts/api-rate-limit-testing.md#输入审计; skills/en/testing-types/api-rate-limit-testing/prompts/api-rate-limit-testing.md#Input Audit",
+  "outputs": "skills/zh/testing-types/api-rate-limit-testing/prompts/api-rate-limit-testing.md#ARL-## 发现合同; skills/en/testing-types/api-rate-limit-testing/prompts/api-rate-limit-testing.md#ARL-## Finding Contract",
+  "workflow": "v2.0 Test Engineering Batch 2 specialist; optional navigation only",
+  "evidence_paths": [
+    "skills/zh/testing-types/api-rate-limit-testing/SKILL.md",
+    "skills/en/testing-types/api-rate-limit-testing/SKILL.md",
+    "skills/zh/testing-types/api-rate-limit-testing/prompts/api-rate-limit-testing.md",
+    "skills/en/testing-types/api-rate-limit-testing/prompts/api-rate-limit-testing.md",
+    "skills/zh/testing-types/api-rate-limit-testing/evals/eval.yaml",
+    "skills/en/testing-types/api-rate-limit-testing/evals/eval.yaml",
+    "skills/zh/testing-types/api-rate-limit-testing/agents/openai.yaml",
+    "skills/en/testing-types/api-rate-limit-testing/agents/openai.yaml"
+  ]
+},
+{
+  "slug": "api-version-compatibility-testing",
+  "section": "testing-types",
+  "zh_path": "skills/zh/testing-types/api-version-compatibility-testing",
+  "en_path": "skills/en/testing-types/api-version-compatibility-testing",
+  "virtual_domain": "Engineering QA",
+  "status": "Planned-P1",
+  "priority": "P1",
+  "related": "v2.0 Test Engineering Batch 2 API quality family; semantic overlap with existing Skills remains bounded and requires evidence.",
+  "governance_evidence": "skills/zh/testing-types/api-version-compatibility-testing/SKILL.md",
+  "quality_score": {
+    "state": "NOT_SCORED",
+    "reason": "No model-backed quality score has been run; static package checks do not produce a score."
+  },
+  "eval_execution": {
+    "state": "NOT_RUN",
+    "reason": "Eval configuration and local structure checks do not run a real model or external target."
+  },
+  "sdlc_stage": "test-design-and-preparation",
+  "roles": [
+    "QA",
+    "Engineering"
+  ],
+  "inputs": "skills/zh/testing-types/api-version-compatibility-testing/prompts/api-version-compatibility-testing.md#输入审计; skills/en/testing-types/api-version-compatibility-testing/prompts/api-version-compatibility-testing.md#Input Audit",
+  "outputs": "skills/zh/testing-types/api-version-compatibility-testing/prompts/api-version-compatibility-testing.md#AVC-## 发现合同; skills/en/testing-types/api-version-compatibility-testing/prompts/api-version-compatibility-testing.md#AVC-## Finding Contract",
+  "workflow": "v2.0 Test Engineering Batch 2 specialist; optional navigation only",
+  "evidence_paths": [
+    "skills/zh/testing-types/api-version-compatibility-testing/SKILL.md",
+    "skills/en/testing-types/api-version-compatibility-testing/SKILL.md",
+    "skills/zh/testing-types/api-version-compatibility-testing/prompts/api-version-compatibility-testing.md",
+    "skills/en/testing-types/api-version-compatibility-testing/prompts/api-version-compatibility-testing.md",
+    "skills/zh/testing-types/api-version-compatibility-testing/evals/eval.yaml",
+    "skills/en/testing-types/api-version-compatibility-testing/evals/eval.yaml",
+    "skills/zh/testing-types/api-version-compatibility-testing/agents/openai.yaml",
+    "skills/en/testing-types/api-version-compatibility-testing/agents/openai.yaml"
+  ]
+},
+{
+  "slug": "api-error-contract-testing",
+  "section": "testing-types",
+  "zh_path": "skills/zh/testing-types/api-error-contract-testing",
+  "en_path": "skills/en/testing-types/api-error-contract-testing",
+  "virtual_domain": "Engineering QA",
+  "status": "Planned-P1",
+  "priority": "P1",
+  "related": "v2.0 Test Engineering Batch 2 API quality family; semantic overlap with existing Skills remains bounded and requires evidence.",
+  "governance_evidence": "skills/zh/testing-types/api-error-contract-testing/SKILL.md",
+  "quality_score": {
+    "state": "NOT_SCORED",
+    "reason": "No model-backed quality score has been run; static package checks do not produce a score."
+  },
+  "eval_execution": {
+    "state": "NOT_RUN",
+    "reason": "Eval configuration and local structure checks do not run a real model or external target."
+  },
+  "sdlc_stage": "test-design-and-preparation",
+  "roles": [
+    "QA",
+    "Engineering"
+  ],
+  "inputs": "skills/zh/testing-types/api-error-contract-testing/prompts/api-error-contract-testing.md#输入审计; skills/en/testing-types/api-error-contract-testing/prompts/api-error-contract-testing.md#Input Audit",
+  "outputs": "skills/zh/testing-types/api-error-contract-testing/prompts/api-error-contract-testing.md#AEC-## 发现合同; skills/en/testing-types/api-error-contract-testing/prompts/api-error-contract-testing.md#AEC-## Finding Contract",
+  "workflow": "v2.0 Test Engineering Batch 2 specialist; optional navigation only",
+  "evidence_paths": [
+    "skills/zh/testing-types/api-error-contract-testing/SKILL.md",
+    "skills/en/testing-types/api-error-contract-testing/SKILL.md",
+    "skills/zh/testing-types/api-error-contract-testing/prompts/api-error-contract-testing.md",
+    "skills/en/testing-types/api-error-contract-testing/prompts/api-error-contract-testing.md",
+    "skills/zh/testing-types/api-error-contract-testing/evals/eval.yaml",
+    "skills/en/testing-types/api-error-contract-testing/evals/eval.yaml",
+    "skills/zh/testing-types/api-error-contract-testing/agents/openai.yaml",
+    "skills/en/testing-types/api-error-contract-testing/agents/openai.yaml"
+  ]
+},
+{
+  "slug": "ui-test-strategy",
+  "section": "testing-types",
+  "zh_path": "skills/zh/testing-types/ui-test-strategy",
+  "en_path": "skills/en/testing-types/ui-test-strategy",
+  "virtual_domain": "Engineering QA",
+  "status": "Planned-P1",
+  "priority": "P1",
+  "related": "v2.0 Test Engineering Batch 2 UI quality family; semantic overlap with existing Skills remains bounded and requires evidence.",
+  "governance_evidence": "skills/zh/testing-types/ui-test-strategy/SKILL.md",
+  "quality_score": {
+    "state": "NOT_SCORED",
+    "reason": "No model-backed quality score has been run; static package checks do not produce a score."
+  },
+  "eval_execution": {
+    "state": "NOT_RUN",
+    "reason": "Eval configuration and local structure checks do not run a real model or external target."
+  },
+  "sdlc_stage": "test-design-and-preparation",
+  "roles": [
+    "QA",
+    "Engineering"
+  ],
+  "inputs": "skills/zh/testing-types/ui-test-strategy/prompts/ui-test-strategy.md#输入审计; skills/en/testing-types/ui-test-strategy/prompts/ui-test-strategy.md#Input Audit",
+  "outputs": "skills/zh/testing-types/ui-test-strategy/prompts/ui-test-strategy.md#UTS-## 发现合同; skills/en/testing-types/ui-test-strategy/prompts/ui-test-strategy.md#UTS-## Finding Contract",
+  "workflow": "v2.0 Test Engineering Batch 2 specialist; optional navigation only",
+  "evidence_paths": [
+    "skills/zh/testing-types/ui-test-strategy/SKILL.md",
+    "skills/en/testing-types/ui-test-strategy/SKILL.md",
+    "skills/zh/testing-types/ui-test-strategy/prompts/ui-test-strategy.md",
+    "skills/en/testing-types/ui-test-strategy/prompts/ui-test-strategy.md",
+    "skills/zh/testing-types/ui-test-strategy/evals/eval.yaml",
+    "skills/en/testing-types/ui-test-strategy/evals/eval.yaml",
+    "skills/zh/testing-types/ui-test-strategy/agents/openai.yaml",
+    "skills/en/testing-types/ui-test-strategy/agents/openai.yaml"
+  ]
+},
+{
+  "slug": "ui-test-selector-review",
+  "section": "testing-types",
+  "zh_path": "skills/zh/testing-types/ui-test-selector-review",
+  "en_path": "skills/en/testing-types/ui-test-selector-review",
+  "virtual_domain": "Engineering QA",
+  "status": "Planned-P1",
+  "priority": "P1",
+  "related": "v2.0 Test Engineering Batch 2 UI quality family; semantic overlap with existing Skills remains bounded and requires evidence.",
+  "governance_evidence": "skills/zh/testing-types/ui-test-selector-review/SKILL.md",
+  "quality_score": {
+    "state": "NOT_SCORED",
+    "reason": "No model-backed quality score has been run; static package checks do not produce a score."
+  },
+  "eval_execution": {
+    "state": "NOT_RUN",
+    "reason": "Eval configuration and local structure checks do not run a real model or external target."
+  },
+  "sdlc_stage": "test-design-and-preparation",
+  "roles": [
+    "QA",
+    "Engineering"
+  ],
+  "inputs": "skills/zh/testing-types/ui-test-selector-review/prompts/ui-test-selector-review.md#输入审计; skills/en/testing-types/ui-test-selector-review/prompts/ui-test-selector-review.md#Input Audit",
+  "outputs": "skills/zh/testing-types/ui-test-selector-review/prompts/ui-test-selector-review.md#USR-## 发现合同; skills/en/testing-types/ui-test-selector-review/prompts/ui-test-selector-review.md#USR-## Finding Contract",
+  "workflow": "v2.0 Test Engineering Batch 2 specialist; optional navigation only",
+  "evidence_paths": [
+    "skills/zh/testing-types/ui-test-selector-review/SKILL.md",
+    "skills/en/testing-types/ui-test-selector-review/SKILL.md",
+    "skills/zh/testing-types/ui-test-selector-review/prompts/ui-test-selector-review.md",
+    "skills/en/testing-types/ui-test-selector-review/prompts/ui-test-selector-review.md",
+    "skills/zh/testing-types/ui-test-selector-review/evals/eval.yaml",
+    "skills/en/testing-types/ui-test-selector-review/evals/eval.yaml",
+    "skills/zh/testing-types/ui-test-selector-review/agents/openai.yaml",
+    "skills/en/testing-types/ui-test-selector-review/agents/openai.yaml"
+  ]
+},
+{
+  "slug": "ui-test-wait-strategy-review",
+  "section": "testing-types",
+  "zh_path": "skills/zh/testing-types/ui-test-wait-strategy-review",
+  "en_path": "skills/en/testing-types/ui-test-wait-strategy-review",
+  "virtual_domain": "Engineering QA",
+  "status": "Planned-P1",
+  "priority": "P1",
+  "related": "v2.0 Test Engineering Batch 2 UI quality family; semantic overlap with existing Skills remains bounded and requires evidence.",
+  "governance_evidence": "skills/zh/testing-types/ui-test-wait-strategy-review/SKILL.md",
+  "quality_score": {
+    "state": "NOT_SCORED",
+    "reason": "No model-backed quality score has been run; static package checks do not produce a score."
+  },
+  "eval_execution": {
+    "state": "NOT_RUN",
+    "reason": "Eval configuration and local structure checks do not run a real model or external target."
+  },
+  "sdlc_stage": "test-design-and-preparation",
+  "roles": [
+    "QA",
+    "Engineering"
+  ],
+  "inputs": "skills/zh/testing-types/ui-test-wait-strategy-review/prompts/ui-test-wait-strategy-review.md#输入审计; skills/en/testing-types/ui-test-wait-strategy-review/prompts/ui-test-wait-strategy-review.md#Input Audit",
+  "outputs": "skills/zh/testing-types/ui-test-wait-strategy-review/prompts/ui-test-wait-strategy-review.md#UWR-## 发现合同; skills/en/testing-types/ui-test-wait-strategy-review/prompts/ui-test-wait-strategy-review.md#UWR-## Finding Contract",
+  "workflow": "v2.0 Test Engineering Batch 2 specialist; optional navigation only",
+  "evidence_paths": [
+    "skills/zh/testing-types/ui-test-wait-strategy-review/SKILL.md",
+    "skills/en/testing-types/ui-test-wait-strategy-review/SKILL.md",
+    "skills/zh/testing-types/ui-test-wait-strategy-review/prompts/ui-test-wait-strategy-review.md",
+    "skills/en/testing-types/ui-test-wait-strategy-review/prompts/ui-test-wait-strategy-review.md",
+    "skills/zh/testing-types/ui-test-wait-strategy-review/evals/eval.yaml",
+    "skills/en/testing-types/ui-test-wait-strategy-review/evals/eval.yaml",
+    "skills/zh/testing-types/ui-test-wait-strategy-review/agents/openai.yaml",
+    "skills/en/testing-types/ui-test-wait-strategy-review/agents/openai.yaml"
+  ]
+},
+{
+  "slug": "visual-regression-testing",
+  "section": "testing-types",
+  "zh_path": "skills/zh/testing-types/visual-regression-testing",
+  "en_path": "skills/en/testing-types/visual-regression-testing",
+  "virtual_domain": "Engineering QA",
+  "status": "Planned-P1",
+  "priority": "P1",
+  "related": "v2.0 Test Engineering Batch 2 UI quality family; semantic overlap with existing Skills remains bounded and requires evidence.",
+  "governance_evidence": "skills/zh/testing-types/visual-regression-testing/SKILL.md",
+  "quality_score": {
+    "state": "NOT_SCORED",
+    "reason": "No model-backed quality score has been run; static package checks do not produce a score."
+  },
+  "eval_execution": {
+    "state": "NOT_RUN",
+    "reason": "Eval configuration and local structure checks do not run a real model or external target."
+  },
+  "sdlc_stage": "test-design-and-preparation",
+  "roles": [
+    "QA",
+    "Engineering"
+  ],
+  "inputs": "skills/zh/testing-types/visual-regression-testing/prompts/visual-regression-testing.md#输入审计; skills/en/testing-types/visual-regression-testing/prompts/visual-regression-testing.md#Input Audit",
+  "outputs": "skills/zh/testing-types/visual-regression-testing/prompts/visual-regression-testing.md#VRT-## 发现合同; skills/en/testing-types/visual-regression-testing/prompts/visual-regression-testing.md#VRT-## Finding Contract",
+  "workflow": "v2.0 Test Engineering Batch 2 specialist; optional navigation only",
+  "evidence_paths": [
+    "skills/zh/testing-types/visual-regression-testing/SKILL.md",
+    "skills/en/testing-types/visual-regression-testing/SKILL.md",
+    "skills/zh/testing-types/visual-regression-testing/prompts/visual-regression-testing.md",
+    "skills/en/testing-types/visual-regression-testing/prompts/visual-regression-testing.md",
+    "skills/zh/testing-types/visual-regression-testing/evals/eval.yaml",
+    "skills/en/testing-types/visual-regression-testing/evals/eval.yaml",
+    "skills/zh/testing-types/visual-regression-testing/agents/openai.yaml",
+    "skills/en/testing-types/visual-regression-testing/agents/openai.yaml"
+  ]
+},
+{
+  "slug": "cross-browser-testing",
+  "section": "testing-types",
+  "zh_path": "skills/zh/testing-types/cross-browser-testing",
+  "en_path": "skills/en/testing-types/cross-browser-testing",
+  "virtual_domain": "Engineering QA",
+  "status": "Planned-P1",
+  "priority": "P1",
+  "related": "v2.0 Test Engineering Batch 2 UI quality family; semantic overlap with existing Skills remains bounded and requires evidence.",
+  "governance_evidence": "skills/zh/testing-types/cross-browser-testing/SKILL.md",
+  "quality_score": {
+    "state": "NOT_SCORED",
+    "reason": "No model-backed quality score has been run; static package checks do not produce a score."
+  },
+  "eval_execution": {
+    "state": "NOT_RUN",
+    "reason": "Eval configuration and local structure checks do not run a real model or external target."
+  },
+  "sdlc_stage": "test-design-and-preparation",
+  "roles": [
+    "QA",
+    "Engineering"
+  ],
+  "inputs": "skills/zh/testing-types/cross-browser-testing/prompts/cross-browser-testing.md#输入审计; skills/en/testing-types/cross-browser-testing/prompts/cross-browser-testing.md#Input Audit",
+  "outputs": "skills/zh/testing-types/cross-browser-testing/prompts/cross-browser-testing.md#CBT-## 发现合同; skills/en/testing-types/cross-browser-testing/prompts/cross-browser-testing.md#CBT-## Finding Contract",
+  "workflow": "v2.0 Test Engineering Batch 2 specialist; optional navigation only",
+  "evidence_paths": [
+    "skills/zh/testing-types/cross-browser-testing/SKILL.md",
+    "skills/en/testing-types/cross-browser-testing/SKILL.md",
+    "skills/zh/testing-types/cross-browser-testing/prompts/cross-browser-testing.md",
+    "skills/en/testing-types/cross-browser-testing/prompts/cross-browser-testing.md",
+    "skills/zh/testing-types/cross-browser-testing/evals/eval.yaml",
+    "skills/en/testing-types/cross-browser-testing/evals/eval.yaml",
+    "skills/zh/testing-types/cross-browser-testing/agents/openai.yaml",
+    "skills/en/testing-types/cross-browser-testing/agents/openai.yaml"
+  ]
+},
+{
+  "slug": "test-code-review",
+  "section": "testing-types",
+  "zh_path": "skills/zh/testing-types/test-code-review",
+  "en_path": "skills/en/testing-types/test-code-review",
+  "virtual_domain": "Engineering QA",
+  "status": "Planned-P1",
+  "priority": "P1",
+  "related": "v2.0 Test Engineering Batch 2 test engineering quality family; semantic overlap with existing Skills remains bounded and requires evidence.",
+  "governance_evidence": "skills/zh/testing-types/test-code-review/SKILL.md",
+  "quality_score": {
+    "state": "NOT_SCORED",
+    "reason": "No model-backed quality score has been run; static package checks do not produce a score."
+  },
+  "eval_execution": {
+    "state": "NOT_RUN",
+    "reason": "Eval configuration and local structure checks do not run a real model or external target."
+  },
+  "sdlc_stage": "test-design-and-preparation",
+  "roles": [
+    "QA",
+    "Engineering"
+  ],
+  "inputs": "skills/zh/testing-types/test-code-review/prompts/test-code-review.md#输入审计; skills/en/testing-types/test-code-review/prompts/test-code-review.md#Input Audit",
+  "outputs": "skills/zh/testing-types/test-code-review/prompts/test-code-review.md#TCR-## 发现合同; skills/en/testing-types/test-code-review/prompts/test-code-review.md#TCR-## Finding Contract",
+  "workflow": "v2.0 Test Engineering Batch 2 specialist; optional navigation only",
+  "evidence_paths": [
+    "skills/zh/testing-types/test-code-review/SKILL.md",
+    "skills/en/testing-types/test-code-review/SKILL.md",
+    "skills/zh/testing-types/test-code-review/prompts/test-code-review.md",
+    "skills/en/testing-types/test-code-review/prompts/test-code-review.md",
+    "skills/zh/testing-types/test-code-review/evals/eval.yaml",
+    "skills/en/testing-types/test-code-review/evals/eval.yaml",
+    "skills/zh/testing-types/test-code-review/agents/openai.yaml",
+    "skills/en/testing-types/test-code-review/agents/openai.yaml"
+  ]
+},
+{
+  "slug": "mutation-testing-analysis",
+  "section": "testing-types",
+  "zh_path": "skills/zh/testing-types/mutation-testing-analysis",
+  "en_path": "skills/en/testing-types/mutation-testing-analysis",
+  "virtual_domain": "Engineering QA",
+  "status": "Planned-P1",
+  "priority": "P1",
+  "related": "v2.0 Test Engineering Batch 2 test engineering quality family; semantic overlap with existing Skills remains bounded and requires evidence.",
+  "governance_evidence": "skills/zh/testing-types/mutation-testing-analysis/SKILL.md",
+  "quality_score": {
+    "state": "NOT_SCORED",
+    "reason": "No model-backed quality score has been run; static package checks do not produce a score."
+  },
+  "eval_execution": {
+    "state": "NOT_RUN",
+    "reason": "Eval configuration and local structure checks do not run a real model or external target."
+  },
+  "sdlc_stage": "test-design-and-preparation",
+  "roles": [
+    "QA",
+    "Engineering"
+  ],
+  "inputs": "skills/zh/testing-types/mutation-testing-analysis/prompts/mutation-testing-analysis.md#输入审计; skills/en/testing-types/mutation-testing-analysis/prompts/mutation-testing-analysis.md#Input Audit",
+  "outputs": "skills/zh/testing-types/mutation-testing-analysis/prompts/mutation-testing-analysis.md#MTA-## 发现合同; skills/en/testing-types/mutation-testing-analysis/prompts/mutation-testing-analysis.md#MTA-## Finding Contract",
+  "workflow": "v2.0 Test Engineering Batch 2 specialist; optional navigation only",
+  "evidence_paths": [
+    "skills/zh/testing-types/mutation-testing-analysis/SKILL.md",
+    "skills/en/testing-types/mutation-testing-analysis/SKILL.md",
+    "skills/zh/testing-types/mutation-testing-analysis/prompts/mutation-testing-analysis.md",
+    "skills/en/testing-types/mutation-testing-analysis/prompts/mutation-testing-analysis.md",
+    "skills/zh/testing-types/mutation-testing-analysis/evals/eval.yaml",
+    "skills/en/testing-types/mutation-testing-analysis/evals/eval.yaml",
+    "skills/zh/testing-types/mutation-testing-analysis/agents/openai.yaml",
+    "skills/en/testing-types/mutation-testing-analysis/agents/openai.yaml"
+  ]
+},
+{
+  "slug": "mock-quality-review",
+  "section": "testing-types",
+  "zh_path": "skills/zh/testing-types/mock-quality-review",
+  "en_path": "skills/en/testing-types/mock-quality-review",
+  "virtual_domain": "Engineering QA",
+  "status": "Planned-P1",
+  "priority": "P1",
+  "related": "v2.0 Test Engineering Batch 2 test engineering quality family; semantic overlap with existing Skills remains bounded and requires evidence.",
+  "governance_evidence": "skills/zh/testing-types/mock-quality-review/SKILL.md",
+  "quality_score": {
+    "state": "NOT_SCORED",
+    "reason": "No model-backed quality score has been run; static package checks do not produce a score."
+  },
+  "eval_execution": {
+    "state": "NOT_RUN",
+    "reason": "Eval configuration and local structure checks do not run a real model or external target."
+  },
+  "sdlc_stage": "test-design-and-preparation",
+  "roles": [
+    "QA",
+    "Engineering"
+  ],
+  "inputs": "skills/zh/testing-types/mock-quality-review/prompts/mock-quality-review.md#输入审计; skills/en/testing-types/mock-quality-review/prompts/mock-quality-review.md#Input Audit",
+  "outputs": "skills/zh/testing-types/mock-quality-review/prompts/mock-quality-review.md#MQR-## 发现合同; skills/en/testing-types/mock-quality-review/prompts/mock-quality-review.md#MQR-## Finding Contract",
+  "workflow": "v2.0 Test Engineering Batch 2 specialist; optional navigation only",
+  "evidence_paths": [
+    "skills/zh/testing-types/mock-quality-review/SKILL.md",
+    "skills/en/testing-types/mock-quality-review/SKILL.md",
+    "skills/zh/testing-types/mock-quality-review/prompts/mock-quality-review.md",
+    "skills/en/testing-types/mock-quality-review/prompts/mock-quality-review.md",
+    "skills/zh/testing-types/mock-quality-review/evals/eval.yaml",
+    "skills/en/testing-types/mock-quality-review/evals/eval.yaml",
+    "skills/zh/testing-types/mock-quality-review/agents/openai.yaml",
+    "skills/en/testing-types/mock-quality-review/agents/openai.yaml"
+  ]
+},
+{
+  "slug": "test-suite-health-analysis",
+  "section": "testing-types",
+  "zh_path": "skills/zh/testing-types/test-suite-health-analysis",
+  "en_path": "skills/en/testing-types/test-suite-health-analysis",
+  "virtual_domain": "Engineering QA",
+  "status": "Planned-P1",
+  "priority": "P1",
+  "related": "v2.0 Test Engineering Batch 2 test engineering quality family; semantic overlap with existing Skills remains bounded and requires evidence.",
+  "governance_evidence": "skills/zh/testing-types/test-suite-health-analysis/SKILL.md",
+  "quality_score": {
+    "state": "NOT_SCORED",
+    "reason": "No model-backed quality score has been run; static package checks do not produce a score."
+  },
+  "eval_execution": {
+    "state": "NOT_RUN",
+    "reason": "Eval configuration and local structure checks do not run a real model or external target."
+  },
+  "sdlc_stage": "test-design-and-preparation",
+  "roles": [
+    "QA",
+    "Engineering"
+  ],
+  "inputs": "skills/zh/testing-types/test-suite-health-analysis/prompts/test-suite-health-analysis.md#输入审计; skills/en/testing-types/test-suite-health-analysis/prompts/test-suite-health-analysis.md#Input Audit",
+  "outputs": "skills/zh/testing-types/test-suite-health-analysis/prompts/test-suite-health-analysis.md#TSH-## 发现合同; skills/en/testing-types/test-suite-health-analysis/prompts/test-suite-health-analysis.md#TSH-## Finding Contract",
+  "workflow": "v2.0 Test Engineering Batch 2 specialist; optional navigation only",
+  "evidence_paths": [
+    "skills/zh/testing-types/test-suite-health-analysis/SKILL.md",
+    "skills/en/testing-types/test-suite-health-analysis/SKILL.md",
+    "skills/zh/testing-types/test-suite-health-analysis/prompts/test-suite-health-analysis.md",
+    "skills/en/testing-types/test-suite-health-analysis/prompts/test-suite-health-analysis.md",
+    "skills/zh/testing-types/test-suite-health-analysis/evals/eval.yaml",
+    "skills/en/testing-types/test-suite-health-analysis/evals/eval.yaml",
+    "skills/zh/testing-types/test-suite-health-analysis/agents/openai.yaml",
+    "skills/en/testing-types/test-suite-health-analysis/agents/openai.yaml"
+  ]
 }
   ],
   "candidates": [
@@ -4808,6 +5400,390 @@
     "skills/en/testing-types/metamorphic-testing/SKILL.md",
     "skills/zh/testing-types/metamorphic-testing/prompts/metamorphic-testing.md",
     "skills/en/testing-types/metamorphic-testing/prompts/metamorphic-testing.md"
+  ],
+  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review"
+},
+{
+  "slug": "api-schema-validation",
+  "decision_state": "REVIEWED",
+  "conclusion": "NEW",
+  "target": "api-schema-validation",
+  "scope": "Evidence-bounded api-schema-validation candidates identified from supplied api-schema-validation material; findings use ASV-## and preserve source and uncertainty.",
+  "non_goals": "No invented behavior or thresholds, unsupported completeness claims, execution, coverage proof, release approval, or Human risk acceptance.",
+  "evidence": {
+    "name": "The v2.0 card name and bilingual package frontmatter define a distinct api-schema-validation capability.",
+    "purpose": "The bilingual Prompt focuses on api-schema-validation and uses a stable ASV-## finding contract rather than a generic output.",
+    "inputs": "skills/zh/testing-types/api-schema-validation/prompts/api-schema-validation.md Input Audit; English mirror Input Audit.",
+    "outputs": "skills/zh/testing-types/api-schema-validation/prompts/api-schema-validation.md ASV-## 发现合同; English mirror ASV-## Finding Contract.",
+    "decision_logic": "Select a minimal evidence-backed set, preserve missing and conflicting material, and propose validation without upgrading static design to execution.",
+    "workflow_role": "v2.0 Test Engineering Batch 2 API specialist; optional navigation only, with no runtime or release decision."
+  },
+  "next_action": "Run real model Eval when credentials and a controlled runner are available; keep NOT_RUN and NOT_SCORED until that evidence exists.",
+  "target_evidence_paths": [
+    "skills/zh/testing-types/api-schema-validation/SKILL.md",
+    "skills/en/testing-types/api-schema-validation/SKILL.md",
+    "skills/zh/testing-types/api-schema-validation/prompts/api-schema-validation.md",
+    "skills/en/testing-types/api-schema-validation/prompts/api-schema-validation.md"
+  ],
+  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review"
+},
+{
+  "slug": "api-negative-testing",
+  "decision_state": "REVIEWED",
+  "conclusion": "NEW",
+  "target": "api-negative-testing",
+  "scope": "Evidence-bounded api-negative-testing candidates identified from supplied api-negative-testing material; findings use ANT-## and preserve source and uncertainty.",
+  "non_goals": "No invented behavior or thresholds, unsupported completeness claims, execution, coverage proof, release approval, or Human risk acceptance.",
+  "evidence": {
+    "name": "The v2.0 card name and bilingual package frontmatter define a distinct api-negative-testing capability.",
+    "purpose": "The bilingual Prompt focuses on api-negative-testing and uses a stable ANT-## finding contract rather than a generic output.",
+    "inputs": "skills/zh/testing-types/api-negative-testing/prompts/api-negative-testing.md Input Audit; English mirror Input Audit.",
+    "outputs": "skills/zh/testing-types/api-negative-testing/prompts/api-negative-testing.md ANT-## 发现合同; English mirror ANT-## Finding Contract.",
+    "decision_logic": "Select a minimal evidence-backed set, preserve missing and conflicting material, and propose validation without upgrading static design to execution.",
+    "workflow_role": "v2.0 Test Engineering Batch 2 API specialist; optional navigation only, with no runtime or release decision."
+  },
+  "next_action": "Run real model Eval when credentials and a controlled runner are available; keep NOT_RUN and NOT_SCORED until that evidence exists.",
+  "target_evidence_paths": [
+    "skills/zh/testing-types/api-negative-testing/SKILL.md",
+    "skills/en/testing-types/api-negative-testing/SKILL.md",
+    "skills/zh/testing-types/api-negative-testing/prompts/api-negative-testing.md",
+    "skills/en/testing-types/api-negative-testing/prompts/api-negative-testing.md"
+  ],
+  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review"
+},
+{
+  "slug": "api-idempotency-testing",
+  "decision_state": "REVIEWED",
+  "conclusion": "NEW",
+  "target": "api-idempotency-testing",
+  "scope": "Evidence-bounded api-idempotency-testing candidates identified from supplied api-idempotency-testing material; findings use AIT-## and preserve source and uncertainty.",
+  "non_goals": "No invented behavior or thresholds, unsupported completeness claims, execution, coverage proof, release approval, or Human risk acceptance.",
+  "evidence": {
+    "name": "The v2.0 card name and bilingual package frontmatter define a distinct api-idempotency-testing capability.",
+    "purpose": "The bilingual Prompt focuses on api-idempotency-testing and uses a stable AIT-## finding contract rather than a generic output.",
+    "inputs": "skills/zh/testing-types/api-idempotency-testing/prompts/api-idempotency-testing.md Input Audit; English mirror Input Audit.",
+    "outputs": "skills/zh/testing-types/api-idempotency-testing/prompts/api-idempotency-testing.md AIT-## 发现合同; English mirror AIT-## Finding Contract.",
+    "decision_logic": "Select a minimal evidence-backed set, preserve missing and conflicting material, and propose validation without upgrading static design to execution.",
+    "workflow_role": "v2.0 Test Engineering Batch 2 API specialist; optional navigation only, with no runtime or release decision."
+  },
+  "next_action": "Run real model Eval when credentials and a controlled runner are available; keep NOT_RUN and NOT_SCORED until that evidence exists.",
+  "target_evidence_paths": [
+    "skills/zh/testing-types/api-idempotency-testing/SKILL.md",
+    "skills/en/testing-types/api-idempotency-testing/SKILL.md",
+    "skills/zh/testing-types/api-idempotency-testing/prompts/api-idempotency-testing.md",
+    "skills/en/testing-types/api-idempotency-testing/prompts/api-idempotency-testing.md"
+  ],
+  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review"
+},
+{
+  "slug": "api-pagination-testing",
+  "decision_state": "REVIEWED",
+  "conclusion": "NEW",
+  "target": "api-pagination-testing",
+  "scope": "Evidence-bounded api-pagination-testing candidates identified from supplied api-pagination-testing material; findings use APT-## and preserve source and uncertainty.",
+  "non_goals": "No invented behavior or thresholds, unsupported completeness claims, execution, coverage proof, release approval, or Human risk acceptance.",
+  "evidence": {
+    "name": "The v2.0 card name and bilingual package frontmatter define a distinct api-pagination-testing capability.",
+    "purpose": "The bilingual Prompt focuses on api-pagination-testing and uses a stable APT-## finding contract rather than a generic output.",
+    "inputs": "skills/zh/testing-types/api-pagination-testing/prompts/api-pagination-testing.md Input Audit; English mirror Input Audit.",
+    "outputs": "skills/zh/testing-types/api-pagination-testing/prompts/api-pagination-testing.md APT-## 发现合同; English mirror APT-## Finding Contract.",
+    "decision_logic": "Select a minimal evidence-backed set, preserve missing and conflicting material, and propose validation without upgrading static design to execution.",
+    "workflow_role": "v2.0 Test Engineering Batch 2 API specialist; optional navigation only, with no runtime or release decision."
+  },
+  "next_action": "Run real model Eval when credentials and a controlled runner are available; keep NOT_RUN and NOT_SCORED until that evidence exists.",
+  "target_evidence_paths": [
+    "skills/zh/testing-types/api-pagination-testing/SKILL.md",
+    "skills/en/testing-types/api-pagination-testing/SKILL.md",
+    "skills/zh/testing-types/api-pagination-testing/prompts/api-pagination-testing.md",
+    "skills/en/testing-types/api-pagination-testing/prompts/api-pagination-testing.md"
+  ],
+  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review"
+},
+{
+  "slug": "api-rate-limit-testing",
+  "decision_state": "REVIEWED",
+  "conclusion": "NEW",
+  "target": "api-rate-limit-testing",
+  "scope": "Evidence-bounded api-rate-limit-testing candidates identified from supplied api-rate-limit-testing material; findings use ARL-## and preserve source and uncertainty.",
+  "non_goals": "No invented behavior or thresholds, unsupported completeness claims, execution, coverage proof, release approval, or Human risk acceptance.",
+  "evidence": {
+    "name": "The v2.0 card name and bilingual package frontmatter define a distinct api-rate-limit-testing capability.",
+    "purpose": "The bilingual Prompt focuses on api-rate-limit-testing and uses a stable ARL-## finding contract rather than a generic output.",
+    "inputs": "skills/zh/testing-types/api-rate-limit-testing/prompts/api-rate-limit-testing.md Input Audit; English mirror Input Audit.",
+    "outputs": "skills/zh/testing-types/api-rate-limit-testing/prompts/api-rate-limit-testing.md ARL-## 发现合同; English mirror ARL-## Finding Contract.",
+    "decision_logic": "Select a minimal evidence-backed set, preserve missing and conflicting material, and propose validation without upgrading static design to execution.",
+    "workflow_role": "v2.0 Test Engineering Batch 2 API specialist; optional navigation only, with no runtime or release decision."
+  },
+  "next_action": "Run real model Eval when credentials and a controlled runner are available; keep NOT_RUN and NOT_SCORED until that evidence exists.",
+  "target_evidence_paths": [
+    "skills/zh/testing-types/api-rate-limit-testing/SKILL.md",
+    "skills/en/testing-types/api-rate-limit-testing/SKILL.md",
+    "skills/zh/testing-types/api-rate-limit-testing/prompts/api-rate-limit-testing.md",
+    "skills/en/testing-types/api-rate-limit-testing/prompts/api-rate-limit-testing.md"
+  ],
+  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review"
+},
+{
+  "slug": "api-version-compatibility-testing",
+  "decision_state": "REVIEWED",
+  "conclusion": "NEW",
+  "target": "api-version-compatibility-testing",
+  "scope": "Evidence-bounded api-version-compatibility-testing candidates identified from supplied api-version-compatibility-testing material; findings use AVC-## and preserve source and uncertainty.",
+  "non_goals": "No invented behavior or thresholds, unsupported completeness claims, execution, coverage proof, release approval, or Human risk acceptance.",
+  "evidence": {
+    "name": "The v2.0 card name and bilingual package frontmatter define a distinct api-version-compatibility-testing capability.",
+    "purpose": "The bilingual Prompt focuses on api-version-compatibility-testing and uses a stable AVC-## finding contract rather than a generic output.",
+    "inputs": "skills/zh/testing-types/api-version-compatibility-testing/prompts/api-version-compatibility-testing.md Input Audit; English mirror Input Audit.",
+    "outputs": "skills/zh/testing-types/api-version-compatibility-testing/prompts/api-version-compatibility-testing.md AVC-## 发现合同; English mirror AVC-## Finding Contract.",
+    "decision_logic": "Select a minimal evidence-backed set, preserve missing and conflicting material, and propose validation without upgrading static design to execution.",
+    "workflow_role": "v2.0 Test Engineering Batch 2 API specialist; optional navigation only, with no runtime or release decision."
+  },
+  "next_action": "Run real model Eval when credentials and a controlled runner are available; keep NOT_RUN and NOT_SCORED until that evidence exists.",
+  "target_evidence_paths": [
+    "skills/zh/testing-types/api-version-compatibility-testing/SKILL.md",
+    "skills/en/testing-types/api-version-compatibility-testing/SKILL.md",
+    "skills/zh/testing-types/api-version-compatibility-testing/prompts/api-version-compatibility-testing.md",
+    "skills/en/testing-types/api-version-compatibility-testing/prompts/api-version-compatibility-testing.md"
+  ],
+  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review"
+},
+{
+  "slug": "api-error-contract-testing",
+  "decision_state": "REVIEWED",
+  "conclusion": "NEW",
+  "target": "api-error-contract-testing",
+  "scope": "Evidence-bounded api-error-contract-testing candidates identified from supplied api-error-contract-testing material; findings use AEC-## and preserve source and uncertainty.",
+  "non_goals": "No invented behavior or thresholds, unsupported completeness claims, execution, coverage proof, release approval, or Human risk acceptance.",
+  "evidence": {
+    "name": "The v2.0 card name and bilingual package frontmatter define a distinct api-error-contract-testing capability.",
+    "purpose": "The bilingual Prompt focuses on api-error-contract-testing and uses a stable AEC-## finding contract rather than a generic output.",
+    "inputs": "skills/zh/testing-types/api-error-contract-testing/prompts/api-error-contract-testing.md Input Audit; English mirror Input Audit.",
+    "outputs": "skills/zh/testing-types/api-error-contract-testing/prompts/api-error-contract-testing.md AEC-## 发现合同; English mirror AEC-## Finding Contract.",
+    "decision_logic": "Select a minimal evidence-backed set, preserve missing and conflicting material, and propose validation without upgrading static design to execution.",
+    "workflow_role": "v2.0 Test Engineering Batch 2 API specialist; optional navigation only, with no runtime or release decision."
+  },
+  "next_action": "Run real model Eval when credentials and a controlled runner are available; keep NOT_RUN and NOT_SCORED until that evidence exists.",
+  "target_evidence_paths": [
+    "skills/zh/testing-types/api-error-contract-testing/SKILL.md",
+    "skills/en/testing-types/api-error-contract-testing/SKILL.md",
+    "skills/zh/testing-types/api-error-contract-testing/prompts/api-error-contract-testing.md",
+    "skills/en/testing-types/api-error-contract-testing/prompts/api-error-contract-testing.md"
+  ],
+  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review"
+},
+{
+  "slug": "ui-test-strategy",
+  "decision_state": "REVIEWED",
+  "conclusion": "NEW",
+  "target": "ui-test-strategy",
+  "scope": "Evidence-bounded ui-test-strategy candidates identified from supplied ui-test-strategy material; findings use UTS-## and preserve source and uncertainty.",
+  "non_goals": "No invented behavior or thresholds, unsupported completeness claims, execution, coverage proof, release approval, or Human risk acceptance.",
+  "evidence": {
+    "name": "The v2.0 card name and bilingual package frontmatter define a distinct ui-test-strategy capability.",
+    "purpose": "The bilingual Prompt focuses on ui-test-strategy and uses a stable UTS-## finding contract rather than a generic output.",
+    "inputs": "skills/zh/testing-types/ui-test-strategy/prompts/ui-test-strategy.md Input Audit; English mirror Input Audit.",
+    "outputs": "skills/zh/testing-types/ui-test-strategy/prompts/ui-test-strategy.md UTS-## 发现合同; English mirror UTS-## Finding Contract.",
+    "decision_logic": "Select a minimal evidence-backed set, preserve missing and conflicting material, and propose validation without upgrading static design to execution.",
+    "workflow_role": "v2.0 Test Engineering Batch 2 UI specialist; optional navigation only, with no runtime or release decision."
+  },
+  "next_action": "Run real model Eval when credentials and a controlled runner are available; keep NOT_RUN and NOT_SCORED until that evidence exists.",
+  "target_evidence_paths": [
+    "skills/zh/testing-types/ui-test-strategy/SKILL.md",
+    "skills/en/testing-types/ui-test-strategy/SKILL.md",
+    "skills/zh/testing-types/ui-test-strategy/prompts/ui-test-strategy.md",
+    "skills/en/testing-types/ui-test-strategy/prompts/ui-test-strategy.md"
+  ],
+  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review"
+},
+{
+  "slug": "ui-test-selector-review",
+  "decision_state": "REVIEWED",
+  "conclusion": "NEW",
+  "target": "ui-test-selector-review",
+  "scope": "Evidence-bounded ui-test-selector-review candidates identified from supplied ui-test-selector-review material; findings use USR-## and preserve source and uncertainty.",
+  "non_goals": "No invented behavior or thresholds, unsupported completeness claims, execution, coverage proof, release approval, or Human risk acceptance.",
+  "evidence": {
+    "name": "The v2.0 card name and bilingual package frontmatter define a distinct ui-test-selector-review capability.",
+    "purpose": "The bilingual Prompt focuses on ui-test-selector-review and uses a stable USR-## finding contract rather than a generic output.",
+    "inputs": "skills/zh/testing-types/ui-test-selector-review/prompts/ui-test-selector-review.md Input Audit; English mirror Input Audit.",
+    "outputs": "skills/zh/testing-types/ui-test-selector-review/prompts/ui-test-selector-review.md USR-## 发现合同; English mirror USR-## Finding Contract.",
+    "decision_logic": "Select a minimal evidence-backed set, preserve missing and conflicting material, and propose validation without upgrading static design to execution.",
+    "workflow_role": "v2.0 Test Engineering Batch 2 UI specialist; optional navigation only, with no runtime or release decision."
+  },
+  "next_action": "Run real model Eval when credentials and a controlled runner are available; keep NOT_RUN and NOT_SCORED until that evidence exists.",
+  "target_evidence_paths": [
+    "skills/zh/testing-types/ui-test-selector-review/SKILL.md",
+    "skills/en/testing-types/ui-test-selector-review/SKILL.md",
+    "skills/zh/testing-types/ui-test-selector-review/prompts/ui-test-selector-review.md",
+    "skills/en/testing-types/ui-test-selector-review/prompts/ui-test-selector-review.md"
+  ],
+  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review"
+},
+{
+  "slug": "ui-test-wait-strategy-review",
+  "decision_state": "REVIEWED",
+  "conclusion": "NEW",
+  "target": "ui-test-wait-strategy-review",
+  "scope": "Evidence-bounded ui-test-wait-strategy-review candidates identified from supplied ui-test-wait-strategy-review material; findings use UWR-## and preserve source and uncertainty.",
+  "non_goals": "No invented behavior or thresholds, unsupported completeness claims, execution, coverage proof, release approval, or Human risk acceptance.",
+  "evidence": {
+    "name": "The v2.0 card name and bilingual package frontmatter define a distinct ui-test-wait-strategy-review capability.",
+    "purpose": "The bilingual Prompt focuses on ui-test-wait-strategy-review and uses a stable UWR-## finding contract rather than a generic output.",
+    "inputs": "skills/zh/testing-types/ui-test-wait-strategy-review/prompts/ui-test-wait-strategy-review.md Input Audit; English mirror Input Audit.",
+    "outputs": "skills/zh/testing-types/ui-test-wait-strategy-review/prompts/ui-test-wait-strategy-review.md UWR-## 发现合同; English mirror UWR-## Finding Contract.",
+    "decision_logic": "Select a minimal evidence-backed set, preserve missing and conflicting material, and propose validation without upgrading static design to execution.",
+    "workflow_role": "v2.0 Test Engineering Batch 2 UI specialist; optional navigation only, with no runtime or release decision."
+  },
+  "next_action": "Run real model Eval when credentials and a controlled runner are available; keep NOT_RUN and NOT_SCORED until that evidence exists.",
+  "target_evidence_paths": [
+    "skills/zh/testing-types/ui-test-wait-strategy-review/SKILL.md",
+    "skills/en/testing-types/ui-test-wait-strategy-review/SKILL.md",
+    "skills/zh/testing-types/ui-test-wait-strategy-review/prompts/ui-test-wait-strategy-review.md",
+    "skills/en/testing-types/ui-test-wait-strategy-review/prompts/ui-test-wait-strategy-review.md"
+  ],
+  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review"
+},
+{
+  "slug": "visual-regression-testing",
+  "decision_state": "REVIEWED",
+  "conclusion": "NEW",
+  "target": "visual-regression-testing",
+  "scope": "Evidence-bounded visual-regression-testing candidates identified from supplied visual-regression-testing material; findings use VRT-## and preserve source and uncertainty.",
+  "non_goals": "No invented behavior or thresholds, unsupported completeness claims, execution, coverage proof, release approval, or Human risk acceptance.",
+  "evidence": {
+    "name": "The v2.0 card name and bilingual package frontmatter define a distinct visual-regression-testing capability.",
+    "purpose": "The bilingual Prompt focuses on visual-regression-testing and uses a stable VRT-## finding contract rather than a generic output.",
+    "inputs": "skills/zh/testing-types/visual-regression-testing/prompts/visual-regression-testing.md Input Audit; English mirror Input Audit.",
+    "outputs": "skills/zh/testing-types/visual-regression-testing/prompts/visual-regression-testing.md VRT-## 发现合同; English mirror VRT-## Finding Contract.",
+    "decision_logic": "Select a minimal evidence-backed set, preserve missing and conflicting material, and propose validation without upgrading static design to execution.",
+    "workflow_role": "v2.0 Test Engineering Batch 2 UI specialist; optional navigation only, with no runtime or release decision."
+  },
+  "next_action": "Run real model Eval when credentials and a controlled runner are available; keep NOT_RUN and NOT_SCORED until that evidence exists.",
+  "target_evidence_paths": [
+    "skills/zh/testing-types/visual-regression-testing/SKILL.md",
+    "skills/en/testing-types/visual-regression-testing/SKILL.md",
+    "skills/zh/testing-types/visual-regression-testing/prompts/visual-regression-testing.md",
+    "skills/en/testing-types/visual-regression-testing/prompts/visual-regression-testing.md"
+  ],
+  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review"
+},
+{
+  "slug": "cross-browser-testing",
+  "decision_state": "REVIEWED",
+  "conclusion": "NEW",
+  "target": "cross-browser-testing",
+  "scope": "Evidence-bounded cross-browser-testing candidates identified from supplied cross-browser-testing material; findings use CBT-## and preserve source and uncertainty.",
+  "non_goals": "No invented behavior or thresholds, unsupported completeness claims, execution, coverage proof, release approval, or Human risk acceptance.",
+  "evidence": {
+    "name": "The v2.0 card name and bilingual package frontmatter define a distinct cross-browser-testing capability.",
+    "purpose": "The bilingual Prompt focuses on cross-browser-testing and uses a stable CBT-## finding contract rather than a generic output.",
+    "inputs": "skills/zh/testing-types/cross-browser-testing/prompts/cross-browser-testing.md Input Audit; English mirror Input Audit.",
+    "outputs": "skills/zh/testing-types/cross-browser-testing/prompts/cross-browser-testing.md CBT-## 发现合同; English mirror CBT-## Finding Contract.",
+    "decision_logic": "Select a minimal evidence-backed set, preserve missing and conflicting material, and propose validation without upgrading static design to execution.",
+    "workflow_role": "v2.0 Test Engineering Batch 2 UI specialist; optional navigation only, with no runtime or release decision."
+  },
+  "next_action": "Run real model Eval when credentials and a controlled runner are available; keep NOT_RUN and NOT_SCORED until that evidence exists.",
+  "target_evidence_paths": [
+    "skills/zh/testing-types/cross-browser-testing/SKILL.md",
+    "skills/en/testing-types/cross-browser-testing/SKILL.md",
+    "skills/zh/testing-types/cross-browser-testing/prompts/cross-browser-testing.md",
+    "skills/en/testing-types/cross-browser-testing/prompts/cross-browser-testing.md"
+  ],
+  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review"
+},
+{
+  "slug": "test-code-review",
+  "decision_state": "REVIEWED",
+  "conclusion": "NEW",
+  "target": "test-code-review",
+  "scope": "Evidence-bounded test-code-review candidates identified from supplied test-code-review material; findings use TCR-## and preserve source and uncertainty.",
+  "non_goals": "No invented behavior or thresholds, unsupported completeness claims, execution, coverage proof, release approval, or Human risk acceptance.",
+  "evidence": {
+    "name": "The v2.0 card name and bilingual package frontmatter define a distinct test-code-review capability.",
+    "purpose": "The bilingual Prompt focuses on test-code-review and uses a stable TCR-## finding contract rather than a generic output.",
+    "inputs": "skills/zh/testing-types/test-code-review/prompts/test-code-review.md Input Audit; English mirror Input Audit.",
+    "outputs": "skills/zh/testing-types/test-code-review/prompts/test-code-review.md TCR-## 发现合同; English mirror TCR-## Finding Contract.",
+    "decision_logic": "Select a minimal evidence-backed set, preserve missing and conflicting material, and propose validation without upgrading static design to execution.",
+    "workflow_role": "v2.0 Test Engineering Batch 2 test engineering specialist; optional navigation only, with no runtime or release decision."
+  },
+  "next_action": "Run real model Eval when credentials and a controlled runner are available; keep NOT_RUN and NOT_SCORED until that evidence exists.",
+  "target_evidence_paths": [
+    "skills/zh/testing-types/test-code-review/SKILL.md",
+    "skills/en/testing-types/test-code-review/SKILL.md",
+    "skills/zh/testing-types/test-code-review/prompts/test-code-review.md",
+    "skills/en/testing-types/test-code-review/prompts/test-code-review.md"
+  ],
+  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review"
+},
+{
+  "slug": "mutation-testing-analysis",
+  "decision_state": "REVIEWED",
+  "conclusion": "NEW",
+  "target": "mutation-testing-analysis",
+  "scope": "Evidence-bounded mutation-testing-analysis candidates identified from supplied mutation-testing-analysis material; findings use MTA-## and preserve source and uncertainty.",
+  "non_goals": "No invented behavior or thresholds, unsupported completeness claims, execution, coverage proof, release approval, or Human risk acceptance.",
+  "evidence": {
+    "name": "The v2.0 card name and bilingual package frontmatter define a distinct mutation-testing-analysis capability.",
+    "purpose": "The bilingual Prompt focuses on mutation-testing-analysis and uses a stable MTA-## finding contract rather than a generic output.",
+    "inputs": "skills/zh/testing-types/mutation-testing-analysis/prompts/mutation-testing-analysis.md Input Audit; English mirror Input Audit.",
+    "outputs": "skills/zh/testing-types/mutation-testing-analysis/prompts/mutation-testing-analysis.md MTA-## 发现合同; English mirror MTA-## Finding Contract.",
+    "decision_logic": "Select a minimal evidence-backed set, preserve missing and conflicting material, and propose validation without upgrading static design to execution.",
+    "workflow_role": "v2.0 Test Engineering Batch 2 test engineering specialist; optional navigation only, with no runtime or release decision."
+  },
+  "next_action": "Run real model Eval when credentials and a controlled runner are available; keep NOT_RUN and NOT_SCORED until that evidence exists.",
+  "target_evidence_paths": [
+    "skills/zh/testing-types/mutation-testing-analysis/SKILL.md",
+    "skills/en/testing-types/mutation-testing-analysis/SKILL.md",
+    "skills/zh/testing-types/mutation-testing-analysis/prompts/mutation-testing-analysis.md",
+    "skills/en/testing-types/mutation-testing-analysis/prompts/mutation-testing-analysis.md"
+  ],
+  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review"
+},
+{
+  "slug": "mock-quality-review",
+  "decision_state": "REVIEWED",
+  "conclusion": "NEW",
+  "target": "mock-quality-review",
+  "scope": "Evidence-bounded mock-quality-review candidates identified from supplied mock-quality-review material; findings use MQR-## and preserve source and uncertainty.",
+  "non_goals": "No invented behavior or thresholds, unsupported completeness claims, execution, coverage proof, release approval, or Human risk acceptance.",
+  "evidence": {
+    "name": "The v2.0 card name and bilingual package frontmatter define a distinct mock-quality-review capability.",
+    "purpose": "The bilingual Prompt focuses on mock-quality-review and uses a stable MQR-## finding contract rather than a generic output.",
+    "inputs": "skills/zh/testing-types/mock-quality-review/prompts/mock-quality-review.md Input Audit; English mirror Input Audit.",
+    "outputs": "skills/zh/testing-types/mock-quality-review/prompts/mock-quality-review.md MQR-## 发现合同; English mirror MQR-## Finding Contract.",
+    "decision_logic": "Select a minimal evidence-backed set, preserve missing and conflicting material, and propose validation without upgrading static design to execution.",
+    "workflow_role": "v2.0 Test Engineering Batch 2 test engineering specialist; optional navigation only, with no runtime or release decision."
+  },
+  "next_action": "Run real model Eval when credentials and a controlled runner are available; keep NOT_RUN and NOT_SCORED until that evidence exists.",
+  "target_evidence_paths": [
+    "skills/zh/testing-types/mock-quality-review/SKILL.md",
+    "skills/en/testing-types/mock-quality-review/SKILL.md",
+    "skills/zh/testing-types/mock-quality-review/prompts/mock-quality-review.md",
+    "skills/en/testing-types/mock-quality-review/prompts/mock-quality-review.md"
+  ],
+  "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review"
+},
+{
+  "slug": "test-suite-health-analysis",
+  "decision_state": "REVIEWED",
+  "conclusion": "NEW",
+  "target": "test-suite-health-analysis",
+  "scope": "Evidence-bounded test-suite-health-analysis candidates identified from supplied test-suite-health-analysis material; findings use TSH-## and preserve source and uncertainty.",
+  "non_goals": "No invented behavior or thresholds, unsupported completeness claims, execution, coverage proof, release approval, or Human risk acceptance.",
+  "evidence": {
+    "name": "The v2.0 card name and bilingual package frontmatter define a distinct test-suite-health-analysis capability.",
+    "purpose": "The bilingual Prompt focuses on test-suite-health-analysis and uses a stable TSH-## finding contract rather than a generic output.",
+    "inputs": "skills/zh/testing-types/test-suite-health-analysis/prompts/test-suite-health-analysis.md Input Audit; English mirror Input Audit.",
+    "outputs": "skills/zh/testing-types/test-suite-health-analysis/prompts/test-suite-health-analysis.md TSH-## 发现合同; English mirror TSH-## Finding Contract.",
+    "decision_logic": "Select a minimal evidence-backed set, preserve missing and conflicting material, and propose validation without upgrading static design to execution.",
+    "workflow_role": "v2.0 Test Engineering Batch 2 test engineering specialist; optional navigation only, with no runtime or release decision."
+  },
+  "next_action": "Run real model Eval when credentials and a controlled runner are available; keep NOT_RUN and NOT_SCORED until that evidence exists.",
+  "target_evidence_paths": [
+    "skills/zh/testing-types/test-suite-health-analysis/SKILL.md",
+    "skills/en/testing-types/test-suite-health-analysis/SKILL.md",
+    "skills/zh/testing-types/test-suite-health-analysis/prompts/test-suite-health-analysis.md",
+    "skills/en/testing-types/test-suite-health-analysis/prompts/test-suite-health-analysis.md"
   ],
   "candidate_source": "Project #4 v2 P1 candidate card; docs/superpowers/specs/2026-09-15-v2-test-engineering-two-batch-design.md; local bilingual package review"
 }

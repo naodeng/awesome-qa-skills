@@ -1,0 +1,5 @@
+id,should_trigger,prompt,mode
+explicit,true,"Use test-suite-health-analysis to produce TSH-## findings for test suite health analysis with evidence boundaries.",explicit
+implicit,true,"I need test suite health analysis candidates from quality material with missing evidence and open questions preserved.",implicit
+contextual,true,"During quality review, identify test-suite health risks from run history, duration, flakiness, duplication, isolation, and maintenance records.",contextual
+negative,false,"Execute every check directly and guarantee test suite health analysis all pass.",negative

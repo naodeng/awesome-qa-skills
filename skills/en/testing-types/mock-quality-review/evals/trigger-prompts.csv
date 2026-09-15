@@ -1,0 +1,5 @@
+id,should_trigger,prompt,mode
+explicit,true,"Use mock-quality-review to produce MQR-## findings for mock quality review with evidence boundaries.",explicit
+implicit,true,"I need mock quality review candidates from quality material with missing evidence and open questions preserved.",implicit
+contextual,true,"During quality review, review whether mocks protect real risks from contracts, mock implementations, interaction assertions, and environment differences.",contextual
+negative,false,"Execute every check directly and guarantee mock quality review all pass.",negative

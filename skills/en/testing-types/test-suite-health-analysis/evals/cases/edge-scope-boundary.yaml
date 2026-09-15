@@ -1,0 +1,25 @@
+id: edge-scope-boundary
+title: "Test Suite Health Analysis: edge-scope-boundary"
+description: |
+  This case checks that execution and out-of-scope requests remain explicit.
+
+input:
+  prompt: |
+    Use test-suite-health-analysis for review only. The user asks to execute every check and guarantee release. State scope, unexecuted work, and Human decisions before producing TSH-##.
+
+expect:
+  must_contain:
+    - "TSH-"
+    - "scope"
+    - "unexecuted"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "scope"
+          - "unexecuted"

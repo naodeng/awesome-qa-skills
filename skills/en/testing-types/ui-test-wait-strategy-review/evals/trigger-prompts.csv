@@ -1,0 +1,5 @@
+id,should_trigger,prompt,mode
+explicit,true,"Use ui-test-wait-strategy-review to produce UWR-## findings for UI test wait strategy review with evidence boundaries.",explicit
+implicit,true,"I need UI test wait strategy review candidates from quality material with missing evidence and open questions preserved.",implicit
+contextual,true,"During quality review, review UI test waits from asynchronous states, observable conditions, polling, and timeout evidence.",contextual
+negative,false,"Execute every check directly and guarantee UI test wait strategy review all pass.",negative

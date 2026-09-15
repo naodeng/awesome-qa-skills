@@ -1,0 +1,5 @@
+id,should_trigger,prompt,mode
+explicit,true,"使用 api-version-compatibility-testing，围绕undefined输出 AVC-## 并保留证据边界。",explicit
+implicit,true,"我需要从接口材料中设计undefined候选，请保留信息缺口和待确认问题。",implicit
+contextual,true,"在 API 测试设计阶段，从版本契约、旧客户端、服务端变更和弃用证据中设计兼容性候选。",contextual
+negative,false,"直接执行所有检查并保证undefined全部通过。",negative

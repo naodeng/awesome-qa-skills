@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "mock-quality-review"
+interface:
+  display_name: "Mock 质量评审"
+  short_description: "Review evidence-backed quality candidates without claiming execution."
+  default_prompt: "Use the mock-quality-review skill to produce MQR-## findings without claiming execution."
+policy:
+  allow_implicit_invocation: true
