@@ -5,138 +5,129 @@
 A language-partitioned **AI testing skills library** (Agent Skills) for Codex, Cursor, Claude Code, Kiro, OpenCode, Trae, and similar tools. It ships independently installable, composable skills for testing workflows and testing types.
 
 [![License: PolyForm Noncommercial 1.0.0](https://img.shields.io/badge/License-PolyForm%20Noncommercial%201.0.0-blue.svg)](./LICENSE)
-[![Skills](https://img.shields.io/badge/skills-242%20(zh%2Ben)-0A7EA4)](./docs/catalog/skills-index.md)
+[![Skills](https://img.shields.io/badge/skills-276%20(zh%2Ben)-0A7EA4)](./docs/catalog/skills-index_EN.md)
 [![Workflows](https://img.shields.io/badge/workflows-10-informational)](./skills/en/testing-workflows/)
-[![Testing types](https://img.shields.io/badge/testing%20types-108-informational)](./skills/en/testing-types/)
+[![Testing types](https://img.shields.io/badge/testing%20types-125-informational)](./skills/en/testing-types/)
 [![Skill engineering](https://img.shields.io/badge/skill%20engineering-3-informational)](./skills/en/skill-engineering/)
 [![skills.sh](https://skills.sh/b/naodeng/awesome-qa-skills)](https://skills.sh/naodeng/awesome-qa-skills)
 
-**Online site:** [https://inaodeng.com/qaskills/](https://inaodeng.com/qaskills/)
+**Online directory:** [https://inaodeng.com/qaskills/](https://inaodeng.com/qaskills/)
+
+**Quick links:** [Complete Skills index](docs/catalog/skills-index_EN.md) · [Installation guide](scripts/INSTALL_SKILLS.md) · [Contributing](CONTRIBUTING_EN.md)
 
 ---
 
-## Why this repository
+## What you can do with it
 
-| Capability | Description |
-| --- | --- |
-| Bilingual parity | `skills/zh` and `skills/en` share the same folder names and layout |
-| Full testing chain | From requirements and strategy through cases, execution, defects, and reporting |
-| Workflows + type skills | Daily / sprint / release, role-quality perspective, and multi-role synthesis workflows, composed with 108 specialized type skills |
-| Ready to install | One-click installers plus per-skill shortcut scripts |
-| Evaluable & evolvable | Every skill includes `evals/`; validate and run with [skill-up](https://github.com/alibaba/skill-up) |
+This is a bilingual Skill library for AI-assisted QA work. Each Skill can be copied, installed, and invoked on its own, or composed into a quality workflow from requirements analysis through release verification.
 
-Each skill directory is meant to be self-contained when copied out: `SKILL.md`, primary prompts, tool metadata, plus optional examples, templates, scripts, and eval cases.
+| Scenario | Representative entry points | What it helps with |
+| --- | --- | --- |
+| Requirements and test design | `requirements-analysis`, `test-strategy`, `test-case-writing` | Turn requirements, risks, and constraints into traceable test plans and cases |
+| Functional, API, and UI testing | `functional-testing`, `api-testing`, `ui-test-playwright` | Design executable checks for business flows, APIs, and browser scenarios |
+| Regression, performance, and quality engineering | `regression-test-selection`, `performance-testing`, `code-review` | Select risk-based regression scope, analyze performance, and shift quality left |
+| Release and production quality | `release-testing-workflow`, `production-verification`, `metrics-anomaly-analysis` | Support release decisions, production verification, incident analysis, and metrics investigation |
+| AI features and agent safety | `ai-feature-testing`, `llm-testing`, `ai-agent-testing`, `prompt-injection-testing` | Validate AI behavior, evaluations, tool calls, and safety boundaries |
+| Skill engineering and governance | `skill-change-verification`, `skill-prose-review` | Check Skill structure, contracts, evidence boundaries, and prose quality |
 
-## Choose Skills by Category
+Each Skill directory is self-contained when copied out: it includes `SKILL.md`, primary prompts, tool metadata, and optional examples, templates, scripts, and evaluation cases.
 
-Start with the delivery or testing stage you are in, then install or invoke a Skill from that section. Use the routing workflow when you are unsure. The [complete Skills index](docs/catalog/skills-index_EN.md) remains available when you already know a name.
+## Quick start
 
-| What are you trying to do? | Choose a category | Typical stages / capabilities | Entry point |
-| --- | --- | --- | --- |
-| Build a quality foundation across requirements, strategy, cases, execution, and reporting | Core QA Skills | Discovery, strategy, design, execution, defects, and reporting | [View Core QA Skills](#core-qa-skills--quality-foundation) |
-| Shift quality left, assess change, implement automation, or make performance decisions | Engineering QA Skills | Requirements shift left, development / CI, regression, performance, and continuous improvement | [View Engineering QA Skills](#engineering-qa-skills--quality-engineering) |
-| Make quality decisions from release and production evidence | Production Quality Skills | Release verification, incident response, trace, and metrics analysis | [View Production Quality Skills](#production-quality-skills--production-quality) |
-| Test AI features, LLMs, prompts, agents, and safety boundaries | AI Native QA Skills | AI requirements and risk, evaluation, tool use, and injection defense | [View AI Native QA Skills](#ai-native-qa-skills--ai-native-quality) |
-| Orchestrate stages, collaborate by role, or decide where to begin | Cross-phase workflows | Routing, daily / sprint / release workflows, quality perspectives, and synthesis | [View workflows](#cross-phase-workflows) |
-| You already know the Skill name | Complete index | All 121 capabilities and Chinese/English paths | [Open the complete Skills index](docs/catalog/skills-index_EN.md) |
+### 1. Install one Skill (recommended)
 
-**Recommended path:** start with [`discover-testing`](skills/en/testing-workflows/discover-testing/) when uncertain, select the matching capability layer once the stage is clear, or go directly to the complete index when you know the name.
-
-## Capability evolution map
-
-The repository uses stable directories for installation and capability stages for navigation and evolution:
-
-```text
-Core QA Skills → Engineering QA Skills → Production Quality Skills → AI Native QA Skills
-```
-
-| Stage | Question | Current entry points | Direction |
-| --- | --- | --- | --- |
-| Core QA Skills | How do requirements, strategy, cases, execution, and reporting form a quality foundation? | `requirements-analysis`, `test-strategy`, `functional-testing`, `test-reporting` | Preserve a complete foundation without duplicate packages |
-| Engineering QA Skills | How do we shift quality left, assess change, diagnose issues, and make performance decisions? | `code-review`, `automation-testing`, `performance-testing` | Shift Left, change/execution intelligence, performance engineering |
-| Production Quality Skills | How do we make quality decisions from release and production evidence? | `release-testing-workflow`, `test-reporting` | Production verification, incidents, and observability |
-| AI Native QA Skills | How do we test AI features, LLMs, prompts, agents, and safety boundaries? | AI feature, LLM, prompt, agent, and safety Skills are available | Testing-for-AI specialized Skills |
-
-`ai-assisted-testing` is cross-cutting **AI for QA**, not the Testing-for-AI scope of AI Native QA. The completed six-iteration roadmap, 29 added Skills, and Prompt Baseline mapping are in the [evolution roadmap](docs/governance/QA_SKILLS_EVOLUTION_ROADMAP_EN.md); long-term Existing / Enhance / Merge / Match / New governance is in the [Skill governance roadmap](docs/governance/SKILL_GOVERNANCE_ROADMAP_EN.md).
-
-## Supported AI tools
-
-| Tool | Typical install target |
-| --- | --- |
-| Codex | `~/.codex/skills/` |
-| Cursor | `~/.cursor/skills/` |
-| Claude Code | Claude skills directory (see install guide) |
-| Kiro / OpenCode / Trae | See [scripts/INSTALL_SKILLS.md](scripts/INSTALL_SKILLS.md) |
-
-You can also `cp -r` a single skill folder into the tool’s skills path.
-
-## 5-minute start
-
-### 1. Clone the repository
+With Node.js installed, `npx skills` can install a language directory or one Skill directly from GitHub:
 
 ```bash
-git clone https://github.com/naodeng/awesome-qa-skills.git
-cd awesome-qa-skills
-```
-
-### 2. Install skills (pick one)
-
-```bash
-# One-click: all tools × both languages
-bash ./install-skills-mac.sh --tool all --lang all
-
-# Codex + English only
-bash ./install-skills-mac.sh --tool codex --lang en
-
-# Single skill (example: functional-testing → Codex)
-bash installers/en/functional-testing/mac/codex.sh
-```
-
-You can also use `npx skills` to install skills into a supported AI tool (Node.js required):
-
-```bash
-# Install all English skills into Codex
-npx skills add https://github.com/naodeng/awesome-qa-skills/tree/main/skills/en -g -a codex -y
-
-# Install one skill only
+# Install the English functional-testing Skill into Codex
 npx skills add https://github.com/naodeng/awesome-qa-skills/tree/main/skills/en/testing-types/functional-testing -g -a codex -y
 ```
 
-For Chinese skills, replace `skills/en` in the URL with `skills/zh`. Install one language at a time to avoid same-named skills overwriting each other.
+For Chinese Skills, replace `skills/en` in the URL with `skills/zh`. Install one language at a time to avoid same-named Skills overwriting each other.
+
+### 2. Use the one-click installer
+
+```bash
+# macOS / Linux: install English Skills into Codex
+bash ./install-skills-mac.sh --tool codex --lang en
+
+# macOS / Linux: all tools × both languages
+bash ./install-skills-mac.sh --tool all --lang all
+```
 
 Windows:
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File .\install-skills-windows.ps1 -Tool all -Lang all
+powershell -ExecutionPolicy Bypass -File .\install-skills-windows.ps1 -Tool codex -Lang en
 ```
 
-Manual copy:
+### 3. Clone the full repository
+
+```bash
+git clone https://github.com/naodeng/awesome-qa-skills.git .skills/awesome-qa-skills
+```
+
+### 4. Add it as a Git submodule
+
+```bash
+git submodule add https://github.com/naodeng/awesome-qa-skills.git .skills/awesome-qa-skills
+```
+
+### 5. Copy a Skill manually
 
 ```bash
 cp -r skills/en/testing-types/functional-testing ~/.cursor/skills/
 ```
 
-Full options and tool paths: [scripts/INSTALL_SKILLS.md](scripts/INSTALL_SKILLS.md)
+Per-Skill shortcut installers, target paths, and all command options are documented in [scripts/INSTALL_SKILLS.md](scripts/INSTALL_SKILLS.md).
 
-### 3. Invoke in your AI tool
+## Usage
 
-```text
-@skill functional-testing
-Help me generate test cases for user login
-```
+If your AI tool supports automatic discovery for the Agent Skills Standard, describe the goal in natural language. When explicit invocation is needed, name the Skill directly.
 
-Unsure which skill to use? Start with the router:
+| You can say | Recommended entry point |
+| --- | --- |
+| “Generate test cases for our user-login flow” | `functional-testing` |
+| “Cover error, idempotency, and pagination scenarios for this REST API” | `api-testing` |
+| “What regression and go/no-go checks should we run before this release?” | `release-testing-workflow` |
+| “Select the smallest risk-covering regression set for this change” | `regression-test-selection` |
+| “Assess this LLM feature’s behavior and safety boundaries” | `llm-testing`, `prompt-injection-testing` |
+
+When you do not know where to start, use the routing Skill:
 
 ```text
 @skill discover-testing
-I need a pre-release regression — which skills should I use?
+I need a pre-release regression — which Skills should I use?
 ```
+
+## Skill categories
+
+Choose a category based on your R&D or testing stage. If you already know the name, open the [complete Skills index](docs/catalog/skills-index_EN.md).
+
+| Category | Includes | Entry point |
+| --- | --- | --- |
+| Cross-phase workflows | Routing, daily / sprint / release workflows, quality perspectives, and multi-role synthesis | [View workflows](#cross-phase-workflows) |
+| Core QA Skills | Requirements, strategy, test design, execution, defects, and reporting | [View quality foundation](#core-qa-skills--quality-foundation) |
+| Engineering QA Skills | Shift-left quality, code / API / UI, regression, performance, and continuous improvement | [View quality engineering](#engineering-qa-skills--quality-engineering) |
+| Production Quality Skills | Release verification, production verification, incidents, traces, and metrics analysis | [View production quality](#production-quality-skills--production-quality) |
+| AI Native QA Skills | AI features, LLMs, prompts, agents, and safety testing | [View AI-native quality](#ai-native-qa-skills--ai-native-quality) |
+| Skill Engineering | Skill change verification, prose contract review, and process-prose trimming | [View Skill Engineering](#skill-engineering-cross-cutting-governance) |
+
+## Capability layers
+
+Stable directories handle installation; capability layers help readers choose and evolve the collection:
+
+```text
+Core QA Skills → Engineering QA Skills → Production Quality Skills → AI Native QA Skills
+```
+
+`ai-assisted-testing` is cross-cutting **AI for QA**, not the Testing-for-AI scope of AI Native QA. The six-iteration roadmap and Prompt Baseline mapping are in the [evolution roadmap](docs/governance/QA_SKILLS_EVOLUTION_ROADMAP_EN.md); long-term Existing / Enhance / Merge / Match / New governance is in the [Skill governance roadmap](docs/governance/SKILL_GOVERNANCE_ROADMAP_EN.md).
 
 ---
 
-## Skill catalog
+## Complete Skill catalog
 
-Each language provides **121** Skills: 10 workflows, 108 testing types, and 3 Skill Engineering packages; **242** bilingual directories in total. Physical directories remain stable; the catalog below is logical navigation only.
+Each language provides **138** Skills: 10 workflows, 125 testing types, and 3 Skill Engineering packages; **276** bilingual directories in total. Physical directories remain stable; the catalog below is logical navigation only.
 
 ### Cross-phase workflows
 
@@ -251,6 +242,28 @@ Each testing-type Skill appears once; routers and workflows cover cross-phase co
 | Risk-Based Testing <!-- data-skill:risk-based-testing --> | [`risk-based-testing`](skills/en/testing-types/risk-based-testing/) | Translate risk evidence into test priority, method, depth, and scope tradeoffs |
 | Edge Case Discovery <!-- data-skill:edge-case-discovery --> | [`edge-case-discovery`](skills/en/testing-types/edge-case-discovery/) | Discover boundary candidates from requirement, state, time, resource, and platform evidence |
 | Negative Scenario Discovery <!-- data-skill:negative-scenario-discovery --> | [`negative-scenario-discovery`](skills/en/testing-types/negative-scenario-discovery/) | Discover invalid, denied, failed, degraded, and recovery candidates from product evidence |
+
+##### Reliability and Security
+
+| Skill | Directory | Primary use |
+| --- | --- | --- |
+| Reliability Testing <!-- data-skill:reliability-testing --> | [`reliability-testing`](skills/en/testing-types/reliability-testing/) | Analyze reliability objectives, failure modes, and evidence readiness. |
+| Resilience Testing <!-- data-skill:resilience-testing --> | [`resilience-testing`](skills/en/testing-types/resilience-testing/) | Analyze degradation, resilience, and bounded recovery evidence. |
+| Chaos Testing <!-- data-skill:chaos-testing --> | [`chaos-testing`](skills/en/testing-types/chaos-testing/) | Design controlled fault-injection hypotheses and safety boundaries. |
+| Failover Testing <!-- data-skill:failover-testing --> | [`failover-testing`](skills/en/testing-types/failover-testing/) | Identify primary-to-secondary failover paths, triggers, and recovery evidence. |
+| Recovery Testing <!-- data-skill:recovery-testing --> | [`recovery-testing`](skills/en/testing-types/recovery-testing/) | Define recovery objectives, evidence gaps, and validation preparation. |
+| Retry Testing <!-- data-skill:retry-testing --> | [`retry-testing`](skills/en/testing-types/retry-testing/) | Analyze retry safety, idempotency, backoff, and exhaustion behavior. |
+| Timeout Testing <!-- data-skill:timeout-testing --> | [`timeout-testing`](skills/en/testing-types/timeout-testing/) | Analyze timeout budgets, cancellation, and downstream boundaries. |
+| Circuit Breaker Testing <!-- data-skill:circuit-breaker-testing --> | [`circuit-breaker-testing`](skills/en/testing-types/circuit-breaker-testing/) | Analyze circuit-breaker states, fallback, and recovery evidence. |
+| Dependency Failure Testing <!-- data-skill:dependency-failure-testing --> | [`dependency-failure-testing`](skills/en/testing-types/dependency-failure-testing/) | Classify dependency failures and review isolation and fallback evidence. |
+| Disaster Recovery Testing <!-- data-skill:disaster-recovery-testing --> | [`disaster-recovery-testing`](skills/en/testing-types/disaster-recovery-testing/) | Record disaster-recovery objectives, runbook, and restore-validation preparation. |
+| Authentication Testing <!-- data-skill:authentication-testing --> | [`authentication-testing`](skills/en/testing-types/authentication-testing/) | Review identity proof, credential lifecycle, and authentication-failure evidence. |
+| Authorization Testing <!-- data-skill:authorization-testing --> | [`authorization-testing`](skills/en/testing-types/authorization-testing/) | Review subject-resource-action decisions and privilege boundaries. |
+| Session Security Testing <!-- data-skill:session-security-testing --> | [`session-security-testing`](skills/en/testing-types/session-security-testing/) | Review session lifecycle, fixation, expiry, and revocation risks. |
+| API Security Testing <!-- data-skill:api-security-testing --> | [`api-security-testing`](skills/en/testing-types/api-security-testing/) | Review API attack surface and security-contract boundaries. |
+| Security Requirement Review <!-- data-skill:security-requirement-review --> | [`security-requirement-review`](skills/en/testing-types/security-requirement-review/) | Review security-requirement traceability and testability. |
+| Threat Modeling <!-- data-skill:threat-modeling --> | [`threat-modeling`](skills/en/testing-types/threat-modeling/) | Model assets, trust boundaries, threats, and mitigations. |
+| Secrets Exposure Review <!-- data-skill:secrets-exposure-review --> | [`secrets-exposure-review`](skills/en/testing-types/secrets-exposure-review/) | Review secret locations, lifecycle, and exposure evidence. |
 
 ##### Development and Continuous Integration
 
@@ -377,6 +390,21 @@ Each testing-type Skill appears once; routers and workflows cover cross-phase co
 
 Skill Engineering supports every capability stage without changing product-capability classification. Chinese Skills use the same folder names; switch languages at the top of the page.
 
+## Supported AI tools
+
+These tools have included one-click installers. You can also use `npx skills` or copy a Skill manually as described in the [installation guide](scripts/INSTALL_SKILLS.md).
+
+| Tool | Default install target | Supported methods |
+| --- | --- | --- |
+| Codex | `~/.codex/skills/` | One-click script, `npx skills`, manual copy |
+| Cursor | `~/.cursor/skills/` | One-click script, `npx skills`, manual copy |
+| Claude Code | `~/.claude/skills/` | One-click script, `npx skills`, manual copy |
+| Kiro | `~/.kiro/skills/` | One-click script, manual copy |
+| OpenCode | `~/.opencode/skills/` | One-click script, manual copy |
+| Trae | `~/.trae/skills/` | One-click script, manual copy |
+
+The Skill directories follow Agent Skills conventions. For another compatible tool, check its expected Skill directory and copy either a language directory or one Skill.
+
 ## Repository layout
 
 ```text
@@ -411,7 +439,7 @@ skills/{zh|en}/{testing-types|testing-workflows|skill-engineering}/<skill-name>/
 └── ...
 ```
 
-Details: [skills/DIRECTORY_GUIDE.md](skills/DIRECTORY_GUIDE.md) · [skills/SKILL_AUTHORING.md](skills/SKILL_AUTHORING.md)
+Details: [skills/DIRECTORY_GUIDE_EN.md](skills/DIRECTORY_GUIDE_EN.md) · [skills/SKILL_AUTHORING_EN.md](skills/SKILL_AUTHORING_EN.md)
 
 ## Design principles
 
@@ -441,31 +469,31 @@ bash scripts/validate_skill_evals.sh
 bash scripts/run_skill_eval.sh skills/en/testing-types/functional-testing/evals/eval.yaml
 ```
 
-Suggested pilots: `functional-testing`, `api-testing`, `api-test-bruno`, `bug-reporting`, `performance-test-k6`. See [skills/SKILL_AUTHORING.md](skills/SKILL_AUTHORING.md).
+Suggested pilots: `functional-testing`, `api-testing`, `api-test-bruno`, `bug-reporting`, `performance-test-k6`. See [skills/SKILL_AUTHORING_EN.md](skills/SKILL_AUTHORING_EN.md).
 
 ## Documentation map
 
 | Document | Purpose |
 | --- | --- |
 | [AGENTS.md](AGENTS.md) | Coding-agent conventions and quality checks |
-| [skills-index.md](docs/catalog/skills-index.md) | Full skill index |
+| [skills-index_EN.md](docs/catalog/skills-index_EN.md) | Full skill index |
 | [QA_SKILLS_EVOLUTION_ROADMAP_EN.md](docs/governance/QA_SKILLS_EVOLUTION_ROADMAP_EN.md) | Four-stage capability evolution and R&D/testing lifecycle map |
 | [DOCUMENTATION_POLICY_EN.md](docs/governance/DOCUMENTATION_POLICY_EN.md) | Chinese-first bilingual documentation policy |
 | [SKILL_GOVERNANCE_V1_EN.md](docs/governance/SKILL_GOVERNANCE_V1_EN.md) | v1.0 source-governance baseline and 79-pair static-record entry point (not runtime quality) |
 | [PHASE_1_REQUIREMENTS_QUALITY_EN.md](docs/governance/PHASE_1_REQUIREMENTS_QUALITY_EN.md) | v1.1 Phase 1 scope, cards, evidence, and acceptance boundaries for the first five requirement-quality Skills |
 | [SKILL_EVAL_RULES_EN.md](docs/SKILL_EVAL_RULES_EN.md) | Twenty local deterministic evaluation rules for `codex exec --json` Skill traces |
-| [skills/DIRECTORY_GUIDE.md](skills/DIRECTORY_GUIDE.md) | Directory and naming rules |
-| [skills/SKILL_AUTHORING.md](skills/SKILL_AUTHORING.md) | Authoring and skill-up eval conventions |
+| [skills/DIRECTORY_GUIDE_EN.md](skills/DIRECTORY_GUIDE_EN.md) | Directory and naming rules |
+| [skills/SKILL_AUTHORING_EN.md](skills/SKILL_AUTHORING_EN.md) | Authoring and skill-up eval conventions |
 | [scripts/INSTALL_SKILLS.md](scripts/INSTALL_SKILLS.md) | Install options and tool paths |
 | [FAQ_EN.md](FAQ_EN.md) | FAQ (English) |
 | [CONTRIBUTING_EN.md](CONTRIBUTING_EN.md) | Contribution guide (English) |
-| [skills-graph.md](docs/catalog/skills-graph.md) | Skill relationship graph (reference) |
+| [skills-graph_EN.md](docs/catalog/skills-graph_EN.md) | Skill relationship graph (reference) |
 
 ## Contributing
 
 Issues and PRs are welcome: new skills, bilingual parity, prompt/evals improvements, installers, and docs.
 
-1. Read [CONTRIBUTING.md](CONTRIBUTING.md) and [skills/SKILL_AUTHORING.md](skills/SKILL_AUTHORING.md)
+1. Read [CONTRIBUTING_EN.md](CONTRIBUTING_EN.md) and [skills/SKILL_AUTHORING_EN.md](skills/SKILL_AUTHORING_EN.md)
 2. Update zh and en together unless the change is intentionally single-language
 3. Run `bash scripts/check_skills_quality.sh` before opening a PR
 

@@ -4,7 +4,7 @@
 
 ## 当前状态
 
-`MATCH_REVIEWED_WITH_LIMITATION`（2026-09-15）。本阶段基于 develop 的 `15c3804` 基线：该提交已将最新 `origin/main` 快进合入 develop。Project #4 当前读到 42 张标题以 `v3-v4 P2｜候选 Skill｜` 开头的卡片，状态均为 `Todo`。本记录完成了初始 Capability Match 和静态交付目标登记；此时尚未创建 v3-v4 物理 Skill 包，也尚未改变卡片状态。
+`BATCH_1_ACCEPTED_WITH_DEFERRED_EVAL`（2026-09-15）。本阶段基于 develop 的 `15c3804` 基线：该提交已将最新 `origin/main` 快进合入 develop。Project #4 当前读到 42 张标题以 `v3-v4 P2｜候选 Skill｜` 开头的卡片，其中 Batch 1 的 17 张为 `Done`，Batch 2 的 25 张仍为 `Todo`。Batch 1 已完成 17 个双语物理 Skill 包、契约测试、Eval 结构、metadata、治理 registry、导航同步和完整质量门禁；真实模型 Eval、外部目标执行、质量分数和业务验收仍未完成。
 
 初始 Match 结论为 41 个 `NEW` 物理 Skill（中英文各一个包）和 1 个 `ENHANCE`：`prompt-regression-testing` 作为 `prompt-testing` 的 `prompt-regression` 模式增强，不创建别名目录。结论来源是当前中英文 Skill 树、相邻 Prompt/Workflow、治理记录和规格文件；如果后续实现证据改变结论，必须先更新本记录与共享合同，再创建或修改目录。
 

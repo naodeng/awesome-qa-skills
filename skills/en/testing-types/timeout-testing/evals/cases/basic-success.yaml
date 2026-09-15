@@ -1,0 +1,25 @@
+id: basic-success
+title: "Timeout Testing: domain output with complete input"
+description: |
+  Verify that the Skill produces an evidence-based, prioritized, reviewable result about timeout budgets, cancellation propagation, downstream boundaries, user feedback, and retry interaction.
+
+input:
+  prompt: |
+    Use the timeout-testing Skill to analyze timeout budgets and cancellation behavior when search depends on inventory service. The system scope, isolated environment, main dependencies, and release constraints are provided. Produce domain risks, expected results, evidence gaps, priorities, and open questions.
+
+expect:
+  must_contain:
+    - "timeout policy"
+    - "priority"
+    - "evidence"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "timeout policy"
+          - "open"

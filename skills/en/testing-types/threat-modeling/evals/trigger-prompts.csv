@@ -1,0 +1,5 @@
+mode,should_trigger,prompt
+"explicit","true","Use the threat-modeling Skill to review threat scenario."
+"implicit","true","Analyze assets, trust boundaries, attack surface, threat scenarios, mitigations, and assumptions and list evidence gaps."
+"contextual","true","An order system has a permission risk. How should we prepare threat scenario validation?"
+"negative","false","Design the login page colors and typography without security testing analysis."

@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: api-security-testing
+interface:
+  display_name: "API Security Testing"
+  short_description: "Evidence-bounded api-security-testing analysis and validation preparation"
+  default_prompt: "Use the api-security-testing skill for evidence-bounded analysis."
+policy:
+  allow_implicit_invocation: true

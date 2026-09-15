@@ -4416,7 +4416,636 @@
     "skills/zh/testing-types/test-suite-health-analysis/agents/openai.yaml",
     "skills/en/testing-types/test-suite-health-analysis/agents/openai.yaml"
   ]
-}
+  },
+    {
+      "slug": "reliability-testing",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/reliability-testing",
+      "en_path": "skills/en/testing-types/reliability-testing",
+      "virtual_domain": "Reliability Engineering",
+      "status": "Planned-P2",
+      "priority": "P2",
+      "related": "REVIEWED_WITH_LIMITATION: adjacent capabilities are recorded in the v3-v4 Capability Match ledger; route by evidence and scope.",
+      "governance_evidence": "skills/zh/testing-types/reliability-testing/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension Quality Score evidence was run for this static package delivery."
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Eval files and local checks exist, but no real model or external target execution was run."
+      },
+      "sdlc_stage": "test-design-and-preparation",
+      "roles": [
+        "QA",
+        "SRE"
+      ],
+      "inputs": "skills/zh/testing-types/reliability-testing/prompts/reliability-testing.md#输入审计; skills/en/testing-types/reliability-testing/prompts/reliability-testing.md#Input Audit",
+      "outputs": "skills/zh/testing-types/reliability-testing/prompts/reliability-testing.md#RLT-## 发现合同; skills/en/testing-types/reliability-testing/prompts/reliability-testing.md#RLT-## Finding Contract",
+      "workflow": "v3-v4 Phase 3 Batch 1 specialist; optional navigation only",
+      "evidence_paths": [
+        "skills/zh/testing-types/reliability-testing/SKILL.md",
+        "skills/en/testing-types/reliability-testing/SKILL.md",
+        "skills/zh/testing-types/reliability-testing/prompts/reliability-testing.md",
+        "skills/en/testing-types/reliability-testing/prompts/reliability-testing.md",
+        "skills/zh/testing-types/reliability-testing/evals/eval.yaml",
+        "skills/en/testing-types/reliability-testing/evals/eval.yaml",
+        "skills/zh/testing-types/reliability-testing/agents/openai.yaml",
+        "skills/en/testing-types/reliability-testing/agents/openai.yaml"
+      ]
+    },
+    {
+      "slug": "resilience-testing",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/resilience-testing",
+      "en_path": "skills/en/testing-types/resilience-testing",
+      "virtual_domain": "Reliability Engineering",
+      "status": "Planned-P2",
+      "priority": "P2",
+      "related": "REVIEWED_WITH_LIMITATION: adjacent capabilities are recorded in the v3-v4 Capability Match ledger; route by evidence and scope.",
+      "governance_evidence": "skills/zh/testing-types/resilience-testing/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension Quality Score evidence was run for this static package delivery."
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Eval files and local checks exist, but no real model or external target execution was run."
+      },
+      "sdlc_stage": "test-design-and-preparation",
+      "roles": [
+        "QA",
+        "SRE"
+      ],
+      "inputs": "skills/zh/testing-types/resilience-testing/prompts/resilience-testing.md#输入审计; skills/en/testing-types/resilience-testing/prompts/resilience-testing.md#Input Audit",
+      "outputs": "skills/zh/testing-types/resilience-testing/prompts/resilience-testing.md#RES-## 发现合同; skills/en/testing-types/resilience-testing/prompts/resilience-testing.md#RES-## Finding Contract",
+      "workflow": "v3-v4 Phase 3 Batch 1 specialist; optional navigation only",
+      "evidence_paths": [
+        "skills/zh/testing-types/resilience-testing/SKILL.md",
+        "skills/en/testing-types/resilience-testing/SKILL.md",
+        "skills/zh/testing-types/resilience-testing/prompts/resilience-testing.md",
+        "skills/en/testing-types/resilience-testing/prompts/resilience-testing.md",
+        "skills/zh/testing-types/resilience-testing/evals/eval.yaml",
+        "skills/en/testing-types/resilience-testing/evals/eval.yaml",
+        "skills/zh/testing-types/resilience-testing/agents/openai.yaml",
+        "skills/en/testing-types/resilience-testing/agents/openai.yaml"
+      ]
+    },
+    {
+      "slug": "chaos-testing",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/chaos-testing",
+      "en_path": "skills/en/testing-types/chaos-testing",
+      "virtual_domain": "Reliability Engineering",
+      "status": "Planned-P2",
+      "priority": "P2",
+      "related": "REVIEWED_WITH_LIMITATION: adjacent capabilities are recorded in the v3-v4 Capability Match ledger; route by evidence and scope.",
+      "governance_evidence": "skills/zh/testing-types/chaos-testing/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension Quality Score evidence was run for this static package delivery."
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Eval files and local checks exist, but no real model or external target execution was run."
+      },
+      "sdlc_stage": "test-design-and-preparation",
+      "roles": [
+        "QA",
+        "SRE"
+      ],
+      "inputs": "skills/zh/testing-types/chaos-testing/prompts/chaos-testing.md#输入审计; skills/en/testing-types/chaos-testing/prompts/chaos-testing.md#Input Audit",
+      "outputs": "skills/zh/testing-types/chaos-testing/prompts/chaos-testing.md#CHS-## 发现合同; skills/en/testing-types/chaos-testing/prompts/chaos-testing.md#CHS-## Finding Contract",
+      "workflow": "v3-v4 Phase 3 Batch 1 specialist; optional navigation only",
+      "evidence_paths": [
+        "skills/zh/testing-types/chaos-testing/SKILL.md",
+        "skills/en/testing-types/chaos-testing/SKILL.md",
+        "skills/zh/testing-types/chaos-testing/prompts/chaos-testing.md",
+        "skills/en/testing-types/chaos-testing/prompts/chaos-testing.md",
+        "skills/zh/testing-types/chaos-testing/evals/eval.yaml",
+        "skills/en/testing-types/chaos-testing/evals/eval.yaml",
+        "skills/zh/testing-types/chaos-testing/agents/openai.yaml",
+        "skills/en/testing-types/chaos-testing/agents/openai.yaml"
+      ]
+    },
+    {
+      "slug": "failover-testing",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/failover-testing",
+      "en_path": "skills/en/testing-types/failover-testing",
+      "virtual_domain": "Reliability Engineering",
+      "status": "Planned-P2",
+      "priority": "P2",
+      "related": "REVIEWED_WITH_LIMITATION: adjacent capabilities are recorded in the v3-v4 Capability Match ledger; route by evidence and scope.",
+      "governance_evidence": "skills/zh/testing-types/failover-testing/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension Quality Score evidence was run for this static package delivery."
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Eval files and local checks exist, but no real model or external target execution was run."
+      },
+      "sdlc_stage": "test-design-and-preparation",
+      "roles": [
+        "QA",
+        "SRE"
+      ],
+      "inputs": "skills/zh/testing-types/failover-testing/prompts/failover-testing.md#输入审计; skills/en/testing-types/failover-testing/prompts/failover-testing.md#Input Audit",
+      "outputs": "skills/zh/testing-types/failover-testing/prompts/failover-testing.md#FOV-## 发现合同; skills/en/testing-types/failover-testing/prompts/failover-testing.md#FOV-## Finding Contract",
+      "workflow": "v3-v4 Phase 3 Batch 1 specialist; optional navigation only",
+      "evidence_paths": [
+        "skills/zh/testing-types/failover-testing/SKILL.md",
+        "skills/en/testing-types/failover-testing/SKILL.md",
+        "skills/zh/testing-types/failover-testing/prompts/failover-testing.md",
+        "skills/en/testing-types/failover-testing/prompts/failover-testing.md",
+        "skills/zh/testing-types/failover-testing/evals/eval.yaml",
+        "skills/en/testing-types/failover-testing/evals/eval.yaml",
+        "skills/zh/testing-types/failover-testing/agents/openai.yaml",
+        "skills/en/testing-types/failover-testing/agents/openai.yaml"
+      ]
+    },
+    {
+      "slug": "recovery-testing",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/recovery-testing",
+      "en_path": "skills/en/testing-types/recovery-testing",
+      "virtual_domain": "Reliability Engineering",
+      "status": "Planned-P2",
+      "priority": "P2",
+      "related": "REVIEWED_WITH_LIMITATION: adjacent capabilities are recorded in the v3-v4 Capability Match ledger; route by evidence and scope.",
+      "governance_evidence": "skills/zh/testing-types/recovery-testing/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension Quality Score evidence was run for this static package delivery."
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Eval files and local checks exist, but no real model or external target execution was run."
+      },
+      "sdlc_stage": "test-design-and-preparation",
+      "roles": [
+        "QA",
+        "SRE"
+      ],
+      "inputs": "skills/zh/testing-types/recovery-testing/prompts/recovery-testing.md#输入审计; skills/en/testing-types/recovery-testing/prompts/recovery-testing.md#Input Audit",
+      "outputs": "skills/zh/testing-types/recovery-testing/prompts/recovery-testing.md#RCV-## 发现合同; skills/en/testing-types/recovery-testing/prompts/recovery-testing.md#RCV-## Finding Contract",
+      "workflow": "v3-v4 Phase 3 Batch 1 specialist; optional navigation only",
+      "evidence_paths": [
+        "skills/zh/testing-types/recovery-testing/SKILL.md",
+        "skills/en/testing-types/recovery-testing/SKILL.md",
+        "skills/zh/testing-types/recovery-testing/prompts/recovery-testing.md",
+        "skills/en/testing-types/recovery-testing/prompts/recovery-testing.md",
+        "skills/zh/testing-types/recovery-testing/evals/eval.yaml",
+        "skills/en/testing-types/recovery-testing/evals/eval.yaml",
+        "skills/zh/testing-types/recovery-testing/agents/openai.yaml",
+        "skills/en/testing-types/recovery-testing/agents/openai.yaml"
+      ]
+    },
+    {
+      "slug": "retry-testing",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/retry-testing",
+      "en_path": "skills/en/testing-types/retry-testing",
+      "virtual_domain": "Reliability Engineering",
+      "status": "Planned-P2",
+      "priority": "P2",
+      "related": "REVIEWED_WITH_LIMITATION: adjacent capabilities are recorded in the v3-v4 Capability Match ledger; route by evidence and scope.",
+      "governance_evidence": "skills/zh/testing-types/retry-testing/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension Quality Score evidence was run for this static package delivery."
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Eval files and local checks exist, but no real model or external target execution was run."
+      },
+      "sdlc_stage": "test-design-and-preparation",
+      "roles": [
+        "QA",
+        "SRE"
+      ],
+      "inputs": "skills/zh/testing-types/retry-testing/prompts/retry-testing.md#输入审计; skills/en/testing-types/retry-testing/prompts/retry-testing.md#Input Audit",
+      "outputs": "skills/zh/testing-types/retry-testing/prompts/retry-testing.md#RTY-## 发现合同; skills/en/testing-types/retry-testing/prompts/retry-testing.md#RTY-## Finding Contract",
+      "workflow": "v3-v4 Phase 3 Batch 1 specialist; optional navigation only",
+      "evidence_paths": [
+        "skills/zh/testing-types/retry-testing/SKILL.md",
+        "skills/en/testing-types/retry-testing/SKILL.md",
+        "skills/zh/testing-types/retry-testing/prompts/retry-testing.md",
+        "skills/en/testing-types/retry-testing/prompts/retry-testing.md",
+        "skills/zh/testing-types/retry-testing/evals/eval.yaml",
+        "skills/en/testing-types/retry-testing/evals/eval.yaml",
+        "skills/zh/testing-types/retry-testing/agents/openai.yaml",
+        "skills/en/testing-types/retry-testing/agents/openai.yaml"
+      ]
+    },
+    {
+      "slug": "timeout-testing",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/timeout-testing",
+      "en_path": "skills/en/testing-types/timeout-testing",
+      "virtual_domain": "Reliability Engineering",
+      "status": "Planned-P2",
+      "priority": "P2",
+      "related": "REVIEWED_WITH_LIMITATION: adjacent capabilities are recorded in the v3-v4 Capability Match ledger; route by evidence and scope.",
+      "governance_evidence": "skills/zh/testing-types/timeout-testing/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension Quality Score evidence was run for this static package delivery."
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Eval files and local checks exist, but no real model or external target execution was run."
+      },
+      "sdlc_stage": "test-design-and-preparation",
+      "roles": [
+        "QA",
+        "SRE"
+      ],
+      "inputs": "skills/zh/testing-types/timeout-testing/prompts/timeout-testing.md#输入审计; skills/en/testing-types/timeout-testing/prompts/timeout-testing.md#Input Audit",
+      "outputs": "skills/zh/testing-types/timeout-testing/prompts/timeout-testing.md#TMO-## 发现合同; skills/en/testing-types/timeout-testing/prompts/timeout-testing.md#TMO-## Finding Contract",
+      "workflow": "v3-v4 Phase 3 Batch 1 specialist; optional navigation only",
+      "evidence_paths": [
+        "skills/zh/testing-types/timeout-testing/SKILL.md",
+        "skills/en/testing-types/timeout-testing/SKILL.md",
+        "skills/zh/testing-types/timeout-testing/prompts/timeout-testing.md",
+        "skills/en/testing-types/timeout-testing/prompts/timeout-testing.md",
+        "skills/zh/testing-types/timeout-testing/evals/eval.yaml",
+        "skills/en/testing-types/timeout-testing/evals/eval.yaml",
+        "skills/zh/testing-types/timeout-testing/agents/openai.yaml",
+        "skills/en/testing-types/timeout-testing/agents/openai.yaml"
+      ]
+    },
+    {
+      "slug": "circuit-breaker-testing",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/circuit-breaker-testing",
+      "en_path": "skills/en/testing-types/circuit-breaker-testing",
+      "virtual_domain": "Reliability Engineering",
+      "status": "Planned-P2",
+      "priority": "P2",
+      "related": "REVIEWED_WITH_LIMITATION: adjacent capabilities are recorded in the v3-v4 Capability Match ledger; route by evidence and scope.",
+      "governance_evidence": "skills/zh/testing-types/circuit-breaker-testing/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension Quality Score evidence was run for this static package delivery."
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Eval files and local checks exist, but no real model or external target execution was run."
+      },
+      "sdlc_stage": "test-design-and-preparation",
+      "roles": [
+        "QA",
+        "SRE"
+      ],
+      "inputs": "skills/zh/testing-types/circuit-breaker-testing/prompts/circuit-breaker-testing.md#输入审计; skills/en/testing-types/circuit-breaker-testing/prompts/circuit-breaker-testing.md#Input Audit",
+      "outputs": "skills/zh/testing-types/circuit-breaker-testing/prompts/circuit-breaker-testing.md#CBR-## 发现合同; skills/en/testing-types/circuit-breaker-testing/prompts/circuit-breaker-testing.md#CBR-## Finding Contract",
+      "workflow": "v3-v4 Phase 3 Batch 1 specialist; optional navigation only",
+      "evidence_paths": [
+        "skills/zh/testing-types/circuit-breaker-testing/SKILL.md",
+        "skills/en/testing-types/circuit-breaker-testing/SKILL.md",
+        "skills/zh/testing-types/circuit-breaker-testing/prompts/circuit-breaker-testing.md",
+        "skills/en/testing-types/circuit-breaker-testing/prompts/circuit-breaker-testing.md",
+        "skills/zh/testing-types/circuit-breaker-testing/evals/eval.yaml",
+        "skills/en/testing-types/circuit-breaker-testing/evals/eval.yaml",
+        "skills/zh/testing-types/circuit-breaker-testing/agents/openai.yaml",
+        "skills/en/testing-types/circuit-breaker-testing/agents/openai.yaml"
+      ]
+    },
+    {
+      "slug": "dependency-failure-testing",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/dependency-failure-testing",
+      "en_path": "skills/en/testing-types/dependency-failure-testing",
+      "virtual_domain": "Reliability Engineering",
+      "status": "Planned-P2",
+      "priority": "P2",
+      "related": "REVIEWED_WITH_LIMITATION: adjacent capabilities are recorded in the v3-v4 Capability Match ledger; route by evidence and scope.",
+      "governance_evidence": "skills/zh/testing-types/dependency-failure-testing/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension Quality Score evidence was run for this static package delivery."
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Eval files and local checks exist, but no real model or external target execution was run."
+      },
+      "sdlc_stage": "test-design-and-preparation",
+      "roles": [
+        "QA",
+        "SRE"
+      ],
+      "inputs": "skills/zh/testing-types/dependency-failure-testing/prompts/dependency-failure-testing.md#输入审计; skills/en/testing-types/dependency-failure-testing/prompts/dependency-failure-testing.md#Input Audit",
+      "outputs": "skills/zh/testing-types/dependency-failure-testing/prompts/dependency-failure-testing.md#DPF-## 发现合同; skills/en/testing-types/dependency-failure-testing/prompts/dependency-failure-testing.md#DPF-## Finding Contract",
+      "workflow": "v3-v4 Phase 3 Batch 1 specialist; optional navigation only",
+      "evidence_paths": [
+        "skills/zh/testing-types/dependency-failure-testing/SKILL.md",
+        "skills/en/testing-types/dependency-failure-testing/SKILL.md",
+        "skills/zh/testing-types/dependency-failure-testing/prompts/dependency-failure-testing.md",
+        "skills/en/testing-types/dependency-failure-testing/prompts/dependency-failure-testing.md",
+        "skills/zh/testing-types/dependency-failure-testing/evals/eval.yaml",
+        "skills/en/testing-types/dependency-failure-testing/evals/eval.yaml",
+        "skills/zh/testing-types/dependency-failure-testing/agents/openai.yaml",
+        "skills/en/testing-types/dependency-failure-testing/agents/openai.yaml"
+      ]
+    },
+    {
+      "slug": "disaster-recovery-testing",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/disaster-recovery-testing",
+      "en_path": "skills/en/testing-types/disaster-recovery-testing",
+      "virtual_domain": "Reliability Engineering",
+      "status": "Planned-P2",
+      "priority": "P2",
+      "related": "REVIEWED_WITH_LIMITATION: adjacent capabilities are recorded in the v3-v4 Capability Match ledger; route by evidence and scope.",
+      "governance_evidence": "skills/zh/testing-types/disaster-recovery-testing/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension Quality Score evidence was run for this static package delivery."
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Eval files and local checks exist, but no real model or external target execution was run."
+      },
+      "sdlc_stage": "test-design-and-preparation",
+      "roles": [
+        "QA",
+        "SRE"
+      ],
+      "inputs": "skills/zh/testing-types/disaster-recovery-testing/prompts/disaster-recovery-testing.md#输入审计; skills/en/testing-types/disaster-recovery-testing/prompts/disaster-recovery-testing.md#Input Audit",
+      "outputs": "skills/zh/testing-types/disaster-recovery-testing/prompts/disaster-recovery-testing.md#DRT-## 发现合同; skills/en/testing-types/disaster-recovery-testing/prompts/disaster-recovery-testing.md#DRT-## Finding Contract",
+      "workflow": "v3-v4 Phase 3 Batch 1 specialist; optional navigation only",
+      "evidence_paths": [
+        "skills/zh/testing-types/disaster-recovery-testing/SKILL.md",
+        "skills/en/testing-types/disaster-recovery-testing/SKILL.md",
+        "skills/zh/testing-types/disaster-recovery-testing/prompts/disaster-recovery-testing.md",
+        "skills/en/testing-types/disaster-recovery-testing/prompts/disaster-recovery-testing.md",
+        "skills/zh/testing-types/disaster-recovery-testing/evals/eval.yaml",
+        "skills/en/testing-types/disaster-recovery-testing/evals/eval.yaml",
+        "skills/zh/testing-types/disaster-recovery-testing/agents/openai.yaml",
+        "skills/en/testing-types/disaster-recovery-testing/agents/openai.yaml"
+      ]
+    },
+    {
+      "slug": "authentication-testing",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/authentication-testing",
+      "en_path": "skills/en/testing-types/authentication-testing",
+      "virtual_domain": "Security Engineering",
+      "status": "Planned-P2",
+      "priority": "P2",
+      "related": "REVIEWED_WITH_LIMITATION: adjacent capabilities are recorded in the v3-v4 Capability Match ledger; route by evidence and scope.",
+      "governance_evidence": "skills/zh/testing-types/authentication-testing/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension Quality Score evidence was run for this static package delivery."
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Eval files and local checks exist, but no real model or external target execution was run."
+      },
+      "sdlc_stage": "test-design-and-preparation",
+      "roles": [
+        "QA",
+        "Security"
+      ],
+      "inputs": "skills/zh/testing-types/authentication-testing/prompts/authentication-testing.md#输入审计; skills/en/testing-types/authentication-testing/prompts/authentication-testing.md#Input Audit",
+      "outputs": "skills/zh/testing-types/authentication-testing/prompts/authentication-testing.md#AUT-## 发现合同; skills/en/testing-types/authentication-testing/prompts/authentication-testing.md#AUT-## Finding Contract",
+      "workflow": "v3-v4 Phase 3 Batch 1 specialist; optional navigation only",
+      "evidence_paths": [
+        "skills/zh/testing-types/authentication-testing/SKILL.md",
+        "skills/en/testing-types/authentication-testing/SKILL.md",
+        "skills/zh/testing-types/authentication-testing/prompts/authentication-testing.md",
+        "skills/en/testing-types/authentication-testing/prompts/authentication-testing.md",
+        "skills/zh/testing-types/authentication-testing/evals/eval.yaml",
+        "skills/en/testing-types/authentication-testing/evals/eval.yaml",
+        "skills/zh/testing-types/authentication-testing/agents/openai.yaml",
+        "skills/en/testing-types/authentication-testing/agents/openai.yaml"
+      ]
+    },
+    {
+      "slug": "authorization-testing",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/authorization-testing",
+      "en_path": "skills/en/testing-types/authorization-testing",
+      "virtual_domain": "Security Engineering",
+      "status": "Planned-P2",
+      "priority": "P2",
+      "related": "REVIEWED_WITH_LIMITATION: adjacent capabilities are recorded in the v3-v4 Capability Match ledger; route by evidence and scope.",
+      "governance_evidence": "skills/zh/testing-types/authorization-testing/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension Quality Score evidence was run for this static package delivery."
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Eval files and local checks exist, but no real model or external target execution was run."
+      },
+      "sdlc_stage": "test-design-and-preparation",
+      "roles": [
+        "QA",
+        "Security"
+      ],
+      "inputs": "skills/zh/testing-types/authorization-testing/prompts/authorization-testing.md#输入审计; skills/en/testing-types/authorization-testing/prompts/authorization-testing.md#Input Audit",
+      "outputs": "skills/zh/testing-types/authorization-testing/prompts/authorization-testing.md#AZT-## 发现合同; skills/en/testing-types/authorization-testing/prompts/authorization-testing.md#AZT-## Finding Contract",
+      "workflow": "v3-v4 Phase 3 Batch 1 specialist; optional navigation only",
+      "evidence_paths": [
+        "skills/zh/testing-types/authorization-testing/SKILL.md",
+        "skills/en/testing-types/authorization-testing/SKILL.md",
+        "skills/zh/testing-types/authorization-testing/prompts/authorization-testing.md",
+        "skills/en/testing-types/authorization-testing/prompts/authorization-testing.md",
+        "skills/zh/testing-types/authorization-testing/evals/eval.yaml",
+        "skills/en/testing-types/authorization-testing/evals/eval.yaml",
+        "skills/zh/testing-types/authorization-testing/agents/openai.yaml",
+        "skills/en/testing-types/authorization-testing/agents/openai.yaml"
+      ]
+    },
+    {
+      "slug": "session-security-testing",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/session-security-testing",
+      "en_path": "skills/en/testing-types/session-security-testing",
+      "virtual_domain": "Security Engineering",
+      "status": "Planned-P2",
+      "priority": "P2",
+      "related": "REVIEWED_WITH_LIMITATION: adjacent capabilities are recorded in the v3-v4 Capability Match ledger; route by evidence and scope.",
+      "governance_evidence": "skills/zh/testing-types/session-security-testing/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension Quality Score evidence was run for this static package delivery."
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Eval files and local checks exist, but no real model or external target execution was run."
+      },
+      "sdlc_stage": "test-design-and-preparation",
+      "roles": [
+        "QA",
+        "Security"
+      ],
+      "inputs": "skills/zh/testing-types/session-security-testing/prompts/session-security-testing.md#输入审计; skills/en/testing-types/session-security-testing/prompts/session-security-testing.md#Input Audit",
+      "outputs": "skills/zh/testing-types/session-security-testing/prompts/session-security-testing.md#SST-## 发现合同; skills/en/testing-types/session-security-testing/prompts/session-security-testing.md#SST-## Finding Contract",
+      "workflow": "v3-v4 Phase 3 Batch 1 specialist; optional navigation only",
+      "evidence_paths": [
+        "skills/zh/testing-types/session-security-testing/SKILL.md",
+        "skills/en/testing-types/session-security-testing/SKILL.md",
+        "skills/zh/testing-types/session-security-testing/prompts/session-security-testing.md",
+        "skills/en/testing-types/session-security-testing/prompts/session-security-testing.md",
+        "skills/zh/testing-types/session-security-testing/evals/eval.yaml",
+        "skills/en/testing-types/session-security-testing/evals/eval.yaml",
+        "skills/zh/testing-types/session-security-testing/agents/openai.yaml",
+        "skills/en/testing-types/session-security-testing/agents/openai.yaml"
+      ]
+    },
+    {
+      "slug": "api-security-testing",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/api-security-testing",
+      "en_path": "skills/en/testing-types/api-security-testing",
+      "virtual_domain": "Security Engineering",
+      "status": "Planned-P2",
+      "priority": "P2",
+      "related": "REVIEWED_WITH_LIMITATION: adjacent capabilities are recorded in the v3-v4 Capability Match ledger; route by evidence and scope.",
+      "governance_evidence": "skills/zh/testing-types/api-security-testing/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension Quality Score evidence was run for this static package delivery."
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Eval files and local checks exist, but no real model or external target execution was run."
+      },
+      "sdlc_stage": "test-design-and-preparation",
+      "roles": [
+        "QA",
+        "Security"
+      ],
+      "inputs": "skills/zh/testing-types/api-security-testing/prompts/api-security-testing.md#输入审计; skills/en/testing-types/api-security-testing/prompts/api-security-testing.md#Input Audit",
+      "outputs": "skills/zh/testing-types/api-security-testing/prompts/api-security-testing.md#AST-## 发现合同; skills/en/testing-types/api-security-testing/prompts/api-security-testing.md#AST-## Finding Contract",
+      "workflow": "v3-v4 Phase 3 Batch 1 specialist; optional navigation only",
+      "evidence_paths": [
+        "skills/zh/testing-types/api-security-testing/SKILL.md",
+        "skills/en/testing-types/api-security-testing/SKILL.md",
+        "skills/zh/testing-types/api-security-testing/prompts/api-security-testing.md",
+        "skills/en/testing-types/api-security-testing/prompts/api-security-testing.md",
+        "skills/zh/testing-types/api-security-testing/evals/eval.yaml",
+        "skills/en/testing-types/api-security-testing/evals/eval.yaml",
+        "skills/zh/testing-types/api-security-testing/agents/openai.yaml",
+        "skills/en/testing-types/api-security-testing/agents/openai.yaml"
+      ]
+    },
+    {
+      "slug": "security-requirement-review",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/security-requirement-review",
+      "en_path": "skills/en/testing-types/security-requirement-review",
+      "virtual_domain": "Security Engineering",
+      "status": "Planned-P2",
+      "priority": "P2",
+      "related": "REVIEWED_WITH_LIMITATION: adjacent capabilities are recorded in the v3-v4 Capability Match ledger; route by evidence and scope.",
+      "governance_evidence": "skills/zh/testing-types/security-requirement-review/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension Quality Score evidence was run for this static package delivery."
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Eval files and local checks exist, but no real model or external target execution was run."
+      },
+      "sdlc_stage": "test-design-and-preparation",
+      "roles": [
+        "QA",
+        "Security"
+      ],
+      "inputs": "skills/zh/testing-types/security-requirement-review/prompts/security-requirement-review.md#输入审计; skills/en/testing-types/security-requirement-review/prompts/security-requirement-review.md#Input Audit",
+      "outputs": "skills/zh/testing-types/security-requirement-review/prompts/security-requirement-review.md#SRR-## 发现合同; skills/en/testing-types/security-requirement-review/prompts/security-requirement-review.md#SRR-## Finding Contract",
+      "workflow": "v3-v4 Phase 3 Batch 1 specialist; optional navigation only",
+      "evidence_paths": [
+        "skills/zh/testing-types/security-requirement-review/SKILL.md",
+        "skills/en/testing-types/security-requirement-review/SKILL.md",
+        "skills/zh/testing-types/security-requirement-review/prompts/security-requirement-review.md",
+        "skills/en/testing-types/security-requirement-review/prompts/security-requirement-review.md",
+        "skills/zh/testing-types/security-requirement-review/evals/eval.yaml",
+        "skills/en/testing-types/security-requirement-review/evals/eval.yaml",
+        "skills/zh/testing-types/security-requirement-review/agents/openai.yaml",
+        "skills/en/testing-types/security-requirement-review/agents/openai.yaml"
+      ]
+    },
+    {
+      "slug": "threat-modeling",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/threat-modeling",
+      "en_path": "skills/en/testing-types/threat-modeling",
+      "virtual_domain": "Security Engineering",
+      "status": "Planned-P2",
+      "priority": "P2",
+      "related": "REVIEWED_WITH_LIMITATION: adjacent capabilities are recorded in the v3-v4 Capability Match ledger; route by evidence and scope.",
+      "governance_evidence": "skills/zh/testing-types/threat-modeling/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension Quality Score evidence was run for this static package delivery."
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Eval files and local checks exist, but no real model or external target execution was run."
+      },
+      "sdlc_stage": "test-design-and-preparation",
+      "roles": [
+        "QA",
+        "Security"
+      ],
+      "inputs": "skills/zh/testing-types/threat-modeling/prompts/threat-modeling.md#输入审计; skills/en/testing-types/threat-modeling/prompts/threat-modeling.md#Input Audit",
+      "outputs": "skills/zh/testing-types/threat-modeling/prompts/threat-modeling.md#THM-## 发现合同; skills/en/testing-types/threat-modeling/prompts/threat-modeling.md#THM-## Finding Contract",
+      "workflow": "v3-v4 Phase 3 Batch 1 specialist; optional navigation only",
+      "evidence_paths": [
+        "skills/zh/testing-types/threat-modeling/SKILL.md",
+        "skills/en/testing-types/threat-modeling/SKILL.md",
+        "skills/zh/testing-types/threat-modeling/prompts/threat-modeling.md",
+        "skills/en/testing-types/threat-modeling/prompts/threat-modeling.md",
+        "skills/zh/testing-types/threat-modeling/evals/eval.yaml",
+        "skills/en/testing-types/threat-modeling/evals/eval.yaml",
+        "skills/zh/testing-types/threat-modeling/agents/openai.yaml",
+        "skills/en/testing-types/threat-modeling/agents/openai.yaml"
+      ]
+    },
+    {
+      "slug": "secrets-exposure-review",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/secrets-exposure-review",
+      "en_path": "skills/en/testing-types/secrets-exposure-review",
+      "virtual_domain": "Security Engineering",
+      "status": "Planned-P2",
+      "priority": "P2",
+      "related": "REVIEWED_WITH_LIMITATION: adjacent capabilities are recorded in the v3-v4 Capability Match ledger; route by evidence and scope.",
+      "governance_evidence": "skills/zh/testing-types/secrets-exposure-review/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension Quality Score evidence was run for this static package delivery."
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Eval files and local checks exist, but no real model or external target execution was run."
+      },
+      "sdlc_stage": "test-design-and-preparation",
+      "roles": [
+        "QA",
+        "Security"
+      ],
+      "inputs": "skills/zh/testing-types/secrets-exposure-review/prompts/secrets-exposure-review.md#输入审计; skills/en/testing-types/secrets-exposure-review/prompts/secrets-exposure-review.md#Input Audit",
+      "outputs": "skills/zh/testing-types/secrets-exposure-review/prompts/secrets-exposure-review.md#SER-## 发现合同; skills/en/testing-types/secrets-exposure-review/prompts/secrets-exposure-review.md#SER-## Finding Contract",
+      "workflow": "v3-v4 Phase 3 Batch 1 specialist; optional navigation only",
+      "evidence_paths": [
+        "skills/zh/testing-types/secrets-exposure-review/SKILL.md",
+        "skills/en/testing-types/secrets-exposure-review/SKILL.md",
+        "skills/zh/testing-types/secrets-exposure-review/prompts/secrets-exposure-review.md",
+        "skills/en/testing-types/secrets-exposure-review/prompts/secrets-exposure-review.md",
+        "skills/zh/testing-types/secrets-exposure-review/evals/eval.yaml",
+        "skills/en/testing-types/secrets-exposure-review/evals/eval.yaml",
+        "skills/zh/testing-types/secrets-exposure-review/agents/openai.yaml",
+        "skills/en/testing-types/secrets-exposure-review/agents/openai.yaml"
+      ]
+    }
   ],
   "candidates": [
     {
@@ -6265,6 +6894,765 @@
     "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned",
     "acceptance_state": "INCOMPLETE"
   }
-}
+  },
+    {
+      "slug": "reliability-testing",
+      "decision_state": "REVIEWED_WITH_LIMITATION",
+      "conclusion": "NEW",
+      "target": "reliability-testing",
+      "scope": "Evidence-bounded reliability-testing package for reliability objectives, failure modes, exposure windows, and evidence readiness; findings use RLT-## and preserve source, uncertainty, and Human decisions.",
+      "non_goals": "No invented behavior or thresholds, unsupported completeness claims, execution, coverage proof, vulnerability absence, release approval, or Human risk acceptance.",
+      "evidence": {
+        "name": "The v3-v4 P2 card name and bilingual reliability-testing package define a scoped candidate capability.",
+        "purpose": "The bilingual Prompt focuses on reliability objectives, failure modes, exposure windows, and evidence readiness and uses a stable RLT-## finding contract.",
+        "inputs": "skills/zh/testing-types/reliability-testing/prompts/reliability-testing.md Input Audit; English mirror Input Audit.",
+        "outputs": "skills/zh/testing-types/reliability-testing/prompts/reliability-testing.md RLT-## 发现合同; English mirror RLT-## Finding Contract.",
+        "decision_logic": "Select a minimal evidence-backed set, preserve missing and conflicting material, and propose validation without upgrading static design to execution.",
+        "workflow_role": "v3-v4 Phase 3 Batch 1 Reliability Engineering specialist; optional navigation only, with no runtime, security-pass, or release decision."
+      },
+      "next_action": "Run a real-model Eval and isolated target validation when credentials, a controlled runner, and an authorized target are available; keep NOT_RUN and NOT_SCORED until that evidence exists.",
+      "target_evidence_paths": [
+        "skills/zh/testing-types/reliability-testing/SKILL.md",
+        "skills/en/testing-types/reliability-testing/SKILL.md",
+        "skills/zh/testing-types/reliability-testing/prompts/reliability-testing.md",
+        "skills/en/testing-types/reliability-testing/prompts/reliability-testing.md"
+      ],
+      "candidate_source": "Project #4 v3-v4 P2 candidate card; docs/superpowers/specs/2026-09-15-v3-v4-two-batch-design.md; docs/governance/PHASE_3_V3_V4.md; local bilingual package review",
+      "capability_match": {
+        "decision": "NEW",
+        "existing_targets": [
+          "skills/zh/testing-types/performance-testing/SKILL.md",
+          "skills/en/testing-types/performance-testing/SKILL.md",
+          "skills/zh/testing-types/production-incident-analysis/SKILL.md",
+          "skills/en/testing-types/production-incident-analysis/SKILL.md"
+        ],
+        "difference": "Existing adjacent packages do not own the reliability objectives, failure modes, exposure windows, and evidence readiness contract; this package isolates it with RLT-##."
+      },
+      "project_evidence": {
+        "project_number": 4,
+        "item_id": "PVTI_lAHOAHP1as4BjBhVzg6Sc5w",
+        "title": "v3-v4 P2｜候选 Skill｜reliability-testing",
+        "current_status": "Done",
+        "verified_at": "2026-09-15",
+        "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
+        "transition_requirement": "Todo -> In Progress -> Done",
+        "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned",
+        "acceptance_state": "INCOMPLETE"
+      }
+    },
+    {
+      "slug": "resilience-testing",
+      "decision_state": "REVIEWED_WITH_LIMITATION",
+      "conclusion": "NEW",
+      "target": "resilience-testing",
+      "scope": "Evidence-bounded resilience-testing package for degradation behavior, isolation boundaries, recovery capability, and residual risk; findings use RES-## and preserve source, uncertainty, and Human decisions.",
+      "non_goals": "No invented behavior or thresholds, unsupported completeness claims, execution, coverage proof, vulnerability absence, release approval, or Human risk acceptance.",
+      "evidence": {
+        "name": "The v3-v4 P2 card name and bilingual resilience-testing package define a scoped candidate capability.",
+        "purpose": "The bilingual Prompt focuses on degradation behavior, isolation boundaries, recovery capability, and residual risk and uses a stable RES-## finding contract.",
+        "inputs": "skills/zh/testing-types/resilience-testing/prompts/resilience-testing.md Input Audit; English mirror Input Audit.",
+        "outputs": "skills/zh/testing-types/resilience-testing/prompts/resilience-testing.md RES-## 发现合同; English mirror RES-## Finding Contract.",
+        "decision_logic": "Select a minimal evidence-backed set, preserve missing and conflicting material, and propose validation without upgrading static design to execution.",
+        "workflow_role": "v3-v4 Phase 3 Batch 1 Reliability Engineering specialist; optional navigation only, with no runtime, security-pass, or release decision."
+      },
+      "next_action": "Run a real-model Eval and isolated target validation when credentials, a controlled runner, and an authorized target are available; keep NOT_RUN and NOT_SCORED until that evidence exists.",
+      "target_evidence_paths": [
+        "skills/zh/testing-types/resilience-testing/SKILL.md",
+        "skills/en/testing-types/resilience-testing/SKILL.md",
+        "skills/zh/testing-types/resilience-testing/prompts/resilience-testing.md",
+        "skills/en/testing-types/resilience-testing/prompts/resilience-testing.md"
+      ],
+      "candidate_source": "Project #4 v3-v4 P2 candidate card; docs/superpowers/specs/2026-09-15-v3-v4-two-batch-design.md; docs/governance/PHASE_3_V3_V4.md; local bilingual package review",
+      "capability_match": {
+        "decision": "NEW",
+        "existing_targets": [
+          "skills/zh/testing-types/performance-testing/SKILL.md",
+          "skills/en/testing-types/performance-testing/SKILL.md",
+          "skills/zh/testing-types/quality-risk-analysis/SKILL.md",
+          "skills/en/testing-types/quality-risk-analysis/SKILL.md"
+        ],
+        "difference": "Existing adjacent packages do not own the degradation behavior, isolation boundaries, recovery capability, and residual risk contract; this package isolates it with RES-##."
+      },
+      "project_evidence": {
+        "project_number": 4,
+        "item_id": "PVTI_lAHOAHP1as4BjBhVzg6Sc68",
+        "title": "v3-v4 P2｜候选 Skill｜resilience-testing",
+        "current_status": "Done",
+        "verified_at": "2026-09-15",
+        "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
+        "transition_requirement": "Todo -> In Progress -> Done",
+        "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned",
+        "acceptance_state": "INCOMPLETE"
+      }
+    },
+    {
+      "slug": "chaos-testing",
+      "decision_state": "REVIEWED_WITH_LIMITATION",
+      "conclusion": "NEW",
+      "target": "chaos-testing",
+      "scope": "Evidence-bounded chaos-testing package for fault-injection hypotheses, blast radius, stop conditions, and safety guardrails; findings use CHS-## and preserve source, uncertainty, and Human decisions.",
+      "non_goals": "No invented behavior or thresholds, unsupported completeness claims, execution, coverage proof, vulnerability absence, release approval, or Human risk acceptance.",
+      "evidence": {
+        "name": "The v3-v4 P2 card name and bilingual chaos-testing package define a scoped candidate capability.",
+        "purpose": "The bilingual Prompt focuses on fault-injection hypotheses, blast radius, stop conditions, and safety guardrails and uses a stable CHS-## finding contract.",
+        "inputs": "skills/zh/testing-types/chaos-testing/prompts/chaos-testing.md Input Audit; English mirror Input Audit.",
+        "outputs": "skills/zh/testing-types/chaos-testing/prompts/chaos-testing.md CHS-## 发现合同; English mirror CHS-## Finding Contract.",
+        "decision_logic": "Select a minimal evidence-backed set, preserve missing and conflicting material, and propose validation without upgrading static design to execution.",
+        "workflow_role": "v3-v4 Phase 3 Batch 1 Reliability Engineering specialist; optional navigation only, with no runtime, security-pass, or release decision."
+      },
+      "next_action": "Run a real-model Eval and isolated target validation when credentials, a controlled runner, and an authorized target are available; keep NOT_RUN and NOT_SCORED until that evidence exists.",
+      "target_evidence_paths": [
+        "skills/zh/testing-types/chaos-testing/SKILL.md",
+        "skills/en/testing-types/chaos-testing/SKILL.md",
+        "skills/zh/testing-types/chaos-testing/prompts/chaos-testing.md",
+        "skills/en/testing-types/chaos-testing/prompts/chaos-testing.md"
+      ],
+      "candidate_source": "Project #4 v3-v4 P2 candidate card; docs/superpowers/specs/2026-09-15-v3-v4-two-batch-design.md; docs/governance/PHASE_3_V3_V4.md; local bilingual package review",
+      "capability_match": {
+        "decision": "NEW",
+        "existing_targets": [
+          "skills/zh/testing-types/performance-testing/SKILL.md",
+          "skills/en/testing-types/performance-testing/SKILL.md"
+        ],
+        "difference": "Existing adjacent packages do not own the fault-injection hypotheses, blast radius, stop conditions, and safety guardrails contract; this package isolates it with CHS-##."
+      },
+      "project_evidence": {
+        "project_number": 4,
+        "item_id": "PVTI_lAHOAHP1as4BjBhVzg6Sc8M",
+        "title": "v3-v4 P2｜候选 Skill｜chaos-testing",
+        "current_status": "Done",
+        "verified_at": "2026-09-15",
+        "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
+        "transition_requirement": "Todo -> In Progress -> Done",
+        "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned",
+        "acceptance_state": "INCOMPLETE"
+      }
+    },
+    {
+      "slug": "failover-testing",
+      "decision_state": "REVIEWED_WITH_LIMITATION",
+      "conclusion": "NEW",
+      "target": "failover-testing",
+      "scope": "Evidence-bounded failover-testing package for primary-secondary triggers, traffic transfer, data consistency, and recovery evidence; findings use FOV-## and preserve source, uncertainty, and Human decisions.",
+      "non_goals": "No invented behavior or thresholds, unsupported completeness claims, execution, coverage proof, vulnerability absence, release approval, or Human risk acceptance.",
+      "evidence": {
+        "name": "The v3-v4 P2 card name and bilingual failover-testing package define a scoped candidate capability.",
+        "purpose": "The bilingual Prompt focuses on primary-secondary triggers, traffic transfer, data consistency, and recovery evidence and uses a stable FOV-## finding contract.",
+        "inputs": "skills/zh/testing-types/failover-testing/prompts/failover-testing.md Input Audit; English mirror Input Audit.",
+        "outputs": "skills/zh/testing-types/failover-testing/prompts/failover-testing.md FOV-## 发现合同; English mirror FOV-## Finding Contract.",
+        "decision_logic": "Select a minimal evidence-backed set, preserve missing and conflicting material, and propose validation without upgrading static design to execution.",
+        "workflow_role": "v3-v4 Phase 3 Batch 1 Reliability Engineering specialist; optional navigation only, with no runtime, security-pass, or release decision."
+      },
+      "next_action": "Run a real-model Eval and isolated target validation when credentials, a controlled runner, and an authorized target are available; keep NOT_RUN and NOT_SCORED until that evidence exists.",
+      "target_evidence_paths": [
+        "skills/zh/testing-types/failover-testing/SKILL.md",
+        "skills/en/testing-types/failover-testing/SKILL.md",
+        "skills/zh/testing-types/failover-testing/prompts/failover-testing.md",
+        "skills/en/testing-types/failover-testing/prompts/failover-testing.md"
+      ],
+      "candidate_source": "Project #4 v3-v4 P2 candidate card; docs/superpowers/specs/2026-09-15-v3-v4-two-batch-design.md; docs/governance/PHASE_3_V3_V4.md; local bilingual package review",
+      "capability_match": {
+        "decision": "NEW",
+        "existing_targets": [
+          "skills/zh/testing-types/production-incident-analysis/SKILL.md",
+          "skills/en/testing-types/production-incident-analysis/SKILL.md",
+          "skills/zh/testing-types/quality-risk-analysis/SKILL.md",
+          "skills/en/testing-types/quality-risk-analysis/SKILL.md"
+        ],
+        "difference": "Existing adjacent packages do not own the primary-secondary triggers, traffic transfer, data consistency, and recovery evidence contract; this package isolates it with FOV-##."
+      },
+      "project_evidence": {
+        "project_number": 4,
+        "item_id": "PVTI_lAHOAHP1as4BjBhVzg6Sc90",
+        "title": "v3-v4 P2｜候选 Skill｜failover-testing",
+        "current_status": "Done",
+        "verified_at": "2026-09-15",
+        "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
+        "transition_requirement": "Todo -> In Progress -> Done",
+        "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned",
+        "acceptance_state": "INCOMPLETE"
+      }
+    },
+    {
+      "slug": "recovery-testing",
+      "decision_state": "REVIEWED_WITH_LIMITATION",
+      "conclusion": "NEW",
+      "target": "recovery-testing",
+      "scope": "Evidence-bounded recovery-testing package for recovery point, recovery time, recovery steps, validation evidence, and Human takeover; findings use RCV-## and preserve source, uncertainty, and Human decisions.",
+      "non_goals": "No invented behavior or thresholds, unsupported completeness claims, execution, coverage proof, vulnerability absence, release approval, or Human risk acceptance.",
+      "evidence": {
+        "name": "The v3-v4 P2 card name and bilingual recovery-testing package define a scoped candidate capability.",
+        "purpose": "The bilingual Prompt focuses on recovery point, recovery time, recovery steps, validation evidence, and Human takeover and uses a stable RCV-## finding contract.",
+        "inputs": "skills/zh/testing-types/recovery-testing/prompts/recovery-testing.md Input Audit; English mirror Input Audit.",
+        "outputs": "skills/zh/testing-types/recovery-testing/prompts/recovery-testing.md RCV-## 发现合同; English mirror RCV-## Finding Contract.",
+        "decision_logic": "Select a minimal evidence-backed set, preserve missing and conflicting material, and propose validation without upgrading static design to execution.",
+        "workflow_role": "v3-v4 Phase 3 Batch 1 Reliability Engineering specialist; optional navigation only, with no runtime, security-pass, or release decision."
+      },
+      "next_action": "Run a real-model Eval and isolated target validation when credentials, a controlled runner, and an authorized target are available; keep NOT_RUN and NOT_SCORED until that evidence exists.",
+      "target_evidence_paths": [
+        "skills/zh/testing-types/recovery-testing/SKILL.md",
+        "skills/en/testing-types/recovery-testing/SKILL.md",
+        "skills/zh/testing-types/recovery-testing/prompts/recovery-testing.md",
+        "skills/en/testing-types/recovery-testing/prompts/recovery-testing.md"
+      ],
+      "candidate_source": "Project #4 v3-v4 P2 candidate card; docs/superpowers/specs/2026-09-15-v3-v4-two-batch-design.md; docs/governance/PHASE_3_V3_V4.md; local bilingual package review",
+      "capability_match": {
+        "decision": "NEW",
+        "existing_targets": [
+          "skills/zh/testing-types/production-incident-analysis/SKILL.md",
+          "skills/en/testing-types/production-incident-analysis/SKILL.md"
+        ],
+        "difference": "Existing adjacent packages do not own the recovery point, recovery time, recovery steps, validation evidence, and Human takeover contract; this package isolates it with RCV-##."
+      },
+      "project_evidence": {
+        "project_number": 4,
+        "item_id": "PVTI_lAHOAHP1as4BjBhVzg6Sc_w",
+        "title": "v3-v4 P2｜候选 Skill｜recovery-testing",
+        "current_status": "Done",
+        "verified_at": "2026-09-15",
+        "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
+        "transition_requirement": "Todo -> In Progress -> Done",
+        "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned",
+        "acceptance_state": "INCOMPLETE"
+      }
+    },
+    {
+      "slug": "retry-testing",
+      "decision_state": "REVIEWED_WITH_LIMITATION",
+      "conclusion": "NEW",
+      "target": "retry-testing",
+      "scope": "Evidence-bounded retry-testing package for retry triggers, backoff, idempotency, retry limits, and duplicate side effects; findings use RTY-## and preserve source, uncertainty, and Human decisions.",
+      "non_goals": "No invented behavior or thresholds, unsupported completeness claims, execution, coverage proof, vulnerability absence, release approval, or Human risk acceptance.",
+      "evidence": {
+        "name": "The v3-v4 P2 card name and bilingual retry-testing package define a scoped candidate capability.",
+        "purpose": "The bilingual Prompt focuses on retry triggers, backoff, idempotency, retry limits, and duplicate side effects and uses a stable RTY-## finding contract.",
+        "inputs": "skills/zh/testing-types/retry-testing/prompts/retry-testing.md Input Audit; English mirror Input Audit.",
+        "outputs": "skills/zh/testing-types/retry-testing/prompts/retry-testing.md RTY-## 发现合同; English mirror RTY-## Finding Contract.",
+        "decision_logic": "Select a minimal evidence-backed set, preserve missing and conflicting material, and propose validation without upgrading static design to execution.",
+        "workflow_role": "v3-v4 Phase 3 Batch 1 Reliability Engineering specialist; optional navigation only, with no runtime, security-pass, or release decision."
+      },
+      "next_action": "Run a real-model Eval and isolated target validation when credentials, a controlled runner, and an authorized target are available; keep NOT_RUN and NOT_SCORED until that evidence exists.",
+      "target_evidence_paths": [
+        "skills/zh/testing-types/retry-testing/SKILL.md",
+        "skills/en/testing-types/retry-testing/SKILL.md",
+        "skills/zh/testing-types/retry-testing/prompts/retry-testing.md",
+        "skills/en/testing-types/retry-testing/prompts/retry-testing.md"
+      ],
+      "candidate_source": "Project #4 v3-v4 P2 candidate card; docs/superpowers/specs/2026-09-15-v3-v4-two-batch-design.md; docs/governance/PHASE_3_V3_V4.md; local bilingual package review",
+      "capability_match": {
+        "decision": "NEW",
+        "existing_targets": [
+          "skills/zh/testing-types/api-testing/SKILL.md",
+          "skills/en/testing-types/api-testing/SKILL.md",
+          "skills/zh/testing-types/api-negative-testing/SKILL.md",
+          "skills/en/testing-types/api-negative-testing/SKILL.md"
+        ],
+        "difference": "Existing adjacent packages do not own the retry triggers, backoff, idempotency, retry limits, and duplicate side effects contract; this package isolates it with RTY-##."
+      },
+      "project_evidence": {
+        "project_number": 4,
+        "item_id": "PVTI_lAHOAHP1as4BjBhVzg6SdAw",
+        "title": "v3-v4 P2｜候选 Skill｜retry-testing",
+        "current_status": "Done",
+        "verified_at": "2026-09-15",
+        "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
+        "transition_requirement": "Todo -> In Progress -> Done",
+        "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned",
+        "acceptance_state": "INCOMPLETE"
+      }
+    },
+    {
+      "slug": "timeout-testing",
+      "decision_state": "REVIEWED_WITH_LIMITATION",
+      "conclusion": "NEW",
+      "target": "timeout-testing",
+      "scope": "Evidence-bounded timeout-testing package for timeout budgets, cancellation propagation, downstream boundaries, user feedback, and retry interaction; findings use TMO-## and preserve source, uncertainty, and Human decisions.",
+      "non_goals": "No invented behavior or thresholds, unsupported completeness claims, execution, coverage proof, vulnerability absence, release approval, or Human risk acceptance.",
+      "evidence": {
+        "name": "The v3-v4 P2 card name and bilingual timeout-testing package define a scoped candidate capability.",
+        "purpose": "The bilingual Prompt focuses on timeout budgets, cancellation propagation, downstream boundaries, user feedback, and retry interaction and uses a stable TMO-## finding contract.",
+        "inputs": "skills/zh/testing-types/timeout-testing/prompts/timeout-testing.md Input Audit; English mirror Input Audit.",
+        "outputs": "skills/zh/testing-types/timeout-testing/prompts/timeout-testing.md TMO-## 发现合同; English mirror TMO-## Finding Contract.",
+        "decision_logic": "Select a minimal evidence-backed set, preserve missing and conflicting material, and propose validation without upgrading static design to execution.",
+        "workflow_role": "v3-v4 Phase 3 Batch 1 Reliability Engineering specialist; optional navigation only, with no runtime, security-pass, or release decision."
+      },
+      "next_action": "Run a real-model Eval and isolated target validation when credentials, a controlled runner, and an authorized target are available; keep NOT_RUN and NOT_SCORED until that evidence exists.",
+      "target_evidence_paths": [
+        "skills/zh/testing-types/timeout-testing/SKILL.md",
+        "skills/en/testing-types/timeout-testing/SKILL.md",
+        "skills/zh/testing-types/timeout-testing/prompts/timeout-testing.md",
+        "skills/en/testing-types/timeout-testing/prompts/timeout-testing.md"
+      ],
+      "candidate_source": "Project #4 v3-v4 P2 candidate card; docs/superpowers/specs/2026-09-15-v3-v4-two-batch-design.md; docs/governance/PHASE_3_V3_V4.md; local bilingual package review",
+      "capability_match": {
+        "decision": "NEW",
+        "existing_targets": [
+          "skills/zh/testing-types/api-testing/SKILL.md",
+          "skills/en/testing-types/api-testing/SKILL.md",
+          "skills/zh/testing-types/performance-testing/SKILL.md",
+          "skills/en/testing-types/performance-testing/SKILL.md"
+        ],
+        "difference": "Existing adjacent packages do not own the timeout budgets, cancellation propagation, downstream boundaries, user feedback, and retry interaction contract; this package isolates it with TMO-##."
+      },
+      "project_evidence": {
+        "project_number": 4,
+        "item_id": "PVTI_lAHOAHP1as4BjBhVzg6SdCU",
+        "title": "v3-v4 P2｜候选 Skill｜timeout-testing",
+        "current_status": "Done",
+        "verified_at": "2026-09-15",
+        "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
+        "transition_requirement": "Todo -> In Progress -> Done",
+        "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned",
+        "acceptance_state": "INCOMPLETE"
+      }
+    },
+    {
+      "slug": "circuit-breaker-testing",
+      "decision_state": "REVIEWED_WITH_LIMITATION",
+      "conclusion": "NEW",
+      "target": "circuit-breaker-testing",
+      "scope": "Evidence-bounded circuit-breaker-testing package for closed, open, and half-open states, threshold evidence, recovery probes, and fallback; findings use CBR-## and preserve source, uncertainty, and Human decisions.",
+      "non_goals": "No invented behavior or thresholds, unsupported completeness claims, execution, coverage proof, vulnerability absence, release approval, or Human risk acceptance.",
+      "evidence": {
+        "name": "The v3-v4 P2 card name and bilingual circuit-breaker-testing package define a scoped candidate capability.",
+        "purpose": "The bilingual Prompt focuses on closed, open, and half-open states, threshold evidence, recovery probes, and fallback and uses a stable CBR-## finding contract.",
+        "inputs": "skills/zh/testing-types/circuit-breaker-testing/prompts/circuit-breaker-testing.md Input Audit; English mirror Input Audit.",
+        "outputs": "skills/zh/testing-types/circuit-breaker-testing/prompts/circuit-breaker-testing.md CBR-## 发现合同; English mirror CBR-## Finding Contract.",
+        "decision_logic": "Select a minimal evidence-backed set, preserve missing and conflicting material, and propose validation without upgrading static design to execution.",
+        "workflow_role": "v3-v4 Phase 3 Batch 1 Reliability Engineering specialist; optional navigation only, with no runtime, security-pass, or release decision."
+      },
+      "next_action": "Run a real-model Eval and isolated target validation when credentials, a controlled runner, and an authorized target are available; keep NOT_RUN and NOT_SCORED until that evidence exists.",
+      "target_evidence_paths": [
+        "skills/zh/testing-types/circuit-breaker-testing/SKILL.md",
+        "skills/en/testing-types/circuit-breaker-testing/SKILL.md",
+        "skills/zh/testing-types/circuit-breaker-testing/prompts/circuit-breaker-testing.md",
+        "skills/en/testing-types/circuit-breaker-testing/prompts/circuit-breaker-testing.md"
+      ],
+      "candidate_source": "Project #4 v3-v4 P2 candidate card; docs/superpowers/specs/2026-09-15-v3-v4-two-batch-design.md; docs/governance/PHASE_3_V3_V4.md; local bilingual package review",
+      "capability_match": {
+        "decision": "NEW",
+        "existing_targets": [
+          "skills/zh/testing-types/api-testing/SKILL.md",
+          "skills/en/testing-types/api-testing/SKILL.md",
+          "skills/zh/testing-types/production-incident-analysis/SKILL.md",
+          "skills/en/testing-types/production-incident-analysis/SKILL.md"
+        ],
+        "difference": "Existing adjacent packages do not own the closed, open, and half-open states, threshold evidence, recovery probes, and fallback contract; this package isolates it with CBR-##."
+      },
+      "project_evidence": {
+        "project_number": 4,
+        "item_id": "PVTI_lAHOAHP1as4BjBhVzg6SdEM",
+        "title": "v3-v4 P2｜候选 Skill｜circuit-breaker-testing",
+        "current_status": "Done",
+        "verified_at": "2026-09-15",
+        "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
+        "transition_requirement": "Todo -> In Progress -> Done",
+        "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned",
+        "acceptance_state": "INCOMPLETE"
+      }
+    },
+    {
+      "slug": "dependency-failure-testing",
+      "decision_state": "REVIEWED_WITH_LIMITATION",
+      "conclusion": "NEW",
+      "target": "dependency-failure-testing",
+      "scope": "Evidence-bounded dependency-failure-testing package for dependency-failure taxonomy, isolation, degradation, fallback, and dependency recovery; findings use DPF-## and preserve source, uncertainty, and Human decisions.",
+      "non_goals": "No invented behavior or thresholds, unsupported completeness claims, execution, coverage proof, vulnerability absence, release approval, or Human risk acceptance.",
+      "evidence": {
+        "name": "The v3-v4 P2 card name and bilingual dependency-failure-testing package define a scoped candidate capability.",
+        "purpose": "The bilingual Prompt focuses on dependency-failure taxonomy, isolation, degradation, fallback, and dependency recovery and uses a stable DPF-## finding contract.",
+        "inputs": "skills/zh/testing-types/dependency-failure-testing/prompts/dependency-failure-testing.md Input Audit; English mirror Input Audit.",
+        "outputs": "skills/zh/testing-types/dependency-failure-testing/prompts/dependency-failure-testing.md DPF-## 发现合同; English mirror DPF-## Finding Contract.",
+        "decision_logic": "Select a minimal evidence-backed set, preserve missing and conflicting material, and propose validation without upgrading static design to execution.",
+        "workflow_role": "v3-v4 Phase 3 Batch 1 Reliability Engineering specialist; optional navigation only, with no runtime, security-pass, or release decision."
+      },
+      "next_action": "Run a real-model Eval and isolated target validation when credentials, a controlled runner, and an authorized target are available; keep NOT_RUN and NOT_SCORED until that evidence exists.",
+      "target_evidence_paths": [
+        "skills/zh/testing-types/dependency-failure-testing/SKILL.md",
+        "skills/en/testing-types/dependency-failure-testing/SKILL.md",
+        "skills/zh/testing-types/dependency-failure-testing/prompts/dependency-failure-testing.md",
+        "skills/en/testing-types/dependency-failure-testing/prompts/dependency-failure-testing.md"
+      ],
+      "candidate_source": "Project #4 v3-v4 P2 candidate card; docs/superpowers/specs/2026-09-15-v3-v4-two-batch-design.md; docs/governance/PHASE_3_V3_V4.md; local bilingual package review",
+      "capability_match": {
+        "decision": "NEW",
+        "existing_targets": [
+          "skills/zh/testing-types/api-testing/SKILL.md",
+          "skills/en/testing-types/api-testing/SKILL.md",
+          "skills/zh/testing-types/production-incident-analysis/SKILL.md",
+          "skills/en/testing-types/production-incident-analysis/SKILL.md"
+        ],
+        "difference": "Existing adjacent packages do not own the dependency-failure taxonomy, isolation, degradation, fallback, and dependency recovery contract; this package isolates it with DPF-##."
+      },
+      "project_evidence": {
+        "project_number": 4,
+        "item_id": "PVTI_lAHOAHP1as4BjBhVzg6SdFo",
+        "title": "v3-v4 P2｜候选 Skill｜dependency-failure-testing",
+        "current_status": "Done",
+        "verified_at": "2026-09-15",
+        "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
+        "transition_requirement": "Todo -> In Progress -> Done",
+        "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned",
+        "acceptance_state": "INCOMPLETE"
+      }
+    },
+    {
+      "slug": "disaster-recovery-testing",
+      "decision_state": "REVIEWED_WITH_LIMITATION",
+      "conclusion": "NEW",
+      "target": "disaster-recovery-testing",
+      "scope": "Evidence-bounded disaster-recovery-testing package for disaster scenarios, recovery priority, backup evidence, runbooks, and restore validation; findings use DRT-## and preserve source, uncertainty, and Human decisions.",
+      "non_goals": "No invented behavior or thresholds, unsupported completeness claims, execution, coverage proof, vulnerability absence, release approval, or Human risk acceptance.",
+      "evidence": {
+        "name": "The v3-v4 P2 card name and bilingual disaster-recovery-testing package define a scoped candidate capability.",
+        "purpose": "The bilingual Prompt focuses on disaster scenarios, recovery priority, backup evidence, runbooks, and restore validation and uses a stable DRT-## finding contract.",
+        "inputs": "skills/zh/testing-types/disaster-recovery-testing/prompts/disaster-recovery-testing.md Input Audit; English mirror Input Audit.",
+        "outputs": "skills/zh/testing-types/disaster-recovery-testing/prompts/disaster-recovery-testing.md DRT-## 发现合同; English mirror DRT-## Finding Contract.",
+        "decision_logic": "Select a minimal evidence-backed set, preserve missing and conflicting material, and propose validation without upgrading static design to execution.",
+        "workflow_role": "v3-v4 Phase 3 Batch 1 Reliability Engineering specialist; optional navigation only, with no runtime, security-pass, or release decision."
+      },
+      "next_action": "Run a real-model Eval and isolated target validation when credentials, a controlled runner, and an authorized target are available; keep NOT_RUN and NOT_SCORED until that evidence exists.",
+      "target_evidence_paths": [
+        "skills/zh/testing-types/disaster-recovery-testing/SKILL.md",
+        "skills/en/testing-types/disaster-recovery-testing/SKILL.md",
+        "skills/zh/testing-types/disaster-recovery-testing/prompts/disaster-recovery-testing.md",
+        "skills/en/testing-types/disaster-recovery-testing/prompts/disaster-recovery-testing.md"
+      ],
+      "candidate_source": "Project #4 v3-v4 P2 candidate card; docs/superpowers/specs/2026-09-15-v3-v4-two-batch-design.md; docs/governance/PHASE_3_V3_V4.md; local bilingual package review",
+      "capability_match": {
+        "decision": "NEW",
+        "existing_targets": [
+          "skills/zh/testing-types/production-incident-analysis/SKILL.md",
+          "skills/en/testing-types/production-incident-analysis/SKILL.md",
+          "skills/zh/testing-types/capacity-planning-analysis/SKILL.md",
+          "skills/en/testing-types/capacity-planning-analysis/SKILL.md"
+        ],
+        "difference": "Existing adjacent packages do not own the disaster scenarios, recovery priority, backup evidence, runbooks, and restore validation contract; this package isolates it with DRT-##."
+      },
+      "project_evidence": {
+        "project_number": 4,
+        "item_id": "PVTI_lAHOAHP1as4BjBhVzg6SdHI",
+        "title": "v3-v4 P2｜候选 Skill｜disaster-recovery-testing",
+        "current_status": "Done",
+        "verified_at": "2026-09-15",
+        "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
+        "transition_requirement": "Todo -> In Progress -> Done",
+        "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned",
+        "acceptance_state": "INCOMPLETE"
+      }
+    },
+    {
+      "slug": "authentication-testing",
+      "decision_state": "REVIEWED_WITH_LIMITATION",
+      "conclusion": "NEW",
+      "target": "authentication-testing",
+      "scope": "Evidence-bounded authentication-testing package for identity credentials, authentication flows, failure paths, and lifecycle; findings use AUT-## and preserve source, uncertainty, and Human decisions.",
+      "non_goals": "No invented behavior or thresholds, unsupported completeness claims, execution, coverage proof, vulnerability absence, release approval, or Human risk acceptance.",
+      "evidence": {
+        "name": "The v3-v4 P2 card name and bilingual authentication-testing package define a scoped candidate capability.",
+        "purpose": "The bilingual Prompt focuses on identity credentials, authentication flows, failure paths, and lifecycle and uses a stable AUT-## finding contract.",
+        "inputs": "skills/zh/testing-types/authentication-testing/prompts/authentication-testing.md Input Audit; English mirror Input Audit.",
+        "outputs": "skills/zh/testing-types/authentication-testing/prompts/authentication-testing.md AUT-## 发现合同; English mirror AUT-## Finding Contract.",
+        "decision_logic": "Select a minimal evidence-backed set, preserve missing and conflicting material, and propose validation without upgrading static design to execution.",
+        "workflow_role": "v3-v4 Phase 3 Batch 1 Security Engineering specialist; optional navigation only, with no runtime, security-pass, or release decision."
+      },
+      "next_action": "Run a real-model Eval and isolated target validation when credentials, a controlled runner, and an authorized target are available; keep NOT_RUN and NOT_SCORED until that evidence exists.",
+      "target_evidence_paths": [
+        "skills/zh/testing-types/authentication-testing/SKILL.md",
+        "skills/en/testing-types/authentication-testing/SKILL.md",
+        "skills/zh/testing-types/authentication-testing/prompts/authentication-testing.md",
+        "skills/en/testing-types/authentication-testing/prompts/authentication-testing.md"
+      ],
+      "candidate_source": "Project #4 v3-v4 P2 candidate card; docs/superpowers/specs/2026-09-15-v3-v4-two-batch-design.md; docs/governance/PHASE_3_V3_V4.md; local bilingual package review",
+      "capability_match": {
+        "decision": "NEW",
+        "existing_targets": [
+          "skills/zh/testing-types/security-testing/SKILL.md",
+          "skills/en/testing-types/security-testing/SKILL.md",
+          "skills/zh/testing-types/api-testing/SKILL.md",
+          "skills/en/testing-types/api-testing/SKILL.md"
+        ],
+        "difference": "Existing adjacent packages do not own the identity credentials, authentication flows, failure paths, and lifecycle contract; this package isolates it with AUT-##."
+      },
+      "project_evidence": {
+        "project_number": 4,
+        "item_id": "PVTI_lAHOAHP1as4BjBhVzg6SdJA",
+        "title": "v3-v4 P2｜候选 Skill｜authentication-testing",
+        "current_status": "Done",
+        "verified_at": "2026-09-15",
+        "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
+        "transition_requirement": "Todo -> In Progress -> Done",
+        "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned",
+        "acceptance_state": "INCOMPLETE"
+      }
+    },
+    {
+      "slug": "authorization-testing",
+      "decision_state": "REVIEWED_WITH_LIMITATION",
+      "conclusion": "NEW",
+      "target": "authorization-testing",
+      "scope": "Evidence-bounded authorization-testing package for subject-resource-action relations, permission boundaries, denial paths, and delegation; findings use AZT-## and preserve source, uncertainty, and Human decisions.",
+      "non_goals": "No invented behavior or thresholds, unsupported completeness claims, execution, coverage proof, vulnerability absence, release approval, or Human risk acceptance.",
+      "evidence": {
+        "name": "The v3-v4 P2 card name and bilingual authorization-testing package define a scoped candidate capability.",
+        "purpose": "The bilingual Prompt focuses on subject-resource-action relations, permission boundaries, denial paths, and delegation and uses a stable AZT-## finding contract.",
+        "inputs": "skills/zh/testing-types/authorization-testing/prompts/authorization-testing.md Input Audit; English mirror Input Audit.",
+        "outputs": "skills/zh/testing-types/authorization-testing/prompts/authorization-testing.md AZT-## 发现合同; English mirror AZT-## Finding Contract.",
+        "decision_logic": "Select a minimal evidence-backed set, preserve missing and conflicting material, and propose validation without upgrading static design to execution.",
+        "workflow_role": "v3-v4 Phase 3 Batch 1 Security Engineering specialist; optional navigation only, with no runtime, security-pass, or release decision."
+      },
+      "next_action": "Run a real-model Eval and isolated target validation when credentials, a controlled runner, and an authorized target are available; keep NOT_RUN and NOT_SCORED until that evidence exists.",
+      "target_evidence_paths": [
+        "skills/zh/testing-types/authorization-testing/SKILL.md",
+        "skills/en/testing-types/authorization-testing/SKILL.md",
+        "skills/zh/testing-types/authorization-testing/prompts/authorization-testing.md",
+        "skills/en/testing-types/authorization-testing/prompts/authorization-testing.md"
+      ],
+      "candidate_source": "Project #4 v3-v4 P2 candidate card; docs/superpowers/specs/2026-09-15-v3-v4-two-batch-design.md; docs/governance/PHASE_3_V3_V4.md; local bilingual package review",
+      "capability_match": {
+        "decision": "NEW",
+        "existing_targets": [
+          "skills/zh/testing-types/security-testing/SKILL.md",
+          "skills/en/testing-types/security-testing/SKILL.md",
+          "skills/zh/testing-types/api-testing/SKILL.md",
+          "skills/en/testing-types/api-testing/SKILL.md"
+        ],
+        "difference": "Existing adjacent packages do not own the subject-resource-action relations, permission boundaries, denial paths, and delegation contract; this package isolates it with AZT-##."
+      },
+      "project_evidence": {
+        "project_number": 4,
+        "item_id": "PVTI_lAHOAHP1as4BjBhVzg6SdLg",
+        "title": "v3-v4 P2｜候选 Skill｜authorization-testing",
+        "current_status": "Done",
+        "verified_at": "2026-09-15",
+        "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
+        "transition_requirement": "Todo -> In Progress -> Done",
+        "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned",
+        "acceptance_state": "INCOMPLETE"
+      }
+    },
+    {
+      "slug": "session-security-testing",
+      "decision_state": "REVIEWED_WITH_LIMITATION",
+      "conclusion": "NEW",
+      "target": "session-security-testing",
+      "scope": "Evidence-bounded session-security-testing package for session creation, fixation, expiry, revocation, concurrency, and cross-device boundaries; findings use SST-## and preserve source, uncertainty, and Human decisions.",
+      "non_goals": "No invented behavior or thresholds, unsupported completeness claims, execution, coverage proof, vulnerability absence, release approval, or Human risk acceptance.",
+      "evidence": {
+        "name": "The v3-v4 P2 card name and bilingual session-security-testing package define a scoped candidate capability.",
+        "purpose": "The bilingual Prompt focuses on session creation, fixation, expiry, revocation, concurrency, and cross-device boundaries and uses a stable SST-## finding contract.",
+        "inputs": "skills/zh/testing-types/session-security-testing/prompts/session-security-testing.md Input Audit; English mirror Input Audit.",
+        "outputs": "skills/zh/testing-types/session-security-testing/prompts/session-security-testing.md SST-## 发现合同; English mirror SST-## Finding Contract.",
+        "decision_logic": "Select a minimal evidence-backed set, preserve missing and conflicting material, and propose validation without upgrading static design to execution.",
+        "workflow_role": "v3-v4 Phase 3 Batch 1 Security Engineering specialist; optional navigation only, with no runtime, security-pass, or release decision."
+      },
+      "next_action": "Run a real-model Eval and isolated target validation when credentials, a controlled runner, and an authorized target are available; keep NOT_RUN and NOT_SCORED until that evidence exists.",
+      "target_evidence_paths": [
+        "skills/zh/testing-types/session-security-testing/SKILL.md",
+        "skills/en/testing-types/session-security-testing/SKILL.md",
+        "skills/zh/testing-types/session-security-testing/prompts/session-security-testing.md",
+        "skills/en/testing-types/session-security-testing/prompts/session-security-testing.md"
+      ],
+      "candidate_source": "Project #4 v3-v4 P2 candidate card; docs/superpowers/specs/2026-09-15-v3-v4-two-batch-design.md; docs/governance/PHASE_3_V3_V4.md; local bilingual package review",
+      "capability_match": {
+        "decision": "NEW",
+        "existing_targets": [
+          "skills/zh/testing-types/security-testing/SKILL.md",
+          "skills/en/testing-types/security-testing/SKILL.md"
+        ],
+        "difference": "Existing adjacent packages do not own the session creation, fixation, expiry, revocation, concurrency, and cross-device boundaries contract; this package isolates it with SST-##."
+      },
+      "project_evidence": {
+        "project_number": 4,
+        "item_id": "PVTI_lAHOAHP1as4BjBhVzg6SdNI",
+        "title": "v3-v4 P2｜候选 Skill｜session-security-testing",
+        "current_status": "Done",
+        "verified_at": "2026-09-15",
+        "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
+        "transition_requirement": "Todo -> In Progress -> Done",
+        "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned",
+        "acceptance_state": "INCOMPLETE"
+      }
+    },
+    {
+      "slug": "api-security-testing",
+      "decision_state": "REVIEWED_WITH_LIMITATION",
+      "conclusion": "NEW",
+      "target": "api-security-testing",
+      "scope": "Evidence-bounded api-security-testing package for API attack surface, input boundaries, identity and authorization, error leakage, and security contracts; findings use AST-## and preserve source, uncertainty, and Human decisions.",
+      "non_goals": "No invented behavior or thresholds, unsupported completeness claims, execution, coverage proof, vulnerability absence, release approval, or Human risk acceptance.",
+      "evidence": {
+        "name": "The v3-v4 P2 card name and bilingual api-security-testing package define a scoped candidate capability.",
+        "purpose": "The bilingual Prompt focuses on API attack surface, input boundaries, identity and authorization, error leakage, and security contracts and uses a stable AST-## finding contract.",
+        "inputs": "skills/zh/testing-types/api-security-testing/prompts/api-security-testing.md Input Audit; English mirror Input Audit.",
+        "outputs": "skills/zh/testing-types/api-security-testing/prompts/api-security-testing.md AST-## 发现合同; English mirror AST-## Finding Contract.",
+        "decision_logic": "Select a minimal evidence-backed set, preserve missing and conflicting material, and propose validation without upgrading static design to execution.",
+        "workflow_role": "v3-v4 Phase 3 Batch 1 Security Engineering specialist; optional navigation only, with no runtime, security-pass, or release decision."
+      },
+      "next_action": "Run a real-model Eval and isolated target validation when credentials, a controlled runner, and an authorized target are available; keep NOT_RUN and NOT_SCORED until that evidence exists.",
+      "target_evidence_paths": [
+        "skills/zh/testing-types/api-security-testing/SKILL.md",
+        "skills/en/testing-types/api-security-testing/SKILL.md",
+        "skills/zh/testing-types/api-security-testing/prompts/api-security-testing.md",
+        "skills/en/testing-types/api-security-testing/prompts/api-security-testing.md"
+      ],
+      "candidate_source": "Project #4 v3-v4 P2 candidate card; docs/superpowers/specs/2026-09-15-v3-v4-two-batch-design.md; docs/governance/PHASE_3_V3_V4.md; local bilingual package review",
+      "capability_match": {
+        "decision": "NEW",
+        "existing_targets": [
+          "skills/zh/testing-types/security-testing/SKILL.md",
+          "skills/en/testing-types/security-testing/SKILL.md",
+          "skills/zh/testing-types/api-contract-testing/SKILL.md",
+          "skills/en/testing-types/api-contract-testing/SKILL.md"
+        ],
+        "difference": "Existing adjacent packages do not own the API attack surface, input boundaries, identity and authorization, error leakage, and security contracts contract; this package isolates it with AST-##."
+      },
+      "project_evidence": {
+        "project_number": 4,
+        "item_id": "PVTI_lAHOAHP1as4BjBhVzg6SdPY",
+        "title": "v3-v4 P2｜候选 Skill｜api-security-testing",
+        "current_status": "Done",
+        "verified_at": "2026-09-15",
+        "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
+        "transition_requirement": "Todo -> In Progress -> Done",
+        "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned",
+        "acceptance_state": "INCOMPLETE"
+      }
+    },
+    {
+      "slug": "security-requirement-review",
+      "decision_state": "REVIEWED_WITH_LIMITATION",
+      "conclusion": "NEW",
+      "target": "security-requirement-review",
+      "scope": "Evidence-bounded security-requirement-review package for security objectives, testability, trace links, acceptance conditions, and evidence gaps; findings use SRR-## and preserve source, uncertainty, and Human decisions.",
+      "non_goals": "No invented behavior or thresholds, unsupported completeness claims, execution, coverage proof, vulnerability absence, release approval, or Human risk acceptance.",
+      "evidence": {
+        "name": "The v3-v4 P2 card name and bilingual security-requirement-review package define a scoped candidate capability.",
+        "purpose": "The bilingual Prompt focuses on security objectives, testability, trace links, acceptance conditions, and evidence gaps and uses a stable SRR-## finding contract.",
+        "inputs": "skills/zh/testing-types/security-requirement-review/prompts/security-requirement-review.md Input Audit; English mirror Input Audit.",
+        "outputs": "skills/zh/testing-types/security-requirement-review/prompts/security-requirement-review.md SRR-## 发现合同; English mirror SRR-## Finding Contract.",
+        "decision_logic": "Select a minimal evidence-backed set, preserve missing and conflicting material, and propose validation without upgrading static design to execution.",
+        "workflow_role": "v3-v4 Phase 3 Batch 1 Security Engineering specialist; optional navigation only, with no runtime, security-pass, or release decision."
+      },
+      "next_action": "Run a real-model Eval and isolated target validation when credentials, a controlled runner, and an authorized target are available; keep NOT_RUN and NOT_SCORED until that evidence exists.",
+      "target_evidence_paths": [
+        "skills/zh/testing-types/security-requirement-review/SKILL.md",
+        "skills/en/testing-types/security-requirement-review/SKILL.md",
+        "skills/zh/testing-types/security-requirement-review/prompts/security-requirement-review.md",
+        "skills/en/testing-types/security-requirement-review/prompts/security-requirement-review.md"
+      ],
+      "candidate_source": "Project #4 v3-v4 P2 candidate card; docs/superpowers/specs/2026-09-15-v3-v4-two-batch-design.md; docs/governance/PHASE_3_V3_V4.md; local bilingual package review",
+      "capability_match": {
+        "decision": "NEW",
+        "existing_targets": [
+          "skills/zh/testing-types/requirement-quality-review/SKILL.md",
+          "skills/en/testing-types/requirement-quality-review/SKILL.md",
+          "skills/zh/testing-types/security-testing/SKILL.md",
+          "skills/en/testing-types/security-testing/SKILL.md"
+        ],
+        "difference": "Existing adjacent packages do not own the security objectives, testability, trace links, acceptance conditions, and evidence gaps contract; this package isolates it with SRR-##."
+      },
+      "project_evidence": {
+        "project_number": 4,
+        "item_id": "PVTI_lAHOAHP1as4BjBhVzg6SdQ0",
+        "title": "v3-v4 P2｜候选 Skill｜security-requirement-review",
+        "current_status": "Done",
+        "verified_at": "2026-09-15",
+        "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
+        "transition_requirement": "Todo -> In Progress -> Done",
+        "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned",
+        "acceptance_state": "INCOMPLETE"
+      }
+    },
+    {
+      "slug": "threat-modeling",
+      "decision_state": "REVIEWED_WITH_LIMITATION",
+      "conclusion": "NEW",
+      "target": "threat-modeling",
+      "scope": "Evidence-bounded threat-modeling package for assets, trust boundaries, attack surface, threat scenarios, mitigations, and assumptions; findings use THM-## and preserve source, uncertainty, and Human decisions.",
+      "non_goals": "No invented behavior or thresholds, unsupported completeness claims, execution, coverage proof, vulnerability absence, release approval, or Human risk acceptance.",
+      "evidence": {
+        "name": "The v3-v4 P2 card name and bilingual threat-modeling package define a scoped candidate capability.",
+        "purpose": "The bilingual Prompt focuses on assets, trust boundaries, attack surface, threat scenarios, mitigations, and assumptions and uses a stable THM-## finding contract.",
+        "inputs": "skills/zh/testing-types/threat-modeling/prompts/threat-modeling.md Input Audit; English mirror Input Audit.",
+        "outputs": "skills/zh/testing-types/threat-modeling/prompts/threat-modeling.md THM-## 发现合同; English mirror THM-## Finding Contract.",
+        "decision_logic": "Select a minimal evidence-backed set, preserve missing and conflicting material, and propose validation without upgrading static design to execution.",
+        "workflow_role": "v3-v4 Phase 3 Batch 1 Security Engineering specialist; optional navigation only, with no runtime, security-pass, or release decision."
+      },
+      "next_action": "Run a real-model Eval and isolated target validation when credentials, a controlled runner, and an authorized target are available; keep NOT_RUN and NOT_SCORED until that evidence exists.",
+      "target_evidence_paths": [
+        "skills/zh/testing-types/threat-modeling/SKILL.md",
+        "skills/en/testing-types/threat-modeling/SKILL.md",
+        "skills/zh/testing-types/threat-modeling/prompts/threat-modeling.md",
+        "skills/en/testing-types/threat-modeling/prompts/threat-modeling.md"
+      ],
+      "candidate_source": "Project #4 v3-v4 P2 candidate card; docs/superpowers/specs/2026-09-15-v3-v4-two-batch-design.md; docs/governance/PHASE_3_V3_V4.md; local bilingual package review",
+      "capability_match": {
+        "decision": "NEW",
+        "existing_targets": [
+          "skills/zh/testing-types/security-testing/SKILL.md",
+          "skills/en/testing-types/security-testing/SKILL.md",
+          "skills/zh/testing-types/technical-design-quality-review/SKILL.md",
+          "skills/en/testing-types/technical-design-quality-review/SKILL.md"
+        ],
+        "difference": "Existing adjacent packages do not own the assets, trust boundaries, attack surface, threat scenarios, mitigations, and assumptions contract; this package isolates it with THM-##."
+      },
+      "project_evidence": {
+        "project_number": 4,
+        "item_id": "PVTI_lAHOAHP1as4BjBhVzg6SdSk",
+        "title": "v3-v4 P2｜候选 Skill｜threat-modeling",
+        "current_status": "Done",
+        "verified_at": "2026-09-15",
+        "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
+        "transition_requirement": "Todo -> In Progress -> Done",
+        "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned",
+        "acceptance_state": "INCOMPLETE"
+      }
+    },
+    {
+      "slug": "secrets-exposure-review",
+      "decision_state": "REVIEWED_WITH_LIMITATION",
+      "conclusion": "NEW",
+      "target": "secrets-exposure-review",
+      "scope": "Evidence-bounded secrets-exposure-review package for secret locations, flows, log exposure, configuration boundaries, and rotation evidence; findings use SER-## and preserve source, uncertainty, and Human decisions.",
+      "non_goals": "No invented behavior or thresholds, unsupported completeness claims, execution, coverage proof, vulnerability absence, release approval, or Human risk acceptance.",
+      "evidence": {
+        "name": "The v3-v4 P2 card name and bilingual secrets-exposure-review package define a scoped candidate capability.",
+        "purpose": "The bilingual Prompt focuses on secret locations, flows, log exposure, configuration boundaries, and rotation evidence and uses a stable SER-## finding contract.",
+        "inputs": "skills/zh/testing-types/secrets-exposure-review/prompts/secrets-exposure-review.md Input Audit; English mirror Input Audit.",
+        "outputs": "skills/zh/testing-types/secrets-exposure-review/prompts/secrets-exposure-review.md SER-## 发现合同; English mirror SER-## Finding Contract.",
+        "decision_logic": "Select a minimal evidence-backed set, preserve missing and conflicting material, and propose validation without upgrading static design to execution.",
+        "workflow_role": "v3-v4 Phase 3 Batch 1 Security Engineering specialist; optional navigation only, with no runtime, security-pass, or release decision."
+      },
+      "next_action": "Run a real-model Eval and isolated target validation when credentials, a controlled runner, and an authorized target are available; keep NOT_RUN and NOT_SCORED until that evidence exists.",
+      "target_evidence_paths": [
+        "skills/zh/testing-types/secrets-exposure-review/SKILL.md",
+        "skills/en/testing-types/secrets-exposure-review/SKILL.md",
+        "skills/zh/testing-types/secrets-exposure-review/prompts/secrets-exposure-review.md",
+        "skills/en/testing-types/secrets-exposure-review/prompts/secrets-exposure-review.md"
+      ],
+      "candidate_source": "Project #4 v3-v4 P2 candidate card; docs/superpowers/specs/2026-09-15-v3-v4-two-batch-design.md; docs/governance/PHASE_3_V3_V4.md; local bilingual package review",
+      "capability_match": {
+        "decision": "NEW",
+        "existing_targets": [
+          "skills/zh/testing-types/security-testing/SKILL.md",
+          "skills/en/testing-types/security-testing/SKILL.md",
+          "skills/zh/testing-types/requirement-quality-review/SKILL.md",
+          "skills/en/testing-types/requirement-quality-review/SKILL.md"
+        ],
+        "difference": "Existing adjacent packages do not own the secret locations, flows, log exposure, configuration boundaries, and rotation evidence contract; this package isolates it with SER-##."
+      },
+      "project_evidence": {
+        "project_number": 4,
+        "item_id": "PVTI_lAHOAHP1as4BjBhVzg6SdUg",
+        "title": "v3-v4 P2｜候选 Skill｜secrets-exposure-review",
+        "current_status": "Done",
+        "verified_at": "2026-09-15",
+        "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
+        "transition_requirement": "Todo -> In Progress -> Done",
+        "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned",
+        "acceptance_state": "INCOMPLETE"
+      }
+    }
   ]
 }

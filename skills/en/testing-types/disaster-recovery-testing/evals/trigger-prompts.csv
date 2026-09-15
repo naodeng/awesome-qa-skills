@@ -1,0 +1,5 @@
+mode,should_trigger,prompt
+"explicit","true","Use the disaster-recovery-testing Skill to analyze the disaster-recovery objective."
+"implicit","true","Review disaster scenarios, recovery priority, backup evidence, runbooks, and restore validation and list evidence gaps."
+"contextual","true","An order-system dependency is unavailable. How should we prepare disaster-recovery objective validation?"
+"negative","false","Design the login page colors and typography without testing analysis."

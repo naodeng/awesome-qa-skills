@@ -4,7 +4,7 @@
 
 This is the English Skill root and mirrors `skills/zh` with identical Skill names and physical structure.
 
-Each language provides **121** Skills: 10 workflows + 108 testing types + 3 Skill Engineering. See the [Chinese README](../../README.md) and [English README](../../README_EN.md); see the [governance roadmap](../../docs/governance/SKILL_GOVERNANCE_ROADMAP_EN.md) and [governance matrix](../../docs/SKILL_MATRIX_EN.md) for long-term governance.
+Each language provides **138** Skills: 10 workflows + 125 testing types + 3 Skill Engineering. See the [Chinese README](../../README.md) and [English README](../../README_EN.md); see the [governance roadmap](../../docs/governance/SKILL_GOVERNANCE_ROADMAP_EN.md) and [governance matrix](../../docs/SKILL_MATRIX_EN.md) for long-term governance.
 
 ## Cross-phase workflows
 
@@ -115,6 +115,28 @@ Each language provides **121** Skills: 10 workflows + 108 testing types + 3 Skil
 | Risk-Based Testing | [`risk-based-testing`](testing-types/risk-based-testing/) |
 | Edge Case Discovery | [`edge-case-discovery`](testing-types/edge-case-discovery/) |
 | Negative Scenario Discovery | [`negative-scenario-discovery`](testing-types/negative-scenario-discovery/) |
+
+#### Reliability and Security — 可靠性与安全
+
+| Skill | Directory |
+| --- | --- |
+| Reliability Testing | [`reliability-testing`](testing-types/reliability-testing/) |
+| Resilience Testing | [`resilience-testing`](testing-types/resilience-testing/) |
+| Chaos Testing | [`chaos-testing`](testing-types/chaos-testing/) |
+| Failover Testing | [`failover-testing`](testing-types/failover-testing/) |
+| Recovery Testing | [`recovery-testing`](testing-types/recovery-testing/) |
+| Retry Testing | [`retry-testing`](testing-types/retry-testing/) |
+| Timeout Testing | [`timeout-testing`](testing-types/timeout-testing/) |
+| Circuit Breaker Testing | [`circuit-breaker-testing`](testing-types/circuit-breaker-testing/) |
+| Dependency Failure Testing | [`dependency-failure-testing`](testing-types/dependency-failure-testing/) |
+| Disaster Recovery Testing | [`disaster-recovery-testing`](testing-types/disaster-recovery-testing/) |
+| Authentication Testing | [`authentication-testing`](testing-types/authentication-testing/) |
+| Authorization Testing | [`authorization-testing`](testing-types/authorization-testing/) |
+| Session Security Testing | [`session-security-testing`](testing-types/session-security-testing/) |
+| API Security Testing | [`api-security-testing`](testing-types/api-security-testing/) |
+| Security Requirement Review | [`security-requirement-review`](testing-types/security-requirement-review/) |
+| Threat Modeling | [`threat-modeling`](testing-types/threat-modeling/) |
+| Secrets Exposure Review | [`secrets-exposure-review`](testing-types/secrets-exposure-review/) |
 
 #### Development and Continuous Integration
 

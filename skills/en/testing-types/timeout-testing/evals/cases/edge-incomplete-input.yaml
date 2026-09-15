@@ -1,0 +1,25 @@
+id: edge-incomplete-input
+title: "Timeout Testing: bounded draft with incomplete input"
+description: |
+  Verify that missing environment, version, or dependency details produce a bounded draft with explicit assumptions and gaps.
+
+input:
+  prompt: |
+    Use timeout-testing. I only know that the new version involves timeout budgets and cancellation behavior when search depends on inventory service; architecture, thresholds, and historical results are missing. Give a usable bounded draft and list known, missing, conflicting, stale, out_of_scope, assumptions, and required follow-up information.
+
+expect:
+  must_contain:
+    - "assumption"
+    - "gap"
+    - "open"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "assumption"
+          - "gap"

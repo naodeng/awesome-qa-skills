@@ -1,0 +1,25 @@
+id: basic-success
+title: "Failover Testing: domain output with complete input"
+description: |
+  Verify that the Skill produces an evidence-based, prioritized, reviewable result about primary-secondary triggers, traffic transfer, data consistency, and recovery evidence.
+
+input:
+  prompt: |
+    Use the failover-testing Skill to analyze the path for switching order read-write service from a primary to a standby instance. The system scope, isolated environment, main dependencies, and release constraints are provided. Produce domain risks, expected results, evidence gaps, priorities, and open questions.
+
+expect:
+  must_contain:
+    - "failover path"
+    - "priority"
+    - "evidence"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "failover path"
+          - "open"

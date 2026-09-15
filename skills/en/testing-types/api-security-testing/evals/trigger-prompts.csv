@@ -1,0 +1,5 @@
+mode,should_trigger,prompt
+"explicit","true","Use the api-security-testing Skill to review API security."
+"implicit","true","Analyze API attack surface, input boundaries, identity and authorization, error leakage, and security contracts and list evidence gaps."
+"contextual","true","An order system has a permission risk. How should we prepare API security validation?"
+"negative","false","Design the login page colors and typography without security testing analysis."

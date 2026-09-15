@@ -1,0 +1,25 @@
+id: edge-incomplete-input
+title: "恢复测试：信息不完整时的受限初版"
+description: |
+  验证缺少环境、版本或依赖细节时仍能交付受限初版，并显式标出假设和缺口。
+
+input:
+  prompt: |
+    请使用 recovery-testing。我只知道新版本涉及支付服务故障后的数据恢复目标和验证准备，没有架构、阈值或历史结果。请先给可用初版，并列出 known、missing、conflicting、stale、out_of_scope、assumptions 和必须补齐的信息。
+
+expect:
+  must_contain:
+    - "假设"
+    - "缺口"
+    - "待确认"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "假设"
+          - "缺口"

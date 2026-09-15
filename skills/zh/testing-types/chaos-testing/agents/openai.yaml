@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: chaos-testing
+interface:
+  display_name: "混沌测试"
+  short_description: "Evidence-bounded chaos-testing analysis and validation preparation"
+  default_prompt: "Use the chaos-testing skill for evidence-bounded analysis."
+policy:
+  allow_implicit_invocation: true

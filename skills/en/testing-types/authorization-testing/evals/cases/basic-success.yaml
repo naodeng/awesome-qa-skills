@@ -1,0 +1,25 @@
+id: basic-success
+title: "Authorization Testing: security output with complete input"
+description: |
+  Verify that the Skill produces an evidence-based, prioritized, reviewable security result about subject-resource-action relations, permission boundaries, denial paths, and delegation.
+
+input:
+  prompt: |
+    Use the authorization-testing Skill to analyze permission decisions when operations staff access orders and admin APIs. System scope, test environment, roles, and security constraints are provided. Produce authorization decision risks, expected results, evidence gaps, priorities, and open questions.
+
+expect:
+  must_contain:
+    - "authorization decision"
+    - "priority"
+    - "evidence"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "authorization decision"
+          - "open"

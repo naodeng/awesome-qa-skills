@@ -1,0 +1,25 @@
+id: basic-success
+title: "威胁建模：完整输入下的安全产出"
+description: |
+  验证 Skill 能围绕资产、信任边界、攻击面、威胁场景、缓解措施和假设给出有证据、有优先级、可复核的安全产出。
+
+input:
+  prompt: |
+    请使用 threat-modeling Skill 分析订单系统从客户端到支付依赖的信任边界。已提供系统范围、测试环境、角色和安全约束。请输出威胁场景风险、预期结果、证据缺口、优先级和待确认项。
+
+expect:
+  must_contain:
+    - "威胁场景"
+    - "优先级"
+    - "证据"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "威胁场景"
+          - "待确认"

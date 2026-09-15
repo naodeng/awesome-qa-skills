@@ -1,0 +1,25 @@
+id: basic-success
+title: "重试测试：完整输入下的领域产出"
+description: |
+  验证 Skill 能围绕重试触发、退避、幂等、最大次数和重复副作用给出有证据、有优先级、可复核的领域产出。
+
+input:
+  prompt: |
+    请使用 retry-testing Skill 分析支付请求超时后的安全重试和重复扣款风险。已提供系统范围、隔离环境、主要依赖和发布限制。请输出领域风险、预期结果、证据缺口、优先级和待确认项。
+
+expect:
+  must_contain:
+    - "重试策略"
+    - "优先级"
+    - "证据"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "重试策略"
+          - "待确认"

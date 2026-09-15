@@ -1,0 +1,25 @@
+id: basic-success
+title: "Authentication Testing: security output with complete input"
+description: |
+  Verify that the Skill produces an evidence-based, prioritized, reviewable security result about identity credentials, authentication flows, failure paths, and lifecycle.
+
+input:
+  prompt: |
+    Use the authentication-testing Skill to analyze user login, multi-factor authentication, and credential expiry flows. System scope, test environment, roles, and security constraints are provided. Produce authentication risks, expected results, evidence gaps, priorities, and open questions.
+
+expect:
+  must_contain:
+    - "authentication"
+    - "priority"
+    - "evidence"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "authentication"
+          - "open"

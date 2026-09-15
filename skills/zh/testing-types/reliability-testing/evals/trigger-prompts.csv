@@ -1,0 +1,5 @@
+mode,should_trigger,prompt
+"explicit","true","请使用 reliability-testing Skill 分析可靠性目标。"
+"implicit","true","请审查可用性目标、失败模式、暴露窗口和证据准备并列出证据缺口。"
+"contextual","true","订单系统依赖不可用，如何准备可靠性目标验证？"
+"negative","false","请设计登录页面的颜色和字体，不做测试分析。"

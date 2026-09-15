@@ -1,0 +1,25 @@
+id: basic-success
+title: "Session-Security Testing: security output with complete input"
+description: |
+  Verify that the Skill produces an evidence-based, prioritized, reviewable security result about session creation, fixation, expiry, revocation, concurrency, and cross-device boundaries.
+
+input:
+  prompt: |
+    Use the session-security-testing Skill to analyze login-session expiry, logout, and concurrent-login controls. System scope, test environment, roles, and security constraints are provided. Produce session security risks, expected results, evidence gaps, priorities, and open questions.
+
+expect:
+  must_contain:
+    - "session security"
+    - "priority"
+    - "evidence"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "session security"
+          - "open"

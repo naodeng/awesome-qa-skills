@@ -1,0 +1,25 @@
+id: basic-success
+title: "安全需求审查：完整输入下的安全产出"
+description: |
+  验证 Skill 能围绕安全目标、可测试性、追踪关系、接受条件和证据缺口给出有证据、有优先级、可复核的安全产出。
+
+input:
+  prompt: |
+    请使用 security-requirement-review Skill 分析支付需求中的敏感数据保护和访问控制条件。已提供系统范围、测试环境、角色和安全约束。请输出安全需求风险、预期结果、证据缺口、优先级和待确认项。
+
+expect:
+  must_contain:
+    - "安全需求"
+    - "优先级"
+    - "证据"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "安全需求"
+          - "待确认"

@@ -1,0 +1,25 @@
+id: basic-success
+title: "超时测试：完整输入下的领域产出"
+description: |
+  验证 Skill 能围绕超时预算、取消传播、下游边界、用户反馈和重试关系给出有证据、有优先级、可复核的领域产出。
+
+input:
+  prompt: |
+    请使用 timeout-testing Skill 分析搜索接口依赖库存服务时的超时预算与取消行为。已提供系统范围、隔离环境、主要依赖和发布限制。请输出领域风险、预期结果、证据缺口、优先级和待确认项。
+
+expect:
+  must_contain:
+    - "超时策略"
+    - "优先级"
+    - "证据"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "超时策略"
+          - "待确认"

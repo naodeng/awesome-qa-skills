@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: authorization-testing
+interface:
+  display_name: "授权测试"
+  short_description: "Evidence-bounded authorization-testing analysis and validation preparation"
+  default_prompt: "Use the authorization-testing skill for evidence-bounded analysis."
+policy:
+  allow_implicit_invocation: true

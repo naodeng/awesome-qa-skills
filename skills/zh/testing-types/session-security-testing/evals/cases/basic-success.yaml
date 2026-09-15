@@ -1,0 +1,25 @@
+id: basic-success
+title: "会话安全测试：完整输入下的安全产出"
+description: |
+  验证 Skill 能围绕会话创建、固定、过期、撤销、并发和跨设备边界给出有证据、有优先级、可复核的安全产出。
+
+input:
+  prompt: |
+    请使用 session-security-testing Skill 分析登录会话过期、退出和异地登录控制。已提供系统范围、测试环境、角色和安全约束。请输出会话安全风险、预期结果、证据缺口、优先级和待确认项。
+
+expect:
+  must_contain:
+    - "会话安全"
+    - "优先级"
+    - "证据"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "会话安全"
+          - "待确认"

@@ -1,0 +1,25 @@
+id: basic-success
+title: "依赖故障测试：完整输入下的领域产出"
+description: |
+  验证 Skill 能围绕依赖故障分类、隔离、降级、兜底和依赖恢复给出有证据、有优先级、可复核的领域产出。
+
+input:
+  prompt: |
+    请使用 dependency-failure-testing Skill 分析库存、支付和消息依赖分别不可用时的订单行为。已提供系统范围、隔离环境、主要依赖和发布限制。请输出领域风险、预期结果、证据缺口、优先级和待确认项。
+
+expect:
+  must_contain:
+    - "依赖故障"
+    - "优先级"
+    - "证据"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "依赖故障"
+          - "待确认"

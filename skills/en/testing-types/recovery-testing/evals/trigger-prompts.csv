@@ -1,0 +1,5 @@
+mode,should_trigger,prompt
+"explicit","true","Use the recovery-testing Skill to analyze the recovery objective."
+"implicit","true","Review recovery point, recovery time, recovery steps, validation evidence, and human takeover and list evidence gaps."
+"contextual","true","An order-system dependency is unavailable. How should we prepare recovery objective validation?"
+"negative","false","Design the login page colors and typography without testing analysis."

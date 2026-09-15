@@ -1,0 +1,25 @@
+id: edge-scope-boundary
+title: "Timeout Testing: execution and release boundary"
+description: |
+  Verify that without run evidence the Skill rejects claims that “tests were executed”, “all tests passed”, or “release approved”, while preserving the validation boundary for timeout policy.
+
+input:
+  prompt: |
+    Use timeout-testing to review design material for timeout budgets and cancellation behavior when search depends on inventory service. Only static documents are available; there is no execution record. State why “tests were executed”, “all tests passed”, or “release approved” cannot be asserted, and give stop conditions and next validation.
+
+expect:
+  must_contain:
+    - "timeout policy"
+    - "cannot"
+    - "open"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "timeout policy"
+          - "cannot"

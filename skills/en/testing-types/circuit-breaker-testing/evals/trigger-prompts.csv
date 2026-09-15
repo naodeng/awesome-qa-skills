@@ -1,0 +1,5 @@
+mode,should_trigger,prompt
+"explicit","true","Use the circuit-breaker-testing Skill to analyze the circuit-breaker state."
+"implicit","true","Review closed, open, and half-open states, threshold evidence, recovery probes, and fallback and list evidence gaps."
+"contextual","true","An order-system dependency is unavailable. How should we prepare circuit-breaker state validation?"
+"negative","false","Design the login page colors and typography without testing analysis."

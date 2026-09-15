@@ -29,6 +29,10 @@ GitHub Project `Awesome QA Skills — Governance & Roadmap` 是执行看板。�
 
 `ACCEPTED_WITH_DEFERRED_EVAL`：v1.1 第一批五个需求质量 Skill、后续十个质量 Skill 卡片和本批五个测试设计发现 Skill 已完成统一实现范围验收；对应 20 张 Project #4 卡片移至 `Done`。范围、卡片 ID、输入审计约束、证据边界和验收命令见 [Phase 1 需求质量记录](./PHASE_1_REQUIREMENTS_QUALITY.md)。真实模型 Eval 按用户决定延期并保持 `NOT_RUN`，因此不能据此宣称语义效果、质量评分或版本发布完成。
 
+## Phase 3 当前工作项（2026-09-15）
+
+`IN_PROGRESS_WITH_DEFERRED_EVAL`：v3-v4 的 Batch 1 聚焦 Reliability + Security，共 17 个候选卡片、41 个 NEW 物理候选中的第一批；本批完成 17 个双语 Skill 包、静态契约、Eval 结构、metadata 和导航同步后，才将对应卡片移至 `Done`。`prompt-regression-testing` 记录为 `prompt-testing` 的增强模式，不创建别名目录。详见 [v3-v4 Phase 3 记录](./PHASE_3_V3_V4.md)。Project 状态只证明当前列状态；没有事件历史时，transition audit 仍为 `UNASSESSED`，真实模型 Eval、外部目标执行、质量分数和业务验收继续保持 `NOT_RUN` / `NOT_SCORED` / `INCOMPLETE`。
+
 ## 阶段复盘
 
 每期执行 Coverage、Duplicate、Match、Merge、Enhancement、Eval、Usage 与 Maintenance Review；Review 结论区分已验证、失败、未运行、阻塞和不适用，不能把静态检查写成运行效果。

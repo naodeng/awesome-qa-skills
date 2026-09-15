@@ -1,0 +1,25 @@
+id: basic-success
+title: "Threat Modeling: security output with complete input"
+description: |
+  Verify that the Skill produces an evidence-based, prioritized, reviewable security result about assets, trust boundaries, attack surface, threat scenarios, mitigations, and assumptions.
+
+input:
+  prompt: |
+    Use the threat-modeling Skill to analyze trust boundaries from the order client to the payment dependency. System scope, test environment, roles, and security constraints are provided. Produce threat scenario risks, expected results, evidence gaps, priorities, and open questions.
+
+expect:
+  must_contain:
+    - "threat scenario"
+    - "priority"
+    - "evidence"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "threat scenario"
+          - "open"

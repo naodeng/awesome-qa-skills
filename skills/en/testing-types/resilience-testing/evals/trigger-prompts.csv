@@ -1,0 +1,5 @@
+mode,should_trigger,prompt
+"explicit","true","Use the resilience-testing Skill to analyze the resilience objective."
+"implicit","true","Review degradation behavior, isolation boundaries, recovery capability, and residual risk and list evidence gaps."
+"contextual","true","An order-system dependency is unavailable. How should we prepare resilience objective validation?"
+"negative","false","Design the login page colors and typography without testing analysis."

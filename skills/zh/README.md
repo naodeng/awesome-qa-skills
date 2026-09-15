@@ -4,7 +4,7 @@
 
 本目录是中文主语言 Skill 根目录，与 `skills/en` 使用相同 Skill 名和物理结构。
 
-每种语言共 **121** 个 Skill：10 workflows + 108 testing types + 3 Skill Engineering。完整项目说明见 [中文 README](../../README.md) 和 [English README](../../README_EN.md)；长期治理见 [治理路线图](../../docs/governance/SKILL_GOVERNANCE_ROADMAP.md) 与 [治理矩阵](../../docs/SKILL_MATRIX.md)。
+每种语言共 **138** 个 Skill：10 workflows + 125 testing types + 3 Skill Engineering。完整项目说明见 [中文 README](../../README.md) 和 [English README](../../README_EN.md)；长期治理见 [治理路线图](../../docs/governance/SKILL_GOVERNANCE_ROADMAP.md) 与 [治理矩阵](../../docs/SKILL_MATRIX.md)。
 
 ## 跨阶段工作流
 
@@ -115,6 +115,28 @@
 | 基于风险的测试 | [`risk-based-testing`](testing-types/risk-based-testing/) |
 | 边界场景发现 | [`edge-case-discovery`](testing-types/edge-case-discovery/) |
 | 负向场景发现 | [`negative-scenario-discovery`](testing-types/negative-scenario-discovery/) |
+
+#### Reliability and Security — 可靠性与安全
+
+| Skill | 目录 |
+| --- | --- |
+| 可靠性测试 | [`reliability-testing`](testing-types/reliability-testing/) |
+| 韧性测试 | [`resilience-testing`](testing-types/resilience-testing/) |
+| 混沌测试 | [`chaos-testing`](testing-types/chaos-testing/) |
+| 故障切换测试 | [`failover-testing`](testing-types/failover-testing/) |
+| 恢复测试 | [`recovery-testing`](testing-types/recovery-testing/) |
+| 重试测试 | [`retry-testing`](testing-types/retry-testing/) |
+| 超时测试 | [`timeout-testing`](testing-types/timeout-testing/) |
+| 熔断器测试 | [`circuit-breaker-testing`](testing-types/circuit-breaker-testing/) |
+| 依赖故障测试 | [`dependency-failure-testing`](testing-types/dependency-failure-testing/) |
+| 灾备测试 | [`disaster-recovery-testing`](testing-types/disaster-recovery-testing/) |
+| 身份认证测试 | [`authentication-testing`](testing-types/authentication-testing/) |
+| 授权测试 | [`authorization-testing`](testing-types/authorization-testing/) |
+| 会话安全测试 | [`session-security-testing`](testing-types/session-security-testing/) |
+| API 安全测试 | [`api-security-testing`](testing-types/api-security-testing/) |
+| 安全需求审查 | [`security-requirement-review`](testing-types/security-requirement-review/) |
+| 威胁建模 | [`threat-modeling`](testing-types/threat-modeling/) |
+| 敏感信息暴露审查 | [`secrets-exposure-review`](testing-types/secrets-exposure-review/) |
 
 #### 开发与持续集成
 

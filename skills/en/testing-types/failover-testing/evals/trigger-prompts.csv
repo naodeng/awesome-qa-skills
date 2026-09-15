@@ -1,0 +1,5 @@
+mode,should_trigger,prompt
+"explicit","true","Use the failover-testing Skill to analyze the failover path."
+"implicit","true","Review primary-secondary triggers, traffic transfer, data consistency, and recovery evidence and list evidence gaps."
+"contextual","true","An order-system dependency is unavailable. How should we prepare failover path validation?"
+"negative","false","Design the login page colors and typography without testing analysis."

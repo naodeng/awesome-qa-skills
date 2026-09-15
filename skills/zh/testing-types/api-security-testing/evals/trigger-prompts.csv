@@ -1,0 +1,5 @@
+mode,should_trigger,prompt
+"explicit","true","请使用 api-security-testing Skill 审查API 安全。"
+"implicit","true","请分析API 攻击面、输入边界、身份权限、错误泄露和安全合同并列出证据缺口。"
+"contextual","true","订单系统存在权限风险，如何准备API 安全验证？"
+"negative","false","请设计登录页面的颜色和字体，不做安全测试分析。"

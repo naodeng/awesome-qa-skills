@@ -1,0 +1,5 @@
+mode,should_trigger,prompt
+"explicit","true","请使用 retry-testing Skill 分析重试策略。"
+"implicit","true","请审查重试触发、退避、幂等、最大次数和重复副作用并列出证据缺口。"
+"contextual","true","订单系统依赖不可用，如何准备重试策略验证？"
+"negative","false","请设计登录页面的颜色和字体，不做测试分析。"

@@ -4,7 +4,7 @@
 
 ## Current status
 
-`MATCH_REVIEWED_WITH_LIMITATION` (2026-09-15). This phase uses develop commit `15c3804` as its baseline; that commit fast-forwarded the latest `origin/main` into develop. A live read of Project #4 found 42 cards whose titles start with `v3-v4 P2｜候选 Skill｜`, all currently `Todo`. This record completes the initial Capability Match and static delivery-target registration; no v3-v4 physical package and no card-status mutation has happened at this point.
+`BATCH_1_ACCEPTED_WITH_DEFERRED_EVAL` (2026-09-15). This phase uses develop commit `15c3804` as its baseline; that commit fast-forwarded the latest `origin/main` into develop. A live read of Project #4 found 42 cards whose titles start with `v3-v4 P2｜候选 Skill｜`: 17 Batch 1 cards are now `Done`, while the 25 Batch 2 cards remain `Todo`. Batch 1 now has 17 bilingual physical Skill packages, contract tests, Eval structure, metadata, registry, navigation updates, and a full quality-gate pass; real-model Eval, external-target execution, quality scores, and business acceptance remain incomplete.
 
 The initial Match conclusion is 41 `NEW` physical Skills (one package in each language) and one `ENHANCE`: `prompt-regression-testing` becomes a `prompt-regression` mode on `prompt-testing`, with no alias directory. The conclusion is based on the current bilingual Skill tree, adjacent Prompts/Workflows, governance records, and the specification. If implementation evidence changes a conclusion, update this record and the shared contract before creating or changing a directory.
 

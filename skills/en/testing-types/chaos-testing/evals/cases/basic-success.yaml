@@ -1,0 +1,25 @@
+id: basic-success
+title: "Chaos Testing: domain output with complete input"
+description: |
+  Verify that the Skill produces an evidence-based, prioritized, reviewable result about fault-injection hypotheses, blast radius, stop conditions, and safety guardrails.
+
+input:
+  prompt: |
+    Use the chaos-testing Skill to analyze safety guardrails for evaluating payment dependency unavailability in an isolated environment. The system scope, isolated environment, main dependencies, and release constraints are provided. Produce domain risks, expected results, evidence gaps, priorities, and open questions.
+
+expect:
+  must_contain:
+    - "fault-injection hypothesis"
+    - "priority"
+    - "evidence"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "fault-injection hypothesis"
+          - "open"

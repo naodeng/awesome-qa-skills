@@ -2,7 +2,7 @@
 
 # Skills 全量索引
 
-每种语言包含 10 个工作流、108 个测试类型和 3 个 Skill Engineering，共 121 个；中英文合计 242 个目录。以下是逻辑导航，实际目录不变。长期治理入口见 [Skill 治理路线图](../governance/SKILL_GOVERNANCE_ROADMAP.md)、[治理矩阵](../SKILL_MATRIX.md) 和 [匹配登记表](../SKILL_MATCHING_REGISTER.md)。
+每种语言包含 10 个工作流、125 个测试类型和 3 个 Skill Engineering，共 138 个；中英文合计 276 个目录。以下是逻辑导航，实际目录不变。长期治理入口见 [Skill 治理路线图](../governance/SKILL_GOVERNANCE_ROADMAP.md)、[治理矩阵](../SKILL_MATRIX.md) 和 [匹配登记表](../SKILL_MATCHING_REGISTER.md)。
 
 ## 跨阶段工作流
 
@@ -115,6 +115,28 @@
 | `negative-scenario-discovery` | [中文](../../skills/zh/testing-types/negative-scenario-discovery/) | [English](../../skills/en/testing-types/negative-scenario-discovery/) |
 
 > v1.1 后续卡片中的 `business-rule-consistency-review`、`architecture-testability-review` 和 `test-coverage-analysis` 登记为现有物理 Skill 的增强模式，不创建重复目录；详见[能力匹配登记表](../SKILL_MATCHING_REGISTER.md)。
+
+#### Reliability and Security — 可靠性与安全
+
+| Skill | 中文 | English |
+| --- | --- | --- |
+| `reliability-testing` | [中文](../../skills/zh/testing-types/reliability-testing/) | [English](../../skills/en/testing-types/reliability-testing/) |
+| `resilience-testing` | [中文](../../skills/zh/testing-types/resilience-testing/) | [English](../../skills/en/testing-types/resilience-testing/) |
+| `chaos-testing` | [中文](../../skills/zh/testing-types/chaos-testing/) | [English](../../skills/en/testing-types/chaos-testing/) |
+| `failover-testing` | [中文](../../skills/zh/testing-types/failover-testing/) | [English](../../skills/en/testing-types/failover-testing/) |
+| `recovery-testing` | [中文](../../skills/zh/testing-types/recovery-testing/) | [English](../../skills/en/testing-types/recovery-testing/) |
+| `retry-testing` | [中文](../../skills/zh/testing-types/retry-testing/) | [English](../../skills/en/testing-types/retry-testing/) |
+| `timeout-testing` | [中文](../../skills/zh/testing-types/timeout-testing/) | [English](../../skills/en/testing-types/timeout-testing/) |
+| `circuit-breaker-testing` | [中文](../../skills/zh/testing-types/circuit-breaker-testing/) | [English](../../skills/en/testing-types/circuit-breaker-testing/) |
+| `dependency-failure-testing` | [中文](../../skills/zh/testing-types/dependency-failure-testing/) | [English](../../skills/en/testing-types/dependency-failure-testing/) |
+| `disaster-recovery-testing` | [中文](../../skills/zh/testing-types/disaster-recovery-testing/) | [English](../../skills/en/testing-types/disaster-recovery-testing/) |
+| `authentication-testing` | [中文](../../skills/zh/testing-types/authentication-testing/) | [English](../../skills/en/testing-types/authentication-testing/) |
+| `authorization-testing` | [中文](../../skills/zh/testing-types/authorization-testing/) | [English](../../skills/en/testing-types/authorization-testing/) |
+| `session-security-testing` | [中文](../../skills/zh/testing-types/session-security-testing/) | [English](../../skills/en/testing-types/session-security-testing/) |
+| `api-security-testing` | [中文](../../skills/zh/testing-types/api-security-testing/) | [English](../../skills/en/testing-types/api-security-testing/) |
+| `security-requirement-review` | [中文](../../skills/zh/testing-types/security-requirement-review/) | [English](../../skills/en/testing-types/security-requirement-review/) |
+| `threat-modeling` | [中文](../../skills/zh/testing-types/threat-modeling/) | [English](../../skills/en/testing-types/threat-modeling/) |
+| `secrets-exposure-review` | [中文](../../skills/zh/testing-types/secrets-exposure-review/) | [English](../../skills/en/testing-types/secrets-exposure-review/) |
 
 #### 开发与持续集成
 

@@ -1,0 +1,25 @@
+id: edge-incomplete-input
+title: "Secrets-Exposure Review: bounded draft with incomplete input"
+description: |
+  Verify that missing environment, version, or evidence still yields a bounded draft with explicit assumptions and gaps.
+
+input:
+  prompt: |
+    Use secrets-exposure-review. I only know that secret risks in configuration files, CI logs, and error responses needs review; code, configuration, version, and history are missing. Give a bounded draft and list known, missing, conflicting, stale, out_of_scope, assumptions, and required follow-up information.
+
+expect:
+  must_contain:
+    - "assumption"
+    - "gap"
+    - "open"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "assumption"
+          - "gap"

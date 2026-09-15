@@ -1,0 +1,25 @@
+id: basic-success
+title: "Resilience Testing: domain output with complete input"
+description: |
+  Verify that the Skill produces an evidence-based, prioritized, reviewable result about degradation behavior, isolation boundaries, recovery capability, and residual risk.
+
+input:
+  prompt: |
+    Use the resilience-testing Skill to analyze rate limiting, degradation, and recovery design for the order service under traffic spikes. The system scope, isolated environment, main dependencies, and release constraints are provided. Produce domain risks, expected results, evidence gaps, priorities, and open questions.
+
+expect:
+  must_contain:
+    - "resilience objective"
+    - "priority"
+    - "evidence"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "resilience objective"
+          - "open"

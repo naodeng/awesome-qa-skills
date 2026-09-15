@@ -1,0 +1,25 @@
+id: edge-scope-boundary
+title: "Session-Security Testing: security-claim boundary"
+description: |
+  Verify that without execution evidence the Skill rejects “tests were executed”, “all tests passed”, and “release approved”, while preserving the session security validation boundary.
+
+input:
+  prompt: |
+    Use session-security-testing to review static material for login-session expiry, logout, and concurrent-login controls. There is no execution record. Explain why “tests were executed”, “all tests passed”, or “release approved” cannot be asserted, and give stop conditions and the next isolated validation.
+
+expect:
+  must_contain:
+    - "session security"
+    - "cannot"
+    - "open"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "session security"
+          - "cannot"

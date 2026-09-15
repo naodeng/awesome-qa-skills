@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: failover-testing
+interface:
+  display_name: "Failover Testing"
+  short_description: "Evidence-bounded failover-testing analysis and validation preparation"
+  default_prompt: "Use the failover-testing skill for evidence-bounded analysis."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,5 @@
+mode,should_trigger,prompt
+"explicit","true","Use the chaos-testing Skill to analyze the fault-injection hypothesis."
+"implicit","true","Review fault-injection hypotheses, blast radius, stop conditions, and safety guardrails and list evidence gaps."
+"contextual","true","An order-system dependency is unavailable. How should we prepare fault-injection hypothesis validation?"
+"negative","false","Design the login page colors and typography without testing analysis."

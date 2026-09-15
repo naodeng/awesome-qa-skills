@@ -1,0 +1,25 @@
+id: basic-success
+title: "Secrets-Exposure Review: security output with complete input"
+description: |
+  Verify that the Skill produces an evidence-based, prioritized, reviewable security result about secret locations, flows, log exposure, configuration boundaries, and rotation evidence.
+
+input:
+  prompt: |
+    Use the secrets-exposure-review Skill to analyze secret risks in configuration files, CI logs, and error responses. System scope, test environment, roles, and security constraints are provided. Produce secrets exposure risks, expected results, evidence gaps, priorities, and open questions.
+
+expect:
+  must_contain:
+    - "secrets exposure"
+    - "priority"
+    - "evidence"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "secrets exposure"
+          - "open"

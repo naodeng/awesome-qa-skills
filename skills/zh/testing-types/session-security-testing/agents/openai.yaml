@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: session-security-testing
+interface:
+  display_name: "会话安全测试"
+  short_description: "Evidence-bounded session-security-testing analysis and validation preparation"
+  default_prompt: "Use the session-security-testing skill for evidence-bounded analysis."
+policy:
+  allow_implicit_invocation: true

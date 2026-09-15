@@ -55,6 +55,15 @@ flowchart LR
 
 各组合均为可选。入口或顺序不明确时使用 `discover-testing`。
 
+## v3-v4 Phase 3 推荐组合
+
+| 场景 | 推荐组合 | 输出 |
+| --- | --- | --- |
+| 可靠性与故障路径 | `reliability-testing` → `resilience-testing` → `failover-testing` / `recovery-testing`；按需使用 `retry-testing` / `timeout-testing` / `circuit-breaker-testing` / `dependency-failure-testing` / `disaster-recovery-testing` / `chaos-testing` | 可靠性目标、故障模式、降级、切换和恢复证据准备 |
+| 身份与 API 安全 | `security-requirement-review` → `authentication-testing` / `authorization-testing` → `session-security-testing` / `api-security-testing`; 按需使用 `threat-modeling` / `secrets-exposure-review` | 安全需求、身份、授权、会话、攻击面和暴露证据 |
+
+v3-v4 Phase 3 的 17 个 Batch 1 卡片已按 `Match → RED 契约 → In Progress → 实现 → 质量门禁 → Done` 执行。`prompt-regression-testing` 等 Batch 2 能力仍以治理记录为准，物理包是否新增由后续 Match 结论决定。
+
 ## 使用边界
 
 - `ai-assisted-testing` 属于 **AI for QA**，可辅助任一阶段，但不能替代 Testing for AI。
@@ -65,6 +74,7 @@ flowchart LR
 - v1.1 测试设计发现组合是可选导航；五个候选卡片以独立双语物理 Skill 交付，不产生跨 Skill 内部依赖，也不把候选发现写成执行或覆盖结论。
 - v2.0 Test Engineering 组合是可选导航；25 个候选卡片以独立双语物理 Skill 交付，不产生安装依赖、跨 Skill 内部链接或运行时执行结论。
 - v2.0 Skill 只基于提供的规格、代码、测试资产或报告提出发现；真实模型 Eval、API/UI/数据库/变异执行和发布审批仍保持未运行或待人工决策。
+- v3-v4 Phase 3 的可靠性与安全 Skill 只形成证据有界的测试/审查准备，不注入故障、不读取实时凭据、不宣称安全认证或恢复演练已执行；Project 卡片状态也不等于发布或风险接受。
 
 ## 导航
 
@@ -72,4 +82,5 @@ flowchart LR
 - [中文演进路线图](../governance/QA_SKILLS_EVOLUTION_ROADMAP.md)
 - [English roadmap](../governance/QA_SKILLS_EVOLUTION_ROADMAP_EN.md)
 - [v1.1 需求质量 Phase 1](../governance/PHASE_1_REQUIREMENTS_QUALITY.md)
+- [v3-v4 Phase 3](../governance/PHASE_3_V3_V4.md)
 - [v1.0 源代码治理基线与逐项记录](../governance/SKILL_GOVERNANCE_V1.md)（静态证据，不代表运行质量）

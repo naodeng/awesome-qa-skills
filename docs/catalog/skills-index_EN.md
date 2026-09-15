@@ -2,7 +2,7 @@
 
 # Complete Skills Index
 
-Each language contains 10 workflows, 108 testing types, and 3 Skill Engineering packages: 121 per language and 242 directories total. This is logical navigation; physical directories do not change. See the [Skill governance roadmap](../governance/SKILL_GOVERNANCE_ROADMAP_EN.md), [governance matrix](../SKILL_MATRIX_EN.md), and [matching register](../SKILL_MATCHING_REGISTER_EN.md) for long-term governance.
+Each language contains 10 workflows, 125 testing types, and 3 Skill Engineering packages: 138 per language and 276 directories total. This is logical navigation; physical directories do not change. See the [Skill governance roadmap](../governance/SKILL_GOVERNANCE_ROADMAP_EN.md), [governance matrix](../SKILL_MATRIX_EN.md), and [matching register](../SKILL_MATCHING_REGISTER_EN.md) for long-term governance.
 
 ## Cross-phase workflows
 
@@ -115,6 +115,28 @@ Each language contains 10 workflows, 108 testing types, and 3 Skill Engineering 
 | `negative-scenario-discovery` | [中文](../../skills/zh/testing-types/negative-scenario-discovery/) | [English](../../skills/en/testing-types/negative-scenario-discovery/) |
 
 > The v1.1 follow-on cards `business-rule-consistency-review`, `architecture-testability-review`, and `test-coverage-analysis` are recorded as enhancement modes on existing physical Skills rather than duplicate directories; see the [capability match register](../SKILL_MATCHING_REGISTER_EN.md).
+
+#### Reliability and Security — 可靠性与安全
+
+| Skill | 中文 | English |
+| --- | --- | --- |
+| `reliability-testing` | [中文](../../skills/zh/testing-types/reliability-testing/) | [English](../../skills/en/testing-types/reliability-testing/) |
+| `resilience-testing` | [中文](../../skills/zh/testing-types/resilience-testing/) | [English](../../skills/en/testing-types/resilience-testing/) |
+| `chaos-testing` | [中文](../../skills/zh/testing-types/chaos-testing/) | [English](../../skills/en/testing-types/chaos-testing/) |
+| `failover-testing` | [中文](../../skills/zh/testing-types/failover-testing/) | [English](../../skills/en/testing-types/failover-testing/) |
+| `recovery-testing` | [中文](../../skills/zh/testing-types/recovery-testing/) | [English](../../skills/en/testing-types/recovery-testing/) |
+| `retry-testing` | [中文](../../skills/zh/testing-types/retry-testing/) | [English](../../skills/en/testing-types/retry-testing/) |
+| `timeout-testing` | [中文](../../skills/zh/testing-types/timeout-testing/) | [English](../../skills/en/testing-types/timeout-testing/) |
+| `circuit-breaker-testing` | [中文](../../skills/zh/testing-types/circuit-breaker-testing/) | [English](../../skills/en/testing-types/circuit-breaker-testing/) |
+| `dependency-failure-testing` | [中文](../../skills/zh/testing-types/dependency-failure-testing/) | [English](../../skills/en/testing-types/dependency-failure-testing/) |
+| `disaster-recovery-testing` | [中文](../../skills/zh/testing-types/disaster-recovery-testing/) | [English](../../skills/en/testing-types/disaster-recovery-testing/) |
+| `authentication-testing` | [中文](../../skills/zh/testing-types/authentication-testing/) | [English](../../skills/en/testing-types/authentication-testing/) |
+| `authorization-testing` | [中文](../../skills/zh/testing-types/authorization-testing/) | [English](../../skills/en/testing-types/authorization-testing/) |
+| `session-security-testing` | [中文](../../skills/zh/testing-types/session-security-testing/) | [English](../../skills/en/testing-types/session-security-testing/) |
+| `api-security-testing` | [中文](../../skills/zh/testing-types/api-security-testing/) | [English](../../skills/en/testing-types/api-security-testing/) |
+| `security-requirement-review` | [中文](../../skills/zh/testing-types/security-requirement-review/) | [English](../../skills/en/testing-types/security-requirement-review/) |
+| `threat-modeling` | [中文](../../skills/zh/testing-types/threat-modeling/) | [English](../../skills/en/testing-types/threat-modeling/) |
+| `secrets-exposure-review` | [中文](../../skills/zh/testing-types/secrets-exposure-review/) | [English](../../skills/en/testing-types/secrets-exposure-review/) |
 
 #### Development and Continuous Integration
 

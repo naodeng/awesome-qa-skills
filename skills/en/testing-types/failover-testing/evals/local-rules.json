@@ -1,0 +1,8 @@
+{
+  "skill": "failover-testing",
+  "max_commands": 20,
+  "max_total_tokens": 100000,
+  "permissions": {
+    "max_escalations": 0
+  }
+}

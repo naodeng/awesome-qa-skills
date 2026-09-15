@@ -26,6 +26,10 @@ For every lifecycle change, check the Matrix, bilingual entry READMEs, Catalog/G
 
 `ACCEPTED_WITH_DEFERRED_EVAL`: the first five v1.1 requirement-quality Skills, the following ten quality-skill cards, and the current five test-design discovery Skills have passed unified implementation-scope acceptance; the corresponding 20 Project #4 cards move to `Done`. See the [Phase 1 requirement-quality record](./PHASE_1_REQUIREMENTS_QUALITY_EN.md) for scope, card IDs, input-audit boundaries, evidence limits, and acceptance commands. Real-model Evals are deferred by the user and remain `NOT_RUN`, so semantic effectiveness, quality scoring, and release completion must not be claimed.
 
+## Phase 3 current work item (2026-09-15)
+
+`IN_PROGRESS_WITH_DEFERRED_EVAL`: v3-v4 Batch 1 focuses on Reliability + Security: 17 candidate cards and the first batch of the 41 NEW physical candidates. The 17 cards move to `Done` only after the 17 bilingual packages, static contracts, Eval structure, metadata, and navigation are synchronized. `prompt-regression-testing` is recorded as an enhancement mode on `prompt-testing`, with no alias directory. See the [v3-v4 Phase 3 record](./PHASE_3_V3_V4_EN.md). Project status proves only the current column; without event history, transition audit remains `UNASSESSED`, while real-model Eval, external-target execution, quality scores, and business acceptance remain `NOT_RUN` / `NOT_SCORED` / `INCOMPLETE`.
+
 ## Phase reviews
 
 Each phase runs Coverage, Duplicate, Match, Merge, Enhancement, Eval, Usage, and Maintenance reviews. Findings distinguish verified, failed, not run, blocked, and not applicable; static checks are not runtime proof.

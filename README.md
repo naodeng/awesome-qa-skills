@@ -5,138 +5,129 @@
 按语言分区的 **AI 测试辅助技能库**（Agent Skills）。面向 Codex、Cursor、Claude Code、Kiro、OpenCode、Trae 等工具，提供可独立安装、可组合调用的测试工作流与测试类型技能。
 
 [![License: PolyForm Noncommercial 1.0.0](https://img.shields.io/badge/License-PolyForm%20Noncommercial%201.0.0-blue.svg)](./LICENSE)
-[![Skills](https://img.shields.io/badge/skills-242%20(zh%2Ben)-0A7EA4)](./docs/catalog/skills-index.md)
+[![Skills](https://img.shields.io/badge/skills-276%20(zh%2Ben)-0A7EA4)](./docs/catalog/skills-index.md)
 [![Workflows](https://img.shields.io/badge/workflows-10-informational)](./skills/zh/testing-workflows/)
-[![Testing types](https://img.shields.io/badge/testing%20types-108-informational)](./skills/zh/testing-types/)
+[![Testing types](https://img.shields.io/badge/testing%20types-125-informational)](./skills/zh/testing-types/)
 [![Skill engineering](https://img.shields.io/badge/skill%20engineering-3-informational)](./skills/zh/skill-engineering/)
 [![skills.sh](https://skills.sh/b/naodeng/awesome-qa-skills)](https://skills.sh/naodeng/awesome-qa-skills)
 
-**在线站点：** [https://inaodeng.com/qaskills/](https://inaodeng.com/qaskills/)
+**在线目录：** [https://inaodeng.com/qaskills/](https://inaodeng.com/qaskills/)
+
+**快速入口：** [完整技能索引](docs/catalog/skills-index.md) · [安装说明](scripts/INSTALL_SKILLS.md) · [贡献指南](CONTRIBUTING.md)
 
 ---
 
-## 为什么用这个仓库
+## 你可以用它做什么
 
-| 能力 | 说明 |
-| --- | --- |
-| 双语对齐 | `skills/zh` 与 `skills/en` 同名目录、同结构，团队可按语言选用 |
-| 覆盖完整测试链 | 从需求分析、策略、用例、执行到缺陷与报告 |
-| 工作流 + 类型技能 | 日常 / 迭代 / 发布、角色质量视角与多角色汇总工作流，配合 108 类专项技能按需组合 |
-| 开箱即装 | 支持一键安装与单 skill 安装脚本 |
-| 可评测可演进 | 全量 skill 附带 `evals/`，可用 [skill-up](https://github.com/alibaba/skill-up) 校验与实跑 |
+这是一个面向 AI 测试协作的双语 Skill 集合。每个 Skill 都可以独立复制、安装和调用，也可以组合成从需求分析到发布验证的质量工作流。
 
-每个 skill 目录复制出去后应自洽：含 `SKILL.md`、主提示词、工具元数据，以及可选的示例、模板、脚本与评测用例。
+| 场景 | 代表入口 | 适合解决的问题 |
+| --- | --- | --- |
+| 需求与测试设计 | `requirements-analysis`、`test-strategy`、`test-case-writing` | 从需求、风险和约束形成可追踪的测试方案与用例 |
+| 功能、API 与 UI 测试 | `functional-testing`、`api-testing`、`ui-test-playwright` | 为业务流程、接口和浏览器场景设计可执行测试 |
+| 回归、性能与质量工程 | `regression-test-selection`、`performance-testing`、`code-review` | 根据变更和风险选择回归范围，分析性能并前移质量 |
+| 发布与生产质量 | `release-testing-workflow`、`production-verification`、`metrics-anomaly-analysis` | 支持发布决策、生产验证、事故和指标分析 |
+| AI 功能与 Agent 安全 | `ai-feature-testing`、`llm-testing`、`ai-agent-testing`、`prompt-injection-testing` | 验证 AI 行为、评测、工具调用和安全边界 |
+| Skill 工程与治理 | `skill-change-verification`、`skill-prose-review` | 检查 Skill 的结构、契约、证据边界和文案质量 |
 
-## 按分类选择 Skill
+每个 Skill 目录复制出去后应保持自洽：包含 `SKILL.md`、主提示词、工具元数据，以及按需提供的示例、模板、脚本和评测用例。
 
-先按你所在的研发 / 测试阶段选择分类，再从对应小节安装或调用 Skill；不确定时使用路由工作流。完整名称清单仍在[全量技能索引](docs/catalog/skills-index.md)。
+## 快速开始
 
-| 我现在要解决什么 | 选择分类 | 典型阶段 / 能力 | 入口 |
-| --- | --- | --- | --- |
-| 建立需求、策略、用例、执行与报告的基础质量闭环 | Core QA Skills | 需求发现、策略、设计、执行、缺陷与报告 | [查看基础质量能力](#core-qa-skills--基础质量能力) |
-| 前移质量、评估变更、实现自动化或性能工程 | Engineering QA Skills | 需求左移、开发 / CI、回归、性能、持续改进 | [查看质量工程能力](#engineering-qa-skills--质量工程能力) |
-| 基于发布与生产证据作质量决策 | Production Quality Skills | 发布验证、事故响应、Trace 与指标分析 | [查看生产质量能力](#production-quality-skills--生产质量能力) |
-| 测试 AI 功能、LLM、Prompt、Agent 与安全边界 | AI Native QA Skills | AI 需求与风险、评测、工具调用与注入防护 | [查看 AI 原生质量能力](#ai-native-qa-skills--ai-原生质量能力) |
-| 串联多个阶段、按角色协作或不确定从哪里开始 | 跨阶段工作流 | 路由、日常 / 迭代 / 发布、质量视角与汇总 | [查看工作流](#跨阶段工作流) |
-| 已经知道要找的 Skill 名称 | 全量索引 | 全部 121 项能力与中英文路径 | [打开全量技能索引](docs/catalog/skills-index.md) |
+### 1. 安装单个 Skill（推荐）
 
-**推荐路径：** 不确定选哪个，先调用 [`discover-testing`](skills/zh/testing-workflows/discover-testing/)；确定阶段后，再进入对应能力层；只需具体名称时，直接使用全量索引。
-
-## 能力演进地图
-
-仓库以稳定目录提供安装，以能力阶段帮助选择和演进：
-
-```text
-Core QA Skills → Engineering QA Skills → Production Quality Skills → AI Native QA Skills
-```
-
-| 阶段 | 关注问题 | 现有入口 | 演进方向 |
-| --- | --- | --- | --- |
-| Core QA Skills | 需求、策略、用例、执行和报告如何形成基础质量闭环 | `requirements-analysis`、`test-strategy`、`functional-testing`、`test-reporting` | 保持基础完整，不重复拆包 |
-| Engineering QA Skills | 如何前移质量、评估变更、诊断问题并做性能决策 | `code-review`、`automation-testing`、`performance-testing` | Shift Left、变更与执行智能、性能工程 |
-| Production Quality Skills | 如何基于发布和生产证据进行质量决策 | `release-testing-workflow`、`test-reporting` | 生产验证、事故和可观测性 |
-| AI Native QA Skills | 如何验证 AI 功能、LLM、Prompt、Agent 和安全边界 | AI 功能、LLM、Prompt、Agent 与安全专项能力已提供 | Testing for AI 专项 Skill |
-
-`ai-assisted-testing` 是横向的 **AI for QA**，不等同于 AI Native QA 的 Testing for AI。已完成的六迭代路线、29 个新增 Skill 和跨仓 Prompt Baseline 映射见 [演进路线图](docs/governance/QA_SKILLS_EVOLUTION_ROADMAP.md)；长期 Existing / Enhance / Merge / Match / New 治理见 [Skill 治理路线图](docs/governance/SKILL_GOVERNANCE_ROADMAP.md)。
-
-## 支持的 AI 工具
-
-| 工具 | 典型安装目标 |
-| --- | --- |
-| Codex | `~/.codex/skills/` |
-| Cursor | `~/.cursor/skills/` |
-| Claude Code | Claude skills 目录（见安装文档） |
-| Kiro / OpenCode / Trae | 见 [scripts/INSTALL_SKILLS.md](scripts/INSTALL_SKILLS.md) |
-
-也可手动 `cp -r` 单个 skill 目录到对应工具的 skills 路径。
-
-## 5 分钟上手
-
-### 1. 克隆仓库
+需要 Node.js 的 `npx skills` 可以从 GitHub 直接安装一个语言目录或单个 Skill：
 
 ```bash
-git clone https://github.com/naodeng/awesome-qa-skills.git
-cd awesome-qa-skills
-```
-
-### 2. 安装技能（任选其一）
-
-```bash
-# 一键：全部工具 × 中英文
-bash ./install-skills-mac.sh --tool all --lang all
-
-# 仅 Codex + 中文
-bash ./install-skills-mac.sh --tool codex --lang zh
-
-# 单个 skill（示例：功能测试 → Codex）
-bash installers/zh/functional-testing/mac/codex.sh
-```
-
-也可以使用 `npx skills` 安装到支持的 AI 工具（需要 Node.js）：
-
-```bash
-# 安装全部中文 skills 到 Codex
-npx skills add https://github.com/naodeng/awesome-qa-skills/tree/main/skills/zh -g -a codex -y
-
-# 只安装一个 skill
+# 将中文功能测试 Skill 安装到 Codex
 npx skills add https://github.com/naodeng/awesome-qa-skills/tree/main/skills/zh/testing-types/functional-testing -g -a codex -y
 ```
 
-英文 skills 将 URL 中的 `skills/zh` 替换为 `skills/en`。建议一次只安装一种语言，避免同名 skill 相互覆盖。
+英文 Skill 将 URL 中的 `skills/zh` 替换为 `skills/en`。建议一次只安装一种语言，避免同名 Skill 相互覆盖。
+
+### 2. 使用一键安装脚本
+
+```bash
+# macOS / Linux：安装中文 Skill 到 Codex
+bash ./install-skills-mac.sh --tool codex --lang zh
+
+# macOS / Linux：全部工具 × 中英文
+bash ./install-skills-mac.sh --tool all --lang all
+```
 
 Windows：
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File .\install-skills-windows.ps1 -Tool all -Lang all
+powershell -ExecutionPolicy Bypass -File .\install-skills-windows.ps1 -Tool codex -Lang zh
 ```
 
-手动复制：
+### 3. 克隆完整仓库
+
+```bash
+git clone https://github.com/naodeng/awesome-qa-skills.git .skills/awesome-qa-skills
+```
+
+### 4. 作为 Git 子模块
+
+```bash
+git submodule add https://github.com/naodeng/awesome-qa-skills.git .skills/awesome-qa-skills
+```
+
+### 5. 手动复制
 
 ```bash
 cp -r skills/zh/testing-types/functional-testing ~/.cursor/skills/
 ```
 
-完整参数与工具路径说明：[scripts/INSTALL_SKILLS.md](scripts/INSTALL_SKILLS.md)
+单个 Skill 的快捷安装器、目标路径和完整参数见 [scripts/INSTALL_SKILLS.md](scripts/INSTALL_SKILLS.md)。
 
-### 3. 在工具中调用
+## 使用方式
 
-```text
-@skill functional-testing
-帮我为用户登录功能生成测试用例
-```
+如果你的 AI 工具支持 Agent Skills 的自动发现，可以直接用自然语言描述目标；需要显式调用时，指定 Skill 名称即可。
 
-不确定用哪个 skill 时，先用路由技能：
+| 你可以这样说 | 推荐入口 |
+| --- | --- |
+| “帮我为用户登录功能生成测试用例” | `functional-testing` |
+| “我要覆盖这个 REST API 的错误、幂等和分页场景” | `api-testing` |
+| “这次发布前应该做哪些回归和 Go/No-Go 检查？” | `release-testing-workflow` |
+| “请根据当前变更选择最小风险回归集” | `regression-test-selection` |
+| “帮我评估这个 LLM 功能的行为和安全边界” | `llm-testing`、`prompt-injection-testing` |
+
+不确定从哪里开始时，先调用路由 Skill：
 
 ```text
 @skill discover-testing
-我要做一次发布前回归，该选哪些技能？
+我要做一次发布前回归，该选哪些 Skill？
 ```
+
+## Skill 分类
+
+先按研发 / 测试阶段选择分类，再从对应入口安装或调用。已经知道名称时，直接打开[完整技能索引](docs/catalog/skills-index.md)。
+
+| 分类 | 包含内容 | 入口 |
+| --- | --- | --- |
+| 跨阶段工作流 | 路由、日常 / 迭代 / 发布、质量视角和多角色汇总 | [查看工作流](#跨阶段工作流) |
+| Core QA Skills | 需求、策略、测试设计、执行、缺陷和报告 | [查看基础质量能力](#core-qa-skills--基础质量能力) |
+| Engineering QA Skills | 质量左移、代码 / API / UI、回归、性能和持续改进 | [查看质量工程能力](#engineering-qa-skills--质量工程能力) |
+| Production Quality Skills | 发布验证、生产验证、事故、Trace 和指标分析 | [查看生产质量能力](#production-quality-skills--生产质量能力) |
+| AI Native QA Skills | AI 功能、LLM、Prompt、Agent 和安全测试 | [查看 AI 原生质量能力](#ai-native-qa-skills--ai-原生质量能力) |
+| Skill Engineering | Skill 变更验证、文案契约审查和过程性文案清理 | [查看 Skill Engineering](#skill-engineering横向治理) |
+
+## 能力分层
+
+仓库用稳定目录负责安装，用能力层帮助选择和演进：
+
+```text
+Core QA Skills → Engineering QA Skills → Production Quality Skills → AI Native QA Skills
+```
+
+`ai-assisted-testing` 是横向的 **AI for QA**，不等同于 AI Native QA 的 Testing for AI。六迭代路线与 Prompt Baseline 映射见[演进路线图](docs/governance/QA_SKILLS_EVOLUTION_ROADMAP.md)；长期 Existing / Enhance / Merge / Match / New 治理见 [Skill 治理路线图](docs/governance/SKILL_GOVERNANCE_ROADMAP.md)。
 
 ---
 
-## 技能目录
+## 完整技能目录
 
-每种语言共 **121** 个 Skill：10 个工作流、108 个测试类型和 3 个 Skill Engineering；中英文合计 **242** 个目录。物理目录保持稳定，下面只提供逻辑导航。
+每种语言共 **138** 个 Skill：10 个工作流、125 个测试类型和 3 个 Skill Engineering；中英文合计 **276** 个目录。物理目录保持稳定，下面只提供逻辑导航。
 
 ### 跨阶段工作流
 
@@ -251,6 +242,28 @@ cp -r skills/zh/testing-types/functional-testing ~/.cursor/skills/
 | 基于风险的测试 <!-- data-skill:risk-based-testing --> | [`risk-based-testing`](skills/zh/testing-types/risk-based-testing/) | 将风险证据转换为测试优先级、方法、深度和范围取舍 |
 | 边界场景发现 <!-- data-skill:edge-case-discovery --> | [`edge-case-discovery`](skills/zh/testing-types/edge-case-discovery/) | 从需求、状态、时间、资源和平台证据中发现边界候选 |
 | 负向场景发现 <!-- data-skill:negative-scenario-discovery --> | [`negative-scenario-discovery`](skills/zh/testing-types/negative-scenario-discovery/) | 从产品证据中发现非法、拒绝、失败、降级和恢复候选 |
+
+##### 可靠性与安全
+
+| 名称 | 目录 | 主要用途 |
+| --- | --- | --- |
+| 可靠性测试 <!-- data-skill:reliability-testing --> | [`reliability-testing`](skills/zh/testing-types/reliability-testing/) | 围绕可靠性目标、故障模式和证据准备形成分析候选。 |
+| 韧性测试 <!-- data-skill:resilience-testing --> | [`resilience-testing`](skills/zh/testing-types/resilience-testing/) | 分析降级、韧性和有限恢复证据。 |
+| 混沌测试 <!-- data-skill:chaos-testing --> | [`chaos-testing`](skills/zh/testing-types/chaos-testing/) | 设计受控故障注入假设和安全边界。 |
+| 故障切换测试 <!-- data-skill:failover-testing --> | [`failover-testing`](skills/zh/testing-types/failover-testing/) | 识别主备切换路径、触发条件和恢复证据。 |
+| 恢复测试 <!-- data-skill:recovery-testing --> | [`recovery-testing`](skills/zh/testing-types/recovery-testing/) | 定义恢复目标、证据缺口和验证准备。 |
+| 重试测试 <!-- data-skill:retry-testing --> | [`retry-testing`](skills/zh/testing-types/retry-testing/) | 分析重试安全、幂等、退避和耗尽行为。 |
+| 超时测试 <!-- data-skill:timeout-testing --> | [`timeout-testing`](skills/zh/testing-types/timeout-testing/) | 分析超时预算、取消和下游边界。 |
+| 熔断器测试 <!-- data-skill:circuit-breaker-testing --> | [`circuit-breaker-testing`](skills/zh/testing-types/circuit-breaker-testing/) | 分析熔断器状态、降级和恢复证据。 |
+| 依赖故障测试 <!-- data-skill:dependency-failure-testing --> | [`dependency-failure-testing`](skills/zh/testing-types/dependency-failure-testing/) | 分类依赖故障并审查隔离与兜底证据。 |
+| 灾备测试 <!-- data-skill:disaster-recovery-testing --> | [`disaster-recovery-testing`](skills/zh/testing-types/disaster-recovery-testing/) | 记录灾备目标、Runbook 和恢复验证准备。 |
+| 身份认证测试 <!-- data-skill:authentication-testing --> | [`authentication-testing`](skills/zh/testing-types/authentication-testing/) | 审查身份凭证、生命周期和认证失败证据。 |
+| 授权测试 <!-- data-skill:authorization-testing --> | [`authorization-testing`](skills/zh/testing-types/authorization-testing/) | 审查主体、资源、动作和权限边界决策。 |
+| 会话安全测试 <!-- data-skill:session-security-testing --> | [`session-security-testing`](skills/zh/testing-types/session-security-testing/) | 审查会话生命周期、固定、过期和撤销风险。 |
+| API 安全测试 <!-- data-skill:api-security-testing --> | [`api-security-testing`](skills/zh/testing-types/api-security-testing/) | 审查 API 攻击面和安全契约边界。 |
+| 安全需求审查 <!-- data-skill:security-requirement-review --> | [`security-requirement-review`](skills/zh/testing-types/security-requirement-review/) | 审查安全需求的可追踪性和可测试性。 |
+| 威胁建模 <!-- data-skill:threat-modeling --> | [`threat-modeling`](skills/zh/testing-types/threat-modeling/) | 建立资产、信任边界、威胁和缓解模型。 |
+| 敏感信息暴露审查 <!-- data-skill:secrets-exposure-review --> | [`secrets-exposure-review`](skills/zh/testing-types/secrets-exposure-review/) | 审查敏感信息位置、生命周期和暴露证据。 |
 
 ##### 开发与持续集成
 
@@ -376,6 +389,21 @@ cp -r skills/zh/testing-types/functional-testing ~/.cursor/skills/
 | 过程性文案清理 | [`skill-prose-trim`](skills/zh/skill-engineering/skill-prose-trim/) | 清理文案中的审查和设计过程残留，同时保留当前状态契约。 |
 
 Skill Engineering 服务所有能力层，不改变产品能力分类。英文 Skill 使用相同目录名；可从页面顶部切换语言。
+
+## 支持的 AI 工具
+
+这些工具有对应的一键安装器；也可以按[安装说明](scripts/INSTALL_SKILLS.md)使用 `npx skills` 或手动复制。
+
+| 工具 | 默认安装目标 | 支持方式 |
+| --- | --- | --- |
+| Codex | `~/.codex/skills/` | 一键脚本、`npx skills`、手动复制 |
+| Cursor | `~/.cursor/skills/` | 一键脚本、`npx skills`、手动复制 |
+| Claude Code | `~/.claude/skills/` | 一键脚本、`npx skills`、手动复制 |
+| Kiro | `~/.kiro/skills/` | 一键脚本、手动复制 |
+| OpenCode | `~/.opencode/skills/` | 一键脚本、手动复制 |
+| Trae | `~/.trae/skills/` | 一键脚本、手动复制 |
+
+Skill 目录遵循 Agent Skills 约定。其他兼容工具可以参考其 Skill 目录要求，直接复制对应语言目录或单个 Skill。
 
 ## 仓库结构
 
