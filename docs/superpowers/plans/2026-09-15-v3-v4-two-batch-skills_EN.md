@@ -12,7 +12,7 @@
 
 ## Global Constraints
 
-- Develop already contains the bilingual v3-v4 specification commits after 15c3804; origin/main is 15c3804. Preserve all existing v2 work and do not reset or overwrite unrelated changes.
+- The phase-start snapshot is `15c3804`; this PR's review base is `origin/main@7f981931`. Preserve all existing v2 work and do not reset or overwrite unrelated changes.
 - Batch 1 contains exactly 17 slugs: reliability-testing, resilience-testing, chaos-testing, failover-testing, recovery-testing, retry-testing, timeout-testing, circuit-breaker-testing, dependency-failure-testing, disaster-recovery-testing, authentication-testing, authorization-testing, session-security-testing, api-security-testing, security-requirement-review, threat-modeling, and secrets-exposure-review.
 - Batch 2 contains exactly 25 slugs: quality-gate-design, quality-metrics-design, quality-dashboard-design, quality-debt-analysis, quality-maturity-assessment, test-effectiveness-analysis, automation-roi-analysis, testing-bottleneck-analysis, regression-optimization, ci-test-optimization, test-runtime-optimization, test-maintenance-cost-analysis, quality-productivity-metrics, prompt-regression-testing, rag-quality-testing, rag-retrieval-testing, agent-loop-testing, agent-memory-testing, agent-permission-testing, agent-failure-recovery-testing, agent-long-running-testing, multi-agent-testing, llm-hallucination-testing, llm-consistency-testing, and ai-safety-testing.
 - The expected Match result is 41 NEW and one ENHANCE; live evidence controls the final result. Create a physical directory only for NEW. By default prompt-regression-testing enhances prompt-testing and does not create an alias directory.
@@ -554,4 +554,4 @@
       git diff origin/main...HEAD --stat
       git diff origin/main...HEAD --check
 
-  Report merge commit 15c3804, v3-v4 design/plan and implementation commits, exact package/registry/doc counts, passing commands, current Project evidence, and NOT_RUN/NOT_SCORED/UNASSESSED boundaries. Do not call this a published release or pushed branch.
+  Report the phase-start snapshot 15c3804, the current PR review base origin/main@7f981931, v3-v4 design/plan and implementation commits, exact package/registry/doc counts, passing commands, current Project evidence, and NOT_RUN/NOT_SCORED/UNASSESSED boundaries. Do not call this a published release or pushed branch.

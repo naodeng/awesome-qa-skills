@@ -65,7 +65,7 @@ flowchart LR
 | AI Native quality | `rag-retrieval-testing` → `rag-quality-testing` → `llm-hallucination-testing` / `llm-consistency-testing`；`prompt-testing` 的 `prompt-regression` 模式用于版本对比 | RAG 与 LLM 的检索、grounding、声明证据和一致性分析 |
 | Agent quality and safety | `agent-loop-testing` → `agent-memory-testing` / `agent-permission-testing` → `agent-failure-recovery-testing` / `agent-long-running-testing` / `multi-agent-testing` / `ai-safety-testing` | Agent 状态、工具权限、恢复、协作、长运行和安全边界 |
 
-v3-v4 Phase 3 的 17 个 Batch 1 卡片和 25 个 Batch 2 卡片均已按 `Match → RED 契约 → In Progress → 实现 → 质量门禁 → Done` 执行。`prompt-regression-testing` 作为 `prompt-testing` 的增强模式交付，不创建别名目录。
+当前 Project 快照显示 v3-v4 Phase 3 的 17 个 Batch 1 卡片和 25 个 Batch 2 卡片均为 `Done`；仓库记录了 `Match → RED 契约 → 实现 → 质量门禁` 的交付物，但 `In Progress → Done` 的历史转移仍为 `UNASSESSED`。`prompt-regression-testing` 作为 `prompt-testing` 的增强模式交付，不创建别名目录。
 
 ## 使用边界
 

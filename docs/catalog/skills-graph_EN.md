@@ -65,7 +65,7 @@ Every composition is optional. Use `discover-testing` when the entry point or se
 | AI Native quality | `rag-retrieval-testing` → `rag-quality-testing` → `llm-hallucination-testing` / `llm-consistency-testing`; use the `prompt-regression` mode in `prompt-testing` for version comparison | Retrieval, grounding, claim evidence, and consistency analysis for RAG and LLM systems |
 | Agent quality and safety | `agent-loop-testing` → `agent-memory-testing` / `agent-permission-testing` → `agent-failure-recovery-testing` / `agent-long-running-testing` / `multi-agent-testing` / `ai-safety-testing` | Agent state, tool permissions, recovery, coordination, long-running, and safety boundaries |
 
-The 17 v3-v4 Phase 3 Batch 1 cards and 25 Batch 2 cards have all followed `Match → RED contract → In Progress → implementation → quality gate → Done`. `prompt-regression-testing` is delivered as an enhancement mode inside `prompt-testing`, with no alias directory.
+The current Project snapshot shows all 17 v3-v4 Phase 3 Batch 1 cards and 25 Batch 2 cards as `Done`; the repository records delivery artifacts for `Match → RED contract → implementation → quality gate`, but the historical `In Progress → Done` transition remains `UNASSESSED`. `prompt-regression-testing` is delivered as an enhancement mode inside `prompt-testing`, with no alias directory.
 
 ## Boundaries
 

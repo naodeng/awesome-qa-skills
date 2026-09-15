@@ -12,7 +12,7 @@
 
 ## Global Constraints
 
-- 当前 develop 已在 15c3804 之后包含本任务的双语规格提交；origin/main 为 15c3804，当前工作区既有 v2 交付不回退、不覆盖。
+- 阶段启动快照为 `15c3804`；当前 PR 的审查基线为 `origin/main@7f981931`。当前工作区既有 v2 交付不回退、不覆盖。
 - Batch 1 固定为 17 个：reliability-testing、resilience-testing、chaos-testing、failover-testing、recovery-testing、retry-testing、timeout-testing、circuit-breaker-testing、dependency-failure-testing、disaster-recovery-testing、authentication-testing、authorization-testing、session-security-testing、api-security-testing、security-requirement-review、threat-modeling、secrets-exposure-review。
 - Batch 2 固定为 25 个：quality-gate-design、quality-metrics-design、quality-dashboard-design、quality-debt-analysis、quality-maturity-assessment、test-effectiveness-analysis、automation-roi-analysis、testing-bottleneck-analysis、regression-optimization、ci-test-optimization、test-runtime-optimization、test-maintenance-cost-analysis、quality-productivity-metrics、prompt-regression-testing、rag-quality-testing、rag-retrieval-testing、agent-loop-testing、agent-memory-testing、agent-permission-testing、agent-failure-recovery-testing、agent-long-running-testing、multi-agent-testing、llm-hallucination-testing、llm-consistency-testing、ai-safety-testing。
 - 预期 Match 结果为 41 个 NEW、1 个 ENHANCE；实际结果以初始 Match 证据为准。只有 NEW 才创建物理目录；prompt-regression-testing 默认增强 prompt-testing，不创建别名目录。
@@ -575,4 +575,4 @@
       git diff origin/main...HEAD --stat
       git diff origin/main...HEAD --check
 
-  Report the merge commit 15c3804, the v3-v4 design/plan and implementation commits, exact changed package/registry/doc counts, all passing commands, Project current-status evidence, and remaining NOT_RUN/NOT_SCORED/UNASSESSED boundaries. Do not report the work as a published release or pushed branch.
+  Report the phase-start snapshot 15c3804, the current PR review base origin/main@7f981931, the v3-v4 design/plan and implementation commits, exact changed package/registry/doc counts, all passing commands, Project current-status evidence, and remaining NOT_RUN/NOT_SCORED/UNASSESSED boundaries. Do not report the work as a published release or pushed branch.

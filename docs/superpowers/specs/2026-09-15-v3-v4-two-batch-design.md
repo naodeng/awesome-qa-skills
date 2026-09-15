@@ -6,9 +6,9 @@
 
 “APPROVED_FOR_PLAN”（2026-09-15）。聊天中的两批拆分方案已获确认，本轮复核已修正执行顺序歧义；本文可作为实施计划的规格来源。
 
-本设计基于 develop 当前基线 15c3804。该提交已将最新 origin/main 快进合入 develop；本次不 push、不创建 Release，也不把路线图实现自动宣称为版本发布。
+本设计记录的是阶段启动快照：develop 在 `15c3804` 时已包含当时的 `origin/main`；本 PR 的审查基线为 `origin/main@7f981931`。本次不 push、不创建 Release，也不把路线图实现自动宣称为版本发布。
 
-Project #4（Awesome QA Skills — Governance & Roadmap）当前有 42 张标题以 v3-v4 P2｜候选 Skill｜ 开头的卡片，均为 Todo。这里的“拖动卡片”指按实施门禁更新这些 Project 卡片的状态，不是增加仓库 UI。
+设计阶段的 Project #4（Awesome QA Skills — Governance & Roadmap）包含 42 张标题以 v3-v4 P2｜候选 Skill｜ 开头的卡片，初始状态均为 Todo。这里的“拖动卡片”指按实施门禁更新这些 Project 卡片的状态，不是增加仓库 UI。
 
 ## 目标
 

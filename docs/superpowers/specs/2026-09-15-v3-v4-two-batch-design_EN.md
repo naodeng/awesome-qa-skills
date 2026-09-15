@@ -6,9 +6,9 @@
 
 “APPROVED_FOR_PLAN” (2026-09-15). The two-batch split was approved in chat, and this review corrected an execution-order ambiguity; this document is ready to serve as the implementation-plan specification.
 
-This design uses develop commit 15c3804 as its baseline. That commit fast-forwarded the latest origin/main into develop. This work does not push, create a Release, or turn roadmap implementation into an automatic version-release claim.
+This design records the phase-start snapshot: develop included the then-current `origin/main` at `15c3804`; this PR's review base is `origin/main@7f981931`. This work does not push, create a Release, or turn roadmap implementation into an automatic version-release claim.
 
-Project #4 (Awesome QA Skills — Governance & Roadmap) currently contains 42 cards whose titles start with v3-v4 P2｜候选 Skill｜; all are Todo. “Dragging cards” means updating those Project cards through the implementation gates, not adding a repository UI.
+At design time, Project #4 (Awesome QA Skills — Governance & Roadmap) contained 42 cards whose titles start with v3-v4 P2｜候选 Skill｜; their initial status was Todo. “Dragging cards” means updating those Project cards through the implementation gates, not adding a repository UI.
 
 ## Goal
 
