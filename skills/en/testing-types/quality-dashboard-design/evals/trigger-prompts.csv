@@ -1,0 +1,5 @@
+mode,should_trigger,prompt
+"explicit","true","Use the quality-dashboard-design skill to analyze quality dashboard."
+"implicit","true","Review quality dashboard audiences, decision questions, panels, drill-downs, freshness, and alert boundaries and list evidence gaps."
+"contextual","true","a release review needs a quality dashboard for risk trends, blockers, and evidence freshness, but the current sketch contains only scattered metrics; how should a bounded analysis be prepared?"
+"negative","false","Design the marketing page colors and fonts; do not perform testing or quality analysis."

@@ -1,0 +1,45 @@
+id: basic-success
+title: "Retry Testing: domain output with complete input"
+description: |
+  Verify that the Skill produces an evidence-based, prioritized, reviewable result about retry triggers, backoff, idempotency, retry limits, and duplicate side effects.
+
+input:
+  prompt: |
+    Use the retry-testing Skill to analyze safe retries after a payment request timeout and duplicate-charge risk. The system scope, isolated environment, main dependencies, and release constraints are provided. Produce domain risks, expected results, evidence gaps, priorities, and open questions.
+
+expect:
+  must_contain:
+    - "object/rule"
+    - "source"
+    - "trigger or applicability"
+    - "expected concern/rationale"
+    - "evidence state"
+    - "impact/priority"
+    - "owner role"
+    - "close condition"
+    - "validation method"
+    - "RTY-"
+    - "retry policy"
+    - "priority"
+    - "evidence"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "object/rule"
+          - "source"
+          - "trigger or applicability"
+          - "expected concern/rationale"
+          - "evidence state"
+          - "impact/priority"
+          - "owner role"
+          - "close condition"
+          - "validation method"
+          - "RTY-"
+          - "retry policy"
+          - "open"

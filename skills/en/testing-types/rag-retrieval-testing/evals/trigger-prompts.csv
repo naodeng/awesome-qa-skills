@@ -1,0 +1,5 @@
+mode,should_trigger,prompt
+"explicit","true","Use the rag-retrieval-testing skill to analyze retrieval result."
+"implicit","true","Review query variants, chunking, filters, recall/precision proxies, ranking, freshness, and retrieval evidence and list evidence gaps."
+"contextual","true","retrieval results decreased after an enterprise knowledge-base change, and the team needs to separate evidence differences from query rewriting, chunking, filters, and ranking; how should a bounded analysis be prepared?"
+"negative","false","Design the marketing page colors and fonts; do not perform testing or quality analysis."

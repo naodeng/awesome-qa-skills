@@ -1,0 +1,5 @@
+mode,should_trigger,prompt
+"explicit","true","Use the quality-gate-design skill to analyze quality gate."
+"implicit","true","Review entry criteria, evidence requirements, owners, and exception paths for a delivery or release gate and list evidence gaps."
+"contextual","true","a payment-service release needs a quality gate covering critical business risk, automated results, known defects, and the human-approval boundary; how should a bounded analysis be prepared?"
+"negative","false","Design the marketing page colors and fonts; do not perform testing or quality analysis."

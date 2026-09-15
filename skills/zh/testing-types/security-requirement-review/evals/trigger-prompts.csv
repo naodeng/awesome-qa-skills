@@ -1,0 +1,5 @@
+mode,should_trigger,prompt
+"explicit","true","请使用 security-requirement-review Skill 审查安全需求。"
+"implicit","true","请分析安全目标、可测试性、追踪关系、接受条件和证据缺口并列出证据缺口。"
+"contextual","true","订单系统存在权限风险，如何准备安全需求验证？"
+"negative","false","请设计登录页面的颜色和字体，不做安全测试分析。"

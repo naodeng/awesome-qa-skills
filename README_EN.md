@@ -5,9 +5,9 @@
 A language-partitioned **AI testing skills library** (Agent Skills) for Codex, Cursor, Claude Code, Kiro, OpenCode, Trae, and similar tools. It ships independently installable, composable skills for testing workflows and testing types.
 
 [![License: PolyForm Noncommercial 1.0.0](https://img.shields.io/badge/License-PolyForm%20Noncommercial%201.0.0-blue.svg)](./LICENSE)
-[![Skills](https://img.shields.io/badge/skills-242%20(zh%2Ben)-0A7EA4)](./docs/catalog/skills-index_EN.md)
+[![Skills](https://img.shields.io/badge/skills-324%20(zh%2Ben)-0A7EA4)](./docs/catalog/skills-index_EN.md)
 [![Workflows](https://img.shields.io/badge/workflows-10-informational)](./skills/en/testing-workflows/)
-[![Testing types](https://img.shields.io/badge/testing%20types-108-informational)](./skills/en/testing-types/)
+[![Testing types](https://img.shields.io/badge/testing%20types-149-informational)](./skills/en/testing-types/)
 [![Skill engineering](https://img.shields.io/badge/skill%20engineering-3-informational)](./skills/en/skill-engineering/)
 [![skills.sh](https://skills.sh/b/naodeng/awesome-qa-skills)](https://skills.sh/naodeng/awesome-qa-skills)
 
@@ -127,7 +127,7 @@ Core QA Skills → Engineering QA Skills → Production Quality Skills → AI Na
 
 ## Complete Skill catalog
 
-Each language provides **121** Skills: 10 workflows, 108 testing types, and 3 Skill Engineering packages; **242** bilingual directories in total. Physical directories remain stable; the catalog below is logical navigation only.
+Each language provides **162** Skills: 10 workflows, 149 testing types, and 3 Skill Engineering packages; **324** bilingual directories in total. Physical directories remain stable; the catalog below is logical navigation only.
 
 ### Cross-phase workflows
 
@@ -243,6 +243,46 @@ Each testing-type Skill appears once; routers and workflows cover cross-phase co
 | Edge Case Discovery <!-- data-skill:edge-case-discovery --> | [`edge-case-discovery`](skills/en/testing-types/edge-case-discovery/) | Discover boundary candidates from requirement, state, time, resource, and platform evidence |
 | Negative Scenario Discovery <!-- data-skill:negative-scenario-discovery --> | [`negative-scenario-discovery`](skills/en/testing-types/negative-scenario-discovery/) | Discover invalid, denied, failed, degraded, and recovery candidates from product evidence |
 
+##### Reliability and Security
+
+| Skill | Directory | Primary use |
+| --- | --- | --- |
+| Reliability Testing <!-- data-skill:reliability-testing --> | [`reliability-testing`](skills/en/testing-types/reliability-testing/) | Analyze reliability objectives, failure modes, and evidence readiness. |
+| Resilience Testing <!-- data-skill:resilience-testing --> | [`resilience-testing`](skills/en/testing-types/resilience-testing/) | Analyze degradation, resilience, and bounded recovery evidence. |
+| Chaos Testing <!-- data-skill:chaos-testing --> | [`chaos-testing`](skills/en/testing-types/chaos-testing/) | Design controlled fault-injection hypotheses and safety boundaries. |
+| Failover Testing <!-- data-skill:failover-testing --> | [`failover-testing`](skills/en/testing-types/failover-testing/) | Identify primary-to-secondary failover paths, triggers, and recovery evidence. |
+| Recovery Testing <!-- data-skill:recovery-testing --> | [`recovery-testing`](skills/en/testing-types/recovery-testing/) | Define recovery objectives, evidence gaps, and validation preparation. |
+| Retry Testing <!-- data-skill:retry-testing --> | [`retry-testing`](skills/en/testing-types/retry-testing/) | Analyze retry safety, idempotency, backoff, and exhaustion behavior. |
+| Timeout Testing <!-- data-skill:timeout-testing --> | [`timeout-testing`](skills/en/testing-types/timeout-testing/) | Analyze timeout budgets, cancellation, and downstream boundaries. |
+| Circuit Breaker Testing <!-- data-skill:circuit-breaker-testing --> | [`circuit-breaker-testing`](skills/en/testing-types/circuit-breaker-testing/) | Analyze circuit-breaker states, fallback, and recovery evidence. |
+| Dependency Failure Testing <!-- data-skill:dependency-failure-testing --> | [`dependency-failure-testing`](skills/en/testing-types/dependency-failure-testing/) | Classify dependency failures and review isolation and fallback evidence. |
+| Disaster Recovery Testing <!-- data-skill:disaster-recovery-testing --> | [`disaster-recovery-testing`](skills/en/testing-types/disaster-recovery-testing/) | Record disaster-recovery objectives, runbook, and restore-validation preparation. |
+| Authentication Testing <!-- data-skill:authentication-testing --> | [`authentication-testing`](skills/en/testing-types/authentication-testing/) | Review identity proof, credential lifecycle, and authentication-failure evidence. |
+| Authorization Testing <!-- data-skill:authorization-testing --> | [`authorization-testing`](skills/en/testing-types/authorization-testing/) | Review subject-resource-action decisions and privilege boundaries. |
+| Session Security Testing <!-- data-skill:session-security-testing --> | [`session-security-testing`](skills/en/testing-types/session-security-testing/) | Review session lifecycle, fixation, expiry, and revocation risks. |
+| API Security Testing <!-- data-skill:api-security-testing --> | [`api-security-testing`](skills/en/testing-types/api-security-testing/) | Review API attack surface and security-contract boundaries. |
+| Security Requirement Review <!-- data-skill:security-requirement-review --> | [`security-requirement-review`](skills/en/testing-types/security-requirement-review/) | Review security-requirement traceability and testability. |
+| Threat Modeling <!-- data-skill:threat-modeling --> | [`threat-modeling`](skills/en/testing-types/threat-modeling/) | Model assets, trust boundaries, threats, and mitigations. |
+| Secrets Exposure Review <!-- data-skill:secrets-exposure-review --> | [`secrets-exposure-review`](skills/en/testing-types/secrets-exposure-review/) | Review secret locations, lifecycle, and exposure evidence. |
+
+##### Quality Engineering and Productivity
+
+| Skill | Directory | Primary use |
+| --- | --- | --- |
+| Quality Gate Design <!-- data-skill:quality-gate-design --> | [`quality-gate-design`](skills/en/testing-types/quality-gate-design/) | Define evidence-based pass, block, escalation, and exception rules |
+| Quality Metrics Design <!-- data-skill:quality-metrics-design --> | [`quality-metrics-design`](skills/en/testing-types/quality-metrics-design/) | Define metrics, denominators, sources, freshness, and interpretation boundaries |
+| Quality Dashboard Design <!-- data-skill:quality-dashboard-design --> | [`quality-dashboard-design`](skills/en/testing-types/quality-dashboard-design/) | Design decision questions, panels, drill-downs, freshness, and alert semantics |
+| Quality Debt Analysis <!-- data-skill:quality-debt-analysis --> | [`quality-debt-analysis`](skills/en/testing-types/quality-debt-analysis/) | Analyze quality-debt origin, impact, age, ownership, and paydown tradeoffs |
+| Quality Maturity Assessment <!-- data-skill:quality-maturity-assessment --> | [`quality-maturity-assessment`](skills/en/testing-types/quality-maturity-assessment/) | Assess quality-practice maturity and improvement gaps with evidence anchors |
+| Test Effectiveness Analysis <!-- data-skill:test-effectiveness-analysis --> | [`test-effectiveness-analysis`](skills/en/testing-types/test-effectiveness-analysis/) | Analyze test signals, risk coverage, missed-detection limits, and validation plans |
+| Automation ROI Analysis <!-- data-skill:automation-roi-analysis --> | [`automation-roi-analysis`](skills/en/testing-types/automation-roi-analysis/) | Compare automation build, run, maintenance costs, and benefit assumptions |
+| Testing Bottleneck Analysis <!-- data-skill:testing-bottleneck-analysis --> | [`testing-bottleneck-analysis`](skills/en/testing-types/testing-bottleneck-analysis/) | Locate testing queues, dependencies, capacity, handoffs, and constraint evidence |
+| Regression Optimization <!-- data-skill:regression-optimization --> | [`regression-optimization`](skills/en/testing-types/regression-optimization/) | Optimize regression scope across risk, feedback time, parallelism, caching, and maintenance |
+| CI Test Optimization <!-- data-skill:ci-test-optimization --> | [`ci-test-optimization`](skills/en/testing-types/ci-test-optimization/) | Optimize CI stages, feedback, flakiness, resources, caching, and sharding |
+| Test Runtime Optimization <!-- data-skill:test-runtime-optimization --> | [`test-runtime-optimization`](skills/en/testing-types/test-runtime-optimization/) | Optimize slow tests, setup, teardown, parallelism, and isolation from profiling and baselines |
+| Test Maintenance Cost Analysis <!-- data-skill:test-maintenance-cost-analysis --> | [`test-maintenance-cost-analysis`](skills/en/testing-types/test-maintenance-cost-analysis/) | Analyze change frequency, repair effort, flaky cost, ownership, and maintainability |
+| Quality Productivity Metrics <!-- data-skill:quality-productivity-metrics --> | [`quality-productivity-metrics`](skills/en/testing-types/quality-productivity-metrics/) | Define quality and delivery productivity measures with attribution and gaming boundaries |
+
 ##### Development and Continuous Integration
 
 | Skill | Directory | Primary use |
@@ -349,6 +389,12 @@ Each testing-type Skill appears once; routers and workflows cover cross-phase co
 | LLM Evaluation Design <!-- data-skill:llm-evaluation-design --> | [`llm-evaluation-design`](skills/en/testing-types/llm-evaluation-design/) | Design LLM evaluations, judges, and human-review boundaries |
 | LLM Testing <!-- data-skill:llm-testing --> | [`llm-testing`](skills/en/testing-types/llm-testing/) | Test LLM behavior, failure modes, and quality boundaries |
 | Prompt Testing <!-- data-skill:prompt-testing --> | [`prompt-testing`](skills/en/testing-types/prompt-testing/) | Test prompt behavior, boundaries, and version regressions |
+| RAG Quality Testing <!-- data-skill:rag-quality-testing --> | [`rag-quality-testing`](skills/en/testing-types/rag-quality-testing/) | Test grounding, relevance, completeness, citation support, and abstention evidence |
+| RAG Retrieval Testing <!-- data-skill:rag-retrieval-testing --> | [`rag-retrieval-testing`](skills/en/testing-types/rag-retrieval-testing/) | Analyze query variants, chunking, filters, ranking, freshness, and retrieval evidence |
+| LLM Hallucination Testing <!-- data-skill:llm-hallucination-testing --> | [`llm-hallucination-testing`](skills/en/testing-types/llm-hallucination-testing/) | Verify claims against sources and assess unsupported assertions and abstention |
+| LLM Consistency Testing <!-- data-skill:llm-consistency-testing --> | [`llm-consistency-testing`](skills/en/testing-types/llm-consistency-testing/) | Compare repeated inputs, version factors, invariants, and output variance |
+
+> `prompt-regression-testing` is an enhancement mode named `prompt-regression` inside `prompt-testing`; no alias directory is created.
 
 ##### Agent, Tool, and Safety Testing
 
@@ -357,6 +403,13 @@ Each testing-type Skill appears once; routers and workflows cover cross-phase co
 | AI Agent Testing <!-- data-skill:ai-agent-testing --> | [`ai-agent-testing`](skills/en/testing-types/ai-agent-testing/) | Test AI agent goals, state, recovery, and safety boundaries |
 | Agent Tool Testing <!-- data-skill:agent-tool-testing --> | [`agent-tool-testing`](skills/en/testing-types/agent-tool-testing/) | Verify agent tool-call contracts, authorization, and side effects |
 | Prompt Injection Testing <!-- data-skill:prompt-injection-testing --> | [`prompt-injection-testing`](skills/en/testing-types/prompt-injection-testing/) | Design AI prompt-injection defense tests |
+| Agent Loop Testing <!-- data-skill:agent-loop-testing --> | [`agent-loop-testing`](skills/en/testing-types/agent-loop-testing/) | Test plan-act-observe loops, stop conditions, budgets, and repetition |
+| Agent Memory Testing <!-- data-skill:agent-memory-testing --> | [`agent-memory-testing`](skills/en/testing-types/agent-memory-testing/) | Test memory read/write, update/delete, retention, isolation, provenance, and forgetting |
+| Agent Permission Testing <!-- data-skill:agent-permission-testing --> | [`agent-permission-testing`](skills/en/testing-types/agent-permission-testing/) | Verify identity, tool/resource scope, approval, denial, and side-effect boundaries |
+| Agent Failure Recovery Testing <!-- data-skill:agent-failure-recovery-testing --> | [`agent-failure-recovery-testing`](skills/en/testing-types/agent-failure-recovery-testing/) | Analyze failure classification, retry/fallback, escalation, state consistency, and user notice |
+| Agent Long-Running Testing <!-- data-skill:agent-long-running-testing --> | [`agent-long-running-testing`](skills/en/testing-types/agent-long-running-testing/) | Test checkpoints, heartbeats, resume/cancel, duplicate submission, timeouts, and resource lifecycle |
+| Multi-Agent Testing <!-- data-skill:multi-agent-testing --> | [`multi-agent-testing`](skills/en/testing-types/multi-agent-testing/) | Analyze delegation, coordination, shared state, conflicts, ownership, and termination |
+| AI Safety Testing <!-- data-skill:ai-safety-testing --> | [`ai-safety-testing`](skills/en/testing-types/ai-safety-testing/) | Review safety policy, abuse, refusal/redirect, privacy, and escalation boundaries |
 
 ### Skill Engineering (cross-cutting governance)
 

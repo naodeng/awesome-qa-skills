@@ -1,0 +1,5 @@
+mode,should_trigger,prompt
+"explicit","true","Use the session-security-testing Skill to review session security."
+"implicit","true","Analyze session creation, fixation, expiry, revocation, concurrency, and cross-device boundaries and list evidence gaps."
+"contextual","true","An order system has a permission risk. How should we prepare session security validation?"
+"negative","false","Design the login page colors and typography without security testing analysis."

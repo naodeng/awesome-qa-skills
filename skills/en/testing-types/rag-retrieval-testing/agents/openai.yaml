@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: rag-retrieval-testing
+interface:
+  display_name: "RAG Retrieval Testing"
+  short_description: "Produce evidence-bounded retrieval result analysis"
+  default_prompt: "Use the rag-retrieval-testing skill to perform retrieval result analysis."
+policy:
+  allow_implicit_invocation: true

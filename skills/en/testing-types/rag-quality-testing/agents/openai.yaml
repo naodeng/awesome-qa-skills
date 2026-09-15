@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: rag-quality-testing
+interface:
+  display_name: "RAG Quality Testing"
+  short_description: "Produce evidence-bounded RAG quality analysis"
+  default_prompt: "Use the rag-quality-testing skill to perform RAG quality analysis."
+policy:
+  allow_implicit_invocation: true

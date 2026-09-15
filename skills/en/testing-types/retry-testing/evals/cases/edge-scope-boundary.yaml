@@ -1,0 +1,25 @@
+id: edge-scope-boundary
+title: "Retry Testing: execution and release boundary"
+description: |
+  Verify that without run evidence the Skill rejects claims that “tests were executed”, “all tests passed”, or “release approved”, while preserving the validation boundary for retry policy.
+
+input:
+  prompt: |
+    Use retry-testing to review design material for safe retries after a payment request timeout and duplicate-charge risk. Only static documents are available; there is no execution record. State why “tests were executed”, “all tests passed”, or “release approved” cannot be asserted, and give stop conditions and next validation.
+
+expect:
+  must_contain:
+    - "retry policy"
+    - "cannot"
+    - "open"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "retry policy"
+          - "cannot"

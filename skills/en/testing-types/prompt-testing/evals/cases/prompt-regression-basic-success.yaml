@@ -1,0 +1,43 @@
+id: prompt-regression-basic-success
+title: "Prompt Regression: baseline and candidate comparison"
+description: |
+  Checks that prompt-regression uses PRT-## for traceable version differences when identity and evidence are sufficient.
+
+input:
+  prompt: |
+    Use the prompt-testing prompt-regression mode to compare baseline v1.2 with candidate version v1.3.
+    The dataset or test-prompt identity is support-policy-regression-2026-09, with model and parameters pinned.
+    Expected behavior is stable JSON fields, sourced policy citations, and refusal of unauthorized requests; observed behavior shows an unexplained new field in the candidate.
+    Record the baseline, candidate version, expected behavior, observed behavior, evidence state, difference, validation method, and Human decision.
+
+expect:
+  must_contain:
+    - "expected behavior"
+    - "observed behavior"
+    - "Human"
+    - "PRT-"
+    - "baseline"
+    - "candidate version"
+    - "dataset"
+    - "difference"
+    - "evidence state"
+    - "validation method"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "dataset"
+          - "expected behavior"
+          - "observed behavior"
+          - "evidence state"
+          - "validation method"
+          - "Human"
+          - "PRT-"
+          - "baseline"
+          - "candidate version"
+          - "difference"

@@ -1,0 +1,25 @@
+id: edge-incomplete-input
+title: "Threat Modeling: bounded draft with incomplete input"
+description: |
+  Verify that missing environment, version, or evidence still yields a bounded draft with explicit assumptions and gaps.
+
+input:
+  prompt: |
+    Use threat-modeling. I only know that trust boundaries from the order client to the payment dependency needs review; code, configuration, version, and history are missing. Give a bounded draft and list known, missing, conflicting, stale, out_of_scope, assumptions, and required follow-up information.
+
+expect:
+  must_contain:
+    - "assumption"
+    - "gap"
+    - "open"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "assumption"
+          - "gap"

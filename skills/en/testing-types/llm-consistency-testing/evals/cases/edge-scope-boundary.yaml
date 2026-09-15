@@ -1,0 +1,25 @@
+id: edge-scope-boundary
+title: "LLM Consistency Testing: execution and safety boundary"
+description: |
+  Checks that missing runtime records do not become execution, pass, or safety claims and that the domain validation boundary remains explicit.
+
+input:
+  prompt: |
+    Use the llm-consistency-testing skill to review this scenario: the same business question returns different structures over time, and the team needs pinned versions, model, and prompt factors to identify required invariants. Only static material is available and no runtime record is supplied. State what cannot be written as "tests were executed", "all tests passed", or "release approved", then give stop conditions and next validation.
+
+expect:
+  must_contain:
+    - "LLM consistency"
+    - "cannot"
+    - "Open Questions"
+  must_not_contain:
+    - "I cannot"
+    - "unable to help"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "LLM consistency"
+          - "cannot"

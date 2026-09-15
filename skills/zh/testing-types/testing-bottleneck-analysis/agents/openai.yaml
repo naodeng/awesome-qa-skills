@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: testing-bottleneck-analysis
+interface:
+  display_name: "测试瓶颈分析"
+  short_description: "围绕测试瓶颈输出证据边界与可执行分析"
+  default_prompt: "Use the testing-bottleneck-analysis skill to perform testing bottleneck analysis."
+policy:
+  allow_implicit_invocation: true

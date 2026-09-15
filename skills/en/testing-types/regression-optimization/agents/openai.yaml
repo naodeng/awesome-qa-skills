@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: regression-optimization
+interface:
+  display_name: "Regression Optimization"
+  short_description: "Produce evidence-bounded regression scope analysis"
+  default_prompt: "Use the regression-optimization skill to perform regression scope analysis."
+policy:
+  allow_implicit_invocation: true

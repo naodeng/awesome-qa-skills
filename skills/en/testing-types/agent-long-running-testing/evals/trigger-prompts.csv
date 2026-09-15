@@ -1,0 +1,5 @@
+mode,should_trigger,prompt
+"explicit","true","Use the agent-long-running-testing skill to analyze long-running Agent."
+"implicit","true","Review checkpoints, heartbeats, resume, cancellation, duplicate submission, timeouts, and resource lifecycle and list evidence gaps."
+"contextual","true","a data-migration Agent may run for hours, and the team needs evidence boundaries for checkpoints, heartbeats, resume, cancellation, and duplicate submission; how should a bounded analysis be prepared?"
+"negative","false","Design the marketing page colors and fonts; do not perform testing or quality analysis."

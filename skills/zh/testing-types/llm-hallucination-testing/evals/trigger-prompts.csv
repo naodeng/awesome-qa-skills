@@ -1,0 +1,5 @@
+mode,should_trigger,prompt
+"explicit","true","请使用 llm-hallucination-testing Skill 分析LLM 幻觉。"
+"implicit","true","请审查声明与来源关系、无支持断言、拒答、不确定性与证据复核并列出证据缺口。"
+"contextual","true","回答助手可能把不存在的政策条款说成事实，团队需要基于声明级证据区分支持、矛盾和无来源内容，如何准备有边界的分析？"
+"negative","false","请设计营销页面的颜色和字体，不做测试或质量分析。"

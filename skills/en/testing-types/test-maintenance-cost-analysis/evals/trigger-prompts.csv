@@ -1,0 +1,5 @@
+mode,should_trigger,prompt
+"explicit","true","Use the test-maintenance-cost-analysis skill to analyze maintenance cost."
+"implicit","true","Review change frequency, repair effort, flaky cost, ownership, maintainability, and confidence and list evidence gaps."
+"contextual","true","a test suite needs frequent repair because of product changes and environment flakiness, and the team needs to separate real maintenance cost, ownership, and improvement priority; how should a bounded analysis be prepared?"
+"negative","false","Design the marketing page colors and fonts; do not perform testing or quality analysis."

@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: agent-loop-testing
+interface:
+  display_name: "Agent Loop Testing"
+  short_description: "Produce evidence-bounded Agent loop analysis"
+  default_prompt: "Use the agent-loop-testing skill to perform Agent loop analysis."
+policy:
+  allow_implicit_invocation: true

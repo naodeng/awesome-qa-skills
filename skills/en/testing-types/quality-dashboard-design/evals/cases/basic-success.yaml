@@ -1,0 +1,47 @@
+id: basic-success
+title: "Quality Dashboard Design: domain-complete scenario"
+description: |
+  Checks that the skill produces domain-specific quality dashboard analysis that is evidence-based, prioritized, and executable.
+
+input:
+  prompt: |
+    Use the quality-dashboard-design skill for this scenario: a release review needs a quality dashboard for risk trends, blockers, and evidence freshness, but the current sketch contains only scattered metrics. Provide quality dashboard priorities, core execution items, expected behavior or decision criteria, evidence, and open questions.
+
+expect:
+  must_contain:
+    - "object/rule"
+    - "source"
+    - "trigger or applicability"
+    - "expected concern/rationale"
+    - "evidence state"
+    - "impact/priority"
+    - "owner role"
+    - "close condition"
+    - "validation method"
+    - "QDD-"
+    - "Task Understanding"
+    - "Input Audit"
+    - "quality dashboard"
+    - "expected"
+  must_not_contain:
+    - "I cannot"
+    - "unable to help"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "object/rule"
+          - "source"
+          - "trigger or applicability"
+          - "expected concern/rationale"
+          - "evidence state"
+          - "impact/priority"
+          - "owner role"
+          - "close condition"
+          - "validation method"
+          - "QDD-"
+          - "Task Understanding"
+          - "Input Audit"
+          - "quality dashboard"

@@ -1,0 +1,25 @@
+id: edge-scope-boundary
+title: "RAG Quality Testing: execution and safety boundary"
+description: |
+  Checks that missing runtime records do not become execution, pass, or safety claims and that the domain validation boundary remains explicit.
+
+input:
+  prompt: |
+    Use the rag-quality-testing skill to review this scenario: a knowledge-base assistant must ground answers in sources, cover key points, and abstain when retrieval is insufficient, but only scattered examples exist. Only static material is available and no runtime record is supplied. State what cannot be written as "tests were executed", "all tests passed", or "release approved", then give stop conditions and next validation.
+
+expect:
+  must_contain:
+    - "RAG quality"
+    - "cannot"
+    - "Open Questions"
+  must_not_contain:
+    - "I cannot"
+    - "unable to help"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "RAG quality"
+          - "cannot"

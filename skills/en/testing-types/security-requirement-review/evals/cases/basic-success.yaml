@@ -1,0 +1,45 @@
+id: basic-success
+title: "Security-Requirement Review: security output with complete input"
+description: |
+  Verify that the Skill produces an evidence-based, prioritized, reviewable security result about security objectives, testability, trace links, acceptance conditions, and evidence gaps.
+
+input:
+  prompt: |
+    Use the security-requirement-review Skill to analyze sensitive-data protection and access-control conditions in payment requirements. System scope, test environment, roles, and security constraints are provided. Produce security requirement risks, expected results, evidence gaps, priorities, and open questions.
+
+expect:
+  must_contain:
+    - "object/rule"
+    - "source"
+    - "trigger or applicability"
+    - "expected concern/rationale"
+    - "evidence state"
+    - "impact/priority"
+    - "owner role"
+    - "close condition"
+    - "validation method"
+    - "SRR-"
+    - "security requirement"
+    - "priority"
+    - "evidence"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "object/rule"
+          - "source"
+          - "trigger or applicability"
+          - "expected concern/rationale"
+          - "evidence state"
+          - "impact/priority"
+          - "owner role"
+          - "close condition"
+          - "validation method"
+          - "SRR-"
+          - "security requirement"
+          - "open"

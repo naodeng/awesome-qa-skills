@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: dependency-failure-testing
+interface:
+  display_name: "Dependency-Failure Testing"
+  short_description: "Evidence-bounded dependency-failure-testing analysis and validation preparation"
+  default_prompt: "Use the dependency-failure-testing skill for evidence-bounded analysis."
+policy:
+  allow_implicit_invocation: true

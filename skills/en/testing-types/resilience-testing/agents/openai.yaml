@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: resilience-testing
+interface:
+  display_name: "Resilience Testing"
+  short_description: "Evidence-bounded resilience-testing analysis and validation preparation"
+  default_prompt: "Use the resilience-testing skill for evidence-bounded analysis."
+policy:
+  allow_implicit_invocation: true

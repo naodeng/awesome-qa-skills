@@ -55,6 +55,18 @@ The evolution model is `Core QA Skills → Engineering QA Skills → Production 
 
 Every composition is optional. Use `discover-testing` when the entry point or sequence is unclear.
 
+## v3-v4 Phase 3 Compositions
+
+| Scenario | Recommended composition | Outcome |
+| --- | --- | --- |
+| Reliability and failure paths | `reliability-testing` → `resilience-testing` → `failover-testing` / `recovery-testing`; use `retry-testing` / `timeout-testing` / `circuit-breaker-testing` / `dependency-failure-testing` / `disaster-recovery-testing` / `chaos-testing` as needed | Reliability objectives, failure modes, degradation, failover, and recovery evidence preparation |
+| Identity and API security | `security-requirement-review` → `authentication-testing` / `authorization-testing` → `session-security-testing` / `api-security-testing`; use `threat-modeling` / `secrets-exposure-review` as needed | Security requirements, identity, authorization, session, attack-surface, and exposure evidence |
+| Quality engineering and productivity | `quality-gate-design` → `quality-metrics-design` → `quality-dashboard-design`; use `quality-debt-analysis` / `quality-maturity-assessment` / `test-effectiveness-analysis` / `automation-roi-analysis` / `testing-bottleneck-analysis` / `regression-optimization` / `ci-test-optimization` / `test-runtime-optimization` / `test-maintenance-cost-analysis` / `quality-productivity-metrics` as needed | Quality gates, metrics, dashboards, debt, maturity, and productivity analysis |
+| AI Native quality | `rag-retrieval-testing` → `rag-quality-testing` → `llm-hallucination-testing` / `llm-consistency-testing`; use the `prompt-regression` mode in `prompt-testing` for version comparison | Retrieval, grounding, claim evidence, and consistency analysis for RAG and LLM systems |
+| Agent quality and safety | `agent-loop-testing` → `agent-memory-testing` / `agent-permission-testing` → `agent-failure-recovery-testing` / `agent-long-running-testing` / `multi-agent-testing` / `ai-safety-testing` | Agent state, tool permissions, recovery, coordination, long-running, and safety boundaries |
+
+The current Project snapshot shows all 17 v3-v4 Phase 3 Batch 1 cards and 25 Batch 2 cards as `Done`; the repository records delivery artifacts for `Match → RED contract → implementation → quality gate`, but the historical `In Progress → Done` transition remains `UNASSESSED`. `prompt-regression-testing` is delivered as an enhancement mode inside `prompt-testing`, with no alias directory.
+
 ## Boundaries
 
 - `ai-assisted-testing` is **AI for QA** and can assist any stage; it is not a replacement for Testing for AI.
@@ -65,6 +77,8 @@ Every composition is optional. Use `discover-testing` when the entry point or se
 - The v1.1 test-design discovery composition is optional navigation; the five candidate cards are delivered as independent bilingual physical Skills, with no cross-Skill internal dependency and no upgrade from discovery to execution or coverage evidence.
 - The v2.0 Test Engineering compositions are optional navigation; the 25 candidate cards are delivered as independent bilingual physical Skills without installation dependencies, cross-Skill internal links, or runtime-execution claims.
 - v2.0 Skills produce findings from supplied specifications, code, test assets, or reports; real-model Eval, API/UI/database/mutator execution, and release approval remain unrun or require Human decisions.
+- v3-v4 Phase 3 reliability and security Skills prepare evidence-bounded testing/review only: they do not inject faults, read live credentials, claim security certification, or claim a recovery drill ran; Project card status is not release approval or risk acceptance.
+- v3-v4 Phase 3 QE and AI Native Skills prepare evidence-bounded metric, productivity, RAG/LLM, Agent, and safety analysis only; static contracts, triggers, or directory presence do not prove real-model effectiveness, runtime coverage, quality scores, or business acceptance.
 
 ## Navigation
 
@@ -72,4 +86,5 @@ Every composition is optional. Use `discover-testing` when the entry point or se
 - [Chinese roadmap](../governance/QA_SKILLS_EVOLUTION_ROADMAP.md)
 - [English roadmap](../governance/QA_SKILLS_EVOLUTION_ROADMAP_EN.md)
 - [v1.1 requirement-quality Phase 1](../governance/PHASE_1_REQUIREMENTS_QUALITY_EN.md)
+- [v3-v4 Phase 3](../governance/PHASE_3_V3_V4_EN.md)
 - [v1.0 source-governance baseline and per-package records](../governance/SKILL_GOVERNANCE_V1_EN.md) (static evidence, not runtime quality)

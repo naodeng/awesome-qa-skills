@@ -1,0 +1,5 @@
+mode,should_trigger,prompt
+"explicit","true","Use the testing-bottleneck-analysis skill to analyze testing bottleneck."
+"implicit","true","Review queues, dependencies, capacity, handoffs, and evidence for testing constraints and list evidence gaps."
+"contextual","true","iteration testing repeatedly waits on environments, data preparation, and manual approval, and the team needs to locate the actual bottleneck rather than add people by intuition; how should a bounded analysis be prepared?"
+"negative","false","Design the marketing page colors and fonts; do not perform testing or quality analysis."

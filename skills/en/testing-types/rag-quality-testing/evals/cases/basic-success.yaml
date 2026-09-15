@@ -1,0 +1,47 @@
+id: basic-success
+title: "RAG Quality Testing: domain-complete scenario"
+description: |
+  Checks that the skill produces domain-specific RAG quality analysis that is evidence-based, prioritized, and executable.
+
+input:
+  prompt: |
+    Use the rag-quality-testing skill for this scenario: a knowledge-base assistant must ground answers in sources, cover key points, and abstain when retrieval is insufficient, but only scattered examples exist. Provide RAG quality priorities, core execution items, expected behavior or decision criteria, evidence, and open questions.
+
+expect:
+  must_contain:
+    - "object/rule"
+    - "source"
+    - "trigger or applicability"
+    - "expected concern/rationale"
+    - "evidence state"
+    - "impact/priority"
+    - "owner role"
+    - "close condition"
+    - "validation method"
+    - "RAGQ-"
+    - "Task Understanding"
+    - "Input Audit"
+    - "RAG quality"
+    - "expected"
+  must_not_contain:
+    - "I cannot"
+    - "unable to help"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "object/rule"
+          - "source"
+          - "trigger or applicability"
+          - "expected concern/rationale"
+          - "evidence state"
+          - "impact/priority"
+          - "owner role"
+          - "close condition"
+          - "validation method"
+          - "RAGQ-"
+          - "Task Understanding"
+          - "Input Audit"
+          - "RAG quality"

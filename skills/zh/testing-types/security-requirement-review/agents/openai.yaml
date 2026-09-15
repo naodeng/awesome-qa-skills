@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: security-requirement-review
+interface:
+  display_name: "安全需求审查"
+  short_description: "Evidence-bounded security-requirement-review analysis and validation preparation"
+  default_prompt: "Use the security-requirement-review skill for evidence-bounded analysis."
+policy:
+  allow_implicit_invocation: true

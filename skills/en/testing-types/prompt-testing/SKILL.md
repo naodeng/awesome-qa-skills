@@ -1,6 +1,6 @@
 ---
 name: prompt-testing
-description: Use this skill when you need to test prompt behavior, regression risk, and output boundaries across versions; triggers include prompt testing.
+description: Use this skill when you need to test prompt behavior, regression risk, and output boundaries across versions; triggers include prompt testing and prompt-regression.
 ---
 
 # Prompt Testing
@@ -8,6 +8,7 @@ description: Use this skill when you need to test prompt behavior, regression ri
 ## When to Use
 
 - Use this skill when you need to verify prompts for correctness, consistency, and control across representative, boundary, adversarial, and version-change cases.
+- Use the `prompt-regression` mode when comparing a baseline and candidate version with pinned dataset or test-prompt identity, observed differences, and evidence state.
 - Use it to review an existing plan, result, or evidence set and produce actionable improvements.
 - Use it when context is incomplete but a bounded first pass is still valuable.
 
@@ -20,10 +21,11 @@ description: Use this skill when you need to test prompt behavior, regression ri
 ## How to Use
 
 1. Read and follow `prompts/prompt-testing.md`, including its input contract, execution rules, minimum coverage, and output order.
-2. Add only context that changes the decision: scope, environment, version, constraints, evidence, and success criteria.
-3. Audit the input, then separate confirmed facts, working assumptions, and open questions.
-4. Rank by risk and evidence strength, and produce an artifact that can be executed or reviewed directly.
-5. If information is missing, deliver a bounded first pass and state which conclusions remain unsupported.
+2. Select ordinary testing or `prompt-regression`; regression mode requires the baseline, candidate version, dataset or test-prompt identity, and comparability context.
+3. Add only context that changes the decision: scope, environment, version, constraints, evidence, and success criteria.
+4. Audit the input, then separate confirmed facts, working assumptions, and open questions.
+5. Rank by risk and evidence strength, and produce an artifact that can be executed or reviewed directly.
+6. If information is missing, deliver a bounded first pass and state which conclusions remain unsupported.
 
 ## Reference Files
 
@@ -39,6 +41,8 @@ description: Use this skill when you need to test prompt behavior, regression ri
 - Never invent system behavior, fields, data, metrics, or root causes absent from the evidence.
 - Link important conclusions to evidence; mark unsupported conclusions as hypotheses with a verification method.
 - Explain priority using business impact, likelihood, or detectability.
+- In `prompt-regression`, use `PRT-##` finding IDs and distinguish baseline, candidate version, expected behavior, observed behavior, difference, and validation method.
+- Treat version differences as evidence-bounded comparisons; static analysis must not become a claim that a model ran or regression passed.
 
 ## Delivery Checklist
 
@@ -46,6 +50,7 @@ description: Use this skill when you need to test prompt behavior, regression ri
 - [ ] Separated facts, assumptions, gaps, and recommendations.
 - [ ] Gave high-risk items a priority, evidence basis, owner or next action.
 - [ ] Defined verifiable decision criteria instead of generic advice.
+- [ ] For regression, preserved dataset or test-prompt identity, evidence state, differences, and the Human decision boundary.
 - [ ] Performed no unauthorized production writes or destructive actions.
 
 ## Common Pitfalls
@@ -54,6 +59,7 @@ description: Use this skill when you need to test prompt behavior, regression ri
 - Marking everything high priority and avoiding tradeoffs.
 - Substituting tool names or generic theory for domain reasoning.
 - Refusing incomplete input, or pretending incomplete evidence supports certainty.
+- Treating a surface difference between candidate and baseline as a regression defect without checking comparability or evidence state.
 
 ## Best Practices
 

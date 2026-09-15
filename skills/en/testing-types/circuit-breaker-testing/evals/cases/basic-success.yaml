@@ -1,0 +1,45 @@
+id: basic-success
+title: "Circuit-Breaker Testing: domain output with complete input"
+description: |
+  Verify that the Skill produces an evidence-based, prioritized, reviewable result about closed, open, and half-open states, threshold evidence, recovery probes, and fallback.
+
+input:
+  prompt: |
+    Use the circuit-breaker-testing Skill to analyze circuit state transitions and recovery probes after repeated payment-dependency failures. The system scope, isolated environment, main dependencies, and release constraints are provided. Produce domain risks, expected results, evidence gaps, priorities, and open questions.
+
+expect:
+  must_contain:
+    - "object/rule"
+    - "source"
+    - "trigger or applicability"
+    - "expected concern/rationale"
+    - "evidence state"
+    - "impact/priority"
+    - "owner role"
+    - "close condition"
+    - "validation method"
+    - "CBR-"
+    - "circuit-breaker state"
+    - "priority"
+    - "evidence"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "object/rule"
+          - "source"
+          - "trigger or applicability"
+          - "expected concern/rationale"
+          - "evidence state"
+          - "impact/priority"
+          - "owner role"
+          - "close condition"
+          - "validation method"
+          - "CBR-"
+          - "circuit-breaker state"
+          - "open"

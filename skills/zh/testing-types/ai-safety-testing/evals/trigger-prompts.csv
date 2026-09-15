@@ -1,0 +1,5 @@
+mode,should_trigger,prompt
+"explicit","true","请使用 ai-safety-testing Skill 分析AI 安全。"
+"implicit","true","请审查安全政策、滥用类别、拒答/重定向、隐私、升级与 Human 风险决策并列出证据缺口。"
+"contextual","true","面向用户的 AI 助手需要处理自伤、隐私和越权请求，团队要审查拒答、重定向、升级和人工风险决策边界，如何准备有边界的分析？"
+"negative","false","请设计营销页面的颜色和字体，不做测试或质量分析。"

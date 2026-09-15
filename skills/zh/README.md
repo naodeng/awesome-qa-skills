@@ -4,7 +4,7 @@
 
 本目录是中文主语言 Skill 根目录，与 `skills/en` 使用相同 Skill 名和物理结构。
 
-每种语言共 **121** 个 Skill：10 workflows + 108 testing types + 3 Skill Engineering。完整项目说明见 [中文 README](../../README.md) 和 [English README](../../README_EN.md)；长期治理见 [治理路线图](../../docs/governance/SKILL_GOVERNANCE_ROADMAP.md) 与 [治理矩阵](../../docs/SKILL_MATRIX.md)。
+每种语言共 **162** 个 Skill：10 workflows + 149 testing types + 3 Skill Engineering。完整项目说明见 [中文 README](../../README.md) 和 [English README](../../README_EN.md)；长期治理见 [治理路线图](../../docs/governance/SKILL_GOVERNANCE_ROADMAP.md) 与 [治理矩阵](../../docs/SKILL_MATRIX.md)。
 
 ## 跨阶段工作流
 
@@ -116,6 +116,46 @@
 | 边界场景发现 | [`edge-case-discovery`](testing-types/edge-case-discovery/) |
 | 负向场景发现 | [`negative-scenario-discovery`](testing-types/negative-scenario-discovery/) |
 
+#### Reliability and Security — 可靠性与安全
+
+| Skill | 目录 |
+| --- | --- |
+| 可靠性测试 | [`reliability-testing`](testing-types/reliability-testing/) |
+| 韧性测试 | [`resilience-testing`](testing-types/resilience-testing/) |
+| 混沌测试 | [`chaos-testing`](testing-types/chaos-testing/) |
+| 故障切换测试 | [`failover-testing`](testing-types/failover-testing/) |
+| 恢复测试 | [`recovery-testing`](testing-types/recovery-testing/) |
+| 重试测试 | [`retry-testing`](testing-types/retry-testing/) |
+| 超时测试 | [`timeout-testing`](testing-types/timeout-testing/) |
+| 熔断器测试 | [`circuit-breaker-testing`](testing-types/circuit-breaker-testing/) |
+| 依赖故障测试 | [`dependency-failure-testing`](testing-types/dependency-failure-testing/) |
+| 灾备测试 | [`disaster-recovery-testing`](testing-types/disaster-recovery-testing/) |
+| 身份认证测试 | [`authentication-testing`](testing-types/authentication-testing/) |
+| 授权测试 | [`authorization-testing`](testing-types/authorization-testing/) |
+| 会话安全测试 | [`session-security-testing`](testing-types/session-security-testing/) |
+| API 安全测试 | [`api-security-testing`](testing-types/api-security-testing/) |
+| 安全需求审查 | [`security-requirement-review`](testing-types/security-requirement-review/) |
+| 威胁建模 | [`threat-modeling`](testing-types/threat-modeling/) |
+| 敏感信息暴露审查 | [`secrets-exposure-review`](testing-types/secrets-exposure-review/) |
+
+#### 质量工程与效能
+
+| Skill | 目录 |
+| --- | --- |
+| 质量门禁设计 | [`quality-gate-design`](testing-types/quality-gate-design/) |
+| 质量指标设计 | [`quality-metrics-design`](testing-types/quality-metrics-design/) |
+| 质量仪表盘设计 | [`quality-dashboard-design`](testing-types/quality-dashboard-design/) |
+| 质量债务分析 | [`quality-debt-analysis`](testing-types/quality-debt-analysis/) |
+| 质量成熟度评估 | [`quality-maturity-assessment`](testing-types/quality-maturity-assessment/) |
+| 测试有效性分析 | [`test-effectiveness-analysis`](testing-types/test-effectiveness-analysis/) |
+| 自动化投资回报分析 | [`automation-roi-analysis`](testing-types/automation-roi-analysis/) |
+| 测试瓶颈分析 | [`testing-bottleneck-analysis`](testing-types/testing-bottleneck-analysis/) |
+| 回归优化 | [`regression-optimization`](testing-types/regression-optimization/) |
+| CI 测试优化 | [`ci-test-optimization`](testing-types/ci-test-optimization/) |
+| 测试运行时间优化 | [`test-runtime-optimization`](testing-types/test-runtime-optimization/) |
+| 测试维护成本分析 | [`test-maintenance-cost-analysis`](testing-types/test-maintenance-cost-analysis/) |
+| 质量生产力指标 | [`quality-productivity-metrics`](testing-types/quality-productivity-metrics/) |
+
 #### 开发与持续集成
 
 | Skill | 目录 |
@@ -222,6 +262,12 @@
 | LLM Eval 设计 | [`llm-evaluation-design`](testing-types/llm-evaluation-design/) |
 | LLM 测试 | [`llm-testing`](testing-types/llm-testing/) |
 | Prompt 测试 | [`prompt-testing`](testing-types/prompt-testing/) |
+| RAG 质量测试 | [`rag-quality-testing`](testing-types/rag-quality-testing/) |
+| RAG 检索测试 | [`rag-retrieval-testing`](testing-types/rag-retrieval-testing/) |
+| LLM 幻觉测试 | [`llm-hallucination-testing`](testing-types/llm-hallucination-testing/) |
+| LLM 一致性测试 | [`llm-consistency-testing`](testing-types/llm-consistency-testing/) |
+
+> `prompt-regression-testing` 是 `prompt-testing` 内名为 `prompt-regression` 的增强模式，不创建别名目录。
 
 #### Agent、工具与安全测试
 
@@ -230,6 +276,13 @@
 | AI Agent 测试 | [`ai-agent-testing`](testing-types/ai-agent-testing/) |
 | Agent 工具调用测试 | [`agent-tool-testing`](testing-types/agent-tool-testing/) |
 | Prompt Injection 测试 | [`prompt-injection-testing`](testing-types/prompt-injection-testing/) |
+| Agent 循环测试 | [`agent-loop-testing`](testing-types/agent-loop-testing/) |
+| Agent 记忆测试 | [`agent-memory-testing`](testing-types/agent-memory-testing/) |
+| Agent 权限测试 | [`agent-permission-testing`](testing-types/agent-permission-testing/) |
+| Agent 故障恢复测试 | [`agent-failure-recovery-testing`](testing-types/agent-failure-recovery-testing/) |
+| 长运行 Agent 测试 | [`agent-long-running-testing`](testing-types/agent-long-running-testing/) |
+| 多 Agent 测试 | [`multi-agent-testing`](testing-types/multi-agent-testing/) |
+| AI 安全测试 | [`ai-safety-testing`](testing-types/ai-safety-testing/) |
 
 ## Skill Engineering（横向治理）
 

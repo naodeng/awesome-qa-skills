@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: timeout-testing
+interface:
+  display_name: "超时测试"
+  short_description: "Evidence-bounded timeout-testing analysis and validation preparation"
+  default_prompt: "Use the timeout-testing skill for evidence-bounded analysis."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,47 @@
+id: basic-success
+title: "Test Effectiveness Analysis: domain-complete scenario"
+description: |
+  Checks that the skill produces domain-specific test effectiveness analysis that is evidence-based, prioritized, and executable.
+
+input:
+  prompt: |
+    Use the test-effectiveness-analysis skill for this scenario: a team sees a high test pass rate while high-impact defects still reach users and needs to assess whether test signals cover critical risk. Provide test effectiveness priorities, core execution items, expected behavior or decision criteria, evidence, and open questions.
+
+expect:
+  must_contain:
+    - "object/rule"
+    - "source"
+    - "trigger or applicability"
+    - "expected concern/rationale"
+    - "evidence state"
+    - "impact/priority"
+    - "owner role"
+    - "close condition"
+    - "validation method"
+    - "TEA-"
+    - "Task Understanding"
+    - "Input Audit"
+    - "test effectiveness"
+    - "expected"
+  must_not_contain:
+    - "I cannot"
+    - "unable to help"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "object/rule"
+          - "source"
+          - "trigger or applicability"
+          - "expected concern/rationale"
+          - "evidence state"
+          - "impact/priority"
+          - "owner role"
+          - "close condition"
+          - "validation method"
+          - "TEA-"
+          - "Task Understanding"
+          - "Input Audit"
+          - "test effectiveness"

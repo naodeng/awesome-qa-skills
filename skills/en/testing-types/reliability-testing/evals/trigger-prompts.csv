@@ -1,0 +1,5 @@
+mode,should_trigger,prompt
+"explicit","true","Use the reliability-testing Skill to analyze the reliability objective."
+"implicit","true","Review availability objectives, failure modes, exposure windows, and evidence readiness and list evidence gaps."
+"contextual","true","An order-system dependency is unavailable. How should we prepare reliability objective validation?"
+"negative","false","Design the login page colors and typography without testing analysis."

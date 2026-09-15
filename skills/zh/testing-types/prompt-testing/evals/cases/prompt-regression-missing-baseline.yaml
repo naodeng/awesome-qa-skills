@@ -1,0 +1,27 @@
+id: prompt-regression-missing-baseline
+title: "提示词回归：缺少基线时的受限初版"
+description: |
+  验证缺少基线或数据集身份时，不会编造回归结论，而是保留信息缺口和待确认状态。
+
+input:
+  prompt: |
+    请使用 prompt-testing 的 prompt-regression 模式审查一个提示词升级。只有候选版本文本，没有基线、数据集身份、模型参数或运行结果。
+    请列出当前假设、信息缺口、证据状态和最小验证方法，不要判断回归已经发生。
+
+expect:
+  must_contain:
+    - "信息缺口"
+    - "证据状态"
+    - "待确认"
+    - "验证方法"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "信息缺口"
+          - "待确认"

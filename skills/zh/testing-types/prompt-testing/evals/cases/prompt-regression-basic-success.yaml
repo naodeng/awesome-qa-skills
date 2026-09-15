@@ -1,0 +1,43 @@
+id: prompt-regression-basic-success
+title: "提示词回归：基线与候选版本对比"
+description: |
+  验证 prompt-regression 模式能用 PRT-## 在身份和证据充分时输出可追踪的版本差异。
+
+input:
+  prompt: |
+    请使用 prompt-testing 的 prompt-regression 模式比较基线 v1.2 和候选版本 v1.3。
+    数据集/测试提示词身份为 support-policy-regression-2026-09，模型和参数保持不变。
+    预期行为是 JSON 字段稳定、政策引用有来源、越权请求被拒答；观察到的行为显示候选版本新增了一个未解释的字段。
+    请记录基线、候选版本、预期行为、观察到的行为、证据状态、差异、验证方法和 Human 决策。
+
+expect:
+  must_contain:
+    - "预期行为"
+    - "观察到的行为"
+    - "Human"
+    - "PRT-"
+    - "基线"
+    - "候选版本"
+    - "数据集"
+    - "差异"
+    - "证据状态"
+    - "验证方法"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "数据集"
+          - "预期行为"
+          - "观察到的行为"
+          - "证据状态"
+          - "验证方法"
+          - "Human"
+          - "PRT-"
+          - "基线"
+          - "候选版本"
+          - "差异"

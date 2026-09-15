@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: rag-retrieval-testing
+interface:
+  display_name: "RAG 检索测试"
+  short_description: "围绕检索结果输出证据边界与可执行分析"
+  default_prompt: "Use the rag-retrieval-testing skill to perform retrieval result analysis."
+policy:
+  allow_implicit_invocation: true

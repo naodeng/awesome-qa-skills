@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: agent-loop-testing
+interface:
+  display_name: "Agent 循环测试"
+  short_description: "围绕Agent 循环输出证据边界与可执行分析"
+  default_prompt: "Use the agent-loop-testing skill to perform Agent loop analysis."
+policy:
+  allow_implicit_invocation: true

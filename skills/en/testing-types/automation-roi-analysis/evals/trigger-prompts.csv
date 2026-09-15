@@ -1,0 +1,5 @@
+mode,should_trigger,prompt
+"explicit","true","Use the automation-roi-analysis skill to analyze automation ROI."
+"implicit","true","Review automation candidates, build/run/maintenance costs, benefit assumptions, time horizon, and sensitivity and list evidence gaps."
+"contextual","true","a team must decide whether to automate a regression suite, but has only rough execution frequency and maintenance estimates without a comparable horizon or sensitivity analysis; how should a bounded analysis be prepared?"
+"negative","false","Design the marketing page colors and fonts; do not perform testing or quality analysis."

@@ -1,0 +1,47 @@
+id: basic-success
+title: "Agent Failure Recovery Testing: domain-complete scenario"
+description: |
+  Checks that the skill produces domain-specific Agent failure recovery analysis that is evidence-based, prioritized, and executable.
+
+input:
+  prompt: |
+    Use the agent-failure-recovery-testing skill for this scenario: when an Agent tool call times out or returns incomplete data, the team needs to assess retry, fallback, escalation, and state consistency with reviewable evidence. Provide Agent failure recovery priorities, core execution items, expected behavior or decision criteria, evidence, and open questions.
+
+expect:
+  must_contain:
+    - "object/rule"
+    - "source"
+    - "trigger or applicability"
+    - "expected concern/rationale"
+    - "evidence state"
+    - "impact/priority"
+    - "owner role"
+    - "close condition"
+    - "validation method"
+    - "AFR-"
+    - "Task Understanding"
+    - "Input Audit"
+    - "Agent failure recovery"
+    - "expected"
+  must_not_contain:
+    - "I cannot"
+    - "unable to help"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "object/rule"
+          - "source"
+          - "trigger or applicability"
+          - "expected concern/rationale"
+          - "evidence state"
+          - "impact/priority"
+          - "owner role"
+          - "close condition"
+          - "validation method"
+          - "AFR-"
+          - "Task Understanding"
+          - "Input Audit"
+          - "Agent failure recovery"

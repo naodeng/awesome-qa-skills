@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: quality-maturity-assessment
+interface:
+  display_name: "Quality Maturity Assessment"
+  short_description: "Produce evidence-bounded quality maturity analysis"
+  default_prompt: "Use the quality-maturity-assessment skill to perform quality maturity analysis."
+policy:
+  allow_implicit_invocation: true

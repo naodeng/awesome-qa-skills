@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: quality-debt-analysis
+interface:
+  display_name: "质量债务分析"
+  short_description: "围绕质量债务输出证据边界与可执行分析"
+  default_prompt: "Use the quality-debt-analysis skill to perform quality debt analysis."
+policy:
+  allow_implicit_invocation: true

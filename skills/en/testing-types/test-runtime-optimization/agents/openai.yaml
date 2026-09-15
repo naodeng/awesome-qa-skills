@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: test-runtime-optimization
+interface:
+  display_name: "Test Runtime Optimization"
+  short_description: "Produce evidence-bounded test runtime analysis"
+  default_prompt: "Use the test-runtime-optimization skill to perform test runtime analysis."
+policy:
+  allow_implicit_invocation: true

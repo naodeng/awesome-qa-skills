@@ -1,0 +1,5 @@
+mode,should_trigger,prompt
+"explicit","true","Use the quality-metrics-design skill to analyze quality metric."
+"implicit","true","Review quality metric definitions, calculation rules, data sources, freshness, and anti-gaming boundaries and list evidence gaps."
+"contextual","true","a team wants to use escaped-defect rate, regression pass rate, and repair time to measure quality, but numerator, denominator, sources, and windows are not aligned; how should a bounded analysis be prepared?"
+"negative","false","Design the marketing page colors and fonts; do not perform testing or quality analysis."

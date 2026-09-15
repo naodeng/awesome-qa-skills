@@ -1,0 +1,45 @@
+id: basic-success
+title: "API Security Testing: security output with complete input"
+description: |
+  Verify that the Skill produces an evidence-based, prioritized, reviewable security result about API attack surface, input boundaries, identity and authorization, error leakage, and security contracts.
+
+input:
+  prompt: |
+    Use the api-security-testing Skill to analyze authentication, authorization, input, and error-response design for order APIs. System scope, test environment, roles, and security constraints are provided. Produce API security risks, expected results, evidence gaps, priorities, and open questions.
+
+expect:
+  must_contain:
+    - "object/rule"
+    - "source"
+    - "trigger or applicability"
+    - "expected concern/rationale"
+    - "evidence state"
+    - "impact/priority"
+    - "owner role"
+    - "close condition"
+    - "validation method"
+    - "AST-"
+    - "API security"
+    - "priority"
+    - "evidence"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "object/rule"
+          - "source"
+          - "trigger or applicability"
+          - "expected concern/rationale"
+          - "evidence state"
+          - "impact/priority"
+          - "owner role"
+          - "close condition"
+          - "validation method"
+          - "AST-"
+          - "API security"
+          - "open"

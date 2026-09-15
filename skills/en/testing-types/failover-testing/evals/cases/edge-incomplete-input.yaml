@@ -1,0 +1,25 @@
+id: edge-incomplete-input
+title: "Failover Testing: bounded draft with incomplete input"
+description: |
+  Verify that missing environment, version, or dependency details produce a bounded draft with explicit assumptions and gaps.
+
+input:
+  prompt: |
+    Use failover-testing. I only know that the new version involves the path for switching order read-write service from a primary to a standby instance; architecture, thresholds, and historical results are missing. Give a usable bounded draft and list known, missing, conflicting, stale, out_of_scope, assumptions, and required follow-up information.
+
+expect:
+  must_contain:
+    - "assumption"
+    - "gap"
+    - "open"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "assumption"
+          - "gap"

@@ -1,0 +1,47 @@
+id: basic-success
+title: "Automation ROI Analysis: domain-complete scenario"
+description: |
+  Checks that the skill produces domain-specific automation ROI analysis that is evidence-based, prioritized, and executable.
+
+input:
+  prompt: |
+    Use the automation-roi-analysis skill for this scenario: a team must decide whether to automate a regression suite, but has only rough execution frequency and maintenance estimates without a comparable horizon or sensitivity analysis. Provide automation ROI priorities, core execution items, expected behavior or decision criteria, evidence, and open questions.
+
+expect:
+  must_contain:
+    - "object/rule"
+    - "source"
+    - "trigger or applicability"
+    - "expected concern/rationale"
+    - "evidence state"
+    - "impact/priority"
+    - "owner role"
+    - "close condition"
+    - "validation method"
+    - "ARO-"
+    - "Task Understanding"
+    - "Input Audit"
+    - "automation ROI"
+    - "expected"
+  must_not_contain:
+    - "I cannot"
+    - "unable to help"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "object/rule"
+          - "source"
+          - "trigger or applicability"
+          - "expected concern/rationale"
+          - "evidence state"
+          - "impact/priority"
+          - "owner role"
+          - "close condition"
+          - "validation method"
+          - "ARO-"
+          - "Task Understanding"
+          - "Input Audit"
+          - "automation ROI"

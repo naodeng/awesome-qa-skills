@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: quality-productivity-metrics
+interface:
+  display_name: "Quality Productivity Metrics"
+  short_description: "Produce evidence-bounded quality productivity analysis"
+  default_prompt: "Use the quality-productivity-metrics skill to perform quality productivity analysis."
+policy:
+  allow_implicit_invocation: true

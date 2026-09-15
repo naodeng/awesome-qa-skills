@@ -1,0 +1,26 @@
+id: edge-incomplete-input
+title: "Agent Permission Testing: bounded first pass with incomplete input"
+description: |
+  Checks that missing context leads to a bounded first pass with assumptions and gaps, not refusal or invention.
+
+input:
+  prompt: |
+    Use the agent-permission-testing skill. The only known fact is: a support Agent can read orders and request refunds, and the team needs evidence that identity, tool permissions, and human approval boundaries cannot be bypassed. No more environment, version, model, or supporting evidence is available. Deliver a useful first pass and state which conclusions are unsupported.
+
+expect:
+  must_contain:
+    - "Working Assumptions"
+    - "Open Questions"
+    - "evidence"
+    - "Next Actions"
+  must_not_contain:
+    - "I cannot"
+    - "unable to help"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Working Assumptions"
+          - "Open Questions"

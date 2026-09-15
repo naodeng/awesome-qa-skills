@@ -1,0 +1,47 @@
+id: basic-success
+title: "Agent Permission Testing: domain-complete scenario"
+description: |
+  Checks that the skill produces domain-specific Agent permission analysis that is evidence-based, prioritized, and executable.
+
+input:
+  prompt: |
+    Use the agent-permission-testing skill for this scenario: a support Agent can read orders and request refunds, and the team needs evidence that identity, tool permissions, and human approval boundaries cannot be bypassed. Provide Agent permission priorities, core execution items, expected behavior or decision criteria, evidence, and open questions.
+
+expect:
+  must_contain:
+    - "object/rule"
+    - "source"
+    - "trigger or applicability"
+    - "expected concern/rationale"
+    - "evidence state"
+    - "impact/priority"
+    - "owner role"
+    - "close condition"
+    - "validation method"
+    - "AGP-"
+    - "Task Understanding"
+    - "Input Audit"
+    - "Agent permission"
+    - "expected"
+  must_not_contain:
+    - "I cannot"
+    - "unable to help"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "object/rule"
+          - "source"
+          - "trigger or applicability"
+          - "expected concern/rationale"
+          - "evidence state"
+          - "impact/priority"
+          - "owner role"
+          - "close condition"
+          - "validation method"
+          - "AGP-"
+          - "Task Understanding"
+          - "Input Audit"
+          - "Agent permission"

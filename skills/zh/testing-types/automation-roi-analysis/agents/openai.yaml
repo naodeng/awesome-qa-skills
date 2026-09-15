@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: automation-roi-analysis
+interface:
+  display_name: "自动化投资回报分析"
+  short_description: "围绕自动化投资回报输出证据边界与可执行分析"
+  default_prompt: "Use the automation-roi-analysis skill to perform automation ROI analysis."
+policy:
+  allow_implicit_invocation: true

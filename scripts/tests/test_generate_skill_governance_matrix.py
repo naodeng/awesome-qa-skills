@@ -4,10 +4,11 @@ from tempfile import TemporaryDirectory
 import unittest
 
 from scripts import generate_skill_governance_matrix as matrix
+from scripts.tests.v3_v4_skill_contracts import CARD_IDS as V34_CANDIDATE_SLUGS
 
 ROOT = Path(__file__).resolve().parents[2]
-EXPECTED_LOGICAL_SKILL_COUNT = 121
-EXPECTED_CANDIDATE_COUNT = 58
+EXPECTED_LOGICAL_SKILL_COUNT = 162
+EXPECTED_CANDIDATE_COUNT = 100
 V20_CANDIDATE_SLUGS = {
     "decision-table-testing",
     "state-transition-testing",
@@ -181,6 +182,20 @@ class GovernanceMatrixTest(unittest.TestCase):
                     source_paths = re.findall(r"(?:docs|skills)/[A-Za-z0-9_./-]+", candidate["candidate_source"])
                     self.assertTrue(source_paths, candidate["slug"])
                     self.assertTrue(all((ROOT / path).is_file() for path in source_paths), candidate["slug"])
+                target_paths = candidate["target_evidence_paths"]
+                self.assertTrue(target_paths)
+                self.assertTrue(all((ROOT / path).is_file() for path in target_paths))
+                continue
+            if candidate["slug"] in V34_CANDIDATE_SLUGS:
+                self.assertEqual(candidate["decision_state"], "REVIEWED_WITH_LIMITATION")
+                self.assertIn(
+                    "docs/superpowers/specs/2026-09-15-v3-v4-two-batch-design.md",
+                    candidate["candidate_source"],
+                )
+                self.assertTrue(candidate.get("scope"))
+                self.assertTrue(candidate.get("non_goals"))
+                self.assertTrue(candidate.get("capability_match"))
+                self.assertTrue(candidate.get("project_evidence"))
                 target_paths = candidate["target_evidence_paths"]
                 self.assertTrue(target_paths)
                 self.assertTrue(all((ROOT / path).is_file() for path in target_paths))

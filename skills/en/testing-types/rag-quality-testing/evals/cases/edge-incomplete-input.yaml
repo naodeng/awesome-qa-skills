@@ -1,0 +1,26 @@
+id: edge-incomplete-input
+title: "RAG Quality Testing: bounded first pass with incomplete input"
+description: |
+  Checks that missing context leads to a bounded first pass with assumptions and gaps, not refusal or invention.
+
+input:
+  prompt: |
+    Use the rag-quality-testing skill. The only known fact is: a knowledge-base assistant must ground answers in sources, cover key points, and abstain when retrieval is insufficient, but only scattered examples exist. No more environment, version, model, or supporting evidence is available. Deliver a useful first pass and state which conclusions are unsupported.
+
+expect:
+  must_contain:
+    - "Working Assumptions"
+    - "Open Questions"
+    - "evidence"
+    - "Next Actions"
+  must_not_contain:
+    - "I cannot"
+    - "unable to help"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Working Assumptions"
+          - "Open Questions"

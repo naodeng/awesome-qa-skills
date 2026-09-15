@@ -1,0 +1,5 @@
+mode,should_trigger,prompt
+"explicit","true","请使用 quality-dashboard-design Skill 分析质量仪表盘。"
+"implicit","true","请审查质量仪表盘的受众、决策问题、面板、钻取、刷新与告警边界并列出证据缺口。"
+"contextual","true","发布评审需要一个质量仪表盘查看风险趋势、阻塞项和证据新鲜度，但当前草图只有零散指标，如何准备有边界的分析？"
+"negative","false","请设计营销页面的颜色和字体，不做测试或质量分析。"

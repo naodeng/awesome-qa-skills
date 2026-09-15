@@ -1,0 +1,5 @@
+mode,should_trigger,prompt
+"explicit","true","请使用 failover-testing Skill 分析切换路径。"
+"implicit","true","请审查主备切换触发、流量转移、数据一致性和恢复证据并列出证据缺口。"
+"contextual","true","订单系统依赖不可用，如何准备切换路径验证？"
+"negative","false","请设计登录页面的颜色和字体，不做测试分析。"

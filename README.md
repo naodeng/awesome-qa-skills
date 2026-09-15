@@ -5,9 +5,9 @@
 按语言分区的 **AI 测试辅助技能库**（Agent Skills）。面向 Codex、Cursor、Claude Code、Kiro、OpenCode、Trae 等工具，提供可独立安装、可组合调用的测试工作流与测试类型技能。
 
 [![License: PolyForm Noncommercial 1.0.0](https://img.shields.io/badge/License-PolyForm%20Noncommercial%201.0.0-blue.svg)](./LICENSE)
-[![Skills](https://img.shields.io/badge/skills-242%20(zh%2Ben)-0A7EA4)](./docs/catalog/skills-index.md)
+[![Skills](https://img.shields.io/badge/skills-324%20(zh%2Ben)-0A7EA4)](./docs/catalog/skills-index.md)
 [![Workflows](https://img.shields.io/badge/workflows-10-informational)](./skills/zh/testing-workflows/)
-[![Testing types](https://img.shields.io/badge/testing%20types-108-informational)](./skills/zh/testing-types/)
+[![Testing types](https://img.shields.io/badge/testing%20types-149-informational)](./skills/zh/testing-types/)
 [![Skill engineering](https://img.shields.io/badge/skill%20engineering-3-informational)](./skills/zh/skill-engineering/)
 [![skills.sh](https://skills.sh/b/naodeng/awesome-qa-skills)](https://skills.sh/naodeng/awesome-qa-skills)
 
@@ -127,7 +127,7 @@ Core QA Skills → Engineering QA Skills → Production Quality Skills → AI Na
 
 ## 完整技能目录
 
-每种语言共 **121** 个 Skill：10 个工作流、108 个测试类型和 3 个 Skill Engineering；中英文合计 **242** 个目录。物理目录保持稳定，下面只提供逻辑导航。
+每种语言共 **162** 个 Skill：10 个工作流、149 个测试类型和 3 个 Skill Engineering；中英文合计 **324** 个目录。物理目录保持稳定，下面只提供逻辑导航。
 
 ### 跨阶段工作流
 
@@ -243,6 +243,46 @@ Core QA Skills → Engineering QA Skills → Production Quality Skills → AI Na
 | 边界场景发现 <!-- data-skill:edge-case-discovery --> | [`edge-case-discovery`](skills/zh/testing-types/edge-case-discovery/) | 从需求、状态、时间、资源和平台证据中发现边界候选 |
 | 负向场景发现 <!-- data-skill:negative-scenario-discovery --> | [`negative-scenario-discovery`](skills/zh/testing-types/negative-scenario-discovery/) | 从产品证据中发现非法、拒绝、失败、降级和恢复候选 |
 
+##### 可靠性与安全
+
+| 名称 | 目录 | 主要用途 |
+| --- | --- | --- |
+| 可靠性测试 <!-- data-skill:reliability-testing --> | [`reliability-testing`](skills/zh/testing-types/reliability-testing/) | 围绕可靠性目标、故障模式和证据准备形成分析候选。 |
+| 韧性测试 <!-- data-skill:resilience-testing --> | [`resilience-testing`](skills/zh/testing-types/resilience-testing/) | 分析降级、韧性和有限恢复证据。 |
+| 混沌测试 <!-- data-skill:chaos-testing --> | [`chaos-testing`](skills/zh/testing-types/chaos-testing/) | 设计受控故障注入假设和安全边界。 |
+| 故障切换测试 <!-- data-skill:failover-testing --> | [`failover-testing`](skills/zh/testing-types/failover-testing/) | 识别主备切换路径、触发条件和恢复证据。 |
+| 恢复测试 <!-- data-skill:recovery-testing --> | [`recovery-testing`](skills/zh/testing-types/recovery-testing/) | 定义恢复目标、证据缺口和验证准备。 |
+| 重试测试 <!-- data-skill:retry-testing --> | [`retry-testing`](skills/zh/testing-types/retry-testing/) | 分析重试安全、幂等、退避和耗尽行为。 |
+| 超时测试 <!-- data-skill:timeout-testing --> | [`timeout-testing`](skills/zh/testing-types/timeout-testing/) | 分析超时预算、取消和下游边界。 |
+| 熔断器测试 <!-- data-skill:circuit-breaker-testing --> | [`circuit-breaker-testing`](skills/zh/testing-types/circuit-breaker-testing/) | 分析熔断器状态、降级和恢复证据。 |
+| 依赖故障测试 <!-- data-skill:dependency-failure-testing --> | [`dependency-failure-testing`](skills/zh/testing-types/dependency-failure-testing/) | 分类依赖故障并审查隔离与兜底证据。 |
+| 灾备测试 <!-- data-skill:disaster-recovery-testing --> | [`disaster-recovery-testing`](skills/zh/testing-types/disaster-recovery-testing/) | 记录灾备目标、Runbook 和恢复验证准备。 |
+| 身份认证测试 <!-- data-skill:authentication-testing --> | [`authentication-testing`](skills/zh/testing-types/authentication-testing/) | 审查身份凭证、生命周期和认证失败证据。 |
+| 授权测试 <!-- data-skill:authorization-testing --> | [`authorization-testing`](skills/zh/testing-types/authorization-testing/) | 审查主体、资源、动作和权限边界决策。 |
+| 会话安全测试 <!-- data-skill:session-security-testing --> | [`session-security-testing`](skills/zh/testing-types/session-security-testing/) | 审查会话生命周期、固定、过期和撤销风险。 |
+| API 安全测试 <!-- data-skill:api-security-testing --> | [`api-security-testing`](skills/zh/testing-types/api-security-testing/) | 审查 API 攻击面和安全契约边界。 |
+| 安全需求审查 <!-- data-skill:security-requirement-review --> | [`security-requirement-review`](skills/zh/testing-types/security-requirement-review/) | 审查安全需求的可追踪性和可测试性。 |
+| 威胁建模 <!-- data-skill:threat-modeling --> | [`threat-modeling`](skills/zh/testing-types/threat-modeling/) | 建立资产、信任边界、威胁和缓解模型。 |
+| 敏感信息暴露审查 <!-- data-skill:secrets-exposure-review --> | [`secrets-exposure-review`](skills/zh/testing-types/secrets-exposure-review/) | 审查敏感信息位置、生命周期和暴露证据。 |
+
+##### 质量工程与效能
+
+| 名称 | 目录 | 主要用途 |
+| --- | --- | --- |
+| 质量门禁设计 <!-- data-skill:quality-gate-design --> | [`quality-gate-design`](skills/zh/testing-types/quality-gate-design/) | 定义有证据的通过、阻塞、升级和例外规则 |
+| 质量指标设计 <!-- data-skill:quality-metrics-design --> | [`quality-metrics-design`](skills/zh/testing-types/quality-metrics-design/) | 定义指标、分子分母、数据源、时效和解释边界 |
+| 质量仪表盘设计 <!-- data-skill:quality-dashboard-design --> | [`quality-dashboard-design`](skills/zh/testing-types/quality-dashboard-design/) | 设计决策问题、面板、钻取、刷新和告警语义 |
+| 质量债务分析 <!-- data-skill:quality-debt-analysis --> | [`quality-debt-analysis`](skills/zh/testing-types/quality-debt-analysis/) | 盘点质量债务来源、影响、年龄、所有人和偿还权衡 |
+| 质量成熟度评估 <!-- data-skill:quality-maturity-assessment --> | [`quality-maturity-assessment`](skills/zh/testing-types/quality-maturity-assessment/) | 用证据锚点评估质量实践成熟度和改进缺口 |
+| 测试有效性分析 <!-- data-skill:test-effectiveness-analysis --> | [`test-effectiveness-analysis`](skills/zh/testing-types/test-effectiveness-analysis/) | 分析测试信号、风险覆盖、漏检限制和验证计划 |
+| 自动化投资回报分析 <!-- data-skill:automation-roi-analysis --> | [`automation-roi-analysis`](skills/zh/testing-types/automation-roi-analysis/) | 比较自动化建设、运行、维护成本与收益假设 |
+| 测试瓶颈分析 <!-- data-skill:testing-bottleneck-analysis --> | [`testing-bottleneck-analysis`](skills/zh/testing-types/testing-bottleneck-analysis/) | 定位测试等待、依赖、容量、交接和约束证据 |
+| 回归优化 <!-- data-skill:regression-optimization --> | [`regression-optimization`](skills/zh/testing-types/regression-optimization/) | 在风险、反馈时间、并行、缓存和维护之间优化回归范围 |
+| CI 测试优化 <!-- data-skill:ci-test-optimization --> | [`ci-test-optimization`](skills/zh/testing-types/ci-test-optimization/) | 优化 CI 阶段、反馈、波动、资源、缓存和分片 |
+| 测试运行时间优化 <!-- data-skill:test-runtime-optimization --> | [`test-runtime-optimization`](skills/zh/testing-types/test-runtime-optimization/) | 基于剖析和基线优化慢测试、初始化、清理、并行和隔离 |
+| 测试维护成本分析 <!-- data-skill:test-maintenance-cost-analysis --> | [`test-maintenance-cost-analysis`](skills/zh/testing-types/test-maintenance-cost-analysis/) | 分析变更频率、修复工时、波动成本、所有权和可维护性 |
+| 质量生产力指标 <!-- data-skill:quality-productivity-metrics --> | [`quality-productivity-metrics`](skills/zh/testing-types/quality-productivity-metrics/) | 定义质量与交付生产力指标并保留归因和操纵边界 |
+
 ##### 开发与持续集成
 
 | 名称 | 目录 | 主要用途 |
@@ -349,6 +389,12 @@ Core QA Skills → Engineering QA Skills → Production Quality Skills → AI Na
 | LLM Eval 设计 <!-- data-skill:llm-evaluation-design --> | [`llm-evaluation-design`](skills/zh/testing-types/llm-evaluation-design/) | 设计 LLM 评测集、判定与人工复核边界 |
 | LLM 测试 <!-- data-skill:llm-testing --> | [`llm-testing`](skills/zh/testing-types/llm-testing/) | 验证 LLM 行为、失败模式和质量边界 |
 | Prompt 测试 <!-- data-skill:prompt-testing --> | [`prompt-testing`](skills/zh/testing-types/prompt-testing/) | 测试 Prompt 行为、边界和版本回归 |
+| RAG 质量测试 <!-- data-skill:rag-quality-testing --> | [`rag-quality-testing`](skills/zh/testing-types/rag-quality-testing/) | 测试 grounding、相关性、完整性、引用支持和拒答证据 |
+| RAG 检索测试 <!-- data-skill:rag-retrieval-testing --> | [`rag-retrieval-testing`](skills/zh/testing-types/rag-retrieval-testing/) | 分析查询变体、分块、过滤、排序、新鲜度和检索证据 |
+| LLM 幻觉测试 <!-- data-skill:llm-hallucination-testing --> | [`llm-hallucination-testing`](skills/zh/testing-types/llm-hallucination-testing/) | 按声明和来源证据识别无支持断言并评估拒答 |
+| LLM 一致性测试 <!-- data-skill:llm-consistency-testing --> | [`llm-consistency-testing`](skills/zh/testing-types/llm-consistency-testing/) | 比较重复输入、版本因素、不变量和输出方差 |
+
+> `prompt-regression-testing` 是 `prompt-testing` 内名为 `prompt-regression` 的增强模式，不创建别名目录。
 
 ##### Agent、工具与安全测试
 
@@ -357,6 +403,13 @@ Core QA Skills → Engineering QA Skills → Production Quality Skills → AI Na
 | AI Agent 测试 <!-- data-skill:ai-agent-testing --> | [`ai-agent-testing`](skills/zh/testing-types/ai-agent-testing/) | 测试 AI Agent 的目标、状态、恢复和安全边界 |
 | Agent 工具调用测试 <!-- data-skill:agent-tool-testing --> | [`agent-tool-testing`](skills/zh/testing-types/agent-tool-testing/) | 验证 Agent 工具调用契约、授权和副作用边界 |
 | Prompt Injection 测试 <!-- data-skill:prompt-injection-testing --> | [`prompt-injection-testing`](skills/zh/testing-types/prompt-injection-testing/) | 设计 AI 系统 Prompt 注入防护测试 |
+| Agent 循环测试 <!-- data-skill:agent-loop-testing --> | [`agent-loop-testing`](skills/zh/testing-types/agent-loop-testing/) | 测试规划-动作-观察循环、停止条件、预算和重复行为 |
+| Agent 记忆测试 <!-- data-skill:agent-memory-testing --> | [`agent-memory-testing`](skills/zh/testing-types/agent-memory-testing/) | 测试记忆读写、更新删除、保留、隔离、来源和遗忘 |
+| Agent 权限测试 <!-- data-skill:agent-permission-testing --> | [`agent-permission-testing`](skills/zh/testing-types/agent-permission-testing/) | 验证身份、工具资源范围、批准拒绝和副作用边界 |
+| Agent 故障恢复测试 <!-- data-skill:agent-failure-recovery-testing --> | [`agent-failure-recovery-testing`](skills/zh/testing-types/agent-failure-recovery-testing/) | 分析故障分类、重试回退、升级、状态一致性和用户通知 |
+| 长运行 Agent 测试 <!-- data-skill:agent-long-running-testing --> | [`agent-long-running-testing`](skills/zh/testing-types/agent-long-running-testing/) | 测试检查点、心跳、恢复取消、重复提交、超时和资源生命周期 |
+| 多 Agent 测试 <!-- data-skill:multi-agent-testing --> | [`multi-agent-testing`](skills/zh/testing-types/multi-agent-testing/) | 分析委派、协调、共享状态、冲突、所有权和终止 |
+| AI 安全测试 <!-- data-skill:ai-safety-testing --> | [`ai-safety-testing`](skills/zh/testing-types/ai-safety-testing/) | 审查安全政策、滥用、拒答重定向、隐私和升级边界 |
 
 ### Skill Engineering（横向治理）
 

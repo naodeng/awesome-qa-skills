@@ -1,0 +1,5 @@
+mode,should_trigger,prompt
+"explicit","true","Use the agent-permission-testing skill to analyze Agent permission."
+"implicit","true","Review Agent identity, tool/resource scope, approval, denial, escalation, and side-effect boundaries and list evidence gaps."
+"contextual","true","a support Agent can read orders and request refunds, and the team needs evidence that identity, tool permissions, and human approval boundaries cannot be bypassed; how should a bounded analysis be prepared?"
+"negative","false","Design the marketing page colors and fonts; do not perform testing or quality analysis."

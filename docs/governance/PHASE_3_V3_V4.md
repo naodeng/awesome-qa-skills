@@ -1,0 +1,94 @@
+<div align="right"><strong>🇨🇳 中文</strong> | <a href="./PHASE_3_V3_V4_EN.md">🇬🇧 English</a></div>
+
+# v3-v4 Phase 3：Reliability、Security、Quality Engineering 与 AI Native
+
+## 当前状态
+
+`BATCH_2_ACCEPTED_WITH_DEFERRED_EVAL`（2026-09-15）。本阶段以 develop 的 `15c3804` 作为阶段启动快照；本 PR 的审查基线为 `origin/main@7f981931`。Project #4 当前读到 42 张标题以 `v3-v4 P2｜候选 Skill｜` 开头的卡片，Batch 1 的 17 张和 Batch 2 的 25 张均为 `Done`。Batch 2 已完成 24 个双语物理 Skill 包、`prompt-testing` 的 `prompt-regression` 增强模式、契约测试、Eval 结构、metadata、治理 registry、导航同步和完整质量门禁；真实模型 Eval、外部目标执行、质量分数和业务验收仍未完成。
+
+初始 Match 结论为 41 个 `NEW` 物理 Skill（中英文各一个包）和 1 个 `ENHANCE`：`prompt-regression-testing` 作为 `prompt-testing` 的 `prompt-regression` 模式增强，不创建别名目录。结论来源是当前中英文 Skill 树、相邻 Prompt/Workflow、治理记录和规格文件；如果后续实现证据改变结论，必须先更新本记录与共享合同，再创建或修改目录。
+
+## 初始 Match 证据
+
+每行保留精确 Project item ID、交付目标、已有能力文件和差异。`existing_targets` 只表示能力邻接证据，不表示复用目标已经满足候选需求。
+
+### Batch 1：Reliability + Security（17）
+
+| 分组 | Skill | Project item | 结论 | 交付目标 | existing_targets | 差异摘要 |
+| --- | --- | --- | --- | --- | --- | --- |
+| Reliability | `reliability-testing` | `PVTI_lAHOAHP1as4BjBhVzg6Sc5w` | NEW | `skills/{zh,en}/testing-types/reliability-testing` | `skills/zh/testing-types/performance-testing/SKILL.md`; `skills/en/testing-types/performance-testing/SKILL.md`; `skills/zh/testing-types/production-incident-analysis/SKILL.md`; `skills/en/testing-types/production-incident-analysis/SKILL.md` | 增加可靠性目标、故障模式和证据准备登记，不等同于性能或事故分析。 |
+| Reliability | `resilience-testing` | `PVTI_lAHOAHP1as4BjBhVzg6Sc68` | NEW | `skills/{zh,en}/testing-types/resilience-testing` | `skills/zh/testing-types/performance-testing/SKILL.md`; `skills/en/testing-types/performance-testing/SKILL.md`; `skills/zh/testing-types/quality-risk-analysis/SKILL.md`; `skills/en/testing-types/quality-risk-analysis/SKILL.md` | 增加降级、韧性和有限恢复分析；相邻 Skill 不拥有故障模式合同。 |
+| Reliability | `chaos-testing` | `PVTI_lAHOAHP1as4BjBhVzg6Sc8M` | NEW | `skills/{zh,en}/testing-types/chaos-testing` | `skills/zh/testing-types/performance-testing/SKILL.md`; `skills/en/testing-types/performance-testing/SKILL.md` | 增加受控故障注入假设和安全边界，但不注入故障、不宣称演练已运行。 |
+| Reliability | `failover-testing` | `PVTI_lAHOAHP1as4BjBhVzg6Sc90` | NEW | `skills/{zh,en}/testing-types/failover-testing` | `skills/zh/testing-types/production-incident-analysis/SKILL.md`; `skills/en/testing-types/production-incident-analysis/SKILL.md`; `skills/zh/testing-types/quality-risk-analysis/SKILL.md`; `skills/en/testing-types/quality-risk-analysis/SKILL.md` | 聚焦主备切换路径、触发条件和恢复证据，不是事故复盘。 |
+| Reliability | `recovery-testing` | `PVTI_lAHOAHP1as4BjBhVzg6Sc_w` | NEW | `skills/{zh,en}/testing-types/recovery-testing` | `skills/zh/testing-types/production-incident-analysis/SKILL.md`; `skills/en/testing-types/production-incident-analysis/SKILL.md` | 定义恢复目标和验证准备，不执行恢复流程。 |
+| Reliability | `retry-testing` | `PVTI_lAHOAHP1as4BjBhVzg6SdAw` | NEW | `skills/{zh,en}/testing-types/retry-testing` | `skills/zh/testing-types/api-testing/SKILL.md`; `skills/en/testing-types/api-testing/SKILL.md`; `skills/zh/testing-types/api-negative-testing/SKILL.md`; `skills/en/testing-types/api-negative-testing/SKILL.md` | 增加重试安全、幂等、退避和耗尽分析，超出通用 API 设计。 |
+| Reliability | `timeout-testing` | `PVTI_lAHOAHP1as4BjBhVzg6SdCU` | NEW | `skills/{zh,en}/testing-types/timeout-testing` | `skills/zh/testing-types/api-testing/SKILL.md`; `skills/en/testing-types/api-testing/SKILL.md`; `skills/zh/testing-types/performance-testing/SKILL.md`; `skills/en/testing-types/performance-testing/SKILL.md` | 增加超时预算、取消和下游边界分析，不是通用 API 或性能覆盖。 |
+| Reliability | `circuit-breaker-testing` | `PVTI_lAHOAHP1as4BjBhVzg6SdEM` | NEW | `skills/{zh,en}/testing-types/circuit-breaker-testing` | `skills/zh/testing-types/api-testing/SKILL.md`; `skills/en/testing-types/api-testing/SKILL.md`; `skills/zh/testing-types/production-incident-analysis/SKILL.md`; `skills/en/testing-types/production-incident-analysis/SKILL.md` | 增加 closed/open/half-open/fallback 状态证据，建立熔断状态机边界。 |
+| Reliability | `dependency-failure-testing` | `PVTI_lAHOAHP1as4BjBhVzg6SdFo` | NEW | `skills/{zh,en}/testing-types/dependency-failure-testing` | `skills/zh/testing-types/api-testing/SKILL.md`; `skills/en/testing-types/api-testing/SKILL.md`; `skills/zh/testing-types/production-incident-analysis/SKILL.md`; `skills/en/testing-types/production-incident-analysis/SKILL.md` | 增加依赖故障分类、隔离和兜底分析，不是 API 行为或事故复盘。 |
+| Reliability | `disaster-recovery-testing` | `PVTI_lAHOAHP1as4BjBhVzg6SdHI` | NEW | `skills/{zh,en}/testing-types/disaster-recovery-testing` | `skills/zh/testing-types/production-incident-analysis/SKILL.md`; `skills/en/testing-types/production-incident-analysis/SKILL.md`; `skills/zh/testing-types/capacity-planning-analysis/SKILL.md`; `skills/en/testing-types/capacity-planning-analysis/SKILL.md` | 增加灾备目标、Runbook 证据和恢复验证准备，不执行灾备演练。 |
+| Security | `authentication-testing` | `PVTI_lAHOAHP1as4BjBhVzg6SdJA` | NEW | `skills/{zh,en}/testing-types/authentication-testing` | `skills/zh/testing-types/security-testing/SKILL.md`; `skills/en/testing-types/security-testing/SKILL.md`; `skills/zh/testing-types/api-testing/SKILL.md`; `skills/en/testing-types/api-testing/SKILL.md` | 聚焦身份凭证、生命周期和认证失败证据，不是泛化安全审查。 |
+| Security | `authorization-testing` | `PVTI_lAHOAHP1as4BjBhVzg6SdLg` | NEW | `skills/{zh,en}/testing-types/authorization-testing` | `skills/zh/testing-types/security-testing/SKILL.md`; `skills/en/testing-types/security-testing/SKILL.md`; `skills/zh/testing-types/api-testing/SKILL.md`; `skills/en/testing-types/api-testing/SKILL.md` | 聚焦主体-资源-动作决策、权限边界和授权证据。 |
+| Security | `session-security-testing` | `PVTI_lAHOAHP1as4BjBhVzg6SdNI` | NEW | `skills/{zh,en}/testing-types/session-security-testing` | `skills/zh/testing-types/security-testing/SKILL.md`; `skills/en/testing-types/security-testing/SKILL.md` | 增加会话生命周期、固定、过期和撤销分析。 |
+| Security | `api-security-testing` | `PVTI_lAHOAHP1as4BjBhVzg6SdPY` | NEW | `skills/{zh,en}/testing-types/api-security-testing` | `skills/zh/testing-types/security-testing/SKILL.md`; `skills/en/testing-types/security-testing/SKILL.md`; `skills/zh/testing-types/api-contract-testing/SKILL.md`; `skills/en/testing-types/api-contract-testing/SKILL.md` | 组合 API 攻击面和安全合同审查，区分通用安全与 Schema 合同。 |
+| Security | `security-requirement-review` | `PVTI_lAHOAHP1as4BjBhVzg6SdQ0` | NEW | `skills/{zh,en}/testing-types/security-requirement-review` | `skills/zh/testing-types/requirement-quality-review/SKILL.md`; `skills/en/testing-types/requirement-quality-review/SKILL.md`; `skills/zh/testing-types/security-testing/SKILL.md`; `skills/en/testing-types/security-testing/SKILL.md` | 增加安全需求可追踪性和可测试性审查。 |
+| Security | `threat-modeling` | `PVTI_lAHOAHP1as4BjBhVzg6SdSk` | NEW | `skills/{zh,en}/testing-types/threat-modeling` | `skills/zh/testing-types/security-testing/SKILL.md`; `skills/en/testing-types/security-testing/SKILL.md`; `skills/zh/testing-types/technical-design-quality-review/SKILL.md`; `skills/en/testing-types/technical-design-quality-review/SKILL.md` | 增加资产、信任边界、威胁和缓解建模，保留假设。 |
+| Security | `secrets-exposure-review` | `PVTI_lAHOAHP1as4BjBhVzg6SdUg` | NEW | `skills/{zh,en}/testing-types/secrets-exposure-review` | `skills/zh/testing-types/security-testing/SKILL.md`; `skills/en/testing-types/security-testing/SKILL.md`; `skills/zh/testing-types/requirement-quality-review/SKILL.md`; `skills/en/testing-types/requirement-quality-review/SKILL.md` | 增加敏感信息位置、生命周期和暴露证据审查，不读取实时凭据。 |
+
+### Batch 2：Quality Engineering + AI Native（25）
+
+| 分组 | Skill | Project item | 结论 | 交付目标 | existing_targets | 差异摘要 |
+| --- | --- | --- | --- | --- | --- | --- |
+| Quality Engineering | `quality-gate-design` | `PVTI_lAHOAHP1as4BjBhVzg6SdWc` | NEW | `skills/{zh,en}/testing-types/quality-gate-design` | `skills/zh/testing-types/test-reporting/SKILL.md`; `skills/en/testing-types/test-reporting/SKILL.md`; `skills/zh/testing-types/quality-risk-analysis/SKILL.md`; `skills/en/testing-types/quality-risk-analysis/SKILL.md` | 定义证据化通过、阻断和升级规则，不代替报告或风险排名。 |
+| Quality Engineering | `quality-metrics-design` | `PVTI_lAHOAHP1as4BjBhVzg6SdY4` | NEW | `skills/{zh,en}/testing-types/quality-metrics-design` | `skills/zh/testing-types/test-reporting/SKILL.md`; `skills/en/testing-types/test-reporting/SKILL.md`; `skills/zh/testing-types/metrics-anomaly-analysis/SKILL.md`; `skills/en/testing-types/metrics-anomaly-analysis/SKILL.md` | 定义指标、分母、新鲜度和解释边界，不诊断报告或异常。 |
+| Quality Engineering | `quality-dashboard-design` | `PVTI_lAHOAHP1as4BjBhVzg6SdaY` | NEW | `skills/{zh,en}/testing-types/quality-dashboard-design` | `skills/zh/testing-types/test-reporting/SKILL.md`; `skills/en/testing-types/test-reporting/SKILL.md`; `skills/zh/testing-types/metrics-anomaly-analysis/SKILL.md`; `skills/en/testing-types/metrics-anomaly-analysis/SKILL.md` | 定义仪表盘证据布局和下钻语义，不生成报告。 |
+| Quality Engineering | `quality-debt-analysis` | `PVTI_lAHOAHP1as4BjBhVzg6SdcE` | NEW | `skills/{zh,en}/testing-types/quality-debt-analysis` | `skills/zh/testing-types/quality-risk-analysis/SKILL.md`; `skills/en/testing-types/quality-risk-analysis/SKILL.md`; `skills/zh/testing-types/production-incident-analysis/SKILL.md`; `skills/en/testing-types/production-incident-analysis/SKILL.md` | 增加质量债务清单、成本、风险和偿还证据。 |
+| Quality Engineering | `quality-maturity-assessment` | `PVTI_lAHOAHP1as4BjBhVzg6Sddo` | NEW | `skills/{zh,en}/testing-types/quality-maturity-assessment` | `skills/zh/testing-types/quality-risk-analysis/SKILL.md`; `skills/en/testing-types/quality-risk-analysis/SKILL.md`; `skills/zh/testing-types/requirement-quality-review/SKILL.md`; `skills/en/testing-types/requirement-quality-review/SKILL.md` | 增加成熟度维度、证据等级和演进选项，不给无证据分数。 |
+| Quality Engineering | `test-effectiveness-analysis` | `PVTI_lAHOAHP1as4BjBhVzg6SdfA` | NEW | `skills/{zh,en}/testing-types/test-effectiveness-analysis` | `skills/zh/testing-types/test-reporting/SKILL.md`; `skills/en/testing-types/test-reporting/SKILL.md`; `skills/zh/testing-types/quality-risk-analysis/SKILL.md`; `skills/en/testing-types/quality-risk-analysis/SKILL.md` | 增加有效性假设和证据映射，不把测试数量当作效果证明。 |
+| Quality Engineering | `automation-roi-analysis` | `PVTI_lAHOAHP1as4BjBhVzg6Sdg8` | NEW | `skills/{zh,en}/testing-types/automation-roi-analysis` | `skills/zh/testing-types/automation-testing/SKILL.md`; `skills/en/testing-types/automation-testing/SKILL.md`; `skills/zh/testing-types/quality-risk-analysis/SKILL.md`; `skills/en/testing-types/quality-risk-analysis/SKILL.md` | 增加自动化投入的成本、收益、不确定性和决策边界。 |
+| Quality Engineering | `testing-bottleneck-analysis` | `PVTI_lAHOAHP1as4BjBhVzg6Sdig` | NEW | `skills/{zh,en}/testing-types/testing-bottleneck-analysis` | `skills/zh/testing-types/performance-bottleneck-analysis/SKILL.md`; `skills/en/testing-types/performance-bottleneck-analysis/SKILL.md`; `skills/zh/testing-types/quality-risk-analysis/SKILL.md`; `skills/en/testing-types/quality-risk-analysis/SKILL.md` | 聚焦测试流瓶颈和干预假设，不是产品性能诊断。 |
+| Quality Engineering | `regression-optimization` | `PVTI_lAHOAHP1as4BjBhVzg6SdkQ` | NEW | `skills/{zh,en}/testing-types/regression-optimization` | `skills/zh/testing-types/regression-scope-analysis/SKILL.md`; `skills/en/testing-types/regression-scope-analysis/SKILL.md`; `skills/zh/testing-types/regression-test-selection/SKILL.md`; `skills/en/testing-types/regression-test-selection/SKILL.md` | 统筹风险、反馈时间、维护和证据的回归优化，不只做范围或选择。 |
+| Quality Engineering | `ci-test-optimization` | `PVTI_lAHOAHP1as4BjBhVzg6SdnA` | NEW | `skills/{zh,en}/testing-types/ci-test-optimization` | `skills/zh/testing-types/automation-testing/SKILL.md`; `skills/en/testing-types/automation-testing/SKILL.md`; `skills/zh/testing-types/test-reporting/SKILL.md`; `skills/en/testing-types/test-reporting/SKILL.md` | 增加 CI 阶段、反馈、抖动、产物和隔离优化。 |
+| Quality Engineering | `test-runtime-optimization` | `PVTI_lAHOAHP1as4BjBhVzg6Sdo4` | NEW | `skills/{zh,en}/testing-types/test-runtime-optimization` | `skills/zh/testing-types/performance-bottleneck-analysis/SKILL.md`; `skills/en/testing-types/performance-bottleneck-analysis/SKILL.md`; `skills/zh/testing-types/automation-testing/SKILL.md`; `skills/en/testing-types/automation-testing/SKILL.md` | 聚焦测试运行时、排队、并行和可复现性，不是产品性能。 |
+| Quality Engineering | `test-maintenance-cost-analysis` | `PVTI_lAHOAHP1as4BjBhVzg6Sdqc` | NEW | `skills/{zh,en}/testing-types/test-maintenance-cost-analysis` | `skills/zh/testing-types/automation-testing/SKILL.md`; `skills/en/testing-types/automation-testing/SKILL.md`; `skills/zh/testing-types/quality-risk-analysis/SKILL.md`; `skills/en/testing-types/quality-risk-analysis/SKILL.md` | 增加测试资产维护成本证据和优先级。 |
+| Quality Engineering | `quality-productivity-metrics` | `PVTI_lAHOAHP1as4BjBhVzg6SdsA` | NEW | `skills/{zh,en}/testing-types/quality-productivity-metrics` | `skills/zh/testing-types/test-reporting/SKILL.md`; `skills/en/testing-types/test-reporting/SKILL.md`; `skills/zh/testing-types/metrics-anomaly-analysis/SKILL.md`; `skills/en/testing-types/metrics-anomaly-analysis/SKILL.md` | 定义质量生产力度量，但不转化为个人绩效排名。 |
+| AI Native | `prompt-regression-testing` | `PVTI_lAHOAHP1as4BjBhVzg6SdtI` | ENHANCE | `skills/{zh,en}/testing-types/prompt-testing` 的 `prompt-regression` 模式 | `skills/zh/testing-types/prompt-testing/SKILL.md`; `skills/en/testing-types/prompt-testing/SKILL.md` | 增加基线、版本、漂移和对比证据；现有包可承载，不创建别名目录。 |
+| AI Native | `rag-quality-testing` | `PVTI_lAHOAHP1as4BjBhVzg6Sdus` | NEW | `skills/{zh,en}/testing-types/rag-quality-testing` | `skills/zh/testing-types/llm-testing/SKILL.md`; `skills/en/testing-types/llm-testing/SKILL.md`; `skills/zh/testing-types/llm-evaluation-design/SKILL.md`; `skills/en/testing-types/llm-evaluation-design/SKILL.md` | 增加 RAG grounding、答案效用和检索依赖的端到端证据。 |
+| AI Native | `rag-retrieval-testing` | `PVTI_lAHOAHP1as4BjBhVzg6Sdwg` | NEW | `skills/{zh,en}/testing-types/rag-retrieval-testing` | `skills/zh/testing-types/llm-testing/SKILL.md`; `skills/en/testing-types/llm-testing/SKILL.md`; `skills/zh/testing-types/llm-evaluation-design/SKILL.md`; `skills/en/testing-types/llm-evaluation-design/SKILL.md` | 隔离检索质量、查询转换、排序和来源证据。 |
+| AI Native | `agent-loop-testing` | `PVTI_lAHOAHP1as4BjBhVzg6SdyQ` | NEW | `skills/{zh,en}/testing-types/agent-loop-testing` | `skills/zh/testing-types/ai-agent-testing/SKILL.md`; `skills/en/testing-types/ai-agent-testing/SKILL.md`; `skills/zh/testing-types/agent-tool-testing/SKILL.md`; `skills/en/testing-types/agent-tool-testing/SKILL.md` | 增加循环终止、规划-行动-观察转移和重复性证据。 |
+| AI Native | `agent-memory-testing` | `PVTI_lAHOAHP1as4BjBhVzg6Sdzo` | NEW | `skills/{zh,en}/testing-types/agent-memory-testing` | `skills/zh/testing-types/ai-agent-testing/SKILL.md`; `skills/en/testing-types/ai-agent-testing/SKILL.md` | 增加记忆写入、检索、隔离、过期和污染分析。 |
+| AI Native | `agent-permission-testing` | `PVTI_lAHOAHP1as4BjBhVzg6Sd1E` | NEW | `skills/{zh,en}/testing-types/agent-permission-testing` | `skills/zh/testing-types/agent-tool-testing/SKILL.md`; `skills/en/testing-types/agent-tool-testing/SKILL.md`; `skills/zh/testing-types/security-testing/SKILL.md`; `skills/en/testing-types/security-testing/SKILL.md` | 增加 Agent 授权、最小权限、委派和副作用证据。 |
+| AI Native | `agent-failure-recovery-testing` | `PVTI_lAHOAHP1as4BjBhVzg6Sd2I` | NEW | `skills/{zh,en}/testing-types/agent-failure-recovery-testing` | `skills/zh/testing-types/ai-agent-testing/SKILL.md`; `skills/en/testing-types/ai-agent-testing/SKILL.md`; `skills/zh/testing-types/production-incident-analysis/SKILL.md`; `skills/en/testing-types/production-incident-analysis/SKILL.md` | 增加 Agent 故障分类、恢复策略和安全续跑证据。 |
+| AI Native | `agent-long-running-testing` | `PVTI_lAHOAHP1as4BjBhVzg6Sd3w` | NEW | `skills/{zh,en}/testing-types/agent-long-running-testing` | `skills/zh/testing-types/ai-agent-testing/SKILL.md`; `skills/en/testing-types/ai-agent-testing/SKILL.md`; `skills/zh/testing-types/performance-testing/SKILL.md`; `skills/en/testing-types/performance-testing/SKILL.md` | 增加长运行状态、预算、检查点和退化分析。 |
+| AI Native | `multi-agent-testing` | `PVTI_lAHOAHP1as4BjBhVzg6Sd5g` | NEW | `skills/{zh,en}/testing-types/multi-agent-testing` | `skills/zh/testing-types/ai-agent-testing/SKILL.md`; `skills/en/testing-types/ai-agent-testing/SKILL.md`; `skills/zh/testing-types/agent-tool-testing/SKILL.md`; `skills/en/testing-types/agent-tool-testing/SKILL.md` | 增加多 Agent 协作、消息归属、冲突和共享状态证据。 |
+| AI Native | `llm-hallucination-testing` | `PVTI_lAHOAHP1as4BjBhVzg6Sd7Q` | NEW | `skills/{zh,en}/testing-types/llm-hallucination-testing` | `skills/zh/testing-types/llm-testing/SKILL.md`; `skills/en/testing-types/llm-testing/SKILL.md`; `skills/zh/testing-types/llm-evaluation-design/SKILL.md`; `skills/en/testing-types/llm-evaluation-design/SKILL.md` | 增加声明核验、无依据断言、拒答和来源 grounding 分析。 |
+| AI Native | `llm-consistency-testing` | `PVTI_lAHOAHP1as4BjBhVzg6Sd8Q` | NEW | `skills/{zh,en}/testing-types/llm-consistency-testing` | `skills/zh/testing-types/llm-testing/SKILL.md`; `skills/en/testing-types/llm-testing/SKILL.md`; `skills/zh/testing-types/llm-evaluation-design/SKILL.md`; `skills/en/testing-types/llm-evaluation-design/SKILL.md` | 增加重复、扰动和不变量一致性分析，保留采样限制。 |
+| AI Native | `ai-safety-testing` | `PVTI_lAHOAHP1as4BjBhVzg6Sd9w` | NEW | `skills/{zh,en}/testing-types/ai-safety-testing` | `skills/zh/testing-types/ai-agent-testing/SKILL.md`; `skills/en/testing-types/ai-agent-testing/SKILL.md`; `skills/zh/testing-types/security-testing/SKILL.md`; `skills/en/testing-types/security-testing/SKILL.md` | 增加 AI 安全危害、拒答、误用和升级证据，不宣称安全认证。 |
+
+## 共享合同与证据边界
+
+- `scripts/tests/v3_v4_skill_contracts.py` 是 42 个 card ID、稳定前缀、Match 结论、领域标记和新增包文件合同的单一测试数据源。
+- 41 个 `NEW` 语言包必须各自具备 `SKILL.md`、主 Prompt、OpenAI metadata、三类 Eval case、触发 CSV 和本地规则配置；增强模式沿用 `prompt-testing` 物理目录。
+- 每个 Prompt 先记录 `known`、`missing`、`conflicting`、`stale`、`out_of_scope`、`assumptions`，再分离事实、证据支持的推断、候选建议和 `Human` 决策。
+- 静态目录、名称、触发 dry-run、`skill-up validate`、单元测试和质量门禁只能证明结构与声明；不证明真实模型效果、运行过测试、漏洞不存在、覆盖率、质量分、风险接受、业务批准或 Release 完成。
+- Project 状态是外部执行记录。`gh project item-list` 只能证明当前状态；若没有事件历史来源，`transition_audit` 必须保持 `UNASSESSED`，验收状态不能升级为完整业务验收。
+
+## 本阶段复现
+
+```bash
+python3 -m unittest scripts.tests.test_v3_v4_match_contracts -v
+python3 -m unittest scripts.tests.test_v3_v4_batch1_skill_contracts scripts.tests.test_v3_v4_batch2_skill_contracts scripts.tests.test_v3_v4_prompt_regression_contract -v
+python3 scripts/validate_agents_metadata.py --report /tmp/v3-v4-match-metadata.md
+python3 scripts/generate_skill_governance_matrix.py --check
+python3 scripts/generate_skill_governance_inventory.py --check
+python3 scripts/check_docs_bilingual.py --repo-root .
+bash scripts/validate_skill_evals.sh
+bash scripts/check_skills_quality.sh
+```
+
+Project 快照：
+
+```bash
+gh project item-list 4 --owner naodeng --format json --limit 200 \
+  | jq '[.items[] | select((.content.title // "") | startswith("v3-v4 P2｜候选 Skill｜"))] \
+  | {count: length, statuses: (group_by(.status) | map({status: .[0].status, count: length}))}'
+```

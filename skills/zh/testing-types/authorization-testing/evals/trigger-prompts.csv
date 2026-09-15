@@ -1,0 +1,5 @@
+mode,should_trigger,prompt
+"explicit","true","请使用 authorization-testing Skill 审查授权决策。"
+"implicit","true","请分析主体-资源-动作关系、权限边界、拒绝路径和委派并列出证据缺口。"
+"contextual","true","订单系统存在权限风险，如何准备授权决策验证？"
+"negative","false","请设计登录页面的颜色和字体，不做安全测试分析。"

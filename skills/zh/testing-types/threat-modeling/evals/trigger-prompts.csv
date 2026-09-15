@@ -1,0 +1,5 @@
+mode,should_trigger,prompt
+"explicit","true","请使用 threat-modeling Skill 审查威胁场景。"
+"implicit","true","请分析资产、信任边界、攻击面、威胁场景、缓解措施和假设并列出证据缺口。"
+"contextual","true","订单系统存在权限风险，如何准备威胁场景验证？"
+"negative","false","请设计登录页面的颜色和字体，不做安全测试分析。"

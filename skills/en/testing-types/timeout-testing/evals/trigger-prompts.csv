@@ -1,0 +1,5 @@
+mode,should_trigger,prompt
+"explicit","true","Use the timeout-testing Skill to analyze the timeout policy."
+"implicit","true","Review timeout budgets, cancellation propagation, downstream boundaries, user feedback, and retry interaction and list evidence gaps."
+"contextual","true","An order-system dependency is unavailable. How should we prepare timeout policy validation?"
+"negative","false","Design the login page colors and typography without testing analysis."

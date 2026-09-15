@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: ci-test-optimization
+interface:
+  display_name: "CI 测试流水线优化"
+  short_description: "围绕CI 测试流水线输出证据边界与可执行分析"
+  default_prompt: "Use the ci-test-optimization skill to perform CI test pipeline analysis."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: quality-metrics-design
+interface:
+  display_name: "质量指标设计"
+  short_description: "围绕质量指标输出证据边界与可执行分析"
+  default_prompt: "Use the quality-metrics-design skill to perform quality metric analysis."
+policy:
+  allow_implicit_invocation: true

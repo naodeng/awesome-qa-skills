@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: agent-memory-testing
+interface:
+  display_name: "Agent Memory Testing"
+  short_description: "Produce evidence-bounded Agent memory analysis"
+  default_prompt: "Use the agent-memory-testing skill to perform Agent memory analysis."
+policy:
+  allow_implicit_invocation: true

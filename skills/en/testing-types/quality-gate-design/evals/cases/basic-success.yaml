@@ -1,0 +1,47 @@
+id: basic-success
+title: "Quality Gate Design: domain-complete scenario"
+description: |
+  Checks that the skill produces domain-specific quality gate analysis that is evidence-based, prioritized, and executable.
+
+input:
+  prompt: |
+    Use the quality-gate-design skill for this scenario: a payment-service release needs a quality gate covering critical business risk, automated results, known defects, and the human-approval boundary. Provide quality gate priorities, core execution items, expected behavior or decision criteria, evidence, and open questions.
+
+expect:
+  must_contain:
+    - "object/rule"
+    - "source"
+    - "trigger or applicability"
+    - "expected concern/rationale"
+    - "evidence state"
+    - "impact/priority"
+    - "owner role"
+    - "close condition"
+    - "validation method"
+    - "QGD-"
+    - "Task Understanding"
+    - "Input Audit"
+    - "quality gate"
+    - "expected"
+  must_not_contain:
+    - "I cannot"
+    - "unable to help"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "object/rule"
+          - "source"
+          - "trigger or applicability"
+          - "expected concern/rationale"
+          - "evidence state"
+          - "impact/priority"
+          - "owner role"
+          - "close condition"
+          - "validation method"
+          - "QGD-"
+          - "Task Understanding"
+          - "Input Audit"
+          - "quality gate"

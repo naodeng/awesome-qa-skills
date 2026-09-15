@@ -1,0 +1,25 @@
+id: edge-scope-boundary
+title: "测试维护成本分析：执行与发布结论边界"
+description: |
+  验证没有运行记录时，Skill 会拒绝把执行、通过或发布结论写成事实，并保留领域验证边界。
+
+input:
+  prompt: |
+    请使用 test-maintenance-cost-analysis Skill 审查测试套件频繁因产品变更和环境波动需要修复，团队需要拆分真实维护成本、责任归属和改进优先级。只有静态材料，没有实际运行记录。请明确哪些内容不能写成“测试已执行”“全部测试通过”或“发布已批准”，并给出停止条件和下一步验证。
+
+expect:
+  must_contain:
+    - "维护成本"
+    - "不能"
+    - "待确认"
+  must_not_contain:
+    - "我无法"
+    - "无法提供帮助"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "维护成本"
+          - "不能"

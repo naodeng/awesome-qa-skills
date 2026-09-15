@@ -1,0 +1,5 @@
+mode,should_trigger,prompt
+"explicit","true","Use the quality-debt-analysis skill to analyze quality debt."
+"implicit","true","Review quality-debt items, origins, impact, age, priority, ownership, and paydown tradeoffs and list evidence gaps."
+"contextual","true","an order system has uncovered boundary cases, flaky tests, and stale test data, and the team needs to decide which quality debt to pay down first; how should a bounded analysis be prepared?"
+"negative","false","Design the marketing page colors and fonts; do not perform testing or quality analysis."

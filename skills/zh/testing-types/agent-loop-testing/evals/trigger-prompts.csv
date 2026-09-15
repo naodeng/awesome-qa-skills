@@ -1,0 +1,5 @@
+mode,should_trigger,prompt
+"explicit","true","请使用 agent-loop-testing Skill 分析Agent 循环。"
+"implicit","true","请审查循环状态、规划/动作/观察周期、停止条件、预算、重复行为与 trace 证据并列出证据缺口。"
+"contextual","true","工具型 Agent 在任务失败后反复调用同一工具，团队需要审查循环状态、停止条件、预算和 trace 证据，如何准备有边界的分析？"
+"negative","false","请设计营销页面的颜色和字体，不做测试或质量分析。"

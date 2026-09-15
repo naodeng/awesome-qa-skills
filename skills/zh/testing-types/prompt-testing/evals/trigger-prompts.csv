@@ -1,0 +1,7 @@
+mode,should_trigger,prompt
+"explicit","true","请使用 prompt-testing Skill 设计提示词测试。"
+"implicit","true","请审查提示词行为、边界和证据缺口。"
+"contextual","true","提示词版本升级后格式和拒答行为可能变化，如何设计测试？"
+"negative","false","请设计登录页面的颜色和字体，不做提示词测试。"
+"prompt-regression","true","请使用 prompt-testing 的 prompt-regression 模式比较基线和候选版本。"
+"prompt-regression","false","请创建一个营销页面，不做提示词版本回归。"

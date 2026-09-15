@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: ai-safety-testing
+interface:
+  display_name: "AI Safety Testing"
+  short_description: "Produce evidence-bounded AI safety analysis"
+  default_prompt: "Use the ai-safety-testing skill to perform AI safety analysis."
+policy:
+  allow_implicit_invocation: true

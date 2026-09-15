@@ -1,0 +1,5 @@
+mode,should_trigger,prompt
+"explicit","true","Use the secrets-exposure-review Skill to review secrets exposure."
+"implicit","true","Analyze secret locations, flows, log exposure, configuration boundaries, and rotation evidence and list evidence gaps."
+"contextual","true","An order system has a permission risk. How should we prepare secrets exposure validation?"
+"negative","false","Design the login page colors and typography without security testing analysis."

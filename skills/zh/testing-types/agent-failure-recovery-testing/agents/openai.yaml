@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: agent-failure-recovery-testing
+interface:
+  display_name: "Agent 故障恢复测试"
+  short_description: "围绕Agent 故障恢复输出证据边界与可执行分析"
+  default_prompt: "Use the agent-failure-recovery-testing skill to perform Agent failure recovery analysis."
+policy:
+  allow_implicit_invocation: true

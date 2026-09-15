@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: authentication-testing
+interface:
+  display_name: "身份认证测试"
+  short_description: "Evidence-bounded authentication-testing analysis and validation preparation"
+  default_prompt: "Use the authentication-testing skill for evidence-bounded analysis."
+policy:
+  allow_implicit_invocation: true

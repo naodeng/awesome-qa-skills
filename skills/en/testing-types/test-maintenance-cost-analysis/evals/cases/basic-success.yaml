@@ -1,0 +1,47 @@
+id: basic-success
+title: "Test Maintenance Cost Analysis: domain-complete scenario"
+description: |
+  Checks that the skill produces domain-specific maintenance cost analysis that is evidence-based, prioritized, and executable.
+
+input:
+  prompt: |
+    Use the test-maintenance-cost-analysis skill for this scenario: a test suite needs frequent repair because of product changes and environment flakiness, and the team needs to separate real maintenance cost, ownership, and improvement priority. Provide maintenance cost priorities, core execution items, expected behavior or decision criteria, evidence, and open questions.
+
+expect:
+  must_contain:
+    - "object/rule"
+    - "source"
+    - "trigger or applicability"
+    - "expected concern/rationale"
+    - "evidence state"
+    - "impact/priority"
+    - "owner role"
+    - "close condition"
+    - "validation method"
+    - "TMC-"
+    - "Task Understanding"
+    - "Input Audit"
+    - "maintenance cost"
+    - "expected"
+  must_not_contain:
+    - "I cannot"
+    - "unable to help"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "object/rule"
+          - "source"
+          - "trigger or applicability"
+          - "expected concern/rationale"
+          - "evidence state"
+          - "impact/priority"
+          - "owner role"
+          - "close condition"
+          - "validation method"
+          - "TMC-"
+          - "Task Understanding"
+          - "Input Audit"
+          - "maintenance cost"

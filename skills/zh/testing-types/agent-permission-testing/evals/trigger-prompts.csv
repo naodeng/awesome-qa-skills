@@ -1,0 +1,5 @@
+mode,should_trigger,prompt
+"explicit","true","请使用 agent-permission-testing Skill 分析Agent 权限。"
+"implicit","true","请审查Agent 身份、工具/资源范围、批准、拒绝、升级和副作用边界并列出证据缺口。"
+"contextual","true","客服 Agent 可以读取订单并申请退款，团队需要证明不同身份、工具权限和人工批准边界不会被越权绕过，如何准备有边界的分析？"
+"negative","false","请设计营销页面的颜色和字体，不做测试或质量分析。"

@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: quality-maturity-assessment
+interface:
+  display_name: "质量成熟度评估"
+  short_description: "围绕质量成熟度输出证据边界与可执行分析"
+  default_prompt: "Use the quality-maturity-assessment skill to perform quality maturity analysis."
+policy:
+  allow_implicit_invocation: true
