@@ -1,0 +1,30 @@
+id: edge-risk-priority
+title: "Agent run forensics: assess side effects before replaying"
+description: |
+  Verifies the skill reads the recorded shell commands first, lists the side effects a replay
+  genuinely repeats, and insists on an isolated copy rather than treating replay as a dry run.
+
+input:
+  prompt: |
+    Use the agent-run-forensics skill: I want to replay a recording to check whether a bug still
+    reproduces. The recorded run executed `docker compose up -d`, a psql statement writing to a
+    production read replica, and `npm ci`. Give me what must be settled before replaying, with
+    priorities, and how to read the replay verdict line.
+
+expect:
+  must_contain:
+    - "side effect"
+    - "isolat"
+    - "P0"
+    - "reused"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "side effect"
+          - "isolat"

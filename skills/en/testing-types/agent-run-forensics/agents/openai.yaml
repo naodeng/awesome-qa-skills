@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: agent-run-forensics
+interface:
+  display_name: "Agent Run Forensics"
+  short_description: "Explain and reproduce a past agent run from its recording, not from its memory"
+  default_prompt: "Use the agent-run-forensics skill to explain a past agent run from its recording."
+policy:
+  allow_implicit_invocation: true

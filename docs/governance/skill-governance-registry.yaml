@@ -5750,6 +5750,43 @@
       ]
     },
     {
+      "slug": "agent-run-forensics",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/agent-run-forensics",
+      "en_path": "skills/en/testing-types/agent-run-forensics",
+      "virtual_domain": "AI Native QA",
+      "status": "Existing",
+      "priority": "P2",
+      "related": "UNASSESSED: no cross-Skill semantic relation is asserted without a dedicated review record",
+      "governance_evidence": "skills/zh/testing-types/agent-run-forensics/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension Quality Score evidence was run for this static package delivery."
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Eval files and local checks exist, but no real model or external target execution was run."
+      },
+      "sdlc_stage": "test-execution-and-analysis",
+      "roles": [
+        "QA",
+        "AI Quality"
+      ],
+      "inputs": "skills/zh/testing-types/agent-run-forensics/prompts/agent-run-forensics.md#输入; skills/en/testing-types/agent-run-forensics/prompts/agent-run-forensics.md#Inputs",
+      "outputs": "skills/zh/testing-types/agent-run-forensics/prompts/agent-run-forensics.md#输出顺序; skills/en/testing-types/agent-run-forensics/prompts/agent-run-forensics.md#Output Order",
+      "workflow": "UNASSESSED: reviewed source material does not declare a single workflow placement",
+      "evidence_paths": [
+        "skills/zh/testing-types/agent-run-forensics/SKILL.md",
+        "skills/en/testing-types/agent-run-forensics/SKILL.md",
+        "skills/zh/testing-types/agent-run-forensics/prompts/agent-run-forensics.md",
+        "skills/en/testing-types/agent-run-forensics/prompts/agent-run-forensics.md",
+        "skills/zh/testing-types/agent-run-forensics/evals/eval.yaml",
+        "skills/en/testing-types/agent-run-forensics/evals/eval.yaml",
+        "skills/zh/testing-types/agent-run-forensics/agents/openai.yaml",
+        "skills/en/testing-types/agent-run-forensics/agents/openai.yaml"
+      ]
+    },
+    {
       "slug": "agent-long-running-testing",
       "section": "testing-types",
       "zh_path": "skills/zh/testing-types/agent-long-running-testing",

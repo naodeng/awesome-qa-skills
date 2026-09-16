@@ -5,9 +5,9 @@
 A language-partitioned **AI testing skills library** (Agent Skills) for Codex, Cursor, Claude Code, Kiro, OpenCode, Trae, and similar tools. It ships independently installable, composable skills for testing workflows and testing types.
 
 [![License: PolyForm Noncommercial 1.0.0](https://img.shields.io/badge/License-PolyForm%20Noncommercial%201.0.0-blue.svg)](./LICENSE)
-[![Skills](https://img.shields.io/badge/skills-324%20(zh%2Ben)-0A7EA4)](./docs/catalog/skills-index_EN.md)
+[![Skills](https://img.shields.io/badge/skills-326%20(zh%2Ben)-0A7EA4)](./docs/catalog/skills-index_EN.md)
 [![Workflows](https://img.shields.io/badge/workflows-10-informational)](./skills/en/testing-workflows/)
-[![Testing types](https://img.shields.io/badge/testing%20types-149-informational)](./skills/en/testing-types/)
+[![Testing types](https://img.shields.io/badge/testing%20types-150-informational)](./skills/en/testing-types/)
 [![Skill engineering](https://img.shields.io/badge/skill%20engineering-3-informational)](./skills/en/skill-engineering/)
 [![skills.sh](https://skills.sh/b/naodeng/awesome-qa-skills)](https://skills.sh/naodeng/awesome-qa-skills)
 
@@ -407,6 +407,7 @@ Each testing-type Skill appears once; routers and workflows cover cross-phase co
 | Agent Memory Testing <!-- data-skill:agent-memory-testing --> | [`agent-memory-testing`](skills/en/testing-types/agent-memory-testing/) | Test memory read/write, update/delete, retention, isolation, provenance, and forgetting |
 | Agent Permission Testing <!-- data-skill:agent-permission-testing --> | [`agent-permission-testing`](skills/en/testing-types/agent-permission-testing/) | Verify identity, tool/resource scope, approval, denial, and side-effect boundaries |
 | Agent Failure Recovery Testing <!-- data-skill:agent-failure-recovery-testing --> | [`agent-failure-recovery-testing`](skills/en/testing-types/agent-failure-recovery-testing/) | Analyze failure classification, retry/fallback, escalation, state consistency, and user notice |
+| Agent Run Forensics <!-- data-skill:agent-run-forensics --> | [`agent-run-forensics`](skills/en/testing-types/agent-run-forensics/) | Explain and reproduce a past agent run from its recording, and turn a failed session into a regression test |
 | Agent Long-Running Testing <!-- data-skill:agent-long-running-testing --> | [`agent-long-running-testing`](skills/en/testing-types/agent-long-running-testing/) | Test checkpoints, heartbeats, resume/cancel, duplicate submission, timeouts, and resource lifecycle |
 | Multi-Agent Testing <!-- data-skill:multi-agent-testing --> | [`multi-agent-testing`](skills/en/testing-types/multi-agent-testing/) | Analyze delegation, coordination, shared state, conflicts, ownership, and termination |
 | AI Safety Testing <!-- data-skill:ai-safety-testing --> | [`ai-safety-testing`](skills/en/testing-types/ai-safety-testing/) | Review safety policy, abuse, refusal/redirect, privacy, and escalation boundaries |
