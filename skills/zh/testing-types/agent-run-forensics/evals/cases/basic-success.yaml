@@ -1,0 +1,33 @@
+id: basic-success
+title: "Agent 运行取证：从录像解释一次文件改动"
+description: |
+  验证 Skill 在有录像时先读证据再回答，并把录到的事实与推断出来的因果分开表述。
+
+input:
+  prompt: |
+    请使用 agent-run-forensics Skill 分析以下场景：上一次 Agent 运行之后，`tsconfig.json` 里的 `strict: true` 不见了，没人记得是哪一步改的。该运行有完整录像。录像片段如下：
+    14  TOOL   file_editor   {"command":"str_replace","path":".../tsconfig.json"}
+    15  SHELL  npm run build  exit 2
+    16  FILE   tsconfig.json  modified +1 -1
+    另有一条时间上相邻但未被记录因果关系的清理命令。请给出结论、证据、来源标注和剩余不确定性。
+
+expect:
+  must_contain:
+    - "结论"
+    - "证据"
+    - "recorded"
+    - "inferred"
+    - "不确定"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+    - "无法提供帮助"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "证据"
+          - "recorded"
+          - "inferred"

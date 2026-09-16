@@ -1,0 +1,27 @@
+id: edge-incomplete-input
+title: "Agent 运行取证：根本没有录像"
+description: |
+  验证 Skill 在没有录像时明确说出来并给出补录方式，而不是改用「回忆 + 推理」把答案补齐——
+  这正是本 Skill 要替代的失败模式。
+
+input:
+  prompt: |
+    请使用 agent-run-forensics Skill 回答：昨天那次 Agent 会话把某个配置文件改坏了，想知道是哪一步干的。
+    这次会话当时没有开启录制，只有一份对话转录。请给出你能做到的和做不到的。
+
+expect:
+  must_contain:
+    - "没有录像"
+    - "转录"
+    - "补录"
+  must_not_contain:
+    - "TODO"
+    - "我无法提供帮助"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "没有录像"
+          - "补录"

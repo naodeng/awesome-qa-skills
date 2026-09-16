@@ -1,0 +1,29 @@
+id: edge-risk-priority
+title: "Agent 运行取证：重放前先评估副作用"
+description: |
+  验证 Skill 在重放前先读录像里记录的 shell 命令、列出会真实重复执行的副作用，
+  并坚持在隔离副本中重放，而不是把重放当成 dry run。
+
+input:
+  prompt: |
+    请使用 agent-run-forensics Skill 判断：我想重放一次录像来确认 bug 是否还复现。
+    录像里这次运行执行过 `docker compose up -d`、一条写生产只读副本的 psql 语句，以及 `npm ci`。
+    请给出重放前必须确认的事项、优先级，以及重放结论行应该怎么读。
+
+expect:
+  must_contain:
+    - "副作用"
+    - "隔离"
+    - "P0"
+    - "reused"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "副作用"
+          - "隔离"

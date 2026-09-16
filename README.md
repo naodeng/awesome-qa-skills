@@ -5,9 +5,9 @@
 按语言分区的 **AI 测试辅助技能库**（Agent Skills）。面向 Codex、Cursor、Claude Code、Kiro、OpenCode、Trae 等工具，提供可独立安装、可组合调用的测试工作流与测试类型技能。
 
 [![License: PolyForm Noncommercial 1.0.0](https://img.shields.io/badge/License-PolyForm%20Noncommercial%201.0.0-blue.svg)](./LICENSE)
-[![Skills](https://img.shields.io/badge/skills-324%20(zh%2Ben)-0A7EA4)](./docs/catalog/skills-index.md)
+[![Skills](https://img.shields.io/badge/skills-326%20(zh%2Ben)-0A7EA4)](./docs/catalog/skills-index.md)
 [![Workflows](https://img.shields.io/badge/workflows-10-informational)](./skills/zh/testing-workflows/)
-[![Testing types](https://img.shields.io/badge/testing%20types-149-informational)](./skills/zh/testing-types/)
+[![Testing types](https://img.shields.io/badge/testing%20types-150-informational)](./skills/zh/testing-types/)
 [![Skill engineering](https://img.shields.io/badge/skill%20engineering-3-informational)](./skills/zh/skill-engineering/)
 [![skills.sh](https://skills.sh/b/naodeng/awesome-qa-skills)](https://skills.sh/naodeng/awesome-qa-skills)
 
@@ -407,6 +407,7 @@ Core QA Skills → Engineering QA Skills → Production Quality Skills → AI Na
 | Agent 记忆测试 <!-- data-skill:agent-memory-testing --> | [`agent-memory-testing`](skills/zh/testing-types/agent-memory-testing/) | 测试记忆读写、更新删除、保留、隔离、来源和遗忘 |
 | Agent 权限测试 <!-- data-skill:agent-permission-testing --> | [`agent-permission-testing`](skills/zh/testing-types/agent-permission-testing/) | 验证身份、工具资源范围、批准拒绝和副作用边界 |
 | Agent 故障恢复测试 <!-- data-skill:agent-failure-recovery-testing --> | [`agent-failure-recovery-testing`](skills/zh/testing-types/agent-failure-recovery-testing/) | 分析故障分类、重试回退、升级、状态一致性和用户通知 |
+| Agent 运行取证 <!-- data-skill:agent-run-forensics --> | [`agent-run-forensics`](skills/zh/testing-types/agent-run-forensics/) | 读取已有录制来解释和复现 Agent 运行，把失败会话变成回归用例 |
 | 长运行 Agent 测试 <!-- data-skill:agent-long-running-testing --> | [`agent-long-running-testing`](skills/zh/testing-types/agent-long-running-testing/) | 测试检查点、心跳、恢复取消、重复提交、超时和资源生命周期 |
 | 多 Agent 测试 <!-- data-skill:multi-agent-testing --> | [`multi-agent-testing`](skills/zh/testing-types/multi-agent-testing/) | 分析委派、协调、共享状态、冲突、所有权和终止 |
 | AI 安全测试 <!-- data-skill:ai-safety-testing --> | [`ai-safety-testing`](skills/zh/testing-types/ai-safety-testing/) | 审查安全政策、滥用、拒答重定向、隐私和升级边界 |

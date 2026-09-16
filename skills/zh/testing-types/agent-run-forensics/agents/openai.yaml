@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: agent-run-forensics
+interface:
+  display_name: "Agent 运行取证"
+  short_description: "从录像解释并复现一次已发生的 Agent 运行，而不是让它回忆"
+  default_prompt: "Use the agent-run-forensics skill to explain a past agent run from its recording."
+policy:
+  allow_implicit_invocation: true
