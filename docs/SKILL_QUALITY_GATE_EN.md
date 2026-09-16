@@ -25,3 +25,5 @@ Every Enhance or Merge is rescored after change. Preserve before/after scores, e
 ## Minimum Eval standard
 
 Every new or modified Skill has `evals/eval.yaml` and at least success, insufficient-information, and scope/risk-boundary cases. Evals verify output contracts and evidence boundaries. Missing environments, dependencies, or permissions are `blocked`, never passed.
+
+See the [Quality Score and minimum Eval contract](governance/QUALITY_SCORE_EVAL_CONTRACT_EN.md) for reviewable fields and boundaries; current governance records remain `NOT_SCORED` / `NOT_RUN` without real evaluation.

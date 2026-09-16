@@ -19,6 +19,8 @@ python3 scripts/generate_skill_governance_inventory.py --check
 
 echo "[4/10] Check generated governance matrix"
 python3 scripts/generate_skill_governance_matrix.py --check
+echo "[4b/10] Check v1.4 governance closeout views"
+python3 scripts/generate_v14_closeout.py --check
 
 echo "[5/10] Validate skills independence"
 python3 scripts/validate_skills_independence.py --skills-root skills --fail-on-findings --report-md /tmp/skills-independence-check.md >/tmp/skills-independence-check.out

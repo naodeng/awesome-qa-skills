@@ -1,0 +1,556 @@
+{
+  "format": "json-compatible-yaml",
+  "contract_version": 1,
+  "target_version": "v1.4",
+  "theme": "Requirement / Strategy Existing Skill Cleanup",
+  "project_number": 4,
+  "project_title": "Awesome QA Skills — Governance & Roadmap",
+  "project_owner": "naodeng",
+  "project_item_type": "DraftIssue",
+  "project_status_verified_at": "2026-09-16",
+  "final_project_counts": {
+    "v1.4": {"Done": 35, "In Progress": 0, "Todo": 0}
+  },
+  "boundaries": {
+    "static": "VERIFIED",
+    "runtime": "NOT_RUN",
+    "model_eval": "NOT_RUN",
+    "release_approval": "NOT_RUN"
+  },
+  "boundary_text": "Static repository and documentation checks are verified. Runtime behavior and real-target execution are NOT_RUN; model evaluation and Quality Score remain NOT_SCORED; semantic equivalence, business acceptance, risk acceptance, release approval, and external publication remain UNASSESSED or NOT_RUN.",
+  "next_versions": [
+    {"priority": "P1", "version": "v1.5", "scope": "Test Engineering and existing Skill enhancement"},
+    {"priority": "P2", "version": "v1.6", "scope": "Performance, AI Native, and quality-engineering follow-up"},
+    {"priority": "Backlog", "version": "v1.7", "scope": "Deferred governance and composition work"},
+    {"priority": "Backlog", "version": "v1.8", "scope": "Deferred ecosystem and release improvements"}
+  ],
+  "quality_score_dimensions": [
+    "problem_value",
+    "scope_clarity",
+    "input_quality",
+    "analysis_depth",
+    "output_actionability",
+    "evidence_quality",
+    "reusability",
+    "eval_coverage",
+    "documentation"
+  ],
+  "minimum_eval_case_types": [
+    "success_path",
+    "incomplete_information",
+    "scope_or_risk_boundary"
+  ],
+  "release_dod_scopes": {
+    "v1.0": [
+      "v1.0｜治理｜16 个虚拟 Domain 分类",
+      "v1.0｜治理｜Deprecation 与替代路径规则",
+      "v1.0｜治理｜中英文一致性质量契约",
+      "v1.0｜治理｜Skill Quality Score 与最低 Eval 标准",
+      "v1.0｜文档｜README 与双语入口治理",
+      "v1.0｜文档｜Skill Map Graph Catalog 治理",
+      "v1.0｜文档｜Workflow Eval 安装文档同步清单",
+      "v1.0｜里程碑｜v1.0 Governance 发布准备",
+      "v1.0｜治理｜典型 Match Merge 映射复核",
+      "Release DoD｜v1.0"
+    ]
+  },
+  "cards": [
+    {
+      "project_item_id": "PVTI_lAHOAHP1as4BjBhVzg6SrHw",
+      "title": "v1.0｜治理｜16 个虚拟 Domain 分类",
+      "kind": "virtual-domain",
+      "priority": "P0",
+      "target_version": "v1.4",
+      "project_status_before": "Done",
+      "project_status_after": "Done",
+      "acceptance_state": "VERIFIED_STATIC",
+      "evidence_paths": [
+        "docs/governance/virtual-domains.yaml",
+        "scripts/virtual_domains.py",
+        "scripts/generate_skill_governance_inventory.py",
+        "docs/generated/skill-governance-inventory.md",
+        "docs/SKILL_MATRIX.md"
+      ]
+    },
+    {
+      "project_item_id": "PVTI_lAHOAHP1as4BjBhVzg6SrMU",
+      "title": "v1.0｜治理｜Deprecation 与替代路径规则",
+      "kind": "governance",
+      "priority": "P0",
+      "target_version": "v1.4",
+      "project_status_before": "In Progress",
+      "project_status_after": "Done",
+      "acceptance_state": "VERIFIED_STATIC",
+      "evidence_paths": [
+        "docs/SKILL_DEPRECATION_GUIDE.md",
+        "docs/SKILL_LIFECYCLE.md",
+        "docs/governance/DEPRECATION_DECISION_CONTRACT.md",
+        "docs/SKILL_MATRIX.md"
+      ]
+    },
+    {
+      "project_item_id": "PVTI_lAHOAHP1as4BjBhVzg6SrNg",
+      "title": "v1.0｜治理｜中英文一致性质量契约",
+      "kind": "governance",
+      "priority": "P0",
+      "target_version": "v1.4",
+      "project_status_before": "In Progress",
+      "project_status_after": "Done",
+      "acceptance_state": "VERIFIED_STATIC",
+      "evidence_paths": [
+        "docs/governance/DOCUMENTATION_POLICY.md",
+        "docs/governance/BILINGUAL_CONSISTENCY_CONTRACT.md",
+        "scripts/check_docs_bilingual.py",
+        "README.md",
+        "README_EN.md"
+      ]
+    },
+    {
+      "project_item_id": "PVTI_lAHOAHP1as4BjBhVzg6SrPk",
+      "title": "v1.0｜治理｜Skill Quality Score 与最低 Eval 标准",
+      "kind": "governance",
+      "priority": "P0",
+      "target_version": "v1.4",
+      "project_status_before": "In Progress",
+      "project_status_after": "Done",
+      "acceptance_state": "VERIFIED_STATIC",
+      "evidence_paths": [
+        "docs/SKILL_QUALITY_GATE.md",
+        "docs/governance/QUALITY_SCORE_EVAL_CONTRACT.md",
+        "scripts/validate_skill_eval_rules.py",
+        "scripts/validate_skill_evals.sh"
+      ]
+    },
+    {
+      "project_item_id": "PVTI_lAHOAHP1as4BjBhVzg6SrYc",
+      "title": "v1.0｜文档｜README 与双语入口治理",
+      "kind": "documentation",
+      "priority": "P0",
+      "target_version": "v1.4",
+      "project_status_before": "In Progress",
+      "project_status_after": "Done",
+      "acceptance_state": "VERIFIED_STATIC",
+      "evidence_paths": [
+        "README.md",
+        "README_EN.md",
+        "docs/catalog/skills-index.md",
+        "docs/catalog/skills-index_EN.md",
+        "scripts/check_docs_bilingual.py"
+      ]
+    },
+    {
+      "project_item_id": "PVTI_lAHOAHP1as4BjBhVzg6SrZ4",
+      "title": "v1.0｜文档｜Skill Map Graph Catalog 治理",
+      "kind": "documentation",
+      "priority": "P0",
+      "target_version": "v1.4",
+      "project_status_before": "In Progress",
+      "project_status_after": "Done",
+      "acceptance_state": "VERIFIED_STATIC",
+      "evidence_paths": [
+        "docs/catalog/skills-graph.md",
+        "docs/catalog/skills-graph_EN.md",
+        "docs/SKILL_MATRIX.md",
+        "docs/SKILL_MATRIX_EN.md"
+      ]
+    },
+    {
+      "project_item_id": "PVTI_lAHOAHP1as4BjBhVzg6Srck",
+      "title": "v1.0｜文档｜Workflow Eval 安装文档同步清单",
+      "kind": "documentation",
+      "priority": "P0",
+      "target_version": "v1.4",
+      "project_status_before": "In Progress",
+      "project_status_after": "Done",
+      "acceptance_state": "VERIFIED_STATIC",
+      "evidence_paths": [
+        "docs/governance/WORKFLOW_EVAL_INSTALL_SYNC.md",
+        "scripts/INSTALL_SKILLS.md",
+        "scripts/install-skills-mac.sh",
+        "scripts/install-skills-windows.ps1"
+      ]
+    },
+    {
+      "project_item_id": "PVTI_lAHOAHP1as4BjBhVzg6Srds",
+      "title": "v1.0｜复盘｜Phase 0 Governance Review",
+      "kind": "retrospective",
+      "priority": "P0",
+      "target_version": "v1.4",
+      "project_status_before": "In Progress",
+      "project_status_after": "Done",
+      "acceptance_state": "VERIFIED_STATIC",
+      "evidence_paths": [
+        "docs/governance/PHASE_0_V1_4_CLOSEOUT.md",
+        "docs/governance/SKILL_GOVERNANCE_ROADMAP.md",
+        "docs/SKILL_MATRIX.md",
+        "scripts/check_skills_quality.sh"
+      ]
+    },
+    {
+      "project_item_id": "PVTI_lAHOAHP1as4BjBhVzg6SrfA",
+      "title": "v1.0｜里程碑｜v1.0 Governance 发布准备",
+      "kind": "release-prep",
+      "priority": "P0",
+      "target_version": "v1.4",
+      "project_status_before": "In Progress",
+      "project_status_after": "Done",
+      "acceptance_state": "VERIFIED_STATIC",
+      "evidence_paths": [
+        "docs/governance/RELEASE_DOD_V1_0.md",
+        "docs/governance/SKILL_GOVERNANCE_V1.md",
+        "docs/generated/skill-governance-inventory.md",
+        "scripts/check_skills_quality.sh"
+      ]
+    },
+    {
+      "project_item_id": "PVTI_lAHOAHP1as4BjBhVzg6S3dk",
+      "title": "v1.0｜治理｜典型 Match Merge 映射复核",
+      "kind": "mapping",
+      "priority": "P0",
+      "target_version": "v1.4",
+      "project_status_before": "Done",
+      "project_status_after": "Done",
+      "acceptance_state": "VERIFIED_STATIC",
+      "evidence_paths": [
+        "docs/governance/skill-governance-registry.yaml",
+        "docs/governance/PHASE_0_MATCH_MERGE_REVIEW.md",
+        "docs/SKILL_MATCHING_REGISTER.md",
+        "docs/SKILL_MATRIX.md"
+      ]
+    },
+    {
+      "project_item_id": "PVTI_lAHOAHP1as4BjBhVzg6S30Y",
+      "title": "治理｜Enhancement Sprint 节奏",
+      "kind": "governance",
+      "priority": "P0",
+      "target_version": "v1.4",
+      "project_status_before": "In Progress",
+      "project_status_after": "Done",
+      "acceptance_state": "VERIFIED_STATIC",
+      "evidence_paths": [
+        "docs/governance/ENHANCEMENT_SPRINT.md",
+        "docs/governance/SKILL_GOVERNANCE_ROADMAP.md",
+        "docs/SKILL_LIFECYCLE.md",
+        "docs/SKILL_QUALITY_GATE.md"
+      ]
+    },
+    {
+      "project_item_id": "PVTI_lAHOAHP1as4BjBhVzg6S32E",
+      "title": "治理｜候选 Skill 15 步执行模板",
+      "kind": "governance",
+      "priority": "P0",
+      "target_version": "v1.4",
+      "project_status_before": "In Progress",
+      "project_status_after": "Done",
+      "acceptance_state": "VERIFIED_STATIC",
+      "evidence_paths": [
+        "docs/governance/CANDIDATE_SKILL_15_STEP_TEMPLATE.md",
+        "docs/SKILL_MATCHING_GUIDE.md",
+        "docs/SKILL_LIFECYCLE.md",
+        "docs/SKILL_DESIGN_GUIDE.md"
+      ]
+    },
+    {
+      "project_item_id": "PVTI_lAHOAHP1as4BjBhVzg6S38Q",
+      "title": "里程碑｜v1.1-v1.4 Shift Left",
+      "kind": "milestone",
+      "priority": "P0",
+      "target_version": "v1.4",
+      "project_status_before": "In Progress",
+      "project_status_after": "Done",
+      "acceptance_state": "VERIFIED_STATIC",
+      "evidence_paths": [
+        "docs/governance/SHIFT_LEFT_MILESTONE.md",
+        "docs/catalog/skills-graph.md",
+        "docs/governance/QA_SKILLS_EVOLUTION_ROADMAP.md",
+        "docs/SKILL_MATRIX.md"
+      ]
+    },
+    {
+      "project_item_id": "PVTI_lAHOAHP1as4BjBhVzg6TITI",
+      "title": "治理｜Match Enhance｜requirement-change-impact-analysis",
+      "match_review_candidate": "requirement-change-impact-analysis",
+      "kind": "mapping",
+      "priority": "P0",
+      "target_version": "v1.4",
+      "project_status_before": "In Progress",
+      "project_status_after": "Done",
+      "acceptance_state": "VERIFIED_STATIC",
+      "evidence_paths": ["docs/governance/PHASE_0_MATCH_MERGE_REVIEW.md", "docs/SKILL_MATCHING_REGISTER.md", "docs/SKILL_MATRIX.md"]
+    },
+    {
+      "project_item_id": "PVTI_lAHOAHP1as4BjBhVzg6TIVU",
+      "title": "治理｜Merge｜test-impact-analysis",
+      "match_review_candidate": "test-impact-analysis",
+      "kind": "mapping",
+      "priority": "P0",
+      "target_version": "v1.4",
+      "project_status_before": "In Progress",
+      "project_status_after": "Done",
+      "acceptance_state": "VERIFIED_STATIC",
+      "evidence_paths": ["docs/governance/PHASE_0_MATCH_MERGE_REVIEW.md", "docs/SKILL_MATCHING_REGISTER.md", "docs/SKILL_MATRIX.md"]
+    },
+    {
+      "project_item_id": "PVTI_lAHOAHP1as4BjBhVzg6TIWg",
+      "title": "治理｜Merge Enhance｜code-change-risk-analysis",
+      "match_review_candidate": "code-change-risk-analysis",
+      "kind": "mapping",
+      "priority": "P0",
+      "target_version": "v1.4",
+      "project_status_before": "In Progress",
+      "project_status_after": "Done",
+      "acceptance_state": "VERIFIED_STATIC",
+      "evidence_paths": ["docs/governance/PHASE_0_MATCH_MERGE_REVIEW.md", "docs/SKILL_MATCHING_REGISTER.md", "docs/SKILL_MATRIX.md"]
+    },
+    {
+      "project_item_id": "PVTI_lAHOAHP1as4BjBhVzg6TIYs",
+      "title": "治理｜Match｜workload-modeling",
+      "match_review_candidate": "workload-modeling",
+      "kind": "mapping",
+      "priority": "P0",
+      "target_version": "v1.4",
+      "project_status_before": "In Progress",
+      "project_status_after": "Done",
+      "acceptance_state": "VERIFIED_STATIC",
+      "evidence_paths": ["docs/governance/PHASE_0_MATCH_MERGE_REVIEW.md", "docs/SKILL_MATCHING_REGISTER.md", "docs/SKILL_MATRIX.md"]
+    },
+    {
+      "project_item_id": "PVTI_lAHOAHP1as4BjBhVzg6TIaM",
+      "title": "治理｜Match｜capacity-planning",
+      "match_review_candidate": "capacity-planning",
+      "kind": "mapping",
+      "priority": "P0",
+      "target_version": "v1.4",
+      "project_status_before": "In Progress",
+      "project_status_after": "Done",
+      "acceptance_state": "VERIFIED_STATIC",
+      "evidence_paths": ["docs/governance/PHASE_0_MATCH_MERGE_REVIEW.md", "docs/SKILL_MATCHING_REGISTER.md", "docs/SKILL_MATRIX.md"]
+    },
+    {
+      "project_item_id": "PVTI_lAHOAHP1as4BjBhVzg6TIcE",
+      "title": "治理｜Existing｜performance-bottleneck-analysis",
+      "match_review_candidate": "performance-bottleneck-analysis",
+      "kind": "mapping",
+      "priority": "P0",
+      "target_version": "v1.4",
+      "project_status_before": "In Progress",
+      "project_status_after": "Done",
+      "acceptance_state": "VERIFIED_STATIC",
+      "evidence_paths": ["docs/governance/PHASE_0_MATCH_MERGE_REVIEW.md", "docs/SKILL_MATRIX.md"]
+    },
+    {
+      "project_item_id": "PVTI_lAHOAHP1as4BjBhVzg6TIeE",
+      "title": "治理｜Existing｜performance-result-analysis",
+      "match_review_candidate": "performance-result-analysis",
+      "kind": "mapping",
+      "priority": "P0",
+      "target_version": "v1.4",
+      "project_status_before": "In Progress",
+      "project_status_after": "Done",
+      "acceptance_state": "VERIFIED_STATIC",
+      "evidence_paths": ["docs/governance/PHASE_0_MATCH_MERGE_REVIEW.md", "docs/SKILL_MATRIX.md"]
+    },
+    {
+      "project_item_id": "PVTI_lAHOAHP1as4BjBhVzg6TIf8",
+      "title": "治理｜Existing｜performance-regression-analysis",
+      "match_review_candidate": "performance-regression-analysis",
+      "kind": "mapping",
+      "priority": "P0",
+      "target_version": "v1.4",
+      "project_status_before": "In Progress",
+      "project_status_after": "Done",
+      "acceptance_state": "VERIFIED_STATIC",
+      "evidence_paths": ["docs/governance/PHASE_0_MATCH_MERGE_REVIEW.md", "docs/SKILL_MATRIX.md"]
+    },
+    {
+      "project_item_id": "PVTI_lAHOAHP1as4BjBhVzg6TIiA",
+      "title": "治理｜Existing｜flaky-test-analysis",
+      "match_review_candidate": "flaky-test-analysis",
+      "kind": "mapping",
+      "priority": "P0",
+      "target_version": "v1.4",
+      "project_status_before": "In Progress",
+      "project_status_after": "Done",
+      "acceptance_state": "VERIFIED_STATIC",
+      "evidence_paths": ["docs/governance/PHASE_0_MATCH_MERGE_REVIEW.md", "docs/SKILL_MATRIX.md"]
+    },
+    {
+      "project_item_id": "PVTI_lAHOAHP1as4BjBhVzg6TIjI",
+      "title": "治理｜Existing｜production-verification",
+      "match_review_candidate": "production-verification",
+      "kind": "mapping",
+      "priority": "P0",
+      "target_version": "v1.4",
+      "project_status_before": "In Progress",
+      "project_status_after": "Done",
+      "acceptance_state": "VERIFIED_STATIC",
+      "evidence_paths": ["docs/governance/PHASE_0_MATCH_MERGE_REVIEW.md", "docs/SKILL_MATRIX.md"]
+    },
+    {
+      "project_item_id": "PVTI_lAHOAHP1as4BjBhVzg6TIlI",
+      "title": "治理｜Merge｜regression-scope-selection",
+      "match_review_candidate": "regression-scope-selection",
+      "kind": "mapping",
+      "priority": "P0",
+      "target_version": "v1.4",
+      "project_status_before": "In Progress",
+      "project_status_after": "Done",
+      "acceptance_state": "VERIFIED_STATIC",
+      "evidence_paths": ["docs/governance/PHASE_0_MATCH_MERGE_REVIEW.md", "docs/SKILL_MATCHING_REGISTER.md", "docs/SKILL_MATRIX.md"]
+    },
+    {
+      "project_item_id": "PVTI_lAHOAHP1as4BjBhVzg6TIno",
+      "title": "治理｜Match｜ai-test-case-review",
+      "match_review_candidate": "ai-test-case-review",
+      "kind": "mapping",
+      "priority": "P0",
+      "target_version": "v1.4",
+      "project_status_before": "In Progress",
+      "project_status_after": "Done",
+      "acceptance_state": "VERIFIED_STATIC",
+      "evidence_paths": ["docs/governance/PHASE_0_MATCH_MERGE_REVIEW.md", "docs/SKILL_MATCHING_REGISTER.md", "docs/SKILL_MATRIX.md"]
+    },
+    {
+      "project_item_id": "PVTI_lAHOAHP1as4BjBhVzg6TIpg",
+      "title": "治理｜Match Enhance｜ai-log-analysis",
+      "match_review_candidate": "ai-log-analysis",
+      "kind": "mapping",
+      "priority": "P0",
+      "target_version": "v1.4",
+      "project_status_before": "In Progress",
+      "project_status_after": "Done",
+      "acceptance_state": "VERIFIED_STATIC",
+      "evidence_paths": ["docs/governance/PHASE_0_MATCH_MERGE_REVIEW.md", "docs/SKILL_MATCHING_REGISTER.md", "docs/SKILL_MATRIX.md"]
+    },
+    {
+      "project_item_id": "PVTI_lAHOAHP1as4BjBhVzg6TIrY",
+      "title": "治理｜Match Enhance｜ai-root-cause-analysis",
+      "match_review_candidate": "ai-root-cause-analysis",
+      "kind": "mapping",
+      "priority": "P0",
+      "target_version": "v1.4",
+      "project_status_before": "In Progress",
+      "project_status_after": "Done",
+      "acceptance_state": "VERIFIED_STATIC",
+      "evidence_paths": ["docs/governance/PHASE_0_MATCH_MERGE_REVIEW.md", "docs/SKILL_MATCHING_REGISTER.md", "docs/SKILL_MATRIX.md"]
+    },
+    {
+      "project_item_id": "PVTI_lAHOAHP1as4BjBhVzg6TIs8",
+      "title": "治理｜Match｜quality-risk-identification",
+      "match_review_candidate": "quality-risk-identification",
+      "kind": "mapping",
+      "priority": "P0",
+      "target_version": "v1.4",
+      "project_status_before": "In Progress",
+      "project_status_after": "Done",
+      "acceptance_state": "VERIFIED_STATIC",
+      "evidence_paths": ["docs/governance/PHASE_0_MATCH_MERGE_REVIEW.md", "docs/SKILL_MATCHING_REGISTER.md", "docs/SKILL_MATRIX.md"]
+    },
+    {
+      "project_item_id": "PVTI_lAHOAHP1as4BjBhVzg6TIvo",
+      "title": "治理｜Match Enhance｜ai-test-data-generation",
+      "match_review_candidate": "ai-test-data-generation",
+      "kind": "mapping",
+      "priority": "P0",
+      "target_version": "v1.4",
+      "project_status_before": "In Progress",
+      "project_status_after": "Done",
+      "acceptance_state": "VERIFIED_STATIC",
+      "evidence_paths": ["docs/governance/PHASE_0_MATCH_MERGE_REVIEW.md", "docs/SKILL_MATCHING_REGISTER.md", "docs/SKILL_MATRIX.md"]
+    },
+    {
+      "project_item_id": "PVTI_lAHOAHP1as4BjBhVzg6TIw8",
+      "title": "治理｜Match Enhance｜llm-output-quality-testing",
+      "match_review_candidate": "llm-output-quality-testing",
+      "kind": "mapping",
+      "priority": "P0",
+      "target_version": "v1.4",
+      "project_status_before": "In Progress",
+      "project_status_after": "Done",
+      "acceptance_state": "VERIFIED_STATIC",
+      "evidence_paths": ["docs/governance/PHASE_0_MATCH_MERGE_REVIEW.md", "docs/SKILL_MATCHING_REGISTER.md", "docs/SKILL_MATRIX.md"]
+    },
+    {
+      "project_item_id": "PVTI_lAHOAHP1as4BjBhVzg6TIyo",
+      "title": "治理｜Match｜llm-evaluation",
+      "match_review_candidate": "llm-evaluation",
+      "kind": "mapping",
+      "priority": "P0",
+      "target_version": "v1.4",
+      "project_status_before": "In Progress",
+      "project_status_after": "Done",
+      "acceptance_state": "VERIFIED_STATIC",
+      "evidence_paths": ["docs/governance/PHASE_0_MATCH_MERGE_REVIEW.md", "docs/SKILL_MATCHING_REGISTER.md", "docs/SKILL_MATRIX.md"]
+    },
+    {
+      "project_item_id": "PVTI_lAHOAHP1as4BjBhVzg6TI0E",
+      "title": "治理｜Existing｜prompt-testing",
+      "match_review_candidate": "prompt-testing",
+      "kind": "mapping",
+      "priority": "P0",
+      "target_version": "v1.4",
+      "project_status_before": "In Progress",
+      "project_status_after": "Done",
+      "acceptance_state": "VERIFIED_STATIC",
+      "evidence_paths": ["docs/governance/PHASE_0_MATCH_MERGE_REVIEW.md", "docs/SKILL_MATRIX.md"]
+    },
+    {
+      "project_item_id": "PVTI_lAHOAHP1as4BjBhVzg6TI2M",
+      "title": "治理｜Existing｜agent-tool-testing",
+      "match_review_candidate": "agent-tool-testing",
+      "kind": "mapping",
+      "priority": "P0",
+      "target_version": "v1.4",
+      "project_status_before": "In Progress",
+      "project_status_after": "Done",
+      "acceptance_state": "VERIFIED_STATIC",
+      "evidence_paths": ["docs/governance/PHASE_0_MATCH_MERGE_REVIEW.md", "docs/SKILL_MATRIX.md"]
+    },
+    {
+      "project_item_id": "PVTI_lAHOAHP1as4BjBhVzg6TaoM",
+      "title": "Release DoD｜v1.0",
+      "kind": "release-dod",
+      "priority": "P0",
+      "target_version": "v1.4",
+      "project_status_before": "In Progress",
+      "project_status_after": "Done",
+      "acceptance_state": "VERIFIED_STATIC_WITH_RELEASE_NOT_RUN",
+      "evidence_paths": [
+        "docs/governance/RELEASE_DOD_V1_0.md",
+        "docs/governance/SKILL_GOVERNANCE_V1.md",
+        "scripts/check_skills_quality.sh"
+      ]
+    },
+    {
+      "project_item_id": "PVTI_lAHOAHP1as4BjBhVzg6TarQ",
+      "title": "Release DoD｜v1.4",
+      "kind": "release-dod",
+      "priority": "P0",
+      "target_version": "v1.4",
+      "project_status_before": "In Progress",
+      "project_status_after": "Done",
+      "acceptance_state": "VERIFIED_STATIC_WITH_RELEASE_NOT_RUN",
+      "evidence_paths": [
+        "docs/governance/RELEASE_DOD_V1_4.md",
+        "docs/governance/PHASE_0_V1_4_CLOSEOUT.md",
+        "scripts/check_skills_quality.sh"
+      ]
+    }
+  ],
+  "generated": {
+    "closeout": {
+      "zh": "docs/governance/PHASE_0_V1_4_CLOSEOUT.md",
+      "en": "docs/governance/PHASE_0_V1_4_CLOSEOUT_EN.md"
+    },
+    "release_dod": {
+      "v1.0": {
+        "zh": "docs/governance/RELEASE_DOD_V1_0.md",
+        "en": "docs/governance/RELEASE_DOD_V1_0_EN.md"
+      },
+      "v1.4": {
+        "zh": "docs/governance/RELEASE_DOD_V1_4.md",
+        "en": "docs/governance/RELEASE_DOD_V1_4_EN.md"
+      }
+    }
+  }
+}

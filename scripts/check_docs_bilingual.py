@@ -27,6 +27,46 @@ PROJECT_PAIRS = (
         "docs/governance/SKILL_GOVERNANCE_V1.md",
         "docs/governance/SKILL_GOVERNANCE_V1_EN.md",
     ),
+    (
+        "docs/governance/DEPRECATION_DECISION_CONTRACT.md",
+        "docs/governance/DEPRECATION_DECISION_CONTRACT_EN.md",
+    ),
+    (
+        "docs/governance/BILINGUAL_CONSISTENCY_CONTRACT.md",
+        "docs/governance/BILINGUAL_CONSISTENCY_CONTRACT_EN.md",
+    ),
+    (
+        "docs/governance/QUALITY_SCORE_EVAL_CONTRACT.md",
+        "docs/governance/QUALITY_SCORE_EVAL_CONTRACT_EN.md",
+    ),
+    (
+        "docs/governance/WORKFLOW_EVAL_INSTALL_SYNC.md",
+        "docs/governance/WORKFLOW_EVAL_INSTALL_SYNC_EN.md",
+    ),
+    (
+        "docs/governance/ENHANCEMENT_SPRINT.md",
+        "docs/governance/ENHANCEMENT_SPRINT_EN.md",
+    ),
+    (
+        "docs/governance/CANDIDATE_SKILL_15_STEP_TEMPLATE.md",
+        "docs/governance/CANDIDATE_SKILL_15_STEP_TEMPLATE_EN.md",
+    ),
+    (
+        "docs/governance/SHIFT_LEFT_MILESTONE.md",
+        "docs/governance/SHIFT_LEFT_MILESTONE_EN.md",
+    ),
+    (
+        "docs/governance/PHASE_0_V1_4_CLOSEOUT.md",
+        "docs/governance/PHASE_0_V1_4_CLOSEOUT_EN.md",
+    ),
+    (
+        "docs/governance/RELEASE_DOD_V1_0.md",
+        "docs/governance/RELEASE_DOD_V1_0_EN.md",
+    ),
+    (
+        "docs/governance/RELEASE_DOD_V1_4.md",
+        "docs/governance/RELEASE_DOD_V1_4_EN.md",
+    ),
     ("docs/reviews/2026-08-29-new-skills-audit.md", "docs/reviews/2026-08-29-new-skills-audit_EN.md"),
     (
         "docs/reviews/2026-08-30-all-testing-skills-audit.md",
@@ -59,6 +99,10 @@ PROJECT_PAIRS = (
     (
         "docs/superpowers/plans/2026-09-10-v1-governance-closeout.md",
         "docs/superpowers/plans/2026-09-10-v1-governance-closeout_EN.md",
+    ),
+    (
+        "docs/superpowers/plans/2026-09-16-v1-4-closeout.md",
+        "docs/superpowers/plans/2026-09-16-v1-4-closeout_EN.md",
     ),
     ("skills/DIRECTORY_GUIDE.md", "skills/DIRECTORY_GUIDE_EN.md"),
     ("skills/EXTERNAL_SNAPSHOT_POLICY.md", "skills/EXTERNAL_SNAPSHOT_POLICY_EN.md"),

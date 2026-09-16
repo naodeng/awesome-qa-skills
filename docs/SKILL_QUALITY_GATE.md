@@ -25,3 +25,5 @@
 ## 最低 Eval 标准
 
 每个新增或修改的 Skill 必须有 `evals/eval.yaml` 与至少三类 case：成功路径、信息不完整、范围或风险边界。Eval 应验证输出契约和证据边界；无运行环境、依赖或权限时记录为 `blocked`，不得写作通过。
+
+字段与边界的可复核版本见 [Quality Score 与最低 Eval 契约](governance/QUALITY_SCORE_EVAL_CONTRACT.md)；当前治理记录没有真实评测时保持 `NOT_SCORED` / `NOT_RUN`。

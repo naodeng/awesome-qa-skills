@@ -38,3 +38,5 @@ bash scripts/check_skills_quality.sh
 ```
 
 The checks cover project document mirrors, two-way switches, maintained Skill-document path parity, README classification completeness, and identical zh/en testing-type directory names.
+
+See the [Bilingual Consistency Quality Contract](./BILINGUAL_CONSISTENCY_CONTRACT_EN.md) for current executable fields and acceptance requirements.

@@ -13,7 +13,7 @@ A language-partitioned **AI testing skills library** (Agent Skills) for Codex, C
 
 **Online directory:** [https://inaodeng.com/qaskills/](https://inaodeng.com/qaskills/)
 
-**Quick links:** [Complete Skills index](docs/catalog/skills-index_EN.md) · [Installation guide](scripts/INSTALL_SKILLS.md) · [Contributing](CONTRIBUTING_EN.md)
+**Quick links:** [Complete Skills index](docs/catalog/skills-index_EN.md) · [Installation guide](scripts/INSTALL_SKILLS.md) · [v1.4 governance closeout](docs/governance/PHASE_0_V1_4_CLOSEOUT_EN.md) · [Contributing](CONTRIBUTING_EN.md)
 
 ---
 
@@ -121,7 +121,7 @@ Stable directories handle installation; capability layers help readers choose an
 Core QA Skills → Engineering QA Skills → Production Quality Skills → AI Native QA Skills
 ```
 
-`ai-assisted-testing` is cross-cutting **AI for QA**, not the Testing-for-AI scope of AI Native QA. The six-iteration roadmap and Prompt Baseline mapping are in the [evolution roadmap](docs/governance/QA_SKILLS_EVOLUTION_ROADMAP_EN.md); long-term Existing / Enhance / Merge / Match / New governance is in the [Skill governance roadmap](docs/governance/SKILL_GOVERNANCE_ROADMAP_EN.md).
+`ai-assisted-testing` is cross-cutting **AI for QA**, not the Testing-for-AI scope of AI Native QA. The six-iteration roadmap and Prompt Baseline mapping are in the [evolution roadmap](docs/governance/QA_SKILLS_EVOLUTION_ROADMAP_EN.md); long-term Existing / Enhance / Merge / Match / New governance is in the [Skill governance roadmap](docs/governance/SKILL_GOVERNANCE_ROADMAP_EN.md). See the [Phase 0 closeout](docs/governance/PHASE_0_V1_4_CLOSEOUT_EN.md) for v1.4 evidence, version planning, and remaining boundaries.
 
 ---
 
@@ -510,7 +510,11 @@ Suggested pilots: `functional-testing`, `api-testing`, `api-test-bruno`, `bug-re
 | [skills-index_EN.md](docs/catalog/skills-index_EN.md) | Full skill index |
 | [QA_SKILLS_EVOLUTION_ROADMAP_EN.md](docs/governance/QA_SKILLS_EVOLUTION_ROADMAP_EN.md) | Four-stage capability evolution and R&D/testing lifecycle map |
 | [DOCUMENTATION_POLICY_EN.md](docs/governance/DOCUMENTATION_POLICY_EN.md) | Chinese-first bilingual documentation policy |
-| [SKILL_GOVERNANCE_V1_EN.md](docs/governance/SKILL_GOVERNANCE_V1_EN.md) | v1.0 source-governance baseline and 79-pair static-record entry point (not runtime quality) |
+| [SKILL_GOVERNANCE_V1_EN.md](docs/governance/SKILL_GOVERNANCE_V1_EN.md) | v1.0 source-governance baseline and current 162-pair static-record entry point (earlier baseline: 79 pairs; not runtime quality) |
+| [PHASE_0_V1_4_CLOSEOUT_EN.md](docs/governance/PHASE_0_V1_4_CLOSEOUT_EN.md) | Evidence closeout and version boundaries for all 35 v1.4 Project cards (not release approval) |
+| [BILINGUAL_CONSISTENCY_CONTRACT_EN.md](docs/governance/BILINGUAL_CONSISTENCY_CONTRACT_EN.md) | Contract for Chinese/English paths, entry points, Catalog, and links |
+| [QUALITY_SCORE_EVAL_CONTRACT_EN.md](docs/governance/QUALITY_SCORE_EVAL_CONTRACT_EN.md) | Nine-dimension scoring and minimum Eval artifact standard |
+| [WORKFLOW_EVAL_INSTALL_SYNC_EN.md](docs/governance/WORKFLOW_EVAL_INSTALL_SYNC_EN.md) | Bilingual, Eval, and installation checklist for 10 Workflows |
 | [PHASE_1_REQUIREMENTS_QUALITY_EN.md](docs/governance/PHASE_1_REQUIREMENTS_QUALITY_EN.md) | v1.1 Phase 1 scope, cards, evidence, and acceptance boundaries for the first five requirement-quality Skills |
 | [SKILL_EVAL_RULES_EN.md](docs/SKILL_EVAL_RULES_EN.md) | Twenty local deterministic evaluation rules for `codex exec --json` Skill traces |
 | [skills/DIRECTORY_GUIDE_EN.md](skills/DIRECTORY_GUIDE_EN.md) | Directory and naming rules |

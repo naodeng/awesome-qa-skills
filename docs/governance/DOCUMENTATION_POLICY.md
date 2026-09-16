@@ -38,3 +38,5 @@ bash scripts/check_skills_quality.sh
 ```
 
 校验覆盖项目级文档镜像、双向切换、Skill 维护文档路径对齐、README 分类完整性，以及中英文 testing-type 目录一致性。
+
+当前版本的可执行字段和验收项见[中英文一致性质量契约](./BILINGUAL_CONSISTENCY_CONTRACT.md)。
