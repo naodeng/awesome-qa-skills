@@ -100,6 +100,8 @@ class V14CloseoutContractTest(unittest.TestCase):
                 self.assertIn(title, rendered)
             self.assertIn("Project item ID", rendered)
             self.assertIn(contract.cards[0].project_item_id, rendered)
+            self.assertIn("change-impact-analysis", rendered)
+            self.assertIn("Match review linkage" if locale == "en" else "Match Review 关联", rendered)
             card_rows = [line for line in rendered.splitlines() if line.startswith("| `") and "→" in line]
             self.assertEqual(len(card_rows), 35)
         for version in ("v1.0", "v1.4"):
@@ -177,6 +179,27 @@ class V14CloseoutContractTest(unittest.TestCase):
             )
         )
 
+        payload_with_duplicate_canonical_title = {
+            "items": [
+                *payload["items"][1:],
+                {
+                    "id": "PVTI_duplicate_canonical_title",
+                    "title": contract.cards[0].title,
+                    "status": "Done",
+                    "content": {
+                        "type": contract.project_item_type,
+                        "title": contract.cards[0].title,
+                    },
+                },
+            ]
+        }
+        self.assertTrue(
+            any(
+                "canonical title" in error
+                for error in closeout.validate_project_snapshot(contract, payload_with_duplicate_canonical_title)
+            )
+        )
+
         wrong_status = {"items": [dict(item) for item in payload["items"]]}
         wrong_status["items"][0] = {**wrong_status["items"][0], "status": "Todo"}
         self.assertTrue(any("status" in error for error in closeout.validate_project_snapshot(contract, wrong_status)))
@@ -228,6 +251,40 @@ class V14CloseoutContractTest(unittest.TestCase):
         errors = closeout.validate_contract(replace(contract, cards=tuple(cards)), ROOT)
         self.assertIn("mapping card match_review_candidate set must match Registry", errors)
 
+    def test_contract_matches_complete_registry_review_links(self):
+        contract = closeout.load_contract(CONTRACT_PATH)
+        links_by_id = {link.project_item_id: link for link in contract.match_review_links}
+        mapping_cards = [card for card in contract.cards if card.kind == "mapping" and card.match_review_candidate]
+
+        self.assertEqual(len(contract.match_review_links), 20)
+        self.assertEqual(set(links_by_id), {card.project_item_id for card in mapping_cards})
+        for card in mapping_cards:
+            link = links_by_id[card.project_item_id]
+            self.assertEqual(link.candidate, card.match_review_candidate)
+            self.assertTrue(link.target_skills)
+            self.assertTrue(link.evidence_paths)
+            self.assertTrue(link.next_action)
+
+        mutations = {
+            "conclusion": replace(contract.match_review_links[0], conclusion="EXISTING"),
+            "review_state": replace(contract.match_review_links[0], review_state="REVIEWED"),
+            "target_skills": replace(contract.match_review_links[0], target_skills=("wrong-target",)),
+            "evidence_paths": replace(contract.match_review_links[0], evidence_paths=("docs/README.md",)),
+            "next_action": replace(contract.match_review_links[0], next_action="drifted action"),
+        }
+        for field, mutated_link in mutations.items():
+            with self.subTest(field=field):
+                mutated = list(contract.match_review_links)
+                mutated[0] = mutated_link
+                errors = closeout.validate_contract(
+                    replace(contract, match_review_links=tuple(mutated)),
+                    ROOT,
+                )
+                self.assertTrue(
+                    any(f"match review {field} must match Registry" in error for error in errors),
+                    errors,
+                )
+
     def test_contract_rejects_release_claims_from_unrun_evidence(self):
         contract = closeout.load_contract(CONTRACT_PATH)
         invalid = replace(
@@ -254,6 +311,10 @@ class V14CloseoutContractTest(unittest.TestCase):
             ("docs/governance/WORKFLOW_EVAL_INSTALL_SYNC.md", "docs/governance/WORKFLOW_EVAL_INSTALL_SYNC_EN.md"),
             pairs,
         )
+        self.assertIn(
+            ("docs/governance/PHASE_0_MATCH_MERGE_REVIEW.md", "docs/governance/PHASE_0_MATCH_MERGE_REVIEW_EN.md"),
+            pairs,
+        )
 
         install_sync = (ROOT / "docs/governance/WORKFLOW_EVAL_INSTALL_SYNC.md").read_text(encoding="utf-8")
         workflows = sorted(path.name for path in (ROOT / "skills/zh/testing-workflows").iterdir() if path.is_dir())
@@ -272,6 +333,10 @@ class V14CloseoutContractTest(unittest.TestCase):
         self.assertEqual(
             len(check_docs_bilingual.PROJECT_PAIRS),
             len(set(check_docs_bilingual.PROJECT_PAIRS)),
+        )
+        self.assertIn(
+            ("docs/governance/PHASE_0_MATCH_MERGE_REVIEW.md", "docs/governance/PHASE_0_MATCH_MERGE_REVIEW_EN.md"),
+            check_docs_bilingual.PROJECT_PAIRS,
         )
 
     def test_governance_contracts_expose_required_rules(self):

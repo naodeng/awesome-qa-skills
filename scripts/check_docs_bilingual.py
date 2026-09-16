@@ -60,6 +60,10 @@ PROJECT_PAIRS = (
         "docs/governance/PHASE_0_V1_4_CLOSEOUT_EN.md",
     ),
     (
+        "docs/governance/PHASE_0_MATCH_MERGE_REVIEW.md",
+        "docs/governance/PHASE_0_MATCH_MERGE_REVIEW_EN.md",
+    ),
+    (
         "docs/governance/RELEASE_DOD_V1_0.md",
         "docs/governance/RELEASE_DOD_V1_0_EN.md",
     ),

@@ -93,7 +93,19 @@ REQUIRED_BILINGUAL_PAIRS = (
     ("docs/governance/ENHANCEMENT_SPRINT.md", "docs/governance/ENHANCEMENT_SPRINT_EN.md"),
     ("docs/governance/CANDIDATE_SKILL_15_STEP_TEMPLATE.md", "docs/governance/CANDIDATE_SKILL_15_STEP_TEMPLATE_EN.md"),
     ("docs/governance/SHIFT_LEFT_MILESTONE.md", "docs/governance/SHIFT_LEFT_MILESTONE_EN.md"),
+    ("docs/governance/PHASE_0_MATCH_MERGE_REVIEW.md", "docs/governance/PHASE_0_MATCH_MERGE_REVIEW_EN.md"),
 )
+
+
+@dataclass(frozen=True)
+class MatchReviewLink:
+    project_item_id: str
+    candidate: str
+    conclusion: str
+    review_state: str
+    target_skills: tuple[str, ...]
+    evidence_paths: tuple[str, ...]
+    next_action: str
 
 
 @dataclass(frozen=True)
@@ -127,6 +139,7 @@ class CloseoutContract:
     minimum_eval_case_types: tuple[str, ...]
     release_dod_scopes: dict[str, tuple[str, ...]]
     cards: tuple[CloseoutCard, ...]
+    match_review_links: tuple[MatchReviewLink, ...]
     generated: dict[str, Any]
 
 
@@ -135,6 +148,15 @@ def _required_text(data: dict[str, Any], key: str) -> str:
     if not isinstance(value, str) or not value.strip():
         raise ValueError(f"missing {key}")
     return value.strip()
+
+
+def _required_text_list(data: dict[str, Any], key: str) -> tuple[str, ...]:
+    value = data.get(key)
+    if not isinstance(value, list) or not value or any(
+        not isinstance(item, str) or not item.strip() for item in value
+    ):
+        raise ValueError(f"{key} must be a non-empty list of non-empty strings")
+    return tuple(item.strip() for item in value)
 
 
 def load_contract(path: Path) -> CloseoutContract:
@@ -170,6 +192,24 @@ def load_contract(path: Path) -> CloseoutContract:
                 match_review_candidate=(
                     match_review_candidate.strip() if isinstance(match_review_candidate, str) else None
                 ),
+            )
+        )
+    raw_match_review_links = data.get("match_review_links")
+    if not isinstance(raw_match_review_links, list):
+        raise ValueError("match_review_links must be a list")
+    match_review_links: list[MatchReviewLink] = []
+    for raw_link in raw_match_review_links:
+        if not isinstance(raw_link, dict):
+            raise ValueError("each match_review_link must be an object")
+        match_review_links.append(
+            MatchReviewLink(
+                project_item_id=_required_text(raw_link, "project_item_id"),
+                candidate=_required_text(raw_link, "candidate"),
+                conclusion=_required_text(raw_link, "conclusion"),
+                review_state=_required_text(raw_link, "review_state"),
+                target_skills=_required_text_list(raw_link, "target_skills"),
+                evidence_paths=_required_text_list(raw_link, "evidence_paths"),
+                next_action=_required_text(raw_link, "next_action"),
             )
         )
     boundaries = data.get("boundaries")
@@ -213,6 +253,7 @@ def load_contract(path: Path) -> CloseoutContract:
         minimum_eval_case_types=tuple(str(item) for item in eval_types),
         release_dod_scopes=release_dod_scopes,
         cards=tuple(cards),
+        match_review_links=tuple(match_review_links),
         generated=generated,
     )
 
@@ -247,6 +288,12 @@ def validate_contract(
     if {(card.project_item_id, card.title) for card in contract.cards} != set(EXPECTED_V14_PROJECT_ITEMS):
         errors.append("cards must match the canonical v1.4 Project item ID/title set")
     generated_paths = _generated_relative_paths(contract.generated)
+    for primary_rel, english_rel in REQUIRED_BILINGUAL_PAIRS:
+        for document_rel in (primary_rel, english_rel):
+            if not (root / document_rel).is_file() and not (
+                allow_generated and document_rel in generated_paths
+            ):
+                errors.append(f"missing required bilingual document: {document_rel}")
     for card in contract.cards:
         prefix = f"{card.title}:"
         if card.kind not in ALLOWED_KINDS:
@@ -275,6 +322,33 @@ def validate_contract(
         errors.append(mapping_error)
     if any(card.match_review_candidate and card.kind != "mapping" for card in contract.cards):
         errors.append("match_review_candidate is only allowed on mapping cards")
+    mapping_cards_by_id = {
+        card.project_item_id: card
+        for card in contract.cards
+        if card.kind == "mapping" and card.match_review_candidate
+    }
+    match_review_links_by_id = {
+        link.project_item_id: link for link in contract.match_review_links
+    }
+    link_ids = [link.project_item_id for link in contract.match_review_links]
+    if len(contract.match_review_links) != len(REQUIRED_MATCH_REVIEW_CANDIDATES):
+        errors.append("match_review_links must contain the exact 20-row mapping contract")
+    if len(link_ids) != len(set(link_ids)):
+        errors.append("duplicate match_review link project item id")
+    if set(match_review_links_by_id) != set(mapping_cards_by_id):
+        errors.append("match_review_links must match mapping card Project item IDs")
+    link_candidates = tuple(link.candidate for link in contract.match_review_links)
+    if len(link_candidates) != len(REQUIRED_MATCH_REVIEW_CANDIDATES) or set(link_candidates) != set(REQUIRED_MATCH_REVIEW_CANDIDATES):
+        errors.append("match_review link candidate set must match Registry")
+    for card in contract.cards:
+        link = match_review_links_by_id.get(card.project_item_id)
+        if card.match_review_candidate:
+            if link is None:
+                errors.append(f"{card.title}: missing match_review link")
+            elif link.candidate != card.match_review_candidate:
+                errors.append(f"{card.title}: match_review link candidate must match card")
+        elif link is not None:
+            errors.append(f"{card.title}: match_review link is only allowed on mapping cards")
     registry_path = root / "docs/governance/skill-governance-registry.yaml"
     if not registry_path.is_file():
         errors.append("missing match review Registry: docs/governance/skill-governance-registry.yaml")
@@ -287,6 +361,41 @@ def validate_contract(
             registry_candidates = tuple(str(review.get("candidate", "")) for review in registry.match_reviews)
             if set(mapping_candidates) != set(registry_candidates) and mapping_error not in errors:
                 errors.append(mapping_error)
+            registry_by_candidate = {
+                str(review.get("candidate", "")): review for review in registry.match_reviews
+            }
+            for link in contract.match_review_links:
+                registry_review = registry_by_candidate.get(link.candidate)
+                if registry_review is None:
+                    errors.append(f"{link.project_item_id}: match review candidate is not in Registry")
+                    continue
+                expected_fields = {
+                    "candidate": str(registry_review.get("candidate", "")),
+                    "conclusion": str(registry_review.get("conclusion", "")),
+                    "review_state": str(registry_review.get("review_state", "")),
+                    "target_skills": tuple(str(value) for value in registry_review.get("target_skills", [])),
+                    "evidence_paths": tuple(str(value) for value in registry_review.get("evidence_paths", [])),
+                    "next_action": str(registry_review.get("next_action", "")),
+                }
+                actual_fields = {
+                    "candidate": link.candidate,
+                    "conclusion": link.conclusion,
+                    "review_state": link.review_state,
+                    "target_skills": link.target_skills,
+                    "evidence_paths": link.evidence_paths,
+                    "next_action": link.next_action,
+                }
+                for field, expected in expected_fields.items():
+                    if actual_fields[field] != expected:
+                        errors.append(f"{link.project_item_id}: match review {field} must match Registry")
+                for evidence_path in link.evidence_paths:
+                    path = Path(evidence_path)
+                    if path.is_absolute() or ".." in path.parts:
+                        errors.append(
+                            f"{link.candidate}: match review evidence path must be repository-relative file: {evidence_path}"
+                        )
+                    elif not (root / path).is_file():
+                        errors.append(f"{link.candidate}: missing match review evidence path: {evidence_path}")
             for card in contract.cards:
                 candidate = card.match_review_candidate
                 if candidate and not card.title.endswith(f"｜{candidate}"):
@@ -352,7 +461,11 @@ def validate_project_snapshot(contract: CloseoutContract, payload: Any) -> list[
         card = expected_by_id.get(project_item_id)
         if card is None:
             title = item.get("title")
-            if (
+            if isinstance(title, str) and title in {expected.title for expected in contract.cards}:
+                errors.append(
+                    f"unexpected {contract.target_version} Project item with canonical title: {project_item_id} ({title})"
+                )
+            elif (
                 isinstance(title, str)
                 and re.search(rf"(?<![A-Za-z0-9]){re.escape(contract.target_version)}(?![A-Za-z0-9])", title)
             ):
@@ -543,6 +656,35 @@ def render_closeout(contract: CloseoutContract, locale: str, root: Path | None =
             f"`{card.project_status_before}` → `{card.project_status_after}` | "
             f"`{card.acceptance_state}` | {evidence} |"
         )
+    cards_by_id = {card.project_item_id: card for card in contract.cards}
+    links_by_id = {link.project_item_id: link for link in contract.match_review_links}
+    mapping_links = [
+        links_by_id[card.project_item_id]
+        for card in contract.cards
+        if card.match_review_candidate and card.project_item_id in links_by_id
+    ]
+    if mapping_links:
+        lines.extend([
+            "",
+            "## Match review linkage" if english else "## Match Review 关联",
+            "",
+            (
+                "| Project item ID | Project item | Candidate | Conclusion | Review state | Target Skills | Next action | Evidence |"
+                if english else
+                "| Project item ID | Project 卡片 | Candidate | 结论 | 评审状态 | 目标 Skill | 后续动作 | 证据 |"
+            ),
+            "| --- | --- | --- | --- | --- | --- | --- | --- |",
+        ])
+        for link in mapping_links:
+            card = cards_by_id[link.project_item_id]
+            targets = "<br>".join(f"`{target}`" for target in link.target_skills)
+            evidence = "<br>".join(
+                _relative_evidence(root, output_path, path) for path in link.evidence_paths
+            )
+            lines.append(
+                f"| `{link.project_item_id}` | `{card.title}` | `{link.candidate}` | `{link.conclusion}` | "
+                f"`{link.review_state}` | {targets} | {link.next_action} | {evidence} |"
+            )
     lines.extend([
         "",
         "## Version plan" if english else "## 版本规划",

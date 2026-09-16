@@ -205,6 +205,28 @@ class GovernanceMatrixTest(unittest.TestCase):
         self.assertIn("match review conclusion differs from candidate record", errors)
         self.assertIn("match review targets differ from candidate record", errors)
 
+    def test_repository_match_review_validator_rejects_non_file_evidence_paths(self):
+        with TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            write_minimal_domain_catalog(root)
+            (root / "skills").mkdir()
+            for evidence_paths in (("",), ("skills",)):
+                with self.subTest(evidence_paths=evidence_paths):
+                    review = {
+                        "candidate": "candidate",
+                        "conclusion": "EXISTING",
+                        "review_state": "REVIEWED_WITH_LIMITATION",
+                        "target_skills": ["candidate"],
+                        "evidence_paths": list(evidence_paths),
+                        "next_action": "review",
+                    }
+                    registry = matrix.parse_registry({"skills": [], "match_reviews": [review], "candidates": []})
+                    errors = matrix.validate_registry(registry, set(), root)
+                    self.assertTrue(
+                        any("evidence_paths must" in error for error in errors),
+                        errors,
+                    )
+
     def test_candidates_reference_pinned_prompt_baselines(self):
         registry = matrix.load_registry(ROOT / "docs/governance/skill-governance-registry.yaml")
         self.assertEqual(len(registry.candidates), EXPECTED_CANDIDATE_COUNT)

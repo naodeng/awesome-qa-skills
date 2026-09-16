@@ -221,6 +221,23 @@ def validate_match_review(
     return errors
 
 
+def validate_repository_relative_files(root: Path, paths: object, field: str) -> list[str]:
+    """Validate evidence entries as safe, repository-relative files."""
+    if not isinstance(paths, list):
+        return []
+    errors: list[str] = []
+    for raw_path in paths:
+        if not isinstance(raw_path, str) or not raw_path.strip():
+            errors.append(f"{field} must contain non-empty repository-relative file paths")
+            continue
+        path = Path(raw_path)
+        if path.is_absolute() or ".." in path.parts:
+            errors.append(f"{field} must contain repository-relative file paths: {raw_path}")
+        elif not (root / path).is_file():
+            errors.append(f"{field} must reference files: {raw_path}")
+    return errors
+
+
 def match_reviews_by_target(registry: GovernanceRegistry) -> dict[str, tuple[dict[str, object], ...]]:
     grouped: dict[str, list[dict[str, object]]] = {}
     for review in registry.match_reviews:
@@ -284,9 +301,10 @@ def validate_registry(registry: GovernanceRegistry, physical: set[str], root: Pa
             for error in validate_match_review(review, physical, candidate_rows)
         )
         if root is not None:
-            for path in review.get("evidence_paths", []):
-                if not (root / str(path)).exists():
-                    errors.append(f"{candidate}: missing match review evidence path: {path}")
+            errors.extend(
+                f"{candidate}: {error}"
+                for error in validate_repository_relative_files(root, review.get("evidence_paths"), "evidence_paths")
+            )
     if root is not None:
         actual_match_reviews = {
             str(review.get("candidate")): (

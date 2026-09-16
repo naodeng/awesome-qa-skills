@@ -537,6 +537,330 @@
       ]
     }
   ],
+  "match_review_links": [
+    {
+      "project_item_id": "PVTI_lAHOAHP1as4BjBhVzg6TITI",
+      "candidate": "requirement-change-impact-analysis",
+      "conclusion": "MATCH",
+      "review_state": "REVIEWED_WITH_LIMITATION",
+      "target_skills": [
+        "change-impact-analysis"
+      ],
+      "evidence_paths": [
+        "skills/zh/testing-types/change-impact-analysis/SKILL.md",
+        "skills/en/testing-types/change-impact-analysis/SKILL.md",
+        "skills/zh/testing-types/change-impact-analysis/prompts/change-impact-analysis.md",
+        "skills/en/testing-types/change-impact-analysis/prompts/change-impact-analysis.md"
+      ],
+      "next_action": "Retain the target Skill; do not create a duplicate directory. Reconfirm semantic equivalence with project evidence before any future change."
+    },
+    {
+      "project_item_id": "PVTI_lAHOAHP1as4BjBhVzg6TIVU",
+      "candidate": "test-impact-analysis",
+      "conclusion": "MERGE",
+      "review_state": "REVIEWED_WITH_LIMITATION",
+      "target_skills": [
+        "change-impact-analysis",
+        "pr-test-impact-analysis"
+      ],
+      "evidence_paths": [
+        "skills/zh/testing-types/change-impact-analysis/SKILL.md",
+        "skills/en/testing-types/change-impact-analysis/SKILL.md",
+        "skills/zh/testing-types/pr-test-impact-analysis/SKILL.md",
+        "skills/en/testing-types/pr-test-impact-analysis/SKILL.md"
+      ],
+      "next_action": "Retain the target Skill packages; evaluate a mode, rule, or subflow only after project-context review. Do not create a duplicate directory."
+    },
+    {
+      "project_item_id": "PVTI_lAHOAHP1as4BjBhVzg6TIWg",
+      "candidate": "code-change-risk-analysis",
+      "conclusion": "MERGE",
+      "review_state": "REVIEWED_WITH_LIMITATION",
+      "target_skills": [
+        "pr-test-impact-analysis"
+      ],
+      "evidence_paths": [
+        "skills/zh/testing-types/pr-test-impact-analysis/SKILL.md",
+        "skills/en/testing-types/pr-test-impact-analysis/SKILL.md",
+        "skills/zh/testing-types/pr-test-impact-analysis/prompts/pr-test-impact-analysis.md",
+        "skills/en/testing-types/pr-test-impact-analysis/prompts/pr-test-impact-analysis.md"
+      ],
+      "next_action": "Retain the target Skill packages; evaluate a mode, rule, or subflow only after project-context review. Do not create a duplicate directory."
+    },
+    {
+      "project_item_id": "PVTI_lAHOAHP1as4BjBhVzg6TIYs",
+      "candidate": "workload-modeling",
+      "conclusion": "MATCH",
+      "review_state": "REVIEWED_WITH_LIMITATION",
+      "target_skills": [
+        "performance-workload-modeling"
+      ],
+      "evidence_paths": [
+        "skills/zh/testing-types/performance-workload-modeling/SKILL.md",
+        "skills/en/testing-types/performance-workload-modeling/SKILL.md",
+        "skills/zh/testing-types/performance-workload-modeling/prompts/performance-workload-modeling.md",
+        "skills/en/testing-types/performance-workload-modeling/prompts/performance-workload-modeling.md"
+      ],
+      "next_action": "Retain the target Skill; do not create a duplicate directory. Reconfirm semantic equivalence with project evidence before any future change."
+    },
+    {
+      "project_item_id": "PVTI_lAHOAHP1as4BjBhVzg6TIaM",
+      "candidate": "capacity-planning",
+      "conclusion": "MATCH",
+      "review_state": "REVIEWED_WITH_LIMITATION",
+      "target_skills": [
+        "capacity-planning-analysis"
+      ],
+      "evidence_paths": [
+        "skills/zh/testing-types/capacity-planning-analysis/SKILL.md",
+        "skills/en/testing-types/capacity-planning-analysis/SKILL.md",
+        "skills/zh/testing-types/capacity-planning-analysis/prompts/capacity-planning-analysis.md",
+        "skills/en/testing-types/capacity-planning-analysis/prompts/capacity-planning-analysis.md"
+      ],
+      "next_action": "Retain the target Skill; do not create a duplicate directory. Reconfirm semantic equivalence with project evidence before any future change."
+    },
+    {
+      "project_item_id": "PVTI_lAHOAHP1as4BjBhVzg6TIcE",
+      "candidate": "performance-bottleneck-analysis",
+      "conclusion": "EXISTING",
+      "review_state": "REVIEWED_WITH_LIMITATION",
+      "target_skills": [
+        "performance-bottleneck-analysis"
+      ],
+      "evidence_paths": [
+        "skills/zh/testing-types/performance-bottleneck-analysis/SKILL.md",
+        "skills/en/testing-types/performance-bottleneck-analysis/SKILL.md",
+        "skills/zh/testing-types/performance-bottleneck-analysis/prompts/performance-bottleneck-analysis.md",
+        "skills/en/testing-types/performance-bottleneck-analysis/prompts/performance-bottleneck-analysis.md"
+      ],
+      "next_action": "Retain the existing bilingual package; do not create a duplicate directory. Revisit only with new project evidence."
+    },
+    {
+      "project_item_id": "PVTI_lAHOAHP1as4BjBhVzg6TIeE",
+      "candidate": "performance-result-analysis",
+      "conclusion": "EXISTING",
+      "review_state": "REVIEWED_WITH_LIMITATION",
+      "target_skills": [
+        "performance-result-analysis"
+      ],
+      "evidence_paths": [
+        "skills/zh/testing-types/performance-result-analysis/SKILL.md",
+        "skills/en/testing-types/performance-result-analysis/SKILL.md",
+        "skills/zh/testing-types/performance-result-analysis/prompts/performance-result-analysis.md",
+        "skills/en/testing-types/performance-result-analysis/prompts/performance-result-analysis.md"
+      ],
+      "next_action": "Retain the existing bilingual package; do not create a duplicate directory. Revisit only with new project evidence."
+    },
+    {
+      "project_item_id": "PVTI_lAHOAHP1as4BjBhVzg6TIf8",
+      "candidate": "performance-regression-analysis",
+      "conclusion": "EXISTING",
+      "review_state": "REVIEWED_WITH_LIMITATION",
+      "target_skills": [
+        "performance-regression-analysis"
+      ],
+      "evidence_paths": [
+        "skills/zh/testing-types/performance-regression-analysis/SKILL.md",
+        "skills/en/testing-types/performance-regression-analysis/SKILL.md",
+        "skills/zh/testing-types/performance-regression-analysis/prompts/performance-regression-analysis.md",
+        "skills/en/testing-types/performance-regression-analysis/prompts/performance-regression-analysis.md"
+      ],
+      "next_action": "Retain the existing bilingual package; do not create a duplicate directory. Revisit only with new project evidence."
+    },
+    {
+      "project_item_id": "PVTI_lAHOAHP1as4BjBhVzg6TIiA",
+      "candidate": "flaky-test-analysis",
+      "conclusion": "EXISTING",
+      "review_state": "REVIEWED_WITH_LIMITATION",
+      "target_skills": [
+        "flaky-test-analysis"
+      ],
+      "evidence_paths": [
+        "skills/zh/testing-types/flaky-test-analysis/SKILL.md",
+        "skills/en/testing-types/flaky-test-analysis/SKILL.md",
+        "skills/zh/testing-types/flaky-test-analysis/prompts/flaky-test-analysis.md",
+        "skills/en/testing-types/flaky-test-analysis/prompts/flaky-test-analysis.md"
+      ],
+      "next_action": "Retain the existing bilingual package; do not create a duplicate directory. Revisit only with new project evidence."
+    },
+    {
+      "project_item_id": "PVTI_lAHOAHP1as4BjBhVzg6TIjI",
+      "candidate": "production-verification",
+      "conclusion": "EXISTING",
+      "review_state": "REVIEWED_WITH_LIMITATION",
+      "target_skills": [
+        "production-verification"
+      ],
+      "evidence_paths": [
+        "skills/zh/testing-types/production-verification/SKILL.md",
+        "skills/en/testing-types/production-verification/SKILL.md",
+        "skills/zh/testing-types/production-verification/prompts/production-verification.md",
+        "skills/en/testing-types/production-verification/prompts/production-verification.md"
+      ],
+      "next_action": "Retain the existing bilingual package; do not create a duplicate directory. Revisit only with new project evidence."
+    },
+    {
+      "project_item_id": "PVTI_lAHOAHP1as4BjBhVzg6TIlI",
+      "candidate": "regression-scope-selection",
+      "conclusion": "MERGE",
+      "review_state": "REVIEWED_WITH_LIMITATION",
+      "target_skills": [
+        "regression-scope-analysis",
+        "regression-test-selection"
+      ],
+      "evidence_paths": [
+        "skills/zh/testing-types/regression-scope-analysis/SKILL.md",
+        "skills/en/testing-types/regression-scope-analysis/SKILL.md",
+        "skills/zh/testing-types/regression-test-selection/SKILL.md",
+        "skills/en/testing-types/regression-test-selection/SKILL.md"
+      ],
+      "next_action": "Retain the target Skill packages; evaluate a mode, rule, or subflow only after project-context review. Do not create a duplicate directory."
+    },
+    {
+      "project_item_id": "PVTI_lAHOAHP1as4BjBhVzg6TIno",
+      "candidate": "ai-test-case-review",
+      "conclusion": "MATCH",
+      "review_state": "REVIEWED_WITH_LIMITATION",
+      "target_skills": [
+        "ai-generated-test-review"
+      ],
+      "evidence_paths": [
+        "skills/zh/testing-types/ai-generated-test-review/SKILL.md",
+        "skills/en/testing-types/ai-generated-test-review/SKILL.md",
+        "skills/zh/testing-types/ai-generated-test-review/prompts/review-test.md",
+        "skills/en/testing-types/ai-generated-test-review/prompts/review-test.md"
+      ],
+      "next_action": "Retain the target Skill; do not create a duplicate directory. Reconfirm semantic equivalence with project evidence before any future change."
+    },
+    {
+      "project_item_id": "PVTI_lAHOAHP1as4BjBhVzg6TIpg",
+      "candidate": "ai-log-analysis",
+      "conclusion": "ENHANCE",
+      "review_state": "REVIEWED_WITH_LIMITATION",
+      "target_skills": [
+        "log-analysis"
+      ],
+      "evidence_paths": [
+        "skills/zh/testing-types/log-analysis/SKILL.md",
+        "skills/en/testing-types/log-analysis/SKILL.md",
+        "skills/zh/testing-types/log-analysis/prompts/log-analysis.md",
+        "skills/en/testing-types/log-analysis/prompts/log-analysis.md"
+      ],
+      "next_action": "Open or continue an enhancement review for the target Skill; preserve the current package until scope, evidence, and Eval changes are approved."
+    },
+    {
+      "project_item_id": "PVTI_lAHOAHP1as4BjBhVzg6TIrY",
+      "candidate": "ai-root-cause-analysis",
+      "conclusion": "ENHANCE",
+      "review_state": "REVIEWED_WITH_LIMITATION",
+      "target_skills": [
+        "root-cause-analysis"
+      ],
+      "evidence_paths": [
+        "skills/zh/testing-types/root-cause-analysis/SKILL.md",
+        "skills/en/testing-types/root-cause-analysis/SKILL.md",
+        "skills/zh/testing-types/root-cause-analysis/prompts/root-cause-analysis.md",
+        "skills/en/testing-types/root-cause-analysis/prompts/root-cause-analysis.md"
+      ],
+      "next_action": "Open or continue an enhancement review for the target Skill; preserve the current package until scope, evidence, and Eval changes are approved."
+    },
+    {
+      "project_item_id": "PVTI_lAHOAHP1as4BjBhVzg6TIs8",
+      "candidate": "quality-risk-identification",
+      "conclusion": "MATCH",
+      "review_state": "REVIEWED_WITH_LIMITATION",
+      "target_skills": [
+        "quality-risk-analysis"
+      ],
+      "evidence_paths": [
+        "skills/zh/testing-types/quality-risk-analysis/SKILL.md",
+        "skills/en/testing-types/quality-risk-analysis/SKILL.md",
+        "skills/zh/testing-types/quality-risk-analysis/prompts/quality-risk-analysis.md",
+        "skills/en/testing-types/quality-risk-analysis/prompts/quality-risk-analysis.md"
+      ],
+      "next_action": "Retain the target Skill; do not create a duplicate directory. Reconfirm semantic equivalence with project evidence before any future change."
+    },
+    {
+      "project_item_id": "PVTI_lAHOAHP1as4BjBhVzg6TIvo",
+      "candidate": "ai-test-data-generation",
+      "conclusion": "ENHANCE",
+      "review_state": "REVIEWED_WITH_LIMITATION",
+      "target_skills": [
+        "test-data-generation"
+      ],
+      "evidence_paths": [
+        "skills/zh/testing-types/test-data-generation/SKILL.md",
+        "skills/en/testing-types/test-data-generation/SKILL.md",
+        "skills/zh/testing-types/test-data-generation/prompts/test-data-generation.md",
+        "skills/en/testing-types/test-data-generation/prompts/test-data-generation.md"
+      ],
+      "next_action": "Open or continue an enhancement review for the target Skill; preserve the current package until scope, evidence, and Eval changes are approved."
+    },
+    {
+      "project_item_id": "PVTI_lAHOAHP1as4BjBhVzg6TIw8",
+      "candidate": "llm-output-quality-testing",
+      "conclusion": "ENHANCE",
+      "review_state": "REVIEWED_WITH_LIMITATION",
+      "target_skills": [
+        "llm-testing"
+      ],
+      "evidence_paths": [
+        "skills/zh/testing-types/llm-testing/SKILL.md",
+        "skills/en/testing-types/llm-testing/SKILL.md",
+        "skills/zh/testing-types/llm-testing/prompts/llm-testing.md",
+        "skills/en/testing-types/llm-testing/prompts/llm-testing.md"
+      ],
+      "next_action": "Open or continue an enhancement review for the target Skill; preserve the current package until scope, evidence, and Eval changes are approved."
+    },
+    {
+      "project_item_id": "PVTI_lAHOAHP1as4BjBhVzg6TIyo",
+      "candidate": "llm-evaluation",
+      "conclusion": "MATCH",
+      "review_state": "REVIEWED_WITH_LIMITATION",
+      "target_skills": [
+        "llm-evaluation-design"
+      ],
+      "evidence_paths": [
+        "skills/zh/testing-types/llm-evaluation-design/SKILL.md",
+        "skills/en/testing-types/llm-evaluation-design/SKILL.md",
+        "skills/zh/testing-types/llm-evaluation-design/prompts/llm-evaluation-design.md",
+        "skills/en/testing-types/llm-evaluation-design/prompts/llm-evaluation-design.md"
+      ],
+      "next_action": "Retain the target Skill; do not create a duplicate directory. Reconfirm semantic equivalence with project evidence before any future change."
+    },
+    {
+      "project_item_id": "PVTI_lAHOAHP1as4BjBhVzg6TI0E",
+      "candidate": "prompt-testing",
+      "conclusion": "EXISTING",
+      "review_state": "REVIEWED_WITH_LIMITATION",
+      "target_skills": [
+        "prompt-testing"
+      ],
+      "evidence_paths": [
+        "skills/zh/testing-types/prompt-testing/SKILL.md",
+        "skills/en/testing-types/prompt-testing/SKILL.md",
+        "skills/zh/testing-types/prompt-testing/prompts/prompt-testing.md",
+        "skills/en/testing-types/prompt-testing/prompts/prompt-testing.md"
+      ],
+      "next_action": "Retain the existing bilingual package; do not create a duplicate directory. Revisit only with new project evidence."
+    },
+    {
+      "project_item_id": "PVTI_lAHOAHP1as4BjBhVzg6TI2M",
+      "candidate": "agent-tool-testing",
+      "conclusion": "EXISTING",
+      "review_state": "REVIEWED_WITH_LIMITATION",
+      "target_skills": [
+        "agent-tool-testing"
+      ],
+      "evidence_paths": [
+        "skills/zh/testing-types/agent-tool-testing/SKILL.md",
+        "skills/en/testing-types/agent-tool-testing/SKILL.md",
+        "skills/zh/testing-types/agent-tool-testing/prompts/agent-tool-testing.md",
+        "skills/en/testing-types/agent-tool-testing/prompts/agent-tool-testing.md"
+      ],
+      "next_action": "Retain the existing bilingual package; do not create a duplicate directory. Revisit only with new project evidence."
+    }
+  ],
   "generated": {
     "closeout": {
       "zh": "docs/governance/PHASE_0_V1_4_CLOSEOUT.md",
