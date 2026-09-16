@@ -226,6 +226,7 @@ def validate_repository_relative_files(root: Path, paths: object, field: str) ->
     if not isinstance(paths, list):
         return []
     errors: list[str] = []
+    repository_root = root.resolve()
     for raw_path in paths:
         if not isinstance(raw_path, str) or not raw_path.strip():
             errors.append(f"{field} must contain non-empty repository-relative file paths")
@@ -233,8 +234,14 @@ def validate_repository_relative_files(root: Path, paths: object, field: str) ->
         path = Path(raw_path)
         if path.is_absolute() or ".." in path.parts:
             errors.append(f"{field} must contain repository-relative file paths: {raw_path}")
-        elif not (root / path).is_file():
-            errors.append(f"{field} must reference files: {raw_path}")
+            continue
+        try:
+            (root / path).resolve().relative_to(repository_root)
+        except (OSError, ValueError):
+            errors.append(f"{field} must stay within repository: {raw_path}")
+        else:
+            if not (root / path).is_file():
+                errors.append(f"{field} must reference files: {raw_path}")
     return errors
 
 

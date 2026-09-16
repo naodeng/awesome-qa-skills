@@ -227,6 +227,35 @@ class V14CloseoutContractTest(unittest.TestCase):
         errors = closeout.validate_contract(missing, ROOT)
         self.assertIn("missing evidence path: docs/does-not-exist.md", errors)
 
+        for invalid_path in ("/etc/hosts", "../README.md", "docs"):
+            with self.subTest(invalid_path=invalid_path):
+                invalid = replace(
+                    contract,
+                    cards=(replace(contract.cards[0], evidence_paths=(invalid_path,)), *contract.cards[1:]),
+                )
+                errors = closeout.validate_contract(invalid, ROOT)
+                self.assertTrue(
+                    any("evidence path must be repository-relative" in error or "missing evidence path" in error for error in errors),
+                    errors,
+                )
+
+    def test_repository_relative_file_rejects_symlink_escape(self):
+        from tempfile import TemporaryDirectory
+
+        with TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            outside = root.parent / f"{root.name}-outside.txt"
+            try:
+                outside.write_text("outside", encoding="utf-8")
+                link = root / "link.txt"
+                link.symlink_to(outside)
+                self.assertIn(
+                    "stay within repository",
+                    closeout.validate_repository_relative_file(root, "link.txt", "evidence path"),
+                )
+            finally:
+                outside.unlink(missing_ok=True)
+
     def test_contract_rejects_replaced_project_card_identity(self):
         contract = closeout.load_contract(CONTRACT_PATH)
         cards = list(contract.cards)

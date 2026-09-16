@@ -210,22 +210,28 @@ class GovernanceMatrixTest(unittest.TestCase):
             root = Path(temporary)
             write_minimal_domain_catalog(root)
             (root / "skills").mkdir()
-            for evidence_paths in (("",), ("skills",)):
-                with self.subTest(evidence_paths=evidence_paths):
-                    review = {
-                        "candidate": "candidate",
-                        "conclusion": "EXISTING",
-                        "review_state": "REVIEWED_WITH_LIMITATION",
-                        "target_skills": ["candidate"],
-                        "evidence_paths": list(evidence_paths),
-                        "next_action": "review",
-                    }
-                    registry = matrix.parse_registry({"skills": [], "match_reviews": [review], "candidates": []})
-                    errors = matrix.validate_registry(registry, set(), root)
-                    self.assertTrue(
-                        any("evidence_paths must" in error for error in errors),
-                        errors,
-                    )
+            outside = root.parent / f"{root.name}-outside.txt"
+            try:
+                outside.write_text("outside", encoding="utf-8")
+                (root / "link.txt").symlink_to(outside)
+                for evidence_paths in (("",), ("skills",), ("link.txt",)):
+                    with self.subTest(evidence_paths=evidence_paths):
+                        review = {
+                            "candidate": "candidate",
+                            "conclusion": "EXISTING",
+                            "review_state": "REVIEWED_WITH_LIMITATION",
+                            "target_skills": ["candidate"],
+                            "evidence_paths": list(evidence_paths),
+                            "next_action": "review",
+                        }
+                        registry = matrix.parse_registry({"skills": [], "match_reviews": [review], "candidates": []})
+                        errors = matrix.validate_registry(registry, set(), root)
+                        self.assertTrue(
+                            any("evidence_paths must" in error for error in errors),
+                            errors,
+                        )
+            finally:
+                outside.unlink(missing_ok=True)
 
     def test_candidates_reference_pinned_prompt_baselines(self):
         registry = matrix.load_registry(ROOT / "docs/governance/skill-governance-registry.yaml")

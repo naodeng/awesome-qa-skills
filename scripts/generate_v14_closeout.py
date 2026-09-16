@@ -159,6 +159,22 @@ def _required_text_list(data: dict[str, Any], key: str) -> tuple[str, ...]:
     return tuple(item.strip() for item in value)
 
 
+def validate_repository_relative_file(root: Path, raw_path: str, label: str) -> str | None:
+    """Return an error when a path is not a repository-local file."""
+    path = Path(raw_path)
+    if path.is_absolute() or ".." in path.parts:
+        return f"{label} must be repository-relative file: {raw_path}"
+    repository_root = root.resolve()
+    try:
+        resolved_path = (root / path).resolve()
+        resolved_path.relative_to(repository_root)
+    except (OSError, ValueError):
+        return f"{label} must stay within repository: {raw_path}"
+    if not (root / path).is_file():
+        return f"missing {label}: {raw_path}"
+    return None
+
+
 def load_contract(path: Path) -> CloseoutContract:
     data = json.loads(path.read_text(encoding="utf-8"))
     if not isinstance(data, dict):
@@ -311,9 +327,13 @@ def validate_contract(
         if not card.evidence_paths:
             errors.append(f"{prefix} evidence_paths must not be empty")
         for evidence_path in card.evidence_paths:
-            path = root / evidence_path
-            if not path.is_file() and not (allow_generated and evidence_path in generated_paths):
-                errors.append(f"missing evidence path: {evidence_path}")
+            path_error = validate_repository_relative_file(root, evidence_path, "evidence path")
+            if path_error and not (
+                allow_generated
+                and evidence_path in generated_paths
+                and path_error.startswith("missing evidence path:")
+            ):
+                errors.append(path_error)
     mapping_error = "mapping card match_review_candidate set must match Registry"
     mapping_candidates = tuple(
         card.match_review_candidate for card in contract.cards if card.match_review_candidate
@@ -389,13 +409,13 @@ def validate_contract(
                     if actual_fields[field] != expected:
                         errors.append(f"{link.project_item_id}: match review {field} must match Registry")
                 for evidence_path in link.evidence_paths:
-                    path = Path(evidence_path)
-                    if path.is_absolute() or ".." in path.parts:
-                        errors.append(
-                            f"{link.candidate}: match review evidence path must be repository-relative file: {evidence_path}"
-                        )
-                    elif not (root / path).is_file():
-                        errors.append(f"{link.candidate}: missing match review evidence path: {evidence_path}")
+                    path_error = validate_repository_relative_file(
+                        root,
+                        evidence_path,
+                        "match review evidence path",
+                    )
+                    if path_error:
+                        errors.append(f"{link.candidate}: {path_error}")
             for card in contract.cards:
                 candidate = card.match_review_candidate
                 if candidate and not card.title.endswith(f"｜{candidate}"):
