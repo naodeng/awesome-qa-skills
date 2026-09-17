@@ -2,7 +2,7 @@
 
 # Skills 全量索引
 
-每种语言包含 10 个工作流、149 个测试类型和 3 个 Skill Engineering，共 162 个；中英文合计 324 个目录。以下是逻辑导航，实际目录不变。长期治理入口见 [Skill 治理路线图](../governance/SKILL_GOVERNANCE_ROADMAP.md)、[治理矩阵](../SKILL_MATRIX.md) 和 [匹配登记表](../SKILL_MATCHING_REGISTER.md)。
+每种语言包含 10 个工作流、149 个测试类型和 3 个 Skill Engineering，共 162 个；中英文合计 324 个目录。以下是逻辑导航，实际目录不变。长期治理入口见 [Skill 治理路线图](../governance/SKILL_GOVERNANCE_ROADMAP.md)、[治理矩阵](../SKILL_MATRIX.md)、[匹配登记表](../SKILL_MATCHING_REGISTER.md) 和 [v1.4 收口](../governance/PHASE_0_V1_4_CLOSEOUT.md)。
 
 ## 跨阶段工作流
 
@@ -297,3 +297,4 @@
 - [中文路线图](../governance/QA_SKILLS_EVOLUTION_ROADMAP.md)
 - [English roadmap](../governance/QA_SKILLS_EVOLUTION_ROADMAP_EN.md)
 - [v1.0 源代码治理基线与逐项记录](../governance/SKILL_GOVERNANCE_V1.md)（静态证据，不代表运行质量）
+- [v1.4 Phase 0 收口](../governance/PHASE_0_V1_4_CLOSEOUT.md)（35 张 Project 卡的证据表，不代表发布批准）

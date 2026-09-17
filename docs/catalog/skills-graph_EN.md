@@ -88,3 +88,6 @@ The current Project snapshot shows all 17 v3-v4 Phase 3 Batch 1 cards and 25 Bat
 - [v1.1 requirement-quality Phase 1](../governance/PHASE_1_REQUIREMENTS_QUALITY_EN.md)
 - [v3-v4 Phase 3](../governance/PHASE_3_V3_V4_EN.md)
 - [v1.0 source-governance baseline and per-package records](../governance/SKILL_GOVERNANCE_V1_EN.md) (static evidence, not runtime quality)
+- [v1.4 Phase 0 closeout](../governance/PHASE_0_V1_4_CLOSEOUT_EN.md) (governance evidence, not release approval)
+- [v1.1–v1.4 Shift Left milestone](../governance/SHIFT_LEFT_MILESTONE_EN.md)
+- [Candidate Skill 15-step template](../governance/CANDIDATE_SKILL_15_STEP_TEMPLATE_EN.md)

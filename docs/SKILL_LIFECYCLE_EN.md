@@ -22,3 +22,5 @@ Matching routes a candidate to Existing, Enhance, Merge, Match, or New. Stable S
 This Registry state means that all six evidence fields were located and structurally compared, while project context, semantic equivalence, runtime results, or Eval evidence is still incomplete. It is not a signal of human approval, release, risk acceptance, or permission to execute changes; `MATCH`, `MERGE`, `ENHANCE`, and `NEW` remain provisional candidate conclusions until Phase 1 reviews requirements and real assets, or explicitly retains the limitation.
 
 Each transition records evidence, decision, ownership, affected bilingual paths, Eval state, and Matrix/documentation updates. No state implies automated human approval, release, or risk acceptance.
+
+See the [Deprecation Decision Contract](governance/DEPRECATION_DECISION_CONTRACT_EN.md) for deprecation fields and the [15-step template](governance/CANDIDATE_SKILL_15_STEP_TEMPLATE_EN.md) for candidate execution order.

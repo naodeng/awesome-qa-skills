@@ -88,3 +88,6 @@ flowchart LR
 - [v1.1 需求质量 Phase 1](../governance/PHASE_1_REQUIREMENTS_QUALITY.md)
 - [v3-v4 Phase 3](../governance/PHASE_3_V3_V4.md)
 - [v1.0 源代码治理基线与逐项记录](../governance/SKILL_GOVERNANCE_V1.md)（静态证据，不代表运行质量）
+- [v1.4 Phase 0 收口](../governance/PHASE_0_V1_4_CLOSEOUT.md)（治理证据，不代表发布批准）
+- [v1.1–v1.4 Shift Left 里程碑](../governance/SHIFT_LEFT_MILESTONE.md)
+- [候选 Skill 15 步模板](../governance/CANDIDATE_SKILL_15_STEP_TEMPLATE.md)

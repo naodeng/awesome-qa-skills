@@ -32,3 +32,11 @@
 ## 受限审查状态
 
 `REVIEWED_WITH_LIMITATION` 表示六项证据已定位并完成结构化比较，但仍缺少项目上下文、语义等价、运行结果或 Eval 证据。它不是批准或可执行状态；其中的 `MATCH`、`MERGE`、`ENHANCE`、`NEW` 只能作为 Phase 1 复核前的候选结论，不能仅凭 Registry 创建、修改或删除 Skill。
+
+## Phase 0 典型映射复核
+
+[20 条典型映射复核记录](./governance/PHASE_0_MATCH_MERGE_REVIEW.md)由 Registry 生成，覆盖 13 条候选映射和 7 条 Existing 自映射。Matrix 的 `Related / Workflow` 列会展示目标 Skill 的关系摘要；候选的六项证据仍以 [Matching Register](./SKILL_MATCHING_REGISTER.md) 为准。
+
+复核只固化导航和后续动作：`EXISTING` / `MATCH` 不创建重复目录，`MERGE` 进入 mode、规则或子流程评估，`ENHANCE` 进入既有 Skill 增强复核。所有结论仍是 `REVIEWED_WITH_LIMITATION`，不能替代项目语义复核、运行评测或人工审批。
+
+复现：`python3 scripts/generate_skill_governance_matrix.py --check`，并运行 `python3 scripts/check_docs_bilingual.py --repo-root .`。

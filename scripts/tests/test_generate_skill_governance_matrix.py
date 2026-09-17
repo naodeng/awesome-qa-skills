@@ -1,3 +1,5 @@
+from dataclasses import replace
+import json
 from pathlib import Path
 import re
 from tempfile import TemporaryDirectory
@@ -43,8 +45,6 @@ V11_REVIEWED_CANDIDATE_SLUGS = {
     "negative-scenario-discovery",
     "test-data-requirement-analysis",
 }
-
-
 def complete_skill(**overrides):
     skill = {
         "slug": "sample",
@@ -66,6 +66,32 @@ def complete_skill(**overrides):
     }
     skill.update(overrides)
     return skill
+
+
+def write_minimal_domain_catalog(root: Path) -> None:
+    (root / "docs/governance").mkdir(parents=True, exist_ok=True)
+    domains = [
+        {
+            "id": f"D{index:02d}",
+            "name_zh": f"D{index:02d}",
+            "name_en": f"D{index:02d}",
+            "description_zh": f"D{index:02d}",
+            "description_en": f"D{index:02d}",
+        }
+        for index in range(1, 17)
+    ]
+    (root / "docs/governance/virtual-domains.yaml").write_text(
+        json.dumps(
+            {
+                "domains": domains,
+                "section_defaults": {"testing-types": "D04"},
+                "catalog_heading_defaults": {},
+                "ambiguous_catalog_headings": [],
+                "slug_overrides": {},
+            }
+        ),
+        encoding="utf-8",
+    )
 
 
 class GovernanceMatrixTest(unittest.TestCase):
@@ -112,6 +138,100 @@ class GovernanceMatrixTest(unittest.TestCase):
         self.assertEqual(len(registry.skills), EXPECTED_LOGICAL_SKILL_COUNT)
         self.assertEqual(len(registry.skills), len(physical))
         self.assertEqual(len({skill["slug"] for skill in registry.skills}), len(registry.skills))
+
+    def test_repository_match_reviews_cover_the_twenty_roadmap_mappings(self):
+        registry = matrix.load_registry(ROOT / "docs/governance/skill-governance-registry.yaml")
+        actual = {
+            review["candidate"]: (
+                review["conclusion"],
+                tuple(review["target_skills"]),
+            )
+            for review in registry.match_reviews
+        }
+        self.assertEqual(actual, matrix.REQUIRED_MATCH_REVIEWS)
+        self.assertEqual(len(registry.match_reviews), 20)
+        self.assertEqual(
+            matrix.validate_registry(registry, matrix.discover_physical_skills(ROOT), ROOT),
+            [],
+        )
+
+    def test_repository_match_review_validator_rejects_missing_row(self):
+        registry = matrix.load_registry(ROOT / "docs/governance/skill-governance-registry.yaml")
+        missing = replace(registry, match_reviews=registry.match_reviews[:-1])
+
+        errors = matrix.validate_registry(missing, matrix.discover_physical_skills(ROOT), ROOT)
+
+        self.assertIn("match_reviews must contain the exact 20-row contract", errors)
+
+    def test_match_reviews_surface_in_matrix_and_bilingual_review(self):
+        registry = matrix.load_registry(ROOT / "docs/governance/skill-governance-registry.yaml")
+        matrix_zh = matrix.render_matrix(registry, "zh", ROOT)
+        matrix_en = matrix.render_matrix(registry, "en", ROOT)
+        review_zh = matrix.render_match_review(registry, "zh")
+        review_en = matrix.render_match_review(registry, "en")
+
+        for conclusion in ("MATCH", "MERGE", "ENHANCE", "EXISTING"):
+            self.assertIn(f"{conclusion} 复核", matrix_zh)
+            self.assertIn(f"{conclusion} review", matrix_en)
+        zh_rows = [line for line in review_zh.splitlines() if line.startswith("| `")]
+        en_rows = [line for line in review_en.splitlines() if line.startswith("| `")]
+        self.assertEqual(len(zh_rows), 20)
+        self.assertEqual(len(en_rows), 20)
+        self.assertEqual(
+            [line.split("|", 2)[1].strip() for line in zh_rows],
+            [line.split("|", 2)[1].strip() for line in en_rows],
+        )
+        self.assertIn("20 条映射", review_zh)
+        self.assertIn("20 mappings", review_en)
+
+    def test_match_review_rejects_unknown_fields_and_candidate_drift(self):
+        review = {
+            "candidate": "candidate",
+            "conclusion": "NEW",
+            "review_state": "PROPOSED",
+            "target_skills": ["missing"],
+            "evidence_paths": [],
+            "next_action": "review",
+        }
+        errors = matrix.validate_match_review(
+            review,
+            {"target"},
+            {"candidate": {"conclusion": "MATCH", "target": "target"}},
+        )
+        self.assertIn("invalid match review state", errors)
+        self.assertIn("invalid match review conclusion", errors)
+        self.assertIn("unknown target Skill: missing", errors)
+        self.assertIn("evidence_paths must be a non-empty list", errors)
+        self.assertIn("match review conclusion differs from candidate record", errors)
+        self.assertIn("match review targets differ from candidate record", errors)
+
+    def test_repository_match_review_validator_rejects_non_file_evidence_paths(self):
+        with TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            write_minimal_domain_catalog(root)
+            (root / "skills").mkdir()
+            outside = root.parent / f"{root.name}-outside.txt"
+            try:
+                outside.write_text("outside", encoding="utf-8")
+                (root / "link.txt").symlink_to(outside)
+                for evidence_paths in (("",), ("skills",), ("link.txt",)):
+                    with self.subTest(evidence_paths=evidence_paths):
+                        review = {
+                            "candidate": "candidate",
+                            "conclusion": "EXISTING",
+                            "review_state": "REVIEWED_WITH_LIMITATION",
+                            "target_skills": ["candidate"],
+                            "evidence_paths": list(evidence_paths),
+                            "next_action": "review",
+                        }
+                        registry = matrix.parse_registry({"skills": [], "match_reviews": [review], "candidates": []})
+                        errors = matrix.validate_registry(registry, set(), root)
+                        self.assertTrue(
+                            any("evidence_paths must" in error for error in errors),
+                            errors,
+                        )
+            finally:
+                outside.unlink(missing_ok=True)
 
     def test_candidates_reference_pinned_prompt_baselines(self):
         registry = matrix.load_registry(ROOT / "docs/governance/skill-governance-registry.yaml")
@@ -243,6 +363,7 @@ class GovernanceMatrixTest(unittest.TestCase):
         with TemporaryDirectory() as temporary:
             root = Path(temporary)
             (root / "docs").mkdir()
+            write_minimal_domain_catalog(root)
             registry = matrix.parse_registry({"skills": [], "candidates": []})
             (root / "docs/SKILL_MATRIX.md").write_text("stale\n", encoding="utf-8")
             self.assertEqual(matrix.check_outputs(root, registry), 1)
@@ -285,6 +406,7 @@ class GovernanceMatrixTest(unittest.TestCase):
     def test_matrix_uses_skill_description_as_scope_evidence(self):
         with TemporaryDirectory() as temporary:
             root = Path(temporary)
+            write_minimal_domain_catalog(root)
             evidence = root / "skills/zh/testing-types/sample/SKILL.md"
             evidence.parent.mkdir(parents=True)
             evidence.write_text("---\ndescription: Analyze requirement boundaries\n---\n", encoding="utf-8")

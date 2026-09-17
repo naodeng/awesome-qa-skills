@@ -2,7 +2,7 @@
 
 # Complete Skills Index
 
-Each language contains 10 workflows, 149 testing types, and 3 Skill Engineering packages: 162 per language and 324 directories total. This is logical navigation; physical directories do not change. See the [Skill governance roadmap](../governance/SKILL_GOVERNANCE_ROADMAP_EN.md), [governance matrix](../SKILL_MATRIX_EN.md), and [matching register](../SKILL_MATCHING_REGISTER_EN.md) for long-term governance.
+Each language contains 10 workflows, 149 testing types, and 3 Skill Engineering packages: 162 per language and 324 directories total. This is logical navigation; physical directories do not change. See the [Skill governance roadmap](../governance/SKILL_GOVERNANCE_ROADMAP_EN.md), [governance matrix](../SKILL_MATRIX_EN.md), [matching register](../SKILL_MATCHING_REGISTER_EN.md), and [v1.4 closeout](../governance/PHASE_0_V1_4_CLOSEOUT_EN.md) for long-term governance.
 
 ## Cross-phase workflows
 
@@ -297,3 +297,4 @@ Evolution details:
 - [中文路线图](../governance/QA_SKILLS_EVOLUTION_ROADMAP.md)
 - [English roadmap](../governance/QA_SKILLS_EVOLUTION_ROADMAP_EN.md)
 - [v1.0 source-governance baseline and per-package records](../governance/SKILL_GOVERNANCE_V1_EN.md) (static evidence, not runtime quality)
+- [v1.4 Phase 0 closeout](../governance/PHASE_0_V1_4_CLOSEOUT_EN.md) (evidence table for 35 Project cards, not release approval)

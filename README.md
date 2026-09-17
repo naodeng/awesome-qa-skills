@@ -13,7 +13,7 @@
 
 **在线目录：** [https://inaodeng.com/qaskills/](https://inaodeng.com/qaskills/)
 
-**快速入口：** [完整技能索引](docs/catalog/skills-index.md) · [安装说明](scripts/INSTALL_SKILLS.md) · [贡献指南](CONTRIBUTING.md)
+**快速入口：** [完整技能索引](docs/catalog/skills-index.md) · [安装说明](scripts/INSTALL_SKILLS.md) · [v1.4 治理收口](docs/governance/PHASE_0_V1_4_CLOSEOUT.md) · [贡献指南](CONTRIBUTING.md)
 
 ---
 
@@ -121,7 +121,7 @@ cp -r skills/zh/testing-types/functional-testing ~/.cursor/skills/
 Core QA Skills → Engineering QA Skills → Production Quality Skills → AI Native QA Skills
 ```
 
-`ai-assisted-testing` 是横向的 **AI for QA**，不等同于 AI Native QA 的 Testing for AI。六迭代路线与 Prompt Baseline 映射见[演进路线图](docs/governance/QA_SKILLS_EVOLUTION_ROADMAP.md)；长期 Existing / Enhance / Merge / Match / New 治理见 [Skill 治理路线图](docs/governance/SKILL_GOVERNANCE_ROADMAP.md)。
+`ai-assisted-testing` 是横向的 **AI for QA**，不等同于 AI Native QA 的 Testing for AI。六迭代路线与 Prompt Baseline 映射见[演进路线图](docs/governance/QA_SKILLS_EVOLUTION_ROADMAP.md)；长期 Existing / Enhance / Merge / Match / New 治理见 [Skill 治理路线图](docs/governance/SKILL_GOVERNANCE_ROADMAP.md)。v1.4 的治理证据、版本规划和剩余边界见 [Phase 0 收口](docs/governance/PHASE_0_V1_4_CLOSEOUT.md)。
 
 ---
 
@@ -510,7 +510,11 @@ bash scripts/run_skill_eval.sh skills/zh/testing-types/functional-testing/evals/
 | [skills-index.md](docs/catalog/skills-index.md) | 全量技能索引 |
 | [QA_SKILLS_EVOLUTION_ROADMAP.md](docs/governance/QA_SKILLS_EVOLUTION_ROADMAP.md) | 四层能力演进与研发测试阶段地图 |
 | [DOCUMENTATION_POLICY.md](docs/governance/DOCUMENTATION_POLICY.md) | 中文优先的双语文档治理策略 |
-| [SKILL_GOVERNANCE_V1.md](docs/governance/SKILL_GOVERNANCE_V1.md) | v1.0 源代码治理基线与 79 对静态记录入口（不代表运行质量） |
+| [SKILL_GOVERNANCE_V1.md](docs/governance/SKILL_GOVERNANCE_V1.md) | v1.0 源代码治理基线与当前 162 对静态记录入口（早期基线 79 对；不代表运行质量） |
+| [PHASE_0_V1_4_CLOSEOUT.md](docs/governance/PHASE_0_V1_4_CLOSEOUT.md) | v1.4 35 张 Project 卡的证据收口与版本边界（不代表发布批准） |
+| [BILINGUAL_CONSISTENCY_CONTRACT.md](docs/governance/BILINGUAL_CONSISTENCY_CONTRACT.md) | 中英文路径、入口、Catalog 与链接一致性契约 |
+| [QUALITY_SCORE_EVAL_CONTRACT.md](docs/governance/QUALITY_SCORE_EVAL_CONTRACT.md) | 九维评分与最低 Eval 工件标准 |
+| [WORKFLOW_EVAL_INSTALL_SYNC.md](docs/governance/WORKFLOW_EVAL_INSTALL_SYNC.md) | 10 个 Workflow 的双语、Eval 与安装入口同步清单 |
 | [PHASE_1_REQUIREMENTS_QUALITY.md](docs/governance/PHASE_1_REQUIREMENTS_QUALITY.md) | v1.1 Phase 1 前五个需求质量 Skill 的范围、卡片、证据和验收边界 |
 | [SKILL_EVAL_RULES.md](docs/SKILL_EVAL_RULES.md) | `codex exec --json` trace 的 20 条本地确定性 Skill 评测规则 |
 | [skills/DIRECTORY_GUIDE.md](skills/DIRECTORY_GUIDE.md) | 目录与命名规范 |

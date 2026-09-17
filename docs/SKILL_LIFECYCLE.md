@@ -22,3 +22,5 @@ Phase 0 的逐项治理事实源是 `governance/skill-governance-registry.yaml`�
 这是 Registry 中的受限审查状态：六项证据已经逐项定位并完成结构化比较，但项目业务上下文、语义等价、运行结果或 Eval 证据仍不完整。该状态不是人工批准、发布、风险接受或可直接执行的信号；其中的 `MATCH`、`MERGE`、`ENHANCE` 或 `NEW` 仍是候选结论，必须在 Phase 1 结合需求和真实资产复核后，才能转入实施或继续保留限制。
 
 每次状态转换都应记录：输入证据、决定、责任范围、受影响双语目录、Eval 状态、Matrix 和文档同步项。任何状态均不得暗示人工审批、发布或风险接受已自动完成。
+
+状态转换的弃用字段见 [Deprecation 决策契约](governance/DEPRECATION_DECISION_CONTRACT.md)，候选执行顺序见 [15 步模板](governance/CANDIDATE_SKILL_15_STEP_TEMPLATE.md)。

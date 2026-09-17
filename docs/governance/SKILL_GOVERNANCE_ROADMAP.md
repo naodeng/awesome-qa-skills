@@ -21,9 +21,13 @@ GitHub Project `Awesome QA Skills — Governance & Roadmap` 是执行看板。�
 
 每次状态变化同步检查：`SKILL_MATRIX.md`、中英文入口 README、Catalog/Graph、Workflow、Eval、`agents/openai.yaml`、安装与贡献文档。未适用项显式标记 `N/A`。
 
-## Phase 0 当前状态（2026-09-14）
+## Phase 0 当前状态（2026-09-16）
 
-`COMPLETED_WITH_LIMITATIONS`：registry 已逐条覆盖 79 个逻辑双语 Skill 对；每条保留中英文 `SKILL.md`、主 prompt、Eval 结构和 `agents/openai.yaml` 的证据路径，Matrix/Register 由生成器复现并受质量门禁检查。13 个候选均已逐项登记六步字段，并引用固定提交 `554178fe9b93d851ec01388597ceb7996d22bd1c` 的 `awesome-qa-prompt` Prompt Baseline（详见 [Phase 0 来源登记](./PHASE_0_PROMPT_BASELINE_SOURCES.md)）。候选结论保留 `MATCH` / `MERGE` / `ENHANCE` 提议，`decision_state` 统一为 `REVIEWED_WITH_LIMITATION`；业务语义等价仍需项目需求、Issue/PR 或测试资产复核，不得据此直接创建或修改 Skill。Phase 0 未执行模型、外部测试目标或真实质量评估，因此 Quality Score / Eval 执行仍为 `NOT_SCORED` / `NOT_RUN`；Prompt 语义等价、运行行为与有效性继续为 `UNASSESSED`。
+`COMPLETED_WITH_LIMITATIONS`：registry 当前逐条覆盖 162 个逻辑双语 Skill 对；每条保留中英文 `SKILL.md`、主 prompt、Eval 结构和 `agents/openai.yaml` 的证据路径，D01–D16 分类源以及 Matrix/Register 均由生成器复现并受质量门禁检查。当前登记 100 个候选条目，每条保留六项证据字段；其中 Phase 0 Prompt Baseline 继续固定在 `554178fe9b93d851ec01388597ceb7996d22bd1c` 的 `awesome-qa-prompt` 提交（详见 [Phase 0 来源登记](./PHASE_0_PROMPT_BASELINE_SOURCES.md)）。候选结论保留 `MATCH` / `MERGE` / `ENHANCE` / `NEW`，`decision_state` 按阶段保留 `REVIEWED_WITH_LIMITATION` / `REVIEWED` / `PROPOSED`；业务语义等价仍需项目需求、Issue/PR 或测试资产复核，不得据此直接创建或修改 Skill。Phase 0 未执行模型、外部测试目标或真实质量评估，因此 Quality Score / Eval 执行仍为 `NOT_SCORED` / `NOT_RUN`；Prompt 语义等价、运行行为与有效性继续为 `UNASSESSED`。
+
+典型映射复核（2026-09-16）已将 20 条路线图关系写入 Registry 的 `match_reviews`，包括 13 条候选映射和 7 条 Existing 自映射；[双语复核视图](./PHASE_0_MATCH_MERGE_REVIEW.md)与 Matrix/Matching Register 均由生成器产生。该复核只固化关系、目标 Skill、证据路径和后续动作，不授权创建重复目录，也不把静态关系记录升级为语义等价、运行效果、模型评测或发布批准。
+
+v1.4 的 35 张 Project 卡由 [Phase 0 收口视图](./PHASE_0_V1_4_CLOSEOUT.md)统一登记；[Deprecation 契约](./DEPRECATION_DECISION_CONTRACT.md)、[双语一致性契约](./BILINGUAL_CONSISTENCY_CONTRACT.md)、[Quality Score/Eval 契约](./QUALITY_SCORE_EVAL_CONTRACT.md)、[Workflow/Eval/安装同步清单](./WORKFLOW_EVAL_INSTALL_SYNC.md)、[Enhancement Sprint](./ENHANCEMENT_SPRINT.md)、[15 步模板](./CANDIDATE_SKILL_15_STEP_TEMPLATE.md)和 [Shift Left 里程碑](./SHIFT_LEFT_MILESTONE.md)分别保留可执行规则。v1.5–v1.8 仍按版本规划排队，不在本收口中提前执行。
 
 ## Phase 1 当前工作项（2026-09-14）
 

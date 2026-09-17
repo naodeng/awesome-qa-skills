@@ -8,6 +8,8 @@ This repository provides one-click installers for:
 - OpenCode
 - Trae
 
+For the bilingual Workflow package list, Eval minimum, and installation synchronization checklist, see [`docs/governance/WORKFLOW_EVAL_INSTALL_SYNC.md`](../docs/governance/WORKFLOW_EVAL_INSTALL_SYNC.md).
+
 ## macOS / Linux
 
 ```bash

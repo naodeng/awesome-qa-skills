@@ -16,7 +16,7 @@ This is a logical navigation model, not a directory migration. Existing and futu
 skills/{zh|en}/{testing-types|testing-workflows|skill-engineering}/<skill-name>/
 ```
 
-The repository currently has 79 Skills per language (10 workflows, 66 testing types, and 3 Skill Engineering packages), or 158 bilingual directories.
+The earlier baseline had 79 logical Skill pairs (79 per language: 10 workflows, 66 testing types, and 3 Skill Engineering packages), or 158 bilingual directories. The current tree has 162 Skills per language (10 workflows, 149 testing types, and 3 Skill Engineering packages), or 324 bilingual directories. The current governance count is defined by [SKILL_GOVERNANCE_V1](./SKILL_GOVERNANCE_V1_EN.md) and the generated inventory.
 
 ## R&D and Testing Lifecycle Breakdown
 

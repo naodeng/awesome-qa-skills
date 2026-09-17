@@ -2,6 +2,7 @@ from pathlib import Path
 from tempfile import TemporaryDirectory
 import unittest
 from unittest.mock import patch
+import json
 
 from scripts import generate_skill_governance_inventory as inventory
 
@@ -28,6 +29,33 @@ class GovernanceInventoryTest(unittest.TestCase):
                 (root / "skills" / lang / section).mkdir(parents=True, exist_ok=True)
         (root / "docs/catalog").mkdir(parents=True)
         (root / "docs/catalog/skills-index.md").write_text("# catalog\n", encoding="utf-8")
+        (root / "docs/governance").mkdir(parents=True)
+        domains = [
+            {
+                "id": f"D{index:02d}",
+                "name_zh": f"D{index:02d}",
+                "name_en": f"D{index:02d}",
+                "description_zh": f"D{index:02d}",
+                "description_en": f"D{index:02d}",
+            }
+            for index in range(1, 17)
+        ]
+        (root / "docs/governance/virtual-domains.yaml").write_text(
+            json.dumps(
+                {
+                    "domains": domains,
+                    "section_defaults": {
+                        "testing-workflows": "D03",
+                        "testing-types": "D04",
+                        "skill-engineering": "D14",
+                    },
+                    "catalog_heading_defaults": {},
+                    "ambiguous_catalog_headings": [],
+                    "slug_overrides": {},
+                }
+            ),
+            encoding="utf-8",
+        )
 
     def test_counts_inline_eval_case_declarations(self):
         with TemporaryDirectory() as temp:
@@ -62,6 +90,15 @@ class GovernanceInventoryTest(unittest.TestCase):
                 rows = inventory.records()
             self.assertEqual(len(rows), 1)
             self.assertEqual(rows[0].status, "UNASSESSED (structural gap)")
+
+    def test_records_requires_virtual_domain_manifest(self):
+        with TemporaryDirectory() as temp:
+            root = Path(temp)
+            self.prepare_root(root)
+            (root / "docs/governance/virtual-domains.yaml").unlink()
+            with patch.object(inventory, "ROOT", root):
+                with self.assertRaisesRegex(ValueError, "Virtual Domain catalog is required"):
+                    inventory.records()
 
 
 if __name__ == "__main__":
