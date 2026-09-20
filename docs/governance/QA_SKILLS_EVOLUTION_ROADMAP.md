@@ -16,7 +16,7 @@ Core QA Skills → Engineering QA Skills → Production Quality Skills → AI Na
 skills/{zh|en}/{testing-types|testing-workflows|skill-engineering}/<skill-name>/
 ```
 
-早期基线为 79 对逻辑 Skill（每种语言 79 个：10 个工作流、66 个测试类型、3 个 Skill Engineering），中英双语共 158 个目录；当前树每种语言有 162 个 Skill（10 个工作流、149 个测试类型、3 个 Skill Engineering），中英双语共 324 个目录。当前治理记录以 [SKILL_GOVERNANCE_V1](./SKILL_GOVERNANCE_V1.md) 和生成器盘点为准。
+早期基线为 79 对逻辑 Skill（每种语言 79 个：10 个工作流、66 个测试类型、3 个 Skill Engineering），中英双语共 158 个目录；当前树每种语言有 164 个 Skill（10 个工作流、149 个测试类型、5 个 Skill Engineering），中英双语共 328 个目录。当前治理记录以 [SKILL_GOVERNANCE_V1](./SKILL_GOVERNANCE_V1.md) 和生成器盘点为准。
 
 ## 研发与测试阶段细分
 
@@ -32,6 +32,12 @@ skills/{zh|en}/{testing-types|testing-workflows|skill-engineering}/<skill-name>/
 | AI Native QA Skills | 如何验证 AI 功能、LLM、Prompt、Agent 与安全边界？ | Testing for AI 专项 Skill 已提供 | Eval、Prompt、Agent/Tool、安全 |
 
 `ai-assisted-testing` 是横向的 **AI for QA**：用 AI 辅助传统 QA 工作；它不是 AI Native QA 的 Testing for AI 替代品。`skill-engineering` 是横向治理层，不是第五个能力阶段。
+
+## v1.5.1 Skill Evaluation Quality Loop
+
+本迭代把 `SKILL_EVALUATION_DESIGN.md`、`SKILL_EVALUATION_CONTRACT.md` 和双 Pilot 记录落成仓库能力：新增双语 `skill-quality-review` 与 `skill-evaluation`，扩展本地 trace runner 的 run metadata、证据状态、失败分类、版本回归比较和 regression case 转换路径。`skill-up` 仍是唯一通用 Eval Engine；真实模型 replay、目标执行和 semantic effectiveness 没有证据时保持 `NOT_RUN` / `INSUFFICIENT_EVIDENCE`。
+
+这两个 Meta Skill 归入 Skill Engineering 横向治理层，不改变既有 QA Skill 物理路径，也不新增第二套 Quality Score。
 
 ## 迭代路线与参考基线
 

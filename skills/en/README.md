@@ -4,7 +4,7 @@
 
 This is the English Skill root and mirrors `skills/zh` with identical Skill names and physical structure.
 
-Each language provides **162** Skills: 10 workflows + 149 testing types + 3 Skill Engineering. See the [Chinese README](../../README.md) and [English README](../../README_EN.md); see the [governance roadmap](../../docs/governance/SKILL_GOVERNANCE_ROADMAP_EN.md) and [governance matrix](../../docs/SKILL_MATRIX_EN.md) for long-term governance.
+Each language provides **164** Skills: 10 workflows + 149 testing types + 5 Skill Engineering. See the [Chinese README](../../README.md) and [English README](../../README_EN.md); see the [governance roadmap](../../docs/governance/SKILL_GOVERNANCE_ROADMAP_EN.md) and [governance matrix](../../docs/SKILL_MATRIX_EN.md) for long-term governance.
 
 ## Cross-phase workflows
 
@@ -289,6 +289,8 @@ Each language provides **162** Skills: 10 workflows + 149 testing types + 3 Skil
 | Skill | Directory |
 | --- | --- |
 | Skill Change Verification | [`skill-change-verification`](skill-engineering/skill-change-verification/) |
+| Skill Quality Review | [`skill-quality-review`](skill-engineering/skill-quality-review/) |
+| Skill Evaluation | [`skill-evaluation`](skill-engineering/skill-evaluation/) |
 | Skill Prose Contract Review | [`skill-prose-review`](skill-engineering/skill-prose-review/) |
 | Process Prose Trimming | [`skill-prose-trim`](skill-engineering/skill-prose-trim/) |
 

@@ -1,0 +1,21 @@
+id: basic-script-artifact
+title: "Playwright: emit a minimal test artifact"
+description: |
+  A script judge extracts a JavaScript artifact, checks its test declarations, and validates its syntax.
+
+input:
+  prompt: |
+    Use ui-test-playwright.
+    Generate a minimal Playwright test artifact for checkout: navigate to the checkout page, submit an order, and assert the confirmation heading.
+    Put the executable JavaScript example in a ```javascript code block and include test(), page.goto(), and expect() so the artifact can be checked by a script judge.
+
+expect:
+  must_contain:
+    - "Playwright"
+    - "test("
+    - "page.goto("
+    - "expect("
+
+judge:
+  type: script
+  script_path: evals/fixtures/scripts/check_playwright_output.sh

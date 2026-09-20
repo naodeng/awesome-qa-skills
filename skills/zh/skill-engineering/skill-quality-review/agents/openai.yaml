@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "skill-quality-review"
+interface:
+  display_name: "Skill 质量审查"
+  short_description: "审查完整 Skill 包的工程契约、独立安装、双语一致性、Eval 准备度和证据边界。"
+  default_prompt: "Use the skill-quality-review skill to audit this complete Skill package and its evidence boundaries."
+policy:
+  allow_implicit_invocation: true

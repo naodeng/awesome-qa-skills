@@ -2,7 +2,7 @@
 
 # Complete Skills Index
 
-Each language contains 10 workflows, 149 testing types, and 3 Skill Engineering packages: 162 per language and 324 directories total. This is logical navigation; physical directories do not change. See the [Skill governance roadmap](../governance/SKILL_GOVERNANCE_ROADMAP_EN.md), [governance matrix](../SKILL_MATRIX_EN.md), [matching register](../SKILL_MATCHING_REGISTER_EN.md), and [v1.4 closeout](../governance/PHASE_0_V1_4_CLOSEOUT_EN.md) for long-term governance.
+Each language contains 10 workflows, 149 testing types, and 5 Skill Engineering packages: 164 per language and 328 directories total. This is logical navigation; physical directories do not change. See the [Skill governance roadmap](../governance/SKILL_GOVERNANCE_ROADMAP_EN.md), [governance matrix](../SKILL_MATRIX_EN.md), [matching register](../SKILL_MATCHING_REGISTER_EN.md), and [v1.4 closeout](../governance/PHASE_0_V1_4_CLOSEOUT_EN.md) for long-term governance.
 
 ## Cross-phase workflows
 
@@ -289,6 +289,8 @@ Each language contains 10 workflows, 149 testing types, and 3 Skill Engineering 
 | Skill | 中文 | English |
 | --- | --- | --- |
 | `skill-change-verification` | [中文](../../skills/zh/skill-engineering/skill-change-verification/) | [English](../../skills/en/skill-engineering/skill-change-verification/) |
+| `skill-quality-review` | [中文](../../skills/zh/skill-engineering/skill-quality-review/) | [English](../../skills/en/skill-engineering/skill-quality-review/) |
+| `skill-evaluation` | [中文](../../skills/zh/skill-engineering/skill-evaluation/) | [English](../../skills/en/skill-engineering/skill-evaluation/) |
 | `skill-prose-review` | [中文](../../skills/zh/skill-engineering/skill-prose-review/) | [English](../../skills/en/skill-engineering/skill-prose-review/) |
 | `skill-prose-trim` | [中文](../../skills/zh/skill-engineering/skill-prose-trim/) | [English](../../skills/en/skill-engineering/skill-prose-trim/) |
 

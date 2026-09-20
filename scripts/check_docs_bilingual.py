@@ -40,6 +40,18 @@ PROJECT_PAIRS = (
         "docs/governance/QUALITY_SCORE_EVAL_CONTRACT_EN.md",
     ),
     (
+        "docs/governance/SKILL_EVALUATION_DESIGN.md",
+        "docs/governance/SKILL_EVALUATION_DESIGN_EN.md",
+    ),
+    (
+        "docs/governance/SKILL_EVALUATION_CONTRACT.md",
+        "docs/governance/SKILL_EVALUATION_CONTRACT_EN.md",
+    ),
+    (
+        "docs/governance/SKILL_EVALUATION_PILOTS.md",
+        "docs/governance/SKILL_EVALUATION_PILOTS_EN.md",
+    ),
+    (
         "docs/governance/WORKFLOW_EVAL_INSTALL_SYNC.md",
         "docs/governance/WORKFLOW_EVAL_INSTALL_SYNC_EN.md",
     ),

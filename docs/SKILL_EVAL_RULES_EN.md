@@ -104,3 +104,15 @@ Trigger rules require the eval adapter to write `skill.selection` evidence with 
 The article also recommends a second read-only `codex exec --output-schema` run for style and convention grading. This local engine only checks whether that result can be parsed; semantic judgments about component style or layout should be labeled `MODEL_ASSESSMENT` and kept outside the twenty deterministic rules above.
 
 Keep the rule configuration small and focused. The prompt set should cover explicit, implicit, contextual, and negative-control cases and grow from real failures; that is test-data governance and is not replaced by scoring one trace.
+
+## Evidence package and regression cases
+
+`scripts/run_skill_trace_eval.py` records `run_metadata` in the batch and each case result: `run_id`, `case_id`, Skill commit/content identity, Eval input hash, `skill-up` version, engine/provider/model, judge, and environment. A dirty Skill includes a content hash; unavailable tools or values are recorded as `unknown` and never guessed.
+
+Each case also records an `evidence_state`: `PASS`, `FAIL`, `BLOCKED`, or dry-run `NOT_RUN`, plus an optional `failure_classification`: `SKILL_DEFECT`, `EVAL_DEFECT`, `INFRASTRUCTURE_DEFECT`, or `UNKNOWN`. A malformed trace is `FAIL`, not infrastructure-blocked; infrastructure blocking is reserved for runs with no trace evidence.
+
+After a human confirms the root cause of a real failure, `scripts/add_skill_eval_regression_case.py` can create a `REGRESSION` candidate under the selected Skill's `evals/cases/` and register it in that Skill's `evals/eval.yaml`. The candidate lifecycle is `CANDIDATE` while its evidence state remains `NOT_RUN`; the script rejects unsafe IDs and existing files, does not edit `SKILL.md`, and does not promote a candidate into a stable gate automatically.
+
+Version regression comparison uses `scripts/compare_skill_eval_runs.py previous.json current.json`. It compares existing reports only, checks comparability across Eval, variant, engine, model, judge, environment, and an ordered timezone-aware time window, and reports previous `PASS` to current `FAIL` as `REGRESSION_OBSERVED` only when the current case is explicitly classified as `SKILL_DEFECT`. `EVAL_DEFECT`, `INFRASTRUCTURE_DEFECT`, `UNKNOWN`, or missing classifications remain `INCONCLUSIVE`; missing comparable evidence remains `INSUFFICIENT_EVIDENCE`.
+
+These fields complement the twenty local rules without changing their deterministic semantics. Evaluation states and claim boundaries are governed by [`SKILL_EVALUATION_CONTRACT_EN.md`](governance/SKILL_EVALUATION_CONTRACT_EN.md).

@@ -4,7 +4,7 @@
 
 ## Purpose and boundary
 
-v1.0 establishes a reproducible **source-governance record** for the repository's current 162 logical bilingual Skill pairs. The earlier baseline covered 79 logical pairs; the current tree also includes the later v1.1, v2.0, and v3-v4 deliveries, so the generator is the current count authority. It reviews only package directories and declarations in `SKILL.md`, `agents/openai.yaml`, and `evals/`; it does not run Skill prompts, helper scripts, models, or real test targets.
+v1.0 establishes a reproducible **source-governance record** for the repository's current 164 logical bilingual Skill pairs. The earlier baseline covered 79 logical pairs; the current tree also includes the later v1.1, v2.0, v3-v4, and v1.5.1 deliveries, so the generator is the current count authority. It reviews only package directories and declarations in `SKILL.md`, `agents/openai.yaml`, and `evals/`; it does not run Skill prompts, helper scripts, models, or real test targets.
 
 The baseline therefore provides no Quality Score and never presents a static record as runtime effectiveness, test pass rate, or capability-quality conclusion. Runtime behavior, semantic equivalence, model evaluation, and effectiveness are `UNASSESSED` when matching execution evidence is unavailable.
 
@@ -45,7 +45,7 @@ Each Skill has one primary Domain. Mixed catalog groups use explicit slug overri
 
 ## Reproducible inventory
 
-- [Per-package governance inventory](../generated/skill-governance-inventory_EN.md): one record for each of 162 logical bilingual Skill pairs.
+- [Per-package governance inventory](../generated/skill-governance-inventory_EN.md): one record for each of 164 logical bilingual Skill pairs.
 - [Governance Matrix](../SKILL_MATRIX_EN.md): displays D01–D16 labels, priority, and evidence boundaries.
 - [Typical Match/Merge review](./PHASE_0_MATCH_MERGE_REVIEW_EN.md): displays the 20 Registry relationships and follow-up actions.
 - [v1.4 Phase 0 closeout](./PHASE_0_V1_4_CLOSEOUT_EN.md): records evidence, acceptance states, and version boundaries for 35 Project cards.
@@ -60,6 +60,6 @@ The generator uses the current `skills/{zh,en}/{testing-workflows,testing-types,
 
 | Item | Status | Acceptance evidence | Explicitly excluded |
 | --- | --- | --- | --- |
-| v1.0 source-governance closeout | `LOCALLY_VERIFIED` | 162 current per-package records, D01–D16 taxonomy source, bilingual entry points, Catalog/Graph links, reproducible generator, `--check`, and the complete local quality gate | Skill/model/script execution, runtime quality scoring, release, push |
+| v1.0 source-governance closeout | `LOCALLY_VERIFIED` | 164 current per-package records, D01–D16 taxonomy source, bilingual entry points, Catalog/Graph links, reproducible generator, `--check`, and the complete local quality gate | Skill/model/script execution, runtime quality scoring, release, push |
 
 `LOCALLY_VERIFIED` means fresh evidence exists for the full quality gate, generated-artifact freshness check, and Git diff check. It still does not mean runtime effectiveness or publication.

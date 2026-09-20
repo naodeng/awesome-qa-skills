@@ -5,10 +5,10 @@
 A language-partitioned **AI testing skills library** (Agent Skills) for Codex, Cursor, Claude Code, Kiro, OpenCode, Trae, and similar tools. It ships independently installable, composable skills for testing workflows and testing types.
 
 [![License: PolyForm Noncommercial 1.0.0](https://img.shields.io/badge/License-PolyForm%20Noncommercial%201.0.0-blue.svg)](./LICENSE)
-[![Skills](https://img.shields.io/badge/skills-324%20(zh%2Ben)-0A7EA4)](./docs/catalog/skills-index_EN.md)
+[![Skills](https://img.shields.io/badge/skills-328%20(zh%2Ben)-0A7EA4)](./docs/catalog/skills-index_EN.md)
 [![Workflows](https://img.shields.io/badge/workflows-10-informational)](./skills/en/testing-workflows/)
 [![Testing types](https://img.shields.io/badge/testing%20types-149-informational)](./skills/en/testing-types/)
-[![Skill engineering](https://img.shields.io/badge/skill%20engineering-3-informational)](./skills/en/skill-engineering/)
+[![Skill engineering](https://img.shields.io/badge/skill%20engineering-5-informational)](./skills/en/skill-engineering/)
 [![skills.sh](https://skills.sh/b/naodeng/awesome-qa-skills)](https://skills.sh/naodeng/awesome-qa-skills)
 
 **Online directory:** [https://inaodeng.com/qaskills/](https://inaodeng.com/qaskills/)
@@ -28,7 +28,7 @@ This is a bilingual Skill library for AI-assisted QA work. Each Skill can be cop
 | Regression, performance, and quality engineering | `regression-test-selection`, `performance-testing`, `code-review` | Select risk-based regression scope, analyze performance, and shift quality left |
 | Release and production quality | `release-testing-workflow`, `production-verification`, `metrics-anomaly-analysis` | Support release decisions, production verification, incident analysis, and metrics investigation |
 | AI features and agent safety | `ai-feature-testing`, `llm-testing`, `ai-agent-testing`, `prompt-injection-testing` | Validate AI behavior, evaluations, tool calls, and safety boundaries |
-| Skill engineering and governance | `skill-change-verification`, `skill-prose-review` | Check Skill structure, contracts, evidence boundaries, and prose quality |
+| Skill engineering and governance | `skill-quality-review`, `skill-evaluation`, `skill-change-verification`, `skill-prose-review` | Check package quality, evaluation evidence, change contracts, and prose boundaries |
 
 Each Skill directory is self-contained when copied out: it includes `SKILL.md`, primary prompts, tool metadata, and optional examples, templates, scripts, and evaluation cases.
 
@@ -131,7 +131,7 @@ Choose a category based on your R&D or testing stage. If you already know the na
 | Engineering QA Skills | Shift-left quality, code / API / UI, regression, performance, and continuous improvement | [View quality engineering](#engineering-qa-skills--quality-engineering) |
 | Production Quality Skills | Release verification, production verification, incidents, traces, and metrics analysis | [View production quality](#production-quality-skills--production-quality) |
 | AI Native QA Skills | AI features, LLMs, prompts, agents, and safety testing | [View AI-native quality](#ai-native-qa-skills--ai-native-quality) |
-| Skill Engineering | Skill change verification, prose contract review, and process-prose trimming | [View Skill Engineering](#skill-engineering-cross-cutting-governance) |
+| Skill Engineering | Skill package review, evaluation, change verification, prose contract review, and process-prose trimming | [View Skill Engineering](#skill-engineering-cross-cutting-governance) |
 
 ## Capability layers
 
@@ -147,7 +147,7 @@ Core QA Skills → Engineering QA Skills → Production Quality Skills → AI Na
 
 ## Complete Skill catalog
 
-Each language provides **162** Skills: 10 workflows, 149 testing types, and 3 Skill Engineering packages; **324** bilingual directories in total. Physical directories remain stable; the catalog below is logical navigation only.
+Each language provides **164** Skills: 10 workflows, 149 testing types, and 5 Skill Engineering packages; **328** bilingual directories in total. Physical directories remain stable; the catalog below is logical navigation only.
 
 ### Cross-phase workflows
 
@@ -436,6 +436,8 @@ Each testing-type Skill appears once; routers and workflows cover cross-phase co
 | Skill | Directory | Primary use |
 | --- | --- | --- |
 | Skill Change Verification | [`skill-change-verification`](skills/en/skill-engineering/skill-change-verification/) | Select evidence by change scope and distinguish static, evaluation, and runtime claims. |
+| Skill Quality Review | [`skill-quality-review`](skills/en/skill-engineering/skill-quality-review/) | Review Skill package contracts, independent installation, bilingual consistency, and Eval readiness. |
+| Skill Evaluation | [`skill-evaluation`](skills/en/skill-engineering/skill-evaluation/) | Design, run, interpret, and report evidence-bounded Skill evaluations. |
 | Skill Prose Contract Review | [`skill-prose-review`](skills/en/skill-engineering/skill-prose-review/) | Audit executable contracts, boundaries, and evidence requirements in Skills and Prompts. |
 | Process Prose Trimming | [`skill-prose-trim`](skills/en/skill-engineering/skill-prose-trim/) | Remove review and design residue while preserving current-state contracts. |
 
@@ -530,7 +532,7 @@ Suggested pilots: `functional-testing`, `api-testing`, `api-test-bruno`, `bug-re
 | [skills-index_EN.md](docs/catalog/skills-index_EN.md) | Full skill index |
 | [QA_SKILLS_EVOLUTION_ROADMAP_EN.md](docs/governance/QA_SKILLS_EVOLUTION_ROADMAP_EN.md) | Four-stage capability evolution and R&D/testing lifecycle map |
 | [DOCUMENTATION_POLICY_EN.md](docs/governance/DOCUMENTATION_POLICY_EN.md) | Chinese-first bilingual documentation policy |
-| [SKILL_GOVERNANCE_V1_EN.md](docs/governance/SKILL_GOVERNANCE_V1_EN.md) | v1.0 source-governance baseline and current 162-pair static-record entry point (earlier baseline: 79 pairs; not runtime quality) |
+| [SKILL_GOVERNANCE_V1_EN.md](docs/governance/SKILL_GOVERNANCE_V1_EN.md) | v1.0 source-governance baseline and current 164-pair static-record entry point (earlier baseline: 79 pairs; not runtime quality) |
 | [PHASE_0_V1_4_CLOSEOUT_EN.md](docs/governance/PHASE_0_V1_4_CLOSEOUT_EN.md) | Evidence closeout and version boundaries for all 35 v1.4 Project cards (not release approval) |
 | [BILINGUAL_CONSISTENCY_CONTRACT_EN.md](docs/governance/BILINGUAL_CONSISTENCY_CONTRACT_EN.md) | Contract for Chinese/English paths, entry points, Catalog, and links |
 | [QUALITY_SCORE_EVAL_CONTRACT_EN.md](docs/governance/QUALITY_SCORE_EVAL_CONTRACT_EN.md) | Nine-dimension scoring and minimum Eval artifact standard |

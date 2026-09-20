@@ -16,7 +16,7 @@ This is a logical navigation model, not a directory migration. Existing and futu
 skills/{zh|en}/{testing-types|testing-workflows|skill-engineering}/<skill-name>/
 ```
 
-The earlier baseline had 79 logical Skill pairs (79 per language: 10 workflows, 66 testing types, and 3 Skill Engineering packages), or 158 bilingual directories. The current tree has 162 Skills per language (10 workflows, 149 testing types, and 3 Skill Engineering packages), or 324 bilingual directories. The current governance count is defined by [SKILL_GOVERNANCE_V1](./SKILL_GOVERNANCE_V1_EN.md) and the generated inventory.
+The earlier baseline had 79 logical Skill pairs (79 per language: 10 workflows, 66 testing types, and 3 Skill Engineering packages), or 158 bilingual directories. The current tree has 164 Skills per language (10 workflows, 149 testing types, and 5 Skill Engineering packages), or 328 bilingual directories. The current governance count is defined by [SKILL_GOVERNANCE_V1](./SKILL_GOVERNANCE_V1_EN.md) and the generated inventory.
 
 ## R&D and Testing Lifecycle Breakdown
 
@@ -32,6 +32,12 @@ The four capability stages are further organized by the lifecycle phases they pr
 | AI Native QA Skills | How do we test AI features, LLMs, prompts, agents, and safety boundaries? | Testing-for-AI specialist Skills are available | Eval, prompts, agents/tools, and security |
 
 `ai-assisted-testing` remains cross-cutting **AI for QA**. It is not a substitute for AI Native QA, which is Testing for AI. `skill-engineering` is a horizontal governance layer, not a fifth capability stage.
+
+## v1.5.1 Skill Evaluation Quality Loop
+
+This iteration turns `SKILL_EVALUATION_DESIGN_EN.md`, `SKILL_EVALUATION_CONTRACT_EN.md`, and the dual-pilot record into repository capabilities: bilingual `skill-quality-review` and `skill-evaluation`, plus run metadata, evidence states, failure classification, version-regression comparison, and regression-case conversion around the local trace runner. `skill-up` remains the only generic Eval Engine; without real model replay, an authorized target, and semantic evidence, the repository keeps `NOT_RUN` / `INSUFFICIENT_EVIDENCE`.
+
+The two Meta Skills remain in the horizontal Skill Engineering layer, preserve existing QA Skill paths, and add no second Quality Score.
 
 ## Iteration roadmap and Prompt Baseline references
 

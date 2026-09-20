@@ -1,0 +1,12 @@
+id: basic-success
+title: 设计完整 Skill 评测
+description: 用户要求设计并解释一套有证据边界的 Skill 评测。
+input:
+  prompt: 请为一个 Skill 设计并报告评测，覆盖 case 类型、judge 选择、trigger evidence、run metadata、失败分类、benchmark 与 regression，并输出评测范围、证据边界和推荐行动。
+expect:
+  must_contain: ["评测范围", "证据边界", "推荐行动"]
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all: ["证据边界", "推荐行动"]

@@ -17,7 +17,7 @@ This contract defines structural consistency for current project documents and S
 
 ## Current coverage
 
-- Each language has 162 Skill packages, for 324 physical directories in total.
+- Each language has 164 Skill packages, for 328 physical directories in total.
 - All 10 current `testing-workflows` packages appear individually in the bilingual installation/Eval checklist.
 - Generated governance views are determined by the Registry, Virtual Domain manifest, and generators; every source change requires regeneration and `--check`.
 

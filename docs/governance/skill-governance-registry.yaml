@@ -2846,6 +2846,84 @@
       ]
     },
     {
+      "slug": "skill-evaluation",
+      "section": "skill-engineering",
+      "zh_path": "skills/zh/skill-engineering/skill-evaluation",
+      "en_path": "skills/en/skill-engineering/skill-evaluation",
+      "virtual_domain": "D14",
+      "status": "Experimental",
+      "priority": "P1",
+      "related": "Complements skill-quality-review and skill-change-verification through prose-level workflow composition only; no filesystem dependency",
+      "governance_evidence": "docs/governance/SKILL_EVALUATION_DESIGN.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "The v1.5.1 package has structural and Eval-contract evidence; no Quality Score or semantic effectiveness score has been run."
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "skill-up validation is structural; real model replay and semantic judge calibration remain NOT_RUN."
+      },
+      "sdlc_stage": "UNASSESSED: horizontal Skill Engineering governance does not map to one product SDLC stage",
+      "roles": [
+        "QA",
+        "Engineering"
+      ],
+      "inputs": "skills/zh/skill-engineering/skill-evaluation/prompts/skill-evaluation.md#执行规则; skills/en/skill-engineering/skill-evaluation/prompts/skill-evaluation.md#execution-rules",
+      "outputs": "skills/zh/skill-engineering/skill-evaluation/prompts/skill-evaluation.md#输出; skills/en/skill-engineering/skill-evaluation/prompts/skill-evaluation.md#output",
+      "workflow": "v1.5.1 Skill Evaluation Quality Loop; optional navigation only",
+      "evidence_paths": [
+        "docs/governance/SKILL_EVALUATION_DESIGN.md",
+        "docs/governance/SKILL_EVALUATION_CONTRACT.md",
+        "skills/zh/skill-engineering/skill-evaluation/SKILL.md",
+        "skills/en/skill-engineering/skill-evaluation/SKILL.md",
+        "skills/zh/skill-engineering/skill-evaluation/prompts/skill-evaluation.md",
+        "skills/en/skill-engineering/skill-evaluation/prompts/skill-evaluation.md",
+        "skills/zh/skill-engineering/skill-evaluation/evals/eval.yaml",
+        "skills/en/skill-engineering/skill-evaluation/evals/eval.yaml",
+        "skills/zh/skill-engineering/skill-evaluation/agents/openai.yaml",
+        "skills/en/skill-engineering/skill-evaluation/agents/openai.yaml"
+      ]
+    },
+    {
+      "slug": "skill-quality-review",
+      "section": "skill-engineering",
+      "zh_path": "skills/zh/skill-engineering/skill-quality-review",
+      "en_path": "skills/en/skill-engineering/skill-quality-review",
+      "virtual_domain": "D14",
+      "status": "Experimental",
+      "priority": "P1",
+      "related": "Complements skill-prose-review and skill-change-verification through package-level review; no filesystem dependency",
+      "governance_evidence": "docs/governance/SKILL_EVALUATION_DESIGN.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "The v1.5.1 package has structural and Eval-contract evidence; no Quality Score or semantic effectiveness score has been run."
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "skill-up validation is structural; real model replay and runtime package effectiveness remain NOT_RUN."
+      },
+      "sdlc_stage": "UNASSESSED: horizontal Skill Engineering governance does not map to one product SDLC stage",
+      "roles": [
+        "QA",
+        "Engineering"
+      ],
+      "inputs": "skills/zh/skill-engineering/skill-quality-review/prompts/skill-quality-review.md#执行规则; skills/en/skill-engineering/skill-quality-review/prompts/skill-quality-review.md#execution-rules",
+      "outputs": "skills/zh/skill-engineering/skill-quality-review/prompts/skill-quality-review.md#输出; skills/en/skill-engineering/skill-quality-review/prompts/skill-quality-review.md#output",
+      "workflow": "v1.5.1 Skill Evaluation Quality Loop; optional navigation only",
+      "evidence_paths": [
+        "docs/governance/SKILL_EVALUATION_DESIGN.md",
+        "docs/governance/SKILL_EVALUATION_CONTRACT.md",
+        "skills/zh/skill-engineering/skill-quality-review/SKILL.md",
+        "skills/en/skill-engineering/skill-quality-review/SKILL.md",
+        "skills/zh/skill-engineering/skill-quality-review/prompts/skill-quality-review.md",
+        "skills/en/skill-engineering/skill-quality-review/prompts/skill-quality-review.md",
+        "skills/zh/skill-engineering/skill-quality-review/evals/eval.yaml",
+        "skills/en/skill-engineering/skill-quality-review/evals/eval.yaml",
+        "skills/zh/skill-engineering/skill-quality-review/agents/openai.yaml",
+        "skills/en/skill-engineering/skill-quality-review/agents/openai.yaml"
+      ]
+    },
+    {
       "slug": "requirement-quality-review",
       "section": "testing-types",
       "zh_path": "skills/zh/testing-types/requirement-quality-review",

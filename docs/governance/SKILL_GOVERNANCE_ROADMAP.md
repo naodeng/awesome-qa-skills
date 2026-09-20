@@ -21,17 +21,23 @@ GitHub Project `Awesome QA Skills — Governance & Roadmap` 是执行看板。�
 
 每次状态变化同步检查：`SKILL_MATRIX.md`、中英文入口 README、Catalog/Graph、Workflow、Eval、`agents/openai.yaml`、安装与贡献文档。未适用项显式标记 `N/A`。
 
-## v1.5 当前工作项（2026-09-19）
+## v1.5 已收口（2026-09-20）
 
-`In Progress`：新增一个 `v1.5｜迭代｜Skills CLI / Agent Skills Ecosystem Integration` Project 卡，完整覆盖附件 `awesome-qa-skills-skills-cli-integration-pack (1)` 的 15 份文档：架构与 ADR、可移植兼容契约、仓库变更、CLI 分发、CI 质量门禁、作者体验、迁移、测试、回滚与风险、DoD、实施 Epic A–H、最终目录和 README 变更规范。附件原本提出的 Iteration 0–7、PR slicing、Later 和 Optional 仅作为来源建议；本次按用户要求合并为一个 v1.5 迭代，不再为该集成拆出多个后续迭代卡。
+`Done`：`v1.5｜迭代｜Skills CLI / Agent Skills Ecosystem Integration` Project 卡已完成，覆盖附件 `awesome-qa-skills-skills-cli-integration-pack (1)` 的 15 份文档：架构与 ADR、可移植兼容契约、仓库变更、CLI 分发、CI 质量门禁、作者体验、迁移、测试、回滚与风险、DoD、实施 Epic A–H、最终目录和 README 变更规范。附件原本提出的 Iteration 0–7、PR slicing、Later 和 Optional 仅作为来源建议；本次按用户要求合并为一个 v1.5 迭代，不再为该集成拆出多个后续迭代卡。
 
 新增 v1.5 后，Project 中原有目标版本按一次顺延处理：原 `v1.5` → `v1.6`、原 `v1.6` → `v1.7`、原 `v1.7` → `v1.8`、原 `v1.8` → `v1.9`。原卡片的主题、优先级和当前状态保留；新卡创建时初始为 `Todo` / `P1` / `v1.5`。这一排期调整不改变 v1.4 历史收口证据，也不把 Project 状态当作发布批准或运行效果证明。
 
-开发已启动（2026-09-19）：该 v1.5 卡当前为 `In Progress` / `P1` / `v1.5`；顺延后的既有卡片仍保持各自原状态。
+开发与收口已完成（2026-09-20）：该 v1.5 卡当前为 `Done` / `P1` / `v1.5`；顺延后的既有卡片仍保持各自原状态。
+
+## v1.5.1 当前工作项（2026-09-20）
+
+`Done`：新增并完成 `v1.5.1｜迭代｜Skill Evaluation Quality Loop` Project 卡，依据 [Skill Evaluation Design](./SKILL_EVALUATION_DESIGN.md)、[Evaluation Contract](./SKILL_EVALUATION_CONTRACT.md) 与 [Pilot Record](./SKILL_EVALUATION_PILOTS.md) 落地 Skill Engineering Quality Loop。交付包括双语 `skill-quality-review` 与 `skill-evaluation` Meta Skills、证据元数据与状态契约、失败分类、回归用例写入器、`requirements-analysis` / `ui-test-playwright` pilot 记录，以及质量门禁与治理视图同步。
+
+本迭代保持 `skill-up` 为唯一通用 Eval Engine，不新增第二套通用 Eval、Judge、Benchmark 或 Quality Score。静态、结构、评测、运行时和人工复核证据分开记录；未授权真实模型回放、trigger selection 观察、外部目标执行和业务验收仍保持 `NOT_RUN` / `INSUFFICIENT_EVIDENCE`，不由 Project `Done` 状态推断。
 
 ## Phase 0 当前状态（2026-09-16）
 
-`COMPLETED_WITH_LIMITATIONS`：registry 当前逐条覆盖 162 个逻辑双语 Skill 对；每条保留中英文 `SKILL.md`、主 prompt、Eval 结构和 `agents/openai.yaml` 的证据路径，D01–D16 分类源以及 Matrix/Register 均由生成器复现并受质量门禁检查。当前登记 100 个候选条目，每条保留六项证据字段；其中 Phase 0 Prompt Baseline 继续固定在 `554178fe9b93d851ec01388597ceb7996d22bd1c` 的 `awesome-qa-prompt` 提交（详见 [Phase 0 来源登记](./PHASE_0_PROMPT_BASELINE_SOURCES.md)）。候选结论保留 `MATCH` / `MERGE` / `ENHANCE` / `NEW`，`decision_state` 按阶段保留 `REVIEWED_WITH_LIMITATION` / `REVIEWED` / `PROPOSED`；业务语义等价仍需项目需求、Issue/PR 或测试资产复核，不得据此直接创建或修改 Skill。Phase 0 未执行模型、外部测试目标或真实质量评估，因此 Quality Score / Eval 执行仍为 `NOT_SCORED` / `NOT_RUN`；Prompt 语义等价、运行行为与有效性继续为 `UNASSESSED`。
+`COMPLETED_WITH_LIMITATIONS`：registry 当前逐条覆盖 164 个逻辑双语 Skill 对；每条保留中英文 `SKILL.md`、主 prompt、Eval 结构和 `agents/openai.yaml` 的证据路径，D01–D16 分类源以及 Matrix/Register 均由生成器复现并受质量门禁检查。当前登记 100 个候选条目，每条保留六项证据字段；其中 Phase 0 Prompt Baseline 继续固定在 `554178fe9b93d851ec01388597ceb7996d22bd1c` 的 `awesome-qa-prompt` 提交（详见 [Phase 0 来源登记](./PHASE_0_PROMPT_BASELINE_SOURCES.md)）。候选结论保留 `MATCH` / `MERGE` / `ENHANCE` / `NEW`，`decision_state` 按阶段保留 `REVIEWED_WITH_LIMITATION` / `REVIEWED` / `PROPOSED`；业务语义等价仍需项目需求、Issue/PR 或测试资产复核，不得据此直接创建或修改 Skill。Phase 0 未执行模型、外部测试目标或真实质量评估，因此 Quality Score / Eval 执行仍为 `NOT_SCORED` / `NOT_RUN`；Prompt 语义等价、运行行为与有效性继续为 `UNASSESSED`。
 
 典型映射复核（2026-09-16）已将 20 条路线图关系写入 Registry 的 `match_reviews`，包括 13 条候选映射和 7 条 Existing 自映射；[双语复核视图](./PHASE_0_MATCH_MERGE_REVIEW.md)与 Matrix/Matching Register 均由生成器产生。该复核只固化关系、目标 Skill、证据路径和后续动作，不授权创建重复目录，也不把静态关系记录升级为语义等价、运行效果、模型评测或发布批准。
 

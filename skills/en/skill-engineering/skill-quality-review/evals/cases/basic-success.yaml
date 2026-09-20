@@ -1,0 +1,12 @@
+id: basic-success
+title: Complete Skill package review
+description: The user provides a complete package and a review scope.
+input:
+  prompt: Review a complete Skill package for architecture, scope, triggers, independent installation, bilingual consistency, Eval readiness, and evidence boundaries. Report blocking issues, important suggestions, information gaps, Eval readiness, and evidence boundaries.
+expect:
+  must_contain: ["Blocking Issues", "Evidence Boundaries", "Eval Readiness"]
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all: ["Blocking Issues", "Evidence Boundaries"]

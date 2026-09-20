@@ -1,0 +1,12 @@
+id: basic-success
+title: Design a complete Skill evaluation
+description: The user requests an evidence-bounded evaluation design and report.
+input:
+  prompt: Design and report an evidence-bounded Skill evaluation covering case types, judge selection, trigger evidence, run metadata, failure classification, benchmark versus regression, and recommended actions. Include Scope, Evidence Boundaries, and Recommended Actions.
+expect:
+  must_contain: ["Scope", "Evidence Boundaries", "Recommended Actions"]
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all: ["Evidence Boundaries", "Recommended Actions"]
