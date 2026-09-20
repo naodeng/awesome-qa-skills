@@ -8,7 +8,7 @@
 
 **Tech Stack:** Markdown, YAML, Python 3 standard library, `skill-up` 0.7.0, existing shell quality gates, GitHub Projects CLI.
 
-**Spec:** `/Users/nao.deng/Downloads/SKILL_EVALUATION_DESIGN.md` (user-supplied, read-only source for this iteration).
+**Spec:** `docs/governance/SKILL_EVALUATION_DESIGN.md` (the repository copy of the user-supplied, read-only source for this iteration).
 
 ## Global Constraints
 
@@ -53,10 +53,12 @@
 **Files:**
 - Create: `scripts/skill_eval_evidence.py`
 - Create: `scripts/add_skill_eval_regression_case.py`
+- Create: `scripts/compare_skill_eval_runs.py`
 - Modify: `scripts/run_skill_trace_eval.py`
 - Modify: `scripts/tests/test_run_skill_trace_eval.py`
 - Create: `scripts/tests/test_skill_eval_evidence.py`
 - Create: `scripts/tests/test_add_skill_eval_regression_case.py`
+- Create: `scripts/tests/test_compare_skill_eval_runs.py`
 - Modify: `docs/SKILL_EVAL_RULES.md`
 - Modify: `docs/SKILL_EVAL_RULES_EN.md`
 
@@ -65,6 +67,7 @@
 - [x] Implement standard-library-only metadata helpers that record timestamp, run ID, skill/eval hashes, `skill-up` version when available, engine/model/provider values, judge type, environment, and unknown values without guessing.
 - [x] Extend the existing runner's JSON report with `run_metadata`, `evidence_state`, and `failure_classification` while preserving existing exit codes and dry-run behavior.
 - [x] Add a small regression-case writer that creates a case under an explicitly supplied Skill's `evals/cases/` directory, marks it `REGRESSION`, and never edits `SKILL.md` or silently overwrites an existing case.
+- [x] Add a deterministic previous/current report comparator that checks the comparability contract before reporting regression observations.
 - [x] Document how metadata, trace evidence, failure classifications, and regression candidates are interpreted; keep local twenty-rule semantics unchanged.
 - [x] Run focused tests and confirm the new helpers pass without network access.
 
@@ -124,7 +127,7 @@
 - [x] Add registry records for both new logical Skills with D14, P1/Experimental, `NOT_SCORED`, `NOT_RUN`, bilingual paths, and evidence paths; do not create a new Quality Score dimension.
 - [x] Update bilingual catalog/readme counts from 162/3 to 164/5 and add both packages to the Skill Engineering navigation.
 - [x] Add a short v1.5.1 entry to both governance roadmaps that points to the design, contract, pilots, and evidence rules, while keeping v1.5's historical CLI closeout separate.
-- [x] Add the contract validator to the quality gate/CI after its tests exist; retain the existing `skill-up` validation and CLI compatibility jobs.
+- [x] Add the contract validator to the quality gate/CI after its tests exist; install pinned `skill-up` and make the Level 1 validation fail closed in CI; retain the CLI compatibility job.
 - [x] Run the generators in their documented order and use their `--check` modes to prove generated files are synchronized.
 
 ### Task 5: Verify implementation and update Project #4

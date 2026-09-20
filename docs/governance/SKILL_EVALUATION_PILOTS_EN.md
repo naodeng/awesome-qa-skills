@@ -16,10 +16,10 @@ This record binds the analysis and executable pilots to existing Skills; it does
 ## Executable Pilot
 
 - Skill: `ui-test-playwright`
-- Focus: test-artifact structure, script executability, syntax/discovery/runtime smoke, and a `script` judge.
+- Focus: test-artifact structure, script executability, JavaScript syntax, test declaration discovery, and a `script` judge; browser/runtime smoke remains a separate layer.
 - Existing configuration: `skills/{zh,en}/testing-types/ui-test-playwright/evals/eval.yaml`, with benchmark configuration enabled.
-- Judge configuration: `basic-script-artifact` uses a `script` judge to check Playwright artifact markers.
-- Current evidence: configuration and static package structure are verifiable; without an authorized target application and real model run, artifact execution and benchmark results are `NOT_RUN`.
+- Judge configuration: `basic-script-artifact` uses a `script` judge to extract a JavaScript code block, validate its syntax, and check Playwright test, navigation, and assertion declarations.
+- Current evidence: configuration, artifact extraction, syntax, and declaration checks are verifiable; without an authorized target application and real model run, browser/runtime execution and benchmark results are `NOT_RUN`.
 
 ## Reproducible validation commands
 

@@ -27,7 +27,10 @@ class RegressionCaseWriterTest(unittest.TestCase):
             )
 
             self.assertEqual(output, (cases / "regression-missing-evidence.yaml").resolve())
-            self.assertIn("category: REGRESSION", output.read_text(encoding="utf-8"))
+            generated = output.read_text(encoding="utf-8")
+            self.assertIn("category: REGRESSION", generated)
+            self.assertIn("lifecycle: CANDIDATE", generated)
+            self.assertIn("evidence_state: NOT_RUN", generated)
             self.assertEqual(skill_file.read_text(encoding="utf-8"), "original\n")
 
             with self.assertRaises(FileExistsError):

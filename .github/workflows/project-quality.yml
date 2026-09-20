@@ -25,14 +25,28 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Set up Node.js for executable eval fixtures
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install pinned skill-up
+        env:
+          SKILL_UP_VERSION: "0.7.0"
+          INSTALL_DIR: ${{ runner.temp }}/skill-up/bin
+        run: |
+          set -euo pipefail
+          curl -fsSL https://raw.githubusercontent.com/alibaba/skill-up/main/install.sh | bash
+          echo "$INSTALL_DIR" >> "$GITHUB_PATH"
+          "$INSTALL_DIR/skill-up" --version
+
       - name: Run project-document unit tests
         run: python3 -m unittest scripts.tests.test_check_docs_bilingual -v
 
       - name: Run project quality gate
+        env:
+          REQUIRE_SKILL_UP: "1"
         run: bash scripts/check_skills_quality.sh
-
-      - name: Validate Skill Evaluation Quality Loop contract
-        run: python3 scripts/validate_skill_evaluation_contract.py --repo-root .
 
   skills-cli-compatibility:
     name: Skills CLI compatibility

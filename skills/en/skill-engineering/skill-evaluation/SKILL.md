@@ -29,6 +29,29 @@ description: Use this skill when designing, running, interpreting, or reporting 
 - Do not modify the Skill or enter an unlimited optimization loop. Keep Benchmark (with/without Skill) separate from Version Regression (previous/current).
 - Use `unknown` for unknown values; preserve `NOT_RUN`, `UNASSESSED`, `BLOCKED`, or `INSUFFICIENT_EVIDENCE` when evidence is incomplete.
 
+## Output format options
+
+- Default to a concise Markdown evaluation report with tables for case results and evidence states.
+- Use JSON only when a downstream script needs machine-readable case results; keep the same evidence vocabulary and limitations.
+
+## Reference files
+
+- Read `prompts/skill-evaluation.md` for the complete execution and report contract.
+- Read the target Skill's `evals/` and its fixtures before selecting a judge.
+- Use repository governance contracts and trace rules as optional deep references, never as private dependencies of a copied Skill.
+
+## Common pitfalls
+
+- Treating `skill-up validate` or a dry-run as proof of runtime or semantic effectiveness.
+- Calling a missing trigger event a negative result instead of `BLOCKED`.
+- Mixing with/without Skill benchmarks with previous/current version regression.
+
+## Best practices
+
+- Start with the smallest deterministic case that demonstrates the intended behavior.
+- Record the exact run identity, judge, environment, unavailable evidence, and limitations.
+- Convert only confirmed real failures into regression cases, and preserve the original evidence.
+
 ## Progressive disclosure
 
 - Read `prompts/skill-evaluation.md` before producing the report.

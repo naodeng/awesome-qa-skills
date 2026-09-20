@@ -16,10 +16,10 @@
 ## Executable Pilot
 
 - Skill：`ui-test-playwright`
-- 关注：测试工件结构、脚本可执行性、syntax/discovery/runtime smoke，以及 `script` judge。
+- 关注：测试工件结构、脚本可执行性、JavaScript 语法、测试声明发现和 `script` judge；浏览器/runtime smoke 仍属于独立层。
 - 现有配置：`skills/{zh,en}/testing-types/ui-test-playwright/evals/eval.yaml`，启用 benchmark 配置。
-- Judge 配置：`basic-script-artifact` 使用 `script` judge 检查 Playwright 工件标记。
-- 当前证据：配置与静态包结构可验证；没有授权目标应用和真实模型运行时，artifact execution 与 benchmark 结果为 `NOT_RUN`。
+- Judge 配置：`basic-script-artifact` 使用 `script` judge 提取 JavaScript 代码块，验证语法并检查 Playwright 测试、导航和断言声明。
+- 当前证据：配置、工件提取、语法和声明检查可验证；没有授权目标应用和真实模型运行时，浏览器/runtime 执行与 benchmark 结果为 `NOT_RUN`。
 
 ## 统一执行命令
 

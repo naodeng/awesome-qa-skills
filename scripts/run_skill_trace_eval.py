@@ -147,7 +147,13 @@ def _case_paths(output_root: Path, case_id: str) -> tuple[Path, Path, Path]:
     )
 
 
-def _dry_case(case: PromptCase, project_root: Path, approve_for_me: bool, codex_bin: str) -> dict[str, Any]:
+def _dry_case(
+    case: PromptCase,
+    project_root: Path,
+    approve_for_me: bool,
+    codex_bin: str,
+    metadata: dict[str, str],
+) -> dict[str, Any]:
     return {
         "case_id": case.case_id,
         "should_trigger": case.should_trigger,
@@ -159,6 +165,7 @@ def _dry_case(case: PromptCase, project_root: Path, approve_for_me: bool, codex_
         "exit_code": 0,
         "evidence_state": "NOT_RUN",
         "failure_classification": None,
+        "run_metadata": metadata,
     }
 
 
@@ -194,13 +201,23 @@ def run_cases(
         provider=provider,
         environment=environment,
         run_id=run_id,
+        case_id=None,
         variant=variant,
         judge_type=judge_type or str(base_config.get("judge_type", "rule_based")),
         judge_model=judge_model,
     )
     if dry_run:
         return BatchReport(
-            [_dry_case(case, project_root, approve_for_me, codex_bin) for case in cases],
+            [
+                _dry_case(
+                    case,
+                    project_root,
+                    approve_for_me,
+                    codex_bin,
+                    metadata.for_case(case.case_id).to_dict(),
+                )
+                for case in cases
+            ],
             metadata.to_dict(),
         )
 
@@ -231,11 +248,13 @@ def run_cases(
             runner_exit_code=completed.returncode,
             eval_exit_code=eval_report.exit_code,
             trace_event_count=len(trace.events),
+            trace_error_count=len(trace.errors),
         )
         classification = failure_classification(
             state=state,
             trace_event_count=len(trace.events),
             requested=failure_classification_name,
+            trace_error_count=len(trace.errors),
         )
         payload = eval_report.to_dict()
         payload.update(
@@ -251,7 +270,9 @@ def run_cases(
                 "exit_code": case_exit_code,
                 "evidence_state": state,
                 "failure_classification": classification,
-                "run_metadata": metadata.to_dict(),
+                "trace_error_count": len(trace.errors),
+                "trace_raw_line_count": trace.raw_line_count,
+                "run_metadata": metadata.for_case(case.case_id).to_dict(),
             }
         )
         report_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

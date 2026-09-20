@@ -29,6 +29,29 @@ description: 在需要设计、运行、解释或报告 Agent Skill 评测，选
 - 不自动修改 Skill，不自动无限优化；不把 Benchmark（with/without Skill）和 Version Regression（previous/current）混为一谈。
 - 值未知时写 `unknown`；证据不足保留 `NOT_RUN`、`UNASSESSED`、`BLOCKED` 或 `INSUFFICIENT_EVIDENCE`。
 
+## 输出格式选项
+
+- 默认输出简洁的 Markdown 评测报告，用表格呈现 case 结果和 evidence state。
+- 下游脚本需要机器可读结果时才输出 JSON；仍使用同一套证据词汇并保留限制。
+
+## 参考文件
+
+- 完整执行和报告契约见 `prompts/skill-evaluation.md`。
+- 选择 judge 前先读取目标 Skill 的 `evals/` 和 fixtures。
+- 仓库治理契约与 trace rules 只作为可选深资料，复制后的 Skill 不得依赖其私有路径。
+
+## 常见误区
+
+- 把 `skill-up validate` 或 dry-run 当成 runtime 或语义效果证据。
+- 缺少 trigger 事件时写成未触发，而不是 `BLOCKED`。
+- 把 with/without Skill 的 benchmark 与 previous/current 的版本回归混为一谈。
+
+## 最佳实践
+
+- 从能够证明目标行为的最小确定性 case 开始。
+- 记录准确的 run identity、judge、environment、未获得的证据和限制。
+- 只有确认真实失败根因后才转成 regression case，并保留原始证据。
+
 ## 按需加载
 
 - 产出前读取 `prompts/skill-evaluation.md`。

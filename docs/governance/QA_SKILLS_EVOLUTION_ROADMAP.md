@@ -35,7 +35,7 @@ skills/{zh|en}/{testing-types|testing-workflows|skill-engineering}/<skill-name>/
 
 ## v1.5.1 Skill Evaluation Quality Loop
 
-本迭代把 `SKILL_EVALUATION_DESIGN.md`、`SKILL_EVALUATION_CONTRACT.md` 和双 Pilot 记录落成仓库能力：新增双语 `skill-quality-review` 与 `skill-evaluation`，扩展本地 trace runner 的 run metadata、证据状态、失败分类和 regression case 转换路径。`skill-up` 仍是唯一通用 Eval Engine；真实模型 replay、目标执行和 semantic effectiveness 没有证据时保持 `NOT_RUN` / `INSUFFICIENT_EVIDENCE`。
+本迭代把 `SKILL_EVALUATION_DESIGN.md`、`SKILL_EVALUATION_CONTRACT.md` 和双 Pilot 记录落成仓库能力：新增双语 `skill-quality-review` 与 `skill-evaluation`，扩展本地 trace runner 的 run metadata、证据状态、失败分类、版本回归比较和 regression case 转换路径。`skill-up` 仍是唯一通用 Eval Engine；真实模型 replay、目标执行和 semantic effectiveness 没有证据时保持 `NOT_RUN` / `INSUFFICIENT_EVIDENCE`。
 
 这两个 Meta Skill 归入 Skill Engineering 横向治理层，不改变既有 QA Skill 物理路径，也不新增第二套 Quality Score。
 

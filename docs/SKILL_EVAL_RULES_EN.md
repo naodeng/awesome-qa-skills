@@ -107,10 +107,12 @@ Keep the rule configuration small and focused. The prompt set should cover expli
 
 ## Evidence package and regression cases
 
-`scripts/run_skill_trace_eval.py` records `run_metadata` in each batch: `run_id`, Skill commit, Eval input hash, `skill-up` version, engine/provider/model, judge, and environment. Unavailable tools or values are recorded as `unknown`; they are never guessed.
+`scripts/run_skill_trace_eval.py` records `run_metadata` in the batch and each case result: `run_id`, `case_id`, Skill commit/content identity, Eval input hash, `skill-up` version, engine/provider/model, judge, and environment. A dirty Skill includes a content hash; unavailable tools or values are recorded as `unknown` and never guessed.
 
-Each case also records an `evidence_state`: `PASS`, `FAIL`, `BLOCKED`, or dry-run `NOT_RUN`, plus an optional `failure_classification`: `SKILL_DEFECT`, `EVAL_DEFECT`, `INFRASTRUCTURE_DEFECT`, or `UNKNOWN`. A trace failure is not automatically attributed to the Skill; a runner failure with no trace can only be treated as infrastructure-blocked evidence.
+Each case also records an `evidence_state`: `PASS`, `FAIL`, `BLOCKED`, or dry-run `NOT_RUN`, plus an optional `failure_classification`: `SKILL_DEFECT`, `EVAL_DEFECT`, `INFRASTRUCTURE_DEFECT`, or `UNKNOWN`. A malformed trace is `FAIL`, not infrastructure-blocked; infrastructure blocking is reserved for runs with no trace evidence.
 
-After a human confirms the root cause of a real failure, `scripts/add_skill_eval_regression_case.py` can create a `REGRESSION` candidate under the selected Skill's `evals/cases/`. The script rejects unsafe IDs and existing files, does not edit `SKILL.md`, and does not promote a candidate into a stable gate automatically.
+After a human confirms the root cause of a real failure, `scripts/add_skill_eval_regression_case.py` can create a `REGRESSION` candidate under the selected Skill's `evals/cases/`. The candidate lifecycle is `CANDIDATE` while its evidence state remains `NOT_RUN`; the script rejects unsafe IDs and existing files, does not edit `SKILL.md`, and does not promote a candidate into a stable gate automatically.
+
+Version regression comparison uses `scripts/compare_skill_eval_runs.py previous.json current.json`. It compares existing reports only, checks comparability across Eval, engine, model, judge, and environment metadata, and reports previous `PASS` to current `FAIL` as `REGRESSION_OBSERVED`; missing comparable evidence remains `INSUFFICIENT_EVIDENCE`.
 
 These fields complement the twenty local rules without changing their deterministic semantics. Evaluation states and claim boundaries are governed by [`SKILL_EVALUATION_CONTRACT_EN.md`](governance/SKILL_EVALUATION_CONTRACT_EN.md).

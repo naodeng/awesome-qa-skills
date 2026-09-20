@@ -6,6 +6,10 @@ REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$REPO_ROOT"
 
 if ! command -v skill-up >/dev/null 2>&1; then
+  if [[ "${REQUIRE_SKILL_UP:-0}" == "1" ]]; then
+    echo "skill-up is required but was not found in PATH." >&2
+    exit 1
+  fi
   echo "skill-up not found in PATH; skip eval YAML validation."
   echo "Install: curl -fsSL https://raw.githubusercontent.com/alibaba/skill-up/main/install.sh | bash"
   exit 0

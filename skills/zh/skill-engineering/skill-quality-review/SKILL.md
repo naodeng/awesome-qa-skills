@@ -26,6 +26,29 @@ description: 在需要审查完整 Skill 包的架构、范围、触发、独立
 - 不凭空补充环境、依赖、指标、触发结果或执行事实；缺少证据时使用 `UNASSESSED`、`NOT_RUN`、`BLOCKED` 或 `INSUFFICIENT_EVIDENCE`。
 - 不新增第二套 Eval Engine、Judge、Benchmark 或 Quality Score。
 
+## 输出格式选项
+
+- 默认使用 Markdown 审查报告，包含结论、阻塞问题、建议、信息缺口和证据边界。
+- 需要比较多个文件或证据层时使用表格，但不要用分数替代判断依据。
+
+## 参考文件
+
+- 完整审查输出契约见 `prompts/skill-quality-review.md`。
+- 将目标 Skill 的 `SKILL.md`、Prompt、metadata、references、examples 和 `evals/` 一起检查。
+- 仓库契约只作为可选深资料；缺少 runtime 时保留限制，不凭空补证据。
+
+## 常见误区
+
+- 把目录完整、CLI smoke 或 Project 状态当成 runtime 或模型证据。
+- 只审查文案，遗漏 metadata、Eval、安装路径或双语不一致。
+- 为了补齐包结构而增加跨 Skill 私有文件依赖。
+
+## 最佳实践
+
+- 先确认范围和信息缺口，再把每个结论追溯到文件和证据等级。
+- 分开记录阻塞缺陷、建议和未评估项。
+- 保持审查范围在 package 层，并确保结论不依赖本机绝对路径。
+
 ## 按需加载
 
 - 产出前阅读 `prompts/skill-quality-review.md`，以它的输出契约为准。

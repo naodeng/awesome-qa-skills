@@ -26,6 +26,29 @@ description: Use this skill when reviewing a complete Skill package for architec
 - Do not invent environments, dependencies, metrics, trigger observations, or execution facts. Use `UNASSESSED`, `NOT_RUN`, `BLOCKED`, or `INSUFFICIENT_EVIDENCE` when evidence is absent.
 - Do not create a second Eval Engine, Judge, Benchmark, or Quality Score.
 
+## Output format options
+
+- Default to a Markdown review with a conclusion, blocking issues, suggestions, information gaps, and evidence boundaries.
+- Use a table when several files or evidence layers must be compared; do not replace the reasoning with a score.
+
+## Reference files
+
+- Read `prompts/skill-quality-review.md` for the complete review output contract.
+- Inspect the target Skill's `SKILL.md`, Prompt, metadata, references, examples, and `evals/` together.
+- Use repository contracts as optional deep references and preserve missing-runtime limitations.
+
+## Common pitfalls
+
+- Treating directory completeness, CLI smoke, or Project status as runtime or model evidence.
+- Reviewing only prose while missing metadata, eval, installation, or bilingual inconsistencies.
+- Adding a cross-Skill private-file dependency to make a package appear complete.
+
+## Best practices
+
+- Start with scope and information gaps, then trace each claim to a file and evidence level.
+- Separate blocking defects from suggestions and unassessed areas.
+- Keep the review package-level, reproducible, and independent of local machine paths.
+
 ## Progressive disclosure
 
 - Read `prompts/skill-quality-review.md` before producing the report; it is the output contract.

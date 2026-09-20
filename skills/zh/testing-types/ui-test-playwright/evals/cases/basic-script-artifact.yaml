@@ -1,18 +1,19 @@
 id: basic-script-artifact
 title: "Playwright：输出最小可执行测试工件"
 description: |
-  脚本 judge 检查结构化测试工件标记，避免只用章节关键词判断。
+  脚本 judge 提取 JavaScript 测试工件，检查测试声明并验证语法。
 
 input:
   prompt: |
     使用 ui-test-playwright。
     为下单流程生成最小 Playwright 测试工件：访问结账页、提交订单，并断言确认标题。
-    请把可执行示例放在代码块中，并包含 test()、page.goto() 和 expect()，以便脚本 judge 检查。
+    请把可执行 JavaScript 示例放在 ```javascript 代码块中，并包含 test()、page.goto() 和 expect()，以便脚本 judge 检查。
 
 expect:
   must_contain:
     - "Playwright"
     - "test("
+    - "page.goto("
     - "expect("
 
 judge:

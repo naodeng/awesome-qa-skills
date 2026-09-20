@@ -35,7 +35,7 @@ The four capability stages are further organized by the lifecycle phases they pr
 
 ## v1.5.1 Skill Evaluation Quality Loop
 
-This iteration turns `SKILL_EVALUATION_DESIGN_EN.md`, `SKILL_EVALUATION_CONTRACT_EN.md`, and the dual-pilot record into repository capabilities: bilingual `skill-quality-review` and `skill-evaluation`, plus run metadata, evidence states, failure classification, and regression-case conversion around the local trace runner. `skill-up` remains the only generic Eval Engine; without real model replay, an authorized target, and semantic evidence, the repository keeps `NOT_RUN` / `INSUFFICIENT_EVIDENCE`.
+This iteration turns `SKILL_EVALUATION_DESIGN_EN.md`, `SKILL_EVALUATION_CONTRACT_EN.md`, and the dual-pilot record into repository capabilities: bilingual `skill-quality-review` and `skill-evaluation`, plus run metadata, evidence states, failure classification, version-regression comparison, and regression-case conversion around the local trace runner. `skill-up` remains the only generic Eval Engine; without real model replay, an authorized target, and semantic evidence, the repository keeps `NOT_RUN` / `INSUFFICIENT_EVIDENCE`.
 
 The two Meta Skills remain in the horizontal Skill Engineering layer, preserve existing QA Skill paths, and add no second Quality Score.
 

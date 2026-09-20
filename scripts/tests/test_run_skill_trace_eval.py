@@ -78,6 +78,7 @@ class SkillTraceRunnerTest(unittest.TestCase):
             self.assertEqual(report.to_dict()["summary"]["NOT_RUN"], 1)
             self.assertEqual(len(report.cases), 1)
             self.assertTrue(report.cases[0]["dry_run"])
+            self.assertEqual(report.cases[0]["run_metadata"]["case_id"], "case-1")
             self.assertEqual(
                 report.cases[0]["command"],
                 [
@@ -138,6 +139,40 @@ class SkillTraceRunnerTest(unittest.TestCase):
             self.assertEqual(result["exit_code"], 0)
             self.assertEqual(result["evidence_state"], "PASS")
             self.assertIn("run_id", result["run_metadata"])
+            self.assertEqual(result["run_metadata"]["case_id"], "case-1")
+
+    def test_malformed_trace_is_a_failure_not_an_infrastructure_block(self):
+        with TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            prompts = root / "prompts.csv"
+            config = root / "rules.json"
+            project_root = root / "projects"
+            output_root = root / "outputs"
+            self.write_prompts(
+                prompts,
+                [{"id": "case-1", "should_trigger": "true", "prompt": "Create a demo", "mode": "explicit"}],
+            )
+            config.write_text(json.dumps({"skill": "demo-skill"}), encoding="utf-8")
+            completed = runner.subprocess.CompletedProcess(
+                args=["codex"],
+                returncode=0,
+                stdout="not-json\n",
+                stderr="",
+            )
+
+            with patch.object(runner.subprocess, "run", return_value=completed):
+                report = runner.run_cases(
+                    prompts_path=prompts,
+                    config_path=config,
+                    project_root=project_root,
+                    output_root=output_root,
+                    dry_run=False,
+                )
+
+            result = report.cases[0]
+            self.assertEqual(result["evidence_state"], "FAIL")
+            self.assertEqual(result["failure_classification"], "UNKNOWN")
+            self.assertEqual(result["trace_error_count"], 1)
 
 
 if __name__ == "__main__":

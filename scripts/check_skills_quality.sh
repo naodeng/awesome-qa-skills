@@ -38,7 +38,7 @@ echo "[7/11] Check external snapshot hygiene"
 python3 scripts/check_external_snapshots.py --skills-root skills --max-per-skill 5 >/tmp/skills-external-check.out
 cat /tmp/skills-external-check.out
 
-echo "[8/11] Validate skill-up eval YAML (if skill-up installed)"
+echo "[8/11] Validate skill-up eval YAML"
 bash scripts/validate_skill_evals.sh >/tmp/skills-eval-validate.out
 cat /tmp/skills-eval-validate.out
 

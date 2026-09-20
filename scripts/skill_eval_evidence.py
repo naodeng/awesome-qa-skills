@@ -3,7 +3,7 @@
 
 from __future__ import annotations
 
-from dataclasses import asdict, dataclass
+from dataclasses import asdict, dataclass, replace
 from datetime import datetime, timezone
 import hashlib
 from pathlib import Path
@@ -30,6 +30,7 @@ FAILURE_CLASSIFICATIONS = (
 @dataclass(frozen=True)
 class RunMetadata:
     run_id: str
+    case_id: str
     variant: str
     skill_version: str
     eval_version: str
@@ -45,6 +46,9 @@ class RunMetadata:
 
     def to_dict(self) -> dict[str, str]:
         return asdict(self)
+
+    def for_case(self, case_id: str) -> "RunMetadata":
+        return replace(self, case_id=_unknown(case_id))
 
 
 def _unknown(value: str | None) -> str:
@@ -80,7 +84,48 @@ def _git_revision(path: Path) -> str:
         )
     except OSError:
         return "unknown"
-    return _unknown(result.stdout if result.returncode == 0 else None)
+    revision = _unknown(result.stdout if result.returncode == 0 else None)
+    if revision == "unknown":
+        return revision
+
+    try:
+        status = subprocess.run(
+            ["git", "status", "--porcelain", "--untracked-files=all", "--", "."],
+            cwd=str(path),
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+    except OSError:
+        status = None
+
+    content_hash = _directory_sha256(path)
+    if content_hash == "unknown":
+        return revision
+    if status is None or status.returncode != 0:
+        state = "unknown"
+    else:
+        state = "dirty" if status.stdout.strip() else "clean"
+    return f"{revision}+{state}-{content_hash[:16]}"
+
+
+def _directory_sha256(root: Path) -> str:
+    if not root.is_dir():
+        return "unknown"
+
+    digest = hashlib.sha256()
+    files = [
+        path
+        for path in root.rglob("*")
+        if path.is_file() and ".git" not in path.relative_to(root).parts
+    ]
+    for path in sorted(files, key=lambda item: item.relative_to(root).as_posix()):
+        relative = path.relative_to(root).as_posix()
+        digest.update(relative.encode("utf-8"))
+        digest.update(b"\0")
+        digest.update(path.read_bytes())
+        digest.update(b"\0")
+    return digest.hexdigest() if files else "unknown"
 
 
 def command_version(command: str) -> str:
@@ -111,6 +156,7 @@ def build_run_metadata(
     environment: str | None,
     skill_up_version: str | None = None,
     run_id: str | None = None,
+    case_id: str | None = None,
     variant: str | None = None,
     observed_model: str | None = None,
     judge_type: str | None = None,
@@ -120,6 +166,7 @@ def build_run_metadata(
 
     return RunMetadata(
         run_id=_unknown(run_id) if run_id else f"run-{uuid.uuid4().hex}",
+        case_id=_unknown(case_id),
         variant=_unknown(variant),
         skill_version=_git_revision(skill_root),
         eval_version=_sha256(eval_paths),
@@ -141,11 +188,14 @@ def evidence_state(
     runner_exit_code: int | None,
     eval_exit_code: int | None,
     trace_event_count: int,
+    trace_error_count: int = 0,
 ) -> str:
     """Map runner observations to a bounded evidence state."""
 
     if dry_run:
         return "NOT_RUN"
+    if trace_error_count > 0:
+        return "FAIL"
     if runner_exit_code is None or trace_event_count <= 0:
         return "BLOCKED"
     if eval_exit_code == 1 or runner_exit_code != 0:
@@ -157,11 +207,19 @@ def evidence_state(
     return "INSUFFICIENT_EVIDENCE"
 
 
-def failure_classification(*, state: str, trace_event_count: int, requested: str | None) -> str | None:
+def failure_classification(
+    *,
+    state: str,
+    trace_event_count: int,
+    requested: str | None,
+    trace_error_count: int = 0,
+) -> str | None:
     """Return explicit attribution, never infer a Skill defect from a failure."""
 
     if state in {"PASS", "NOT_RUN"}:
         return None
+    if trace_error_count > 0 and state == "BLOCKED":
+        return "UNKNOWN"
     if requested is not None:
         normalized = requested.strip().upper()
         if normalized not in FAILURE_CLASSIFICATIONS:
