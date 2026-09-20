@@ -111,8 +111,8 @@ python3 scripts/run_skill_trace_eval.py \
 
 每个 case 还记录 `evidence_state`：`PASS`、`FAIL`、`BLOCKED` 或 dry-run 的 `NOT_RUN`，以及可选的 `failure_classification`：`SKILL_DEFECT`、`EVAL_DEFECT`、`INFRASTRUCTURE_DEFECT`、`UNKNOWN`。malformed trace 是 `FAIL`，不会被当成基础设施阻塞；只有没有任何 trace 证据时才可记录基础设施阻塞。
 
-真实失败经人工确认根因后，可用 `scripts/add_skill_eval_regression_case.py` 在指定 Skill 的 `evals/cases/` 下创建 `REGRESSION` 候选用例。候选生命周期写入 `CANDIDATE`，证据状态保持 `NOT_RUN`；脚本拒绝不安全 ID 和覆盖已有文件，不修改 `SKILL.md`，也不把候选 case 自动升级为稳定 gate。
+真实失败经人工确认根因后，可用 `scripts/add_skill_eval_regression_case.py` 在指定 Skill 的 `evals/cases/` 下创建 `REGRESSION` 候选用例，并把它登记到该 Skill 的 `evals/eval.yaml`。候选生命周期写入 `CANDIDATE`，证据状态保持 `NOT_RUN`；脚本拒绝不安全 ID 和覆盖已有文件，不修改 `SKILL.md`，也不把候选 case 自动升级为稳定 gate。
 
-版本回归比较使用 `scripts/compare_skill_eval_runs.py previous.json current.json`。它只比较已有报告，先检查 Eval、引擎、模型、judge、环境等可比性，再把 previous `PASS` 到 current `FAIL` 报告为 `REGRESSION_OBSERVED`；缺少可比证据时保持 `INSUFFICIENT_EVIDENCE`。
+版本回归比较使用 `scripts/compare_skill_eval_runs.py previous.json current.json`。它只比较已有报告，先检查 Eval、variant、引擎、模型、judge、环境、带时区的有序时间窗口等可比性；只有 current case 明确标为 `SKILL_DEFECT` 时，才把 previous `PASS` 到 current `FAIL` 报告为 `REGRESSION_OBSERVED`。`EVAL_DEFECT`、`INFRASTRUCTURE_DEFECT`、`UNKNOWN` 或缺少分类的失败保持 `INCONCLUSIVE`，缺少可比证据时保持 `INSUFFICIENT_EVIDENCE`。
 
 这些字段补充本地二十条规则，不改变其 deterministic 语义；评测状态和结论边界以 [`SKILL_EVALUATION_CONTRACT.md`](governance/SKILL_EVALUATION_CONTRACT.md) 为准。

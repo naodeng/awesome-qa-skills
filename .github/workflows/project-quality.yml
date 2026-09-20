@@ -36,7 +36,7 @@ jobs:
           INSTALL_DIR: ${{ runner.temp }}/skill-up/bin
         run: |
           set -euo pipefail
-          curl -fsSL https://raw.githubusercontent.com/alibaba/skill-up/main/install.sh | bash
+          curl -fsSL https://raw.githubusercontent.com/alibaba/skill-up/v0.12.0/install.sh | bash
           echo "$INSTALL_DIR" >> "$GITHUB_PATH"
           "$INSTALL_DIR/skill-up" --version
 

@@ -20,11 +20,18 @@ try:
         build_run_metadata,
         evidence_state,
         failure_classification,
+        infer_skill_root,
         summary_counts,
     )
 except ImportError:  # pragma: no cover - supports direct script execution
     from skill_eval_rules import EvalReport, TRIGGER_MODES, evaluate_trace, load_jsonl
-    from skill_eval_evidence import build_run_metadata, evidence_state, failure_classification, summary_counts
+    from skill_eval_evidence import (
+        build_run_metadata,
+        evidence_state,
+        failure_classification,
+        infer_skill_root,
+        summary_counts,
+    )
 
 
 CASE_ID_PATTERN = re.compile(r"^[A-Za-z0-9][A-Za-z0-9_.-]*$")
@@ -147,6 +154,19 @@ def _case_paths(output_root: Path, case_id: str) -> tuple[Path, Path, Path]:
     )
 
 
+def _evaluation_paths(prompts_path: Path, config_path: Path) -> list[Path]:
+    """Include local evaluator code in the reproducibility identity."""
+
+    runner_path = Path(__file__).resolve()
+    return [
+        prompts_path,
+        config_path,
+        runner_path,
+        runner_path.with_name("skill_eval_rules.py"),
+        runner_path.with_name("skill_eval_evidence.py"),
+    ]
+
+
 def _dry_case(
     case: PromptCase,
     project_root: Path,
@@ -194,8 +214,8 @@ def run_cases(
     cases = load_prompt_cases(prompts_path)
     base_config = _load_config(config_path)
     metadata = build_run_metadata(
-        skill_root=(skill_root or prompts_path.parent),
-        eval_paths=[prompts_path, config_path],
+        skill_root=(skill_root or infer_skill_root(prompts_path)),
+        eval_paths=_evaluation_paths(prompts_path, config_path),
         engine=engine,
         requested_model=requested_model,
         provider=provider,

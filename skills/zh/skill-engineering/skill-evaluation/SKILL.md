@@ -1,6 +1,6 @@
 ---
 name: skill-evaluation
-description: 在需要设计、运行、解释或报告 Agent Skill 评测，选择 case/judge、分析 trigger/benchmark/regression 证据时使用；触发词包括 Skill 评测、评测设计、回归评测。
+description: Use this skill when designing, running, interpreting, or reporting Agent Skill evaluations, selecting cases or judges, and analyzing trigger, benchmark, or regression evidence; triggers include Skill 评测、评测设计、回归评测。
 ---
 
 # Skill 评测
@@ -11,7 +11,12 @@ description: 在需要设计、运行、解释或报告 Agent Skill 评测，选
 - 需要用 `skill-up` 验证/运行评测并解释结果和限制。
 - 需要选择 deterministic、script 或 semantic judge，或区分 benchmark 与 version regression。
 
-## 执行流程
+## 输出格式选项
+
+- 默认输出简洁的 Markdown 评测报告，用表格呈现 case 结果和 evidence state。
+- 下游脚本需要机器可读结果时才输出 JSON；仍使用同一套证据词汇并保留限制。
+
+## 如何使用
 
 1. 读取 Skill 契约、已有 `evals/`、历史失败和本次变更范围。
 2. 识别关键行为与证据维度：Outcome、Process、Style/Quality、Efficiency；只选择有意义的维度。
@@ -28,11 +33,6 @@ description: 在需要设计、运行、解释或报告 Agent Skill 评测，选
 - `skill-up validate` 不是 runtime 语义验证；静态、CLI smoke、Project Done 和单次语义观察不能自动升级为发布或业务结论。
 - 不自动修改 Skill，不自动无限优化；不把 Benchmark（with/without Skill）和 Version Regression（previous/current）混为一谈。
 - 值未知时写 `unknown`；证据不足保留 `NOT_RUN`、`UNASSESSED`、`BLOCKED` 或 `INSUFFICIENT_EVIDENCE`。
-
-## 输出格式选项
-
-- 默认输出简洁的 Markdown 评测报告，用表格呈现 case 结果和 evidence state。
-- 下游脚本需要机器可读结果时才输出 JSON；仍使用同一套证据词汇并保留限制。
 
 ## 参考文件
 

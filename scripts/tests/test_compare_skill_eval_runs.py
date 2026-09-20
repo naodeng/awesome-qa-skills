@@ -28,7 +28,16 @@ class CompareSkillEvalRunsTest(unittest.TestCase):
     def test_reports_a_comparable_pass_to_fail_observation(self) -> None:
         result = compare_reports(
             {"run_metadata": metadata("skill-a"), "cases": [{"case_id": "case-1", "evidence_state": "PASS"}]},
-            {"run_metadata": metadata("skill-b", "run-2"), "cases": [{"case_id": "case-1", "evidence_state": "FAIL"}]},
+            {
+                "run_metadata": metadata("skill-b", "run-2"),
+                "cases": [
+                    {
+                        "case_id": "case-1",
+                        "evidence_state": "FAIL",
+                        "failure_classification": "SKILL_DEFECT",
+                    }
+                ],
+            },
         )
 
         self.assertTrue(result["comparable"])
@@ -46,6 +55,66 @@ class CompareSkillEvalRunsTest(unittest.TestCase):
         self.assertFalse(result["comparable"])
         self.assertEqual(result["status"], "INSUFFICIENT_EVIDENCE")
         self.assertTrue(result["comparability_errors"])
+
+    def test_changed_variant_blocks_comparison(self) -> None:
+        current = metadata("skill-b", "run-2")
+        current["variant"] = "optimized"
+        result = compare_reports(
+            {"run_metadata": metadata("skill-a"), "cases": [{"case_id": "case-1", "evidence_state": "PASS"}]},
+            {
+                "run_metadata": current,
+                "cases": [
+                    {
+                        "case_id": "case-1",
+                        "evidence_state": "FAIL",
+                        "failure_classification": "SKILL_DEFECT",
+                    }
+                ],
+            },
+        )
+
+        self.assertFalse(result["comparable"])
+        self.assertIn("variant differs", " ".join(result["comparability_errors"]))
+
+    def test_missing_time_window_blocks_comparison(self) -> None:
+        current = metadata("skill-b", "run-2")
+        del current["timestamp"]
+        result = compare_reports(
+            {"run_metadata": metadata("skill-a"), "cases": [{"case_id": "case-1", "evidence_state": "PASS"}]},
+            {
+                "run_metadata": current,
+                "cases": [
+                    {
+                        "case_id": "case-1",
+                        "evidence_state": "FAIL",
+                        "failure_classification": "SKILL_DEFECT",
+                    }
+                ],
+            },
+        )
+
+        self.assertFalse(result["comparable"])
+        self.assertIn("timestamp is unavailable", " ".join(result["comparability_errors"]))
+
+    def test_non_skill_failure_is_inconclusive_not_a_regression(self) -> None:
+        result = compare_reports(
+            {"run_metadata": metadata("skill-a"), "cases": [{"case_id": "case-1", "evidence_state": "PASS"}]},
+            {
+                "run_metadata": metadata("skill-b", "run-2"),
+                "cases": [
+                    {
+                        "case_id": "case-1",
+                        "evidence_state": "FAIL",
+                        "failure_classification": "INFRASTRUCTURE_DEFECT",
+                    }
+                ],
+            },
+        )
+
+        self.assertTrue(result["comparable"])
+        self.assertEqual(result["status"], "INCONCLUSIVE")
+        self.assertEqual(result["regressions"], [])
+        self.assertEqual(result["inconclusive"][0]["case_id"], "case-1")
 
 
 if __name__ == "__main__":

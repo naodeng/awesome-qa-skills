@@ -9,6 +9,17 @@ from scripts import skill_eval_evidence as evidence
 
 
 class SkillEvalEvidenceTest(unittest.TestCase):
+    def test_infers_skill_root_from_an_eval_file(self) -> None:
+        with TemporaryDirectory() as temporary:
+            skill_root = Path(temporary) / "skill"
+            evals = skill_root / "evals"
+            evals.mkdir(parents=True)
+            (skill_root / "SKILL.md").write_text("name: demo\n", encoding="utf-8")
+            prompts = evals / "trigger-prompts.csv"
+            prompts.write_text("id,should_trigger,prompt,mode\ncase,true,hello,explicit\n", encoding="utf-8")
+
+            self.assertEqual(evidence.infer_skill_root(prompts), skill_root.resolve())
+
     def test_metadata_uses_unknown_for_unavailable_values_and_hashes_eval_inputs(self) -> None:
         with TemporaryDirectory() as temporary:
             root = Path(temporary)

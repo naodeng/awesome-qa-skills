@@ -42,13 +42,18 @@ if not artifact:
     print("FAIL: JavaScript code block is empty", file=sys.stderr)
     raise SystemExit(1)
 
+# Ignore comments and quoted text before checking executable call sites. This
+# prevents a prose-only or comment-only block from satisfying the pilot judge.
+without_strings = re.sub(r'''(['"`])(?:\\.|(?!\1)[\s\S])*\1''', "", artifact)
+code = re.sub(r"/\*[\s\S]*?\*/|//[^\r\n]*", "", without_strings)
+
 required = {
     "test declaration": r"\btest\s*\(",
     "navigation": r"\bpage\.goto\s*\(",
     "assertion": r"\bexpect\s*\(",
 }
 for label, pattern in required.items():
-    if not re.search(pattern, artifact):
+    if not re.search(pattern, code):
         print(f"FAIL: missing {label} in extracted artifact", file=sys.stderr)
         raise SystemExit(1)
 

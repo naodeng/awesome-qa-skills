@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+from datetime import datetime
 import json
 from pathlib import Path
 from typing import Any, Mapping
@@ -11,6 +12,7 @@ from typing import Any, Mapping
 
 COMPARABILITY_FIELDS = (
     "eval_version",
+    "variant",
     "skill_up_version",
     "engine",
     "provider",
@@ -21,6 +23,7 @@ COMPARABILITY_FIELDS = (
     "environment",
 )
 VALID_STATES = {"PASS", "FAIL", "BLOCKED", "NOT_RUN", "NOT_SCORED", "UNASSESSED", "INSUFFICIENT_EVIDENCE"}
+VALID_FAILURE_CLASSIFICATIONS = {"SKILL_DEFECT", "EVAL_DEFECT", "INFRASTRUCTURE_DEFECT", "UNKNOWN"}
 
 
 def _metadata(report: Mapping[str, Any], label: str) -> tuple[dict[str, Any], list[str]]:
@@ -54,12 +57,43 @@ def _cases(report: Mapping[str, Any], label: str) -> tuple[dict[str, Mapping[str
     return cases, errors
 
 
+def _parse_timestamp(metadata: Mapping[str, Any], label: str, errors: list[str]) -> datetime | None:
+    raw = str(metadata.get("timestamp", "")).strip()
+    if not raw or raw.lower() == "unknown":
+        errors.append(f"{label} timestamp is unavailable")
+        return None
+    try:
+        timestamp = datetime.fromisoformat(raw.replace("Z", "+00:00"))
+    except ValueError:
+        errors.append(f"{label} timestamp is invalid: {raw}")
+        return None
+    if timestamp.tzinfo is None:
+        errors.append(f"{label} timestamp must include a timezone: {raw}")
+        return None
+    return timestamp
+
+
+def _case_failure_classification(case: Mapping[str, Any], label: str, case_id: str, errors: list[str]) -> str:
+    raw = case.get("failure_classification")
+    if raw is None or not str(raw).strip():
+        return "UNKNOWN"
+    classification = str(raw).strip().upper()
+    if classification not in VALID_FAILURE_CLASSIFICATIONS:
+        errors.append(f"{label} case {case_id} has invalid failure_classification: {classification}")
+        return "UNKNOWN"
+    return classification
+
+
 def compare_reports(previous: Mapping[str, Any], current: Mapping[str, Any]) -> dict[str, Any]:
     previous_metadata, previous_errors = _metadata(previous, "previous")
     current_metadata, current_errors = _metadata(current, "current")
     previous_cases, previous_case_errors = _cases(previous, "previous")
     current_cases, current_case_errors = _cases(current, "current")
     errors = previous_errors + current_errors + previous_case_errors + current_case_errors
+    previous_timestamp = _parse_timestamp(previous_metadata, "previous", errors)
+    current_timestamp = _parse_timestamp(current_metadata, "current", errors)
+    if previous_timestamp and current_timestamp and current_timestamp < previous_timestamp:
+        errors.append("current timestamp precedes previous timestamp")
 
     previous_skill = str(previous_metadata.get("skill_version", "")).strip()
     current_skill = str(current_metadata.get("skill_version", "")).strip()
@@ -97,11 +131,19 @@ def compare_reports(previous: Mapping[str, Any], current: Mapping[str, Any]) -> 
             errors.append(f"previous case {case_id} has invalid evidence_state: {previous_state}")
         if current_state not in VALID_STATES:
             errors.append(f"current case {case_id} has invalid evidence_state: {current_state}")
+        current_failure_classification = _case_failure_classification(
+            current_cases[case_id], "current", case_id, errors
+        )
         result = {
             "case_id": case_id,
             "previous_state": previous_state,
             "current_state": current_state,
-            "regressed": previous_state == "PASS" and current_state == "FAIL",
+            "current_failure_classification": current_failure_classification,
+            "regressed": (
+                previous_state == "PASS"
+                and current_state == "FAIL"
+                and current_failure_classification == "SKILL_DEFECT"
+            ),
         }
         case_results.append(result)
         if result["regressed"]:
@@ -125,6 +167,15 @@ def compare_reports(previous: Mapping[str, Any], current: Mapping[str, Any]) -> 
         "status": status,
         "previous_run_id": previous_metadata.get("run_id", "unknown"),
         "current_run_id": current_metadata.get("run_id", "unknown"),
+        "comparison_window": {
+            "previous_timestamp": previous_metadata.get("timestamp", "unknown"),
+            "current_timestamp": current_metadata.get("timestamp", "unknown"),
+            "elapsed_seconds": (
+                (current_timestamp - previous_timestamp).total_seconds()
+                if previous_timestamp and current_timestamp
+                else None
+            ),
+        },
         "comparability_errors": errors,
         "cases": case_results,
         "regressions": regressions,

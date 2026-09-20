@@ -16,8 +16,9 @@ test('checkout', async ({ page }) => {
 ```"""
 
 INVALID_MARKERS = """```javascript
-// Playwright
-test( page.goto( expect(
+const examples = "test( page.goto( expect(";
+// test( page.goto( expect(
+const value = 1;
 ```"""
 
 

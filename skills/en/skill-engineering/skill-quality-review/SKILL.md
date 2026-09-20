@@ -11,7 +11,12 @@ description: Use this skill when reviewing a complete Skill package for architec
 - Check whether `SKILL.md`, the primary Prompt, metadata, examples, references, and `evals/` form one consistent contract.
 - Assess whether a Skill can be copied or installed independently and which conclusions still lack runtime evidence.
 
-## Workflow
+## Output format options
+
+- Default to a Markdown review with a conclusion, blocking issues, suggestions, information gaps, and evidence boundaries.
+- Use a table when several files or evidence layers must be compared; do not replace the reasoning with a score.
+
+## How to use
 
 1. Confirm the Skill, language, directory, and review goal; list information gaps before reviewing absent files.
 2. Check architecture responsibility, scope/non-goals, triggers, input audit, output contract, progressive disclosure, and neighbor boundaries.
@@ -25,11 +30,6 @@ description: Use this skill when reviewing a complete Skill package for architec
 - Directory completeness, `skill-up validate`, CLI install smoke, and Project status cannot prove runtime behavior, model effectiveness, business acceptance, Quality Score, or release approval.
 - Do not invent environments, dependencies, metrics, trigger observations, or execution facts. Use `UNASSESSED`, `NOT_RUN`, `BLOCKED`, or `INSUFFICIENT_EVIDENCE` when evidence is absent.
 - Do not create a second Eval Engine, Judge, Benchmark, or Quality Score.
-
-## Output format options
-
-- Default to a Markdown review with a conclusion, blocking issues, suggestions, information gaps, and evidence boundaries.
-- Use a table when several files or evidence layers must be compared; do not replace the reasoning with a score.
 
 ## Reference files
 

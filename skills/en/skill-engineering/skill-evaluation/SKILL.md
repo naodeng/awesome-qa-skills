@@ -11,7 +11,12 @@ description: Use this skill when designing, running, interpreting, or reporting 
 - Validate or run evaluations with `skill-up` and interpret results and limitations.
 - Select deterministic, script, or semantic judges, or distinguish a benchmark from a version regression.
 
-## Workflow
+## Output format options
+
+- Default to a concise Markdown evaluation report with tables for case results and evidence states.
+- Use JSON only when a downstream script needs machine-readable case results; keep the same evidence vocabulary and limitations.
+
+## How to use
 
 1. Read the Skill contract, existing `evals/`, historical failures, and the current change scope.
 2. Identify critical behavior and evidence dimensions: Outcome, Process, Style/Quality, and Efficiency; select only meaningful dimensions.
@@ -28,11 +33,6 @@ description: Use this skill when designing, running, interpreting, or reporting 
 - `skill-up validate` is not runtime semantic validation. Static checks, CLI smoke, Project Done, and one semantic observation cannot be promoted automatically to release or business claims.
 - Do not modify the Skill or enter an unlimited optimization loop. Keep Benchmark (with/without Skill) separate from Version Regression (previous/current).
 - Use `unknown` for unknown values; preserve `NOT_RUN`, `UNASSESSED`, `BLOCKED`, or `INSUFFICIENT_EVIDENCE` when evidence is incomplete.
-
-## Output format options
-
-- Default to a concise Markdown evaluation report with tables for case results and evidence states.
-- Use JSON only when a downstream script needs machine-readable case results; keep the same evidence vocabulary and limitations.
 
 ## Reference files
 

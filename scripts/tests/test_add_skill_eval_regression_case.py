@@ -13,6 +13,14 @@ class RegressionCaseWriterTest(unittest.TestCase):
             skill_root = Path(temporary) / "skill"
             cases = skill_root / "evals" / "cases"
             cases.mkdir(parents=True)
+            (skill_root / "evals" / "eval.yaml").write_text(
+                "cases:\n"
+                "  files:\n"
+                "    - evals/cases/basic-success.yaml\n"
+                "  defaults:\n"
+                "    timeout_seconds: 180\n",
+                encoding="utf-8",
+            )
             skill_file = skill_root / "SKILL.md"
             skill_file.write_text("original\n", encoding="utf-8")
 
@@ -31,6 +39,10 @@ class RegressionCaseWriterTest(unittest.TestCase):
             self.assertIn("category: REGRESSION", generated)
             self.assertIn("lifecycle: CANDIDATE", generated)
             self.assertIn("evidence_state: NOT_RUN", generated)
+            self.assertIn(
+                "    - evals/cases/regression-missing-evidence.yaml\n",
+                (skill_root / "evals" / "eval.yaml").read_text(encoding="utf-8"),
+            )
             self.assertEqual(skill_file.read_text(encoding="utf-8"), "original\n")
 
             with self.assertRaises(FileExistsError):

@@ -24,6 +24,48 @@ def _block_scalar(value: str) -> str:
     return "\n".join(f"    {line}" for line in lines)
 
 
+def _register_case(eval_path: Path, case_reference: str) -> None:
+    """Add a generated case to an explicit ``cases.files`` manifest."""
+
+    if not eval_path.is_file():
+        raise FileNotFoundError(f"Skill eval manifest is missing: {eval_path}")
+
+    text = eval_path.read_text(encoding="utf-8")
+    if case_reference in text:
+        return
+
+    lines = text.splitlines(keepends=True)
+    cases_index = next((index for index, line in enumerate(lines) if line.strip() == "cases:"), None)
+    if cases_index is None:
+        raise ValueError(f"eval manifest has no cases section: {eval_path}")
+
+    files_index = next(
+        (
+            index
+            for index in range(cases_index + 1, len(lines))
+            if lines[index].strip() == "files:" and lines[index].startswith("  ")
+        ),
+        None,
+    )
+    if files_index is None:
+        raise ValueError(f"eval manifest has no explicit cases.files list: {eval_path}")
+
+    last_case_index = None
+    for index in range(files_index + 1, len(lines)):
+        line = lines[index]
+        if line.startswith("    - "):
+            last_case_index = index
+            continue
+        if line.strip() and not line.startswith("      "):
+            break
+    if last_case_index is None:
+        raise ValueError(f"eval manifest cases.files list is empty: {eval_path}")
+
+    newline = "\r\n" if "\r\n" in text else "\n"
+    lines.insert(last_case_index + 1, f"    - {case_reference}{newline}")
+    eval_path.write_text("".join(lines), encoding="utf-8")
+
+
 def write_case(
     *,
     skill_root: Path,
@@ -43,8 +85,11 @@ def write_case(
 
     skill_root = skill_root.resolve()
     cases_dir = skill_root / "evals" / "cases"
+    eval_path = skill_root / "evals" / "eval.yaml"
     if not cases_dir.is_dir():
         raise FileNotFoundError(f"Skill eval cases directory is missing: {cases_dir}")
+    if not eval_path.is_file():
+        raise FileNotFoundError(f"Skill eval manifest is missing: {eval_path}")
     output = cases_dir / f"{case_id}.yaml"
     if output.exists():
         raise FileExistsError(f"refusing to overwrite existing regression case: {output}")
@@ -78,6 +123,7 @@ def write_case(
     )
     lines.extend(f"          - {_yaml_scalar(value)}" for value in must_contain)
     output.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    _register_case(eval_path, f"evals/cases/{output.name}")
     return output
 
 

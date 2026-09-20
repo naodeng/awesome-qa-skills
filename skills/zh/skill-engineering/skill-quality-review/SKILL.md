@@ -1,6 +1,6 @@
 ---
 name: skill-quality-review
-description: 在需要审查完整 Skill 包的架构、范围、触发、独立安装、双语一致性、Eval 准备度和证据边界时使用；触发词包括 Skill 质量审查、Skill package review、评测准备度。
+description: Use this skill when reviewing a complete Skill package for architecture, scope, triggers, independent installation, bilingual consistency, Eval readiness, and evidence boundaries; triggers include Skill 质量审查、Skill package review、评测准备度。
 ---
 
 # Skill 质量审查
@@ -11,7 +11,12 @@ description: 在需要审查完整 Skill 包的架构、范围、触发、独立
 - 需要检查 `SKILL.md`、Prompt、metadata、示例、references 和 `evals/` 是否形成一致契约。
 - 需要判断 Skill 是否可独立复制/安装，以及哪些结论仍缺少 runtime 证据。
 
-## 执行流程
+## 输出格式选项
+
+- 默认使用 Markdown 审查报告，包含结论、阻塞问题、建议、信息缺口和证据边界。
+- 需要比较多个文件或证据层时使用表格，但不要用分数替代判断依据。
+
+## 如何使用
 
 1. 确认 Skill、语言、目录和审查目标；没有文件时先列信息缺口。
 2. 检查架构职责、范围/非目标、触发条件、输入审计、输出契约、progressive disclosure 和邻近能力边界。
@@ -25,11 +30,6 @@ description: 在需要审查完整 Skill 包的架构、范围、触发、独立
 - 不能用目录完整、`skill-up validate`、CLI install smoke 或 Project 状态声称 runtime 行为、模型效果、业务验收、Quality Score 或发布批准。
 - 不凭空补充环境、依赖、指标、触发结果或执行事实；缺少证据时使用 `UNASSESSED`、`NOT_RUN`、`BLOCKED` 或 `INSUFFICIENT_EVIDENCE`。
 - 不新增第二套 Eval Engine、Judge、Benchmark 或 Quality Score。
-
-## 输出格式选项
-
-- 默认使用 Markdown 审查报告，包含结论、阻塞问题、建议、信息缺口和证据边界。
-- 需要比较多个文件或证据层时使用表格，但不要用分数替代判断依据。
 
 ## 参考文件
 

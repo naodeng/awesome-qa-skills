@@ -2868,8 +2868,8 @@
         "QA",
         "Engineering"
       ],
-      "inputs": "skills/zh/skill-engineering/skill-evaluation/prompts/skill-evaluation.md#工作规则; skills/en/skill-engineering/skill-evaluation/prompts/skill-evaluation.md#Operating rules",
-      "outputs": "skills/zh/skill-engineering/skill-evaluation/prompts/skill-evaluation.md#输出格式; skills/en/skill-engineering/skill-evaluation/prompts/skill-evaluation.md#Output format",
+      "inputs": "skills/zh/skill-engineering/skill-evaluation/prompts/skill-evaluation.md#执行规则; skills/en/skill-engineering/skill-evaluation/prompts/skill-evaluation.md#execution-rules",
+      "outputs": "skills/zh/skill-engineering/skill-evaluation/prompts/skill-evaluation.md#输出; skills/en/skill-engineering/skill-evaluation/prompts/skill-evaluation.md#output",
       "workflow": "v1.5.1 Skill Evaluation Quality Loop; optional navigation only",
       "evidence_paths": [
         "docs/governance/SKILL_EVALUATION_DESIGN.md",
@@ -2907,8 +2907,8 @@
         "QA",
         "Engineering"
       ],
-      "inputs": "skills/zh/skill-engineering/skill-quality-review/prompts/skill-quality-review.md#必须检查; skills/en/skill-engineering/skill-quality-review/prompts/skill-quality-review.md#Required checks",
-      "outputs": "skills/zh/skill-engineering/skill-quality-review/prompts/skill-quality-review.md#输出格式; skills/en/skill-engineering/skill-quality-review/prompts/skill-quality-review.md#Output format",
+      "inputs": "skills/zh/skill-engineering/skill-quality-review/prompts/skill-quality-review.md#执行规则; skills/en/skill-engineering/skill-quality-review/prompts/skill-quality-review.md#execution-rules",
+      "outputs": "skills/zh/skill-engineering/skill-quality-review/prompts/skill-quality-review.md#输出; skills/en/skill-engineering/skill-quality-review/prompts/skill-quality-review.md#output",
       "workflow": "v1.5.1 Skill Evaluation Quality Loop; optional navigation only",
       "evidence_paths": [
         "docs/governance/SKILL_EVALUATION_DESIGN.md",

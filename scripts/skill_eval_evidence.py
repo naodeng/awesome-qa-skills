@@ -55,6 +55,17 @@ def _unknown(value: str | None) -> str:
     return value.strip() if isinstance(value, str) and value.strip() else "unknown"
 
 
+def infer_skill_root(path: Path) -> Path:
+    """Find the nearest Skill package root for a prompt or eval path."""
+
+    resolved = Path(path).resolve()
+    start = resolved if resolved.is_dir() else resolved.parent
+    for candidate in (start, *start.parents):
+        if (candidate / "SKILL.md").is_file():
+            return candidate
+    return start
+
+
 def _sha256(paths: Iterable[Path]) -> str:
     """Hash eval inputs without making the version depend on checkout paths."""
 

@@ -93,6 +93,35 @@ class SkillTraceRunnerTest(unittest.TestCase):
             self.assertFalse(project_root.exists())
             self.assertFalse(output_root.exists())
 
+    def test_metadata_uses_skill_package_root_and_local_evaluator_identity(self):
+        with TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            skill_root = root / "skill"
+            evals = skill_root / "evals"
+            evals.mkdir(parents=True)
+            (skill_root / "SKILL.md").write_text("name: demo\n", encoding="utf-8")
+            prompts = evals / "prompts.csv"
+            config = evals / "rules.json"
+            self.write_prompts(
+                prompts,
+                [{"id": "case-1", "should_trigger": "true", "prompt": "Create a demo", "mode": "explicit"}],
+            )
+            config.write_text(json.dumps({"skill": "demo-skill"}), encoding="utf-8")
+
+            with patch.object(runner, "build_run_metadata", wraps=runner.build_run_metadata) as build_metadata:
+                runner.run_cases(
+                    prompts_path=prompts,
+                    config_path=config,
+                    project_root=root / "projects",
+                    output_root=root / "outputs",
+                    dry_run=True,
+                )
+
+            call = build_metadata.call_args.kwargs
+            self.assertEqual(call["skill_root"], skill_root.resolve())
+            eval_paths = {Path(path).name for path in call["eval_paths"]}
+            self.assertIn("skill_eval_rules.py", eval_paths)
+
     def test_run_captures_trace_and_grades_each_isolated_case(self):
         with TemporaryDirectory() as temporary:
             root = Path(temporary)
