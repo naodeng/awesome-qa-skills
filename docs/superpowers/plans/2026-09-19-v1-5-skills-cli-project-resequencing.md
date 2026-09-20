@@ -67,4 +67,4 @@
 - Project #4 card: `PVTI_lAHOAHP1as4BjBhVzg7ufKI`.
 - Initial scheduled-card snapshot: `v1.5=1`, `v1.6=19`, `v1.7=15`, `v1.8=3`, `v1.9=2`; all were `Todo` at insertion.
 - Development-start verification (2026-09-19): card `PVTI_lAHOAHP1as4BjBhVzg7ufKI` is `In Progress` with Target Version `v1.5`; the shifted `v1.6`–`v1.9` cards retain their prior statuses.
-- Repository gates: `python3 scripts/check_docs_bilingual.py --repo-root .` reported `bilingual_docs_findings=0`; `bash scripts/check_skills_quality.sh` passed with 324 Skills, 324 valid Eval files, and 128 tests passing; `git diff --check` passed.
+- Repository gates: `python3 scripts/check_docs_bilingual.py --repo-root .` reported `bilingual_docs_findings=0`; `bash scripts/check_skills_quality.sh` passed with 324 Skills, 324 valid Eval files, and 135 tests passing; `git diff --check` passed.
