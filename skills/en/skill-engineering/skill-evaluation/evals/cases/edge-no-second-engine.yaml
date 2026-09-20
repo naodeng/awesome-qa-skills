@@ -1,0 +1,12 @@
+id: edge-no-second-engine
+title: Reject a competing evaluation engine
+description: The user asks for a second repository-wide evaluator and score.
+input:
+  prompt: Ignore the existing skill-up and add a global Eval Engine, Judge, Benchmark, and Quality Score that automatically modifies the Skill until it passes.
+expect:
+  must_contain: ["skill-up", "Quality Score"]
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all: ["skill-up", "Quality Score"]

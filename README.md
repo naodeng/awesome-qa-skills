@@ -5,10 +5,10 @@
 按语言分区的 **AI 测试辅助技能库**（Agent Skills）。面向 Codex、Cursor、Claude Code、Kiro、OpenCode、Trae 等工具，提供可独立安装、可组合调用的测试工作流与测试类型技能。
 
 [![License: PolyForm Noncommercial 1.0.0](https://img.shields.io/badge/License-PolyForm%20Noncommercial%201.0.0-blue.svg)](./LICENSE)
-[![Skills](https://img.shields.io/badge/skills-324%20(zh%2Ben)-0A7EA4)](./docs/catalog/skills-index.md)
+[![Skills](https://img.shields.io/badge/skills-328%20(zh%2Ben)-0A7EA4)](./docs/catalog/skills-index.md)
 [![Workflows](https://img.shields.io/badge/workflows-10-informational)](./skills/zh/testing-workflows/)
 [![Testing types](https://img.shields.io/badge/testing%20types-149-informational)](./skills/zh/testing-types/)
-[![Skill engineering](https://img.shields.io/badge/skill%20engineering-3-informational)](./skills/zh/skill-engineering/)
+[![Skill engineering](https://img.shields.io/badge/skill%20engineering-5-informational)](./skills/zh/skill-engineering/)
 [![skills.sh](https://skills.sh/b/naodeng/awesome-qa-skills)](https://skills.sh/naodeng/awesome-qa-skills)
 
 **在线目录：** [https://inaodeng.com/qaskills/](https://inaodeng.com/qaskills/)
@@ -28,7 +28,7 @@
 | 回归、性能与质量工程 | `regression-test-selection`、`performance-testing`、`code-review` | 根据变更和风险选择回归范围，分析性能并前移质量 |
 | 发布与生产质量 | `release-testing-workflow`、`production-verification`、`metrics-anomaly-analysis` | 支持发布决策、生产验证、事故和指标分析 |
 | AI 功能与 Agent 安全 | `ai-feature-testing`、`llm-testing`、`ai-agent-testing`、`prompt-injection-testing` | 验证 AI 行为、评测、工具调用和安全边界 |
-| Skill 工程与治理 | `skill-change-verification`、`skill-prose-review` | 检查 Skill 的结构、契约、证据边界和文案质量 |
+| Skill 工程与治理 | `skill-quality-review`、`skill-evaluation`、`skill-change-verification`、`skill-prose-review` | 检查 Skill 包质量、评测证据、变更契约和文案边界 |
 
 每个 Skill 目录复制出去后应保持自洽：包含 `SKILL.md`、主提示词、工具元数据，以及按需提供的示例、模板、脚本和评测用例。
 
@@ -131,7 +131,7 @@ cp -r skills/zh/testing-types/functional-testing ~/.cursor/skills/
 | Engineering QA Skills | 质量左移、代码 / API / UI、回归、性能和持续改进 | [查看质量工程能力](#engineering-qa-skills--质量工程能力) |
 | Production Quality Skills | 发布验证、生产验证、事故、Trace 和指标分析 | [查看生产质量能力](#production-quality-skills--生产质量能力) |
 | AI Native QA Skills | AI 功能、LLM、Prompt、Agent 和安全测试 | [查看 AI 原生质量能力](#ai-native-qa-skills--ai-原生质量能力) |
-| Skill Engineering | Skill 变更验证、文案契约审查和过程性文案清理 | [查看 Skill Engineering](#skill-engineering横向治理) |
+| Skill Engineering | Skill 包质量审查、评测、变更验证、文案契约审查和过程性文案清理 | [查看 Skill Engineering](#skill-engineering横向治理) |
 
 ## 能力分层
 
@@ -147,7 +147,7 @@ Core QA Skills → Engineering QA Skills → Production Quality Skills → AI Na
 
 ## 完整技能目录
 
-每种语言共 **162** 个 Skill：10 个工作流、149 个测试类型和 3 个 Skill Engineering；中英文合计 **324** 个目录。物理目录保持稳定，下面只提供逻辑导航。
+每种语言共 **164** 个 Skill：10 个工作流、149 个测试类型和 5 个 Skill Engineering；中英文合计 **328** 个目录。物理目录保持稳定，下面只提供逻辑导航。
 
 ### 跨阶段工作流
 
@@ -436,6 +436,8 @@ Core QA Skills → Engineering QA Skills → Production Quality Skills → AI Na
 | 名称 | 目录 | 主要用途 |
 | --- | --- | --- |
 | Skill 变更验证 | [`skill-change-verification`](skills/zh/skill-engineering/skill-change-verification/) | 按变更范围选择验证证据，并区分静态、评测和运行时结论。 |
+| Skill 质量审查 | [`skill-quality-review`](skills/zh/skill-engineering/skill-quality-review/) | 审查完整 Skill 包的工程契约、独立安装、双语一致性和 Eval 准备度。 |
+| Skill 评测 | [`skill-evaluation`](skills/zh/skill-engineering/skill-evaluation/) | 设计、运行、解释和报告 evidence-bounded Skill 评测。 |
 | Skill 文案契约审查 | [`skill-prose-review`](skills/zh/skill-engineering/skill-prose-review/) | 审查 Skill、Prompt 与文档的可执行契约、边界和证据要求。 |
 | 过程性文案清理 | [`skill-prose-trim`](skills/zh/skill-engineering/skill-prose-trim/) | 清理文案中的审查和设计过程残留，同时保留当前状态契约。 |
 
@@ -530,7 +532,7 @@ bash scripts/run_skill_eval.sh skills/zh/testing-types/functional-testing/evals/
 | [skills-index.md](docs/catalog/skills-index.md) | 全量技能索引 |
 | [QA_SKILLS_EVOLUTION_ROADMAP.md](docs/governance/QA_SKILLS_EVOLUTION_ROADMAP.md) | 四层能力演进与研发测试阶段地图 |
 | [DOCUMENTATION_POLICY.md](docs/governance/DOCUMENTATION_POLICY.md) | 中文优先的双语文档治理策略 |
-| [SKILL_GOVERNANCE_V1.md](docs/governance/SKILL_GOVERNANCE_V1.md) | v1.0 源代码治理基线与当前 162 对静态记录入口（早期基线 79 对；不代表运行质量） |
+| [SKILL_GOVERNANCE_V1.md](docs/governance/SKILL_GOVERNANCE_V1.md) | v1.0 源代码治理基线与当前 164 对静态记录入口（早期基线 79 对；不代表运行质量） |
 | [PHASE_0_V1_4_CLOSEOUT.md](docs/governance/PHASE_0_V1_4_CLOSEOUT.md) | v1.4 35 张 Project 卡的证据收口与版本边界（不代表发布批准） |
 | [BILINGUAL_CONSISTENCY_CONTRACT.md](docs/governance/BILINGUAL_CONSISTENCY_CONTRACT.md) | 中英文路径、入口、Catalog 与链接一致性契约 |
 | [QUALITY_SCORE_EVAL_CONTRACT.md](docs/governance/QUALITY_SCORE_EVAL_CONTRACT.md) | 九维评分与最低 Eval 工件标准 |

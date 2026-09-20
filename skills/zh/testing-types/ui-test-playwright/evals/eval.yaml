@@ -19,6 +19,7 @@ cases:
     - evals/cases/basic-success.yaml
     - evals/cases/edge-incomplete-input.yaml
     - evals/cases/edge-scope-boundary.yaml
+    - evals/cases/basic-script-artifact.yaml
   defaults:
     timeout_seconds: 180
     max_turns: 8

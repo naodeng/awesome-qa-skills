@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "skill-quality-review"
+interface:
+  display_name: "Skill Quality Review"
+  short_description: "Review Skill package contracts, independent installation, bilingual consistency, Eval readiness, and evidence boundaries."
+  default_prompt: "Use the skill-quality-review skill to audit this complete Skill package and its evidence boundaries."
+policy:
+  allow_implicit_invocation: true

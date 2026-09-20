@@ -104,3 +104,13 @@ Trigger rules require the eval adapter to write `skill.selection` evidence with 
 The article also recommends a second read-only `codex exec --output-schema` run for style and convention grading. This local engine only checks whether that result can be parsed; semantic judgments about component style or layout should be labeled `MODEL_ASSESSMENT` and kept outside the twenty deterministic rules above.
 
 Keep the rule configuration small and focused. The prompt set should cover explicit, implicit, contextual, and negative-control cases and grow from real failures; that is test-data governance and is not replaced by scoring one trace.
+
+## Evidence package and regression cases
+
+`scripts/run_skill_trace_eval.py` records `run_metadata` in each batch: `run_id`, Skill commit, Eval input hash, `skill-up` version, engine/provider/model, judge, and environment. Unavailable tools or values are recorded as `unknown`; they are never guessed.
+
+Each case also records an `evidence_state`: `PASS`, `FAIL`, `BLOCKED`, or dry-run `NOT_RUN`, plus an optional `failure_classification`: `SKILL_DEFECT`, `EVAL_DEFECT`, `INFRASTRUCTURE_DEFECT`, or `UNKNOWN`. A trace failure is not automatically attributed to the Skill; a runner failure with no trace can only be treated as infrastructure-blocked evidence.
+
+After a human confirms the root cause of a real failure, `scripts/add_skill_eval_regression_case.py` can create a `REGRESSION` candidate under the selected Skill's `evals/cases/`. The script rejects unsafe IDs and existing files, does not edit `SKILL.md`, and does not promote a candidate into a stable gate automatically.
+
+These fields complement the twenty local rules without changing their deterministic semantics. Evaluation states and claim boundaries are governed by [`SKILL_EVALUATION_CONTRACT_EN.md`](governance/SKILL_EVALUATION_CONTRACT_EN.md).

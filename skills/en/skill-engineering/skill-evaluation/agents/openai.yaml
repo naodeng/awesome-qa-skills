@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "skill-evaluation"
+interface:
+  display_name: "Skill Evaluation"
+  short_description: "Design, run, interpret, and report Skill evaluations while separating trigger, benchmark, regression, and evidence limits."
+  default_prompt: "Use the skill-evaluation skill to design and report an evidence-bounded Skill evaluation."
+policy:
+  allow_implicit_invocation: true

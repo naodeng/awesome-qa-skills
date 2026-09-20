@@ -95,7 +95,7 @@ Windows 安装器和手工复制同样不因 CLI 引入而删除。它们是兼�
 - 不新增 `skills-manifest.json`、`package.json`、CLI runtime dependency 或自有包管理器。
 - 不重构 `skills/en` / `skills/zh`、不改 canonical name、不引入 `-en` / `-zh` 后缀。
 - 不删除旧安装器，不新增独立 canary workflow，不做复杂 Canary 或多 Agent 全矩阵。
-- 不要求 162 个 Skill 全量真实安装，不把 trigger eval 扩建或 `skill-up` 架构改造混入本迭代。
+- 不要求 164 个 Skill 全量真实安装，不把 trigger eval 扩建或 `skill-up` 架构改造混入本迭代。
 
 ## 排障
 

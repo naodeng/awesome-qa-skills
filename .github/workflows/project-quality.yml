@@ -31,6 +31,9 @@ jobs:
       - name: Run project quality gate
         run: bash scripts/check_skills_quality.sh
 
+      - name: Validate Skill Evaluation Quality Loop contract
+        run: python3 scripts/validate_skill_evaluation_contract.py --repo-root .
+
   skills-cli-compatibility:
     name: Skills CLI compatibility
     runs-on: ubuntu-latest

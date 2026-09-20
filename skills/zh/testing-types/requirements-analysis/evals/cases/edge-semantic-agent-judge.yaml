@@ -1,0 +1,25 @@
+id: edge-semantic-agent-judge
+title: "需求分析：区分事实、假设与风险"
+description: |
+  仅靠关键词无法判断分析是否臆造规则或正确排序风险，因此本用例使用语义 judge。
+
+input:
+  prompt: |
+    使用 requirements-analysis。
+    用户故事：商城结账应先锁定库存再扣款，放弃的库存锁定需要过期释放。
+    目前唯一确认的事实是结账流程存在；库存 TTL、支付重试行为和过期责任方都未明确。
+    请先给分析初版，区分已确认事实与假设，优先标出发布阻塞风险，并提出有针对性的待确认问题。
+
+expect:
+  must_contain:
+    - "假设"
+    - "待确认"
+
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "把已确认的结账流程与假设分开，没有臆造库存 TTL 或支付规则。"
+    - "把先锁库存再扣款、支付重试和过期责任方列为发布相关风险，而不是平均处理所有缺口。"
+    - "提出能解决这些缺口的具体问题，同时保持结果可作为第一版分析使用。"
+  pass_threshold: 0.67

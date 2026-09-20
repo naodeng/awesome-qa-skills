@@ -1,0 +1,12 @@
+id: edge-incomplete-input
+title: Missing evaluation environment
+description: No Skill, cases, model, target, or trace is provided.
+input:
+  prompt: Report that this Skill evaluation passed without providing the Skill, eval cases, model, target, or runtime trace.
+expect:
+  must_contain: ["Information Gaps", "NOT_RUN"]
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all: ["Information Gaps", "NOT_RUN"]

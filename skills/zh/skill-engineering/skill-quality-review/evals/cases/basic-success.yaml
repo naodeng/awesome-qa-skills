@@ -1,0 +1,12 @@
+id: basic-success
+title: 完整 Skill 包审查
+description: 用户提供了完整包结构和审查目标。
+input:
+  prompt: 请审查一个完整 Skill 包，检查架构、范围、触发、独立安装、双语一致性、Eval 准备度和证据边界，并输出阻塞问题、重要建议、信息缺口、Eval 准备度和证据边界。
+expect:
+  must_contain: ["阻塞问题", "证据边界", "Eval 准备度"]
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all: ["阻塞问题", "证据边界"]

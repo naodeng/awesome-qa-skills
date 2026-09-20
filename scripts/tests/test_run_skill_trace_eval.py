@@ -75,6 +75,7 @@ class SkillTraceRunnerTest(unittest.TestCase):
             )
 
             self.assertEqual(report.exit_code, 0)
+            self.assertEqual(report.to_dict()["summary"]["NOT_RUN"], 1)
             self.assertEqual(len(report.cases), 1)
             self.assertTrue(report.cases[0]["dry_run"])
             self.assertEqual(
@@ -121,8 +122,9 @@ class SkillTraceRunnerTest(unittest.TestCase):
                 )
 
             self.assertEqual(report.exit_code, 0)
-            run.assert_called_once()
-            called = run.call_args
+            codex_calls = [call for call in run.call_args_list if call.args[0][0] == "codex"]
+            self.assertEqual(len(codex_calls), 1)
+            called = codex_calls[0]
             self.assertEqual(
                 called.args[0],
                 ["codex", "exec", "--json", "--skip-git-repo-check", "Create a demo"],
@@ -134,6 +136,8 @@ class SkillTraceRunnerTest(unittest.TestCase):
             self.assertEqual(result["case_id"], "case-1")
             self.assertEqual(result["runner_exit_code"], 0)
             self.assertEqual(result["exit_code"], 0)
+            self.assertEqual(result["evidence_state"], "PASS")
+            self.assertIn("run_id", result["run_metadata"])
 
 
 if __name__ == "__main__":

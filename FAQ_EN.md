@@ -6,7 +6,7 @@
 
 #### 1. What is AI Testing Assistant Skills?
 
-A quality-engineering Skills library for AI coding assistants. Each language currently contains **78 Skills**: 65 testing types, 10 cross-phase workflows, and 3 Skill Engineering governance capabilities — 156 independently installable directories across Chinese and English.
+A quality-engineering Skills library for AI coding assistants. Each language currently contains **164 Skills**: 149 testing types, 10 cross-phase workflows, and 5 Skill Engineering governance capabilities — 328 independently installable directories across Chinese and English.
 
 #### 2. Which AI tools are supported?
 

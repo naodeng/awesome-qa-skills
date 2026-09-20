@@ -4,7 +4,7 @@
 
 本目录是中文主语言 Skill 根目录，与 `skills/en` 使用相同 Skill 名和物理结构。
 
-每种语言共 **162** 个 Skill：10 workflows + 149 testing types + 3 Skill Engineering。完整项目说明见 [中文 README](../../README.md) 和 [English README](../../README_EN.md)；长期治理见 [治理路线图](../../docs/governance/SKILL_GOVERNANCE_ROADMAP.md) 与 [治理矩阵](../../docs/SKILL_MATRIX.md)。
+每种语言共 **164** 个 Skill：10 workflows + 149 testing types + 5 Skill Engineering。完整项目说明见 [中文 README](../../README.md) 和 [English README](../../README_EN.md)；长期治理见 [治理路线图](../../docs/governance/SKILL_GOVERNANCE_ROADMAP.md) 与 [治理矩阵](../../docs/SKILL_MATRIX.md)。
 
 ## 跨阶段工作流
 
@@ -289,6 +289,8 @@
 | Skill | 目录 |
 | --- | --- |
 | Skill 变更验证 | [`skill-change-verification`](skill-engineering/skill-change-verification/) |
+| Skill 质量审查 | [`skill-quality-review`](skill-engineering/skill-quality-review/) |
+| Skill 评测 | [`skill-evaluation`](skill-engineering/skill-evaluation/) |
 | Skill 文案契约审查 | [`skill-prose-review`](skill-engineering/skill-prose-review/) |
 | 过程性文案清理 | [`skill-prose-trim`](skill-engineering/skill-prose-trim/) |
 

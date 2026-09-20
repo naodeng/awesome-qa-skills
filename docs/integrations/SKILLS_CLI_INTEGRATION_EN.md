@@ -95,7 +95,7 @@ The Windows installer and manual copying are not removed because the CLI exists.
 - Do not add `skills-manifest.json`, `package.json`, a CLI runtime dependency, or a custom package manager.
 - Do not restructure `skills/en` / `skills/zh`, rename canonical names, or introduce `-en` / `-zh` suffixes.
 - Do not delete legacy installers, add a separate canary workflow, or build a complex Canary or full multi-Agent matrix.
-- Do not require real installation of all 162 Skills, expand trigger evals, or change `skill-up` architecture in this iteration.
+- Do not require real installation of all 164 Skills, expand trigger evals, or change `skill-up` architecture in this iteration.
 
 ## Troubleshooting
 

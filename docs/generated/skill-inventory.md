@@ -2,7 +2,7 @@
 
 # Skill Inventory
 
-> Snapshot scope: 162 Chinese and 162 English Skill directories. This records verifiable filesystem structure only; it does not assert virtual Domain, Capability Match, quality score, or runtime effectiveness.
+> Snapshot scope: 164 Chinese and 164 English Skill directories. This records verifiable filesystem structure only; it does not assert virtual Domain, Capability Match, quality score, or runtime effectiveness.
 
 | Skill | Language | Physical category | Required artifact contract |
 | --- | --- | --- | --- |
@@ -166,8 +166,10 @@
 | `technical-quality-perspective` | zh | testing-workflows | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `ux-quality-perspective` | zh | testing-workflows | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `skill-change-verification` | zh | skill-engineering | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
+| `skill-evaluation` | zh | skill-engineering | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `skill-prose-review` | zh | skill-engineering | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `skill-prose-trim` | zh | skill-engineering | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
+| `skill-quality-review` | zh | skill-engineering | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `acceptance-criteria-review` | en | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `accessibility-testing` | en | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `agent-failure-recovery-testing` | en | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
@@ -328,5 +330,7 @@
 | `technical-quality-perspective` | en | testing-workflows | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `ux-quality-perspective` | en | testing-workflows | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `skill-change-verification` | en | skill-engineering | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
+| `skill-evaluation` | en | skill-engineering | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `skill-prose-review` | en | skill-engineering | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `skill-prose-trim` | en | skill-engineering | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
+| `skill-quality-review` | en | skill-engineering | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |

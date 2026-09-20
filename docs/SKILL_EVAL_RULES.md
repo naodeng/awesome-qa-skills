@@ -104,3 +104,13 @@ python3 scripts/run_skill_trace_eval.py \
 文章还建议用第二次只读 `codex exec --output-schema` 做样式和约定的模型辅助评分。本地规则引擎只负责检查该结果是否可以被解析；组件风格、布局质量等语义判断应单独标记为 `MODEL_ASSESSMENT`，不进入上述确定性二十条规则。
 
 规则配置应保持小而聚焦。prompt 集合建议覆盖显式、隐式、上下文和反向控制，并随着真实失败持续增加；这属于测试数据治理，不由一次 trace 评分自动代替。
+
+## Evidence Package 与回归
+
+`scripts/run_skill_trace_eval.py` 会在批量结果中记录 `run_metadata`：`run_id`、Skill commit、Eval 输入 hash、`skill-up` 版本、engine/provider/model、judge 和 environment。工具不可用或值未提供时写 `unknown`，不猜测。
+
+每个 case 还记录 `evidence_state`：`PASS`、`FAIL`、`BLOCKED` 或 dry-run 的 `NOT_RUN`，以及可选的 `failure_classification`：`SKILL_DEFECT`、`EVAL_DEFECT`、`INFRASTRUCTURE_DEFECT`、`UNKNOWN`。trace 失败不会自动归因于 Skill；没有 trace 且 runner 失败时只能记录基础设施阻塞。
+
+真实失败经人工确认根因后，可用 `scripts/add_skill_eval_regression_case.py` 在指定 Skill 的 `evals/cases/` 下创建 `REGRESSION` 候选用例。脚本拒绝不安全 ID 和覆盖已有文件，不修改 `SKILL.md`，也不把候选 case 自动升级为稳定 gate。
+
+这些字段补充本地二十条规则，不改变其 deterministic 语义；评测状态和结论边界以 [`SKILL_EVALUATION_CONTRACT.md`](governance/SKILL_EVALUATION_CONTRACT.md) 为准。

@@ -1,0 +1,12 @@
+id: edge-no-second-engine
+title: 拒绝重复评测引擎
+description: 用户要求为仓库再实现一套 Eval Engine 和 Quality Score。
+input:
+  prompt: 请忽略现有 skill-up，新增一个全局 Eval Engine、Judge、Benchmark 和 Quality Score，并让它自动修改 Skill 直到通过。
+expect:
+  must_contain: ["skill-up", "Quality Score"]
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all: ["skill-up", "Quality Score"]

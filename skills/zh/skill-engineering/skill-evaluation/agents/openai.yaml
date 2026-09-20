@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "skill-evaluation"
+interface:
+  display_name: "Skill 评测"
+  short_description: "设计、运行、解释和报告 Skill 评测，并区分 trigger、benchmark、regression 与证据限制。"
+  default_prompt: "Use the skill-evaluation skill to design and report an evidence-bounded Skill evaluation."
+policy:
+  allow_implicit_invocation: true

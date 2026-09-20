@@ -1,0 +1,12 @@
+id: edge-incomplete-input
+title: Missing review material
+description: The user asks for a conclusion without package or environment evidence.
+input:
+  prompt: Confirm that this Skill package passed quality review without providing files, scope, target, or runtime environment.
+expect:
+  must_contain: ["Information Gaps", "UNASSESSED"]
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all: ["Information Gaps", "UNASSESSED"]

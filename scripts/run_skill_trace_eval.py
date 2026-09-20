@@ -16,8 +16,15 @@ from typing import Any, Sequence
 
 try:
     from .skill_eval_rules import EvalReport, TRIGGER_MODES, evaluate_trace, load_jsonl
+    from .skill_eval_evidence import (
+        build_run_metadata,
+        evidence_state,
+        failure_classification,
+        summary_counts,
+    )
 except ImportError:  # pragma: no cover - supports direct script execution
     from skill_eval_rules import EvalReport, TRIGGER_MODES, evaluate_trace, load_jsonl
+    from skill_eval_evidence import build_run_metadata, evidence_state, failure_classification, summary_counts
 
 
 CASE_ID_PATTERN = re.compile(r"^[A-Za-z0-9][A-Za-z0-9_.-]*$")
@@ -34,6 +41,7 @@ class PromptCase:
 @dataclass
 class BatchReport:
     cases: list[dict[str, Any]]
+    run_metadata: dict[str, str]
 
     @property
     def exit_code(self) -> int:
@@ -48,6 +56,8 @@ class BatchReport:
         return {
             "exit_code": self.exit_code,
             "case_count": len(self.cases),
+            "run_metadata": self.run_metadata,
+            "summary": summary_counts(case.get("evidence_state", "INSUFFICIENT_EVIDENCE") for case in self.cases),
             "cases": self.cases,
         }
 
@@ -147,6 +157,8 @@ def _dry_case(case: PromptCase, project_root: Path, approve_for_me: bool, codex_
         "shell_command": shlex.join(build_codex_command(case.prompt, approve_for_me=approve_for_me, codex_bin=codex_bin)),
         "dry_run": True,
         "exit_code": 0,
+        "evidence_state": "NOT_RUN",
+        "failure_classification": None,
     }
 
 
@@ -159,13 +171,38 @@ def run_cases(
     approve_for_me: bool = False,
     dry_run: bool = True,
     codex_bin: str = "codex",
+    skill_root: Path | None = None,
+    engine: str = "codex",
+    provider: str | None = None,
+    requested_model: str | None = None,
+    environment: str = "none",
+    judge_type: str | None = None,
+    judge_model: str | None = None,
+    failure_classification_name: str | None = None,
+    run_id: str | None = None,
+    variant: str = "default",
 ) -> BatchReport:
     """Run or preview isolated cases; the default is preview-only."""
 
     cases = load_prompt_cases(prompts_path)
     base_config = _load_config(config_path)
+    metadata = build_run_metadata(
+        skill_root=(skill_root or prompts_path.parent),
+        eval_paths=[prompts_path, config_path],
+        engine=engine,
+        requested_model=requested_model,
+        provider=provider,
+        environment=environment,
+        run_id=run_id,
+        variant=variant,
+        judge_type=judge_type or str(base_config.get("judge_type", "rule_based")),
+        judge_model=judge_model,
+    )
     if dry_run:
-        return BatchReport([_dry_case(case, project_root, approve_for_me, codex_bin) for case in cases])
+        return BatchReport(
+            [_dry_case(case, project_root, approve_for_me, codex_bin) for case in cases],
+            metadata.to_dict(),
+        )
 
     project_root.mkdir(parents=True, exist_ok=True)
     output_root.mkdir(parents=True, exist_ok=True)
@@ -189,6 +226,17 @@ def run_cases(
         trace = load_jsonl(trace_path)
         eval_report: EvalReport = evaluate_trace(trace, _case_config(base_config, case), case_dir)
         case_exit_code = 1 if completed.returncode != 0 else eval_report.exit_code
+        state = evidence_state(
+            dry_run=False,
+            runner_exit_code=completed.returncode,
+            eval_exit_code=eval_report.exit_code,
+            trace_event_count=len(trace.events),
+        )
+        classification = failure_classification(
+            state=state,
+            trace_event_count=len(trace.events),
+            requested=failure_classification_name,
+        )
         payload = eval_report.to_dict()
         payload.update(
             {
@@ -201,11 +249,14 @@ def run_cases(
                 "stderr": str(stderr_path),
                 "project_dir": str(case_dir),
                 "exit_code": case_exit_code,
+                "evidence_state": state,
+                "failure_classification": classification,
+                "run_metadata": metadata.to_dict(),
             }
         )
         report_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         results.append(payload)
-    return BatchReport(results)
+    return BatchReport(results, metadata.to_dict())
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -221,6 +272,20 @@ def build_parser() -> argparse.ArgumentParser:
         help="Pass the current Codex approval flag; only applies with --run",
     )
     parser.add_argument("--codex-bin", default="codex", help="Codex executable to invoke")
+    parser.add_argument("--skill-root", type=Path, help="Skill root used for version metadata")
+    parser.add_argument("--engine", default="codex", help="Engine name recorded in run metadata")
+    parser.add_argument("--provider", help="Provider name recorded in run metadata")
+    parser.add_argument("--model", dest="requested_model", help="Requested model recorded in run metadata")
+    parser.add_argument("--environment", default="none", help="Evaluation environment recorded in run metadata")
+    parser.add_argument("--judge-type", help="Judge type recorded in run metadata")
+    parser.add_argument("--judge-model", help="Judge model recorded in run metadata")
+    parser.add_argument(
+        "--failure-classification",
+        choices=("SKILL_DEFECT", "EVAL_DEFECT", "INFRASTRUCTURE_DEFECT", "UNKNOWN"),
+        help="Explicit attribution for a failing case; omitted failures remain UNKNOWN",
+    )
+    parser.add_argument("--run-id", help="Stable run identifier; generated when omitted")
+    parser.add_argument("--variant", default="default", help="Evaluation variant recorded in run metadata")
     return parser
 
 
@@ -235,6 +300,16 @@ def main(argv: Sequence[str] | None = None) -> int:
             approve_for_me=args.approve_for_me,
             dry_run=not args.run,
             codex_bin=args.codex_bin,
+            skill_root=args.skill_root,
+            engine=args.engine,
+            provider=args.provider,
+            requested_model=args.requested_model,
+            environment=args.environment,
+            judge_type=args.judge_type,
+            judge_model=args.judge_model,
+            failure_classification_name=args.failure_classification,
+            run_id=args.run_id,
+            variant=args.variant,
         )
     except (OSError, csv.Error, json.JSONDecodeError, ValueError) as exc:
         print(f"skill trace eval failed: {exc}", file=sys.stderr)

@@ -4,7 +4,7 @@
 
 ## 目的与边界
 
-v1.0 为当前仓库的 162 个逻辑中英文 Skill 对建立可复现的**源代码治理记录**。早期基线曾覆盖 79 个逻辑对；当前树已包含后续 v1.1、v2.0 和 v3-v4 交付，当前数量以生成器实时盘点为准。本文只审查包目录、`SKILL.md`、`agents/openai.yaml` 和 `evals/` 的声明与结构；不运行 Skill 提示词、辅助脚本、模型或真实测试目标。
+v1.0 为当前仓库的 164 个逻辑中英文 Skill 对建立可复现的**源代码治理记录**。早期基线曾覆盖 79 个逻辑对；当前树已包含后续 v1.1、v2.0、v3-v4 和 v1.5.1 交付，当前数量以生成器实时盘点为准。本文只审查包目录、`SKILL.md`、`agents/openai.yaml` 和 `evals/` 的声明与结构；不运行 Skill 提示词、辅助脚本、模型或真实测试目标。
 
 因此，本基线不提供 Quality Score，也不将静态记录表述为运行效果、测试通过率或能力质量结论。运行行为、语义等价、模型评测与效果均在没有相应执行证据时标为 `UNASSESSED`。
 
@@ -45,7 +45,7 @@ v1.0 为当前仓库的 162 个逻辑中英文 Skill 对建立可复现的**源�
 
 ## 可复现清单
 
-- [逐项治理清单](../generated/skill-governance-inventory.md)：每个逻辑 Skill 一行，共 162 个逻辑双语对。
+- [逐项治理清单](../generated/skill-governance-inventory.md)：每个逻辑 Skill 一行，共 164 个逻辑双语对。
 - [治理矩阵](../SKILL_MATRIX.md)：显示 D01–D16 标签、优先级和证据边界。
 - [典型 Match/Merge 复核](./PHASE_0_MATCH_MERGE_REVIEW.md)：展示 Registry 中 20 条关系及其后续动作。
 - [v1.4 Phase 0 收口](./PHASE_0_V1_4_CLOSEOUT.md)：登记 35 张 Project 卡的证据、验收状态和版本边界。
@@ -60,6 +60,6 @@ v1.0 为当前仓库的 162 个逻辑中英文 Skill 对建立可复现的**源�
 
 | 项目 | 状态 | 验收证据 | 明确不包含 |
 | --- | --- | --- | --- |
-| v1.0 source-governance closeout | `LOCALLY_VERIFIED` | 当前 162 条逐项记录、D01–D16 分类源、双语入口、Catalog/Graph 链接、可复现生成器、`--check` 和完整本地质量门禁 | Skill/模型/脚本执行、运行质量评分、发布、push |
+| v1.0 source-governance closeout | `LOCALLY_VERIFIED` | 当前 164 条逐项记录、D01–D16 分类源、双语入口、Catalog/Graph 链接、可复现生成器、`--check` 和完整本地质量门禁 | Skill/模型/脚本执行、运行质量评分、发布、push |
 
 `LOCALLY_VERIFIED` 仅代表完整质量门禁、生成物新鲜度和 Git 差异检查均有当次证据；它不等同于运行效果或发布状态。
