@@ -6,7 +6,7 @@
 
 **Architecture:** Add two independently installable Skill Engineering packages (`skill-quality-review` and `skill-evaluation`), a bilingual evaluation contract/design/pilot record, and a metadata layer around the existing local trace runner. Reuse `skill-up`, the current twenty deterministic trace rules, and the existing Quality Score contract; do not add a competing evaluator, judge, benchmark runner, or score.
 
-**Tech Stack:** Markdown, YAML, Python 3 standard library, `skill-up` 0.7.0, existing shell quality gates, GitHub Projects CLI.
+**Tech Stack:** Markdown, YAML, Python 3 standard library, `skill-up` 0.12.0, existing shell quality gates, GitHub Projects CLI.
 
 **Spec:** `docs/governance/SKILL_EVALUATION_DESIGN.md` (the repository copy of the user-supplied, read-only source for this iteration).
 

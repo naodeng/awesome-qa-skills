@@ -12,7 +12,7 @@ def metadata(skill_version: str, run_id: str = "run-1") -> dict[str, str]:
         "variant": "default",
         "skill_version": skill_version,
         "eval_version": "eval-1",
-        "skill_up_version": "0.7.0",
+        "skill_up_version": "0.12.0",
         "engine": "codex",
         "provider": "openai",
         "requested_model": "model-a",
