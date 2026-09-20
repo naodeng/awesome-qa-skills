@@ -80,6 +80,20 @@ bash scripts/run_skill_eval.sh skills/en/testing-types/functional-testing/evals/
 
 Always write eval artifacts outside the Skill package, under `.skill-up-workspaces/`.
 
+## Distribution Compatibility
+
+This repository follows a compatible-not-coupled model: the `skills` CLI is the distribution layer, `skill-up` is the evaluation layer, and each Skill must remain directly copyable or usable by another compatible consumer. See the [Skills CLI integration guide](../docs/integrations/SKILLS_CLI_INTEGRATION_EN.md) for the pinned version, commands, and evidence boundary.
+
+- A leaf Skill directory, the `SKILL.md` frontmatter `name`, and the CLI `--skill` ID must be identical.
+- A new Skill must be discoverable from the repository-level entry point; do not rely on hidden leaf URLs or undocumented aliases.
+- A leaf Skill must be independently installable or copyable, with a self-contained `SKILL.md`, prompts, metadata, and required resources.
+- EN and ZH may share a canonical name, but both languages must keep the same ID; names must be unique within each language, and one target should use one language by default.
+- `description` is both trigger guidance and discovery metadata: state capability, trigger intent, and QA differentiation instead of only naming a feature.
+- `SKILL.md`, prompts, examples, references, and scripts must not hard-link to another Skill's internal files; installation must not implicitly execute scripts.
+- Before submitting, run `bash scripts/check_skills_quality.sh` and `bash scripts/check_skills_cli_compatibility.sh`.
+
+After creating or substantially changing a Skill, also run that Skill's `skill-up` eval; the compatibility gate does not replace behavioral evaluation.
+
 ## Metadata
 
 Every Skill includes `agents/openai.yaml`:

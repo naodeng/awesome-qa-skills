@@ -14,6 +14,10 @@ echo "[2/10] Validate agents metadata"
 python3 scripts/validate_agents_metadata.py --report /tmp/skills-metadata-check.md >/tmp/skills-metadata-check.out
 cat /tmp/skills-metadata-check.out
 
+echo "[2b/10] Validate Agent Skills CLI compatibility"
+python3 scripts/check_skills_cli_compatibility.py --skills-root skills --fail-on-findings --report-md /tmp/skills-cli-compatibility-check.md >/tmp/skills-cli-compatibility-check.out
+cat /tmp/skills-cli-compatibility-check.out
+
 echo "[3/10] Check generated governance inventory"
 python3 scripts/generate_skill_governance_inventory.py --check
 

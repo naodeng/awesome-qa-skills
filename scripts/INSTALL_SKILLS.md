@@ -72,22 +72,53 @@ powershell -ExecutionPolicy Bypass -File .\scripts\install-skills-windows.ps1 -T
 powershell -ExecutionPolicy Bypass -File .\scripts\install-skills-windows.ps1 -Tool claude -Lang all -Dest C:\skills
 ```
 
-## Install with `npx skills`
+## Install with the Agent Skills CLI
 
-The [`skills` CLI](https://www.skills.sh/docs/cli) can install a whole language directory or one skill directly from GitHub. Node.js is required.
+The [`skills` CLI](https://www.skills.sh/docs/cli) is the recommended distribution path. Node.js is required. The repository-level source is English-first and the leaf directory is addressed by its canonical Skill name.
 
 ```bash
-# install all Chinese skills to Codex
-npx skills add https://github.com/naodeng/awesome-qa-skills/tree/main/skills/zh -g -a codex -y
+# install one English Skill
+npx skills add naodeng/awesome-qa-skills --skill functional-testing
 
-# install one Chinese skill to Codex
-npx skills add https://github.com/naodeng/awesome-qa-skills/tree/main/skills/zh/testing-types/functional-testing -g -a codex -y
+# optionally target Codex
+npx skills add naodeng/awesome-qa-skills --skill functional-testing -a codex
 
-# install all English skills to Codex
-npx skills add https://github.com/naodeng/awesome-qa-skills/tree/main/skills/en -g -a codex -y
+# install the full English collection
+npx skills add naodeng/awesome-qa-skills
 ```
 
-Replace `codex` with another supported agent name when needed, such as `claude-code` or `cursor`. Install one language at a time because the Chinese and English directories contain same-named skills.
+Chinese is an explicit source selection because EN and ZH intentionally share canonical names:
+
+```bash
+# install one Chinese Skill
+npx skills add https://github.com/naodeng/awesome-qa-skills/tree/main/skills/zh --skill functional-testing
+```
+
+### Advanced and CI-pinned commands
+
+CI fixes the compatibility check to `skills@1.7.0`. Use the pinned form when reproducing CI or when a deterministic tool version is required:
+
+```bash
+# install functional-testing globally for Codex
+npx --yes skills@1.7.0 add naodeng/awesome-qa-skills --skill functional-testing -g -a codex -y
+
+# list project-scope records
+npx --yes skills@1.7.0 list --json
+
+# update global-scope records
+npx --yes skills@1.7.0 update -g -y
+
+# remove one global-scope Skill
+npx --yes skills@1.7.0 remove functional-testing -g -y
+```
+
+For one-off use, the pinned CLI also exposes `use`; it requires an interactive terminal and its exact flags are version-dependent:
+
+```bash
+npx --yes skills@1.7.0 use https://github.com/naodeng/awesome-qa-skills --skill api-testing --agent codex
+```
+
+Replace `codex` with another agent name supported by the selected CLI version. Install one language at a time because the Chinese and English directories contain same-named Skills. The repository's Tested / Ecosystem compatible boundary and isolated smoke evidence are in [`docs/integrations/SKILLS_CLI_INTEGRATION.md`](../docs/integrations/SKILLS_CLI_INTEGRATION.md).
 
 ## Tool target defaults
 
@@ -99,6 +130,11 @@ Replace `codex` with another supported agent name when needed, such as `claude-c
 - Trae: `~/.trae/skills` (Windows: `%USERPROFILE%\.trae\skills`)
 
 ## Notes
+
+- The CLI is the preferred distribution path, not a runtime dependency.
+- Existing manual, macOS/Linux, and Windows installers remain supported as fallback/maintenance-mode paths.
+- A command is guaranteed only for the pinned version or when marked version-dependent; run `npx --yes skills@<version> --help` before changing the pin.
+- Do not install both `skills/en` and `skills/zh` into one unverified target: their canonical names intentionally overlap.
 
 - Source directories:
   - `skills/zh/testing-types`

@@ -115,6 +115,20 @@ npx skills add https://github.com/alibaba/skill-up/tree/main/skills/skill-upper 
 - 信息不完整类用例优先断言 prompt 输出结构词（如中文「待确认」、英文 `Open Questions`），避免过脆的同义词。
 - 运行产物在 `<skill>-workspace/`（已 gitignore），不要提交。
 
+## Distribution Compatibility
+
+本仓库采用「兼容而不耦合」：`skills` CLI 是分发层，`skill-up` 是评测层，Skill 自身仍必须可以直接复制或被其他兼容消费者使用。完整的安装命令、固定版本和验证边界见 [`docs/integrations/SKILLS_CLI_INTEGRATION.md`](../docs/integrations/SKILLS_CLI_INTEGRATION.md)。
+
+- leaf Skill 目录名、`SKILL.md` frontmatter 的 `name` 和 CLI 的 `--skill` ID 必须一致。
+- 新 Skill 必须能从仓库级入口被发现；不要依赖隐藏的叶子路径或未记录的命名别名。
+- leaf Skill 必须可以独立安装或复制，包含自洽的 `SKILL.md`、prompt、metadata 和所需资源。
+- EN/ZH 可以共享 canonical name，但两种语言应保持相同 ID；同一语言内不得重复，默认一个 target 只选一种语言。
+- `description` 同时是触发提示和 discovery metadata，必须说明能力、触发时机和 QA 区分度。
+- `SKILL.md`、prompt、examples、references 和 scripts 不得通过相对链接硬依赖另一个 Skill 的内部文件；安装不应隐式执行脚本。
+- 提交前运行 `bash scripts/check_skills_quality.sh` 和 `bash scripts/check_skills_cli_compatibility.sh`。
+
+新建或明显修改 Skill 后，还要运行该 Skill 对应的 `skill-up` eval；兼容性 gate 不替代行为评测。
+
 演进闭环（推荐配合上游 [skill-upper](https://github.com/alibaba/skill-up/tree/main/skills/skill-upper)）：评测 → 诊断失败 → 修 SKILL/prompt 或修 eval → 补回归用例 → 再跑。
 
 安装 skill-upper（可选）：

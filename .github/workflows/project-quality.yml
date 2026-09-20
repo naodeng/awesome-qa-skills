@@ -14,7 +14,7 @@ jobs:
   project-quality:
     name: Project quality gate
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 20
 
     steps:
       - name: Check out repository
@@ -30,3 +30,27 @@ jobs:
 
       - name: Run project quality gate
         run: bash scripts/check_skills_quality.sh
+
+  skills-cli-compatibility:
+    name: Skills CLI compatibility
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Set up Node.js for pinned Agent Skills CLI
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Run Skills CLI compatibility gate
+        env:
+          SKILLS_CLI_PACKAGE: ${{ github.workspace }}
+        run: bash scripts/check_skills_cli_compatibility.sh

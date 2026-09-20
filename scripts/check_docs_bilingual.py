@@ -108,6 +108,10 @@ PROJECT_PAIRS = (
         "docs/superpowers/plans/2026-09-16-v1-4-closeout.md",
         "docs/superpowers/plans/2026-09-16-v1-4-closeout_EN.md",
     ),
+    (
+        "docs/integrations/SKILLS_CLI_INTEGRATION.md",
+        "docs/integrations/SKILLS_CLI_INTEGRATION_EN.md",
+    ),
     ("skills/DIRECTORY_GUIDE.md", "skills/DIRECTORY_GUIDE_EN.md"),
     ("skills/EXTERNAL_SNAPSHOT_POLICY.md", "skills/EXTERNAL_SNAPSHOT_POLICY_EN.md"),
     ("skills/SKILL_AUTHORING.md", "skills/SKILL_AUTHORING_EN.md"),

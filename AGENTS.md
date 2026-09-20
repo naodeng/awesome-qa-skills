@@ -43,6 +43,19 @@ skills/{zh|en}/{testing-types|testing-workflows|skill-engineering}/<skill-name>/
 - Prompt 统一放在 `prompts/`；英文 prompt 文件名 **不带** `_EN`。
 - 改中文 skill 时，同步检查并更新对应英文目录（反之亦然），除非用户明确只要单语。
 - 保持 skill **可独立安装**：一个 skill 目录复制出去后应自洽。
+- Agent Skills / `skills` CLI 采用「兼容而不耦合」：CLI 是分发层，`skill-up` 是评测层，不把 CLI 加入运行时依赖。
+- 一个 leaf Skill 的相对资源必须在只复制该目录后仍可解析；禁止通过 Markdown 链接硬依赖另一个 Skill 的内部文件；安装不得隐式执行 Skill 脚本。
+- EN/ZH 可以共享 canonical name，但同一语言内不得重复；文档默认一个 target 只安装一种语言。
+- `skills@1.7.0` 是当前分发兼容性验证的固定版本；未经验证的上游 Agent 只能写成 Ecosystem compatible，不能写成项目 Tested。
+
+分发相关贡献必须同时满足：
+
+1. 保留现有 canonical name，不因 CLI 适配重命名。
+2. 保持目录名、`SKILL.md.name` 和 `--skill` ID 一致。
+3. 保持 EN/ZH 对应 Skill 使用相同 canonical name。
+4. 保证 leaf Skill 可以独立安装或复制。
+5. 提交前运行 `bash scripts/check_skills_quality.sh` 和 `bash scripts/check_skills_cli_compatibility.sh`。
+6. 若行为发生变化，运行相关 Skill 的 `skill-up` eval；CLI gate 不替代行为评测。
 
 ## SKILL.md conventions
 
@@ -67,7 +80,7 @@ description: Use this skill when ...; triggers include 中文触发词 and Engli
 
 参考现有 skill（如 `skills/zh/testing-types/functional-testing/`），不要照搬 [CONTRIBUTING.md](CONTRIBUTING.md) 里较旧的「basic/intermediate/advanced」三层 prompt 结构——当前以单主 prompt + 可选增强版 skill 为准。
 
-批量优化 / 脚手架：
+批量优化 / eval 脚手架：
 
 ```bash
 python3 scripts/optimize_skills_skillup.py
@@ -114,6 +127,7 @@ bash scripts/check_skills_quality.sh
 python3 scripts/organize_project_dirs.py
 python3 scripts/validate_agents_metadata.py
 python3 scripts/validate_skills_independence.py --skills-root skills --fail-on-findings
+python3 scripts/check_skills_cli_compatibility.py --skills-root skills --fail-on-findings
 python3 scripts/validate_skills_integrity.py --fail-on-findings
 python3 scripts/check_external_snapshots.py --skills-root skills --max-per-skill 5
 bash scripts/validate_skill_evals.sh
@@ -128,6 +142,14 @@ bash scripts/generate-install-shortcuts.sh   # 若改了安装器生成逻辑
 ```
 
 改脚本、安装器或目录生成逻辑后，至少跑一次相关命令做基本验证，确认没有改坏安装路径、语言分区或工具名。
+
+Agent Skills 分发兼容性 gate（需要 Node.js / `npx`）：
+
+```bash
+bash scripts/check_skills_cli_compatibility.sh
+```
+
+该 gate 使用固定 `skills@1.7.0` 验证 repository-level discovery、代表性 Skill 和 English-first `functional-testing` 安装。CI 会通过 `SKILLS_CLI_PACKAGE` 指向当前 checkout；手动运行未设置时默认使用 `naodeng/awesome-qa-skills`，本地复现 CI 可执行 `SKILLS_CLI_PACKAGE="$PWD" bash scripts/check_skills_cli_compatibility.sh`。它不替代 `skill-up` 行为评测、业务验收或生产发布证据。完整契约见 [`docs/integrations/SKILLS_CLI_INTEGRATION.md`](docs/integrations/SKILLS_CLI_INTEGRATION.md)。
 
 启用 git hook（可选）：
 
