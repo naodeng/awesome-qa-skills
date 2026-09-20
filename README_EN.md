@@ -13,7 +13,7 @@ A language-partitioned **AI testing skills library** (Agent Skills) for Codex, C
 
 **Online directory:** [https://inaodeng.com/qaskills/](https://inaodeng.com/qaskills/)
 
-**Quick links:** [Complete Skills index](docs/catalog/skills-index_EN.md) · [Installation guide](scripts/INSTALL_SKILLS.md) · [v1.4 governance closeout](docs/governance/PHASE_0_V1_4_CLOSEOUT_EN.md) · [Contributing](CONTRIBUTING_EN.md)
+**Quick links:** [Complete Skills index](docs/catalog/skills-index_EN.md) · [Installation guide](scripts/INSTALL_SKILLS.md) · [Skills CLI integration guide](docs/integrations/SKILLS_CLI_INTEGRATION_EN.md) · [v1.4 governance closeout](docs/governance/PHASE_0_V1_4_CLOSEOUT_EN.md) · [Contributing](CONTRIBUTING_EN.md)
 
 ---
 
@@ -36,14 +36,34 @@ Each Skill directory is self-contained when copied out: it includes `SKILL.md`, 
 
 ### 1. Install one Skill (recommended)
 
-With Node.js installed, `npx skills` can install a language directory or one Skill directly from GitHub:
+#### English Skills (default)
+
+The repository-level entry point discovers English Skills by canonical name:
 
 ```bash
-# Install the English functional-testing Skill into Codex
-npx skills add https://github.com/naodeng/awesome-qa-skills/tree/main/skills/en/testing-types/functional-testing -g -a codex -y
+# Install the English functional-testing Skill
+npx skills add naodeng/awesome-qa-skills --skill functional-testing
+
+# Optional: target Codex explicitly
+npx skills add naodeng/awesome-qa-skills --skill functional-testing -a codex
+
+# Install the full English collection
+npx skills add naodeng/awesome-qa-skills
 ```
 
-For Chinese Skills, replace `skills/en` in the URL with `skills/zh`. Install one language at a time to avoid same-named Skills overwriting each other.
+#### 中文 Skills / Chinese Skills
+
+Chinese Skills require explicit selection of the `skills/zh` source. EN and ZH intentionally share canonical names, so install one language per target by default:
+
+```bash
+# Install the Chinese functional-testing Skill
+npx skills add https://github.com/naodeng/awesome-qa-skills/tree/main/skills/zh --skill functional-testing
+
+# Install the full Chinese collection
+npx skills add https://github.com/naodeng/awesome-qa-skills/tree/main/skills/zh
+```
+
+See the [Skills CLI integration guide](docs/integrations/SKILLS_CLI_INTEGRATION_EN.md) for advanced and CI-pinned commands, Chinese collections, `list` / `use` / `update` / `remove`, and the Tested / Ecosystem compatible boundary.
 
 ### 2. Use the one-click installer
 

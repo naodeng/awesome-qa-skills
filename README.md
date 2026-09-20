@@ -13,7 +13,7 @@
 
 **在线目录：** [https://inaodeng.com/qaskills/](https://inaodeng.com/qaskills/)
 
-**快速入口：** [完整技能索引](docs/catalog/skills-index.md) · [安装说明](scripts/INSTALL_SKILLS.md) · [v1.4 治理收口](docs/governance/PHASE_0_V1_4_CLOSEOUT.md) · [贡献指南](CONTRIBUTING.md)
+**快速入口：** [完整技能索引](docs/catalog/skills-index.md) · [安装说明](scripts/INSTALL_SKILLS.md) · [Skills CLI 集成指南](docs/integrations/SKILLS_CLI_INTEGRATION.md) · [v1.4 治理收口](docs/governance/PHASE_0_V1_4_CLOSEOUT.md) · [贡献指南](CONTRIBUTING.md)
 
 ---
 
@@ -36,14 +36,34 @@
 
 ### 1. 安装单个 Skill（推荐）
 
-需要 Node.js 的 `npx skills` 可以从 GitHub 直接安装一个语言目录或单个 Skill：
+#### 英文 Skill（默认）
+
+仓库级入口默认发现 English Skills，并按 canonical name 安装：
 
 ```bash
-# 将中文功能测试 Skill 安装到 Codex
-npx skills add https://github.com/naodeng/awesome-qa-skills/tree/main/skills/zh/testing-types/functional-testing -g -a codex -y
+# 安装英文 functional-testing
+npx skills add naodeng/awesome-qa-skills --skill functional-testing
+
+# 可选：指定 Codex 目标
+npx skills add naodeng/awesome-qa-skills --skill functional-testing -a codex
+
+# 安装全部英文 Skills
+npx skills add naodeng/awesome-qa-skills
 ```
 
-英文 Skill 将 URL 中的 `skills/zh` 替换为 `skills/en`。建议一次只安装一种语言，避免同名 Skill 相互覆盖。
+#### 中文 Skill
+
+中文 Skill 需要显式指定 `skills/zh` 源。EN/ZH 有意共享 canonical name，同一 target 默认只安装一种语言：
+
+```bash
+# 安装中文 functional-testing
+npx skills add https://github.com/naodeng/awesome-qa-skills/tree/main/skills/zh --skill functional-testing
+
+# 安装全部中文 Skills
+npx skills add https://github.com/naodeng/awesome-qa-skills/tree/main/skills/zh
+```
+
+高级、CI 固定版本、中文集合、`list` / `use` / `update` / `remove` 以及 Tested / Ecosystem compatible 边界见 [Skills CLI 集成指南](docs/integrations/SKILLS_CLI_INTEGRATION.md)。
 
 ### 2. 使用一键安装脚本
 
