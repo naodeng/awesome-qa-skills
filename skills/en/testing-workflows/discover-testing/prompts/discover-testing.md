@@ -16,7 +16,7 @@ Route the user request to the best-fit testing skill. This skill **only selects 
 
 1. Read the same-directory `reference.md` first and check whether the request matches one of five structured routes: `new-feature-quality`, `api-delivery`, `change-regression`, `performance-decision`, or `ai-feature-validation`.
 2. When a route matches, keep its single primary and at most one optional Skill, then apply the phase, type, and toolchain rules below as a consistency check; use the existing rules when no route matches.
-3. Recommend only Skills present in the local reference. Roadmap or future capabilities that are not installed must not be written as callable Skills, and do not follow relative links into another Skill's internals.
+3. When a Composition route matches, recommend only currently available Skills declared by that route; when no route matches, keep using the existing routing rules below. Roadmap or future capabilities that are not installed must not be written as callable Skills, and do not follow relative links into another Skill's internals.
 4. Routing produces selection and handoff guidance only. It does not execute the primary/optional Skill or turn a relation or Recipe into a mandatory order.
 
 ## Capability-stage decision (before package family)
@@ -29,7 +29,7 @@ Route the user request to the best-fit testing skill. This skill **only selects 
 | Testing an AI feature, LLM, prompt, agent, or injection defense | AI Native QA Skills | Route to `ai-feature-testing`, `llm-testing`, `prompt-testing`, `ai-agent-testing`, or the matching specialty |
 | Using AI to assist a conventional testing task | AI for QA (cross-cutting) | Recommend `ai-assisted-testing`; do not classify it as AI Native QA |
 
-Only Skills present in the repository and local `reference.md` are callable. With incomplete material, still provide the current best primary Skill and state evidence needed and assumptions; never invent test results.
+When a Composition route matches, its primary and optional Skills must be present in the local reference and repository. For non-matching requests, do not treat the local `reference.md` as an exhaustive Skill registry; use the existing rules below to select an available Skill. With incomplete material, still provide the current best primary Skill and state evidence needed and assumptions; never invent test results.
 
 ## Routing decision rules (apply in order)
 
