@@ -1,0 +1,33 @@
+id: route-ai-feature
+title: 路由：AI 功能验证 Composition route
+description: |
+  用户要验证一个 AI 功能的行为和模型输出边界时，应选择 ai-feature-validation，
+  可以补充 llm-testing，但不得把模型效果或业务验收写成已验证事实。
+
+context:
+  files:
+    "evals/fixtures/router-expected.json": |
+      {"route":"ai-feature-validation","primary":"ai-feature-testing","optional":"llm-testing"}
+
+input:
+  prompt: |
+    请使用 discover-testing 路由：客服 AI 功能已经有一组输入输出样本，
+    我们要规划行为验证和 LLM 输出评测。只输出 route ID、目标、唯一主 Skill、
+    最多一个辅助 Skill、理由和下一步交接输入；不要写完整评测方案或声称模型已经通过。
+    最后附一个 ```json 代码块，只包含 route、primary、optional 三个字段；optional 无则为 null。
+
+expect:
+  must_contain:
+    - "ai-feature-validation"
+    - "ai-feature-testing"
+    - "llm-testing"
+    - "主推荐"
+    - "下一步"
+  must_not_contain:
+    - "完整评测方案"
+    - "模型已经通过"
+    - "TODO"
+
+judge:
+  type: script
+  script_path: evals/fixtures/scripts/check_router_selection.sh

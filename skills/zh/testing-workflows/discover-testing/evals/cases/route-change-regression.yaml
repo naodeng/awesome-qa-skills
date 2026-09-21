@@ -1,0 +1,33 @@
+id: route-change-regression
+title: 路由：变更与回归 Composition route
+description: |
+  已知代码或需求变更，需要先识别影响面再收敛回归范围时，应选择 change-regression，
+  保留影响分析与回归候选的主辅边界，不声称已经执行回归。
+
+context:
+  files:
+    "evals/fixtures/router-expected.json": |
+      {"route":"change-regression","primary":"change-impact-analysis","optional":"regression-test-selection"}
+
+input:
+  prompt: |
+    请使用 discover-testing 路由：支付服务刚修改了回调签名和重试逻辑，
+    我们需要判断影响范围并选择回归候选。只输出 route ID、目标、唯一主 Skill、
+    最多一个辅助 Skill、理由和下一步交接；不要输出完整回归测试方案或执行结论。
+    最后附一个 ```json 代码块，只包含 route、primary、optional 三个字段；optional 无则为 null。
+
+expect:
+  must_contain:
+    - "change-regression"
+    - "change-impact-analysis"
+    - "regression-test-selection"
+    - "主推荐"
+    - "下一步"
+  must_not_contain:
+    - "完整回归测试方案"
+    - "已通过"
+    - "TODO"
+
+judge:
+  type: script
+  script_path: evals/fixtures/scripts/check_router_selection.sh

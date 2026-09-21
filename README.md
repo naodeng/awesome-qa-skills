@@ -13,7 +13,7 @@
 
 **在线目录：** [https://inaodeng.com/qaskills/](https://inaodeng.com/qaskills/)
 
-**快速入口：** [完整技能索引](docs/catalog/skills-index.md) · [安装说明](scripts/INSTALL_SKILLS.md) · [Skills CLI 集成指南](docs/integrations/SKILLS_CLI_INTEGRATION.md) · [v1.4 治理收口](docs/governance/PHASE_0_V1_4_CLOSEOUT.md) · [贡献指南](CONTRIBUTING.md)
+**快速入口：** [完整技能索引](docs/catalog/skills-index.md) · [Composition 路由目录](docs/catalog/skills-composition.md) · [安装说明](scripts/INSTALL_SKILLS.md) · [Skills CLI 集成指南](docs/integrations/SKILLS_CLI_INTEGRATION.md) · [v1.4 治理收口](docs/governance/PHASE_0_V1_4_CLOSEOUT.md) · [贡献指南](CONTRIBUTING.md)
 
 ---
 
@@ -119,6 +119,8 @@ cp -r skills/zh/testing-types/functional-testing ~/.cursor/skills/
 @skill discover-testing
 我要做一次发布前回归，该选哪些 Skill？
 ```
+
+如果需要查看五条结构化路线的主/辅 Skill 和边界，打开 [Composition 路由目录](docs/catalog/skills-composition.md)；单独复制 `discover-testing` 时使用其目录内的 `reference.md`。
 
 ## Skill 分类
 
@@ -530,6 +532,7 @@ bash scripts/run_skill_eval.sh skills/zh/testing-types/functional-testing/evals/
 | --- | --- |
 | [AGENTS.md](AGENTS.md) | Coding Agent 约定与质量检查 |
 | [skills-index.md](docs/catalog/skills-index.md) | 全量技能索引 |
+| [skills-composition.md](docs/catalog/skills-composition.md) | v1.5.2 五条结构化路由、主/辅 Skill 和导航关系 |
 | [QA_SKILLS_EVOLUTION_ROADMAP.md](docs/governance/QA_SKILLS_EVOLUTION_ROADMAP.md) | 四层能力演进与研发测试阶段地图 |
 | [DOCUMENTATION_POLICY.md](docs/governance/DOCUMENTATION_POLICY.md) | 中文优先的双语文档治理策略 |
 | [SKILL_GOVERNANCE_V1.md](docs/governance/SKILL_GOVERNANCE_V1.md) | v1.0 源代码治理基线与当前 164 对静态记录入口（早期基线 79 对；不代表运行质量） |

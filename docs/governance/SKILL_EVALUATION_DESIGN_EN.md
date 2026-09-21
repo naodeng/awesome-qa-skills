@@ -66,7 +66,7 @@ Follows “Design → Run → Interpret → Report → Recommend”. It distingu
 
 Every new Skill needs meaningful success, incomplete-information, and boundary/negative cases. A case contains realistic input, an explicit expectation, an appropriate judge, and a diagnosable failure signal. A real failure becomes a regression case only after root-cause analysis.
 
-Trigger evaluation separates expected selection from observed selection; observed selection requires a `skill.selection` trace event. Missing selection evidence is `BLOCKED`, not proof of non-selection.
+Trigger evaluation separates expected selection from observed selection; observed selection requires a `skill.selection` trace event. Router cases also require structured `route`, `primary`, `optional`, and `selected_skills` fields, where `selected_skills` is limited to one primary plus at most one optional Skill. Missing or malformed structured evidence is `BLOCKED`; mismatches or extra selections are `FAIL`, not proof of non-selection.
 
 Before interpreting results, check Eval validity: prompt, expectation, judge, fixture, and environment must match the contract. Failures are classified as Skill Defect, Eval Defect, Infrastructure Defect, or Unknown.
 

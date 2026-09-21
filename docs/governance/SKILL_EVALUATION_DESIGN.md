@@ -66,7 +66,7 @@ Skill authoring → Static review → Runtime evaluation → Evidence Package
 
 新 Skill 至少有成功、不完整信息、边界/负向三类 meaningful cases。用例必须包含真实输入、明确期望、合适 judge 和可诊断的失败信号。真实失败经过根因分析后才能成为回归用例。
 
-触发评测分成 expected selection 和 observed selection；后者必须有 `skill.selection` trace。缺少选择事件时结果为 `BLOCKED`，不推断为未触发。
+触发评测分成 expected selection 和 observed selection；后者必须有 `skill.selection` trace。Router case 还必须提供结构化的 `route`、`primary`、`optional` 和 `selected_skills`，其中 `selected_skills` 只能是唯一主 Skill 加至多一个辅助 Skill。缺少或非法结构化选择证据时结果为 `BLOCKED`，值不匹配或多选时为 `FAIL`，不推断为未触发。
 
 评测前检查 Eval validity：prompt、expect、judge、fixture 和 environment 都必须匹配契约；失败要区分 Skill Defect、Eval Defect、Infrastructure Defect 和 Unknown。
 

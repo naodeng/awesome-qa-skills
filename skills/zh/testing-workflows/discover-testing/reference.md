@@ -1,45 +1,70 @@
-# 测试技能路由图（中文）
+# discover-testing 路由参考
 
-## 能力阶段优先级
+> 此文件由 `scripts/generate_skill_composition_views.py` 生成。它是 Router Skill 的本地、自包含参考，不依赖仓库外部文件，也不把组合关系变成安装依赖。
 
-- Core QA Skills：需求、策略、用例、执行、缺陷和报告；选择对应的已安装基础 Skill。
-- Engineering QA Skills：需求质量、代码变更、诊断和性能决策；当前选择最近的已安装基础 Skill，并说明专项能力仍在路线图。
-- Production Quality Skills：发布证据优先 `release-testing-workflow`；生产验证、事故和可观测性专项尚未安装时不得虚构目录。
-- AI Native QA Skills：验证 AI 功能、LLM、Prompt、Agent 或注入防护；当前尚无可安装专项包，应明确说明路线图状态。
-- AI for QA：使用 AI 协助常规测试时选 `ai-assisted-testing`；它不属于 AI Native QA。
+## 使用边界
 
-不单独建路由目标：`manual-testing` 负责 `exploratory-testing` 模式；`release-testing-workflow` 负责 `release-readiness-assessment` 模式；未来 `prompt-testing` 负责 `prompt-regression-testing` 模式。
+- 先根据用户目标选择一条最匹配的路线。
+- 每条路线只给一个主 Skill，可选 Skill 最多一个；不要输出菜单式候选列表。
+- 信息不足时保留假设和证据缺口；本参考不证明模型、运行时或业务效果。
 
-## 第一步：选择主技能（测试类型）
+## Routes
 
-- 需求理解与测试点识别 -> `requirements-analysis` / `requirements-analysis`
-- 功能行为验证 -> `functional-testing` / `functional-testing`
-- API 接口与集成验证 -> `api-testing` / `api-testing`
-- 自动化策略与脚本设计 -> `automation-testing` / `automation-testing`
-- 手工 / 探索性测试 -> `manual-testing` / `manual-testing`
-- 缺陷报告编写 -> `bug-reporting` / `bug-reporting`
-- 测试用例编写 -> `test-case-writing` / `test-case-writing`
-- 测试用例评审 -> `test-case-reviewer` / `test-case-reviewer`
-- 代码 / PR 审查 -> `code-review` / `code-review`
-- 指标与测试报告输出 -> `test-reporting` / `test-reporting`
-- 测试策略与质量治理 -> `test-strategy` / `test-strategy`
-- 性能测试范围 -> `performance-testing` / `performance-testing`
-- 安全测试范围 -> `security-testing` / `security-testing`
-- 可访问性测试范围 -> `accessibility-testing` / `accessibility-testing`
-- 移动端测试范围 -> `mobile-testing` / `mobile-testing`
-- AI 辅助测试工作 -> `ai-assisted-testing` / `ai-assisted-testing`
+### 新功能质量准备 (`new-feature-quality`)
 
-## 第二步：选择流程技能（按阶段）
+- 触发意图: 从新需求和验收目标开始建立可测试的质量准备
+- 适用阶段: 需求分析 / 测试设计
+- 主 Skill: `requirements-analysis`
+- 可选 Skill: `test-strategy`
+- 交接: 交接已确认的风险、验收条件和测试范围，供后续测试设计使用
+- 不适用:
+  - 不替代具体测试类型或测试工具的执行
+  - 不在输入不足时捏造验收标准
 
-- 日常执行节奏 -> `daily-testing-workflow` / `daily-testing-workflow`
-- Sprint 迭代协同 -> `sprint-testing-workflow` / `sprint-testing-workflow`
-- 发布就绪与 Go/No-Go -> `release-testing-workflow` / `release-testing-workflow`
+### API 交付 (`api-delivery`)
 
-## 第三步：补充辅助技能（可选）
+- 触发意图: 为 API 变更或新接口选择契约与行为验证的起点
+- 适用阶段: API 设计 / 实现 / 验证
+- 主 Skill: `api-testing`
+- 可选 Skill: `api-contract-testing`
+- 交接: 交接接口清单、输入输出约束、异常路径和待验证的契约风险
+- 不适用:
+  - 不替代具体 API 客户端或测试框架的执行
+  - 不把契约检查结果当作完整业务验收
 
-- 需要报告输出 -> 加 `test-reporting` / `test-reporting`
-- 需要范围与优先级强化 -> 加 `test-strategy` / `test-strategy`
-- 需要缺陷产物质量提升 -> 加 `bug-reporting` / `bug-reporting`
-- API 已确定使用 Postman -> 加 `api-test-postman` / `api-test-postman`
-- UI 自动化已确定工具 -> 按工具加 `ui-test-selenium`、`ui-test-playwright`、`ui-test-testcafe`、`ui-test-cypress`、`ui-test-puppeteer` 或 `ui-test-webdriverio`
-- 性能测试已确定使用 JMeter -> 加 `performance-test-jmeter` / `performance-test-jmeter`
+### 变更与回归 (`change-regression`)
+
+- 触发意图: 从代码或需求变更识别影响面并收敛回归范围
+- 适用阶段: 变更分析 / 回归规划
+- 主 Skill: `change-impact-analysis`
+- 可选 Skill: `regression-test-selection`
+- 交接: 交接受影响组件、风险优先级、回归候选和未覆盖证据
+- 不适用:
+  - 不声称已经执行回归测试
+  - 不在没有变更证据时给出精确影响结论
+
+### 性能决策 (`performance-decision`)
+
+- 触发意图: 把性能目标和工作负载转化为可解释的验证与分析路径
+- 适用阶段: 性能建模 / 结果分析
+- 主 Skill: `performance-workload-modeling`
+- 可选 Skill: `performance-result-analysis`
+- 交接: 交接负载假设、指标定义、环境前提和结果分析问题
+- 不适用:
+  - 不替代压测工具或目标环境的实际运行
+  - 不把静态工作负载模型当作运行结果
+
+### AI 功能验证 (`ai-feature-validation`)
+
+- 触发意图: 为 AI 功能区分功能行为、模型输出和风险边界的验证入口
+- 适用阶段: AI 功能设计 / 评测规划
+- 主 Skill: `ai-feature-testing`
+- 可选 Skill: `llm-testing`
+- 交接: 交接功能目标、输入输出样本、风险维度、评测数据和未运行项
+- 不适用:
+  - 不在没有模型、数据和目标环境时声称模型效果
+  - 不把提示词建议当作业务验收或安全结论
+
+## 选择后的交接
+
+输出路由理由、关键假设、证据缺口和下一步交接输入；组合建议是导航信息，不是强制执行链。

@@ -4,6 +4,8 @@
 
 每种语言包含 10 个工作流、149 个测试类型和 5 个 Skill Engineering，共 164 个；中英文合计 328 个目录。以下是逻辑导航，实际目录不变。长期治理入口见 [Skill 治理路线图](../governance/SKILL_GOVERNANCE_ROADMAP.md)、[治理矩阵](../SKILL_MATRIX.md)、[匹配登记表](../SKILL_MATCHING_REGISTER.md) 和 [v1.4 收口](../governance/PHASE_0_V1_4_CLOSEOUT.md)。
 
+Composition 路由和组合关系见 [v1.5.2 Composition Catalog](skills-composition.md)；它是导航元数据，不是安装依赖或自动执行链。
+
 ## 跨阶段工作流
 
 ### 需求发现与分析

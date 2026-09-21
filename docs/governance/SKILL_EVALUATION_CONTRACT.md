@@ -57,7 +57,9 @@ judge_type, judge_model, environment, timestamp
 
 ## Trigger and regression
 
-Expected selection 来自 case；observed selection 必须由 `skill.selection` trace 支持。缺少事件为 `BLOCKED`。Benchmark（with Skill vs without Skill）与 Version Regression（previous vs current）是两个不同问题，不能合并。
+Expected selection 来自 case；Router case 用 `expected_selection` 声明 expected `route`、`primary` 和 `optional`。Observed route/selection 必须由带有这些字段的 `skill.selection` trace 或明确声明的 trace adapter 输出支持，并同时提供 `selected_skills`；它必须严格等于 `[primary]` 或 `[primary, optional]`。普通文本中的推荐不能替代选择证据。结构化选择字段缺失或非法为 `BLOCKED`，值不匹配或出现额外 Skill 为 `FAIL`；缺少选择事件不能按 negative control 或 `PASS` 解释。Composition Recipe 只是导航元数据，不是强制执行链。Benchmark（with Skill vs without Skill）与 Version Regression（previous vs current）是两个不同问题，不能合并。
+
+Router Pilot 不新增 Engine、Judge、Benchmark runner 或 Quality Score 维度；没有真实模型、目标环境、跨模型矩阵或业务验收证据时，保持 `NOT_RUN`、`BLOCKED`、`NOT_SCORED` 或 `INSUFFICIENT_EVIDENCE`。
 
 强 regression 结论需要可比的 Skill commit、Eval dataset、engine/model、judge、environment 和时间窗口；单次 semantic failure 只能写成 observation，除非契约明确允许。
 

@@ -355,6 +355,15 @@ def _selection_events(events: list[dict[str, Any]]) -> list[dict[str, Any]]:
                 "skill": event.get("skill", event.get("skill_name", event.get("name"))),
                 "mode": event.get("mode", event.get("trigger_mode")),
                 "selected": selected,
+                "route": event.get("route"),
+                "primary": event.get("primary"),
+                "optional": event.get("optional"),
+                "selected_skills": event.get("selected_skills"),
+                "selection_fields": [
+                    field
+                    for field in ("route", "primary", "optional", "selected_skills")
+                    if field in event
+                ],
             }
         )
     return selections
@@ -411,7 +420,92 @@ def _check_trigger(rule_id: str, mode: str, trace: Trace, config: dict[str, Any]
     actual = actual_value
     if actual != expected_bool:
         return _result(rule_id, FAIL, f"expected selected={expected_bool}, observed selected={actual}", [str(candidates[-1])])
-    return _result(rule_id, PASS, f"observed selected={actual}", [str(candidates[-1])])
+    selection = candidates[-1]
+    if "expected_selection" not in config:
+        return _result(rule_id, PASS, f"observed selected={actual}", [str(selection)])
+
+    expected_selection = config.get("expected_selection")
+    required_fields = ("route", "primary", "optional")
+    if not isinstance(expected_selection, dict) or any(
+        field not in expected_selection for field in required_fields
+    ):
+        return _result(
+            rule_id,
+            BLOCKED,
+            "structured selection evidence requires route, primary, and optional expectations",
+            [str(selection)],
+        )
+
+    expected_route = expected_selection["route"]
+    expected_primary = expected_selection["primary"]
+    expected_optional = expected_selection["optional"]
+    if (
+        not isinstance(expected_route, str)
+        or not isinstance(expected_primary, str)
+        or (expected_optional is not None and not isinstance(expected_optional, str))
+    ):
+        return _result(
+            rule_id,
+            BLOCKED,
+            "structured selection evidence has invalid expected route, primary, or optional values",
+            [str(selection)],
+        )
+
+    missing_fields = [
+        field for field in (*required_fields, "selected_skills") if field not in selection.get("selection_fields", [])
+    ]
+    if missing_fields:
+        return _result(
+            rule_id,
+            BLOCKED,
+            f"structured selection evidence is missing {', '.join(missing_fields)}",
+            [str(selection)],
+        )
+
+    selected_skills = selection.get("selected_skills")
+    if not isinstance(selected_skills, list) or not all(isinstance(skill_name, str) for skill_name in selected_skills):
+        return _result(
+            rule_id,
+            BLOCKED,
+            "structured selection evidence must provide selected_skills as a list of strings",
+            [str(selection)],
+        )
+
+    expected_skills = [expected_primary]
+    if expected_optional is not None:
+        expected_skills.append(expected_optional)
+    if selected_skills != expected_skills:
+        return _result(
+            rule_id,
+            FAIL,
+            f"selected_skills mismatch: expected {expected_skills}, observed {selected_skills}",
+            [str(selection)],
+        )
+
+    observed_selection = {
+        "route": selection.get("route"),
+        "primary": selection.get("primary"),
+        "optional": selection.get("optional"),
+    }
+    expected_values = {
+        "route": expected_route,
+        "primary": expected_primary,
+        "optional": expected_optional,
+    }
+    if observed_selection != expected_values:
+        return _result(
+            rule_id,
+            FAIL,
+            f"expected selection={expected_values}, observed selection={observed_selection}",
+            [str(selection)],
+        )
+
+    return _result(
+        rule_id,
+        PASS,
+        f"route={expected_route}, primary={expected_primary}, optional={expected_optional}, selected_skills={selected_skills}",
+        [str(selection)],
+    )
 
 
 def _check_trace_audit(trace: Trace) -> RuleResult:

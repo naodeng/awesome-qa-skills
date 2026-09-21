@@ -29,6 +29,12 @@ flowchart LR
 
 四层演进方向为：`Core QA Skills → Engineering QA Skills → Production Quality Skills → AI Native QA Skills`。节点表示主要生命周期归属，不代表必须严格按此顺序执行。
 
+## v1.5.2 Composition Catalog
+
+- [完整 Composition Catalog](skills-composition.md)：由 `docs/governance/skill-composition.yaml` 生成的五条路线、主/辅 Skill 和导航关系。
+- `discover-testing` 安装包内的 `reference.md` 是独立 Router 参考；只复制该 Skill 时不依赖仓库外部文件。
+- Composition 是导航元数据，不是安装依赖、自动执行链或质量评分。
+
 ## 推荐组合
 
 | 场景 | 推荐组合 | 输出 |

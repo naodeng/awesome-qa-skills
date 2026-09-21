@@ -12,6 +12,13 @@ Route the user request to the best-fit testing skill. This skill **only selects 
 - current phase if known: clarification / strategy / case design / execution / defects / daily / sprint / release
 - constraints: language, toolchain, whether plus/enhanced is wanted
 
+## Composition routing source
+
+1. Read the same-directory `reference.md` first and check whether the request matches one of five structured routes: `new-feature-quality`, `api-delivery`, `change-regression`, `performance-decision`, or `ai-feature-validation`.
+2. When a route matches, keep its single primary and at most one optional Skill, then apply the phase, type, and toolchain rules below as a consistency check; use the existing rules when no route matches.
+3. Recommend only Skills present in the local reference. Roadmap or future capabilities that are not installed must not be written as callable Skills, and do not follow relative links into another Skill's internals.
+4. Routing produces selection and handoff guidance only. It does not execute the primary/optional Skill or turn a relation or Recipe into a mandatory order.
+
 ## Capability-stage decision (before package family)
 
 | User goal | Capability stage | Current routing rule |
@@ -22,7 +29,7 @@ Route the user request to the best-fit testing skill. This skill **only selects 
 | Testing an AI feature, LLM, prompt, agent, or injection defense | AI Native QA Skills | Route to `ai-feature-testing`, `llm-testing`, `prompt-testing`, `ai-agent-testing`, or the matching specialty |
 | Using AI to assist a conventional testing task | AI for QA (cross-cutting) | Recommend `ai-assisted-testing`; do not classify it as AI Native QA |
 
-All roadmap Skills are now callable. With incomplete material, still provide the current best primary Skill and state evidence needed and assumptions; never invent test results.
+Only Skills present in the repository and local `reference.md` are callable. With incomplete material, still provide the current best primary Skill and state evidence needed and assumptions; never invent test results.
 
 ## Routing decision rules (apply in order)
 
@@ -84,14 +91,17 @@ Still give the **best current primary** plus assumptions; note what info could c
 
 ## What to do
 
-1. One-sentence main testing goal.
+1. If a Composition route matches, name its route ID first; then state the one-sentence main testing goal.
 2. Exactly one primary skill; optionally ≤1 support.
 3. Short rationale mapped to the rules above.
-4. Next step: what context to bring into the target skill (do not write the full plan/full case set here).
+4. State key assumptions and evidence gaps; still give the best current route when information is incomplete.
+5. Next step: what context to bring into the target skill (do not write the full plan/full case set here).
+6. When an eval adapter needs structured selection evidence, append a JSON code block containing only `route`, `primary`, and `optional`; use `null` for `optional` when there is no supporting Skill.
 
 ## Minimum Coverage Checklist
 
 - main goal
+- Composition route ID, when applicable, plus its applicability/boundary
 - unique primary skill (exact directory/`name`)
 - optional supporting skill (or explicit “none”)
 - why (workflow/type, baseline/plus, toolchain if relevant)

@@ -12,6 +12,13 @@
 - 当前阶段（若有）：需求澄清 / 策略 / 设计用例 / 执行 / 缺陷 / 日常 / 迭代 / 发布
 - 已知约束：语言、工具链、是否要增强版（plus）
 
+## Composition 路由来源
+
+1. 先读取同目录 `reference.md`，判断用户目标是否命中五条结构化路线之一：`new-feature-quality`、`api-delivery`、`change-regression`、`performance-decision`、`ai-feature-validation`。
+2. 命中时沿用该路线的唯一主 Skill 和至多一个辅助 Skill，再用下方阶段、类型和工具链规则校正；未命中时按现有规则路由。
+3. 只推荐本地参考中存在的当前 Skill。路线图或未来规划中的未安装能力不得写成可调用 Skill，也不得通过相对路径读取其他 Skill 的内部文件。
+4. 路由只产生选择和交接说明，不自动执行主/辅 Skill，不把关系或 Recipe 写成强制顺序。
+
 ## 能力阶段判定（先于目录类型）
 
 | 用户目标 | 能力阶段 | 当前路由原则 |
@@ -22,7 +29,7 @@
 | 验证 AI 功能、LLM、Prompt、Agent 或注入防护 | AI Native QA Skills | 路由到 `ai-feature-testing`、`llm-testing`、`prompt-testing`、`ai-agent-testing` 或对应专项 |
 | 用 AI 协助常规测试任务 | AI for QA（横向能力） | 主推荐 `ai-assisted-testing`，不误归类为 AI Native QA |
 
-所有路线图 Skill 现已可调用。遇到材料不足时，仍给当前最佳主 Skill，并明确所需证据与假设；不得编造测试结果。
+只有当前仓库和本地 `reference.md` 中存在的 Skill 才可调用。遇到材料不足时，仍给当前最佳主 Skill，并明确所需证据与假设；不得编造测试结果。
 
 ## 路由决策规则（按顺序判断）
 
@@ -84,14 +91,17 @@
 
 ## 你要做的事
 
-1. 用一句话概括主要测试目标。
+1. 如果命中 Composition route，先写 route ID；再用一句话概括主要测试目标。
 2. 选出唯一主 skill；必要时 ≤1 个辅助 skill。
 3. 说明理由（对照上方规则，短句即可）。
-4. 给出下一步：用户应携带什么上下文去调用目标 skill（不要在本 skill 内写完整测试方案/全套用例）。
+4. 标出关键假设和证据缺口；信息不足也要给当前最佳路由。
+5. 给出下一步：用户应携带什么上下文去调用目标 skill（不要在本 skill 内写完整测试方案/全套用例）。
+6. 当评测适配器需要结构化选择证据时，在末尾附一个只包含 `route`、`primary`、`optional` 的 JSON 代码块；没有辅助 Skill 时将 `optional` 写为 `null`。
 
 ## 最低覆盖清单
 
 - 主要目标
+- 命中 Composition route 时：route ID、主/辅唯一性、适用条件和不适用边界
 - 唯一主 skill（准确目录名）
 - 可选辅助 skill（或显式「无」）
 - 推荐原因（含工作流/类型、基础/plus、工具链判断若相关）

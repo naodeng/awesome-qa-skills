@@ -42,7 +42,7 @@ Exit codes are: `0` when no rule is failed or evidence-blocked, `1` when at leas
 
 | ID | Check | Required configuration or evidence |
 | --- | --- | --- |
-| `TRIGGER-001` | Explicit request selects the Skill | `trigger_mode=explicit` and `skill.selection` |
+| `TRIGGER-001` | Explicit request selects the Skill; Router can also check route and primary/optional uniqueness | `trigger_mode=explicit` and `skill.selection`; optional `expected_selection` |
 | `TRIGGER-002` | Implicit task selects the Skill | `trigger_mode=implicit` and `skill.selection` |
 | `TRIGGER-003` | Domain-context task selects the Skill | `trigger_mode=contextual` and `skill.selection` |
 | `TRIGGER-004` | Negative control does not select the Skill | `trigger_mode=negative` and `selected=false` |
@@ -97,7 +97,22 @@ A non-trigger rule runs only when its corresponding assertion is configured. Unc
 }
 ```
 
-Trigger rules require the eval adapter to write `skill.selection` evidence with a boolean selection field into the trace. The article documents `command_execution` events for command and artifact checks, but does not guarantee a Skill-selection event. When the selection event is missing or its `selected`/`invoked`/`triggered` field is invalid, the rule reports `BLOCKED` rather than inferring that the Skill was not triggered.
+Ordinary trigger rules require the eval adapter to write `skill.selection` evidence with a boolean selection field into the trace. A Router case can additionally configure `expected_selection`, which requires the selection event to provide `route`, `primary`, `optional`, and `selected_skills`; the latter must be exactly `[primary]` or `[primary, optional]`, so a recommendation menu cannot stand in for a unique primary/optional selection. Missing or malformed structured fields report `BLOCKED`; route/Skill mismatches or extra selections report `FAIL`. The article documents `command_execution` events for command and artifact checks, but does not guarantee a Skill-selection event. When the selection event is missing or its `selected`/`invoked`/`triggered` field is invalid, the rule reports `BLOCKED` rather than inferring that the Skill was not triggered.
+
+Router configuration example:
+
+```json
+{
+  "skill": "discover-testing",
+  "trigger_mode": "explicit",
+  "should_trigger": true,
+  "expected_selection": {
+    "route": "api-delivery",
+    "primary": "api-testing",
+    "optional": "api-contract-testing"
+  }
+}
+```
 
 ## Boundaries
 
