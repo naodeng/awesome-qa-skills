@@ -1,7 +1,7 @@
 id: capability-stage-routing
-title: "Routing: distinguish the AI Native QA roadmap from AI for QA"
+title: "Routing: distinguish AI Native QA from AI for QA"
 description: |
-  A request to evaluate LLM hallucination and refusal behavior must be identified as an AI Native QA roadmap capability,
+  A request to evaluate LLM hallucination and refusal behavior must be identified as an AI Native QA capability,
   use the currently installed AI feature/LLM Skill, and not be classified as AI for QA. ai-assisted-testing applies when AI assists an existing QA task.
 
 input:
@@ -12,7 +12,6 @@ input:
 expect:
   must_contain:
     - "AI Native QA"
-    - "roadmap"
     - "ai-feature-testing"
   must_not_contain:
     - "ai-assisted-testing"
@@ -23,4 +22,4 @@ judge:
     - output_contains:
         all:
           - "AI Native QA"
-          - "roadmap"
+          - "ai-feature-testing"

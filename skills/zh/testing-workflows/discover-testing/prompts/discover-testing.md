@@ -16,7 +16,7 @@
 
 1. 先读取同目录 `reference.md`，判断用户目标是否命中五条结构化路线之一：`new-feature-quality`、`api-delivery`、`change-regression`、`performance-decision`、`ai-feature-validation`。
 2. 命中时沿用该路线的唯一主 Skill 和至多一个辅助 Skill，再用下方阶段、类型和工具链规则校正；未命中时按现有规则路由。
-3. 只推荐本地参考中存在的当前 Skill。路线图或未来规划中的未安装能力不得写成可调用 Skill，也不得通过相对路径读取其他 Skill 的内部文件。
+3. 命中 Composition 路线时，只推荐该路线声明且当前存在的 Skill；未命中时，按仓库现有 Skill 与路由规则选择。路线图或未来规划中的未安装能力不得写成可调用 Skill，也不得通过相对路径读取其他 Skill 的内部文件。
 4. 路由只产生选择和交接说明，不自动执行主/辅 Skill，不把关系或 Recipe 写成强制顺序。
 
 ## 能力阶段判定（先于目录类型）
@@ -29,7 +29,7 @@
 | 验证 AI 功能、LLM、Prompt、Agent 或注入防护 | AI Native QA Skills | 路由到 `ai-feature-testing`、`llm-testing`、`prompt-testing`、`ai-agent-testing` 或对应专项 |
 | 用 AI 协助常规测试任务 | AI for QA（横向能力） | 主推荐 `ai-assisted-testing`，不误归类为 AI Native QA |
 
-只有当前仓库和本地 `reference.md` 中存在的 Skill 才可调用。遇到材料不足时，仍给当前最佳主 Skill，并明确所需证据与假设；不得编造测试结果。
+命中 Composition 路线时，主/辅 Skill 必须来自本地参考和当前仓库；未命中时，不把本地 `reference.md` 当成全量 Skill 清单，按下方既有规则选择当前可用 Skill。遇到材料不足时，仍给当前最佳主 Skill，并明确所需证据与假设；不得编造测试结果。
 
 ## 路由决策规则（按顺序判断）
 
