@@ -57,7 +57,9 @@ Choose `rule_based` for deterministic assertions, `script` for executable artifa
 
 ## Trigger and regression
 
-Expected selection belongs to the case; observed selection requires a `skill.selection` trace. Missing selection evidence is `BLOCKED`. A benchmark (with Skill vs without Skill) and a Version Regression (previous vs current) answer different questions and must not be merged.
+Expected selection belongs to the case; a Router case declares the expected `route`, `primary`, and `optional` in `expected_selection`. Observed route/selection must be supported by a `skill.selection` trace or explicitly declared trace adapter carrying those fields and `selected_skills`; the list must be exactly `[primary]` or `[primary, optional]`. A recommendation in ordinary text is not selection evidence. Missing or malformed structured selection is `BLOCKED`; mismatched values or extra Skills are `FAIL`. Missing selection events cannot be interpreted as a negative control or `PASS`. A Composition Recipe is navigation metadata, not a mandatory execution chain. A benchmark (with Skill vs without Skill) and a Version Regression (previous vs current) answer different questions and must not be merged.
+
+The Router Pilot adds no Engine, Judge, Benchmark runner, or Quality Score dimension. Without real-model, target-environment, cross-model-matrix, or business-acceptance evidence, keep the result as `NOT_RUN`, `BLOCKED`, `NOT_SCORED`, or `INSUFFICIENT_EVIDENCE`.
 
 A strong regression claim requires comparable Skill commit, Eval dataset, engine/model, judge, environment, and time window. A single semantic failure is an observation unless the contract explicitly permits a stronger claim.
 

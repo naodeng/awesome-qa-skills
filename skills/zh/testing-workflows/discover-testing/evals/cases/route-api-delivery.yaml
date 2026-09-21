@@ -1,0 +1,34 @@
+id: route-api-delivery
+title: 路由：API 交付 Composition route
+description: |
+  OpenAPI 已存在，用户要同时关注接口行为和契约兼容性时，应选择 api-delivery，
+  只给一个主 Skill 和至多一个辅助 Skill，不在 Router 内写完整 API 测试方案。
+
+context:
+  files:
+    "evals/fixtures/router-expected.json": |
+      {"route":"api-delivery","primary":"api-testing","optional":"api-contract-testing"}
+
+input:
+  prompt: |
+    请使用 discover-testing 为这个请求路由：我们要交付订单 API，已有 OpenAPI，
+    需要覆盖正常行为、鉴权、错误码和契约兼容性。请只输出命中的 route ID、
+    一句话目标、唯一主 Skill、最多一个辅助 Skill、选择理由和下一步交接输入。
+    不要写完整测试方案，也不要推荐未安装的未来 Skill。最后附一个 ```json 代码块，
+    只包含 route、primary、optional 三个字段；optional 无则为 null。
+
+expect:
+  must_contain:
+    - "api-delivery"
+    - "api-testing"
+    - "api-contract-testing"
+    - "主推荐"
+    - "下一步"
+  must_not_contain:
+    - "完整测试方案"
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: script
+  script_path: evals/fixtures/scripts/check_router_selection.sh

@@ -20,6 +20,11 @@ cases:
     - evals/cases/edge-incomplete-input.yaml
     - evals/cases/edge-narrow-recommendation.yaml
     - evals/cases/capability-stage-routing.yaml
+    - evals/cases/route-new-feature-quality.yaml
+    - evals/cases/route-api-delivery.yaml
+    - evals/cases/route-change-regression.yaml
+    - evals/cases/route-performance-decision.yaml
+    - evals/cases/route-ai-feature.yaml
   defaults:
     timeout_seconds: 180
     max_turns: 8

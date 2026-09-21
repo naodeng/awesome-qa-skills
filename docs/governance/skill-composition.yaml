@@ -1,0 +1,188 @@
+{
+  "format": "json-compatible-yaml",
+  "version": 1,
+  "routes": [
+    {
+      "id": "new-feature-quality",
+      "label": {
+        "zh": "新功能质量准备",
+        "en": "New feature quality readiness"
+      },
+      "intent": {
+        "zh": "从新需求和验收目标开始建立可测试的质量准备",
+        "en": "Turn a new requirement and acceptance goal into testable quality preparation"
+      },
+      "phase": {
+        "zh": "需求分析 / 测试设计",
+        "en": "Requirements analysis / test design"
+      },
+      "not_for": {
+        "zh": [
+          "不替代具体测试类型或测试工具的执行",
+          "不在输入不足时捏造验收标准"
+        ],
+        "en": [
+          "Does not replace execution by a concrete test type or tool",
+          "Does not invent acceptance criteria when inputs are missing"
+        ]
+      },
+      "primary": "requirements-analysis",
+      "optional": "test-strategy",
+      "handoff": {
+        "zh": "交接已确认的风险、验收条件和测试范围，供后续测试设计使用",
+        "en": "Hand off confirmed risks, acceptance conditions, and test scope for test design"
+      }
+    },
+    {
+      "id": "api-delivery",
+      "label": {
+        "zh": "API 交付",
+        "en": "API delivery"
+      },
+      "intent": {
+        "zh": "为 API 变更或新接口选择契约与行为验证的起点",
+        "en": "Choose a starting point for contract and behavior validation of a new or changed API"
+      },
+      "phase": {
+        "zh": "API 设计 / 实现 / 验证",
+        "en": "API design / implementation / verification"
+      },
+      "not_for": {
+        "zh": [
+          "不替代具体 API 客户端或测试框架的执行",
+          "不把契约检查结果当作完整业务验收"
+        ],
+        "en": [
+          "Does not replace execution by a concrete API client or framework",
+          "Does not treat contract checks as complete business acceptance"
+        ]
+      },
+      "primary": "api-testing",
+      "optional": "api-contract-testing",
+      "handoff": {
+        "zh": "交接接口清单、输入输出约束、异常路径和待验证的契约风险",
+        "en": "Hand off the endpoint inventory, input/output constraints, error paths, and contract risks"
+      }
+    },
+    {
+      "id": "change-regression",
+      "label": {
+        "zh": "变更与回归",
+        "en": "Change and regression"
+      },
+      "intent": {
+        "zh": "从代码或需求变更识别影响面并收敛回归范围",
+        "en": "Identify change impact and narrow the regression scope"
+      },
+      "phase": {
+        "zh": "变更分析 / 回归规划",
+        "en": "Change analysis / regression planning"
+      },
+      "not_for": {
+        "zh": [
+          "不声称已经执行回归测试",
+          "不在没有变更证据时给出精确影响结论"
+        ],
+        "en": [
+          "Does not claim that regression tests have been executed",
+          "Does not provide precise impact conclusions without change evidence"
+        ]
+      },
+      "primary": "change-impact-analysis",
+      "optional": "regression-test-selection",
+      "handoff": {
+        "zh": "交接受影响组件、风险优先级、回归候选和未覆盖证据",
+        "en": "Hand off affected components, risk priorities, regression candidates, and evidence gaps"
+      }
+    },
+    {
+      "id": "performance-decision",
+      "label": {
+        "zh": "性能决策",
+        "en": "Performance decision"
+      },
+      "intent": {
+        "zh": "把性能目标和工作负载转化为可解释的验证与分析路径",
+        "en": "Turn performance goals and workload assumptions into an explainable validation and analysis path"
+      },
+      "phase": {
+        "zh": "性能建模 / 结果分析",
+        "en": "Performance modeling / result analysis"
+      },
+      "not_for": {
+        "zh": [
+          "不替代压测工具或目标环境的实际运行",
+          "不把静态工作负载模型当作运行结果"
+        ],
+        "en": [
+          "Does not replace execution by a load-testing tool or target environment",
+          "Does not treat a static workload model as runtime results"
+        ]
+      },
+      "primary": "performance-workload-modeling",
+      "optional": "performance-result-analysis",
+      "handoff": {
+        "zh": "交接负载假设、指标定义、环境前提和结果分析问题",
+        "en": "Hand off workload assumptions, metric definitions, environment prerequisites, and analysis questions"
+      }
+    },
+    {
+      "id": "ai-feature-validation",
+      "label": {
+        "zh": "AI 功能验证",
+        "en": "AI feature validation"
+      },
+      "intent": {
+        "zh": "为 AI 功能区分功能行为、模型输出和风险边界的验证入口",
+        "en": "Separate functional behavior, model output, and risk-boundary validation for an AI feature"
+      },
+      "phase": {
+        "zh": "AI 功能设计 / 评测规划",
+        "en": "AI feature design / evaluation planning"
+      },
+      "not_for": {
+        "zh": [
+          "不在没有模型、数据和目标环境时声称模型效果",
+          "不把提示词建议当作业务验收或安全结论"
+        ],
+        "en": [
+          "Does not claim model effectiveness without a model, data, and target environment",
+          "Does not treat prompt suggestions as business acceptance or security conclusions"
+        ]
+      },
+      "primary": "ai-feature-testing",
+      "optional": "llm-testing",
+      "handoff": {
+        "zh": "交接功能目标、输入输出样本、风险维度、评测数据和未运行项",
+        "en": "Hand off feature goals, input/output samples, risk dimensions, evaluation data, and unrun items"
+      }
+    }
+  ],
+  "relations": [
+    {
+      "from": "requirements-analysis",
+      "to": "test-strategy",
+      "type": "recommended_with"
+    },
+    {
+      "from": "api-testing",
+      "to": "api-contract-testing",
+      "type": "recommended_with"
+    },
+    {
+      "from": "change-impact-analysis",
+      "to": "regression-test-selection",
+      "type": "recommended_with"
+    },
+    {
+      "from": "performance-workload-modeling",
+      "to": "performance-result-analysis",
+      "type": "precedes"
+    },
+    {
+      "from": "ai-feature-testing",
+      "to": "llm-testing",
+      "type": "recommended_with"
+    }
+  ]
+}

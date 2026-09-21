@@ -1,0 +1,34 @@
+id: route-api-delivery
+title: "Routing: API delivery Composition route"
+description: |
+  With an existing OpenAPI contract and a need for behavior plus compatibility checks, select api-delivery,
+  return one primary and at most one optional Skill, and do not write the full API test plan here.
+
+context:
+  files:
+    "evals/fixtures/router-expected.json": |
+      {"route":"api-delivery","primary":"api-testing","optional":"api-contract-testing"}
+
+input:
+  prompt: |
+    Use discover-testing to route this request: we are delivering order APIs with an existing OpenAPI contract,
+    and need behavior, authentication, error-code, and contract-compatibility coverage. Return only the route ID,
+    one-sentence goal, exactly one primary Skill, at most one optional Skill, rationale, and next handoff input.
+    Do not write a full test plan or recommend an uninstalled future Skill. End with one ```json code block
+    containing only route, primary, and optional; use null when there is no optional Skill.
+
+expect:
+  must_contain:
+    - "api-delivery"
+    - "api-testing"
+    - "api-contract-testing"
+    - "Primary Recommendation"
+    - "Next Step"
+  must_not_contain:
+    - "full API test plan"
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: script
+  script_path: evals/fixtures/scripts/check_router_selection.sh

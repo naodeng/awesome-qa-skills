@@ -4,6 +4,8 @@
 
 Each language contains 10 workflows, 149 testing types, and 5 Skill Engineering packages: 164 per language and 328 directories total. This is logical navigation; physical directories do not change. See the [Skill governance roadmap](../governance/SKILL_GOVERNANCE_ROADMAP_EN.md), [governance matrix](../SKILL_MATRIX_EN.md), [matching register](../SKILL_MATCHING_REGISTER_EN.md), and [v1.4 closeout](../governance/PHASE_0_V1_4_CLOSEOUT_EN.md) for long-term governance.
 
+See the [v1.5.2 Composition Catalog](skills-composition_EN.md) for route and composition navigation; it is metadata, not an installation dependency or automatic execution chain.
+
 ## Cross-phase workflows
 
 ### Discovery

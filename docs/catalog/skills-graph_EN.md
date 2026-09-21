@@ -29,6 +29,12 @@ flowchart LR
 
 The evolution model is `Core QA Skills → Engineering QA Skills → Production Quality Skills → AI Native QA Skills`. Nodes show primary lifecycle placement, not a mandatory execution order.
 
+## v1.5.2 Composition Catalog
+
+- [Complete Composition Catalog](skills-composition_EN.md): generated from `docs/governance/skill-composition.yaml` with five routes, primary/optional Skills, and navigation relations.
+- The `discover-testing` package's `reference.md` is the independent Router reference; copying only that Skill does not require repository-outside files.
+- Composition is navigation metadata, not an installation dependency, automatic execution chain, or quality score.
+
 ## Recommended Compositions
 
 | Scenario | Recommended composition | Outcome |

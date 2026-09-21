@@ -35,6 +35,12 @@ GitHub Project `Awesome QA Skills — Governance & Roadmap` 是执行看板。�
 
 本迭代保持 `skill-up` 为唯一通用 Eval Engine，不新增第二套通用 Eval、Judge、Benchmark 或 Quality Score。静态、结构、评测、运行时和人工复核证据分开记录；未授权真实模型回放、trigger selection 观察、外部目标执行和业务验收仍保持 `NOT_RUN` / `INSUFFICIENT_EVIDENCE`，不由 Project `Done` 状态推断。
 
+## v1.5.2 当前工作项（2026-09-20）
+
+`Done with deferred evidence`：`v1.5.2｜迭代｜Skill Router 与 Evaluation Pilot Hardening` 已将已有 `discover-testing`、Composition 图和 v1.5.1 评测基础连接为一个最小的可发现、可验证、可回归闭环。当前实现包含受验证的 `skill-composition.yaml`、双语生成 Catalog、可独立复制的 Router `reference.md`、五条结构化路线（新功能质量准备、API 交付、变更与回归、性能决策、AI 功能验证）以及 Router Pilot 的双语 Eval/trace 合同。
+
+本工作项不新增物理 Skill，不把 Composition 变成安装依赖，不实现服务端语义路由、自动目标执行、多 Agent 编排，也不新增通用 Eval Engine、Judge、Benchmark runner 或 Quality Score。质量门禁能够验证 Manifest、生成视图、双语结构、`skill.selection` 离线证据和缺失选择时的 `BLOCKED` 边界；真实模型选择、跨模型一致性、目标运行、真实项目 Benchmark、Usage Analytics 和业务路由效果继续保持 `NOT_RUN` / `BLOCKED` / `INSUFFICIENT_EVIDENCE`。`xxx-plus` 到 mode 的迁移留待后续版本。
+
 ## Phase 0 当前状态（2026-09-16）
 
 `COMPLETED_WITH_LIMITATIONS`：registry 当前逐条覆盖 164 个逻辑双语 Skill 对；每条保留中英文 `SKILL.md`、主 prompt、Eval 结构和 `agents/openai.yaml` 的证据路径，D01–D16 分类源以及 Matrix/Register 均由生成器复现并受质量门禁检查。当前登记 100 个候选条目，每条保留六项证据字段；其中 Phase 0 Prompt Baseline 继续固定在 `554178fe9b93d851ec01388597ceb7996d22bd1c` 的 `awesome-qa-prompt` 提交（详见 [Phase 0 来源登记](./PHASE_0_PROMPT_BASELINE_SOURCES.md)）。候选结论保留 `MATCH` / `MERGE` / `ENHANCE` / `NEW`，`decision_state` 按阶段保留 `REVIEWED_WITH_LIMITATION` / `REVIEWED` / `PROPOSED`；业务语义等价仍需项目需求、Issue/PR 或测试资产复核，不得据此直接创建或修改 Skill。Phase 0 未执行模型、外部测试目标或真实质量评估，因此 Quality Score / Eval 执行仍为 `NOT_SCORED` / `NOT_RUN`；Prompt 语义等价、运行行为与有效性继续为 `UNASSESSED`。

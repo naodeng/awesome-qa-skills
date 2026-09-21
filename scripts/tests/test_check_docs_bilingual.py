@@ -3,6 +3,7 @@ from tempfile import TemporaryDirectory
 import unittest
 
 from scripts.check_docs_bilingual import (
+    PROJECT_PAIRS,
     check_catalog,
     check_chinese_readme_metadata_leak,
     check_project_pairs,
@@ -11,6 +12,12 @@ from scripts.check_docs_bilingual import (
 
 
 class DocsBilingualCheckTest(unittest.TestCase):
+    def test_composition_catalog_is_registered_as_a_bilingual_pair(self):
+        self.assertIn(
+            ("docs/catalog/skills-composition.md", "docs/catalog/skills-composition_EN.md"),
+            PROJECT_PAIRS,
+        )
+
     def test_reports_missing_english_mirror(self):
         with TemporaryDirectory() as temp:
             root = Path(temp)

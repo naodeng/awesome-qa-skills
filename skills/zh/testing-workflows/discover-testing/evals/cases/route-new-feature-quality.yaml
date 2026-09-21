@@ -1,0 +1,33 @@
+id: route-new-feature-quality
+title: 路由：新功能质量准备 Composition route
+description: |
+  从新需求和验收目标开始建立可测试的质量准备时，应选择 new-feature-quality，
+  以 requirements-analysis 为主，可补充 test-strategy；不在 Router 内捏造验收标准或完整测试方案。
+
+context:
+  files:
+    "evals/fixtures/router-expected.json": |
+      {"route":"new-feature-quality","primary":"requirements-analysis","optional":"test-strategy"}
+
+input:
+  prompt: |
+    请使用 discover-testing 路由：我们要为一个新的会员积分功能澄清用户目标、验收条件和主要风险，
+    当前只有一页需求草稿，还没有完整测试方案。请只输出 route ID、目标、唯一主 Skill、最多一个辅助 Skill、
+    理由和下一步交接输入；不要捏造缺失的验收标准，也不要写完整测试方案。最后附一个 ```json 代码块，
+    只包含 route、primary、optional 三个字段；optional 无则为 null。
+
+expect:
+  must_contain:
+    - "new-feature-quality"
+    - "requirements-analysis"
+    - "test-strategy"
+    - "主推荐"
+    - "下一步"
+  must_not_contain:
+    - "完整测试方案"
+    - "TODO"
+    - "我无法"
+
+judge:
+  type: script
+  script_path: evals/fixtures/scripts/check_router_selection.sh

@@ -1,0 +1,34 @@
+id: route-performance-decision
+title: "Routing: performance decision Composition route"
+description: |
+  When performance goals and workload assumptions need a validation path, select performance-decision,
+  distinguish static modeling from runtime result analysis, and do not write unrun performance conclusions.
+
+context:
+  files:
+    "evals/fixtures/router-expected.json": |
+      {"route":"performance-decision","primary":"performance-workload-modeling","optional":"performance-result-analysis"}
+
+input:
+  prompt: |
+    Use discover-testing to route this request: a new API has explicit throughput and latency targets,
+    but we only have workload assumptions and no load-test results yet. Return only the route ID, goal,
+    exactly one primary Skill, at most one optional Skill, rationale, and next handoff input. Do not write a full
+    load-test plan or claim that a run has completed. End with one ```json code block containing only route, primary,
+    and optional; use null when there is no optional Skill.
+
+expect:
+  must_contain:
+    - "performance-decision"
+    - "performance-workload-modeling"
+    - "performance-result-analysis"
+    - "Primary Recommendation"
+    - "Next Step"
+  must_not_contain:
+    - "full load-test plan"
+    - "load test completed"
+    - "TODO"
+
+judge:
+  type: script
+  script_path: evals/fixtures/scripts/check_router_selection.sh

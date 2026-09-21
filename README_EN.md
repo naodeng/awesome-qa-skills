@@ -13,7 +13,7 @@ A language-partitioned **AI testing skills library** (Agent Skills) for Codex, C
 
 **Online directory:** [https://inaodeng.com/qaskills/](https://inaodeng.com/qaskills/)
 
-**Quick links:** [Complete Skills index](docs/catalog/skills-index_EN.md) · [Installation guide](scripts/INSTALL_SKILLS.md) · [Skills CLI integration guide](docs/integrations/SKILLS_CLI_INTEGRATION_EN.md) · [v1.4 governance closeout](docs/governance/PHASE_0_V1_4_CLOSEOUT_EN.md) · [Contributing](CONTRIBUTING_EN.md)
+**Quick links:** [Complete Skills index](docs/catalog/skills-index_EN.md) · [Composition Router catalog](docs/catalog/skills-composition_EN.md) · [Installation guide](scripts/INSTALL_SKILLS.md) · [Skills CLI integration guide](docs/integrations/SKILLS_CLI_INTEGRATION_EN.md) · [v1.4 governance closeout](docs/governance/PHASE_0_V1_4_CLOSEOUT_EN.md) · [Contributing](CONTRIBUTING_EN.md)
 
 ---
 
@@ -119,6 +119,8 @@ When you do not know where to start, use the routing Skill:
 @skill discover-testing
 I need a pre-release regression — which Skills should I use?
 ```
+
+For the five structured routes, primary/optional Skills, and boundaries, see the [Composition Router catalog](docs/catalog/skills-composition_EN.md); when copying only `discover-testing`, use its local `reference.md`.
 
 ## Skill categories
 
@@ -530,6 +532,7 @@ Suggested pilots: `functional-testing`, `api-testing`, `api-test-bruno`, `bug-re
 | --- | --- |
 | [AGENTS.md](AGENTS.md) | Coding-agent conventions and quality checks |
 | [skills-index_EN.md](docs/catalog/skills-index_EN.md) | Full skill index |
+| [skills-composition_EN.md](docs/catalog/skills-composition_EN.md) | v1.5.2 five structured routes, primary/optional Skills, and navigation relations |
 | [QA_SKILLS_EVOLUTION_ROADMAP_EN.md](docs/governance/QA_SKILLS_EVOLUTION_ROADMAP_EN.md) | Four-stage capability evolution and R&D/testing lifecycle map |
 | [DOCUMENTATION_POLICY_EN.md](docs/governance/DOCUMENTATION_POLICY_EN.md) | Chinese-first bilingual documentation policy |
 | [SKILL_GOVERNANCE_V1_EN.md](docs/governance/SKILL_GOVERNANCE_V1_EN.md) | v1.0 source-governance baseline and current 164-pair static-record entry point (earlier baseline: 79 pairs; not runtime quality) |

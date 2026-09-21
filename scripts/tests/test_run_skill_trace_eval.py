@@ -203,6 +203,104 @@ class SkillTraceRunnerTest(unittest.TestCase):
             self.assertEqual(result["failure_classification"], "UNKNOWN")
             self.assertEqual(result["trace_error_count"], 1)
 
+    def test_router_selection_trace_is_observable(self):
+        with TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            prompts = root / "prompts.csv"
+            config = root / "rules.json"
+            project_root = root / "projects"
+            output_root = root / "outputs"
+            self.write_prompts(
+                prompts,
+                [{"id": "route-api", "should_trigger": "true", "prompt": "Route API delivery", "mode": "explicit"}],
+            )
+            config.write_text(
+                json.dumps(
+                    {
+                        "skill": "discover-testing",
+                        "trigger_mode": "explicit",
+                        "expected_selection": {
+                            "route": "api-delivery",
+                            "primary": "api-testing",
+                            "optional": "api-contract-testing",
+                        },
+                    }
+                ),
+                encoding="utf-8",
+            )
+            completed = runner.subprocess.CompletedProcess(
+                args=["codex"],
+                returncode=0,
+                stdout=(
+                    '{"type":"skill.selection","skill":"discover-testing","mode":"explicit","selected":true,'
+                    '"route":"api-delivery","primary":"api-testing","optional":"api-contract-testing",'
+                    '"selected_skills":["api-testing","api-contract-testing"]}\n'
+                    '{"type":"turn.completed"}\n'
+                ),
+                stderr="",
+            )
+
+            with patch.object(runner.subprocess, "run", return_value=completed):
+                report = runner.run_cases(
+                    prompts_path=prompts,
+                    config_path=config,
+                    project_root=project_root,
+                    output_root=output_root,
+                    dry_run=False,
+                )
+
+            result = report.cases[0]
+            trigger = next(item for item in result["results"] if item["rule_id"] == "TRIGGER-001")
+            self.assertEqual(trigger["status"], "PASS")
+            self.assertEqual(result["evidence_state"], "PASS")
+
+    def test_router_missing_selection_is_blocked_not_negative_or_pass(self):
+        with TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            prompts = root / "prompts.csv"
+            config = root / "rules.json"
+            project_root = root / "projects"
+            output_root = root / "outputs"
+            self.write_prompts(
+                prompts,
+                [{"id": "route-missing-selection", "should_trigger": "true", "prompt": "Route a request", "mode": "explicit"}],
+            )
+            config.write_text(
+                json.dumps(
+                    {
+                        "skill": "discover-testing",
+                        "trigger_mode": "explicit",
+                        "expected_selection": {
+                            "route": "api-delivery",
+                            "primary": "api-testing",
+                            "optional": "api-contract-testing",
+                        },
+                    }
+                ),
+                encoding="utf-8",
+            )
+            completed = runner.subprocess.CompletedProcess(
+                args=["codex"],
+                returncode=0,
+                stdout='{"type":"turn.completed"}\n',
+                stderr="",
+            )
+
+            with patch.object(runner.subprocess, "run", return_value=completed):
+                report = runner.run_cases(
+                    prompts_path=prompts,
+                    config_path=config,
+                    project_root=project_root,
+                    output_root=output_root,
+                    dry_run=False,
+                )
+
+            result = report.cases[0]
+            trigger = next(item for item in result["results"] if item["rule_id"] == "TRIGGER-001")
+            self.assertEqual(trigger["status"], "BLOCKED")
+            self.assertIn("selection evidence", trigger["message"])
+            self.assertEqual(result["evidence_state"], "BLOCKED")
+
 
 if __name__ == "__main__":
     unittest.main()

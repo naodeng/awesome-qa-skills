@@ -42,7 +42,7 @@ python3 scripts/run_skill_trace_eval.py \
 
 | ID | 检查内容 | 需要的配置或证据 |
 | --- | --- | --- |
-| `TRIGGER-001` | 显式请求是否选择 Skill | `trigger_mode=explicit` 和 `skill.selection` |
+| `TRIGGER-001` | 显式请求是否选择 Skill；Router 可进一步核对 route 与主/辅唯一性 | `trigger_mode=explicit` 和 `skill.selection`；可选 `expected_selection` |
 | `TRIGGER-002` | 隐式任务是否选择 Skill | `trigger_mode=implicit` 和 `skill.selection` |
 | `TRIGGER-003` | 带领域上下文的任务是否选择 Skill | `trigger_mode=contextual` 和 `skill.selection` |
 | `TRIGGER-004` | 反向控制是否没有选择 Skill | `trigger_mode=negative` 和 `selected=false` |
@@ -97,7 +97,22 @@ python3 scripts/run_skill_trace_eval.py \
 }
 ```
 
-触发规则需要评测适配器在 trace 中写入带布尔选择字段的 `skill.selection` 证据。文章公开的 `command_execution` 事件足以证明命令和产物，但不一定提供 Skill 选择事件，因此缺少选择事件或 `selected`/`invoked`/`triggered` 字段非法时规则会报告 `BLOCKED`，不会推断“没有触发”。
+普通触发规则需要评测适配器在 trace 中写入带布尔选择字段的 `skill.selection` 证据。Router case 可以额外配置 `expected_selection`，要求选择事件同时提供 `route`、`primary`、`optional` 和 `selected_skills`；后者必须严格是 `[primary]` 或 `[primary, optional]`，因此不能用一串推荐菜单替代唯一主/辅选择。结构化字段缺失或类型非法时报告 `BLOCKED`，route/Skill 不匹配或多选时报告 `FAIL`。文章公开的 `command_execution` 事件足以证明命令和产物，但不一定提供 Skill 选择事件，因此缺少选择事件或 `selected`/`invoked`/`triggered` 字段非法时规则会报告 `BLOCKED`，不会推断“没有触发”。
+
+Router 配置示例：
+
+```json
+{
+  "skill": "discover-testing",
+  "trigger_mode": "explicit",
+  "should_trigger": true,
+  "expected_selection": {
+    "route": "api-delivery",
+    "primary": "api-testing",
+    "optional": "api-contract-testing"
+  }
+}
+```
 
 ## 边界
 

@@ -1,0 +1,34 @@
+id: route-ai-feature
+title: "Routing: AI feature validation Composition route"
+description: |
+  When an AI feature needs behavior and model-output boundary validation, select ai-feature-validation,
+  optionally add llm-testing, and do not write model effectiveness or business acceptance as verified facts.
+
+context:
+  files:
+    "evals/fixtures/router-expected.json": |
+      {"route":"ai-feature-validation","primary":"ai-feature-testing","optional":"llm-testing"}
+
+input:
+  prompt: |
+    Use discover-testing to route this request: a customer-support AI feature has input/output samples,
+    and we need behavior validation plus LLM output evaluation planning. Return only the route ID, goal,
+    exactly one primary Skill, at most one optional Skill, rationale, and next handoff input. Do not write a full
+    evaluation plan or claim that the model has passed. End with one ```json code block containing only route,
+    primary, and optional; use null when there is no optional Skill.
+
+expect:
+  must_contain:
+    - "ai-feature-validation"
+    - "ai-feature-testing"
+    - "llm-testing"
+    - "Primary Recommendation"
+    - "Next Step"
+  must_not_contain:
+    - "full evaluation plan"
+    - "model has passed"
+    - "TODO"
+
+judge:
+  type: script
+  script_path: evals/fixtures/scripts/check_router_selection.sh

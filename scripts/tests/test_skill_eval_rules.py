@@ -318,6 +318,111 @@ class SkillEvalRulesTest(unittest.TestCase):
             result = next(item for item in report.results if item.rule_id == "TRIGGER-001")
             self.assertEqual(result.status, "BLOCKED")
 
+    def test_router_selection_contract_matches_route_and_exact_skill_set(self):
+        with TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            trace_path = root / "trace.jsonl"
+            write_trace(
+                trace_path,
+                [
+                    {
+                        "type": "skill.selection",
+                        "skill": "discover-testing",
+                        "mode": "explicit",
+                        "selected": True,
+                        "route": "api-delivery",
+                        "primary": "api-testing",
+                        "optional": "api-contract-testing",
+                        "selected_skills": ["api-testing", "api-contract-testing"],
+                    }
+                ],
+            )
+            config = {
+                "skill": "discover-testing",
+                "trigger_mode": "explicit",
+                "expected_selection": {
+                    "route": "api-delivery",
+                    "primary": "api-testing",
+                    "optional": "api-contract-testing",
+                },
+            }
+
+            report = rules.evaluate_trace(rules.load_jsonl(trace_path), config, root)
+            result = next(item for item in report.results if item.rule_id == "TRIGGER-001")
+
+            self.assertEqual(result.status, "PASS")
+            self.assertIn("route=api-delivery", result.message)
+
+    def test_router_selection_contract_blocks_when_structured_fields_are_missing(self):
+        with TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            trace_path = root / "trace.jsonl"
+            write_trace(
+                trace_path,
+                [
+                    {
+                        "type": "skill.selection",
+                        "skill": "discover-testing",
+                        "mode": "explicit",
+                        "selected": True,
+                    }
+                ],
+            )
+            config = {
+                "skill": "discover-testing",
+                "trigger_mode": "explicit",
+                "expected_selection": {
+                    "route": "api-delivery",
+                    "primary": "api-testing",
+                    "optional": "api-contract-testing",
+                },
+            }
+
+            report = rules.evaluate_trace(rules.load_jsonl(trace_path), config, root)
+            result = next(item for item in report.results if item.rule_id == "TRIGGER-001")
+
+            self.assertEqual(result.status, "BLOCKED")
+            self.assertIn("structured selection evidence", result.message)
+
+    def test_router_selection_contract_fails_when_more_than_one_optional_is_observed(self):
+        with TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            trace_path = root / "trace.jsonl"
+            write_trace(
+                trace_path,
+                [
+                    {
+                        "type": "skill.selection",
+                        "skill": "discover-testing",
+                        "mode": "explicit",
+                        "selected": True,
+                        "route": "api-delivery",
+                        "primary": "api-testing",
+                        "optional": "api-contract-testing",
+                        "selected_skills": [
+                            "api-testing",
+                            "api-contract-testing",
+                            "security-testing",
+                        ],
+                    }
+                ],
+            )
+            config = {
+                "skill": "discover-testing",
+                "trigger_mode": "explicit",
+                "expected_selection": {
+                    "route": "api-delivery",
+                    "primary": "api-testing",
+                    "optional": "api-contract-testing",
+                },
+            }
+
+            report = rules.evaluate_trace(rules.load_jsonl(trace_path), config, root)
+            result = next(item for item in report.results if item.rule_id == "TRIGGER-001")
+
+            self.assertEqual(result.status, "FAIL")
+            self.assertIn("selected_skills", result.message)
+
     def test_command_matching_requires_a_token_boundary(self):
         self.assertTrue(rules._command_matches("npm test", "npm test -- --runInBand"))
         self.assertFalse(rules._command_matches("npm test", "npm test-extra"))
