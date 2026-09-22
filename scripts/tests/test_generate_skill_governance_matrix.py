@@ -450,6 +450,13 @@ class GovernanceMatrixTest(unittest.TestCase):
             if review["candidate"] in V16_CANDIDATE_SLUGS:
                 self.assertNotIn("phase_1_evidence_paths", review)
 
+    def _phase1_case_blocks(self, language: str, skill: str) -> tuple[Path, str, str]:
+        case_path = ROOT / f"skills/{language}/testing-types/{skill}/evals/cases/phase-1-project-context.yaml"
+        text = case_path.read_text(encoding="utf-8")
+        expect_block = text.split("\nexpect:\n", 1)[1].split("\njudge:\n", 1)[0]
+        judge_block = text.split("\njudge:\n", 1)[1]
+        return case_path, expect_block, judge_block
+
     def test_v16_phase1_cases_require_domain_fact_assertions(self):
         required_markers = {
             "change-impact-analysis": ("Panel/Slot", "MAX_ACTIVE_PREVIEWS=20", "UNASSESSED"),
@@ -471,10 +478,7 @@ class GovernanceMatrixTest(unittest.TestCase):
         }
         for language in ("zh", "en"):
             for skill, markers in required_markers.items():
-                case_path = ROOT / f"skills/{language}/testing-types/{skill}/evals/cases/phase-1-project-context.yaml"
-                text = case_path.read_text(encoding="utf-8")
-                expect_block = text.split("\nexpect:\n", 1)[1].split("\njudge:\n", 1)[0]
-                judge_block = text.split("\njudge:\n", 1)[1]
+                case_path, expect_block, judge_block = self._phase1_case_blocks(language, skill)
                 for marker in markers:
                     self.assertIn(marker, expect_block, f"{case_path}: expect missing {marker}")
                     self.assertIn(marker, judge_block, f"{case_path}: judge missing {marker}")
@@ -504,26 +508,23 @@ class GovernanceMatrixTest(unittest.TestCase):
                 "当前假设",
                 "信息缺口",
                 "证据路径",
-                "生产容量(已|已经)(证明|确认|验证)",
-                "语义等价(已|已经)(证明|确认|验证)",
-                "业务验收(已|已经)(完成|通过|批准)",
+                "(?m)^([-*] )?(生产容量|语义等价)(已|已经)(被)?(证明|确认|验证|达标)[。！？.!?]?$",
+                "(?m)^([-*] )?语义等价成立[。！？.!?]?$",
+                "(?m)^([-*] )?(业务验收)(已|已经)(被)?(完成|通过|批准)[。！？.!?]?$",
             ),
             "en": (
                 "Confirmed Facts",
                 "Working Assumptions",
                 "Open Questions",
                 "Evidence Paths",
-                "production capacity (is|has been|can be) (proven|confirmed|validated)",
-                "semantic equivalence (is|has been|can be) (proven|confirmed|established)",
-                "(business|production) acceptance (is|has been) (complete|passed|approved)",
+                "(?im)^([-*] )?(production capacity|semantic equivalence) (is|has been) (proven|confirmed|validated|established|demonstrated)[.!]?$",
+                "(?im)^([-*] )?semantic equivalence holds[.!]?$",
+                "(?im)^([-*] )?(business|production) acceptance (is|has been) (complete|passed|approved)[.!]?$",
             ),
         }
         for language, labels in language_contract.items():
             for skill, paths in evidence_paths.items():
-                case_path = ROOT / f"skills/{language}/testing-types/{skill}/evals/cases/phase-1-project-context.yaml"
-                text = case_path.read_text(encoding="utf-8")
-                expect_block = text.split("\nexpect:\n", 1)[1].split("\njudge:\n", 1)[0]
-                judge_block = text.split("\njudge:\n", 1)[1]
+                case_path, expect_block, judge_block = self._phase1_case_blocks(language, skill)
                 for marker in (*labels[:4], *paths):
                     self.assertIn(marker, expect_block, f"{case_path}: expect missing {marker}")
                     self.assertIn(marker, judge_block, f"{case_path}: judge missing {marker}")

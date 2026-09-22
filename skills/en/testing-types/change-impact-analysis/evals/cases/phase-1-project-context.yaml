@@ -72,6 +72,6 @@ judge:
           - "server/quality/test-runner.js"
           - "test/e2e/dsh-panel-lifecycle.spec.js"
         not:
-          - "(?i)production capacity (is|has been|can be) (proven|confirmed|validated)"
-          - "(?i)semantic equivalence (is|has been|can be) (proven|confirmed|established)"
-          - "(?i)(business|production) acceptance (is|has been) (complete|passed|approved)"
+          - "(?im)^([-*] )?(production capacity|semantic equivalence) (is|has been) (proven|confirmed|validated|established|demonstrated)[.!]?$"
+          - "(?im)^([-*] )?semantic equivalence holds[.!]?$"
+          - "(?im)^([-*] )?(business|production) acceptance (is|has been) (complete|passed|approved)[.!]?$"
