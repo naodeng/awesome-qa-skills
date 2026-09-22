@@ -364,6 +364,8 @@ class GovernanceMatrixTest(unittest.TestCase):
         matrix_en = matrix.render_matrix(registry, "en", ROOT)
         register_zh = matrix.render_matching_register(registry, "zh")
         register_en = matrix.render_matching_register(registry, "en")
+        review_zh = matrix.render_match_review(registry, "zh")
+        review_en = matrix.render_match_review(registry, "en")
         phase1_zh = (ROOT / "docs/governance/PHASE_1_MATCH_REVIEW.md").read_text(encoding="utf-8")
         phase1_en = (ROOT / "docs/governance/PHASE_1_MATCH_REVIEW_EN.md").read_text(encoding="utf-8")
         for slug in V16_CANDIDATE_SLUGS:
@@ -377,6 +379,8 @@ class GovernanceMatrixTest(unittest.TestCase):
         self.assertIn("PHASE_1_MATCH_REVIEW_EN.md", matrix_en)
         self.assertIn("UNASSESSED", phase1_zh)
         self.assertIn("UNASSESSED", phase1_en)
+        self.assertIn("[Phase 1 证据](./PHASE_1_MATCH_REVIEW.md)", review_zh)
+        self.assertIn("[Phase 1 evidence](./PHASE_1_MATCH_REVIEW_EN.md)", review_en)
 
     def test_v16_phase1_review_is_required_for_the_four_candidates(self):
         registry = matrix.load_registry(ROOT / "docs/governance/skill-governance-registry.yaml")
@@ -405,38 +409,46 @@ class GovernanceMatrixTest(unittest.TestCase):
             errors,
         )
 
-    def test_v16_phase1_evidence_paths_must_match_candidate_and_match_review(self):
+    def test_v16_match_review_rejects_duplicated_phase1_evidence_source(self):
         registry = matrix.load_registry(ROOT / "docs/governance/skill-governance-registry.yaml")
-        candidates = [deepcopy(candidate) for candidate in registry.candidates]
         reviews = [deepcopy(review) for review in registry.match_reviews]
+        target = next(review for review in reviews if review["candidate"] == "capacity-planning")
+        target["phase_1_evidence_paths"] = ["docs/governance/PHASE_1_MATCH_REVIEW.md"]
 
-        candidate = next(candidate for candidate in candidates if candidate["slug"] == "capacity-planning")
-        candidate["phase_1_review"]["evidence_paths"] = [
-            "docs/governance/PHASE_1_MATCH_REVIEW.md",
-        ]
-        errors = matrix.validate_registry(
-            replace(registry, candidates=tuple(candidates)),
-            matrix.discover_physical_skills(ROOT),
-            ROOT,
-        )
-        self.assertIn(
-            "capacity-planning: phase_1_evidence_paths must match candidate phase_1_review evidence_paths",
-            errors,
-        )
-
-        match_review = next(review for review in reviews if review["candidate"] == "capacity-planning")
-        match_review["phase_1_evidence_paths"] = [
-            "docs/governance/PHASE_1_MATCH_REVIEW.md",
-        ]
         errors = matrix.validate_registry(
             replace(registry, match_reviews=tuple(reviews)),
             matrix.discover_physical_skills(ROOT),
             ROOT,
         )
+
         self.assertIn(
-            "capacity-planning: phase_1_evidence_paths must match candidate phase_1_review evidence_paths",
+            "capacity-planning: v1.6 match review must use candidate phase_1_review evidence_paths",
             errors,
         )
+
+    def test_v16_match_review_requires_phase_marker(self):
+        registry = matrix.load_registry(ROOT / "docs/governance/skill-governance-registry.yaml")
+        reviews = [deepcopy(review) for review in registry.match_reviews]
+        target = next(review for review in reviews if review["candidate"] == "capacity-planning")
+        target.pop("phase", None)
+        target.pop("phase_1_evidence_paths", None)
+
+        errors = matrix.validate_registry(
+            replace(registry, match_reviews=tuple(reviews)),
+            matrix.discover_physical_skills(ROOT),
+            ROOT,
+        )
+
+        self.assertIn(
+            "capacity-planning: v1.6 match review requires phase: v1.6",
+            errors,
+        )
+
+    def test_v16_match_review_uses_candidate_phase1_evidence_source(self):
+        registry = matrix.load_registry(ROOT / "docs/governance/skill-governance-registry.yaml")
+        for review in registry.match_reviews:
+            if review["candidate"] in V16_CANDIDATE_SLUGS:
+                self.assertNotIn("phase_1_evidence_paths", review)
 
     def test_v16_phase1_cases_require_domain_fact_assertions(self):
         required_markers = {
@@ -466,6 +478,59 @@ class GovernanceMatrixTest(unittest.TestCase):
                 for marker in markers:
                     self.assertIn(marker, expect_block, f"{case_path}: expect missing {marker}")
                     self.assertIn(marker, judge_block, f"{case_path}: judge missing {marker}")
+
+    def test_v16_phase1_cases_require_evidence_boundary_assertions(self):
+        evidence_paths = {
+            "change-impact-analysis": (
+                "docs/quality-workbench/2026-09-15-requirements.md",
+                "test/e2e/dsh-panel-lifecycle.spec.js",
+            ),
+            "performance-workload-modeling": (
+                "docs/quality-workbench/2026-08-25-technical-design.md",
+                "server/quality/test-runner.js",
+            ),
+            "capacity-planning-analysis": (
+                "docs/quality-workbench/2026-08-25-technical-design.md",
+                "server/quality/test-runner.js",
+            ),
+            "quality-risk-analysis": (
+                "docs/quality-workbench/2026-09-15-requirements.md",
+                "test/e2e/dsh-panel-lifecycle.spec.js",
+            ),
+        }
+        language_contract = {
+            "zh": (
+                "已确认事实",
+                "当前假设",
+                "信息缺口",
+                "证据路径",
+                "生产容量(已|已经)(证明|确认|验证)",
+                "语义等价(已|已经)(证明|确认|验证)",
+                "业务验收(已|已经)(完成|通过|批准)",
+            ),
+            "en": (
+                "Confirmed Facts",
+                "Working Assumptions",
+                "Open Questions",
+                "Evidence Paths",
+                "production capacity (is|has been|can be) (proven|confirmed|validated)",
+                "semantic equivalence (is|has been|can be) (proven|confirmed|established)",
+                "(business|production) acceptance (is|has been) (complete|passed|approved)",
+            ),
+        }
+        for language, labels in language_contract.items():
+            for skill, paths in evidence_paths.items():
+                case_path = ROOT / f"skills/{language}/testing-types/{skill}/evals/cases/phase-1-project-context.yaml"
+                text = case_path.read_text(encoding="utf-8")
+                expect_block = text.split("\nexpect:\n", 1)[1].split("\njudge:\n", 1)[0]
+                judge_block = text.split("\njudge:\n", 1)[1]
+                for marker in (*labels[:4], *paths):
+                    self.assertIn(marker, expect_block, f"{case_path}: expect missing {marker}")
+                    self.assertIn(marker, judge_block, f"{case_path}: judge missing {marker}")
+                self.assertIn("output_matches:", judge_block, f"{case_path}: missing boundary matcher")
+                self.assertIn("not:", judge_block, f"{case_path}: missing negative boundary matcher")
+                for marker in labels[4:]:
+                    self.assertIn(marker, judge_block, f"{case_path}: forbidden-claim matcher missing {marker}")
 
     def test_phase0_source_register_does_not_duplicate_candidate_decisions(self):
         for filename in (

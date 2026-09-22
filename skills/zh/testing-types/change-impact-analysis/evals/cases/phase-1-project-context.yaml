@@ -16,6 +16,7 @@ input:
     - 稳定链接：https://github.com/naodeng/dsh-qa/blob/6d650cae72be8fc582bc4f47d6ba48e3fc28157d/docs/quality-workbench/2026-09-15-requirements.md
 
     请给出：任务理解与范围、输入审计、P0-P3 风险、直接影响和传递影响图；覆盖数据兼容、接口契约、权限、运行时依赖、回滚和可观测性。每个高风险项都要有前置条件、预期结果或判断标准和证据路径。明确哪些是已确认事实、当前假设、信息缺口、阻塞条件和剩余风险，并说明为什么本次只能把语义等价标为 UNASSESSED，不能替代运行时、模型或业务验收。
+    为了保留可追溯边界，必须逐字保留“已确认事实”“当前假设”“信息缺口”“证据路径”和“UNASSESSED”这些标签，并在证据路径中逐字引用上述文件路径；不得把静态约束说成生产或语义等价结论。
 
 constraints:
   timeout_seconds: 720
@@ -33,6 +34,14 @@ expect:
     - "MAX_ACTIVE_PREVIEWS=20"
     - "回滚"
     - "证据"
+    - "已确认事实"
+    - "当前假设"
+    - "信息缺口"
+    - "证据路径"
+    - "docs/quality-workbench/2026-09-15-requirements.md"
+    - "docs/quality-workbench/2026-08-25-technical-design.md"
+    - "server/quality/test-runner.js"
+    - "test/e2e/dsh-panel-lifecycle.spec.js"
     - "剩余风险"
     - "UNASSESSED"
   must_not_contain:
@@ -52,3 +61,17 @@ judge:
           - "UNASSESSED"
           - "证据"
           - "剩余风险"
+    - output_matches:
+        all:
+          - "已确认事实"
+          - "当前假设"
+          - "信息缺口"
+          - "证据路径"
+          - "docs/quality-workbench/2026-09-15-requirements.md"
+          - "docs/quality-workbench/2026-08-25-technical-design.md"
+          - "server/quality/test-runner.js"
+          - "test/e2e/dsh-panel-lifecycle.spec.js"
+        not:
+          - "生产容量(已|已经)(证明|确认|验证)"
+          - "语义等价(已|已经)(证明|确认|验证)"
+          - "业务验收(已|已经)(完成|通过|批准)"

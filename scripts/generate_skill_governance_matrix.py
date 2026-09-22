@@ -236,12 +236,13 @@ def validate_match_review(
         errors.append("invalid match review conclusion")
     if review.get("review_state") not in VALID_MATCH_REVIEW_STATES:
         errors.append("invalid match review state")
+    if candidate in PHASE_1_MATCH_TARGETS and review.get("phase") != "v1.6":
+        errors.append("v1.6 match review requires phase: v1.6")
     if review.get("phase") == "v1.6":
-        phase_paths = review.get("phase_1_evidence_paths")
         if candidate not in PHASE_1_MATCH_TARGETS:
             errors.append("v1.6 phase is only valid for the four Phase 1 candidates")
-        if not isinstance(phase_paths, list) or not phase_paths:
-            errors.append("v1.6 match review requires phase_1_evidence_paths")
+    if candidate in PHASE_1_MATCH_TARGETS and "phase_1_evidence_paths" in review:
+        errors.append("v1.6 match review must use candidate phase_1_review evidence_paths")
     targets = review.get("target_skills", [])
     if not isinstance(targets, list) or not targets:
         errors.append("target_skills must be a non-empty list")
@@ -356,31 +357,11 @@ def validate_registry(registry: GovernanceRegistry, physical: set[str], root: Pa
             f"{candidate}: {error}"
             for error in validate_match_review(review, physical, candidate_rows)
         )
-        if review.get("phase") == "v1.6" and candidate in candidate_rows:
-            candidate_review = candidate_rows[candidate].get("phase_1_review")
-            expected_phase_paths = (
-                candidate_review.get("evidence_paths")
-                if isinstance(candidate_review, dict)
-                else None
-            )
-            if review.get("phase_1_evidence_paths") != expected_phase_paths:
-                errors.append(
-                    f"{candidate}: phase_1_evidence_paths must match candidate phase_1_review evidence_paths"
-                )
         if root is not None:
             errors.extend(
                 f"{candidate}: {error}"
                 for error in validate_repository_relative_files(root, review.get("evidence_paths"), "evidence_paths")
             )
-            if review.get("phase") == "v1.6":
-                errors.extend(
-                    f"{candidate}: {error}"
-                    for error in validate_repository_relative_files(
-                        root,
-                        review.get("phase_1_evidence_paths"),
-                        "phase_1_evidence_paths",
-                    )
-                )
     if root is not None:
         actual_match_reviews = {
             str(review.get("candidate")): (
@@ -620,6 +601,10 @@ def render_match_review(registry: GovernanceRegistry, locale: str) -> str:
         "| --- | --- | --- | --- | --- | --- |",
     ]
     candidate_slugs = {str(candidate.get("slug")) for candidate in registry.candidates}
+    phase_reviews = {
+        str(candidate.get("slug")): candidate.get("phase_1_review")
+        for candidate in registry.candidates
+    }
     for review in reviews:
         candidate = str(review.get("candidate", ""))
         targets = "<br>".join(f"`{target}`" for target in review.get("target_skills", []))
@@ -630,9 +615,10 @@ def render_match_review(registry: GovernanceRegistry, locale: str) -> str:
         else:
             matrix = "../SKILL_MATRIX_EN.md" if english else "../SKILL_MATRIX.md"
             evidence = f"[Target package evidence]({matrix})<br>{evidence}"
-        phase_paths = review.get("phase_1_evidence_paths", [])
-        if review.get("phase") == "v1.6" and phase_paths:
-            evidence += "<br>" + "<br>".join(str(path) for path in phase_paths)
+        if review.get("phase") == "v1.6" and isinstance(phase_reviews.get(candidate), dict):
+            phase_target = "PHASE_1_MATCH_REVIEW_EN.md" if english else "PHASE_1_MATCH_REVIEW.md"
+            phase_label = "Phase 1 evidence" if english else "Phase 1 证据"
+            evidence += f'<br>[{phase_label}](./{phase_target})'
         lines.append(
             f"| `{candidate}` | `{review.get('conclusion', 'UNASSESSED')}` | "
             f"`{review.get('review_state', 'UNASSESSED')}` | {targets} | {evidence} | "

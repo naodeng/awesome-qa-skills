@@ -6019,12 +6019,6 @@
       "conclusion": "MATCH",
       "review_state": "REVIEWED_WITH_LIMITATION",
       "phase": "v1.6",
-      "phase_1_evidence_paths": [
-        "docs/governance/PHASE_1_MATCH_REVIEW.md",
-        "docs/governance/PHASE_1_MATCH_REVIEW_EN.md",
-        "skills/zh/testing-types/change-impact-analysis/evals/cases/phase-1-project-context.yaml",
-        "skills/en/testing-types/change-impact-analysis/evals/cases/phase-1-project-context.yaml"
-      ],
       "target_skills": [
         "change-impact-analysis"
       ],
@@ -6072,12 +6066,6 @@
       "conclusion": "MATCH",
       "review_state": "REVIEWED_WITH_LIMITATION",
       "phase": "v1.6",
-      "phase_1_evidence_paths": [
-        "docs/governance/PHASE_1_MATCH_REVIEW.md",
-        "docs/governance/PHASE_1_MATCH_REVIEW_EN.md",
-        "skills/zh/testing-types/performance-workload-modeling/evals/cases/phase-1-project-context.yaml",
-        "skills/en/testing-types/performance-workload-modeling/evals/cases/phase-1-project-context.yaml"
-      ],
       "target_skills": [
         "performance-workload-modeling"
       ],
@@ -6094,12 +6082,6 @@
       "conclusion": "MATCH",
       "review_state": "REVIEWED_WITH_LIMITATION",
       "phase": "v1.6",
-      "phase_1_evidence_paths": [
-        "docs/governance/PHASE_1_MATCH_REVIEW.md",
-        "docs/governance/PHASE_1_MATCH_REVIEW_EN.md",
-        "skills/zh/testing-types/capacity-planning-analysis/evals/cases/phase-1-project-context.yaml",
-        "skills/en/testing-types/capacity-planning-analysis/evals/cases/phase-1-project-context.yaml"
-      ],
       "target_skills": [
         "capacity-planning-analysis"
       ],
@@ -6252,12 +6234,6 @@
       "conclusion": "MATCH",
       "review_state": "REVIEWED_WITH_LIMITATION",
       "phase": "v1.6",
-      "phase_1_evidence_paths": [
-        "docs/governance/PHASE_1_MATCH_REVIEW.md",
-        "docs/governance/PHASE_1_MATCH_REVIEW_EN.md",
-        "skills/zh/testing-types/quality-risk-analysis/evals/cases/phase-1-project-context.yaml",
-        "skills/en/testing-types/quality-risk-analysis/evals/cases/phase-1-project-context.yaml"
-      ],
       "target_skills": [
         "quality-risk-analysis"
       ],

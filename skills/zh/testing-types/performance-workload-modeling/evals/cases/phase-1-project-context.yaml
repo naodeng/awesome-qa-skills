@@ -15,6 +15,7 @@ input:
     - 稳定链接：https://github.com/naodeng/dsh-qa/blob/6d650cae72be8fc582bc4f47d6ba48e3fc28157d/docs/quality-workbench/2026-08-25-technical-design.md
 
     输出必须包含任务理解与范围、输入审计、P0-P3 风险、假设表、工作负载画像、阶段设计、数据模型、执行参数和校准计划。覆盖交易模型、到达率、并发、思考时间、峰值突发、数据分布、缓存预热和依赖约束；区分开放模型与封闭模型，不把用户数等同于并发。每项给出预期结果、证据路径、阻塞条件和剩余风险，并明确项目静态约束不能证明生产负载或语义等价，语义状态保持 UNASSESSED。
+    为了保留可追溯边界，必须逐字保留“已确认事实”“当前假设”“信息缺口”“证据路径”和“UNASSESSED”这些标签，并在证据路径中逐字引用上述文件路径；不得把静态约束说成生产或语义等价结论。
 
     为保证评测可复现，请逐字保留这些标签：交易模型、到达率、并发、峰值突发、校准计划、剩余风险；不要用“负载模型”等同义词替代“交易模型”。
 
@@ -33,6 +34,13 @@ expect:
     - "校准计划"
     - "QUALITY_RUN_CAPACITY_EXCEEDED"
     - "MAX_ACTIVE_PREVIEWS=20"
+    - "已确认事实"
+    - "当前假设"
+    - "信息缺口"
+    - "证据路径"
+    - "docs/quality-workbench/2026-08-25-technical-design.md"
+    - "server/quality/test-runner.js"
+    - "docs/quality-workbench/2026-09-15-requirements.md"
     - "剩余风险"
     - "UNASSESSED"
   must_not_contain:
@@ -52,3 +60,16 @@ judge:
           - "MAX_ACTIVE_PREVIEWS=20"
           - "UNASSESSED"
           - "剩余风险"
+    - output_matches:
+        all:
+          - "已确认事实"
+          - "当前假设"
+          - "信息缺口"
+          - "证据路径"
+          - "docs/quality-workbench/2026-08-25-technical-design.md"
+          - "server/quality/test-runner.js"
+          - "docs/quality-workbench/2026-09-15-requirements.md"
+        not:
+          - "生产容量(已|已经)(证明|确认|验证)"
+          - "语义等价(已|已经)(证明|确认|验证)"
+          - "业务验收(已|已经)(完成|通过|批准)"

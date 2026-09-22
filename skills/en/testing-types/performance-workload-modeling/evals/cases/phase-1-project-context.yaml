@@ -17,6 +17,7 @@ input:
     - Stable link: https://github.com/naodeng/dsh-qa/blob/6d650cae72be8fc582bc4f47d6ba48e3fc28157d/docs/quality-workbench/2026-08-25-technical-design.md
 
     Include Task Understanding and Scope, Input Audit, P0-P3 risks, an assumption table, workload profile, stage design, data model, execution parameters, and a calibration plan. Cover transaction mix, arrival rate, concurrency, think time, peaks and bursts, data distribution, cache warmup, and dependency constraints. Distinguish open and closed models; do not equate user count with concurrency. For each item give expected results, evidence paths, blockers, and residual risk. State that static project constraints do not prove production load behavior or semantic equivalence, so the semantic state remains UNASSESSED.
+    To keep the evidence boundary traceable, preserve these labels verbatim: Confirmed Facts, Working Assumptions, Open Questions, Evidence Paths, and UNASSESSED. Cite the supplied file paths verbatim and do not turn static constraints into production or semantic-equivalence claims.
 
 constraints:
   timeout_seconds: 720
@@ -33,6 +34,13 @@ expect:
     - "Calibration Plan"
     - "QUALITY_RUN_CAPACITY_EXCEEDED"
     - "MAX_ACTIVE_PREVIEWS=20"
+    - "Confirmed Facts"
+    - "Working Assumptions"
+    - "Open Questions"
+    - "Evidence Paths"
+    - "docs/quality-workbench/2026-08-25-technical-design.md"
+    - "server/quality/test-runner.js"
+    - "docs/quality-workbench/2026-09-15-requirements.md"
     - "Residual Risk"
     - "UNASSESSED"
   must_not_contain:
@@ -52,3 +60,16 @@ judge:
           - "MAX_ACTIVE_PREVIEWS=20"
           - "UNASSESSED"
           - "Residual Risk"
+    - output_matches:
+        all:
+          - "(?i)Confirmed Facts"
+          - "(?i)Working Assumptions"
+          - "(?i)Open Questions"
+          - "(?i)Evidence Paths"
+          - "docs/quality-workbench/2026-08-25-technical-design.md"
+          - "server/quality/test-runner.js"
+          - "docs/quality-workbench/2026-09-15-requirements.md"
+        not:
+          - "(?i)production capacity (is|has been|can be) (proven|confirmed|validated)"
+          - "(?i)semantic equivalence (is|has been|can be) (proven|confirmed|established)"
+          - "(?i)(business|production) acceptance (is|has been) (complete|passed|approved)"
