@@ -10,14 +10,23 @@ input:
     目前唯一确认的事实是结账流程存在；库存 TTL、支付重试行为和过期责任方都未明确。
     请先给分析初版，区分已确认事实与假设，优先标出发布阻塞风险，并提出有针对性的待确认问题。
 
+constraints:
+  timeout_seconds: 720
+
 expect:
   must_contain:
     - "假设"
-    - "待确认"
+    - "待澄清"
 
 judge:
   type: agent_judge
-  model: openai/gpt-5
+  model: openai/gpt-5.6-sol
+  context:
+    profile: minimal
+    final_message: include
+    transcript: omit
+    workspace_diff: omit
+    generated_files: omit
   criteria:
     - "把已确认的结账流程与假设分开，没有臆造库存 TTL 或支付规则。"
     - "把先锁库存再扣款、支付重试和过期责任方列为发布相关风险，而不是平均处理所有缺口。"

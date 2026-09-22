@@ -1,0 +1,54 @@
+id: phase-1-project-context
+title: "Phase 1 project context: dsh-qa quality-run workload model"
+description: |
+  Verifies that workload modeling extracts transaction, arrival, and concurrency assumptions from real runner constraints while preserving the limits of static evidence.
+
+input:
+  prompt: |
+    Use the performance-workload-modeling skill to review the dsh-qa v1.6 Phase 1 project context. Do not access the external repository; the following is the complete evidence input.
+
+    Respond in English. Use these exact English section labels where applicable: Task Understanding and Scope, Input Audit, Workload Profile, Transaction mix, Arrival rate, think time, peaks, and bursts, Calibration Plan, and Residual Risk. Keep the semantic boundary as UNASSESSED.
+
+    Project: naodeng/dsh-qa at pinned revision 6d650cae72be8fc582bc4f47d6ba48e3fc28157d.
+    Facts and evidence:
+    - docs/quality-workbench/2026-08-25-technical-design.md specifies one running test per project, two globally, MAX_ACTIVE_PREVIEWS=20, and queued, running, and terminal states.
+    - server/quality/test-runner.js defines MAX_RUNNING_PER_PROJECT=1, MAX_RUNNING_GLOBAL=2, MAX_ACTIVE_PREVIEWS=20, terminal states, and QUALITY_RUN_CAPACITY_EXCEEDED behavior.
+    - docs/quality-workbench/2026-09-15-requirements.md preserves the Workbench iframe and API boundary and requires the official Panel/Slot lifecycle.
+    - Stable link: https://github.com/naodeng/dsh-qa/blob/6d650cae72be8fc582bc4f47d6ba48e3fc28157d/docs/quality-workbench/2026-08-25-technical-design.md
+
+    Include Task Understanding and Scope, Input Audit, P0-P3 risks, an assumption table, workload profile, stage design, data model, execution parameters, and a calibration plan. Cover transaction mix, arrival rate, concurrency, think time, peaks and bursts, data distribution, cache warmup, and dependency constraints. Distinguish open and closed models; do not equate user count with concurrency. For each item give expected results, evidence paths, blockers, and residual risk. State that static project constraints do not prove production load behavior or semantic equivalence, so the semantic state remains UNASSESSED.
+
+constraints:
+  timeout_seconds: 720
+
+expect:
+  must_contain:
+    - "Task Understanding and Scope"
+    - "Input Audit"
+    - "Workload Profile"
+    - "Transaction mix"
+    - "Arrival rate"
+    - "concurrency"
+    - "peaks, and bursts"
+    - "Calibration Plan"
+    - "QUALITY_RUN_CAPACITY_EXCEEDED"
+    - "MAX_ACTIVE_PREVIEWS=20"
+    - "Residual Risk"
+    - "UNASSESSED"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+    - "unable to help"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Transaction mix"
+          - "concurrency"
+          - "Calibration Plan"
+          - "QUALITY_RUN_CAPACITY_EXCEEDED"
+          - "MAX_ACTIVE_PREVIEWS=20"
+          - "UNASSESSED"
+          - "Residual Risk"

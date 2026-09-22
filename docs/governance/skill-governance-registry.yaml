@@ -6018,6 +6018,13 @@
       "candidate": "requirement-change-impact-analysis",
       "conclusion": "MATCH",
       "review_state": "REVIEWED_WITH_LIMITATION",
+      "phase": "v1.6",
+      "phase_1_evidence_paths": [
+        "docs/governance/PHASE_1_MATCH_REVIEW.md",
+        "docs/governance/PHASE_1_MATCH_REVIEW_EN.md",
+        "skills/zh/testing-types/change-impact-analysis/evals/cases/phase-1-project-context.yaml",
+        "skills/en/testing-types/change-impact-analysis/evals/cases/phase-1-project-context.yaml"
+      ],
       "target_skills": [
         "change-impact-analysis"
       ],
@@ -6064,6 +6071,13 @@
       "candidate": "workload-modeling",
       "conclusion": "MATCH",
       "review_state": "REVIEWED_WITH_LIMITATION",
+      "phase": "v1.6",
+      "phase_1_evidence_paths": [
+        "docs/governance/PHASE_1_MATCH_REVIEW.md",
+        "docs/governance/PHASE_1_MATCH_REVIEW_EN.md",
+        "skills/zh/testing-types/performance-workload-modeling/evals/cases/phase-1-project-context.yaml",
+        "skills/en/testing-types/performance-workload-modeling/evals/cases/phase-1-project-context.yaml"
+      ],
       "target_skills": [
         "performance-workload-modeling"
       ],
@@ -6079,6 +6093,13 @@
       "candidate": "capacity-planning",
       "conclusion": "MATCH",
       "review_state": "REVIEWED_WITH_LIMITATION",
+      "phase": "v1.6",
+      "phase_1_evidence_paths": [
+        "docs/governance/PHASE_1_MATCH_REVIEW.md",
+        "docs/governance/PHASE_1_MATCH_REVIEW_EN.md",
+        "skills/zh/testing-types/capacity-planning-analysis/evals/cases/phase-1-project-context.yaml",
+        "skills/en/testing-types/capacity-planning-analysis/evals/cases/phase-1-project-context.yaml"
+      ],
       "target_skills": [
         "capacity-planning-analysis"
       ],
@@ -6230,6 +6251,13 @@
       "candidate": "quality-risk-identification",
       "conclusion": "MATCH",
       "review_state": "REVIEWED_WITH_LIMITATION",
+      "phase": "v1.6",
+      "phase_1_evidence_paths": [
+        "docs/governance/PHASE_1_MATCH_REVIEW.md",
+        "docs/governance/PHASE_1_MATCH_REVIEW_EN.md",
+        "skills/zh/testing-types/quality-risk-analysis/evals/cases/phase-1-project-context.yaml",
+        "skills/en/testing-types/quality-risk-analysis/evals/cases/phase-1-project-context.yaml"
+      ],
       "target_skills": [
         "quality-risk-analysis"
       ],
@@ -6338,7 +6366,36 @@
         "skills/zh/testing-types/change-impact-analysis/prompts/change-impact-analysis.md",
         "skills/en/testing-types/change-impact-analysis/prompts/change-impact-analysis.md"
       ],
-      "candidate_source": "awesome-qa-prompt@554178fe9b93d851ec01388597ceb7996d22bd1c: testing-types/zh/change-impact-analysis/README.md; testing-types/en/change-impact-analysis/README.md; testing-types/zh/change-impact-analysis/Standard-version/ChangeImpactAnalyzerPrompt.md; testing-types/en/change-impact-analysis/Standard-version/ChangeImpactAnalyzerPrompt.md"
+      "candidate_source": "awesome-qa-prompt@554178fe9b93d851ec01388597ceb7996d22bd1c: testing-types/zh/change-impact-analysis/README.md; testing-types/en/change-impact-analysis/README.md; testing-types/zh/change-impact-analysis/Standard-version/ChangeImpactAnalyzerPrompt.md; testing-types/en/change-impact-analysis/Standard-version/ChangeImpactAnalyzerPrompt.md",
+      "phase_1_review": {
+        "review_id": "v1.6-match-review-requirement-change-impact-analysis",
+        "conclusion": "MATCH",
+        "target": "change-impact-analysis",
+        "review_state": "REVIEWED_WITH_LIMITATION",
+        "project_repository": "naodeng/dsh-qa",
+        "project_revision": "6d650cae72be8fc582bc4f47d6ba48e3fc28157d",
+        "context_summary": "dsh-qa v0.5.0 migrates the Workbench shell from DOM selectors to the official Panel/Slot contract while preserving the Workbench iframe and API boundary.",
+        "observed_contract": "The change surface includes panel/slot ownership, root-scoped main slots, MutationObserver lifecycle, custom active-state protocol, preserved iframe/API boundaries, and real-host validation.",
+        "semantic_state": "UNASSESSED",
+        "evidence_paths": [
+          "docs/governance/PHASE_1_MATCH_REVIEW.md",
+          "docs/governance/PHASE_1_MATCH_REVIEW_EN.md",
+          "skills/zh/testing-types/change-impact-analysis/evals/cases/phase-1-project-context.yaml",
+          "skills/en/testing-types/change-impact-analysis/evals/cases/phase-1-project-context.yaml"
+        ],
+        "next_action": "Use the project-context Eval as bounded evidence; do not claim semantic equivalence or change the package without runtime/model evidence."
+      },
+      "project_evidence": {
+        "project_number": 4,
+        "item_id": "PVTI_lAHOAHP1as4BjBhVzg7VMfs",
+        "title": "v1.6｜Match Review｜requirement-change-impact-analysis",
+        "current_status": "Done",
+        "verified_at": "2026-09-22",
+        "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
+        "transition_requirement": "Todo -> In Progress -> Done",
+        "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned",
+        "acceptance_state": "INCOMPLETE"
+      }
     },
     {
       "slug": "test-impact-analysis",
@@ -6408,7 +6465,36 @@
         "skills/zh/testing-types/performance-workload-modeling/prompts/performance-workload-modeling.md",
         "skills/en/testing-types/performance-workload-modeling/prompts/performance-workload-modeling.md"
       ],
-      "candidate_source": "awesome-qa-prompt@554178fe9b93d851ec01388597ceb7996d22bd1c: testing-types/zh/workload-model-design/README.md; testing-types/en/workload-model-design/README.md; testing-types/zh/workload-model-design/Standard-version/WorkloadModelDesignerPrompt.md; testing-types/en/workload-model-design/Standard-version/WorkloadModelDesignerPrompt.md"
+      "candidate_source": "awesome-qa-prompt@554178fe9b93d851ec01388597ceb7996d22bd1c: testing-types/zh/workload-model-design/README.md; testing-types/en/workload-model-design/README.md; testing-types/zh/workload-model-design/Standard-version/WorkloadModelDesignerPrompt.md; testing-types/en/workload-model-design/Standard-version/WorkloadModelDesignerPrompt.md",
+      "phase_1_review": {
+        "review_id": "v1.6-match-review-workload-modeling",
+        "conclusion": "MATCH",
+        "target": "performance-workload-modeling",
+        "review_state": "REVIEWED_WITH_LIMITATION",
+        "project_repository": "naodeng/dsh-qa",
+        "project_revision": "6d650cae72be8fc582bc4f47d6ba48e3fc28157d",
+        "context_summary": "dsh-qa quality runs use project and global concurrency limits, preview quotas, queued/running/terminal states, and an explicit capacity-exceeded condition.",
+        "observed_contract": "The workload surface requires separating transaction mix, arrival/concurrency behavior, preview pressure, queueing, and terminal-state behavior; the runner has one active run per project and two globally.",
+        "semantic_state": "UNASSESSED",
+        "evidence_paths": [
+          "docs/governance/PHASE_1_MATCH_REVIEW.md",
+          "docs/governance/PHASE_1_MATCH_REVIEW_EN.md",
+          "skills/zh/testing-types/performance-workload-modeling/evals/cases/phase-1-project-context.yaml",
+          "skills/en/testing-types/performance-workload-modeling/evals/cases/phase-1-project-context.yaml"
+        ],
+        "next_action": "Use the project-context Eval as bounded workload evidence; do not infer production load behavior or semantic equivalence from static runner limits."
+      },
+      "project_evidence": {
+        "project_number": 4,
+        "item_id": "PVTI_lAHOAHP1as4BjBhVzg7VMfk",
+        "title": "v1.6｜Match Review｜workload-modeling",
+        "current_status": "Done",
+        "verified_at": "2026-09-22",
+        "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
+        "transition_requirement": "Todo -> In Progress -> Done",
+        "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned",
+        "acceptance_state": "INCOMPLETE"
+      }
     },
     {
       "slug": "capacity-planning",
@@ -6430,7 +6516,36 @@
         "skills/zh/testing-types/capacity-planning-analysis/prompts/capacity-planning-analysis.md",
         "skills/en/testing-types/capacity-planning-analysis/prompts/capacity-planning-analysis.md"
       ],
-      "candidate_source": "awesome-qa-prompt@554178fe9b93d851ec01388597ceb7996d22bd1c: testing-types/zh/capacity-planning-analysis/README.md; testing-types/en/capacity-planning-analysis/README.md; testing-types/zh/capacity-planning-analysis/Standard-version/CapacityPlanningAnalyzerPrompt.md; testing-types/en/capacity-planning-analysis/Standard-version/CapacityPlanningAnalyzerPrompt.md"
+      "candidate_source": "awesome-qa-prompt@554178fe9b93d851ec01388597ceb7996d22bd1c: testing-types/zh/capacity-planning-analysis/README.md; testing-types/en/capacity-planning-analysis/README.md; testing-types/zh/capacity-planning-analysis/Standard-version/CapacityPlanningAnalyzerPrompt.md; testing-types/en/capacity-planning-analysis/Standard-version/CapacityPlanningAnalyzerPrompt.md",
+      "phase_1_review": {
+        "review_id": "v1.6-match-review-capacity-planning",
+        "conclusion": "MATCH",
+        "target": "capacity-planning-analysis",
+        "review_state": "REVIEWED_WITH_LIMITATION",
+        "project_repository": "naodeng/dsh-qa",
+        "project_revision": "6d650cae72be8fc582bc4f47d6ba48e3fc28157d",
+        "context_summary": "dsh-qa documents one running quality test per project, two globally, preview limits, reserved slots, queueing, terminal states, and QUALITY_RUN_CAPACITY_EXCEEDED.",
+        "observed_contract": "The capacity surface must connect concurrency, throughput, resource/preview limits, scaling or queue behavior, and SLO or degradation outcomes instead of inventing numeric headroom.",
+        "semantic_state": "UNASSESSED",
+        "evidence_paths": [
+          "docs/governance/PHASE_1_MATCH_REVIEW.md",
+          "docs/governance/PHASE_1_MATCH_REVIEW_EN.md",
+          "skills/zh/testing-types/capacity-planning-analysis/evals/cases/phase-1-project-context.yaml",
+          "skills/en/testing-types/capacity-planning-analysis/evals/cases/phase-1-project-context.yaml"
+        ],
+        "next_action": "Use the project-context Eval as bounded capacity evidence; production headroom, cost, and semantic equivalence remain unassessed."
+      },
+      "project_evidence": {
+        "project_number": 4,
+        "item_id": "PVTI_lAHOAHP1as4BjBhVzg7VMfc",
+        "title": "v1.6｜Match Review｜capacity-planning",
+        "current_status": "Done",
+        "verified_at": "2026-09-22",
+        "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
+        "transition_requirement": "Todo -> In Progress -> Done",
+        "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned",
+        "acceptance_state": "INCOMPLETE"
+      }
     },
     {
       "slug": "regression-scope-selection",
@@ -6544,7 +6659,36 @@
         "skills/zh/testing-types/quality-risk-analysis/prompts/quality-risk-analysis.md",
         "skills/en/testing-types/quality-risk-analysis/prompts/quality-risk-analysis.md"
       ],
-      "candidate_source": "awesome-qa-prompt@554178fe9b93d851ec01388597ceb7996d22bd1c: testing-types/zh/quality-risk-analysis/README.md; testing-types/en/quality-risk-analysis/README.md; testing-types/zh/quality-risk-analysis/Standard-version/QualityRiskAnalyzerPrompt.md; testing-types/en/quality-risk-analysis/Standard-version/QualityRiskAnalyzerPrompt.md"
+      "candidate_source": "awesome-qa-prompt@554178fe9b93d851ec01388597ceb7996d22bd1c: testing-types/zh/quality-risk-analysis/README.md; testing-types/en/quality-risk-analysis/README.md; testing-types/zh/quality-risk-analysis/Standard-version/QualityRiskAnalyzerPrompt.md; testing-types/en/quality-risk-analysis/Standard-version/QualityRiskAnalyzerPrompt.md",
+      "phase_1_review": {
+        "review_id": "v1.6-match-review-quality-risk-identification",
+        "conclusion": "MATCH",
+        "target": "quality-risk-analysis",
+        "review_state": "REVIEWED_WITH_LIMITATION",
+        "project_repository": "naodeng/dsh-qa",
+        "project_revision": "6d650cae72be8fc582bc4f47d6ba48e3fc28157d",
+        "context_summary": "dsh-qa combines a preserved iframe/API boundary with a Panel/Slot shell migration and constrained quality-run capacity, creating observable lifecycle and integration risk surfaces.",
+        "observed_contract": "The risk surface requires failure modes, likelihood and impact, detectability, exposure windows, existing controls, rollback or containment, and residual risk across UI lifecycle and run-capacity behavior.",
+        "semantic_state": "UNASSESSED",
+        "evidence_paths": [
+          "docs/governance/PHASE_1_MATCH_REVIEW.md",
+          "docs/governance/PHASE_1_MATCH_REVIEW_EN.md",
+          "skills/zh/testing-types/quality-risk-analysis/evals/cases/phase-1-project-context.yaml",
+          "skills/en/testing-types/quality-risk-analysis/evals/cases/phase-1-project-context.yaml"
+        ],
+        "next_action": "Use the project-context Eval as bounded risk evidence; do not treat static controls or model output as business acceptance or production risk closure."
+      },
+      "project_evidence": {
+        "project_number": 4,
+        "item_id": "PVTI_lAHOAHP1as4BjBhVzg7VMf8",
+        "title": "v1.6｜Match Review｜quality-risk-identification",
+        "current_status": "Done",
+        "verified_at": "2026-09-22",
+        "verification": "gh project item-list 4 --owner naodeng --format json --limit 200",
+        "transition_requirement": "Todo -> In Progress -> Done",
+        "transition_audit": "UNASSESSED: gh project item-list exposes current status only; historical transition events are not returned",
+        "acceptance_state": "INCOMPLETE"
+      }
     },
     {
       "slug": "ai-test-data-generation",

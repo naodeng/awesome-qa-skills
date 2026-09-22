@@ -10,6 +10,9 @@ input:
     The only confirmed fact is that the checkout flow exists; inventory TTL, payment retry behavior, and the expiry ownership are unspecified.
     Produce a first-draft analysis that separates confirmed facts from assumptions, prioritizes release-blocking risks, and asks targeted questions.
 
+constraints:
+  timeout_seconds: 720
+
 expect:
   must_contain:
     - "assumption"
@@ -17,7 +20,7 @@ expect:
 
 judge:
   type: agent_judge
-  model: openai/gpt-5
+  model: openai/gpt-5.6-sol
   criteria:
     - "Separates the confirmed checkout fact from assumptions instead of inventing inventory TTL or payment policy."
     - "Prioritizes reservation-before-charge, payment retry, and expiry ownership as release-relevant risks rather than treating every gap equally."

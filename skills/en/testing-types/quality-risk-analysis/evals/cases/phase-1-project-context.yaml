@@ -1,0 +1,52 @@
+id: phase-1-project-context
+title: "Phase 1 project context: dsh-qa Panel/Slot and run-capacity risks"
+description: |
+  Verifies that quality-risk analysis turns real UI lifecycle, API-boundary, and run-capacity constraints into an evidence-backed risk register while preserving business acceptance boundaries.
+
+input:
+  prompt: |
+    Use the quality-risk-analysis skill to review the dsh-qa v1.6 Phase 1 project context. Do not access the external repository; the facts and links below are the complete evidence input.
+
+    Respond directly in English using only the supplied facts; do not read files or open links, and keep the report concise while covering every requested field and evidence boundary. Preserve these labels verbatim where applicable: Failure mode and criticality, Detectability, Existing controls, Human handoff, Residual Risk, and UNASSESSED.
+
+    Project: naodeng/dsh-qa at pinned revision 6d650cae72be8fc582bc4f47d6ba48e3fc28157d.
+    Facts and evidence:
+    - docs/quality-workbench/2026-09-15-requirements.md: the Workbench shell migrates to the official Panel/Slot contract, preserves the iframe and API boundary, and requires real-host checks.
+    - docs/quality-workbench/2026-08-25-technical-design.md and server/quality/test-runner.js: one running test per project, two globally, MAX_ACTIVE_PREVIEWS=20, queued/running/terminal states, and QUALITY_RUN_CAPACITY_EXCEEDED.
+    - test/e2e/dsh-panel-lifecycle.spec.js: observable Panel lifecycle coverage exists.
+    - Stable link: https://github.com/naodeng/dsh-qa/blob/6d650cae72be8fc582bc4f47d6ba48e3fc28157d/test/e2e/dsh-panel-lifecycle.spec.js
+
+    Produce Task Understanding and Scope, Input Audit, a P0-P3 risk register, scoring rationale, tests and mitigations, owners, and residual risk. Cover business criticality, failure modes, likelihood, impact, detectability, exposure window, existing controls, and residual risk. Give preconditions, expected results or decision criteria, and evidence paths for each item. State that static project controls cannot complete production or business acceptance, semantic equivalence remains UNASSESSED, and include stop, escalation, rollback, or human-handoff conditions.
+
+constraints:
+  timeout_seconds: 720
+
+expect:
+  must_contain:
+    - "Task Understanding and Scope"
+    - "Input Audit"
+    - "Failure mode and criticality"
+    - "Detectability"
+    - "Existing controls"
+    - "Residual Risk"
+    - "Human handoff"
+    - "QUALITY_RUN_CAPACITY_EXCEEDED"
+    - "MAX_ACTIVE_PREVIEWS=20"
+    - "UNASSESSED"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+    - "unable to help"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Failure mode and criticality"
+          - "Detectability"
+          - "Existing controls"
+          - "QUALITY_RUN_CAPACITY_EXCEEDED"
+          - "MAX_ACTIVE_PREVIEWS=20"
+          - "UNASSESSED"
+          - "Residual Risk"

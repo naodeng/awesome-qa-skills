@@ -1,0 +1,53 @@
+id: phase-1-project-context
+title: "Phase 1 项目上下文：dsh-qa Panel/Slot 与运行容量质量风险"
+description: |
+  验证质量风险分析能将真实项目的 UI 生命周期、API 边界和运行容量约束转成带证据的风险登记册，并保留业务验收边界。
+
+input:
+  prompt: |
+    请使用 quality-risk-analysis Skill，对 dsh-qa 的 v1.6 Phase 1 项目上下文做质量风险复核。不要访问外部仓库，以下事实和链接是完整输入证据。
+
+    项目：naodeng/dsh-qa，固定提交 6d650cae72be8fc582bc4f47d6ba48e3fc28157d。
+    事实与证据：
+    - docs/quality-workbench/2026-09-15-requirements.md：Workbench 壳层迁移到官方 Panel/Slot 合同，保留 iframe 与 API 边界，并需要真实宿主检查。
+    - docs/quality-workbench/2026-08-25-technical-design.md 和 server/quality/test-runner.js：每项目一个运行中测试、全局两个、MAX_ACTIVE_PREVIEWS=20、排队/运行/终态，以及 QUALITY_RUN_CAPACITY_EXCEEDED。
+    - test/e2e/dsh-panel-lifecycle.spec.js：存在可观察的 Panel 生命周期覆盖。
+    - 稳定链接：https://github.com/naodeng/dsh-qa/blob/6d650cae72be8fc582bc4f47d6ba48e3fc28157d/test/e2e/dsh-panel-lifecycle.spec.js
+
+    输出任务理解与范围、输入审计、P0-P3 风险登记册、评分依据、测试与缓解、负责人和剩余风险。覆盖业务关键性、失败模式、概率、影响、可探测性、暴露窗口、现有控制和剩余风险；每项给出前置条件、预期结果或判断标准和证据路径。明确静态项目控制不能完成生产或业务验收，语义等价保持 UNASSESSED，并说明停止、升级、回滚或人工接管条件。
+
+    为保证评测可复现，请逐字保留这些标签：风险登记册、失败模式、现有控制、剩余风险、人工接管、UNASSESSED；不要用同义标题替代“风险登记册”。
+
+constraints:
+  timeout_seconds: 720
+
+expect:
+  must_contain:
+    - "任务理解与范围"
+    - "输入审计"
+    - "风险登记册"
+    - "失败模式"
+    - "可探测性"
+    - "现有控制"
+    - "剩余风险"
+    - "人工接管"
+    - "QUALITY_RUN_CAPACITY_EXCEEDED"
+    - "MAX_ACTIVE_PREVIEWS=20"
+    - "UNASSESSED"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+    - "无法提供帮助"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "风险登记册"
+          - "失败模式"
+          - "现有控制"
+          - "QUALITY_RUN_CAPACITY_EXCEEDED"
+          - "MAX_ACTIVE_PREVIEWS=20"
+          - "UNASSESSED"
+          - "剩余风险"

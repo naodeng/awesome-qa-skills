@@ -1,0 +1,54 @@
+id: phase-1-project-context
+title: "Phase 1 project context: dsh-qa quality-run capacity plan"
+description: |
+  Verifies that capacity planning turns project concurrency and preview limits into thresholds, actions, and validation plans without claiming capacity from static numbers alone.
+
+input:
+  prompt: |
+    Use the capacity-planning-analysis skill to review the dsh-qa v1.6 Phase 1 project context. Do not access the external repository; the following is the confirmed input.
+
+    Respond in English. Use these exact English section labels where applicable: Task Understanding and Scope, Input Audit, Capacity Estimate, and Residual Risk. Keep the required coverage phrases in English, including throughput, resource bottlenecks, safety margin, scaling lead time, SLO, and UNASSESSED.
+
+    Project: naodeng/dsh-qa at pinned revision 6d650cae72be8fc582bc4f47d6ba48e3fc28157d.
+    Evidence:
+    - docs/quality-workbench/2026-08-25-technical-design.md: one running test per project, two globally, MAX_ACTIVE_PREVIEWS=20, reserved slots, queueing, and terminal states.
+    - server/quality/test-runner.js: MAX_RUNNING_PER_PROJECT=1, MAX_RUNNING_GLOBAL=2, MAX_ACTIVE_PREVIEWS=20, terminal states, and QUALITY_RUN_CAPACITY_EXCEEDED.
+    - docs/quality-workbench/2026-09-15-requirements.md: the Workbench iframe and API boundary remain, while the Panel/Slot lifecycle migration requires real-host checks.
+    - Stable link: https://github.com/naodeng/dsh-qa/blob/6d650cae72be8fc582bc4f47d6ba48e3fc28157d/docs/quality-workbench/2026-08-25-technical-design.md
+
+    Produce Task Understanding and Scope, Input Audit, P0-P3 risks, an assumption table, workload model, capacity estimate, scenario analysis, thresholds and actions, and a validation plan. Cover peaks and bursts, concurrency and throughput, resource bottlenecks, safety margin, growth scenarios, degradation, cost, and scaling lead time. For every item include evidence paths, SLOs or decision criteria, blockers, and residual risk. Do not claim production capacity or semantic equivalence from MAX_* constants; explicitly preserve the UNASSESSED boundary.
+
+constraints:
+  timeout_seconds: 720
+
+expect:
+  must_contain:
+    - "Task Understanding and Scope"
+    - "Input Audit"
+    - "Capacity Estimate"
+    - "throughput"
+    - "resource bottlenecks"
+    - "safety margin"
+    - "scaling lead time"
+    - "SLO"
+    - "QUALITY_RUN_CAPACITY_EXCEEDED"
+    - "MAX_ACTIVE_PREVIEWS=20"
+    - "Residual Risk"
+    - "UNASSESSED"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+    - "unable to help"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Capacity Estimate"
+          - "resource bottlenecks"
+          - "SLO"
+          - "QUALITY_RUN_CAPACITY_EXCEEDED"
+          - "MAX_ACTIVE_PREVIEWS=20"
+          - "UNASSESSED"
+          - "Residual Risk"
