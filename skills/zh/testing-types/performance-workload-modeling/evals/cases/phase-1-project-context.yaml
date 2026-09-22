@@ -1,0 +1,75 @@
+id: phase-1-project-context
+title: "Phase 1 项目上下文：dsh-qa 质量运行负载建模"
+description: |
+  验证负载建模能从真实运行器约束提炼交易模型、到达和并发假设，并保留静态证据的边界。
+
+input:
+  prompt: |
+    请使用 performance-workload-modeling Skill，对 dsh-qa 的 v1.6 Phase 1 项目上下文做负载模型复核。不要访问外部仓库，下面是完整输入证据。
+
+    项目：naodeng/dsh-qa，固定提交 6d650cae72be8fc582bc4f47d6ba48e3fc28157d。
+    事实与证据：
+    - docs/quality-workbench/2026-08-25-technical-design.md 规定每个项目同时只有一个运行中测试，全局最多两个；预览活动上限为 MAX_ACTIVE_PREVIEWS=20；运行会经历排队、运行中和终态。
+    - server/quality/test-runner.js 定义 MAX_RUNNING_PER_PROJECT=1、MAX_RUNNING_GLOBAL=2、MAX_ACTIVE_PREVIEWS=20，以及终态和 QUALITY_RUN_CAPACITY_EXCEEDED 相关行为。
+    - docs/quality-workbench/2026-09-15-requirements.md 保留 Workbench iframe 与 API 边界，并要求官方 Panel/Slot 生命周期。
+    - 稳定链接：https://github.com/naodeng/dsh-qa/blob/6d650cae72be8fc582bc4f47d6ba48e3fc28157d/docs/quality-workbench/2026-08-25-technical-design.md
+
+    输出必须包含任务理解与范围、输入审计、P0-P3 风险、假设表、工作负载画像、阶段设计、数据模型、执行参数和校准计划。覆盖交易模型、到达率、并发、思考时间、峰值突发、数据分布、缓存预热和依赖约束；区分开放模型与封闭模型，不把用户数等同于并发。每项给出预期结果、证据路径、阻塞条件和剩余风险，并明确项目静态约束不能证明生产负载或语义等价，语义状态保持 UNASSESSED。
+    为了保留可追溯边界，必须逐字保留“已确认事实”“当前假设”“信息缺口”“证据路径”和“UNASSESSED”这些标签，并在证据路径中逐字引用上述文件路径；不得把静态约束说成生产或语义等价结论。
+
+    为保证评测可复现，请逐字保留这些标签：交易模型、到达率、并发、峰值突发、校准计划、剩余风险；不要用“负载模型”等同义词替代“交易模型”。
+
+constraints:
+  timeout_seconds: 720
+
+expect:
+  must_contain:
+    - "任务理解与范围"
+    - "输入审计"
+    - "工作负载画像"
+    - "交易模型"
+    - "到达率"
+    - "并发"
+    - "峰值突发"
+    - "校准计划"
+    - "QUALITY_RUN_CAPACITY_EXCEEDED"
+    - "MAX_ACTIVE_PREVIEWS=20"
+    - "已确认事实"
+    - "当前假设"
+    - "信息缺口"
+    - "证据路径"
+    - "docs/quality-workbench/2026-08-25-technical-design.md"
+    - "server/quality/test-runner.js"
+    - "docs/quality-workbench/2026-09-15-requirements.md"
+    - "剩余风险"
+    - "UNASSESSED"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+    - "无法提供帮助"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "交易模型"
+          - "并发"
+          - "校准计划"
+          - "QUALITY_RUN_CAPACITY_EXCEEDED"
+          - "MAX_ACTIVE_PREVIEWS=20"
+          - "UNASSESSED"
+          - "剩余风险"
+    - output_matches:
+        all:
+          - "已确认事实"
+          - "当前假设"
+          - "信息缺口"
+          - "证据路径"
+          - "docs/quality-workbench/2026-08-25-technical-design.md"
+          - "server/quality/test-runner.js"
+          - "docs/quality-workbench/2026-09-15-requirements.md"
+        not:
+          - "(?m)^([-*] )?(生产容量|语义等价)(已|已经)(被)?(证明|确认|验证|达标)[。！？.!?]?$"
+          - "(?m)^([-*] )?语义等价成立[。！？.!?]?$"
+          - "(?m)^([-*] )?(业务验收)(已|已经)(被)?(完成|通过|批准)[。！？.!?]?$"

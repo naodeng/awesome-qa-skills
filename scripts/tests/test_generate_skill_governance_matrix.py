@@ -1,3 +1,4 @@
+from copy import deepcopy
 from dataclasses import replace
 import json
 from pathlib import Path
@@ -45,6 +46,13 @@ V11_REVIEWED_CANDIDATE_SLUGS = {
     "negative-scenario-discovery",
     "test-data-requirement-analysis",
 }
+V16_CANDIDATE_SLUGS = {
+    "capacity-planning": "capacity-planning-analysis",
+    "workload-modeling": "performance-workload-modeling",
+    "requirement-change-impact-analysis": "change-impact-analysis",
+    "quality-risk-identification": "quality-risk-analysis",
+}
+V16_PROJECT_REVISION = "6d650cae72be8fc582bc4f47d6ba48e3fc28157d"
 def complete_skill(**overrides):
     skill = {
         "slug": "sample",
@@ -334,6 +342,196 @@ class GovernanceMatrixTest(unittest.TestCase):
             for value in [candidate["candidate_source"], *candidate["evidence"].values()]:
                 self.assertNotIn("PHASE_0_PROMPT_BASELINE_SOURCES.md#", value)
                 self.assertNotRegex(value, r"#[A-Za-z][A-Za-z0-9_-]*")
+
+    def test_v16_candidates_record_phase1_project_context(self):
+        registry = matrix.load_registry(ROOT / "docs/governance/skill-governance-registry.yaml")
+        candidates = {candidate["slug"]: candidate for candidate in registry.candidates}
+        for slug, target in V16_CANDIDATE_SLUGS.items():
+            review = candidates[slug].get("phase_1_review")
+            self.assertIsInstance(review, dict, slug)
+            self.assertEqual(review["conclusion"], "MATCH")
+            self.assertEqual(review["target"], target)
+            self.assertEqual(review["project_repository"], "naodeng/dsh-qa")
+            self.assertEqual(review["project_revision"], V16_PROJECT_REVISION)
+            self.assertEqual(review["semantic_state"], "UNASSESSED")
+            evidence_paths = review["evidence_paths"]
+            self.assertTrue(evidence_paths, slug)
+            self.assertTrue(all((ROOT / path).is_file() for path in evidence_paths), slug)
+
+    def test_v16_phase1_evidence_surfaces_in_bilingual_views(self):
+        registry = matrix.load_registry(ROOT / "docs/governance/skill-governance-registry.yaml")
+        matrix_zh = matrix.render_matrix(registry, "zh", ROOT)
+        matrix_en = matrix.render_matrix(registry, "en", ROOT)
+        register_zh = matrix.render_matching_register(registry, "zh")
+        register_en = matrix.render_matching_register(registry, "en")
+        review_zh = matrix.render_match_review(registry, "zh")
+        review_en = matrix.render_match_review(registry, "en")
+        phase1_zh = (ROOT / "docs/governance/PHASE_1_MATCH_REVIEW.md").read_text(encoding="utf-8")
+        phase1_en = (ROOT / "docs/governance/PHASE_1_MATCH_REVIEW_EN.md").read_text(encoding="utf-8")
+        for slug in V16_CANDIDATE_SLUGS:
+            self.assertIn("v1.6", matrix_zh)
+            self.assertIn("v1.6", matrix_en)
+            self.assertIn(slug, register_zh)
+            self.assertIn(slug, register_en)
+            self.assertIn(slug, phase1_zh)
+            self.assertIn(slug, phase1_en)
+        self.assertIn("PHASE_1_MATCH_REVIEW.md", matrix_zh)
+        self.assertIn("PHASE_1_MATCH_REVIEW_EN.md", matrix_en)
+        self.assertIn("UNASSESSED", phase1_zh)
+        self.assertIn("UNASSESSED", phase1_en)
+        self.assertIn("[Phase 1 证据](./PHASE_1_MATCH_REVIEW.md)", review_zh)
+        self.assertIn("[Phase 1 evidence](./PHASE_1_MATCH_REVIEW_EN.md)", review_en)
+
+    def test_v16_phase1_review_is_required_for_the_four_candidates(self):
+        registry = matrix.load_registry(ROOT / "docs/governance/skill-governance-registry.yaml")
+        candidates = list(registry.candidates)
+        target = next(candidate for candidate in candidates if candidate["slug"] == "capacity-planning")
+        target.pop("phase_1_review", None)
+        errors = matrix.validate_registry(
+            replace(registry, candidates=tuple(candidates)),
+            matrix.discover_physical_skills(ROOT),
+            ROOT,
+        )
+        self.assertIn("capacity-planning: phase_1_review requires project context", errors)
+
+    def test_v16_phase1_evidence_paths_must_be_a_non_empty_list(self):
+        registry = matrix.load_registry(ROOT / "docs/governance/skill-governance-registry.yaml")
+        candidates = [deepcopy(candidate) for candidate in registry.candidates]
+        target = next(candidate for candidate in candidates if candidate["slug"] == "capacity-planning")
+        target["phase_1_review"]["evidence_paths"] = "docs/governance/PHASE_1_MATCH_REVIEW.md"
+        errors = matrix.validate_registry(
+            replace(registry, candidates=tuple(candidates)),
+            matrix.discover_physical_skills(ROOT),
+            ROOT,
+        )
+        self.assertIn(
+            "capacity-planning: phase_1_review evidence_paths must be a non-empty list",
+            errors,
+        )
+
+    def test_v16_match_review_rejects_duplicated_phase1_evidence_source(self):
+        registry = matrix.load_registry(ROOT / "docs/governance/skill-governance-registry.yaml")
+        reviews = [deepcopy(review) for review in registry.match_reviews]
+        target = next(review for review in reviews if review["candidate"] == "capacity-planning")
+        target["phase_1_evidence_paths"] = ["docs/governance/PHASE_1_MATCH_REVIEW.md"]
+
+        errors = matrix.validate_registry(
+            replace(registry, match_reviews=tuple(reviews)),
+            matrix.discover_physical_skills(ROOT),
+            ROOT,
+        )
+
+        self.assertIn(
+            "capacity-planning: v1.6 match review must use candidate phase_1_review evidence_paths",
+            errors,
+        )
+
+    def test_v16_match_review_requires_phase_marker(self):
+        registry = matrix.load_registry(ROOT / "docs/governance/skill-governance-registry.yaml")
+        reviews = [deepcopy(review) for review in registry.match_reviews]
+        target = next(review for review in reviews if review["candidate"] == "capacity-planning")
+        target.pop("phase", None)
+        target.pop("phase_1_evidence_paths", None)
+
+        errors = matrix.validate_registry(
+            replace(registry, match_reviews=tuple(reviews)),
+            matrix.discover_physical_skills(ROOT),
+            ROOT,
+        )
+
+        self.assertIn(
+            "capacity-planning: v1.6 match review requires phase: v1.6",
+            errors,
+        )
+
+    def test_v16_match_review_uses_candidate_phase1_evidence_source(self):
+        registry = matrix.load_registry(ROOT / "docs/governance/skill-governance-registry.yaml")
+        for review in registry.match_reviews:
+            if review["candidate"] in V16_CANDIDATE_SLUGS:
+                self.assertNotIn("phase_1_evidence_paths", review)
+
+    def _phase1_case_blocks(self, language: str, skill: str) -> tuple[Path, str, str]:
+        case_path = ROOT / f"skills/{language}/testing-types/{skill}/evals/cases/phase-1-project-context.yaml"
+        text = case_path.read_text(encoding="utf-8")
+        expect_block = text.split("\nexpect:\n", 1)[1].split("\njudge:\n", 1)[0]
+        judge_block = text.split("\njudge:\n", 1)[1]
+        return case_path, expect_block, judge_block
+
+    def test_v16_phase1_cases_require_domain_fact_assertions(self):
+        required_markers = {
+            "change-impact-analysis": ("Panel/Slot", "MAX_ACTIVE_PREVIEWS=20", "UNASSESSED"),
+            "performance-workload-modeling": (
+                "QUALITY_RUN_CAPACITY_EXCEEDED",
+                "MAX_ACTIVE_PREVIEWS=20",
+                "UNASSESSED",
+            ),
+            "capacity-planning-analysis": (
+                "QUALITY_RUN_CAPACITY_EXCEEDED",
+                "MAX_ACTIVE_PREVIEWS=20",
+                "UNASSESSED",
+            ),
+            "quality-risk-analysis": (
+                "QUALITY_RUN_CAPACITY_EXCEEDED",
+                "MAX_ACTIVE_PREVIEWS=20",
+                "UNASSESSED",
+            ),
+        }
+        for language in ("zh", "en"):
+            for skill, markers in required_markers.items():
+                case_path, expect_block, judge_block = self._phase1_case_blocks(language, skill)
+                for marker in markers:
+                    self.assertIn(marker, expect_block, f"{case_path}: expect missing {marker}")
+                    self.assertIn(marker, judge_block, f"{case_path}: judge missing {marker}")
+
+    def test_v16_phase1_cases_require_evidence_boundary_assertions(self):
+        evidence_paths = {
+            "change-impact-analysis": (
+                "docs/quality-workbench/2026-09-15-requirements.md",
+                "test/e2e/dsh-panel-lifecycle.spec.js",
+            ),
+            "performance-workload-modeling": (
+                "docs/quality-workbench/2026-08-25-technical-design.md",
+                "server/quality/test-runner.js",
+            ),
+            "capacity-planning-analysis": (
+                "docs/quality-workbench/2026-08-25-technical-design.md",
+                "server/quality/test-runner.js",
+            ),
+            "quality-risk-analysis": (
+                "docs/quality-workbench/2026-09-15-requirements.md",
+                "test/e2e/dsh-panel-lifecycle.spec.js",
+            ),
+        }
+        language_contract = {
+            "zh": (
+                "已确认事实",
+                "当前假设",
+                "信息缺口",
+                "证据路径",
+                "(?m)^([-*] )?(生产容量|语义等价)(已|已经)(被)?(证明|确认|验证|达标)[。！？.!?]?$",
+                "(?m)^([-*] )?语义等价成立[。！？.!?]?$",
+                "(?m)^([-*] )?(业务验收)(已|已经)(被)?(完成|通过|批准)[。！？.!?]?$",
+            ),
+            "en": (
+                "Confirmed Facts",
+                "Working Assumptions",
+                "Open Questions",
+                "Evidence Paths",
+                "(?im)^([-*] )?(production capacity|semantic equivalence) (is|has been) (proven|confirmed|validated|established|demonstrated)[.!]?$",
+                "(?im)^([-*] )?semantic equivalence holds[.!]?$",
+                "(?im)^([-*] )?(business|production) acceptance (is|has been) (complete|passed|approved)[.!]?$",
+            ),
+        }
+        for language, labels in language_contract.items():
+            for skill, paths in evidence_paths.items():
+                case_path, expect_block, judge_block = self._phase1_case_blocks(language, skill)
+                for marker in (*labels[:4], *paths):
+                    self.assertIn(marker, expect_block, f"{case_path}: expect missing {marker}")
+                    self.assertIn(marker, judge_block, f"{case_path}: judge missing {marker}")
+                self.assertIn("output_matches:", judge_block, f"{case_path}: missing boundary matcher")
+                self.assertIn("not:", judge_block, f"{case_path}: missing negative boundary matcher")
+                for marker in labels[4:]:
+                    self.assertIn(marker, judge_block, f"{case_path}: forbidden-claim matcher missing {marker}")
 
     def test_phase0_source_register_does_not_duplicate_candidate_decisions(self):
         for filename in (

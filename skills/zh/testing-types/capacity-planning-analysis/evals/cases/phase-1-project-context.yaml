@@ -1,0 +1,73 @@
+id: phase-1-project-context
+title: "Phase 1 项目上下文：dsh-qa 质量运行容量规划"
+description: |
+  验证容量规划能把项目级并发和预览约束转成阈值、行动和验证计划，而不是凭静态数字宣称容量充足。
+
+input:
+  prompt: |
+    请使用 capacity-planning-analysis Skill，对 dsh-qa 的 v1.6 Phase 1 项目上下文做容量规划复核。不要访问外部仓库，下面的内容是已确认输入。
+
+    项目：naodeng/dsh-qa，固定提交 6d650cae72be8fc582bc4f47d6ba48e3fc28157d。
+    证据：
+    - docs/quality-workbench/2026-08-25-technical-design.md：每项目一个运行中测试、全局最多两个运行中测试、MAX_ACTIVE_PREVIEWS=20、预留槽位、排队和终态。
+    - server/quality/test-runner.js：MAX_RUNNING_PER_PROJECT=1、MAX_RUNNING_GLOBAL=2、MAX_ACTIVE_PREVIEWS=20、终态，以及 QUALITY_RUN_CAPACITY_EXCEEDED。
+    - docs/quality-workbench/2026-09-15-requirements.md：Workbench iframe 和 API 边界保留，Panel/Slot 生命周期迁移需要真实宿主检查。
+    - 稳定链接：https://github.com/naodeng/dsh-qa/blob/6d650cae72be8fc582bc4f47d6ba48e3fc28157d/docs/quality-workbench/2026-08-25-technical-design.md
+
+    输出任务理解与范围、输入审计、P0-P3 风险、假设表、负载模型、容量估算、情景分析、阈值与行动、验证计划。覆盖峰值与突发、并发和吞吐、资源瓶颈、安全余量、增长情景、故障降级、成本和扩容时效；每项都要有证据路径、SLO 或判断标准、阻塞条件和剩余风险。不要凭 MAX_* 常量声称生产容量或语义等价已证明，明确 UNASSESSED 边界。
+    为了保留可追溯边界，必须逐字保留“已确认事实”“当前假设”“信息缺口”“证据路径”和“UNASSESSED”这些标签，并在证据路径中逐字引用上述文件路径；不得把静态约束说成生产或语义等价结论。
+
+constraints:
+  timeout_seconds: 720
+
+expect:
+  must_contain:
+    - "任务理解与范围"
+    - "输入审计"
+    - "容量估算"
+    - "吞吐"
+    - "资源瓶颈"
+    - "安全余量"
+    - "扩容时效"
+    - "SLO"
+    - "QUALITY_RUN_CAPACITY_EXCEEDED"
+    - "MAX_ACTIVE_PREVIEWS=20"
+    - "已确认事实"
+    - "当前假设"
+    - "信息缺口"
+    - "证据路径"
+    - "docs/quality-workbench/2026-08-25-technical-design.md"
+    - "server/quality/test-runner.js"
+    - "docs/quality-workbench/2026-09-15-requirements.md"
+    - "剩余风险"
+    - "UNASSESSED"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+    - "无法提供帮助"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "容量估算"
+          - "资源瓶颈"
+          - "SLO"
+          - "QUALITY_RUN_CAPACITY_EXCEEDED"
+          - "MAX_ACTIVE_PREVIEWS=20"
+          - "UNASSESSED"
+          - "剩余风险"
+    - output_matches:
+        all:
+          - "已确认事实"
+          - "当前假设"
+          - "信息缺口"
+          - "证据路径"
+          - "docs/quality-workbench/2026-08-25-technical-design.md"
+          - "server/quality/test-runner.js"
+          - "docs/quality-workbench/2026-09-15-requirements.md"
+        not:
+          - "(?m)^([-*] )?(生产容量|语义等价)(已|已经)(被)?(证明|确认|验证|达标)[。！？.!?]?$"
+          - "(?m)^([-*] )?语义等价成立[。！？.!?]?$"
+          - "(?m)^([-*] )?(业务验收)(已|已经)(被)?(完成|通过|批准)[。！？.!?]?$"

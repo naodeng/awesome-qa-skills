@@ -25,6 +25,18 @@ VALID_SCORE_STATES = {"NOT_SCORED", "PARTIALLY_SCORED", "SCORED"}
 VALID_PROJECT_ACCEPTANCE_STATES = {"COMPLETE", "INCOMPLETE", "BLOCKED"}
 MATCH_FIELDS = ("name", "purpose", "inputs", "outputs", "decision_logic", "workflow_role")
 MATCH_REVIEW_FIELDS = ("candidate", "conclusion", "review_state", "target_skills", "evidence_paths", "next_action")
+PHASE_1_MATCH_TARGETS = {
+    "capacity-planning": "capacity-planning-analysis",
+    "workload-modeling": "performance-workload-modeling",
+    "requirement-change-impact-analysis": "change-impact-analysis",
+    "quality-risk-identification": "quality-risk-analysis",
+}
+PHASE_1_PROJECT_REVISION = "6d650cae72be8fc582bc4f47d6ba48e3fc28157d"
+PHASE_1_REVIEW_FIELDS = (
+    "review_id", "conclusion", "target", "review_state", "project_repository",
+    "project_revision", "context_summary", "observed_contract", "semantic_state",
+    "next_action",
+)
 REQUIRED_MATCH_REVIEWS = {
     "requirement-change-impact-analysis": ("MATCH", ("change-impact-analysis",)),
     "test-impact-analysis": ("MERGE", ("change-impact-analysis", "pr-test-impact-analysis")),
@@ -128,7 +140,7 @@ def validate_skill(skill: dict[str, object], domain_ids: set[str] | None = None)
     return errors
 
 
-def validate_candidate(candidate: dict[str, object]) -> list[str]:
+def validate_candidate(candidate: dict[str, object], root: Path | None = None) -> list[str]:
     errors: list[str] = []
     if candidate.get("conclusion") not in VALID_CONCLUSIONS:
         errors.append("invalid conclusion")
@@ -174,6 +186,37 @@ def validate_candidate(candidate: dict[str, object]) -> list[str]:
                 errors.append("project_evidence cannot be COMPLETE while transition history is UNASSESSED")
             if "UNASSESSED" in transition_audit and project.get("acceptance_state") not in {"INCOMPLETE", "BLOCKED"}:
                 errors.append("project_evidence requires an incomplete or blocked acceptance state while transition history is UNASSESSED")
+    slug = str(candidate.get("slug", ""))
+    if slug in PHASE_1_MATCH_TARGETS:
+        review = candidate.get("phase_1_review")
+        if not isinstance(review, dict):
+            errors.append("phase_1_review requires project context")
+        else:
+            errors.extend(
+                f"phase_1_review requires {field}"
+                for field in PHASE_1_REVIEW_FIELDS
+                if review.get(field) in (None, "", [])
+            )
+            phase_paths = review.get("evidence_paths")
+            if not isinstance(phase_paths, list) or not phase_paths:
+                errors.append("phase_1_review evidence_paths must be a non-empty list")
+            if review.get("conclusion") != candidate.get("conclusion"):
+                errors.append("phase_1_review conclusion differs from candidate record")
+            if review.get("target") != PHASE_1_MATCH_TARGETS[slug]:
+                errors.append("phase_1_review target differs from candidate record")
+            if review.get("review_state") != "REVIEWED_WITH_LIMITATION":
+                errors.append("phase_1_review must remain REVIEWED_WITH_LIMITATION")
+            if review.get("project_repository") != "naodeng/dsh-qa":
+                errors.append("phase_1_review must reference naodeng/dsh-qa")
+            if review.get("project_revision") != PHASE_1_PROJECT_REVISION:
+                errors.append("phase_1_review must use the pinned dsh-qa revision")
+            if review.get("semantic_state") != "UNASSESSED":
+                errors.append("phase_1_review semantic_state must remain UNASSESSED")
+            if root is not None:
+                errors.extend(
+                    f"phase_1_review: {error}"
+                    for error in validate_repository_relative_files(root, phase_paths, "evidence_paths")
+                )
     return errors
 
 
@@ -193,6 +236,13 @@ def validate_match_review(
         errors.append("invalid match review conclusion")
     if review.get("review_state") not in VALID_MATCH_REVIEW_STATES:
         errors.append("invalid match review state")
+    if candidate in PHASE_1_MATCH_TARGETS and review.get("phase") != "v1.6":
+        errors.append("v1.6 match review requires phase: v1.6")
+    if review.get("phase") == "v1.6":
+        if candidate not in PHASE_1_MATCH_TARGETS:
+            errors.append("v1.6 phase is only valid for the four Phase 1 candidates")
+    if candidate in PHASE_1_MATCH_TARGETS and "phase_1_evidence_paths" in review:
+        errors.append("v1.6 match review must use candidate phase_1_review evidence_paths")
     targets = review.get("target_skills", [])
     if not isinstance(targets, list) or not targets:
         errors.append("target_skills must be a non-empty list")
@@ -323,7 +373,7 @@ def validate_registry(registry: GovernanceRegistry, physical: set[str], root: Pa
         if len(registry.match_reviews) != len(REQUIRED_MATCH_REVIEWS) or actual_match_reviews != REQUIRED_MATCH_REVIEWS:
             errors.append("match_reviews must contain the exact 20-row contract")
     for candidate in registry.candidates:
-        errors.extend(f"{candidate.get('slug')}: {error}" for error in validate_candidate(candidate))
+        errors.extend(f"{candidate.get('slug')}: {error}" for error in validate_candidate(candidate, root))
     if domain_catalog is not None:
         used_domains = {
             str(skill.get("virtual_domain"))
@@ -371,9 +421,16 @@ def render_review_relationship(review: dict[str, object], locale: str) -> str:
     candidate = str(review.get("candidate", "UNASSESSED"))
     targets = ", ".join(f"`{target}`" for target in review.get("target_skills", []))
     conclusion = str(review.get("conclusion", "UNASSESSED"))
+    phase = str(review.get("phase", ""))
     if locale == "zh":
-        return f"{conclusion} 复核：`{candidate}` → {targets}；{review_action(conclusion, locale)}"
-    return f"{conclusion} review: `{candidate}` -> {targets}; {review_action(conclusion, locale)}"
+        text = f"{conclusion} 复核：`{candidate}` → {targets}；{review_action(conclusion, locale)}"
+        if phase == "v1.6":
+            text += " [v1.6 Phase 1](governance/PHASE_1_MATCH_REVIEW.md)：项目上下文已登记，语义等价仍为 `UNASSESSED`。"
+        return text
+    text = f"{conclusion} review: `{candidate}` -> {targets}; {review_action(conclusion, locale)}"
+    if phase == "v1.6":
+        text += " [v1.6 Phase 1](governance/PHASE_1_MATCH_REVIEW_EN.md): project context is recorded; semantic equivalence remains `UNASSESSED`."
+    return text
 
 
 def render_matrix(registry: GovernanceRegistry, locale: str, root: Path | None = None) -> str:
@@ -439,6 +496,17 @@ def render_matching_register(registry: GovernanceRegistry, locale: str) -> str:
                 f"required transition=`{project.get('transition_requirement', 'UNASSESSED')}`; "
                 f"transition audit={project.get('transition_audit', 'UNASSESSED')}; "
                 f"acceptance state=`{project.get('acceptance_state', 'UNASSESSED')}`"
+            )
+        phase_review = candidate.get("phase_1_review")
+        if isinstance(phase_review, dict):
+            phase_target = "governance/PHASE_1_MATCH_REVIEW_EN.md" if english else "governance/PHASE_1_MATCH_REVIEW.md"
+            phase_paths = "<br>".join(str(path) for path in phase_review.get("evidence_paths", []))
+            source = (
+                f"{source}<br>v1.6 Phase 1: `{phase_review.get('review_id', 'UNASSESSED')}`; "
+                f"project `{phase_review.get('project_repository', 'UNASSESSED')}@{phase_review.get('project_revision', 'UNASSESSED')}`; "
+                f"semantic state=`{phase_review.get('semantic_state', 'UNASSESSED')}`; "
+                f"[{phase_review.get('review_state', 'UNASSESSED')}]({phase_target})<br>"
+                f"Phase 1 evidence:<br>{phase_paths}"
             )
         lines.append(f"| `{candidate.get('slug', '')}` | `{candidate.get('decision_state', 'UNASSESSED')}` | `{candidate.get('conclusion', 'UNASSESSED')}` | `{candidate.get('target', 'UNASSESSED')}` | {source}<br>{targets} | {evidence_text} | {candidate.get('next_action', 'UNASSESSED')} |")
     if not registry.candidates:
@@ -533,6 +601,10 @@ def render_match_review(registry: GovernanceRegistry, locale: str) -> str:
         "| --- | --- | --- | --- | --- | --- |",
     ]
     candidate_slugs = {str(candidate.get("slug")) for candidate in registry.candidates}
+    phase_reviews = {
+        str(candidate.get("slug")): candidate.get("phase_1_review")
+        for candidate in registry.candidates
+    }
     for review in reviews:
         candidate = str(review.get("candidate", ""))
         targets = "<br>".join(f"`{target}`" for target in review.get("target_skills", []))
@@ -543,6 +615,10 @@ def render_match_review(registry: GovernanceRegistry, locale: str) -> str:
         else:
             matrix = "../SKILL_MATRIX_EN.md" if english else "../SKILL_MATRIX.md"
             evidence = f"[Target package evidence]({matrix})<br>{evidence}"
+        if review.get("phase") == "v1.6" and isinstance(phase_reviews.get(candidate), dict):
+            phase_target = "PHASE_1_MATCH_REVIEW_EN.md" if english else "PHASE_1_MATCH_REVIEW.md"
+            phase_label = "Phase 1 evidence" if english else "Phase 1 证据"
+            evidence += f'<br>[{phase_label}](./{phase_target})'
         lines.append(
             f"| `{candidate}` | `{review.get('conclusion', 'UNASSESSED')}` | "
             f"`{review.get('review_state', 'UNASSESSED')}` | {targets} | {evidence} | "

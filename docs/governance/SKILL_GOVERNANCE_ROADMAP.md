@@ -41,6 +41,12 @@ GitHub Project `Awesome QA Skills — Governance & Roadmap` 是执行看板。�
 
 本工作项不新增物理 Skill，不把 Composition 变成安装依赖，不实现服务端语义路由、自动目标执行、多 Agent 编排，也不新增通用 Eval Engine、Judge、Benchmark runner 或 Quality Score。质量门禁能够验证 Manifest、生成视图、双语结构、`skill.selection` 离线证据和缺失选择时的 `BLOCKED` 边界；真实模型选择、跨模型一致性、目标运行、真实项目 Benchmark、Usage Analytics 和业务路由效果继续保持 `NOT_RUN` / `BLOCKED` / `INSUFFICIENT_EVIDENCE`。`xxx-plus` 到 mode 的迁移留待后续版本。
 
+## v1.6 当前工作项（2026-09-22）
+
+`ACCEPTED_WITH_LIMITATIONS`：v1.6 的四张 Project #4 Match Review 卡（`capacity-planning`、`workload-modeling`、`requirement-change-impact-analysis`、`quality-risk-identification`）已完成项目上下文复核、双语目标 Eval、Registry/Matrix/Matching Register 同步和质量门禁。四条记录继续复用既有目标 Skill，不创建重复目录；固定项目证据为 `naodeng/dsh-qa@6d650cae72be8fc582bc4f47d6ba48e3fc28157d`，详见 [v1.6 Phase 1 项目上下文复核](./PHASE_1_MATCH_REVIEW.md)。
+
+本版本新增 8 个项目上下文 Eval 用例（4 个目标 Skill × 中英文），并保持 `skill-up` 为唯一通用 Eval Engine。静态项目输入、Eval 输出和 Project `Done` 不能证明 Prompt 语义等价、生产运行效果、真实模型一致性、外部目标执行或业务验收；这些状态继续分别保持 `UNASSESSED` / `NOT_RUN` / `NOT_SCORED` / `INCOMPLETE`，除非有对应证据。后续若出现能力差异，应在现有目标 Skill 上开 enhancement/implementation card，不因 Match Review 创建平行目录。
+
 ## Phase 0 当前状态（2026-09-16）
 
 `COMPLETED_WITH_LIMITATIONS`：registry 当前逐条覆盖 164 个逻辑双语 Skill 对；每条保留中英文 `SKILL.md`、主 prompt、Eval 结构和 `agents/openai.yaml` 的证据路径，D01–D16 分类源以及 Matrix/Register 均由生成器复现并受质量门禁检查。当前登记 100 个候选条目，每条保留六项证据字段；其中 Phase 0 Prompt Baseline 继续固定在 `554178fe9b93d851ec01388597ceb7996d22bd1c` 的 `awesome-qa-prompt` 提交（详见 [Phase 0 来源登记](./PHASE_0_PROMPT_BASELINE_SOURCES.md)）。候选结论保留 `MATCH` / `MERGE` / `ENHANCE` / `NEW`，`decision_state` 按阶段保留 `REVIEWED_WITH_LIMITATION` / `REVIEWED` / `PROPOSED`；业务语义等价仍需项目需求、Issue/PR 或测试资产复核，不得据此直接创建或修改 Skill。Phase 0 未执行模型、外部测试目标或真实质量评估，因此 Quality Score / Eval 执行仍为 `NOT_SCORED` / `NOT_RUN`；Prompt 语义等价、运行行为与有效性继续为 `UNASSESSED`。

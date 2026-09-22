@@ -1,0 +1,77 @@
+id: phase-1-project-context
+title: "Phase 1 project context: dsh-qa Panel/Slot migration impact"
+description: |
+  Verifies that change-impact analysis turns real project constraints, evidence paths, and unassessed boundaries into traceable impact analysis instead of treating Match Review as runtime proof.
+
+input:
+  prompt: |
+    Use the change-impact-analysis skill to review the following dsh-qa project context for the v1.6 Phase 1 review. Do not assume access to the external repository; the facts and links below are the evidence for this run.
+
+    Project: naodeng/dsh-qa at pinned revision 6d650cae72be8fc582bc4f47d6ba48e3fc28157d.
+    Evidence:
+    - docs/quality-workbench/2026-09-15-requirements.md: v0.5.0 migrates the Workbench shell from DOM selectors to the official Panel/Slot contract while preserving the Workbench iframe and API boundary.
+    - docs/quality-workbench/2026-08-25-technical-design.md: the execution profile allows one running test per project, two globally, MAX_ACTIVE_PREVIEWS=20, queueing, and terminal states.
+    - server/quality/test-runner.js: MAX_RUNNING_PER_PROJECT=1, MAX_RUNNING_GLOBAL=2, MAX_ACTIVE_PREVIEWS=20, and terminal states are defined in the runner.
+    - test/e2e/dsh-panel-lifecycle.spec.js: observable Panel lifecycle behavior is covered.
+    - Stable link: https://github.com/naodeng/dsh-qa/blob/6d650cae72be8fc582bc4f47d6ba48e3fc28157d/docs/quality-workbench/2026-09-15-requirements.md
+
+    Produce Task Understanding and Scope, Input Audit, P0-P3 risks, and an impact map covering direct impact and transitive impact. Cover data compatibility, API contracts, permissions, runtime dependencies, rollback, and observability. Give preconditions, expected results or decision criteria, and evidence paths for every high-risk item. Separate confirmed facts, working assumptions, open questions, blockers, and residual risk. Explain why semantic equivalence remains UNASSESSED here and why this cannot replace runtime, model, or business acceptance.
+    To keep the evidence boundary traceable, preserve these labels verbatim: Confirmed Facts, Working Assumptions, Open Questions, Evidence Paths, and UNASSESSED. Cite the supplied file paths verbatim and do not turn static constraints into production or semantic-equivalence claims.
+
+constraints:
+  timeout_seconds: 720
+
+expect:
+  must_contain:
+    - "Task Understanding and Scope"
+    - "Input Audit"
+    - "Direct impact"
+    - "Transitive impact"
+    - "API contract"
+    - "Panel/Slot"
+    - "iframe"
+    - "API"
+    - "MAX_ACTIVE_PREVIEWS=20"
+    - "rollback"
+    - "evidence"
+    - "Confirmed Facts"
+    - "Working Assumptions"
+    - "Open Questions"
+    - "Evidence Paths"
+    - "docs/quality-workbench/2026-09-15-requirements.md"
+    - "docs/quality-workbench/2026-08-25-technical-design.md"
+    - "server/quality/test-runner.js"
+    - "test/e2e/dsh-panel-lifecycle.spec.js"
+    - "Residual Risk"
+    - "UNASSESSED"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+    - "unable to help"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Direct impact"
+          - "Transitive impact"
+          - "Panel/Slot"
+          - "MAX_ACTIVE_PREVIEWS=20"
+          - "UNASSESSED"
+          - "evidence"
+          - "Residual Risk"
+    - output_matches:
+        all:
+          - "(?i)Confirmed Facts"
+          - "(?i)Working Assumptions"
+          - "(?i)Open Questions"
+          - "(?i)Evidence Paths"
+          - "docs/quality-workbench/2026-09-15-requirements.md"
+          - "docs/quality-workbench/2026-08-25-technical-design.md"
+          - "server/quality/test-runner.js"
+          - "test/e2e/dsh-panel-lifecycle.spec.js"
+        not:
+          - "(?im)^([-*] )?(production capacity|semantic equivalence) (is|has been) (proven|confirmed|validated|established|demonstrated)[.!]?$"
+          - "(?im)^([-*] )?semantic equivalence holds[.!]?$"
+          - "(?im)^([-*] )?(business|production) acceptance (is|has been) (complete|passed|approved)[.!]?$"

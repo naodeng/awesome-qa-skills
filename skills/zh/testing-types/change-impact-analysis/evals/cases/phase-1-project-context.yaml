@@ -1,0 +1,77 @@
+id: phase-1-project-context
+title: "Phase 1 项目上下文：dsh-qa Panel/Slot 迁移的变更影响"
+description: |
+  验证变更影响分析能把真实项目约束、证据路径和未评估边界转成可追溯的影响分析，而不是把 Match Review 当成运行时结论。
+
+input:
+  prompt: |
+    请使用 change-impact-analysis Skill，对下面已提供的 dsh-qa 项目上下文做 v1.6 Phase 1 项目上下文复核。不要假设可以访问外部仓库；以下事实和链接就是本次输入证据。
+
+    项目：naodeng/dsh-qa，固定提交 6d650cae72be8fc582bc4f47d6ba48e3fc28157d。
+    证据：
+    - docs/quality-workbench/2026-09-15-requirements.md：v0.5.0 将 Workbench 壳层从 DOM selector 迁移到官方 Panel/Slot 合同，保留 Workbench iframe 和 API 边界。
+    - docs/quality-workbench/2026-08-25-technical-design.md：执行配置包含每项目一个运行中测试、全局最多两个运行中测试、MAX_ACTIVE_PREVIEWS=20、排队和终态。
+    - server/quality/test-runner.js：MAX_RUNNING_PER_PROJECT=1、MAX_RUNNING_GLOBAL=2、MAX_ACTIVE_PREVIEWS=20，并定义终态。
+    - test/e2e/dsh-panel-lifecycle.spec.js：覆盖 Panel 生命周期的可观察行为。
+    - 稳定链接：https://github.com/naodeng/dsh-qa/blob/6d650cae72be8fc582bc4f47d6ba48e3fc28157d/docs/quality-workbench/2026-09-15-requirements.md
+
+    请给出：任务理解与范围、输入审计、P0-P3 风险、直接影响和传递影响图；覆盖数据兼容、接口契约、权限、运行时依赖、回滚和可观测性。每个高风险项都要有前置条件、预期结果或判断标准和证据路径。明确哪些是已确认事实、当前假设、信息缺口、阻塞条件和剩余风险，并说明为什么本次只能把语义等价标为 UNASSESSED，不能替代运行时、模型或业务验收。
+    为了保留可追溯边界，必须逐字保留“已确认事实”“当前假设”“信息缺口”“证据路径”和“UNASSESSED”这些标签，并在证据路径中逐字引用上述文件路径；不得把静态约束说成生产或语义等价结论。
+
+constraints:
+  timeout_seconds: 720
+
+expect:
+  must_contain:
+    - "任务理解与范围"
+    - "输入审计"
+    - "直接影响"
+    - "传递影响"
+    - "接口契约"
+    - "Panel/Slot"
+    - "iframe"
+    - "API"
+    - "MAX_ACTIVE_PREVIEWS=20"
+    - "回滚"
+    - "证据"
+    - "已确认事实"
+    - "当前假设"
+    - "信息缺口"
+    - "证据路径"
+    - "docs/quality-workbench/2026-09-15-requirements.md"
+    - "docs/quality-workbench/2026-08-25-technical-design.md"
+    - "server/quality/test-runner.js"
+    - "test/e2e/dsh-panel-lifecycle.spec.js"
+    - "剩余风险"
+    - "UNASSESSED"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+    - "无法提供帮助"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "直接影响"
+          - "传递影响"
+          - "Panel/Slot"
+          - "MAX_ACTIVE_PREVIEWS=20"
+          - "UNASSESSED"
+          - "证据"
+          - "剩余风险"
+    - output_matches:
+        all:
+          - "已确认事实"
+          - "当前假设"
+          - "信息缺口"
+          - "证据路径"
+          - "docs/quality-workbench/2026-09-15-requirements.md"
+          - "docs/quality-workbench/2026-08-25-technical-design.md"
+          - "server/quality/test-runner.js"
+          - "test/e2e/dsh-panel-lifecycle.spec.js"
+        not:
+          - "(?m)^([-*] )?(生产容量|语义等价)(已|已经)(被)?(证明|确认|验证|达标)[。！？.!?]?$"
+          - "(?m)^([-*] )?语义等价成立[。！？.!?]?$"
+          - "(?m)^([-*] )?(业务验收)(已|已经)(被)?(完成|通过|批准)[。！？.!?]?$"

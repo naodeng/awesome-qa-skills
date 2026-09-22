@@ -58,6 +58,10 @@ Unless the user narrows the scope, cover at least:
 
 ## Output
 
+Language contract: respond in English unless the user explicitly requests another language. Keep the section labels in this prompt in English; do not mix Chinese headings into an English output.
+
+Heading contract: even when input is incomplete, preserve these labels verbatim: `Working Assumptions`, `Open Questions`, `Next Actions`, and `evidence`. Do not replace them with synonyms. If evidence is missing, keep the labels and write `INSUFFICIENT_EVIDENCE` or `UNASSESSED` instead of omitting the section.
+
 Use this order:
 
 ### 1. Task Understanding and Scope

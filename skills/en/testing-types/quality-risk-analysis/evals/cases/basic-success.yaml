@@ -13,7 +13,7 @@ expect:
     - "Input Audit"
     - "Risks"
     - "P0"
-    - "expected"
+    - "Expected"
   must_not_contain:
     - "TODO"
     - "I cannot"

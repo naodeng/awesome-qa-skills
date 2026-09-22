@@ -22,6 +22,7 @@ Analyze requirements from a QA perspective and turn them into clear risks, gaps,
 ## Execution Rules
 
 - Separate confirmed requirements from inferred expectations.
+- When input is incomplete, explicitly label confirmed facts and current assumptions in the Requirement Understanding section; do not rely only on inferred or unclear wording.
 - Focus on issues that affect delivery, quality, or testability.
 - Do not restate the whole document without adding value.
 
@@ -36,7 +37,7 @@ Unless the user explicitly narrows the scope, make sure the result addresses the
 - testability gaps
 - dependencies and impacts
 - risk priority
-- questions to resolve
+- open questions
 - assumptions
 
 ## Output
@@ -47,7 +48,9 @@ Return the result in this order:
 ### 2. Gaps and Ambiguities
 ### 3. Risk Assessment
 ### 4. Testability Impact
-### 5. Questions to Resolve
+### 5. Open Questions
+
+Keep this section title exactly "Open Questions" and make each question specific enough for a product, technical, or business owner to confirm a rule.
 ### 6. Recommended Next Steps
 
 ## Quality Bar

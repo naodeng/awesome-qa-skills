@@ -40,3 +40,9 @@
 复核只固化导航和后续动作：`EXISTING` / `MATCH` 不创建重复目录，`MERGE` 进入 mode、规则或子流程评估，`ENHANCE` 进入既有 Skill 增强复核。所有结论仍是 `REVIEWED_WITH_LIMITATION`，不能替代项目语义复核、运行评测或人工审批。
 
 复现：`python3 scripts/generate_skill_governance_matrix.py --check`，并运行 `python3 scripts/check_docs_bilingual.py --repo-root .`。
+
+## Phase 1 项目上下文复核
+
+v1.6 的四条 Match 记录已进入 [Phase 1 项目上下文复核](./governance/PHASE_1_MATCH_REVIEW.md)：以 `naodeng/dsh-qa@6d650cae72be8fc582bc4f47d6ba48e3fc28157d` 为固定项目证据，为 `change-impact-analysis`、`performance-workload-modeling`、`capacity-planning-analysis` 和 `quality-risk-analysis` 各增加一条双语 `phase-1-project-context` Eval。该阶段只验证目标 Skill 能否处理项目输入并保留证据边界；四条结论仍为 `MATCH` / `REVIEWED_WITH_LIMITATION`，semantic state 保持 `UNASSESSED`。
+
+项目上下文 Eval、静态文档和 Project `Done` 不能替代真实模型回放、外部目标执行、生产观测、人工审批或业务验收；若出现差异，应在现有目标 Skill 上建立 enhancement/implementation card，不创建重复目录。
