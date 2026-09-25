@@ -1,31 +1,46 @@
-# =========================
-# OS / File Explorer
-# =========================
+# This repository contains source Skills, documentation, templates, and
+# runnable examples. Ignore local machine state and generated runtime output.
+
+# -----------------------------------------------------------------------------
+# OS / file explorer
+# -----------------------------------------------------------------------------
 .DS_Store
 Thumbs.db
 Desktop.ini
 
-# =========================
-# Editor / IDE
-# =========================
+# -----------------------------------------------------------------------------
+# Editors, IDEs, and local agent state
+# -----------------------------------------------------------------------------
 .idea/
 .vscode/
+.claude/settings.local.json
+.superpowers/
+/.baoyu-skills/baoyu-translate/
 *.swp
 *.swo
 *~
 
-# =========================
-# Python
-# =========================
+# -----------------------------------------------------------------------------
+# Local environment files
+# Keep checked-in example files such as `seckill-sample.env` visible.
+# -----------------------------------------------------------------------------
+.env
+.env.*
+!.env.example
+!.env.*.example
+
+# -----------------------------------------------------------------------------
+# Python environments, caches, and test coverage
+# -----------------------------------------------------------------------------
 __pycache__/
 *.py[cod]
-*.pyd
 .python-version
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
 .coverage
 .coverage.*
+coverage/
 htmlcov/
 .tox/
 .nox/
@@ -34,51 +49,66 @@ venv/
 env/
 ENV/
 
-# =========================
-# Node.js
-# =========================
+# -----------------------------------------------------------------------------
+# Node.js / package-manager state
+# -----------------------------------------------------------------------------
 node_modules/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
+.npm/
+.pnpm-store/
+.yarn/
+.pnp.*
 
-# =========================
-# Build / Temp / Logs
-# =========================
+# -----------------------------------------------------------------------------
+# Build and test output
+# -----------------------------------------------------------------------------
+dist/
+build/
+target/
+test-results/
+playwright-report/
+allure-results/
+allure-report/
+
+# -----------------------------------------------------------------------------
+# Logs and transient files
+# -----------------------------------------------------------------------------
 *.log
 *.tmp
 *.temp
 *.bak
+*.orig
+*.rej
 *.sqlite
 *.db
 
-# local temp outputs
+# -----------------------------------------------------------------------------
+# Local temporary directories
+# -----------------------------------------------------------------------------
 /tmp-skill-review-*
 /temp/
 
-# =========================
-# QA Performance Generated Reports
-# Keep report docs, ignore runtime artifacts
-# =========================
+# -----------------------------------------------------------------------------
+# QA performance reports
+# Keep report documentation; ignore generated runtime artifacts.
+# -----------------------------------------------------------------------------
 **/reports/*.json
 **/reports/*.log
 **/reports/*.csv
 **/reports/*.html
 !**/reports/README.md
 
-# =========================
-# skill-up runtime workspaces
-# =========================
+# -----------------------------------------------------------------------------
+# skill-up evaluation runtime artifacts
+# -----------------------------------------------------------------------------
 **/*-workspace/
-.skill-up-workspaces/
+/.skill-up-workspaces/
 /archive/
 /output.json
 /pytest_html_report.html
 
-# =========================
-# Archives
-# =========================
+# -----------------------------------------------------------------------------
+# Packaged archives
+# -----------------------------------------------------------------------------
 *.zip
 *.tar
 *.gz
