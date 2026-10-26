@@ -82,6 +82,10 @@ EXPECTED_V14_PROJECT_ITEMS = (
     ("PVTI_lAHOAHP1as4BjBhVzg6TarQ", "Release DoD｜v1.4"),
 )
 REQUIRED_MATCH_REVIEW_CANDIDATES = REGISTRY_MATCH_REVIEW_CANDIDATES
+ENGLISH_EVIDENCE_PATHS = {
+    "docs/governance/WORKFLOW_EVAL_INSTALL_SYNC.md": "docs/governance/WORKFLOW_EVAL_INSTALL_SYNC_EN.md",
+    "scripts/INSTALL_SKILLS.md": "scripts/INSTALL_SKILLS_EN.md",
+}
 REQUIRED_BILINGUAL_PAIRS = (
     ("docs/governance/PHASE_0_V1_4_CLOSEOUT.md", "docs/governance/PHASE_0_V1_4_CLOSEOUT_EN.md"),
     ("docs/governance/RELEASE_DOD_V1_0.md", "docs/governance/RELEASE_DOD_V1_0_EN.md"),
@@ -601,6 +605,12 @@ def _relative_evidence(root: Path, output_path: Path, evidence_path: str) -> str
     return f"[{evidence_path}]({relative})"
 
 
+def _localized_evidence_path(evidence_path: str, locale: str) -> str:
+    if locale == "en":
+        return ENGLISH_EVIDENCE_PATHS.get(evidence_path, evidence_path)
+    return evidence_path
+
+
 def _card_kind_label(kind: str, locale: str) -> str:
     labels = {
         "zh": {
@@ -670,7 +680,10 @@ def render_closeout(contract: CloseoutContract, locale: str, root: Path | None =
         "| --- | --- | --- | --- | --- | --- |",
     ]
     for card in contract.cards:
-        evidence = "<br>".join(_relative_evidence(root, output_path, path) for path in card.evidence_paths)
+        evidence = "<br>".join(
+            _relative_evidence(root, output_path, _localized_evidence_path(path, locale))
+            for path in card.evidence_paths
+        )
         lines.append(
             f"| `{card.project_item_id}` | `{card.title}` | {_card_kind_label(card.kind, locale)} | "
             f"`{card.project_status_before}` → `{card.project_status_after}` | "
@@ -699,7 +712,8 @@ def render_closeout(contract: CloseoutContract, locale: str, root: Path | None =
             card = cards_by_id[link.project_item_id]
             targets = "<br>".join(f"`{target}`" for target in link.target_skills)
             evidence = "<br>".join(
-                _relative_evidence(root, output_path, path) for path in link.evidence_paths
+                _relative_evidence(root, output_path, _localized_evidence_path(path, locale))
+                for path in link.evidence_paths
             )
             lines.append(
                 f"| `{link.project_item_id}` | `{card.title}` | `{link.candidate}` | `{link.conclusion}` | "
@@ -819,7 +833,10 @@ def render_release_dod(contract: CloseoutContract, version: str, locale: str, ro
         "| --- | --- | --- | --- |",
     ]
     for card in included:
-        evidence = "<br>".join(_relative_evidence(root, output_path, path) for path in card.evidence_paths)
+        evidence = "<br>".join(
+            _relative_evidence(root, output_path, _localized_evidence_path(path, locale))
+            for path in card.evidence_paths
+        )
         lines.append(f"| `{card.title}` | {_card_kind_label(card.kind, locale)} | `{card.acceptance_state}` | {evidence} |")
     lines.extend([
         "",

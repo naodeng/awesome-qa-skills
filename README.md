@@ -2,7 +2,9 @@
 
 # Awesome QA Skills
 
-按语言分区的 **AI 测试辅助技能库**（Agent Skills）。面向 Codex、Cursor、Claude Code、Kiro、OpenCode、Trae 等工具，提供可独立安装、可组合调用的测试工作流与测试类型技能。
+面向 AI 编码 Agent 的双语 **QA Agent Skills / AI 测试技能库**，提供可独立安装的测试 Skill 和可复用 QA 工作流。覆盖需求分析、测试策略、测试用例、功能/API/UI、回归、性能、安全、发布，以及 AI、LLM 与 Agent 测试。
+
+可用于 Codex、Cursor、Claude Code、Kiro、OpenCode、Trae 等工具；各工具的安装方式和验证范围见[支持的 AI 工具](#支持的-ai-工具)。Skill 提供任务引导、测试设计和可复用流程；实际自动化运行取决于所选 Skill、Agent 和目标项目环境。
 
 ![Awesome QA Skills 社交媒体预览图](social-preview.jpg)
 
@@ -13,116 +15,75 @@
 [![Skill engineering](https://img.shields.io/badge/skill%20engineering-5-informational)](./skills/zh/skill-engineering/)
 [![skills.sh](https://skills.sh/b/naodeng/awesome-qa-skills)](https://skills.sh/naodeng/awesome-qa-skills)
 
-**在线目录：** [https://inaodeng.com/qaskills/](https://inaodeng.com/qaskills/)
+**在线目录：** [中文 Skill 目录](https://inaodeng.com/zh-cn/qaskills/)
 
-**快速入口：** [完整技能索引](docs/catalog/skills-index.md) · [Composition 路由目录](docs/catalog/skills-composition.md) · [Skill Quality Engineering Toolkit](docs/skill-quality-engineering/README.md) · [安装说明](scripts/INSTALL_SKILLS.md) · [Skills CLI 集成指南](docs/integrations/SKILLS_CLI_INTEGRATION.md) · [v1.4 治理收口](docs/governance/PHASE_0_V1_4_CLOSEOUT.md) · [社区推荐的外部 Skills](#community-recommended-external-skills) · [贡献指南](CONTRIBUTING.md)
+**快速入口：** [按任务查找 Skill](#按任务查找-skill) · [完整技能目录](docs/catalog/skills-index.md) · [快速开始](#快速开始) · [社区推荐的外部 Skills](#社区推荐的外部-skills) · [安装说明](scripts/INSTALL_SKILLS.md) · [文档导航](docs/README.md)
 
 ---
 
-## 你可以用它做什么
+## 项目包含什么
 
-这是一个面向 AI 测试协作的双语 Skill 集合。每个 Skill 都可以独立复制、安装和调用，也可以组合成从需求分析到发布验证的质量工作流。
+每种语言有 **165 个 Skill**，中英文合计 **330 个 Skill 目录**：
 
-| 场景 | 代表入口 | 适合解决的问题 |
-| --- | --- | --- |
-| 需求与测试设计 | `requirements-analysis`、`test-strategy`、`test-case-writing` | 从需求、风险和约束形成可追踪的测试方案与用例 |
-| 功能、API 与 UI 测试 | `functional-testing`、`api-testing`、`ui-test-playwright` | 为业务流程、接口和浏览器场景设计可执行测试 |
-| 回归、性能与质量工程 | `regression-test-selection`、`performance-testing`、`code-review` | 根据变更和风险选择回归范围，分析性能并前移质量 |
-| 发布与生产质量 | `release-testing-workflow`、`production-verification`、`metrics-anomaly-analysis` | 支持发布决策、生产验证、事故和指标分析 |
-| AI 功能与 Agent 安全 | `ai-feature-testing`、`llm-testing`、`ai-agent-testing`、`prompt-injection-testing` | 验证 AI 行为、评测、工具调用和安全边界 |
-| Skill 工程与治理 | `skill-quality-review`、`skill-evaluation`、`skill-change-verification`、`skill-prose-review` | 检查 Skill 包质量、评测证据、变更契约和文案边界 |
+| 类别 | 数量 | 覆盖范围 |
+| --- | ---: | --- |
+| 测试工作流 | 10 / 语言 | 路由、日常与迭代测试、发布流程、质量视角 |
+| 测试类型 | 150 / 语言 | 需求与策略、用例、功能/API/UI、回归、性能、安全、生产质量、AI/LLM/Agent 测试 |
+| Skill Engineering | 5 / 语言 | Skill 质量审查、评测、变更验证与文案审查 |
 
-每个 Skill 目录复制出去后应保持自洽：包含 `SKILL.md`、主提示词、工具元数据，以及按需提供的示例、模板、脚本和评测用例。
+每个 Skill 都是可独立安装的目录，包含 `SKILL.md`、主提示词和工具元数据；部分 Skill 还提供示例、模板、脚本和评测用例。
+
+## 按任务查找 Skill
+
+表中的 Skill 名称是中英文共用的 canonical name。想看全部 Skill 和用途，打开[完整技能目录](docs/catalog/skills-index.md)。
+
+| 你要做什么 | 可以从这些 Skill 开始 |
+| --- | --- |
+| 分析需求、制定测试策略 | [需求分析](skills/zh/testing-types/requirements-analysis/) · [验收标准评审](skills/zh/testing-types/acceptance-criteria-review/) · [测试策略](skills/zh/testing-types/test-strategy/) · [一页纸测试策略](skills/zh/testing-types/one-page-test-strategy/) |
+| 编写或评审测试用例 | [测试用例编写](skills/zh/testing-types/test-case-writing/) · [测试用例评审](skills/zh/testing-types/test-case-reviewer/) |
+| 测试 API 或浏览器 UI | [API 测试](skills/zh/testing-types/api-testing/) · [Playwright UI 自动化测试](skills/zh/testing-types/ui-test-playwright/) |
+| 根据代码变更选择回归范围 | [回归测试选择](skills/zh/testing-types/regression-test-selection/) |
+| 设计性能测试或使用 k6 | [性能测试](skills/zh/testing-types/performance-testing/) · [k6 性能测试](skills/zh/testing-types/performance-test-k6/) |
+| 检查安全风险或 Prompt 注入 | [安全测试](skills/zh/testing-types/security-testing/) · [Prompt 注入测试](skills/zh/testing-types/prompt-injection-testing/) |
+| 评估 LLM 或 AI Agent | [LLM 测试](skills/zh/testing-types/llm-testing/) · [AI Agent 测试](skills/zh/testing-types/ai-agent-testing/) |
+| 做发布前检查或上线后验证 | [发布测试工作流](skills/zh/testing-workflows/release-testing-workflow/) · [生产验证](skills/zh/testing-types/production-verification/) |
+
+不确定从哪里开始？使用[测试技能路由](skills/zh/testing-workflows/discover-testing/)。
 
 ## 快速开始
 
-### 1. 安装单个 Skill（推荐）
-
-#### 英文 Skill（默认）
-
-仓库级入口默认发现 English Skills，并按 canonical name 安装：
+### 安装一个英文 Skill
 
 ```bash
-# 安装英文 functional-testing
 npx skills add naodeng/awesome-qa-skills --skill functional-testing
-
-# 可选：指定 Codex 目标
-npx skills add naodeng/awesome-qa-skills --skill functional-testing -a codex
-
-# 安装全部英文 Skills
-npx skills add naodeng/awesome-qa-skills
 ```
 
-#### 中文 Skill
-
-中文 Skill 需要显式指定 `skills/zh` 源。EN/ZH 有意共享 canonical name，同一 target 默认只安装一种语言：
+### 安装一个中文 Skill
 
 ```bash
-# 安装中文 functional-testing
 npx skills add https://github.com/naodeng/awesome-qa-skills/tree/main/skills/zh --skill functional-testing
-
-# 安装全部中文 Skills
-npx skills add https://github.com/naodeng/awesome-qa-skills/tree/main/skills/zh
 ```
 
-高级、CI 固定版本、中文集合、`list` / `use` / `update` / `remove` 以及 Tested / Ecosystem compatible 边界见 [Skills CLI 集成指南](docs/integrations/SKILLS_CLI_INTEGRATION.md)。
-
-### 2. 使用一键安装脚本
-
-```bash
-# macOS / Linux：安装中文 Skill 到 Codex
-bash ./install-skills-mac.sh --tool codex --lang zh
-
-# macOS / Linux：全部工具 × 中英文
-bash ./install-skills-mac.sh --tool all --lang all
-```
-
-Windows：
-
-```powershell
-powershell -ExecutionPolicy Bypass -File .\install-skills-windows.ps1 -Tool codex -Lang zh
-```
-
-### 3. 克隆完整仓库
-
-```bash
-git clone https://github.com/naodeng/awesome-qa-skills.git .skills/awesome-qa-skills
-```
-
-### 4. 作为 Git 子模块
-
-```bash
-git submodule add https://github.com/naodeng/awesome-qa-skills.git .skills/awesome-qa-skills
-```
-
-### 5. 手动复制
-
-```bash
-cp -r skills/zh/testing-types/functional-testing ~/.cursor/skills/
-```
-
-单个 Skill 的快捷安装器、目标路径和完整参数见 [scripts/INSTALL_SKILLS.md](scripts/INSTALL_SKILLS.md)。
+更多工具、语言和安装方式见[安装说明](scripts/INSTALL_SKILLS.md)。
 
 ## 使用方式
 
-如果你的 AI 工具支持 Agent Skills 的自动发现，可以直接用自然语言描述目标；需要显式调用时，指定 Skill 名称即可。
+如果 AI 工具支持 Agent Skills 自动发现，可以直接用自然语言描述任务；也可以按 canonical name 安装或调用对应 Skill。
 
 | 你可以这样说 | 推荐入口 |
 | --- | --- |
 | “帮我为用户登录功能生成测试用例” | `functional-testing` |
-| “我要覆盖这个 REST API 的错误、幂等和分页场景” | `api-testing` |
-| “这次发布前应该做哪些回归和 Go/No-Go 检查？” | `release-testing-workflow` |
-| “请根据当前变更选择最小风险回归集” | `regression-test-selection` |
-| “帮我评估这个 LLM 功能的行为和安全边界” | `llm-testing`、`prompt-injection-testing` |
+| “检查这个 REST API 的错误、幂等和分页场景” | `api-testing` |
+| “发布前应该做哪些回归和 Go/No-Go 检查？” | `release-testing-workflow` |
+| “根据当前变更选择最小风险回归集” | `regression-test-selection` |
+| “评估这个 LLM 功能的行为和安全边界” | `llm-testing`、`prompt-injection-testing` |
 
-不确定从哪里开始时，先调用路由 Skill：
+不确定从哪里开始时，使用路由 Skill `discover-testing`。支持 `@skill` 显式调用语法的工具可以这样写：
 
 ```text
 @skill discover-testing
-我要做一次发布前回归，该选哪些 Skill？
+我要做一次发布前回归，应该先选哪些检查？
 ```
-
-如果需要查看五条结构化路线的主/辅 Skill 和边界，打开 [Composition 路由目录](docs/catalog/skills-composition.md)；单独复制 `discover-testing` 时使用其目录内的 `reference.md`。
 
 ## Skill 分类
 
@@ -533,21 +494,24 @@ bash scripts/run_skill_eval.sh skills/zh/testing-types/functional-testing/evals/
 
 | 文档 | 用途 |
 | --- | --- |
+| [文档导航](docs/README.md) | 按任务和主题浏览项目文档 |
 | [AGENTS.md](AGENTS.md) | Coding Agent 约定与质量检查 |
 | [skills-index.md](docs/catalog/skills-index.md) | 全量技能索引 |
 | [skills-composition.md](docs/catalog/skills-composition.md) | v1.5.2 五条结构化路由、主/辅 Skill 和导航关系 |
+| [Skill Quality Engineering Toolkit](docs/skill-quality-engineering/README.md) | Skill 质量工程工具包与评测入口 |
+| [Skills CLI 集成指南](docs/integrations/SKILLS_CLI_INTEGRATION.md) | CLI 分发约定、兼容性验证与安装边界 |
 | [QA_SKILLS_EVOLUTION_ROADMAP.md](docs/governance/QA_SKILLS_EVOLUTION_ROADMAP.md) | 四层能力演进与研发测试阶段地图 |
 | [DOCUMENTATION_POLICY.md](docs/governance/DOCUMENTATION_POLICY.md) | 中文优先的双语文档治理策略 |
 | [SKILL_GOVERNANCE_V1.md](docs/governance/SKILL_GOVERNANCE_V1.md) | v1.0 源代码治理基线与当前 165 对静态记录入口（早期基线 79 对；不代表运行质量） |
 | [PHASE_0_V1_4_CLOSEOUT.md](docs/governance/PHASE_0_V1_4_CLOSEOUT.md) | v1.4 35 张 Project 卡的证据收口与版本边界（不代表发布批准） |
 | [BILINGUAL_CONSISTENCY_CONTRACT.md](docs/governance/BILINGUAL_CONSISTENCY_CONTRACT.md) | 中英文路径、入口、Catalog 与链接一致性契约 |
 | [QUALITY_SCORE_EVAL_CONTRACT.md](docs/governance/QUALITY_SCORE_EVAL_CONTRACT.md) | 九维评分与最低 Eval 工件标准 |
-| [WORKFLOW_EVAL_INSTALL_SYNC.md](docs/governance/WORKFLOW_EVAL_INSTALL_SYNC.md) | 10 个 Workflow 的双语、Eval 与安装入口同步清单 |
+| [WORKFLOW_EVAL_INSTALL_SYNC.md](docs/governance/WORKFLOW_EVAL_INSTALL_SYNC.md) | 10 个 Workflow 的双语、Eval 与安装入口同步清单（含安装命令） |
 | [PHASE_1_REQUIREMENTS_QUALITY.md](docs/governance/PHASE_1_REQUIREMENTS_QUALITY.md) | v1.1 Phase 1 前五个需求质量 Skill 的范围、卡片、证据和验收边界 |
 | [SKILL_EVAL_RULES.md](docs/SKILL_EVAL_RULES.md) | `codex exec --json` trace 的 20 条本地确定性 Skill 评测规则 |
 | [skills/DIRECTORY_GUIDE.md](skills/DIRECTORY_GUIDE.md) | 目录与命名规范 |
 | [skills/SKILL_AUTHORING.md](skills/SKILL_AUTHORING.md) | 编写与 skill-up 评测约定 |
-| [scripts/INSTALL_SKILLS.md](scripts/INSTALL_SKILLS.md) | 安装参数与工具路径 |
+| [scripts/INSTALL_SKILLS.md](scripts/INSTALL_SKILLS.md) | CLI、仓库脚本、快捷安装器与手动复制的中文安装指南 |
 | [FAQ.md](FAQ.md) | 常见问题 |
 | [CONTRIBUTING.md](CONTRIBUTING.md) | 贡献流程 |
 | [skills-graph.md](docs/catalog/skills-graph.md) | 技能关系图（参考） |
@@ -561,7 +525,7 @@ bash scripts/run_skill_eval.sh skills/zh/testing-types/functional-testing/evals/
 | Skill | 类型 | 提交人 | 来源 | 上游信息（核验日期） |
 | --- | --- | --- | --- | --- |
 | [UIZZE anti-ui-slop](https://github.com/uizze/uizze/blob/main/skills/anti-ui-slop/SKILL.md) | Agent Skill / UX 质量门禁 | [@samuelbushi](https://github.com/samuelbushi) | [上游目录](https://github.com/uizze/uizze/tree/main/skills/anti-ui-slop) · [提交 Issue #3](https://github.com/naodeng/awesome-qa-skills/issues/3) | Apache-2.0 · v1.3.1 · 上游列出 Claude Code、Codex、Cursor、GitHub Copilot（核验于 2026-10-12） |
-| [UI Verify triage-visual-changes](https://github.com/uiverify/uiverify/blob/main/packages/skills/skills/triage-visual-changes/SKILL.md) | Agent Skill / 视觉回归分流 | [@igrlk](https://github.com/igrlk) | [上游目录](https://github.com/uiverify/uiverify/tree/main/packages/skills/skills/triage-visual-changes) · [提交 Issue #33](https://github.com/naodeng/awesome-qa-skills/issues/33) | MIT · UI Verify plugin v0.1.0 · 需要 UI Verify 账号和 MCP 连接（核验于 2026-10-19） |
+| [UI Verify triage-visual-changes](https://github.com/uiverify/uiverify/blob/main/packages/skills/skills/triage-visual-changes/SKILL.md) | Agent Skill / 视觉回归分流 | [@igrlk](https://github.com/igrlk) | [上游目录](https://github.com/uiverify/uiverify/tree/main/packages/skills/skills/triage-visual-changes) · [提交 Issue #33](https://github.com/naodeng/awesome-qa-skills/issues/33) | MIT · UI Verify plugin v0.1.0 · 需要 UI Verify 账号（提供免费层）和 MCP 连接（核验于 2026-10-19） |
 
 ## 贡献
 

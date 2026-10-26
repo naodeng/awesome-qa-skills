@@ -49,7 +49,7 @@ GitHub Project `Awesome QA Skills — Governance & Roadmap` 是执行看板。�
 
 ## Phase 0 当前状态（2026-09-16）
 
-`COMPLETED_WITH_LIMITATIONS`：registry 当前逐条覆盖 164 个逻辑双语 Skill 对；每条保留中英文 `SKILL.md`、主 prompt、Eval 结构和 `agents/openai.yaml` 的证据路径，D01–D16 分类源以及 Matrix/Register 均由生成器复现并受质量门禁检查。当前登记 100 个候选条目，每条保留六项证据字段；其中 Phase 0 Prompt Baseline 继续固定在 `554178fe9b93d851ec01388597ceb7996d22bd1c` 的 `awesome-qa-prompt` 提交（详见 [Phase 0 来源登记](./PHASE_0_PROMPT_BASELINE_SOURCES.md)）。候选结论保留 `MATCH` / `MERGE` / `ENHANCE` / `NEW`，`decision_state` 按阶段保留 `REVIEWED_WITH_LIMITATION` / `REVIEWED` / `PROPOSED`；业务语义等价仍需项目需求、Issue/PR 或测试资产复核，不得据此直接创建或修改 Skill。Phase 0 未执行模型、外部测试目标或真实质量评估，因此 Quality Score / Eval 执行仍为 `NOT_SCORED` / `NOT_RUN`；Prompt 语义等价、运行行为与有效性继续为 `UNASSESSED`。
+`COMPLETED_WITH_LIMITATIONS`：registry 当前逐条覆盖 165 个逻辑双语 Skill 对；每条保留中英文 `SKILL.md`、主 prompt、Eval 结构和 `agents/openai.yaml` 的证据路径，D01–D16 分类源以及 Matrix/Register 均由生成器复现并受质量门禁检查。当前登记 100 个候选条目，每条保留六项证据字段；其中 Phase 0 Prompt Baseline 继续固定在 `554178fe9b93d851ec01388597ceb7996d22bd1c` 的 `awesome-qa-prompt` 提交（详见 [Phase 0 来源登记](./PHASE_0_PROMPT_BASELINE_SOURCES.md)）。候选结论保留 `MATCH` / `MERGE` / `ENHANCE` / `NEW`，`decision_state` 按阶段保留 `REVIEWED_WITH_LIMITATION` / `REVIEWED` / `PROPOSED`；业务语义等价仍需项目需求、Issue/PR 或测试资产复核，不得据此直接创建或修改 Skill。Phase 0 未执行模型、外部测试目标或真实质量评估，因此 Quality Score / Eval 执行仍为 `NOT_SCORED` / `NOT_RUN`；Prompt 语义等价、运行行为与有效性继续为 `UNASSESSED`。
 
 典型映射复核（2026-09-16）已将 20 条路线图关系写入 Registry 的 `match_reviews`，包括 13 条候选映射和 7 条 Existing 自映射；[双语复核视图](./PHASE_0_MATCH_MERGE_REVIEW.md)与 Matrix/Matching Register 均由生成器产生。该复核只固化关系、目标 Skill、证据路径和后续动作，不授权创建重复目录，也不把静态关系记录升级为语义等价、运行效果、模型评测或发布批准。
 

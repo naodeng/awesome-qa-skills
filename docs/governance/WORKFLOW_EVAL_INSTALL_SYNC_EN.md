@@ -33,7 +33,7 @@ powershell -ExecutionPolicy Bypass -File .\scripts\install-skills-windows.ps1 -T
 npx skills add https://github.com/naodeng/awesome-qa-skills/tree/main/skills/en/testing-workflows/discover-testing -g -a codex -y
 ```
 
-`--lang zh|en|all` selects the source language and `--skill` uses the physical slug. Install Chinese and English same-named packages separately to avoid overwriting each other. The root installers, Windows script, and per-Skill shortcuts are documented in the [installation guide](../../scripts/INSTALL_SKILLS.md).
+`--lang zh|en|all` selects the source language and `--skill` uses the physical slug. Install Chinese and English same-named packages separately to avoid overwriting each other. The root installers, Windows script, and per-Skill shortcuts are documented in the [installation guide](../../scripts/INSTALL_SKILLS_EN.md).
 
 ## Acceptance
 

@@ -11,6 +11,8 @@ from urllib.parse import unquote
 
 PROJECT_PAIRS = (
     ("README.md", "README_EN.md"),
+    ("docs/README.md", "docs/README_EN.md"),
+    ("skills/zh/README.md", "skills/en/README.md"),
     ("CONTRIBUTING.md", "CONTRIBUTING_EN.md"),
     ("FAQ.md", "FAQ_EN.md"),
     ("docs/catalog/skills-index.md", "docs/catalog/skills-index_EN.md"),
@@ -109,6 +111,42 @@ PROJECT_PAIRS = (
     (
         "docs/reviews/2026-08-30-all-testing-skills-audit.md",
         "docs/reviews/2026-08-30-all-testing-skills-audit_EN.md",
+    ),
+    (
+        "docs/reviews/2026-09-10-requirement-strategy-governance.md",
+        "docs/reviews/2026-09-10-requirement-strategy-governance_EN.md",
+    ),
+    (
+        "docs/reviews/2026-10-06-all-skills-review.md",
+        "docs/reviews/2026-10-06-all-skills-review_EN.md",
+    ),
+    (
+        "docs/reviews/2026-10-07-all-skills-repair-review.md",
+        "docs/reviews/2026-10-07-all-skills-repair-review_EN.md",
+    ),
+    (
+        "docs/reviews/2026-10-07-review-runtime-followup.md",
+        "docs/reviews/2026-10-07-review-runtime-followup_EN.md",
+    ),
+    (
+        "docs/reviews/2026-10-08-review-runtime-continuation.md",
+        "docs/reviews/2026-10-08-review-runtime-continuation_EN.md",
+    ),
+    (
+        "docs/reviews/2026-10-09-free-qa-skills-learning-review.md",
+        "docs/reviews/2026-10-09-free-qa-skills-learning-review_EN.md",
+    ),
+    (
+        "docs/reviews/2026-10-16-ai-native-qa-development-landscape.md",
+        "docs/reviews/2026-10-16-ai-native-qa-development-landscape_EN.md",
+    ),
+    (
+        "docs/reviews/2026-10-16-all-skills-review-update.md",
+        "docs/reviews/2026-10-16-all-skills-review-update_EN.md",
+    ),
+    (
+        "docs/reviews/2026-10-25-github-qa-skills-iteration-research.md",
+        "docs/reviews/2026-10-25-github-qa-skills-iteration-research_EN.md",
     ),
     (
         "docs/superpowers/specs/2026-08-29-four-stage-qa-skills-evolution-design.md",

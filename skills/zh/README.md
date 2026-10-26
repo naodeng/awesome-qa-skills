@@ -295,4 +295,4 @@
 | Skill 文案契约审查 | [`skill-prose-review`](skill-engineering/skill-prose-review/) |
 | 过程性文案清理 | [`skill-prose-trim`](skill-engineering/skill-prose-trim/) |
 
-物理目录不随逻辑分类变化。完整双语索引见 [skills-index.md](../../skills-index.md)。
+物理目录不随逻辑分类变化。完整双语索引见 [skills-index.md](../../docs/catalog/skills-index.md)。

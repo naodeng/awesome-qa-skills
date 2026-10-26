@@ -2,271 +2,75 @@
 
 # Frequently Asked Questions
 
-### Basic Questions
+## Project and Skills
 
-#### 1. What is AI Testing Assistant Skills?
+### 1. What does this project contain?
 
-A quality-engineering Skills library for AI coding assistants. Each language currently contains **164 Skills**: 149 testing types, 10 cross-phase workflows, and 5 Skill Engineering governance capabilities — 328 independently installable directories across Chinese and English.
+A bilingual QA Agent Skills library for AI coding agents. Each language has 165 Skills: 10 testing workflows, 150 testing types, and 5 Skill Engineering packages, for 330 Skill directories total. Browse the [complete index](docs/catalog/skills-index_EN.md).
 
-#### 2. Which AI tools are supported?
+### 2. Which AI tools are supported?
 
-- **Cursor** (v0.40+)
-- **Claude Code** (v1.0+)
-- **Kiro** (v0.5+)
+See the README's [supported tools and installation methods](README_EN.md#supported-ai-tools). Actual compatibility depends on each tool's Skill discovery behavior; the project does not label unverified tool versions as tested.
 
-#### 3. How to get started quickly?
+### 3. How do I find the right Skill?
 
-```bash
-# 1. Clone the project
-git clone https://github.com/naodeng/awesome-qa-skills.git
+Start with the [task-based Skill navigation](README_EN.md#find-a-skill-by-task) or use the `discover-testing` routing Skill. The [complete index](docs/catalog/skills-index_EN.md) lists all names and purposes.
 
-# 2. Copy needed skill
-cp -r skills/en/testing-types/functional-testing ~/.cursor/skills/
+### 4. What is the difference between the Chinese and English Skills?
 
-# 3. Use in AI tool
-@skill functional-testing
-Help me generate test cases for user login functionality
-```
+Chinese and English Skills share canonical names and live under `skills/zh/` and `skills/en/`. Their content is maintained by language. Install one language per tool target by default to avoid same-name directory conflicts.
 
-#### 4. What's the difference between Chinese and English versions?
+## Installation and use
 
-Functionally identical, just different languages. Chinese skill directories like `functional-testing`, English as `functional-testing`.
+### 5. How do I install a Skill?
 
-#### 5. Can I use multiple skills together?
-
-Yes! Skills are designed to be composable. Check [skills-graph.md](docs/catalog/skills-graph.md) for recommended skill combinations.
-
----
-
-### Installation and Configuration
-
-#### 6. How to install to Cursor?
+With the Agent Skills CLI, install an English Skill from the repository entry point. Select `skills/zh` explicitly for a Chinese Skill:
 
 ```bash
-# Project level (recommended)
-cp -r skills/en/testing-types/functional-testing /path/to/your/project/.cursor/skills/
-
-# User level (global)
-cp -r skills/en/testing-types/functional-testing ~/.cursor/skills/
+npx skills add naodeng/awesome-qa-skills --skill functional-testing
+npx skills add https://github.com/naodeng/awesome-qa-skills/tree/main/skills/zh --skill functional-testing
 ```
 
-#### 7. How to install to Claude Code?
+See the [installation guide](scripts/INSTALL_SKILLS_EN.md) for the CLI, macOS/Linux and Windows installers, shortcuts, and manual copy.
 
-```bash
-mkdir -p .claude/skills
-cp -r skills/en/testing-types/functional-testing .claude/skills/
-```
+### 6. How do I use an installed Skill?
 
-#### 8. How to install to Kiro?
+Tools that discover Agent Skills automatically can receive a natural-language task. Some tools also support explicit syntax such as `@skill functional-testing`; syntax varies by tool. See the README's [supported tools](README_EN.md#supported-ai-tools).
 
-```bash
-# Project level
-mkdir -p .kiro/skills
-cp -r skills/en/testing-types/functional-testing .kiro/skills/
+### 7. Do multiple Skills run together automatically?
 
-# Global
-mkdir -p ~/.kiro/skills
-cp -r skills/en/testing-types/functional-testing ~/.kiro/skills/
-```
+No automatic orchestration is provided. You can use Skills sequentially as needed. The [Composition routes](docs/catalog/skills-composition_EN.md) suggest task paths and primary/optional Skills for navigation and selection.
 
-#### 9. How to update skills?
+### 8. Does a Skill run tests or guarantee executable code?
 
-```bash
-# 1. Pull latest code
-cd ai-testing-assistant-skills
-git pull origin main
+No. A Skill can help design tests or draft scripts; execution and successful results depend on the Agent, tools, and target project. Review generated code and record evidence from actual runs.
 
-# 2. Re-copy skills
-cp -r skills/en/testing-types/functional-testing /path/to/your/project/.cursor/skills/
-```
+### 9. Can I request Excel, CSV, or another output format?
 
-#### 10. How to customize skills?
+Markdown is the default. Support for Excel, CSV, JSON, and other formats depends on the specific Skill. Check its `output-formats.md` or state the required format in your request.
 
-1. Copy skill to your project
-2. Modify prompt files in `prompts/` directory
-3. Adjust content as needed
+### 10. What should I check if installation or discovery fails?
+
+Check the language source, the target tool's Skills directory, the Skill's `SKILL.md`, and whether the other language version with the same name is already installed. For Chinese CLI installs, select `skills/zh`. See the [installation guide](scripts/INSTALL_SKILLS_EN.md) for troubleshooting.
+
+### 11. Are community-recommended Skills part of this project?
+
+No. The README's [community list](README_EN.md#community-recommended-external-skills) helps you discover Skills maintained by external projects. Check each upstream source for its license, version, dependencies, and compatibility; inclusion does not mean this repository has runtime-evaluated it.
+
+## Contributing and license
+
+### 12. How do I add or update a Skill?
+
+Read the [contribution guide](CONTRIBUTING_EN.md) and [Skill Authoring Guide](skills/SKILL_AUTHORING_EN.md). Skill changes must maintain bilingual directories, metadata, and Eval cases, and should pass the repository quality checks.
+
+### 13. How do I report a problem or request a Skill?
+
+Search [existing Issues](https://github.com/naodeng/awesome-qa-skills/issues) first. If there is no matching report, open an Issue with reproduction steps, use case, and expected result.
+
+### 14. What license does the project use?
+
+This repository uses the [PolyForm Noncommercial License 1.0.0](LICENSE), which permits noncommercial use only. Community-recommended Skills retain their upstream licenses.
 
 ---
 
-### Usage Questions
-
-#### 11. How to invoke a skill?
-
-In AI tool's chat:
-
-```
-@skill functional-testing
-Requirement: User login functionality
-```
-
-#### 12. How to specify output format?
-
-Specify at the end of requirement:
-
-```
-@skill functional-testing
-Requirement: User login functionality
-Please output as tab-separated table for Excel
-```
-
-Supported formats: Markdown (default), Excel, CSV, JSON, Jira, TestRail.
-
-#### 13. How to use workflows?
-
-```
-@skill daily-testing-workflow
-Today I need to test user login and registration features
-```
-
-Workflow will guide you through daily testing activities.
-
-#### 14. How to find the right skill?
-
-Three ways:
-1. Check [README_EN.md](README_EN.md) - Skills list
-2. Check [skills-index.md](docs/catalog/skills-index.md) - By category
-3. Check [skills-graph.md](docs/catalog/skills-graph.md) - Skills relationships
-
-#### 15. What testing type Skills are available?
-
-There are currently 65 testing types across Core QA, Engineering QA, Production Quality, and AI Native QA. Use the [complete index](docs/catalog/skills-index.md) to select by R&D and testing phase.
-
----
-
-### Feature Questions
-
-#### 16. How to generate test cases?
-
-```
-@skill test-case-writing
-Requirement: User login functionality, support email and phone login
-```
-
-AI will automatically generate test cases including normal, exception, and boundary value scenarios.
-
-#### 17. How to generate automation test code?
-
-```
-@skill automation-testing
-Requirement: Generate Playwright automation test code for login functionality
-```
-
-AI will generate runnable test code.
-
-#### 18. How to analyze requirements?
-
-```
-@skill requirements-analysis
-Requirement: Users can login to the system via email or phone number
-```
-
-AI will analyze requirements and extract test points.
-
-#### 19. How to create test strategy?
-
-```
-@skill test-strategy
-Project info:
-- Type: Web application
-- Tech stack: React + Node.js
-- Team size: 5 people
-```
-
-AI will generate customized test strategy.
-
-#### 20. How to use multiple Skills together?
-
-Refer to recommended combinations in [skills-graph.md](docs/catalog/skills-graph.md), for example:
-
-**New Feature Testing Flow**:
-```
-1. @skill requirements-analysis
-2. @skill test-strategy
-3. @skill test-case-writing
-4. @skill functional-testing
-5. @skill automation-testing
-```
-
----
-
-### Troubleshooting
-
-#### 21. Skill cannot be loaded?
-
-Check:
-1. Directory name is correct
-2. SKILL.md file exists
-3. File permissions are correct
-4. AI tool version supports Skills
-
-#### 22. Output format is incorrect?
-
-Ensure you specify format at the end of requirement:
-
-```
-Please output as tab-separated table for Excel
-```
-
-#### 23. Chinese and English versions are out of sync?
-
-Please submit an Issue to report, we will fix it promptly.
-
-#### 24. How to choose the right Skill?
-
-Based on your needs:
-- **Write test cases** → test-case-writing
-- **Functional testing** → functional-testing
-- **API testing** → api-testing
-- **Automation testing** → automation-testing
-- **Performance testing** → performance-testing
-- **Security testing** → security-testing
-
-#### 25. What are the relationships between Skills?
-
-Check [skills-graph.md](docs/catalog/skills-graph.md) to understand dependencies and recommended combinations between Skills.
-
----
-
-### Contributing and Community
-
-#### 26. How to contribute a new skill?
-
-1. Fork the project
-2. Create new Skill directory
-3. Write SKILL.md, prompts/, etc.
-4. Submit Pull Request
-
-See [CONTRIBUTING_EN.md](CONTRIBUTING_EN.md) for details.
-
-#### 27. How to report bugs?
-
-1. Search [Issues](https://github.com/naodeng/awesome-qa-skills/issues)
-2. If not reported, create new Issue
-3. Provide detailed information and reproduction steps
-
-#### 28. How to request a new Skill?
-
-1. Search existing Feature Requests
-2. Create new Issue with `enhancement` label
-3. Describe Skill requirements and use cases in detail
-
-#### 29. What is the project license?
-
-PolyForm Noncommercial License 1.0.0. You may use, modify, and distribute for noncommercial purposes.
-
-#### 30. How to get more help?
-
-1. Check this FAQ
-2. Check [README_EN.md](README_EN.md)
-3. Search [Issues](https://github.com/naodeng/awesome-qa-skills/issues)
-4. Ask in GitHub Issues
-
----
-
-## Can't Find Your Answer?
-
-If your question isn't listed, please ask in [GitHub Issues](https://github.com/naodeng/awesome-qa-skills/issues).
-
----
-
-**Last Updated**: 2024-02-09
+**Last updated: 2026-10-26**

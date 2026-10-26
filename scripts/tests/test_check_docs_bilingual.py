@@ -12,6 +12,54 @@ from scripts.check_docs_bilingual import (
 
 
 class DocsBilingualCheckTest(unittest.TestCase):
+    def test_docs_and_language_skill_indexes_are_registered_as_bilingual_pairs(self):
+        self.assertIn(("docs/README.md", "docs/README_EN.md"), PROJECT_PAIRS)
+        self.assertIn(("skills/zh/README.md", "skills/en/README.md"), PROJECT_PAIRS)
+
+    def test_current_review_reports_are_registered_as_bilingual_pairs(self):
+        expected_pairs = (
+            (
+                "docs/reviews/2026-09-10-requirement-strategy-governance.md",
+                "docs/reviews/2026-09-10-requirement-strategy-governance_EN.md",
+            ),
+            (
+                "docs/reviews/2026-10-06-all-skills-review.md",
+                "docs/reviews/2026-10-06-all-skills-review_EN.md",
+            ),
+            (
+                "docs/reviews/2026-10-07-all-skills-repair-review.md",
+                "docs/reviews/2026-10-07-all-skills-repair-review_EN.md",
+            ),
+            (
+                "docs/reviews/2026-10-07-review-runtime-followup.md",
+                "docs/reviews/2026-10-07-review-runtime-followup_EN.md",
+            ),
+            (
+                "docs/reviews/2026-10-08-review-runtime-continuation.md",
+                "docs/reviews/2026-10-08-review-runtime-continuation_EN.md",
+            ),
+            (
+                "docs/reviews/2026-10-09-free-qa-skills-learning-review.md",
+                "docs/reviews/2026-10-09-free-qa-skills-learning-review_EN.md",
+            ),
+            (
+                "docs/reviews/2026-10-16-ai-native-qa-development-landscape.md",
+                "docs/reviews/2026-10-16-ai-native-qa-development-landscape_EN.md",
+            ),
+            (
+                "docs/reviews/2026-10-16-all-skills-review-update.md",
+                "docs/reviews/2026-10-16-all-skills-review-update_EN.md",
+            ),
+            (
+                "docs/reviews/2026-10-25-github-qa-skills-iteration-research.md",
+                "docs/reviews/2026-10-25-github-qa-skills-iteration-research_EN.md",
+            ),
+        )
+
+        for pair in expected_pairs:
+            with self.subTest(pair=pair):
+                self.assertIn(pair, PROJECT_PAIRS)
+
     def test_sqet_entrypoints_are_registered_as_bilingual_project_pairs(self):
         expected_pairs = (
             (

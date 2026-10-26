@@ -22,7 +22,7 @@ Skill 内部文档不使用 `_EN` 文件，也不增加逐文件语言切换；�
 ## 不要求逐文件翻译的内容
 
 - `docs/archive/` 中的归档记录
-- 2026-08-29 之前已经完成的 `docs/superpowers/plans/` 与 `specs/` 历史执行记录
+- `docs/superpowers/plans/` 与 `specs/` 中明确作为历史追溯的设计和实施记录；仍在执行或影响当前决策的方案必须提供双语镜像
 - `legacy-prompts/` 兼容内容
 - examples、references、output templates、评测 fixtures 等语言专属辅助材料
 - `docs/generated/` 下的关系图、metadata 报告和评测运行产物
