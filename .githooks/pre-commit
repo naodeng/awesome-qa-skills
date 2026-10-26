@@ -4,5 +4,11 @@ set -euo pipefail
 REPO_ROOT="$(git rev-parse --show-toplevel)"
 cd "$REPO_ROOT"
 
+# Git exports repository-local variables to hooks. Clear them so tests that
+# create temporary Git repositories use their own Git directories and indexes.
+while IFS= read -r git_variable; do
+  unset "$git_variable"
+done < <(git rev-parse --local-env-vars)
+
 echo "[pre-commit] Running skills quality checks..."
 bash scripts/check_skills_quality.sh
