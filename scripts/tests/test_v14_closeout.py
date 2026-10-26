@@ -104,12 +104,26 @@ class V14CloseoutContractTest(unittest.TestCase):
             self.assertIn("Match review linkage" if locale == "en" else "Match Review 关联", rendered)
             card_rows = [line for line in rendered.splitlines() if line.startswith("| `") and "→" in line]
             self.assertEqual(len(card_rows), 35)
+            expected_install_guide = "scripts/INSTALL_SKILLS_EN.md" if locale == "en" else "scripts/INSTALL_SKILLS.md"
+            expected_workflow_guide = (
+                "docs/governance/WORKFLOW_EVAL_INSTALL_SYNC_EN.md"
+                if locale == "en"
+                else "docs/governance/WORKFLOW_EVAL_INSTALL_SYNC.md"
+            )
+            self.assertIn(expected_install_guide, rendered)
+            self.assertIn(expected_workflow_guide, rendered)
         for version in ("v1.0", "v1.4"):
             for locale in ("zh", "en"):
                 rendered = closeout.render_release_dod(contract, version, locale, ROOT)
                 self.assertIn(version, rendered)
                 self.assertIn("NOT_RUN", rendered)
                 self.assertIn("N/A", rendered)
+                expected_install_guide = (
+                    "scripts/INSTALL_SKILLS_EN.md"
+                    if locale == "en"
+                    else "scripts/INSTALL_SKILLS.md"
+                )
+                self.assertIn(expected_install_guide, rendered)
 
     def test_release_dod_uses_explicit_version_scopes(self):
         contract = closeout.load_contract(CONTRACT_PATH)

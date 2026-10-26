@@ -22,7 +22,7 @@ Internal Skill documents do not use `_EN` names or per-file language switches. T
 ## Content Excluded from File-by-File Translation
 
 - Archived records under `docs/archive/`
-- Completed historical plans and specs created before 2026-08-29
+- Design and implementation records under `docs/superpowers/plans/` and `specs/` that are explicitly retained for historical traceability; plans still in progress or used for current decisions require bilingual mirrors
 - Compatibility content under `legacy-prompts/`
 - Language-specific examples, references, output templates, and eval fixtures
 - Relationship graphs, metadata reports, and evaluation outputs under `docs/generated/`

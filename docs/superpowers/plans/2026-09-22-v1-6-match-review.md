@@ -84,5 +84,5 @@
 
 - [ ] **Step 1: Run the focused governance tests, all eight new project-context cases, both-language four-case regression coverage, `bash scripts/check_skills_quality.sh`, and `git diff --check`.** The historical evidence set contains 32/32 `PASS` outcomes from the configuration before the stricter Phase 1 evidence-boundary assertions. The current post-hardening Phase 1 replay is incomplete: the first case reached its `720s` budget and is recorded as `INSUFFICIENT_EVIDENCE`; runtime, cross-model, external-target, production, and business-acceptance boundaries remain separate.
 - [x] **Step 2: Verify the diff** contains only the Phase 1 evidence/governance/Eval work plus the pre-existing requirements-analysis changes.
-- [x] **Step 3: Move exactly the four v1.6 cards through the authorized Project status update to `Done`; do not alter unrelated cards, releases, or remote Git refs.
-- [x] **Step 4: Re-query Project #4 and record current status, transition-audit limitation, and final evidence boundaries in the final report.
+- [x] **Step 3: Move exactly the four v1.6 cards through the authorized Project status update to `Done`; do not alter unrelated cards, releases, or remote Git refs.**
+- [x] **Step 4: Re-query Project #4 and record current status, transition-audit limitation, and final evidence boundaries in the final report.**

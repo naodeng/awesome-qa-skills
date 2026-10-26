@@ -295,4 +295,4 @@ Each language provides **165** Skills: 10 workflows + 150 testing types + 5 Skil
 | Skill Prose Contract Review | [`skill-prose-review`](skill-engineering/skill-prose-review/) |
 | Process Prose Trimming | [`skill-prose-trim`](skill-engineering/skill-prose-trim/) |
 
-Physical directories do not change with logical classification. See the [complete English index](../../skills-index_EN.md).
+Physical directories do not change with logical classification. See the [complete English index](../../docs/catalog/skills-index_EN.md).

@@ -74,7 +74,7 @@ python3 -m unittest scripts.tests.test_v14_closeout -v
 - Modify: `README.md`, `README_EN.md`
 - Modify: `docs/catalog/skills-index.md`, `docs/catalog/skills-index_EN.md`
 - Modify: `docs/catalog/skills-graph.md`, `docs/catalog/skills-graph_EN.md`
-- Modify: `scripts/INSTALL_SKILLS.md`
+- Modify: `scripts/INSTALL_SKILLS_EN.md`
 - Create: `docs/governance/WORKFLOW_EVAL_INSTALL_SYNC.md`, `docs/governance/WORKFLOW_EVAL_INSTALL_SYNC_EN.md`
 - Modify: `scripts/check_docs_bilingual.py`
 - Modify: `scripts/tests/test_v14_closeout.py`
@@ -82,7 +82,7 @@ python3 -m unittest scripts.tests.test_v14_closeout -v
 - [x] **Step 1: Add tests for governance entrypoint links and ten workflow installation/Eval rows.** Verify both language documents point to the same physical workflow directories and commands.
 - [x] **Step 2: Add v1.4 governance navigation to both READMEs, the full index, and the graph.** Label governance artifacts as source/structure evidence, not runtime-quality proof.
 - [x] **Step 3: Add a bilingual Workflow/Eval installation synchronization checklist.** Cover all ten workflows, root installers, per-Skill installers, `npx skills`, dry-run behavior, language selection, and minimum Eval structure.
-- [x] **Step 4: Update `scripts/INSTALL_SKILLS.md` with the checklist link and run link/parity tests.**
+- [x] **Step 4: Update `scripts/INSTALL_SKILLS_EN.md` with the checklist link and run link/parity tests.**
 
 ### Task 4: Publish the Enhancement Sprint, candidate 15-step template, and Shift Left milestone
 
