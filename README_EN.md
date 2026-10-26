@@ -4,6 +4,8 @@
 
 A language-partitioned **AI testing skills library** (Agent Skills) for Codex, Cursor, Claude Code, Kiro, OpenCode, Trae, and similar tools. It ships independently installable, composable skills for testing workflows and testing types.
 
+![Awesome QA Skills social preview](social-preview.jpg)
+
 [![License: PolyForm Noncommercial 1.0.0](https://img.shields.io/badge/License-PolyForm%20Noncommercial%201.0.0-blue.svg)](./LICENSE)
 [![Skills](https://img.shields.io/badge/skills-330%20(zh%2Ben)-0A7EA4)](./docs/catalog/skills-index_EN.md)
 [![Workflows](https://img.shields.io/badge/workflows-10-informational)](./skills/en/testing-workflows/)
