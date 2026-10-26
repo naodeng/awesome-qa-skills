@@ -516,6 +516,8 @@ Suggested pilots: `functional-testing`, `api-testing`, `api-test-bruno`, `bug-re
 | [CONTRIBUTING_EN.md](CONTRIBUTING_EN.md) | Contribution guide (English) |
 | [skills-graph_EN.md](docs/catalog/skills-graph_EN.md) | Skill relationship graph (reference) |
 
+<a id="community-recommended-external-skills"></a>
+
 ## Community-recommended external Skills
 
 This section lists community-submitted Skills hosted and maintained by external projects for discovery. Entries are excluded from this repository's own Skill catalog. License, version, and compatibility information follows the linked upstream source and includes a check date; a listing does not mean this repository has runtime-evaluated the Skill.

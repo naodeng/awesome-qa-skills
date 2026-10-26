@@ -516,6 +516,8 @@ bash scripts/run_skill_eval.sh skills/zh/testing-types/functional-testing/evals/
 | [CONTRIBUTING.md](CONTRIBUTING.md) | 贡献流程 |
 | [skills-graph.md](docs/catalog/skills-graph.md) | 技能关系图（参考） |
 
+<a id="community-recommended-external-skills"></a>
+
 ## 社区推荐的外部 Skills
 
 本栏收录社区提交的外部 Skill，供发现与参考。条目由源项目维护，不计入本仓库自身的 Skill 目录。许可证、版本和兼容性信息以链接的上游来源为准，并标注核验日期；列入本栏不代表本仓库已进行运行时评测。

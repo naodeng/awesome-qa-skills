@@ -1,3 +1,4 @@
+const crypto = require('crypto');
 const express = require('express');
 
 const app = express();
@@ -12,7 +13,7 @@ app.post('/api/login', (req, res) => {
   if (!body.username || !body.password) {
     return res.status(400).json({ code: 'INVALID_INPUT' });
   }
-  return res.status(200).json({ token: 'fake-token', user: body.username });
+  return res.status(200).json({ token: crypto.randomBytes(16).toString('hex'), user: body.username });
 });
 
 module.exports = app;

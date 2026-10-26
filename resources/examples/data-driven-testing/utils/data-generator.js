@@ -80,7 +80,7 @@ class DataGenerator {
       data.push(
         {
           username: '',
-          password: 'password',
+          password: this.randomString(8),
           expected: 'error_username',
           description: '空用户名'
         },
@@ -92,7 +92,7 @@ class DataGenerator {
         },
         {
           username: this.randomString(100),
-          password: 'password',
+          password: this.randomString(8),
           expected: 'error_username',
           description: '用户名过长'
         },

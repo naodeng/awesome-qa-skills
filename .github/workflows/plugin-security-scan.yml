@@ -1,0 +1,27 @@
+name: Plugin Security Scan
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  scan:
+    name: Plugin security gate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Run HOL Plugin Scanner
+        uses: hashgraph-online/ai-plugin-scanner-action@4a44de6c18b68ec258fcc3e0cec5261fc8ea63fd # v1.2.792
+        with:
+          plugin_dir: "."
+          min_score: 80
+          fail_on_severity: high

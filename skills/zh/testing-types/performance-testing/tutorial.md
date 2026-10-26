@@ -238,6 +238,8 @@ export default function () {
 
 创建 `user-flow-test.js`：
 
+运行前请在本地为专用测试账号设置 TEST_PASSWORD 环境变量。k6 脚本通过 __ENV.TEST_PASSWORD 读取，不要把密码写入脚本或仓库。
+
 ```javascript
 import http from 'k6/http';
 import { check, group, sleep } from 'k6';
@@ -256,9 +258,13 @@ export default function () {
   
   // 场景1: 用户登录
   group('用户登录', function () {
+    // 从环境变量读取测试账号密码，不要硬编码。
+    if (!__ENV.TEST_PASSWORD) {
+      throw new Error('Set TEST_PASSWORD before running this test');
+    }
     const loginRes = http.post(`${baseUrl}/auth/token/login/`, {
       username: 'test_user',
-      password: 'test_password',
+      password: __ENV.TEST_PASSWORD,
     }, {
       tags: { scenario: 'login' },
     });

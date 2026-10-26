@@ -311,11 +311,13 @@ TestRail 支持与多种自动化框架集成：
 
 **Selenium/WebDriver**
 ```python
+import os
 from testrail import APIClient
 
 client = APIClient('https://your-domain.testrail.io/')
 client.user = 'your-email@example.com'
-client.password = 'your-password'
+# Set TESTRAIL_PASSWORD in the environment before running this example.
+client.password = os.environ['TESTRAIL_PASSWORD']
 
 # 更新测试结果
 client.send_post(
