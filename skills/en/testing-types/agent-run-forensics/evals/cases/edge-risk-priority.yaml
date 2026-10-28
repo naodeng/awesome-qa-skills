@@ -1,0 +1,56 @@
+id: edge-risk-priority
+title: "Agent run forensics: assess side effects before replaying"
+description: |
+  Verifies the skill reads the recorded shell commands first and settles each named hazard
+  individually, rather than emitting the words "side effect" and "isolated copy" and moving on.
+
+  The judge deliberately checks the three recorded commands by name, the deny-by-default
+  permission boundary, and the `unmatched` figure. An answer that says "replay it in a container"
+  without saying what that container may reach must fail this case: a container on the default
+  bridge network with the caller's environment still reaches the production replica.
+
+input:
+  prompt: |
+    Use the agent-run-forensics skill: I want to replay a recording to check whether a bug still
+    reproduces. The recorded run executed `docker compose up -d`, a psql statement writing to a
+    production read replica, and `npm ci`. Give me what must be settled before replaying, with
+    priorities, and how to read the replay verdict line.
+
+expect:
+  must_contain:
+    - "side effect"
+    - "P0"
+    - "reused"
+    - "unmatched"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+    - "dry run"
+
+judge:
+  type: rule_based
+  success:
+    # Each recorded command has to be addressed by name, not folded into "side effects".
+    - output_matches:
+        all:
+          - "(?i)docker"
+          - "(?i)psql|production|replica"
+          - "(?i)npm ci|package manager|registry"
+    # Deny-by-default, and the four permissions named rather than a blanket "isolate it".
+    - output_matches:
+        all:
+          - "(?i)network"
+          - "(?i)credential|secret|env(ironment)? var"
+          - "(?i)mount|host path|worktree|scratch cop"
+          - "(?i)approv|authoris|authoriz|consent|permission"
+    # The verdict line has to be read as four figures, with unmatched the one that decides usability.
+    - output_matches:
+        all:
+          - "(?i)reused"
+          - "(?i)exact"
+          - "(?i)divergence"
+          - "(?i)unmatched"
+    # A replay is not a dry run and a plain container is not a sandbox.
+    - output_matches:
+        all:
+          - "(?i)(runs? again|re-?execute|execute(d)? for real|actually run)"

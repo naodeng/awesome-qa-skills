@@ -48,6 +48,12 @@
       "availability": "UNKNOWN"
     },
     {
+      "name": "agent-run-forensics",
+      "category": "testing-types",
+      "capability": "Agent Run Forensics",
+      "availability": "UNKNOWN"
+    },
+    {
       "name": "agent-tool-testing",
       "category": "testing-types",
       "capability": "Agent Tool Testing",

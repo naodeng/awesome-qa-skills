@@ -1,0 +1,54 @@
+id: edge-risk-priority
+title: "Agent 运行取证：重放前先评估副作用"
+description: |
+  验证 Skill 在重放前先读录像里记录的 shell 命令，并**逐条**处理点名的那几个风险，
+  而不是打出「副作用」「隔离副本」两个词就过去了。
+
+  判据刻意按名字检查三条录下来的命令、默认全拒的权限边界，以及 `unmatched` 这个数。
+  只回答「放容器里重放」而不说那个容器能触达什么的答案必须判失败：
+  默认 bridge 网络、继承调用者环境的容器，照样连得到那个生产副本。
+
+input:
+  prompt: |
+    请使用 agent-run-forensics Skill 判断：我想重放一次录像来确认 bug 是否还复现。
+    录像里这次运行执行过 `docker compose up -d`、一条写生产只读副本的 psql 语句，以及 `npm ci`。
+    请给出重放前必须确认的事项、优先级，以及重放结论行应该怎么读。
+
+expect:
+  must_contain:
+    - "副作用"
+    - "P0"
+    - "reused"
+    - "unmatched"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+    - "dry run 即可"
+
+judge:
+  type: rule_based
+  success:
+    # 三条录下来的命令必须被点名处理，不能糊成一句「有副作用」。
+    - output_matches:
+        all:
+          - "(?i)docker"
+          - "(?i)psql|生产|副本"
+          - "(?i)npm ci|包管理器|registry|镜像源"
+    # 默认全拒，四项权限要分别点名，而不是一句「隔离一下」。
+    - output_matches:
+        all:
+          - "(?i)网络"
+          - "(?i)凭据|密钥|环境变量"
+          - "(?i)挂载|宿主|工作区|临时副本"
+          - "(?i)批准|授权|逐项|许可"
+    # 结论行要按四个数来读，unmatched 是决定能不能用的那个。
+    - output_matches:
+        all:
+          - "(?i)reused"
+          - "(?i)exact"
+          - "(?i)divergence"
+          - "(?i)unmatched"
+    # 重放不是 dry run：必须说明命令会真实再执行一次。
+    - output_matches:
+        all:
+          - "(?i)再(执行|跑|运行)|真实(执行|重复)|会再跑一遍"

@@ -1,0 +1,28 @@
+id: edge-incomplete-input
+title: "Agent run forensics: there is no recording at all"
+description: |
+  Verifies the skill says so plainly and offers to start one, instead of falling back to
+  recall plus reasoning — the exact failure mode this skill replaces.
+
+input:
+  prompt: |
+    Use the agent-run-forensics skill: yesterday's agent session broke a config file and I want to
+    know which step did it. That session was not recorded; only a chat transcript exists.
+    Tell me what you can and cannot do here.
+
+expect:
+  must_contain:
+    - "no recording"
+    - "transcript"
+    - "start"
+  must_not_contain:
+    - "TODO"
+    - "I cannot help"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "no recording"
+          - "transcript"

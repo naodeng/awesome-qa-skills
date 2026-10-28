@@ -9,9 +9,9 @@ Skills provide task guidance, test design, and reusable workflows; actual automa
 ![Awesome QA Skills social preview](social-preview.jpg)
 
 [![License: PolyForm Noncommercial 1.0.0](https://img.shields.io/badge/License-PolyForm%20Noncommercial%201.0.0-blue.svg)](./LICENSE)
-[![Skills](https://img.shields.io/badge/skills-330%20(zh%2Ben)-0A7EA4)](./docs/catalog/skills-index_EN.md)
+[![Skills](https://img.shields.io/badge/skills-332%20(zh%2Ben)-0A7EA4)](./docs/catalog/skills-index_EN.md)
 [![Workflows](https://img.shields.io/badge/workflows-10-informational)](./skills/en/testing-workflows/)
-[![Testing types](https://img.shields.io/badge/testing%20types-150-informational)](./skills/en/testing-types/)
+[![Testing types](https://img.shields.io/badge/testing%20types-151-informational)](./skills/en/testing-types/)
 [![Skill engineering](https://img.shields.io/badge/skill%20engineering-5-informational)](./skills/en/skill-engineering/)
 [![skills.sh](https://skills.sh/b/naodeng/awesome-qa-skills)](https://skills.sh/naodeng/awesome-qa-skills)
 
@@ -23,12 +23,12 @@ Skills provide task guidance, test design, and reusable workflows; actual automa
 
 ## What's included
 
-Each language has **165 Skills**, for **330 Skill directories** across Chinese and English:
+Each language has **166 Skills**, for **332 Skill directories** across Chinese and English:
 
 | Category | Count | Coverage |
 | --- | ---: | --- |
 | Testing workflows | 10 per language | Routing, daily and iteration testing, release workflows, and quality perspectives |
-| Testing types | 150 per language | Requirements and strategy, test cases, functional/API/UI, regression, performance, security, production quality, and AI/LLM/agent testing |
+| Testing types | 151 per language | Requirements and strategy, test cases, functional/API/UI, regression, performance, security, production quality, and AI/LLM/agent testing |
 | Skill Engineering | 5 per language | Skill review, evaluation, change verification, and prose review |
 
 Each Skill is an independently installable directory with a `SKILL.md`, primary prompt, and tool metadata; some also include examples, templates, scripts, and evaluation cases.
@@ -112,7 +112,7 @@ Core QA Skills → Engineering QA Skills → Production Quality Skills → AI Na
 
 ## Complete Skill catalog
 
-Each language provides **165** Skills: 10 workflows, 150 testing types, and 5 Skill Engineering packages; **330** bilingual directories in total. Physical directories remain stable; the catalog below is logical navigation only.
+Each language provides **166** Skills: 10 workflows, 151 testing types, and 5 Skill Engineering packages; **332** bilingual directories in total. Physical directories remain stable; the catalog below is logical navigation only.
 
 ### Cross-phase workflows
 
@@ -394,6 +394,7 @@ Each testing-type Skill appears once; routers and workflows cover cross-phase co
 | Agent Permission Testing <!-- data-skill:agent-permission-testing --> | [`agent-permission-testing`](skills/en/testing-types/agent-permission-testing/) | Verify identity, tool/resource scope, approval, denial, and side-effect boundaries |
 | Agent Failure Recovery Testing <!-- data-skill:agent-failure-recovery-testing --> | [`agent-failure-recovery-testing`](skills/en/testing-types/agent-failure-recovery-testing/) | Analyze failure classification, retry/fallback, escalation, state consistency, and user notice |
 | Agent Long-Running Testing <!-- data-skill:agent-long-running-testing --> | [`agent-long-running-testing`](skills/en/testing-types/agent-long-running-testing/) | Test checkpoints, heartbeats, resume/cancel, duplicate submission, timeouts, and resource lifecycle |
+| Agent run forensics <!-- data-skill:agent-run-forensics --> | [`agent-run-forensics`](skills/en/testing-types/agent-run-forensics/) | Answer questions about a run that already happened from its recording: which step changed a file, why a command ran, whether it still reproduces |
 | Multi-Agent Testing <!-- data-skill:multi-agent-testing --> | [`multi-agent-testing`](skills/en/testing-types/multi-agent-testing/) | Analyze delegation, coordination, shared state, conflicts, ownership, and termination |
 | AI Safety Testing <!-- data-skill:ai-safety-testing --> | [`ai-safety-testing`](skills/en/testing-types/ai-safety-testing/) | Review safety policy, abuse, refusal/redirect, privacy, and escalation boundaries |
 
@@ -502,7 +503,7 @@ Suggested pilots: `functional-testing`, `api-testing`, `api-test-bruno`, `bug-re
 | [Skills CLI integration guide](docs/integrations/SKILLS_CLI_INTEGRATION_EN.md) | CLI distribution contract, compatibility checks, and installation boundaries |
 | [QA_SKILLS_EVOLUTION_ROADMAP_EN.md](docs/governance/QA_SKILLS_EVOLUTION_ROADMAP_EN.md) | Four-stage capability evolution and R&D/testing lifecycle map |
 | [DOCUMENTATION_POLICY_EN.md](docs/governance/DOCUMENTATION_POLICY_EN.md) | Chinese-first bilingual documentation policy |
-| [SKILL_GOVERNANCE_V1_EN.md](docs/governance/SKILL_GOVERNANCE_V1_EN.md) | v1.0 source-governance baseline and current 165-pair static-record entry point (earlier baseline: 79 pairs; not runtime quality) |
+| [SKILL_GOVERNANCE_V1_EN.md](docs/governance/SKILL_GOVERNANCE_V1_EN.md) | v1.0 source-governance baseline and current 166-pair static-record entry point (earlier baseline: 79 pairs; not runtime quality) |
 | [PHASE_0_V1_4_CLOSEOUT_EN.md](docs/governance/PHASE_0_V1_4_CLOSEOUT_EN.md) | Evidence closeout and version boundaries for all 35 v1.4 Project cards (not release approval) |
 | [BILINGUAL_CONSISTENCY_CONTRACT_EN.md](docs/governance/BILINGUAL_CONSISTENCY_CONTRACT_EN.md) | Contract for Chinese/English paths, entry points, Catalog, and links |
 | [QUALITY_SCORE_EVAL_CONTRACT_EN.md](docs/governance/QUALITY_SCORE_EVAL_CONTRACT_EN.md) | Nine-dimension scoring and minimum Eval artifact standard |
