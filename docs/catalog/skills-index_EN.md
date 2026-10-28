@@ -2,7 +2,7 @@
 
 # Complete Skills Index
 
-Each language contains 10 workflows, 150 testing types, and 5 Skill Engineering packages: 165 per language and 330 directories total. This is logical navigation; physical directories do not change. See the [Skill governance roadmap](../governance/SKILL_GOVERNANCE_ROADMAP_EN.md), [governance matrix](../SKILL_MATRIX_EN.md), [matching register](../SKILL_MATCHING_REGISTER_EN.md), and [v1.4 closeout](../governance/PHASE_0_V1_4_CLOSEOUT_EN.md) for long-term governance.
+Each language contains 10 workflows, 151 testing types, and 5 Skill Engineering packages: 166 per language and 332 directories total. This is logical navigation; physical directories do not change. See the [Skill governance roadmap](../governance/SKILL_GOVERNANCE_ROADMAP_EN.md), [governance matrix](../SKILL_MATRIX_EN.md), [matching register](../SKILL_MATCHING_REGISTER_EN.md), and [v1.4 closeout](../governance/PHASE_0_V1_4_CLOSEOUT_EN.md) for long-term governance.
 
 See the [v1.5.2 Composition Catalog](skills-composition_EN.md) for route and composition navigation; it is metadata, not an installation dependency or automatic execution chain.
 
@@ -284,6 +284,7 @@ See the [v1.5.2 Composition Catalog](skills-composition_EN.md) for route and com
 | `agent-permission-testing` | [中文](../../skills/zh/testing-types/agent-permission-testing/) | [English](../../skills/en/testing-types/agent-permission-testing/) |
 | `agent-failure-recovery-testing` | [中文](../../skills/zh/testing-types/agent-failure-recovery-testing/) | [English](../../skills/en/testing-types/agent-failure-recovery-testing/) |
 | `agent-long-running-testing` | [中文](../../skills/zh/testing-types/agent-long-running-testing/) | [English](../../skills/en/testing-types/agent-long-running-testing/) |
+| `agent-run-forensics` | [中文](../../skills/zh/testing-types/agent-run-forensics/) | [English](../../skills/en/testing-types/agent-run-forensics/) |
 | `multi-agent-testing` | [中文](../../skills/zh/testing-types/multi-agent-testing/) | [English](../../skills/en/testing-types/multi-agent-testing/) |
 | `ai-safety-testing` | [中文](../../skills/zh/testing-types/ai-safety-testing/) | [English](../../skills/en/testing-types/ai-safety-testing/) |
 

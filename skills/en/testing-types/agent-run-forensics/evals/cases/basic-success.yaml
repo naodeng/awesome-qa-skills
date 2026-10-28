@@ -1,0 +1,36 @@
+id: basic-success
+title: "Agent run forensics: explain a file change from the recording"
+description: |
+  Verifies the skill reads the evidence before answering, and keeps recorded facts
+  separate from inferred causation.
+
+input:
+  prompt: |
+    Use the agent-run-forensics skill on this scenario: after the last agent run, `strict: true`
+    is gone from `tsconfig.json` and nobody remembers which step removed it. A full recording of
+    the run exists. Excerpt:
+    14  TOOL   file_editor   {"command":"str_replace","path":".../tsconfig.json"}
+    15  SHELL  npm run build  exit 2
+    16  FILE   tsconfig.json  modified +1 -1
+    There is also a cleanup command close in time whose causal link was not recorded.
+    Give the conclusion, the evidence, the source labels, and the residual uncertainty.
+
+expect:
+  must_contain:
+    - "Conclusion"
+    - "Evidence"
+    - "recorded"
+    - "inferred"
+    - "uncertaint"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Evidence"
+          - "recorded"
+          - "inferred"
