@@ -1,6 +1,15 @@
 ---
 name: test-strategy
 description: Use this skill when you need to define a test strategy covering scope, methods, resources, risks, and quality gates; triggers include 测试策略 and test strategy.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "zh-CN"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # 测试策略（中文版）

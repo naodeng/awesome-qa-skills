@@ -1,6 +1,15 @@
 ---
 name: security-requirement-review
 description: Use this skill when you need evidence-bounded security-requirement-review analysis and validation preparation; triggers include 安全需求审查 and security-requirement-review.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "en"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # Security-Requirement Review

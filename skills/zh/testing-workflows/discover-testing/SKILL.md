@@ -1,6 +1,15 @@
 ---
 name: discover-testing
 description: Use this skill when you need to route a request to the right testing skill before execution; triggers include 测试技能路由、discover testing and which testing skill.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "zh-CN"
+  category: "testing-workflows"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # 测试技能路由（中文版）

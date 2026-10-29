@@ -1,6 +1,15 @@
 ---
 name: test-code-review
 description: Use this skill when you need to review test code for assertions, isolation, determinism, fixtures, and maintainability; triggers include 测试代码评审 and test code review.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "en"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # Test Code Review

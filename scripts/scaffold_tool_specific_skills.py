@@ -3,6 +3,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from pathlib import Path
+import re
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -198,11 +199,27 @@ def strip_period(text: str) -> str:
     return text[:-1] if text.endswith(".") else text
 
 
-def skill_md(spec: SkillSpec, lang: str) -> str:
+def skill_md(
+    spec: SkillSpec,
+    lang: str,
+    metadata: str | None = None,
+    license_field: str = "license: PolyForm-Noncommercial-1.0.0",
+) -> str:
+    if metadata is None:
+        language = "zh-CN" if lang == "zh" else "en"
+        metadata = (
+            'metadata:\n  version: "1.0.0"\n  compatibility: ""\n'
+            '  author: "Awesome QA Skills contributors"\n'
+            f'  language: "{language}"\n  category: "testing-types"\n'
+            '  source: "https://github.com/naodeng/awesome-qa-skills"\n'
+            '  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"'
+        )
     if lang == "en":
         return f"""---
 name: {spec.skill_id}
 description: Use this skill when you need to {strip_period(lower_first(spec.short_en))}; triggers include {spec.workflow_en}, {spec.category_en}, and {spec.skill_id}.
+{license_field}
+{metadata}
 ---
 
 # {spec.display_en} (EN)
@@ -247,6 +264,8 @@ Markdown by default unless the request explicitly asks for another format.
     return f"""---
 name: {spec.skill_id}
 description: Use this skill when you need to {strip_period(lower_first(spec.short_en))}; triggers include {spec.workflow_en}, {spec.category_en}, and {spec.skill_id}.
+{license_field}
+{metadata}
 ---
 
 # {spec.display_zh}
@@ -874,8 +893,21 @@ def main() -> int:
     for spec in SKILLS:
         for lang in ("zh", "en"):
             base = SKILLS_ROOT / lang / "testing-types" / spec.skill_id
+            skill_path = base / "SKILL.md"
+            metadata = None
+            license_field = "license: PolyForm-Noncommercial-1.0.0"
+            if skill_path.exists():
+                text = skill_path.read_text(encoding="utf-8")
+                header_end = text.find("\n---", 3)
+                header = text[3:header_end] if text.startswith("---") and header_end >= 0 else ""
+                match = re.search(r"(?m)^metadata:[^\n]*(?:\n[ \t]+[^\n]*)*", header)
+                if match:
+                    metadata = match.group(0)
+                match = re.search(r"(?m)^license:[^\n]*", header)
+                if match:
+                    license_field = match.group(0)
             write(base / "README.md", readme_md(spec, lang))
-            write(base / "SKILL.md", skill_md(spec, lang))
+            write(skill_path, skill_md(spec, lang, metadata, license_field))
             write(base / "agents" / "openai.yaml", agent_yaml(spec, lang))
             write(base / "examples" / "sample-context.md", sample_context(spec, lang))
             write(base / "output-templates" / "template-markdown.md", output_template(lang))

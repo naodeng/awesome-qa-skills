@@ -1,6 +1,15 @@
 ---
 name: equivalence-partitioning
 description: Use this skill when you need to partition inputs into evidence-backed valid, invalid, and unknown classes based on constraints, rules, and response differences; triggers include 等价类划分测试设计 and equivalence partitioning test design.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "zh-CN"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # 等价类划分测试设计

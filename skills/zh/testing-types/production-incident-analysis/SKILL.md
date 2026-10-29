@@ -1,6 +1,15 @@
 ---
 name: production-incident-analysis
 description: Use this skill when you need to analyze production-incident evidence, impact, and follow-up actions; triggers include 生产事故分析 and production incident analysis.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "zh-CN"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # 生产事故分析（中文版）

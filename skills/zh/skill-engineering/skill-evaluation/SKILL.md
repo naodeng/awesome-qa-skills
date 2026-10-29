@@ -1,6 +1,15 @@
 ---
 name: skill-evaluation
 description: Use this skill when designing, running, interpreting, or reporting Agent Skill evaluations, selecting cases or judges, and analyzing trigger, benchmark, or regression evidence; triggers include Skill 评测、评测设计、回归评测。
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "zh-CN"
+  category: "skill-engineering"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # Skill 评测

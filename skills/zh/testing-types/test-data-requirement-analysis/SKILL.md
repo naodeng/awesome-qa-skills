@@ -1,6 +1,15 @@
 ---
 name: test-data-requirement-analysis
 description: Use this skill when you need to analyze test-data prerequisites, relationships, privacy, lifecycle, and environment blockers before test design or generation; triggers include 测试数据需求分析 and test data requirement analysis.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "zh-CN"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # 测试数据需求分析

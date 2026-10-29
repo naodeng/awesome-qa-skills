@@ -20,6 +20,12 @@ SECTIONS = ("testing-types", "testing-workflows", "skill-engineering")
 LANGUAGES = ("en", "zh")
 CANONICAL_NAME_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 FRONTMATTER_KEY_RE = re.compile(r"^([A-Za-z0-9_-]+):(?:\s*(.*))?$")
+SEMVER_RE = re.compile(
+    r"^(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)"
+    r"(?:-(?:0|[1-9]\d*|\d*[A-Za-z-][0-9A-Za-z-]*)"
+    r"(?:\.(?:0|[1-9]\d*|\d*[A-Za-z-][0-9A-Za-z-]*))*)?"
+    r"(?:\+[0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*)?$"
+)
 REPRESENTATIVE_NAMES = (
     "requirements-analysis",
     "functional-testing",
@@ -134,7 +140,27 @@ def parse_frontmatter(skill_md: Path) -> tuple[dict[str, str], str | None]:
             return {}, f"invalid frontmatter line: {line.strip()}"
         key, raw = match.groups()
         raw = (raw or "").strip()
-        if raw.startswith(("|", ">")):
+        if key == "metadata" and not raw:
+            index += 1
+            while index < end:
+                child = lines[index]
+                if not child.strip() or child.lstrip().startswith("#"):
+                    index += 1
+                    continue
+                if not child[0].isspace():
+                    break
+                child_match = FRONTMATTER_KEY_RE.match(child.strip())
+                if not child_match:
+                    return {}, f"invalid metadata line: {child.strip()}"
+                child_key, child_raw = child_match.groups()
+                field = f"metadata.{child_key}"
+                if field in values:
+                    return {}, f"duplicate metadata field: {child_key}"
+                child_raw = (child_raw or "").strip()
+                values[field] = _unquote_scalar(child_raw)
+                values[f"{field}.raw"] = child_raw
+                index += 1
+        elif raw.startswith(("|", ">")):
             values[key], index = _parse_block_scalar(lines, index + 1, end, raw.startswith(">"))
         else:
             values[key] = _unquote_scalar(raw)
@@ -278,6 +304,34 @@ def scan(skills_root: Path) -> list[Finding]:
                     f"description is {len(description)} characters; maximum is 1024",
                 )
             )
+
+        if not metadata.get("license", "").strip():
+            findings.append(Finding("CONTRACT", "missing-license", skill_label, str(skill_md), "frontmatter license is missing"))
+
+        version = metadata.get("metadata.version", "")
+        if not SEMVER_RE.fullmatch(version):
+            findings.append(Finding("CONTRACT", "invalid-metadata-version", skill_label, str(skill_md), "metadata.version must be a semantic version such as 1.0.0"))
+
+        compatibility_raw = metadata.get("metadata.compatibility.raw", "")
+        if (
+            not compatibility_raw
+            or compatibility_raw.lower() in {"null", "~", "true", "false"}
+            or re.fullmatch(r"[-+]?\d+(?:\.\d+)?", compatibility_raw)
+            or compatibility_raw.startswith(("[", "{"))
+        ):
+            findings.append(Finding("CONTRACT", "invalid-metadata-compatibility", skill_label, str(skill_md), 'metadata.compatibility must be a string; use "" when unknown'))
+
+        for field in ("author", "source", "license-url"):
+            value = metadata.get(f"metadata.{field}", "").strip()
+            if not value:
+                findings.append(Finding("CONTRACT", f"missing-metadata-{field}", skill_label, str(skill_md), f"metadata.{field} is missing"))
+            elif field in {"source", "license-url"} and not re.fullmatch(r"https?://[^\s/]+\S*", value):
+                findings.append(Finding("CONTRACT", f"invalid-metadata-{field}", skill_label, str(skill_md), f"metadata.{field} must be an HTTP(S) URL"))
+
+        expected_language = "zh-CN" if record.language == "zh" else "en"
+        for field, expected in (("language", expected_language), ("category", record.section)):
+            if metadata.get(f"metadata.{field}") != expected:
+                findings.append(Finding("CONTRACT", f"invalid-metadata-{field}", skill_label, str(skill_md), f"metadata.{field} must match the package: {expected}"))
 
     return findings
 

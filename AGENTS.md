@@ -65,6 +65,15 @@ Frontmatter 最少包含：
 ---
 name: skill-name
 description: Use this skill when ...; triggers include 中文触发词 and English triggers.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "zh-CN"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 ```
 
@@ -72,6 +81,7 @@ description: Use this skill when ...; triggers include 中文触发词 and Engli
 
 - `name`：小写、数字、连字符；与目录名、`agents/openai.yaml` 的 `metadata.key` 一致。
 - `description`：第三人称祈使（`Use this skill when...`）；同时写清 **做什么** 与 **何时用**；包含触发词；宜短于 1024 字符。
+- `metadata.version` 使用 Skill 独立语义版本；`metadata.compatibility` 尚未声明时保留空字符串。`language` 和 `category` 与实际语言、目录对应；许可证、来源与版本演进规则见 [Skill Authoring Guide](skills/SKILL_AUTHORING.md)。
 - 正文保持精简，并包含：执行流程、核心约束、**按需加载**（写清何时读 `prompts/` / `references/` / `examples/` / `scripts/`）、交付前自检、常见误区。
 - `prompts/` 仍是完整执行规范；`SKILL.md` 不要做成只有「打开 prompts」的空壳。
 - 入口文件保持轻量、直接、可执行；深度规则、长示例、故障排查优先放到 `references/` 或 `examples/`。

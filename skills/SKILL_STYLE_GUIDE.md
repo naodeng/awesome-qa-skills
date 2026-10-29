@@ -17,10 +17,19 @@
 ---
 name: <skill-id>
 description: Use this skill when ...; triggers include ...
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "zh-CN"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 ```
 
-- 只保留 `name` 与 `description`。
+- 保留 `name`、`description`、`license` 和 `metadata`；具体字段的维护规则见 [Skill Authoring Guide](SKILL_AUTHORING.md)。
 - 描述应以触发条件为中心，不能只写能力概述。
 - 必须与目录名和 metadata key 一致。
 

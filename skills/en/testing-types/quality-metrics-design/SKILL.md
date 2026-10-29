@@ -1,6 +1,15 @@
 ---
 name: quality-metrics-design
 description: Use this skill when you need evidence-bounded quality metric definitions, calculation rules, data sources, freshness, and anti-gaming boundaries; triggers include 质量指标 and quality metric.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "en"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # Quality Metrics Design

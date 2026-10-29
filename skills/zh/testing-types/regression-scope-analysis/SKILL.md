@@ -1,6 +1,15 @@
 ---
 name: regression-scope-analysis
 description: Use this skill when you need to define risk-based regression scope after a change or release; triggers include 回归范围分析 and regression scope analysis.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "zh-CN"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # 回归范围分析（中文版）

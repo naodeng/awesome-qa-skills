@@ -1,6 +1,15 @@
 ---
 name: test-effectiveness-analysis
 description: Use this skill when you need evidence-bounded the relationship between test signals and defects or risks, missed-detection limits, false signals, and validation plans; triggers include 测试有效性 and test effectiveness.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "zh-CN"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # 测试有效性分析（中文版）

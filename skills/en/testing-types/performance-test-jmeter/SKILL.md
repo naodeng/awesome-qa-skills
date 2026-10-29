@@ -1,6 +1,15 @@
 ---
 name: performance-test-jmeter
 description: Use this skill when you need to design JMeter test plans with Thread Groups, samplers, data sets, assertions, timers, CLI runs, and HTML reports; triggers include JMeter performance testing, performance testing, and performance-test-jmeter.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "en"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # JMeter Performance Testing (EN)

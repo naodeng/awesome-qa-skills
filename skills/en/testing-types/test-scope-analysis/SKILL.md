@@ -1,6 +1,15 @@
 ---
 name: test-scope-analysis
 description: Use this skill when a test activity, iteration, release, or risk review needs explicit inclusion, exclusion, depth, and expansion boundaries before execution; triggers include test scope analysis, test boundary review, and release test scoping.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "en"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # Test Scope Analysis

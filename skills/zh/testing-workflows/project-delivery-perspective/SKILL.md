@@ -1,6 +1,15 @@
 ---
 name: project-delivery-perspective
 description: Use this skill when project delivery constraints or action tracking are needed for test strategy, test strategy review, or test report review; triggers include 项目交付视角、交付计划、排期与资源 and project delivery perspective.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "zh-CN"
+  category: "testing-workflows"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # 项目交付视角（中文版）

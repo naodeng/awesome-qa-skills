@@ -1,6 +1,15 @@
 ---
 name: quality-risk-analysis
 description: Use this skill when you need to identify and prioritize quality risks from product, change, and evidence inputs; triggers include quality risk analysis.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "en"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # Quality Risk Analysis

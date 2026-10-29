@@ -1,6 +1,15 @@
 ---
 name: acceptance-criteria-review
 description: Use this skill when you need to review acceptance criteria for ambiguity, missing rules, and verifiability; triggers include 验收标准评审 and acceptance criteria review.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "zh-CN"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # 验收标准评审（中文版）

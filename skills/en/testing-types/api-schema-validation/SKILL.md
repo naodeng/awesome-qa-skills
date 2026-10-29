@@ -1,6 +1,15 @@
 ---
 name: api-schema-validation
 description: Use this skill when you need to compare API schemas with sourced request and response evidence; triggers include API Schema 校验 and API schema validation.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "en"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # API Schema Validation

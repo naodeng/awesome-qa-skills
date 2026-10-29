@@ -1,6 +1,15 @@
 ---
 name: test-runtime-optimization
 description: Use this skill when you need evidence-bounded slow tests, profiling evidence, setup/teardown, parallelism, isolation, and baselines; triggers include 测试运行时间 and test runtime.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "zh-CN"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # 测试运行时间优化（中文版）

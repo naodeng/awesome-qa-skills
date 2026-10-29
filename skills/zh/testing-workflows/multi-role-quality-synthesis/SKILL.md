@@ -1,6 +1,15 @@
 ---
 name: multi-role-quality-synthesis
 description: Use this skill when multiple role reports for one quality stage must be combined into a traceable synthesis; triggers include 多角色质量汇总、角色报告合并、质量分歧汇总 and multi-role quality synthesis.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "zh-CN"
+  category: "testing-workflows"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # 多角色质量汇总（中文版）

@@ -1,6 +1,15 @@
 ---
 name: requirement-ambiguity-analysis
 description: Use this skill when requirement wording has unclear actors, references, scope, quantities, conditions, timing, states, or acceptance criteria; triggers include 需求歧义分析, requirement ambiguity, and unclear requirements.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "zh-CN"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # 需求歧义分析

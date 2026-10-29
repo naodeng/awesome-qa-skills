@@ -1,6 +1,15 @@
 ---
 name: llm-evaluation-design
 description: Use this skill when you need to design LLM evaluation datasets, judges, metrics, and human-review boundaries; triggers include llm evaluation design.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "en"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # LLM Evaluation Design

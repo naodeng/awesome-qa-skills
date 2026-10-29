@@ -1,6 +1,15 @@
 ---
 name: ai-safety-testing
 description: Use this skill when you need evidence-bounded safety policy, abuse categories, refusal/redirect behavior, privacy, escalation, and Human risk decisions; triggers include AI 安全 and AI safety.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "en"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # AI Safety Testing

@@ -1,6 +1,15 @@
 ---
 name: performance-bottleneck-analysis
 description: Use this skill when you need to form evidence-based performance bottleneck hypotheses and validation steps; triggers include performance bottleneck analysis.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "en"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # Performance Bottleneck Analysis

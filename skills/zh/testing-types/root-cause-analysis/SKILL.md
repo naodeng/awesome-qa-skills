@@ -1,6 +1,15 @@
 ---
 name: root-cause-analysis
 description: Use this skill when you need to form and verify evidence-based root-cause hypotheses; triggers include 根因分析 and root cause analysis.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "zh-CN"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # 根因分析（中文版）

@@ -1,6 +1,15 @@
 ---
 name: visual-regression-testing
 description: Use this skill when you need to define evidence-bounded visual regression candidates, baselines, and comparison conditions; triggers include 视觉回归测试 and visual regression testing.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "zh-CN"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # 视觉回归测试

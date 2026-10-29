@@ -1,6 +1,15 @@
 ---
 name: llm-hallucination-testing
 description: Use this skill when you need evidence-bounded claim-to-source relations, unsupported assertions, abstention, uncertainty, and evidence review; triggers include LLM 幻觉 and LLM hallucination.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "en"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # LLM Hallucination Testing

@@ -1,6 +1,15 @@
 ---
 name: test-strategy-plus
 description: Use this skill when you need a structured test strategy from requirement, analysis, tech, and plan docs; triggers include 测试策略增强、test strategy plus and advanced test strategy.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "zh-CN"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # 测试策略增强版（中文版）

@@ -1,6 +1,15 @@
 ---
 name: performance-workload-modeling
 description: Use this skill when you need to model realistic performance workload, traffic, and acceptance assumptions; triggers include 性能负载建模 and performance workload modeling.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "zh-CN"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # 性能负载建模（中文版）

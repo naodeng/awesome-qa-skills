@@ -1,6 +1,15 @@
 ---
 name: model-based-testing
 description: Use this skill when you need to derive test-path candidates from sourced behavior, state, or process models; triggers include 基于模型的测试设计 and model-based test design.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "zh-CN"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # 基于模型的测试设计

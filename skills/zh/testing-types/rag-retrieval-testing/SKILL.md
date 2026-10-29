@@ -1,6 +1,15 @@
 ---
 name: rag-retrieval-testing
 description: Use this skill when you need evidence-bounded query variants, chunking, filters, recall/precision proxies, ranking, freshness, and retrieval evidence; triggers include 检索结果 and retrieval result.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "zh-CN"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # RAG 检索测试（中文版）

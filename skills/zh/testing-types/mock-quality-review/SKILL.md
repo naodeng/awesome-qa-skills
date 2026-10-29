@@ -1,6 +1,15 @@
 ---
 name: mock-quality-review
 description: Use this skill when you need to review mock fidelity, contract alignment, over-mocking, and drift evidence; triggers include Mock 质量评审 and mock quality review.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "zh-CN"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # Mock 质量评审

@@ -1,6 +1,15 @@
 ---
 name: one-page-test-strategy
 description: Use this skill when a team needs a concise visual test strategy tied to project goals and risks; triggers include 一页纸测试策略、测试策略图 and one-page test strategy.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "en"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # One-Page Test Strategy

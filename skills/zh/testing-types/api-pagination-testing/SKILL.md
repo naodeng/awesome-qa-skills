@@ -1,6 +1,15 @@
 ---
 name: api-pagination-testing
 description: Use this skill when you need to design API pagination scenarios from ordered data and cursor or offset evidence; triggers include API 分页测试 and API pagination testing.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "zh-CN"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # API 分页测试

@@ -1,6 +1,15 @@
 ---
 name: api-error-contract-testing
 description: Use this skill when you need to review API error shape, status, code, and disclosure behavior against sourced contracts; triggers include API 错误契约测试 and API error contract testing.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "zh-CN"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # API 错误契约测试

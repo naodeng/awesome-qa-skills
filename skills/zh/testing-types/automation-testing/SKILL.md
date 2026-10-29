@@ -1,6 +1,15 @@
 ---
 name: automation-testing
 description: Use this skill when you need to design automation testing approaches using patterns like POM, data-driven testing, or BDD; triggers include 自动化测试 and automation testing.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "zh-CN"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # 自动化测试（中文版）

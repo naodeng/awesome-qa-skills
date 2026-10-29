@@ -1,6 +1,15 @@
 ---
 name: property-based-testing
 description: Use this skill when you need to turn invariants, generation domains, and shrinking strategies into reviewable property-test candidates; triggers include 基于属性的测试 and property-based test design.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "en"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # Property-Based Test Design

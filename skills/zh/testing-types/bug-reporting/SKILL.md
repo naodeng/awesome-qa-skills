@@ -1,6 +1,15 @@
 ---
 name: bug-reporting
 description: Use this skill when you need to write clear, reproducible bug reports with steps, environment details, and evidence; triggers include 缺陷上报 and bug reporting.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "zh-CN"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # 缺陷上报（中文版）

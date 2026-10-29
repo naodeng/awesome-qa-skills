@@ -41,8 +41,15 @@ class SkillsCliCompatibilityTests(unittest.TestCase):
         (skill / "prompts").mkdir(parents=True)
         (skill / "agents").mkdir()
         (skill / "evals" / "cases").mkdir(parents=True)
+        language_code = "zh-CN" if language == "zh" else "en"
         (skill / "SKILL.md").write_text(
-            f"---\nname: {name}\ndescription: {description}\n---\n\n# {name}\n",
+            f'---\nname: {name}\ndescription: {description}\n'
+            'license: MIT\nmetadata:\n  version: "1.0.0"\n  compatibility: ""\n'
+            f'  language: "{language_code}"\n'
+            f'  category: "{category}"\n'
+            '  author: "QA contributors"\n  source: "https://example.com/repo"\n'
+            '  license-url: "https://example.com/license"\n---\n\n'
+            f'# {name}\n',
             encoding="utf-8",
         )
         (skill / "prompts" / f"{name}.md").write_text("# Prompt\n", encoding="utf-8")
@@ -90,6 +97,10 @@ class SkillsCliCompatibilityTests(unittest.TestCase):
             "description: |\n"
             "  Use this skill when validating API contracts.\n"
             "  Include request and response assertions.\n"
+            'license: MIT\n'
+            'metadata:\n  version: "1.0.0"\n  compatibility: ""\n'
+            '  language: "en"\n  category: "testing-types"\n  author: "QA"\n'
+            '  source: "https://example.com/repo"\n  license-url: "https://example.com/license"\n'
             "---\n\n"
             "# API Testing\n",
             encoding="utf-8",
@@ -98,6 +109,67 @@ class SkillsCliCompatibilityTests(unittest.TestCase):
         result = self.run_validator("--fail-on-findings")
 
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+
+    def test_missing_or_invalid_version_metadata_is_rejected(self) -> None:
+        self.write_representative_skills("en")
+        self.write_representative_skills("zh")
+        skill = self.root / "skills" / "en" / "testing-types" / "api-testing" / "SKILL.md"
+        for metadata in (
+            'metadata:\n  compatibility: ""\n',
+            'metadata:\n  version: "1.0"\n  compatibility: ""\n',
+            'metadata:\n  version: "1.0.0"\n',
+            'metadata:\n  version: "1.0.0"\n  compatibility:\n',
+            'metadata:\n  version: "1.0.0"\n  compatibility: [codex]\n',
+            'metadata:\n  version: "1.0.0"\n  compatibility: {agent: codex}\n',
+        ):
+            with self.subTest(metadata=metadata):
+                skill.write_text(
+                    '---\nname: api-testing\ndescription: Use this skill for API testing.\n'
+                    'license: MIT\n'
+                    f'{metadata}'
+                    '  language: "en"\n  category: "testing-types"\n  author: "QA"\n'
+                    '  source: "https://example.com/repo"\n  license-url: "https://example.com/license"\n---\n',
+                    encoding="utf-8"
+                )
+                result = self.run_validator("--fail-on-findings")
+                self.assertNotEqual(result.returncode, 0, result.stdout)
+                self.assertIn("metadata", result.stdout)
+
+    def test_semver_prerelease_and_string_compatibility_are_accepted(self) -> None:
+        self.write_representative_skills("en")
+        self.write_representative_skills("zh")
+        skill = self.root / "skills" / "en" / "testing-types" / "api-testing" / "SKILL.md"
+        skill.write_text(
+            '---\nname: api-testing\ndescription: Use this skill for API testing.\n'
+            'license: MIT\n'
+            'metadata:\n  version: "2.1.0-rc.1+build.5"\n'
+            '  compatibility: "Requires Python 3"\n  author: "QA"\n'
+            '  language: "en"\n  category: "testing-types"\n'
+            '  source: "https://example.com/repo"\n  license-url: "https://example.com/license"\n---\n',
+            encoding="utf-8",
+        )
+        result = self.run_validator("--fail-on-findings")
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+
+    def test_missing_provenance_or_mismatched_package_metadata_is_rejected(self) -> None:
+        self.write_representative_skills("en")
+        self.write_representative_skills("zh")
+        skill = self.root / "skills" / "en" / "testing-types" / "api-testing" / "SKILL.md"
+        original = skill.read_text(encoding="utf-8")
+        for old, new, finding in (
+            ('license: MIT\n', '', 'license'),
+            ('  author: "QA contributors"\n', '', 'author'),
+            ('  source: "https://example.com/repo"\n', '', 'source'),
+            ('  license-url: "https://example.com/license"\n', '', 'license-url'),
+            ('  language: "en"', '  language: "zh-CN"', 'language'),
+            ('  category: "testing-types"', '  category: "testing-workflows"', 'category'),
+        ):
+            with self.subTest(finding=finding):
+                self.assertIn(old, original)
+                skill.write_text(original.replace(old, new), encoding="utf-8")
+                result = self.run_validator("--fail-on-findings")
+                self.assertNotEqual(result.returncode, 0, result.stdout)
+                self.assertIn(finding, result.stdout)
 
     def test_contract_findings_include_missing_frontmatter_name_and_description(self) -> None:
         self.write_representative_skills("en")

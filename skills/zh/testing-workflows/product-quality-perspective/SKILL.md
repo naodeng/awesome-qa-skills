@@ -1,6 +1,15 @@
 ---
 name: product-quality-perspective
 description: Use this skill when product-quality responsibility is needed across requirements, strategy, review, test-case, or reporting stages; triggers include 产品质量视角、产品质量评审 and product quality perspective.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "zh-CN"
+  category: "testing-workflows"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # 产品质量视角（中文版）

@@ -1,6 +1,15 @@
 ---
 name: negative-scenario-discovery
 description: Use this skill when you need to discover invalid, denied, failed, degraded, or unsafe-recovery scenarios from product evidence; triggers include 负向场景发现 and negative scenario discovery.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "zh-CN"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # 负向场景发现

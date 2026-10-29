@@ -1,6 +1,15 @@
 ---
 name: api-negative-testing
 description: Use this skill when you need to design evidence-bounded API failure and rejection scenarios; triggers include API 负向测试 and API negative testing.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "en"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # API Negative Testing

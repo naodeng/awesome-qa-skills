@@ -1,6 +1,15 @@
 ---
 name: skill-quality-review
 description: Use this skill when reviewing a complete Skill package for architecture, scope, triggers, independent installation, bilingual consistency, Eval readiness, and evidence boundaries; triggers include Skill 质量审查、Skill package review、评测准备度。
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "zh-CN"
+  category: "skill-engineering"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # Skill 质量审查

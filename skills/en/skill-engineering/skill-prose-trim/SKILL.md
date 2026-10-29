@@ -1,6 +1,15 @@
 ---
 name: skill-prose-trim
 description: Use this skill when auditing or trimming process residue from Skills, Prompts, comments, or docs; triggers include process prose cleanup, review residue, and current-state rewriting.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "en"
+  category: "skill-engineering"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # Process Prose Trimming

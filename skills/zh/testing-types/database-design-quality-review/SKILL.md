@@ -1,6 +1,15 @@
 ---
 name: database-design-quality-review
 description: Use this skill when an ERD, DDL, ORM schema, or migration plan needs an evidence-bounded database design review before implementation; triggers include 数据库设计质量评审, database design review, and migration readiness review.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "zh-CN"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # 数据库设计质量评审

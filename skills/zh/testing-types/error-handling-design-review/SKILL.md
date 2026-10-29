@@ -1,6 +1,15 @@
 ---
 name: error-handling-design-review
 description: Use this skill when error taxonomy, retries, timeouts, fallback, or recovery design needs an evidence-bounded review before implementation; triggers include 错误处理设计评审, error handling design review, and failure-path review.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "zh-CN"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # 错误处理设计评审

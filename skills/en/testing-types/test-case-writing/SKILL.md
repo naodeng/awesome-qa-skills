@@ -1,6 +1,15 @@
 ---
 name: test-case-writing
 description: Use this skill when you need to create high-quality test cases with normal, exception, and boundary scenarios; triggers include test case writing and test design.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "en"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # Test Case Writing (English)

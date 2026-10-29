@@ -1,6 +1,15 @@
 ---
 name: skill-prose-review
 description: Use this skill when reviewing the contract completeness of Skills, Prompts, metadata, or QA documentation; triggers include Skill prose review, Prompt review, and contract audit.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "en"
+  category: "skill-engineering"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # Skill Prose Contract Review

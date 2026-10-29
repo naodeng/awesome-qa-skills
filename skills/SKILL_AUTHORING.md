@@ -21,11 +21,26 @@ Skill 质量应**可度量、可复现、可演进**：
 ---
 name: skill-name
 description: Use this skill when ...; triggers include 中文触发词 and English triggers.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "zh-CN"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 ```
 
 - `name`：小写、数字、连字符；与目录名、`agents/openai.yaml` 的 `metadata.key` 一致。
 - `description`：第三人称祈使（`Use this skill when...`）；同时写清 **做什么** 与 **何时用**；含中英触发词；≤1024 字符。
+- `license`：Skill 的 SPDX 许可证标识；本仓库默认 `PolyForm-Noncommercial-1.0.0`。`metadata.license-url` 指向相应许可条款，使独立复制的 Skill 仍能找到许可文本；示例若有单独许可声明，应保留并核实。
+- `metadata.version`：使用独立的语义版本，新 Skill 从 `1.0.0` 开始。已有 Skill 的 `1.0.0` 是引入元数据时的基线，不表示其历史上的首次发布，也不等于仓库发布版本。
+- 发布 Skill 变更时按影响更新版本：不兼容的契约变更升级主版本，兼容的功能增强升级次版本，兼容的修正升级补丁版本。中英文是独立安装包，根据实际变更分别更新，并检查是否需要同步另一语言。
+- `metadata.compatibility`：保留字符串；没有已声明的兼容信息时使用 `""`，不要把它当作兼容性验证证据。它是自定义元数据；如需声明具体运行环境要求，另用 Agent Skills 规范的顶层 `compatibility` 字段。
+- `metadata.author` 使用项目集体署名；`source` 指向来源仓库；`language` 与语言目录对应（中文 `zh-CN`、英文 `en`）；`category` 与实际分类目录一致。它们是本仓库的自定义字符串元数据，消费者未必会使用。
+- 仅在有具体运行环境要求时添加顶层 `compatibility`；不要为了字段齐全而添加日期或预批准工具权限。`allowed-tools` 是实验性字段，应只在明确需要并确认适用时使用。
 - 不要只写「功能介绍」而缺少 `when` / triggers（触发会偏弱）。
 
 ### 正文结构（推荐）

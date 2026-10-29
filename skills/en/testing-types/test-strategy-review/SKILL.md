@@ -1,6 +1,15 @@
 ---
 name: test-strategy-review
 description: Use this skill when a proposed test strategy needs evidence-based review before Human approval; triggers include test strategy review, strategy approval review..
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "en"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # Test Strategy Review

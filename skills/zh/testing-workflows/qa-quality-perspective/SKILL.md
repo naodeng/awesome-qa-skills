@@ -1,6 +1,15 @@
 ---
 name: qa-quality-perspective
 description: Use this skill when QA quality perspective is needed for requirements, strategy, review, test cases, or reports; triggers include QA质量视角、测试质量评估 and QA quality perspective.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "zh-CN"
+  category: "testing-workflows"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # QA 质量视角（中文版）

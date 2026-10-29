@@ -1,6 +1,15 @@
 ---
 name: llm-testing
 description: Use this skill when you need to test LLM behavior, failure modes, and evidence-based quality boundaries; triggers include llm testing.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "en"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # LLM Testing

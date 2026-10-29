@@ -1,6 +1,15 @@
 ---
 name: rag-quality-testing
 description: Use this skill when you need evidence-bounded grounding, relevance, completeness, citation support, abstention, and answer-level evidence in RAG outputs; triggers include RAG 质量 and RAG quality.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "zh-CN"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # RAG 质量测试（中文版）

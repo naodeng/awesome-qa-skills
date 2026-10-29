@@ -1,6 +1,15 @@
 ---
 name: timeout-testing
 description: Use this skill when you need evidence-bounded timeout-testing analysis and validation preparation; triggers include 超时测试 and timeout-testing.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "zh-CN"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # 超时测试（中文版）

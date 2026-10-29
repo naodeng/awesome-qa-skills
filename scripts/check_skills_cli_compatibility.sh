@@ -57,4 +57,17 @@ INSTALLED_SKILL="${SMOKE_HOME}/.agents/skills/functional-testing/SKILL.md"
 test -f "${INSTALLED_SKILL}"
 grep -Fxq "name: functional-testing" "${INSTALLED_SKILL}"
 grep -Fxq "# Functional Testing (English)" "${INSTALLED_SKILL}"
+PYTHONPATH="${REPO_ROOT}${PYTHONPATH:+:${PYTHONPATH}}" python3 - "${REPO_ROOT}/skills/en/testing-types/functional-testing/SKILL.md" "${INSTALLED_SKILL}" <<'PY'
+from pathlib import Path
+import sys
+from scripts.check_skills_cli_compatibility import parse_frontmatter
+
+source, source_error = parse_frontmatter(Path(sys.argv[1]))
+installed, installed_error = parse_frontmatter(Path(sys.argv[2]))
+if source_error or installed_error:
+    raise SystemExit(f"Could not read Skill metadata: {source_error or installed_error}")
+for key in ("license", "metadata.version", "metadata.compatibility", "metadata.author", "metadata.language", "metadata.category", "metadata.source", "metadata.license-url"):
+    if key not in source or source.get(key) != installed.get(key):
+        raise SystemExit(f"Installed Skill did not preserve {key}")
+PY
 echo "[skills-cli] English functional-testing smoke passed"

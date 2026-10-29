@@ -1,6 +1,15 @@
 ---
 name: api-version-compatibility-testing
 description: Use this skill when you need to assess API version compatibility from old-client, new-server, and deprecation evidence; triggers include API 版本兼容性测试 and API version compatibility testing.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "zh-CN"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # API 版本兼容性测试
