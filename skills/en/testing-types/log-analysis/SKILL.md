@@ -1,6 +1,15 @@
 ---
 name: log-analysis
 description: Use this skill when you need to analyze logs into evidence, timelines, anomalies, and follow-up hypotheses; triggers include log analysis.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "en"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # Log Analysis

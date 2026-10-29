@@ -1,6 +1,15 @@
 ---
 name: regression-test-selection
 description: Use this skill when you need to select an executable regression test set from known test assets; triggers include regression test selection.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "en"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # Regression Test Selection

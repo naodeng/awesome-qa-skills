@@ -1,6 +1,15 @@
 ---
 name: test-gap-analysis
 description: Use this skill when you need to identify missing or weak test obligations from requirements, risks, changes, defects, and test evidence; triggers include test gap analysis.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "en"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # Test Gap Analysis

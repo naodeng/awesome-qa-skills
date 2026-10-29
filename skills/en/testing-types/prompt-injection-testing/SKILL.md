@@ -1,6 +1,15 @@
 ---
 name: prompt-injection-testing
 description: Use this skill when you need to design safe prompt-injection tests for AI systems and tool boundaries; triggers include prompt injection testing.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "en"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # Prompt Injection Testing

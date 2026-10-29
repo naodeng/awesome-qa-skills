@@ -1,6 +1,15 @@
 ---
 name: secrets-exposure-review
 description: Use this skill when you need evidence-bounded secrets-exposure-review analysis and validation preparation; triggers include 敏感信息暴露审查 and secrets-exposure-review.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "en"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # Secrets-Exposure Review

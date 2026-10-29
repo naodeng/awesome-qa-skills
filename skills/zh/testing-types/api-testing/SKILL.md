@@ -1,6 +1,15 @@
 ---
 name: api-testing
 description: Use this skill when you need to design API test plans or cases for REST, GraphQL, or gRPC interfaces; triggers include API 测试 and api testing.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "zh-CN"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # API 测试（中文版）

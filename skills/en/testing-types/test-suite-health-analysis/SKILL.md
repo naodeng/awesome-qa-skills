@@ -1,6 +1,15 @@
 ---
 name: test-suite-health-analysis
 description: Use this skill when you need to assess test-suite health from duration, flakiness, duplication, quarantine, and maintenance evidence; triggers include 测试套件健康分析 and test suite health analysis.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "en"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # Test Suite Health Analysis

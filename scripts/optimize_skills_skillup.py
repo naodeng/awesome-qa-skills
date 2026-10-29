@@ -117,7 +117,7 @@ def parse_frontmatter(text: str) -> tuple[dict[str, str], str]:
     body = text[end + 4 :].lstrip("\n")
     meta: dict[str, str] = {}
     for line in fm_raw.splitlines():
-        if ":" in line:
+        if line and not line[0].isspace() and ":" in line:
             k, v = line.split(":", 1)
             meta[k.strip()] = v.strip().strip('"')
     return meta, body
@@ -428,7 +428,30 @@ def optimize_skill(skill_dir: Path, dry_run: bool = False) -> bool:
         if lang == "zh"
         else build_body_en(skill_dir, title, when, checklist, is_router)
     )
-    new_text = f"---\nname: {name}\ndescription: {desc}\n---\n\n{new_body.rstrip()}\n"
+    # Keep optional frontmatter (including version metadata) when rewriting the body.
+    header_end = text.find("\n---", 3)
+    header = text[3:header_end].strip("\n") if text.startswith("---") and header_end >= 0 else ""
+    lines = header.splitlines()
+    updated_header: list[str] = []
+    seen: set[str] = set()
+    skip_block = False
+    for line in lines:
+        if skip_block and (not line.strip() or line[0].isspace()):
+            continue
+        skip_block = False
+        for key, value in (("name", name), ("description", desc)):
+            if line.startswith(f"{key}:"):
+                updated_header.append(f"{key}: {value}")
+                seen.add(key)
+                skip_block = line.split(":", 1)[1].strip().startswith(("|", ">"))
+                break
+        else:
+            updated_header.append(line)
+    for key, value in (("name", name), ("description", desc)):
+        if key not in seen:
+            updated_header.append(f"{key}: {value}")
+    rendered_header = "\n".join(updated_header)
+    new_text = f"---\n{rendered_header}\n---\n\n{new_body.rstrip()}\n"
 
     if dry_run:
         print(f"would update: {skill_dir.relative_to(ROOT)}")

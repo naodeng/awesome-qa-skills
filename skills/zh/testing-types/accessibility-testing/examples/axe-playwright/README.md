@@ -412,7 +412,7 @@ jobs:
 
 ## 📄 许可证
 
-MIT License
+[PolyForm Noncommercial License 1.0.0](https://polyformproject.org/licenses/noncommercial/1.0.0)
 
 ---
 

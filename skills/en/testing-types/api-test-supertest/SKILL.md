@@ -1,6 +1,15 @@
 ---
 name: api-test-supertest
 description: Use this skill when you need to parse multi-format API definitions and generate executable Supertest scripts; triggers include Supertest, Node.js API testing, and Supertest automation.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "en"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # api-test-supertest (EN)

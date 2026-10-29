@@ -17,10 +17,19 @@ This guide defines the current structure and writing standard for `SKILL.md` and
 ---
 name: <skill-id>
 description: Use this skill when ...; triggers include ...
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "en"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 ```
 
-- Keep only `name` and `description`.
+- Include `name`, `description`, `license`, and `metadata`; see the [Skill Authoring Guide](SKILL_AUTHORING_EN.md) for field maintenance.
 - Use trigger-oriented language, not a capability-only description.
 - Match the directory name and metadata key.
 

@@ -1,6 +1,15 @@
 ---
 name: requirement-quality-review
 description: Use this skill when a requirement, acceptance-criteria set, or change brief needs an evidence-bounded quality review before design or testing; triggers include requirement quality review, requirements quality gate, and requirement completeness review.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "en"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # Requirement Quality Review

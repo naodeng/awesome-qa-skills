@@ -1,6 +1,15 @@
 ---
 name: ui-test-strategy
 description: Use this skill when you need to define an evidence-bounded UI test strategy across journeys, states, platforms, and risks; triggers include UI 测试策略 and UI test strategy.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "en"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # UI Test Strategy

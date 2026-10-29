@@ -65,6 +65,15 @@ Frontmatter 最少包含：
 ---
 name: skill-name
 description: Use this skill when ...; triggers include 中文触发词 and English triggers.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "zh-CN"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 ```
 
@@ -72,6 +81,7 @@ description: Use this skill when ...; triggers include 中文触发词 and Engli
 
 - `name`：小写、数字、连字符；与目录名、`agents/openai.yaml` 的 `metadata.key` 一致。
 - `description`：第三人称祈使（`Use this skill when...`）；同时写清 **做什么** 与 **何时用**；包含触发词；宜短于 1024 字符。
+- `metadata.version` 使用 Skill 独立语义版本；`metadata.compatibility` 尚未声明时保留空字符串。`language` 和 `category` 与实际语言、目录对应；许可证、来源与版本演进规则见 [Skill Authoring Guide](skills/SKILL_AUTHORING.md)。
 - 正文保持精简，并包含：执行流程、核心约束、**按需加载**（写清何时读 `prompts/` / `references/` / `examples/` / `scripts/`）、交付前自检、常见误区。
 - `prompts/` 仍是完整执行规范；`SKILL.md` 不要做成只有「打开 prompts」的空壳。
 - 入口文件保持轻量、直接、可执行；深度规则、长示例、故障排查优先放到 `references/` 或 `examples/`。
@@ -118,6 +128,7 @@ policy:
 
 ```bash
 # 一键质量门禁（pre-commit 也会跑）
+python3 -m pip install -r requirements-dev.txt  # 新环境首次运行时安装校验依赖
 bash scripts/check_skills_quality.sh
 ```
 
@@ -149,7 +160,7 @@ Agent Skills 分发兼容性 gate（需要 Node.js / `npx`）：
 bash scripts/check_skills_cli_compatibility.sh
 ```
 
-该 gate 使用固定 `skills@1.7.0` 验证 repository-level discovery、代表性 Skill 和 English-first `functional-testing` 安装。CI 会通过 `SKILLS_CLI_PACKAGE` 指向当前 checkout；手动运行未设置时默认使用 `naodeng/awesome-qa-skills`，本地复现 CI 可执行 `SKILLS_CLI_PACKAGE="$PWD" bash scripts/check_skills_cli_compatibility.sh`。它不替代 `skill-up` 行为评测、业务验收或生产发布证据。完整契约见 [`docs/integrations/SKILLS_CLI_INTEGRATION.md`](docs/integrations/SKILLS_CLI_INTEGRATION.md)。
+该 gate 使用固定 `skills@1.7.0` 验证 repository-level discovery、代表性 Skill 和 English-first `functional-testing` 安装。YAML frontmatter 校验使用 `requirements-dev.txt` 中固定版本的 PyYAML；它是仓库校验工具的开发依赖，不是 Skill 的安装或运行依赖。CI 会通过 `SKILLS_CLI_PACKAGE` 指向当前 checkout；手动运行未设置时默认使用 `naodeng/awesome-qa-skills`，本地复现 CI 可执行 `SKILLS_CLI_PACKAGE="$PWD" bash scripts/check_skills_cli_compatibility.sh`。只有本地目录源会与该源的安装后 metadata 比对；远程默认源只验证发现和安装 smoke，不会与当前 checkout 的字段做错误对比。它不替代 `skill-up` 行为评测、业务验收或生产发布证据。完整契约见 [`docs/integrations/SKILLS_CLI_INTEGRATION.md`](docs/integrations/SKILLS_CLI_INTEGRATION.md)。
 
 启用 git hook（可选）：
 

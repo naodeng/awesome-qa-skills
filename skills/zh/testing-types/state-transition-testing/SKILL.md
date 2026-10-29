@@ -1,6 +1,15 @@
 ---
 name: state-transition-testing
 description: Use this skill when you need to derive test candidates for reachable, unreachable, and abnormal transitions from states, events, guards, and actions; triggers include 状态迁移测试设计 and state transition test design.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "zh-CN"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # 状态迁移测试设计

@@ -43,17 +43,20 @@ skills/en/testing-types/your-skill/
 ```yaml
 ---
 name: your-skill-name
-version: 1.0.0
-last-updated: 2024-02-06
-description: Brief description (one sentence)
-category: testing-types | testing-workflows
-level: beginner | intermediate | advanced
-tags: [tag1, tag2, tag3]
-dependencies: []
-recommended-with: [skill1, skill2]
-output-formats: [markdown, excel, csv, json]
+description: Use this skill when ...; triggers include English trigger phrases.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "en"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 ```
+
+Set `language` and `category` to match the package directories; see the [Skill Authoring Guide](skills/SKILL_AUTHORING_EN.md) for version, license, and compatibility rules.
 
 ##### 3.3 Commit Convention
 
@@ -96,7 +99,7 @@ Documentation contributions are equally important! You can:
 Before submitting, check:
 
 - [ ] Skill follows directory structure standards
-- [ ] SKILL.md metadata is complete
+- [ ] SKILL.md name, description, license, and version metadata are complete; description includes trigger phrases
 - [ ] Chinese and English versions are in sync (if applicable)
 - [ ] Prompts are clear and understandable
 - [ ] Documentation links are valid

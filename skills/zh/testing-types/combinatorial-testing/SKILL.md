@@ -1,6 +1,15 @@
 ---
 name: combinatorial-testing
 description: Use this skill when you need to select high-risk multi-factor combinations after factors, values, and constraints are explicit; triggers include 组合测试设计 and combinatorial test design.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "zh-CN"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # 组合测试设计

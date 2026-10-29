@@ -1,6 +1,15 @@
 ---
 name: ui-test-wait-strategy-review
 description: Use this skill when you need to review asynchronous UI waits, polling conditions, and timeout evidence; triggers include UI 测试等待策略评审 and UI test wait strategy review.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "zh-CN"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # UI 测试等待策略评审

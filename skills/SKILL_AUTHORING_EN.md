@@ -19,11 +19,26 @@ Minimum frontmatter:
 ---
 name: skill-name
 description: Use this skill when ...; triggers include 中文触发词 and English triggers.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "en"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 ```
 
 - `name` uses lowercase letters, digits, and hyphens and matches the directory and `agents/openai.yaml` key.
 - `description` uses `Use this skill when...`, states what and when, includes trigger phrases, and stays below 1024 characters.
+- `license` is the Skill's SPDX identifier; the repository default is `PolyForm-Noncommercial-1.0.0`. `metadata.license-url` links to its terms so a separately copied Skill can still find them. Preserve and verify separate license declarations for examples.
+- `metadata.version` is an independent semantic version, starting at `1.0.0` for new Skills. For existing Skills, `1.0.0` is the baseline when metadata was introduced, not a claim about their first historical release or the repository release version.
+- When releasing a Skill change, increment the major version for incompatible contract changes, minor for backward-compatible enhancements, and patch for backward-compatible fixes. Chinese and English are independent packages: version each according to its actual changes and check whether the counterpart needs an update.
+- `metadata.compatibility` is a string; use `""` when no compatibility information has been declared. It is custom metadata and does not prove compatibility testing. For specific environment requirements, use the Agent Skills specification's separate top-level `compatibility` field.
+- `metadata.author` credits the project contributors collectively; `source` points to the source repository; `language` matches the language directory (`zh-CN` or `en`); and `category` matches the physical category directory. These are repository-specific string metadata and clients may ignore them.
+- Add top-level `compatibility` only for actual environment requirements. Do not add dates or pre-approved tool permissions merely to fill fields; `allowed-tools` is experimental and should be used only when explicitly needed and applicable.
 - Write for user intent rather than internal implementation.
 - Test neighboring negative intents so descriptions do not over-trigger.
 

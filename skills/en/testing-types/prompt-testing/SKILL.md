@@ -1,6 +1,15 @@
 ---
 name: prompt-testing
 description: Use this skill when you need to test prompt behavior, regression risk, and output boundaries across versions; triggers include prompt testing and prompt-regression.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "en"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # Prompt Testing

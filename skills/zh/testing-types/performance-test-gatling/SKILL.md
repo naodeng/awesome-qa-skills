@@ -1,6 +1,15 @@
 ---
 name: performance-test-gatling
 description: Use this skill when you need Gatling performance scope, simulations, or runnable entry points; triggers include Gatling、Gatling 性能测试 and Gatling simulation.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "zh-CN"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # 性能测试（Gatling）（中文版）

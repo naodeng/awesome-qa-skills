@@ -1,6 +1,15 @@
 ---
 name: change-impact-analysis
 description: Use this skill when you need to analyze how a code, configuration, or requirement change affects quality scope; triggers include change impact analysis.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "en"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # Change Impact Analysis

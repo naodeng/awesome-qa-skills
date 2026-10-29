@@ -1,6 +1,15 @@
 ---
 name: performance-test-k6
 description: Use this skill when you need k6 load/stress/spike/soak scope, scripts, or runnable entry points; triggers include k6、k6 性能测试 and k6 performance testing.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "zh-CN"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # 性能测试（k6）（中文版）

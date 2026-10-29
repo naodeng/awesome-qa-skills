@@ -1,6 +1,15 @@
 ---
 name: api-rate-limit-testing
 description: Use this skill when you need to design evidence-bounded API quota, burst, and recovery scenarios; triggers include API 限流测试 and API rate limit testing.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "zh-CN"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # API 限流测试

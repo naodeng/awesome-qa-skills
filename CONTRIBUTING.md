@@ -43,17 +43,20 @@ skills/zh/testing-types/your-skill/
 ```yaml
 ---
 name: your-skill-name
-version: 1.0.0
-last-updated: 2024-02-06
-description: 简短描述（一句话）
-category: testing-types | testing-workflows
-level: beginner | intermediate | advanced
-tags: [tag1, tag2, tag3]
-dependencies: []
-recommended-with: [skill1, skill2]
-output-formats: [markdown, excel, csv, json]
+description: Use this skill when ...; triggers include 中文触发词 and English triggers.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "zh-CN"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 ```
+
+按实际语言和分类目录填写 `language`、`category`；版本、许可与兼容字段的维护规则见 [Skill Authoring Guide](skills/SKILL_AUTHORING.md)。
 
 ##### 3.3 提交规范
 
@@ -96,7 +99,7 @@ Closes #123
 提交前请检查：
 
 - [ ] Skill 符合目录结构规范（见 [skills/DIRECTORY_GUIDE.md](skills/DIRECTORY_GUIDE.md)、[skills/SKILL_AUTHORING.md](skills/SKILL_AUTHORING.md)）
-- [ ] `SKILL.md` 的 `name` / `description`（含 `Use this skill when...` 与触发词）完整
+- [ ] `SKILL.md` 的名称、描述、许可证与版本等元数据完整，`description` 包含触发词
 - [ ] 中英文版本同步（目录名一致；除非明确只要单语）
 - [ ] 提示词清晰易懂；无真实 token/密钥
 - [ ] 文档链接有效；不跨 skill 硬链内部文件

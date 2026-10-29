@@ -1,6 +1,15 @@
 ---
 name: skill-prose-trim
 description: Use this skill when auditing or trimming process residue from Skill、Prompt、注释或文档；触发词包括过程性文案清理、审查残留、当前状态改写。
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "zh-CN"
+  category: "skill-engineering"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # 过程性文案清理

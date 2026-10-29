@@ -1,6 +1,15 @@
 ---
 name: test-case-reviewer-plus
 description: Use this skill when you need structured test-case review findings from requirements, strategy, and case docs; triggers include 用例评审增强、test case reviewer plus and advanced test case review.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "zh-CN"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # 测试用例评审增强版（中文版）

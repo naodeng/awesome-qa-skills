@@ -62,6 +62,7 @@ npx --yes skills@1.7.0 remove functional-testing -g -y
 Run before submitting:
 
 ```bash
+python3 -m pip install -r requirements-dev.txt
 bash scripts/check_skills_cli_compatibility.sh
 ```
 
@@ -72,7 +73,7 @@ This entry point performs a small, stable set of checks:
 - Repository-level `--list` discovery with fixed `skills@1.7.0`.
 - English-first `functional-testing` global Codex smoke, including the installed `SKILL.md`, canonical name, and English heading.
 
-CI runs one `skills-cli-compatibility` job in the existing `project-quality.yml` and sets `SKILLS_CLI_PACKAGE` to the current checkout, so a PR validates its changes instead of a fixed remote default branch. When run manually without that variable, the script defaults to `naodeng/awesome-qa-skills`; reproduce the CI source locally with `SKILLS_CLI_PACKAGE="$PWD" bash scripts/check_skills_cli_compatibility.sh`. It does not run a latest Canary and does not use total Skill count as a contract. The gate does not claim full real installation coverage, model replay, browser runtime coverage, business acceptance, or release evidence.
+Static YAML frontmatter validation uses the pinned PyYAML version in `requirements-dev.txt`. It is only a repository validation dependency, not a Skill installation or runtime dependency. CI runs one `skills-cli-compatibility` job in the existing `project-quality.yml` and sets `SKILLS_CLI_PACKAGE` to the current checkout, so a PR validates its changes instead of a fixed remote default branch. When run manually without that variable, the script defaults to `naodeng/awesome-qa-skills`; reproduce the CI source locally with `SKILLS_CLI_PACKAGE="$PWD" bash scripts/check_skills_cli_compatibility.sh`. For a local directory source, the gate compares installed `functional-testing` metadata with that same source. A remote source has no local authoritative copy for this comparison, so the gate runs discovery and installation smoke only. It does not run a latest Canary and does not use total Skill count as a contract. The gate does not claim full real installation coverage, model replay, browser runtime coverage, business acceptance, or release evidence.
 
 ## Tested and Ecosystem compatible
 

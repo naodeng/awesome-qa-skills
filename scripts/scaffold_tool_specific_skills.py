@@ -3,10 +3,16 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from pathlib import Path
+import re
 
 
 ROOT = Path(__file__).resolve().parents[1]
 SKILLS_ROOT = ROOT / "skills"
+LICENSE_URLS = {
+    "MIT": "https://spdx.org/licenses/MIT.html",
+    "PolyForm-Noncommercial-1.0.0": "https://polyformproject.org/licenses/noncommercial/1.0.0",
+}
+TOP_LEVEL_KEY_RE = re.compile(r"^([A-Za-z0-9_-]+):(?:[ \t].*)?$")
 
 
 @dataclass(frozen=True)
@@ -198,11 +204,69 @@ def strip_period(text: str) -> str:
     return text[:-1] if text.endswith(".") else text
 
 
-def skill_md(spec: SkillSpec, lang: str) -> str:
+def frontmatter_field_blocks(header: str) -> list[tuple[str, str]]:
+    """Return raw top-level field blocks, including blank lines in nested values."""
+
+    lines = header.splitlines()
+    fields: list[tuple[str, str]] = []
+    index = 0
+    while index < len(lines):
+        match = TOP_LEVEL_KEY_RE.match(lines[index])
+        if not match:
+            index += 1
+            continue
+        key = match.group(1)
+        start = index
+        index += 1
+        while index < len(lines):
+            line = lines[index]
+            if line.strip() and not line[0].isspace() and TOP_LEVEL_KEY_RE.match(line):
+                break
+            index += 1
+        fields.append((key, "\n".join(lines[start:index]).rstrip()))
+    return fields
+
+
+def default_license_url(license_field: str) -> str:
+    lines = license_field.splitlines()
+    match = re.fullmatch(r"license:[ \t]*(.*?)[ \t]*", lines[0]) if lines else None
+    if not match:
+        raise ValueError("Cannot infer metadata.license-url from the existing license field")
+    raw_value = match.group(1).strip()
+    if raw_value.startswith(("|", ">")):
+        block_values = [line.strip() for line in lines[1:] if line.strip() and not line.lstrip().startswith("#")]
+        raw_value = (" " if raw_value.startswith(">") else "\n").join(block_values)
+    else:
+        raw_value = raw_value.split(" #", 1)[0].strip()
+    license_id = raw_value.strip().strip("\"'")
+    if license_id not in LICENSE_URLS:
+        raise ValueError(f"Add a metadata.license-url mapping for license {license_id!r} before scaffolding")
+    return LICENSE_URLS[license_id]
+
+
+def skill_md(
+    spec: SkillSpec,
+    lang: str,
+    metadata: str | None = None,
+    license_field: str = "license: PolyForm-Noncommercial-1.0.0",
+    extra_frontmatter: str = "",
+) -> str:
+    if metadata is None:
+        language = "zh-CN" if lang == "zh" else "en"
+        license_url = default_license_url(license_field)
+        metadata = (
+            'metadata:\n  version: "1.0.0"\n  compatibility: ""\n'
+            '  author: "Awesome QA Skills contributors"\n'
+            f'  language: "{language}"\n  category: "testing-types"\n'
+            '  source: "https://github.com/naodeng/awesome-qa-skills"\n'
+            f'  license-url: "{license_url}"'
+        )
+    frontmatter = "\n".join(field for field in (license_field, extra_frontmatter, metadata) if field)
     if lang == "en":
         return f"""---
 name: {spec.skill_id}
 description: Use this skill when you need to {strip_period(lower_first(spec.short_en))}; triggers include {spec.workflow_en}, {spec.category_en}, and {spec.skill_id}.
+{frontmatter}
 ---
 
 # {spec.display_en} (EN)
@@ -247,6 +311,7 @@ Markdown by default unless the request explicitly asks for another format.
     return f"""---
 name: {spec.skill_id}
 description: Use this skill when you need to {strip_period(lower_first(spec.short_en))}; triggers include {spec.workflow_en}, {spec.category_en}, and {spec.skill_id}.
+{frontmatter}
 ---
 
 # {spec.display_zh}
@@ -874,8 +939,25 @@ def main() -> int:
     for spec in SKILLS:
         for lang in ("zh", "en"):
             base = SKILLS_ROOT / lang / "testing-types" / spec.skill_id
+            skill_path = base / "SKILL.md"
+            metadata = None
+            license_field = "license: PolyForm-Noncommercial-1.0.0"
+            extra_frontmatter = ""
+            if skill_path.exists():
+                text = skill_path.read_text(encoding="utf-8")
+                header_end = text.find("\n---", 3)
+                header = text[3:header_end] if text.startswith("---") and header_end >= 0 else ""
+                preserved_fields = []
+                for key, block in frontmatter_field_blocks(header):
+                    if key == "metadata":
+                        metadata = block
+                    elif key == "license":
+                        license_field = block
+                    elif key not in {"name", "description"}:
+                        preserved_fields.append(block)
+                extra_frontmatter = "\n".join(preserved_fields)
             write(base / "README.md", readme_md(spec, lang))
-            write(base / "SKILL.md", skill_md(spec, lang))
+            write(skill_path, skill_md(spec, lang, metadata, license_field, extra_frontmatter))
             write(base / "agents" / "openai.yaml", agent_yaml(spec, lang))
             write(base / "examples" / "sample-context.md", sample_context(spec, lang))
             write(base / "output-templates" / "template-markdown.md", output_template(lang))

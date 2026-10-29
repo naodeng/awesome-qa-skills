@@ -1,6 +1,15 @@
 ---
 name: requirement-consistency-analysis
 description: Use this skill when multiple requirement artifacts may disagree on terminology, identifiers, formats, states, rules, or behavior; triggers include 需求一致性分析, requirement consistency, and cross-document consistency.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "zh-CN"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # 需求一致性分析

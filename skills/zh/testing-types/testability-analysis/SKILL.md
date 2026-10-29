@@ -1,6 +1,15 @@
 ---
 name: testability-analysis
 description: Use this skill when you need to assess whether a requirement or design can be efficiently and reliably tested; triggers include 可测试性分析 and testability analysis.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "zh-CN"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # 可测试性分析（中文版）

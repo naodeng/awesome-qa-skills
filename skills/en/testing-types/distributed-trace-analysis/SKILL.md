@@ -1,6 +1,15 @@
 ---
 name: distributed-trace-analysis
 description: Use this skill when you need to analyze distributed traces for call paths, latency, errors, and evidence gaps; triggers include distributed trace analysis.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "en"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # Distributed Trace Analysis

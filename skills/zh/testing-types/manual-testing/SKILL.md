@@ -1,6 +1,15 @@
 ---
 name: manual-testing
 description: Use this skill when you need to plan manual or exploratory testing with charters, heuristics, and session records; triggers include 手动测试 and exploratory testing.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "zh-CN"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # 手动/探索性测试（中文版）

@@ -1,6 +1,15 @@
 ---
 name: pr-test-impact-analysis
 description: Use this skill when you need to determine test impact from a pull request or code diff; triggers include PR 测试影响分析 and PR test impact analysis.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "zh-CN"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # PR 测试影响分析（中文版）

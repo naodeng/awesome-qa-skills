@@ -62,6 +62,7 @@ npx --yes skills@1.7.0 remove functional-testing -g -y
 提交前运行：
 
 ```bash
+python3 -m pip install -r requirements-dev.txt
 bash scripts/check_skills_cli_compatibility.sh
 ```
 
@@ -72,7 +73,7 @@ bash scripts/check_skills_cli_compatibility.sh
 - 固定 `skills@1.7.0` 的 repository-level `--list` discovery。
 - English-first 的 `functional-testing` 全局 Codex smoke，并验证安装后的 `SKILL.md`、canonical name 和 English 标题。
 
-CI 在现有 `project-quality.yml` 中使用一个 `skills-cli-compatibility` job，并将 `SKILLS_CLI_PACKAGE` 指向当前 checkout，确保 PR 验证的是本次变更而不是固定远程默认分支。手动运行未设置该变量时，默认使用 `naodeng/awesome-qa-skills`；要对本地 checkout 复现 CI，可运行 `SKILLS_CLI_PACKAGE="$PWD" bash scripts/check_skills_cli_compatibility.sh`。不会运行 latest Canary，也不把 Skill 总数作为契约。该 gate 不声称完成全量真实安装、模型 replay、浏览器运行时、业务验收或发布证据。
+YAML frontmatter 静态校验使用 `requirements-dev.txt` 中固定版本的 PyYAML。它只供仓库校验脚本使用，不是 Skill 安装或运行依赖。CI 在现有 `project-quality.yml` 中使用一个 `skills-cli-compatibility` job，并将 `SKILLS_CLI_PACKAGE` 指向当前 checkout，确保 PR 验证的是本次变更而不是固定远程默认分支。手动运行未设置该变量时，默认使用 `naodeng/awesome-qa-skills`；要对本地 checkout 复现 CI，可运行 `SKILLS_CLI_PACKAGE="$PWD" bash scripts/check_skills_cli_compatibility.sh`。对于本地目录源，gate 会将安装后的 `functional-testing` metadata 与该目录中的同一 Skill 比对；远程源没有本地权威副本可供比对，因此只执行发现与安装 smoke。不会运行 latest Canary，也不把 Skill 总数作为契约。该 gate 不声称完成全量真实安装、模型 replay、浏览器运行时、业务验收或发布证据。
 
 ## Tested 与 Ecosystem compatible
 

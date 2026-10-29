@@ -1,6 +1,15 @@
 ---
 name: capacity-planning-analysis
 description: Use this skill when you need to assess capacity demand, headroom, constraints, and planning assumptions; triggers include capacity planning analysis.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "en"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # Capacity Planning Analysis

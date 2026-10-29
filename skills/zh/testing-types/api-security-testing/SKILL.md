@@ -1,6 +1,15 @@
 ---
 name: api-security-testing
 description: Use this skill when you need evidence-bounded api-security-testing analysis and validation preparation; triggers include API 安全测试 and api-security-testing.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "zh-CN"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # API 安全测试（中文版）

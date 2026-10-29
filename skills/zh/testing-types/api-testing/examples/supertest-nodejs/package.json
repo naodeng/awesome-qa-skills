@@ -15,7 +15,7 @@
     "jest"
   ],
   "author": "Awesome QA Skills",
-  "license": "MIT",
+  "license": "PolyForm-Noncommercial-1.0.0",
   "devDependencies": {
     "@types/jest": "^29.5.11",
     "@types/supertest": "^6.0.2",

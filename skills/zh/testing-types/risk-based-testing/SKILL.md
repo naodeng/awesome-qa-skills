@@ -1,6 +1,15 @@
 ---
 name: risk-based-testing
 description: Use this skill when you need to turn quality risks into prioritized test objectives, depth, methods, and scope tradeoffs; triggers include 基于风险的测试 and risk-based testing.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "zh-CN"
+  category: "testing-types"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # 基于风险的测试

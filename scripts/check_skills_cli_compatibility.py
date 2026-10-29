@@ -1,25 +1,88 @@
 #!/usr/bin/env python3
 """Validate the small, stable Skills CLI distribution contract.
 
-This checker intentionally stays independent of the Skills CLI and third-party
-YAML packages. It validates the repository shape before the shell wrapper runs
-the pinned CLI discovery and installation smoke.
+This checker validates the repository shape and Skill frontmatter before the
+shell wrapper runs the pinned CLI discovery and installation smoke. Its YAML
+parser is a pinned development dependency; it is not a Skill runtime dependency.
 """
 from __future__ import annotations
 
 import argparse
-import ast
+import copy
 import json
 import re
 from collections import defaultdict
 from dataclasses import asdict, dataclass
 from pathlib import Path
 
+try:
+    import yaml
+    from yaml.constructor import ConstructorError
+    from yaml.nodes import MappingNode
+except ModuleNotFoundError as exc:
+    raise SystemExit(
+        "PyYAML is required for Skill frontmatter validation. "
+        "Install development dependencies with `python3 -m pip install -r requirements-dev.txt`."
+    ) from exc
+
 
 SECTIONS = ("testing-types", "testing-workflows", "skill-engineering")
 LANGUAGES = ("en", "zh")
 CANONICAL_NAME_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
-FRONTMATTER_KEY_RE = re.compile(r"^([A-Za-z0-9_-]+):(?:\s*(.*))?$")
+SEMVER_RE = re.compile(
+    r"^(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)"
+    r"(?:-(?:0|[1-9]\d*|\d*[A-Za-z-][0-9A-Za-z-]*)"
+    r"(?:\.(?:0|[1-9]\d*|\d*[A-Za-z-][0-9A-Za-z-]*))*)?"
+    r"(?:\+[0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*)?$"
+)
+
+
+class SkillFrontmatterLoader(yaml.SafeLoader):
+    """Safe YAML 1.2-style loader that rejects duplicate mapping keys."""
+
+
+SkillFrontmatterLoader.yaml_implicit_resolvers = copy.deepcopy(yaml.SafeLoader.yaml_implicit_resolvers)
+for first_character, resolvers in tuple(SkillFrontmatterLoader.yaml_implicit_resolvers.items()):
+    SkillFrontmatterLoader.yaml_implicit_resolvers[first_character] = [
+        (tag, pattern)
+        for tag, pattern in resolvers
+        if tag not in {"tag:yaml.org,2002:bool", "tag:yaml.org,2002:timestamp"}
+    ]
+SkillFrontmatterLoader.add_implicit_resolver(
+    "tag:yaml.org,2002:bool",
+    re.compile(r"^(?:true|True|TRUE|false|False|FALSE)$"),
+    list("tTfF"),
+)
+
+
+def _construct_unique_mapping(loader: SkillFrontmatterLoader, node: MappingNode, deep: bool = False):
+    seen: set[str] = set()
+    for key_node, _ in node.value:
+        if key_node.tag == "tag:yaml.org,2002:merge":
+            continue
+        key = loader.construct_object(key_node, deep=deep)
+        if not isinstance(key, str):
+            raise ConstructorError(
+                "while constructing a frontmatter mapping",
+                node.start_mark,
+                "frontmatter mapping keys must be strings",
+                key_node.start_mark,
+            )
+        if key in seen:
+            raise ConstructorError(
+                "while constructing a frontmatter mapping",
+                node.start_mark,
+                f"duplicate frontmatter key {key!r}",
+                key_node.start_mark,
+            )
+        seen.add(key)
+    return yaml.SafeLoader.construct_mapping(loader, node, deep=deep)
+
+
+SkillFrontmatterLoader.add_constructor(
+    yaml.resolver.BaseResolver.DEFAULT_MAPPING_TAG,
+    _construct_unique_mapping,
+)
 REPRESENTATIVE_NAMES = (
     "requirements-analysis",
     "functional-testing",
@@ -69,47 +132,6 @@ def discover_skill_dirs(skills_root: Path) -> list[SkillRecord]:
     return records
 
 
-def _unquote_scalar(value: str) -> str:
-    value = value.strip()
-    if len(value) >= 2 and value[0] == value[-1] and value[0] in {"'", '"'}:
-        try:
-            parsed = ast.literal_eval(value) if value[0] == '"' else value[1:-1].replace("''", "'")
-            return str(parsed)
-        except (SyntaxError, ValueError):
-            return value[1:-1]
-    return value
-
-
-def _parse_block_scalar(lines: list[str], start: int, end: int, folded: bool) -> tuple[str, int]:
-    """Parse a small YAML block scalar without pulling in a YAML dependency."""
-
-    raw_lines: list[str] = []
-    index = start
-    while index < end:
-        line = lines[index]
-        if line.strip() and not line[0].isspace():
-            break
-        raw_lines.append(line)
-        index += 1
-
-    non_empty_indents = [len(line) - len(line.lstrip()) for line in raw_lines if line.strip()]
-    indent = min(non_empty_indents, default=0)
-    values = [line[indent:] if line.strip() else "" for line in raw_lines]
-    if not folded:
-        return "\n".join(values).rstrip("\n"), index
-
-    folded_lines: list[str] = []
-    for value in values:
-        if not value:
-            folded_lines.append("\n")
-        elif folded_lines and folded_lines[-1] != "\n":
-            folded_lines.append(" ")
-            folded_lines.append(value)
-        else:
-            folded_lines.append(value)
-    return "".join(folded_lines).rstrip("\n"), index
-
-
 def parse_frontmatter(skill_md: Path) -> tuple[dict[str, str], str | None]:
     """Return frontmatter metadata and a deterministic parse error, if present."""
 
@@ -122,23 +144,34 @@ def parse_frontmatter(skill_md: Path) -> tuple[dict[str, str], str | None]:
     except StopIteration:
         return {}, "frontmatter closing --- is missing"
 
+    try:
+        document = yaml.load("\n".join(lines[1:end]), Loader=SkillFrontmatterLoader)
+    except yaml.YAMLError as exc:
+        problem = getattr(exc, "problem", None) or str(exc).splitlines()[0]
+        mark = getattr(exc, "problem_mark", None)
+        location = f" at line {mark.line + 2}" if mark else ""
+        return {}, f"invalid YAML frontmatter{location}: {problem}"
+    if not isinstance(document, dict):
+        return {}, "frontmatter must be a YAML mapping"
+
     values: dict[str, str] = {}
-    index = 1
-    while index < end:
-        line = lines[index]
-        if not line.strip() or line.lstrip().startswith("#"):
-            index += 1
-            continue
-        match = FRONTMATTER_KEY_RE.match(line)
-        if not match:
-            return {}, f"invalid frontmatter line: {line.strip()}"
-        key, raw = match.groups()
-        raw = (raw or "").strip()
-        if raw.startswith(("|", ">")):
-            values[key], index = _parse_block_scalar(lines, index + 1, end, raw.startswith(">"))
-        else:
-            values[key] = _unquote_scalar(raw)
-            index += 1
+    for key in ("name", "description", "license", "compatibility"):
+        if key in document:
+            value = document[key]
+            if not isinstance(value, str):
+                return {}, f"frontmatter field {key!r} must be a string"
+            values[key] = value
+
+    if "metadata" in document:
+        metadata = document["metadata"]
+        if not isinstance(metadata, dict):
+            return {}, "frontmatter field 'metadata' must be a mapping"
+        for key, value in metadata.items():
+            if not isinstance(key, str):
+                return {}, "frontmatter metadata keys must be strings"
+            if not isinstance(value, str):
+                return {}, f"frontmatter field 'metadata.{key}' must be a string"
+            values[f"metadata.{key}"] = value
     return values, None
 
 
@@ -278,6 +311,28 @@ def scan(skills_root: Path) -> list[Finding]:
                     f"description is {len(description)} characters; maximum is 1024",
                 )
             )
+
+        if not metadata.get("license", "").strip():
+            findings.append(Finding("CONTRACT", "missing-license", skill_label, str(skill_md), "frontmatter license is missing"))
+
+        version = metadata.get("metadata.version", "")
+        if not SEMVER_RE.fullmatch(version):
+            findings.append(Finding("CONTRACT", "invalid-metadata-version", skill_label, str(skill_md), "metadata.version must be a semantic version such as 1.0.0"))
+
+        if "metadata.compatibility" not in metadata:
+            findings.append(Finding("CONTRACT", "invalid-metadata-compatibility", skill_label, str(skill_md), 'metadata.compatibility must be a string; use "" when unknown'))
+
+        for field in ("author", "source", "license-url"):
+            value = metadata.get(f"metadata.{field}", "").strip()
+            if not value:
+                findings.append(Finding("CONTRACT", f"missing-metadata-{field}", skill_label, str(skill_md), f"metadata.{field} is missing"))
+            elif field in {"source", "license-url"} and not re.fullmatch(r"https?://[^\s/]+\S*", value):
+                findings.append(Finding("CONTRACT", f"invalid-metadata-{field}", skill_label, str(skill_md), f"metadata.{field} must be an HTTP(S) URL"))
+
+        expected_language = "zh-CN" if record.language == "zh" else "en"
+        for field, expected in (("language", expected_language), ("category", record.section)):
+            if metadata.get(f"metadata.{field}") != expected:
+                findings.append(Finding("CONTRACT", f"invalid-metadata-{field}", skill_label, str(skill_md), f"metadata.{field} must match the package: {expected}"))
 
     return findings
 

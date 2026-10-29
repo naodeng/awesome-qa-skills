@@ -1,6 +1,15 @@
 ---
 name: technical-quality-perspective
 description: Use this skill when technical quality perspective is needed for requirements, strategy, code, test cases, or reports; triggers include 技术质量视角、技术评审、架构评审 and code review.
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "zh-CN"
+  category: "testing-workflows"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # 技术质量视角（中文版）

@@ -1,6 +1,15 @@
 ---
 name: skill-change-verification
 description: Use this skill when selecting and reporting verification for Skill changes; triggers include Skill 变更验证、质量门禁、evidence level。
+license: PolyForm-Noncommercial-1.0.0
+metadata:
+  version: "1.0.0"
+  compatibility: ""
+  author: "Awesome QA Skills contributors"
+  language: "zh-CN"
+  category: "skill-engineering"
+  source: "https://github.com/naodeng/awesome-qa-skills"
+  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"
 ---
 
 # Skill 变更验证
