@@ -135,6 +135,65 @@ class SkillsCliCompatibilityTests(unittest.TestCase):
                 self.assertNotEqual(result.returncode, 0, result.stdout)
                 self.assertIn("metadata", result.stdout)
 
+    def test_malformed_yaml_and_non_string_frontmatter_values_are_rejected(self) -> None:
+        self.write_representative_skills("en")
+        self.write_representative_skills("zh")
+        skill = self.root / "skills" / "en" / "testing-types" / "api-testing" / "SKILL.md"
+        valid_metadata = (
+            'metadata:\n  version: "1.0.0"\n  compatibility: ""\n'
+            '  language: "en"\n  category: "testing-types"\n  author: "QA"\n'
+            '  source: "https://example.com/repo"\n  license-url: "https://example.com/license"\n'
+        )
+        cases = (
+            ('license: MIT\n', valid_metadata.replace('compatibility: ""', 'compatibility: "unclosed')),
+            ('license: null\n', valid_metadata),
+            ('license: MIT\n', valid_metadata.replace('author: "QA"', 'author: null')),
+            ('license: MIT\n', valid_metadata + '  author: "duplicate"\n'),
+        )
+        for license_field, metadata in cases:
+            with self.subTest(license_field=license_field, metadata=metadata):
+                skill.write_text(
+                    '---\nname: api-testing\ndescription: Use this skill for API testing.\n'
+                    f'{license_field}{metadata}---\n',
+                    encoding="utf-8",
+                )
+                result = self.run_validator("--fail-on-findings")
+                self.assertNotEqual(result.returncode, 0, result.stdout)
+                self.assertIn("frontmatter", result.stdout.lower())
+
+    def test_flow_style_metadata_mapping_is_accepted(self) -> None:
+        self.write_representative_skills("en")
+        self.write_representative_skills("zh")
+        skill = self.root / "skills" / "en" / "testing-types" / "api-testing" / "SKILL.md"
+        skill.write_text(
+            '---\nname: api-testing\ndescription: Use this skill for API testing.\n'
+            'license: MIT\n'
+            'metadata: {version: "1.0.0", compatibility: "", language: en, '
+            'category: testing-types, author: QA, source: "https://example.com/repo", '
+            'license-url: "https://example.com/license"}\n---\n',
+            encoding="utf-8",
+        )
+
+        result = self.run_validator("--fail-on-findings")
+
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+
+    def test_yaml_12_plain_scalars_remain_strings(self) -> None:
+        self.write_representative_skills("en")
+        self.write_representative_skills("zh")
+        skill = self.root / "skills" / "en" / "testing-types" / "api-testing" / "SKILL.md"
+        for compatibility in ("on", "2026-10-29"):
+            with self.subTest(compatibility=compatibility):
+                skill.write_text(
+                    '---\nname: api-testing\ndescription: Use this skill for API testing.\n'
+                    'license: MIT\nmetadata: {version: "1.0.0", compatibility: '
+                    f'{compatibility}, language: en, category: testing-types, author: QA, '
+                    'source: "https://example.com/repo", license-url: "https://example.com/license"}\n---\n',
+                    encoding="utf-8",
+                )
+                result = self.run_validator("--fail-on-findings")
+                self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+
     def test_semver_prerelease_and_string_compatibility_are_accepted(self) -> None:
         self.write_representative_skills("en")
         self.write_representative_skills("zh")

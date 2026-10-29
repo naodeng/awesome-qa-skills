@@ -38,6 +38,13 @@ class SkillVersionGenerationTests(unittest.TestCase):
                 self.assertIn('  source: "https://github.com/naodeng/awesome-qa-skills"\n', output)
                 self.assertIn('  license-url: "https://polyformproject.org/licenses/noncommercial/1.0.0"\n', output)
 
+    def test_scaffolding_matches_generated_license_url_to_preserved_license(self):
+        output = scaffold.skill_md(scaffold.SKILLS[0], "en", license_field="license: >-\n  MIT")
+
+        self.assertIn('license: >-\n  MIT\n', output)
+        self.assertIn('license-url: "https://spdx.org/licenses/MIT.html"\n', output)
+        self.assertNotIn("polyformproject.org", output)
+
     def test_optimizer_does_not_confuse_nested_metadata_with_skill_identity(self):
         with TemporaryDirectory() as temporary:
             skill = Path(temporary) / "actual-skill"
@@ -74,6 +81,31 @@ class SkillVersionGenerationTests(unittest.TestCase):
                 self.assertIn('license: MIT\n', output)
                 self.assertIn('metadata:\n  version: "3.1.4"\n'
                               '  compatibility: "Known"\n  author: "QA"\n', output)
+
+    def test_scaffolding_preserves_metadata_across_blank_lines_and_top_level_fields(self):
+        with TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            spec = scaffold.SKILLS[0]
+            source = (
+                f'---\nname: {spec.skill_id}\ndescription: Existing.\n'
+                'license: >-\n  MIT\nmetadata:\n  author: "QA contributors"\n\n'
+                '  version: "4.2.0"\n  compatibility: "Known platform"\n'
+                '  language: "en"\n  category: "testing-types"\n'
+                '  source: "https://example.com/repo"\n'
+                '  license-url: "https://example.com/license"\n'
+                'compatibility: "Top-level compatibility"\n---\n\n# Existing\n'
+            )
+            for lang in ("zh", "en"):
+                path = root / lang / "testing-types" / spec.skill_id / "SKILL.md"
+                path.parent.mkdir(parents=True)
+                path.write_text(source, encoding="utf-8")
+            with patch.object(scaffold, "SKILLS_ROOT", root), patch.object(scaffold, "SKILLS", [spec]):
+                scaffold.main()
+            for lang in ("zh", "en"):
+                output = (root / lang / "testing-types" / spec.skill_id / "SKILL.md").read_text(encoding="utf-8")
+                self.assertIn('license: >-\n  MIT\n', output)
+                self.assertIn('  author: "QA contributors"\n\n  version: "4.2.0"\n', output)
+                self.assertIn('compatibility: "Top-level compatibility"\n', output)
 
 
 if __name__ == "__main__":

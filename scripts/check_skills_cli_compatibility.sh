@@ -5,6 +5,14 @@ SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd -- "${SCRIPT_DIR}/.." && pwd)"
 CLI_VERSION="1.7.0"
 CLI_PACKAGE="${SKILLS_CLI_PACKAGE:-naodeng/awesome-qa-skills}"
+SOURCE_SKILL=""
+if [[ -d "${CLI_PACKAGE}" ]]; then
+  CLI_PACKAGE_ROOT="$(cd -- "${CLI_PACKAGE}" && pwd)"
+  CANDIDATE_SKILL="${CLI_PACKAGE_ROOT}/skills/en/testing-types/functional-testing/SKILL.md"
+  if [[ -f "${CANDIDATE_SKILL}" ]]; then
+    SOURCE_SKILL="${CANDIDATE_SKILL}"
+  fi
+fi
 REPRESENTATIVE_SKILLS=(
   requirements-analysis
   functional-testing
@@ -57,7 +65,8 @@ INSTALLED_SKILL="${SMOKE_HOME}/.agents/skills/functional-testing/SKILL.md"
 test -f "${INSTALLED_SKILL}"
 grep -Fxq "name: functional-testing" "${INSTALLED_SKILL}"
 grep -Fxq "# Functional Testing (English)" "${INSTALLED_SKILL}"
-PYTHONPATH="${REPO_ROOT}${PYTHONPATH:+:${PYTHONPATH}}" python3 - "${REPO_ROOT}/skills/en/testing-types/functional-testing/SKILL.md" "${INSTALLED_SKILL}" <<'PY'
+if [[ -n "${SOURCE_SKILL}" ]]; then
+PYTHONPATH="${REPO_ROOT}${PYTHONPATH:+:${PYTHONPATH}}" python3 - "${SOURCE_SKILL}" "${INSTALLED_SKILL}" <<'PY'
 from pathlib import Path
 import sys
 from scripts.check_skills_cli_compatibility import parse_frontmatter
@@ -70,4 +79,7 @@ for key in ("license", "metadata.version", "metadata.compatibility", "metadata.a
     if key not in source or source.get(key) != installed.get(key):
         raise SystemExit(f"Installed Skill did not preserve {key}")
 PY
+else
+  echo "[skills-cli] Installed metadata comparison skipped for remote package source"
+fi
 echo "[skills-cli] English functional-testing smoke passed"

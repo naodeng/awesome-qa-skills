@@ -128,6 +128,7 @@ policy:
 
 ```bash
 # 一键质量门禁（pre-commit 也会跑）
+python3 -m pip install -r requirements-dev.txt  # 新环境首次运行时安装校验依赖
 bash scripts/check_skills_quality.sh
 ```
 
@@ -159,7 +160,7 @@ Agent Skills 分发兼容性 gate（需要 Node.js / `npx`）：
 bash scripts/check_skills_cli_compatibility.sh
 ```
 
-该 gate 使用固定 `skills@1.7.0` 验证 repository-level discovery、代表性 Skill 和 English-first `functional-testing` 安装。CI 会通过 `SKILLS_CLI_PACKAGE` 指向当前 checkout；手动运行未设置时默认使用 `naodeng/awesome-qa-skills`，本地复现 CI 可执行 `SKILLS_CLI_PACKAGE="$PWD" bash scripts/check_skills_cli_compatibility.sh`。它不替代 `skill-up` 行为评测、业务验收或生产发布证据。完整契约见 [`docs/integrations/SKILLS_CLI_INTEGRATION.md`](docs/integrations/SKILLS_CLI_INTEGRATION.md)。
+该 gate 使用固定 `skills@1.7.0` 验证 repository-level discovery、代表性 Skill 和 English-first `functional-testing` 安装。YAML frontmatter 校验使用 `requirements-dev.txt` 中固定版本的 PyYAML；它是仓库校验工具的开发依赖，不是 Skill 的安装或运行依赖。CI 会通过 `SKILLS_CLI_PACKAGE` 指向当前 checkout；手动运行未设置时默认使用 `naodeng/awesome-qa-skills`，本地复现 CI 可执行 `SKILLS_CLI_PACKAGE="$PWD" bash scripts/check_skills_cli_compatibility.sh`。只有本地目录源会与该源的安装后 metadata 比对；远程默认源只验证发现和安装 smoke，不会与当前 checkout 的字段做错误对比。它不替代 `skill-up` 行为评测、业务验收或生产发布证据。完整契约见 [`docs/integrations/SKILLS_CLI_INTEGRATION.md`](docs/integrations/SKILLS_CLI_INTEGRATION.md)。
 
 启用 git hook（可选）：
 
