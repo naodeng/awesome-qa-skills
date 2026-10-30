@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "tdd-quality-workflow"
+interface:
+  display_name: "TDD Quality Workflow"
+  short_description: "Document TDD phase and test effectiveness evidence"
+  default_prompt: "Use $tdd-quality-workflow to guide TDD and report evidence for each stage."
+policy:
+  allow_implicit_invocation: true

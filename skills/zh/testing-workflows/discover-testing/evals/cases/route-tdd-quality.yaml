@@ -1,0 +1,10 @@
+id: route-tdd-quality
+title: "Route TDD quality evidence to the workflow"
+input:
+  prompt: "使用 discover-testing 路由：团队要对订单新功能按 Red、Green、Refactor 开发，并分别报告执行证据和测试有效性。当前 Host 的安装状态未知。请只给一个主 Skill、至多一个辅助 Skill、依据和交接；不要执行测试。最后严格输出 `ROUTE | tdd-quality-workflow | UNKNOWN | NOT_EXECUTED`；UNKNOWN 表示无法核实当前 Host 是否安装，NOT_EXECUTED 表示你没有运行测试。"
+expect:
+  exit_code: 0
+judge:
+  type: script
+  script_path: evals/graders/route-tdd-quality.py
+  timeout_seconds: 30

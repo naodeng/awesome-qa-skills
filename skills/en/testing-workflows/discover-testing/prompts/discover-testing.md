@@ -14,11 +14,11 @@ Route the user request to the best-fit testing skill. This skill **only selects 
 
 ## Exact IDs and Host availability
 
-Read `references/skill-capability-inventory.json` to check exact canonical IDs. This 2026-10-12 snapshot catalogs 165 IDs; catalog existence does not prove installation or callability on the current Host. Missing installation evidence means availability=`UNKNOWN`; explicitly absent means `UNAVAILABLE`. Match explicit specialties (authentication vs authorization, retrieval vs answer quality, impact scope vs regression selection) before broad Composition routes. Keep one primary and at most one helper. For an unavailable target, state the gap and minimal installation/handoff action without claiming invocation.
+Read `references/skill-capability-inventory.json` to check exact canonical IDs. This 2026-10-29 working-tree snapshot catalogs 166 IDs; catalog existence does not prove installation or callability on the current Host. Missing installation evidence means availability=`UNKNOWN`; explicitly absent means `UNAVAILABLE`. Match explicit specialties (authentication vs authorization, retrieval vs answer quality, impact scope vs regression selection) before broad Composition routes. Keep one primary and at most one helper. For an unavailable target, state the gap and minimal installation/handoff action without claiming invocation.
 
 ## Composition routing source
 
-1. Read the same-directory `reference.md` first and check whether the request matches one of five structured routes: `new-feature-quality`, `api-delivery`, `change-regression`, `performance-decision`, or `ai-feature-validation`.
+1. For an explicit TDD phase and quality-evidence request, choose `tdd-quality-workflow` first; otherwise read the same-directory `reference.md` and check whether the request matches one of five structured routes: `new-feature-quality`, `api-delivery`, `change-regression`, `performance-decision`, or `ai-feature-validation`.
 2. When a route matches, keep its single primary and at most one optional Skill, then apply the phase, type, and toolchain rules below as a consistency check; use the existing rules when no route matches.
 3. When a Composition route matches, recommend only currently available Skills declared by that route; when no route matches, keep using the existing routing rules below. Roadmap or future capabilities that are not installed must not be written as callable Skills, and do not follow relative links into another Skill's internals.
 4. Routing produces selection and handoff guidance only. It does not execute the primary/optional Skill or turn a relation or Recipe into a mandatory order.
@@ -41,6 +41,7 @@ When a Composition route matches, its primary and optional Skills must be presen
 
 | Signal | Primary direction |
 | --- | --- |
+| Red / Green / Refactor and test quality evidence | `tdd-quality-workflow` |
 | Day-by-day cadence, standup, “what to test today” | `daily-testing-workflow` |
 | Sprint/iteration planning through review | `sprint-testing-workflow` |
 | Release window, T-N, Go/No-Go, release candidate | `release-testing-workflow` |

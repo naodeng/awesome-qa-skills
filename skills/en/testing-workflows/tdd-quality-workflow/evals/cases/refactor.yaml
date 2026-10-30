@@ -1,0 +1,10 @@
+id: refactor
+title: "refactor evidence boundary"
+input:
+  prompt: "Use $tdd-quality-workflow to assess this exercise; read-only shell commands may be used to read Skill files, but do not execute tests or modify the project. Assume this simulated CI record is authentic and verified; it was not run by you. RED did not run. GREEN artifact: 2026-01-01 10:05, source snapshot 2222222222222222222222222222222222222222, pytest -q test_discount.py::test_discount, exit 0, 1 passed. Code was later refactored, but the target test, regression, and mutation testing definitely were not rerun.\nFinish with an evaluation table containing exactly one row per phase in the format `phase | status | evidence`; phase names must be RED, GREEN, REFACTOR, MUTATION. Use VERIFIED_RED, VERIFIED_GREEN, VERIFIED_REFACTOR, INCONCLUSIVE or NOT_EXECUTED for the matching TDD phases, and EXECUTED, INCONCLUSIVE or NOT_EXECUTED for MUTATION. The GREEN evidence cell must cite its source snapshot, target command, exit code, and test count. Each evidence cell must be nonempty."
+expect:
+  exit_code: 0
+judge:
+  type: script
+  script_path: evals/graders/refactor.py
+  timeout_seconds: 30

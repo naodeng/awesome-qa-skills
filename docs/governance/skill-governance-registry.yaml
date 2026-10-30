@@ -2,6 +2,43 @@
   "format": "json-compatible-yaml",
   "skills": [
     {
+      "slug": "tdd-quality-workflow",
+      "section": "testing-workflows",
+      "zh_path": "skills/zh/testing-workflows/tdd-quality-workflow",
+      "en_path": "skills/en/testing-workflows/tdd-quality-workflow",
+      "virtual_domain": "D03",
+      "status": "Experimental",
+      "priority": "UNASSESSED: no roadmap priority is assigned",
+      "related": "UNASSESSED: no cross-Skill semantic relation is asserted without a dedicated review record",
+      "governance_evidence": "skills/zh/testing-workflows/tdd-quality-workflow/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No reviewable nine-dimension Quality Score evidence is recorded."
+      },
+      "eval_execution": {
+        "state": "UNASSESSED",
+        "reason": "No archived, reviewed Skill-up execution evidence is recorded in this registry."
+      },
+      "sdlc_stage": "Development and verification",
+      "roles": [
+        "developer",
+        "QA"
+      ],
+      "inputs": "Behavior and acceptance criteria; project conventions; source snapshots; authorization and run evidence.",
+      "outputs": "Phase evidence and statuses; test effectiveness; optional gate results; exceptions and residual risks.",
+      "workflow": "Self workflow: tdd-quality-workflow",
+      "evidence_paths": [
+        "skills/zh/testing-workflows/tdd-quality-workflow/SKILL.md",
+        "skills/en/testing-workflows/tdd-quality-workflow/SKILL.md",
+        "skills/zh/testing-workflows/tdd-quality-workflow/prompts/tdd-quality-workflow.md",
+        "skills/en/testing-workflows/tdd-quality-workflow/prompts/tdd-quality-workflow.md",
+        "skills/zh/testing-workflows/tdd-quality-workflow/evals/eval.yaml",
+        "skills/en/testing-workflows/tdd-quality-workflow/evals/eval.yaml",
+        "skills/zh/testing-workflows/tdd-quality-workflow/agents/openai.yaml",
+        "skills/en/testing-workflows/tdd-quality-workflow/agents/openai.yaml"
+      ]
+    },
+    {
       "slug": "daily-testing-workflow",
       "section": "testing-workflows",
       "zh_path": "skills/zh/testing-workflows/daily-testing-workflow",

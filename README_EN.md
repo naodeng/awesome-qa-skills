@@ -9,8 +9,8 @@ Skills provide task guidance, test design, and reusable workflows; actual automa
 ![Awesome QA Skills social preview](social-preview.jpg)
 
 [![License: PolyForm Noncommercial 1.0.0](https://img.shields.io/badge/License-PolyForm%20Noncommercial%201.0.0-blue.svg)](./LICENSE)
-[![Skills](https://img.shields.io/badge/skills-330%20(zh%2Ben)-0A7EA4)](./docs/catalog/skills-index_EN.md)
-[![Workflows](https://img.shields.io/badge/workflows-10-informational)](./skills/en/testing-workflows/)
+[![Skills](https://img.shields.io/badge/skills-332%20(zh%2Ben)-0A7EA4)](./docs/catalog/skills-index_EN.md)
+[![Workflows](https://img.shields.io/badge/workflows-11-informational)](./skills/en/testing-workflows/)
 [![Testing types](https://img.shields.io/badge/testing%20types-150-informational)](./skills/en/testing-types/)
 [![Skill engineering](https://img.shields.io/badge/skill%20engineering-5-informational)](./skills/en/skill-engineering/)
 [![skills.sh](https://skills.sh/b/naodeng/awesome-qa-skills)](https://skills.sh/naodeng/awesome-qa-skills)
@@ -23,11 +23,11 @@ Skills provide task guidance, test design, and reusable workflows; actual automa
 
 ## What's included
 
-Each language has **165 Skills**, for **330 Skill directories** across Chinese and English:
+Each language has **166 Skills**, for **332 Skill directories** across Chinese and English:
 
 | Category | Count | Coverage |
 | --- | ---: | --- |
-| Testing workflows | 10 per language | Routing, daily and iteration testing, release workflows, and quality perspectives |
+| Testing workflows | 11 per language | Routing, daily and iteration testing, release workflows, and quality perspectives |
 | Testing types | 150 per language | Requirements and strategy, test cases, functional/API/UI, regression, performance, security, production quality, and AI/LLM/agent testing |
 | Skill Engineering | 5 per language | Skill review, evaluation, change verification, and prose review |
 
@@ -46,6 +46,7 @@ Skill names are shared canonical names across Chinese and English. Browse the [c
 | Design performance tests or use k6 | [Performance testing](skills/en/testing-types/performance-testing/) · [k6 performance testing](skills/en/testing-types/performance-test-k6/) |
 | Review security risks or prompt injection | [Security testing](skills/en/testing-types/security-testing/) · [Prompt injection testing](skills/en/testing-types/prompt-injection-testing/) |
 | Evaluate LLMs or AI agents | [LLM testing](skills/en/testing-types/llm-testing/) · [AI agent testing](skills/en/testing-types/ai-agent-testing/) |
+| Develop with TDD and record test evidence | [TDD quality workflow](skills/en/testing-workflows/tdd-quality-workflow/) |
 | Prepare a release or verify production | [Release testing workflow](skills/en/testing-workflows/release-testing-workflow/) · [Production verification](skills/en/testing-types/production-verification/) |
 
 Not sure where to start? Use [discover-testing](skills/en/testing-workflows/discover-testing/).
@@ -112,7 +113,7 @@ Core QA Skills → Engineering QA Skills → Production Quality Skills → AI Na
 
 ## Complete Skill catalog
 
-Each language provides **165** Skills: 10 workflows, 150 testing types, and 5 Skill Engineering packages; **330** bilingual directories in total. Physical directories remain stable; the catalog below is logical navigation only.
+Each language provides **166** Skills: 11 workflows, 150 testing types, and 5 Skill Engineering packages; **332** bilingual directories in total. Physical directories remain stable; the catalog below is logical navigation only.
 
 ### Cross-phase workflows
 
@@ -134,6 +135,7 @@ Workflows orchestrate lifecycle phases and do not form a fifth capability stage.
 | --- | --- | --- |
 | Daily Testing Workflow | [`daily-testing-workflow`](skills/en/testing-workflows/daily-testing-workflow/) | Use this skill when you need a day-by-day QA routine including planning, execution, bug reporting, and end-of-day wrap-up; triggers include daily testing workf… |
 | Sprint Testing Workflow | [`sprint-testing-workflow`](skills/en/testing-workflows/sprint-testing-workflow/) | Use this skill when you need a sprint-based QA workflow from planning through review and retrospective; triggers include sprint testing workflow and sprint QA… |
+| TDD Quality Workflow | [`tdd-quality-workflow`](skills/en/testing-workflows/tdd-quality-workflow/) | Guide Red, Green, and Refactor with inspectable test and quality evidence. |
 | Project Delivery Perspective | [`project-delivery-perspective`](skills/en/testing-workflows/project-delivery-perspective/) | Capture attributable delivery constraints and actions for supported strategy and report-review stages without changing quality facts. |
 
 #### Release
@@ -502,7 +504,7 @@ Suggested pilots: `functional-testing`, `api-testing`, `api-test-bruno`, `bug-re
 | [Skills CLI integration guide](docs/integrations/SKILLS_CLI_INTEGRATION_EN.md) | CLI distribution contract, compatibility checks, and installation boundaries |
 | [QA_SKILLS_EVOLUTION_ROADMAP_EN.md](docs/governance/QA_SKILLS_EVOLUTION_ROADMAP_EN.md) | Four-stage capability evolution and R&D/testing lifecycle map |
 | [DOCUMENTATION_POLICY_EN.md](docs/governance/DOCUMENTATION_POLICY_EN.md) | Chinese-first bilingual documentation policy |
-| [SKILL_GOVERNANCE_V1_EN.md](docs/governance/SKILL_GOVERNANCE_V1_EN.md) | v1.0 source-governance baseline and current 165-pair static-record entry point (earlier baseline: 79 pairs; not runtime quality) |
+| [SKILL_GOVERNANCE_V1_EN.md](docs/governance/SKILL_GOVERNANCE_V1_EN.md) | v1.0 source-governance baseline and current 166-pair static-record entry point (earlier baseline: 79 pairs; not runtime quality) |
 | [PHASE_0_V1_4_CLOSEOUT_EN.md](docs/governance/PHASE_0_V1_4_CLOSEOUT_EN.md) | Evidence closeout and version boundaries for all 35 v1.4 Project cards (not release approval) |
 | [BILINGUAL_CONSISTENCY_CONTRACT_EN.md](docs/governance/BILINGUAL_CONSISTENCY_CONTRACT_EN.md) | Contract for Chinese/English paths, entry points, Catalog, and links |
 | [QUALITY_SCORE_EVAL_CONTRACT_EN.md](docs/governance/QUALITY_SCORE_EVAL_CONTRACT_EN.md) | Nine-dimension scoring and minimum Eval artifact standard |

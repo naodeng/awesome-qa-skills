@@ -21,6 +21,7 @@ cases:
     - evals/cases/edge-narrow-recommendation.yaml
     - evals/cases/capability-stage-routing.yaml
     - evals/cases/route-one-page-test-strategy.yaml
+    - evals/cases/route-tdd-quality.yaml
     - evals/cases/route-new-feature-quality.yaml
     - evals/cases/route-api-delivery.yaml
     - evals/cases/route-change-regression.yaml

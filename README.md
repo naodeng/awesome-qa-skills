@@ -9,8 +9,8 @@
 ![Awesome QA Skills 社交媒体预览图](social-preview.jpg)
 
 [![License: PolyForm Noncommercial 1.0.0](https://img.shields.io/badge/License-PolyForm%20Noncommercial%201.0.0-blue.svg)](./LICENSE)
-[![Skills](https://img.shields.io/badge/skills-330%20(zh%2Ben)-0A7EA4)](./docs/catalog/skills-index.md)
-[![Workflows](https://img.shields.io/badge/workflows-10-informational)](./skills/zh/testing-workflows/)
+[![Skills](https://img.shields.io/badge/skills-332%20(zh%2Ben)-0A7EA4)](./docs/catalog/skills-index.md)
+[![Workflows](https://img.shields.io/badge/workflows-11-informational)](./skills/zh/testing-workflows/)
 [![Testing types](https://img.shields.io/badge/testing%20types-150-informational)](./skills/zh/testing-types/)
 [![Skill engineering](https://img.shields.io/badge/skill%20engineering-5-informational)](./skills/zh/skill-engineering/)
 [![skills.sh](https://skills.sh/b/naodeng/awesome-qa-skills)](https://skills.sh/naodeng/awesome-qa-skills)
@@ -23,11 +23,11 @@
 
 ## 项目包含什么
 
-每种语言有 **165 个 Skill**，中英文合计 **330 个 Skill 目录**：
+每种语言有 **166 个 Skill**，中英文合计 **332 个 Skill 目录**：
 
 | 类别 | 数量 | 覆盖范围 |
 | --- | ---: | --- |
-| 测试工作流 | 10 / 语言 | 路由、日常与迭代测试、发布流程、质量视角 |
+| 测试工作流 | 11 / 语言 | 路由、日常与迭代测试、发布流程、质量视角 |
 | 测试类型 | 150 / 语言 | 需求与策略、用例、功能/API/UI、回归、性能、安全、生产质量、AI/LLM/Agent 测试 |
 | Skill Engineering | 5 / 语言 | Skill 质量审查、评测、变更验证与文案审查 |
 
@@ -46,6 +46,7 @@
 | 设计性能测试或使用 k6 | [性能测试](skills/zh/testing-types/performance-testing/) · [k6 性能测试](skills/zh/testing-types/performance-test-k6/) |
 | 检查安全风险或 Prompt 注入 | [安全测试](skills/zh/testing-types/security-testing/) · [Prompt 注入测试](skills/zh/testing-types/prompt-injection-testing/) |
 | 评估 LLM 或 AI Agent | [LLM 测试](skills/zh/testing-types/llm-testing/) · [AI Agent 测试](skills/zh/testing-types/ai-agent-testing/) |
+| 以 TDD 开发并记录测试证据 | [TDD 质量工作流](skills/zh/testing-workflows/tdd-quality-workflow/) |
 | 做发布前检查或上线后验证 | [发布测试工作流](skills/zh/testing-workflows/release-testing-workflow/) · [生产验证](skills/zh/testing-types/production-verification/) |
 
 不确定从哪里开始？使用[测试技能路由](skills/zh/testing-workflows/discover-testing/)。
@@ -112,7 +113,7 @@ Core QA Skills → Engineering QA Skills → Production Quality Skills → AI Na
 
 ## 完整技能目录
 
-每种语言共 **165** 个 Skill：10 个工作流、150 个测试类型和 5 个 Skill Engineering；中英文合计 **330** 个目录。物理目录保持稳定，下面只提供逻辑导航。
+每种语言共 **166** 个 Skill：11 个工作流、150 个测试类型和 5 个 Skill Engineering；中英文合计 **332** 个目录。物理目录保持稳定，下面只提供逻辑导航。
 
 ### 跨阶段工作流
 
@@ -134,6 +135,7 @@ Core QA Skills → Engineering QA Skills → Production Quality Skills → AI Na
 | --- | --- | --- |
 | 日常测试工作流程 | [`daily-testing-workflow`](skills/zh/testing-workflows/daily-testing-workflow/) | 按日常节奏完成计划、执行、缺陷跟踪和日终收口。 |
 | 迭代测试工作流程 | [`sprint-testing-workflow`](skills/zh/testing-workflows/sprint-testing-workflow/) | 覆盖迭代计划、测试执行、评审和复盘的质量工作流。 |
+| TDD 质量工作流 | [`tdd-quality-workflow`](skills/zh/testing-workflows/tdd-quality-workflow/) | 按 Red、Green、Refactor 记录可核对的测试与质量证据。 |
 | 项目交付视角 | [`project-delivery-perspective`](skills/zh/testing-workflows/project-delivery-perspective/) | 在支持的策略与报告评审阶段记录带来源的交付约束和行动，不改变质量事实。 |
 
 #### 发布与综合
@@ -502,7 +504,7 @@ bash scripts/run_skill_eval.sh skills/zh/testing-types/functional-testing/evals/
 | [Skills CLI 集成指南](docs/integrations/SKILLS_CLI_INTEGRATION.md) | CLI 分发约定、兼容性验证与安装边界 |
 | [QA_SKILLS_EVOLUTION_ROADMAP.md](docs/governance/QA_SKILLS_EVOLUTION_ROADMAP.md) | 四层能力演进与研发测试阶段地图 |
 | [DOCUMENTATION_POLICY.md](docs/governance/DOCUMENTATION_POLICY.md) | 中文优先的双语文档治理策略 |
-| [SKILL_GOVERNANCE_V1.md](docs/governance/SKILL_GOVERNANCE_V1.md) | v1.0 源代码治理基线与当前 165 对静态记录入口（早期基线 79 对；不代表运行质量） |
+| [SKILL_GOVERNANCE_V1.md](docs/governance/SKILL_GOVERNANCE_V1.md) | v1.0 源代码治理基线与当前 166 对静态记录入口（早期基线 79 对；不代表运行质量） |
 | [PHASE_0_V1_4_CLOSEOUT.md](docs/governance/PHASE_0_V1_4_CLOSEOUT.md) | v1.4 35 张 Project 卡的证据收口与版本边界（不代表发布批准） |
 | [BILINGUAL_CONSISTENCY_CONTRACT.md](docs/governance/BILINGUAL_CONSISTENCY_CONTRACT.md) | 中英文路径、入口、Catalog 与链接一致性契约 |
 | [QUALITY_SCORE_EVAL_CONTRACT.md](docs/governance/QUALITY_SCORE_EVAL_CONTRACT.md) | 九维评分与最低 Eval 工件标准 |

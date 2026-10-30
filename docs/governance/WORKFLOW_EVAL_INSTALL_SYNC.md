@@ -2,9 +2,9 @@
 
 # Workflow / Eval / 安装同步清单
 
-本清单把当前 10 个跨阶段 Workflow 的物理路径、双语包、最低 Eval 工件和安装入口放在同一处核对。它是文档与结构证据，不代表 Workflow 已在真实项目运行。
+本清单把当前 11 个跨阶段 Workflow 的物理路径、双语包、最低 Eval 工件和安装入口放在同一处核对。它是文档与结构证据，不代表 Workflow 已在真实项目运行。
 
-## 10 个 Workflow
+## 11 个 Workflow
 
 | Workflow | 中文路径 | English 路径 | Eval 结构 |
 | --- | --- | --- | --- |
@@ -16,6 +16,7 @@
 | `qa-quality-perspective` | `skills/zh/testing-workflows/qa-quality-perspective` | `skills/en/testing-workflows/qa-quality-perspective` | `eval.yaml` + 三类 case |
 | `release-testing-workflow` | `skills/zh/testing-workflows/release-testing-workflow` | `skills/en/testing-workflows/release-testing-workflow` | `eval.yaml` + 三类 case |
 | `sprint-testing-workflow` | `skills/zh/testing-workflows/sprint-testing-workflow` | `skills/en/testing-workflows/sprint-testing-workflow` | `eval.yaml` + 三类 case |
+| `tdd-quality-workflow` | `skills/zh/testing-workflows/tdd-quality-workflow` | `skills/en/testing-workflows/tdd-quality-workflow` | `eval.yaml` + 三类 case |
 | `technical-quality-perspective` | `skills/zh/testing-workflows/technical-quality-perspective` | `skills/en/testing-workflows/technical-quality-perspective` | `eval.yaml` + 三类 case |
 | `ux-quality-perspective` | `skills/zh/testing-workflows/ux-quality-perspective` | `skills/en/testing-workflows/ux-quality-perspective` | `eval.yaml` + 三类 case |
 

@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "snapshot_date": "2026-10-12",
-  "source_revision": "3c97e86e0d144602c4485c93e4b19d84240c6523",
-  "source": "awesome-qa-skills canonical catalog; update when names change",
+  "snapshot_date": "2026-10-29",
+  "source_revision": "UNCOMMITTED_WORKTREE",
+  "source": "awesome-qa-skills canonical catalog; snapshot of the working tree; update when names change",
   "installation_evidence": "UNKNOWN",
   "skills": [
     {
@@ -783,6 +783,12 @@
       "name": "state-transition-testing",
       "category": "testing-types",
       "capability": "状态迁移测试设计",
+      "availability": "UNKNOWN"
+    },
+    {
+      "name": "tdd-quality-workflow",
+      "category": "testing-workflows",
+      "capability": "TDD 质量工作流",
       "availability": "UNKNOWN"
     },
     {

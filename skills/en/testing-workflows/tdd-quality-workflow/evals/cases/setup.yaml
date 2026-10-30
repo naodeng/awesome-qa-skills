@@ -1,0 +1,10 @@
+id: setup
+title: "setup evidence boundary"
+input:
+  prompt: "Use $tdd-quality-workflow to assess only: an attempted RED pytest run failed to import a missing dependency before any target assertion ran; GREEN, refactor regression, and mutation testing explicitly did not run. Do not execute tests or modify the project; you may use read-only shell commands to read the Skill files. Explain what the failure establishes.\nFinish with an evaluation table containing exactly one row per phase in the format `phase | status | evidence`; phase names must be RED, GREEN, REFACTOR, MUTATION. Use VERIFIED_RED, VERIFIED_GREEN, VERIFIED_REFACTOR, INCONCLUSIVE or NOT_EXECUTED for the matching TDD phases, and EXECUTED, INCONCLUSIVE or NOT_EXECUTED for MUTATION. The RED evidence cell must state that import failed due to the missing dependency before the target assertion ran. Each evidence cell must be nonempty."
+expect:
+  exit_code: 0
+judge:
+  type: script
+  script_path: evals/graders/setup.py
+  timeout_seconds: 30

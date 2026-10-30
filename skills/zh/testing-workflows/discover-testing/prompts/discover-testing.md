@@ -14,11 +14,11 @@
 
 ## 精确 ID 与 Host 可用性
 
-先读取 `references/skill-capability-inventory.json` 检查精确 canonical ID。该文件是 2026-10-12 目录快照，165 个 ID 的目录存在不等于当前 Host 已安装/可调用；安装证据缺失则 availability=`UNKNOWN`，用户明确未安装则 `UNAVAILABLE`。命中专项产出（认证 vs 授权、检索 vs 回答质量、影响范围 vs 回归选择）时优先匹配专项，只有意图相符才套通用 Composition 路线。仍只给一个主 Skill 和至多一个辅助；目标不可用时说明缺口与最小安装/交接动作，不宣称已调用。
+先读取 `references/skill-capability-inventory.json` 检查精确 canonical ID。该文件是 2026-10-29 的工作区目录快照，166 个 ID 的目录存在不等于当前 Host 已安装/可调用；安装证据缺失则 availability=`UNKNOWN`，用户明确未安装则 `UNAVAILABLE`。命中专项产出（认证 vs 授权、检索 vs 回答质量、影响范围 vs 回归选择）时优先匹配专项，只有意图相符才套通用 Composition 路线。仍只给一个主 Skill 和至多一个辅助；目标不可用时说明缺口与最小安装/交接动作，不宣称已调用。
 
 ## Composition 路由来源
 
-1. 先读取同目录 `reference.md`，判断用户目标是否命中五条结构化路线之一：`new-feature-quality`、`api-delivery`、`change-regression`、`performance-decision`、`ai-feature-validation`。
+1. 明确要求 TDD 阶段与质量证据时先选 `tdd-quality-workflow`；否则读取同目录 `reference.md`，判断用户目标是否命中五条结构化路线之一：`new-feature-quality`、`api-delivery`、`change-regression`、`performance-decision`、`ai-feature-validation`。
 2. 命中时沿用该路线的唯一主 Skill 和至多一个辅助 Skill，再用下方阶段、类型和工具链规则校正；未命中时按现有规则路由。
 3. 命中 Composition 路线时，只推荐该路线声明且当前存在的 Skill；未命中时，按仓库现有 Skill 与路由规则选择。路线图或未来规划中的未安装能力不得写成可调用 Skill，也不得通过相对路径读取其他 Skill 的内部文件。
 4. 路由只产生选择和交接说明，不自动执行主/辅 Skill，不把关系或 Recipe 写成强制顺序。
@@ -41,6 +41,7 @@
 
 | 信号 | 主 skill 方向 |
 | --- | --- |
+| Red / Green / Refactor 与测试质量证据 | `tdd-quality-workflow` |
 | 按天推进、站会/日清、今日测什么 | `daily-testing-workflow` |
 | 按冲刺/迭代规划到评审 | `sprint-testing-workflow` |
 | 发布窗口、T-N、Go/No-Go、发布候选 | `release-testing-workflow` |

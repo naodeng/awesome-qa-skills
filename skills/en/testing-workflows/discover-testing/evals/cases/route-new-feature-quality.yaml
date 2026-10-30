@@ -5,31 +5,19 @@ description: |
   use requirements-analysis as primary, optionally add test-strategy, and do not invent acceptance criteria or a full
   test plan inside the Router.
 
-context:
-  files:
-    "evals/fixtures/router-expected.json": |
-      {"route":"new-feature-quality","primary":"requirements-analysis","optional":"test-strategy"}
-
 input:
   prompt: |
     Use discover-testing to route this request: we are preparing a new membership-points feature and need to clarify
     user goals, acceptance conditions, and major risks. We only have a one-page requirement draft and no full test plan.
-    Return only the route ID, goal, exactly one primary Skill, at most one optional Skill, rationale, and next handoff
-    input. Do not invent missing acceptance criteria or write a full test plan. End with one ```json code block
-    containing only route, primary, and optional; use null when there is no optional Skill.
+    Return one `GOAL | ...` line, one `RATIONALE | ...` line, and one `HANDOFF | ...` line, followed by the route ID,
+    exactly one primary Skill, and at most one optional Skill in prose. The goal must identify the membership-points
+    feature; explain why requirements-analysis fits the one-page draft and missing acceptance criteria; hand off user
+    goals, acceptance conditions, and major risks. Do not invent acceptance criteria or write a full test plan. End
+    with one ```json code block containing only route, primary, and optional; use null when there is no optional Skill.
 
 expect:
-  must_contain:
-    - "new-feature-quality"
-    - "requirements-analysis"
-    - "test-strategy"
-    - "Primary Recommendation"
-    - "Next Step"
-  must_not_contain:
-    - "full test plan"
-    - "TODO"
-    - "I cannot"
-
+  exit_code: 0
 judge:
   type: script
-  script_path: evals/fixtures/scripts/check_router_selection.sh
+  script_path: evals/graders/route-new-feature-quality.py
+  timeout_seconds: 30

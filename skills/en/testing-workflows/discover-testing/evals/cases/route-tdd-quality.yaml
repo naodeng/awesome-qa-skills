@@ -1,0 +1,10 @@
+id: route-tdd-quality
+title: "Route TDD quality evidence to the workflow"
+input:
+  prompt: "Use discover-testing to route a request: the team wants to develop a new order feature using Red, Green, Refactor and report execution evidence and test effectiveness. Installation on the current Host is unknown. Give one primary Skill, at most one helper, rationale and handoff; do not execute tests. Finish exactly with `ROUTE | tdd-quality-workflow | UNKNOWN | NOT_EXECUTED`; UNKNOWN means Host installation is unverified, and NOT_EXECUTED means you did not run tests."
+expect:
+  exit_code: 0
+judge:
+  type: script
+  script_path: evals/graders/route-tdd-quality.py
+  timeout_seconds: 30
