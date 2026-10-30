@@ -1,7 +1,7 @@
 id: green
 title: "green evidence boundary"
 input:
-  prompt: "Use $tdd-quality-workflow to assess only: RED, refactor regression, and mutation testing explicitly did not run. A GREEN pytest command exited 0 but reported “0 tests collected”; the target test did not run. Do not execute tests or modify the project; you may use read-only shell commands to read the Skill files. Assess GREEN and explain why.\nFinish with an evaluation table containing exactly one row per phase in the format `phase | status | evidence`; phase names must be RED, GREEN, REFACTOR, MUTATION. Use VERIFIED_RED, VERIFIED_GREEN, VERIFIED_REFACTOR, INCONCLUSIVE or NOT_EXECUTED for the matching TDD phases, and EXECUTED, INCONCLUSIVE or NOT_EXECUTED for MUTATION. Each evidence cell must be nonempty."
+  prompt: "Use $tdd-quality-workflow to assess only: RED, refactor regression, and mutation testing explicitly did not run. A GREEN pytest command exited 0 but reported “0 tests collected”; the target test did not run. Do not execute tests or modify the project; you may use read-only shell commands to read the Skill files. Assess GREEN and explain why.\nFinish with an evaluation table containing exactly one row per phase in the format `phase | status | evidence`; phase names must be RED, GREEN, REFACTOR, MUTATION. Use VERIFIED_RED, VERIFIED_GREEN, VERIFIED_REFACTOR, INCONCLUSIVE or NOT_EXECUTED for the matching TDD phases, and EXECUTED, INCONCLUSIVE or NOT_EXECUTED for MUTATION. The GREEN evidence cell must state `0 tests collected` and the exit code. Each evidence cell must be nonempty."
 expect:
   exit_code: 0
 judge:

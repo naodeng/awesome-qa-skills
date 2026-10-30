@@ -7,9 +7,11 @@ description: |
 input:
   prompt: |
     请使用 discover-testing 路由：我们要为一个新的会员积分功能澄清用户目标、验收条件和主要风险，
-    当前只有一页需求草稿，还没有完整测试方案。请只输出 route ID、目标、唯一主 Skill、最多一个辅助 Skill、
-    理由和下一步交接输入；不要捏造缺失的验收标准，也不要写完整测试方案。最后附一个 ```json 代码块，
-    只包含 route、primary、optional 三个字段；optional 无则为 null。
+    当前只有一页需求草稿，还没有完整测试方案。请先分别输出一行 `目标 | ...`、`理由 | ...`、`交接 | ...`，
+    再说明 route ID、唯一主 Skill 和最多一个辅助 Skill。目标应指出会员积分功能；理由应说明为何从需求草稿和
+    缺失的验收标准开始使用 requirements-analysis；交接输入应包含用户目标、验收条件和主要风险。不要捏造
+    验收标准，也不要写完整测试方案。最后附一个 ```json 代码块，只包含 route、primary、optional 三个字段；
+    optional 无则为 null。
 
 expect:
   exit_code: 0

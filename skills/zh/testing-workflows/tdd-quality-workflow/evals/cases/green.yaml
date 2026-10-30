@@ -1,7 +1,7 @@
 id: green
 title: "green evidence boundary"
 input:
-  prompt: "请使用 $tdd-quality-workflow，只评审：RED、重构回归和变异测试明确没有执行。GREEN 运行 pytest，退出码 0，但日志是 “0 tests collected”；目标测试未运行。不要执行测试或修改项目，可用只读命令读取 Skill 文件。判断 GREEN 并说明原因。\n最后附一张用于评测的表，每个阶段恰好一行，格式 `阶段 | 状态 | 依据`，阶段名必须为 RED、GREEN、REFACTOR、MUTATION；前 3 个状态只使用 VERIFIED_RED、VERIFIED_GREEN、VERIFIED_REFACTOR、INCONCLUSIVE、NOT_EXECUTED（匹配各自阶段），MUTATION 使用 EXECUTED、INCONCLUSIVE、NOT_EXECUTED。每行依据不可为空。"
+  prompt: "请使用 $tdd-quality-workflow，只评审：RED、重构回归和变异测试明确没有执行。GREEN 运行 pytest，退出码 0，但日志是 “0 tests collected”；目标测试未运行。不要执行测试或修改项目，可用只读命令读取 Skill 文件。判断 GREEN 并说明原因。\n最后附一张用于评测的表，每个阶段恰好一行，格式 `阶段 | 状态 | 依据`，阶段名必须为 RED、GREEN、REFACTOR、MUTATION；前 3 个状态只使用 VERIFIED_RED、VERIFIED_GREEN、VERIFIED_REFACTOR、INCONCLUSIVE、NOT_EXECUTED（匹配各自阶段），MUTATION 使用 EXECUTED、INCONCLUSIVE、NOT_EXECUTED。GREEN 的依据必须写明 `0 tests collected` 和退出码。每行依据不可为空。"
 expect:
   exit_code: 0
 judge:

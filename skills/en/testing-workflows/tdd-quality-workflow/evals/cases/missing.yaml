@@ -1,7 +1,7 @@
 id: missing
 title: "missing evidence boundary"
 input:
-  prompt: "Use $tdd-quality-workflow to assess only: a developer believes RED and GREEN ran, but logs, run records, and revisions are missing, so execution cannot be verified. There was no refactoring, and refactor regression and mutation tests definitely were not run. Do not execute tests or modify the project; you may use read-only shell commands to read the Skill files. Explain the decisions and evidence gaps.\nFinish with an evaluation table containing exactly one row per phase in the format `phase | status | evidence`; phase names must be RED, GREEN, REFACTOR, MUTATION. Use VERIFIED_RED, VERIFIED_GREEN, VERIFIED_REFACTOR, INCONCLUSIVE or NOT_EXECUTED for the matching TDD phases, and EXECUTED, INCONCLUSIVE or NOT_EXECUTED for MUTATION. Each evidence cell must be nonempty."
+  prompt: "Use $tdd-quality-workflow to assess only: a developer believes RED and GREEN ran, but logs, run records, and revisions are missing, so execution cannot be verified. There was no refactoring, and refactor regression and mutation tests definitely were not run. Do not execute tests or modify the project; you may use read-only shell commands to read the Skill files. Explain the decisions and evidence gaps.\nFinish with an evaluation table containing exactly one row per phase in the format `phase | status | evidence`; phase names must be RED, GREEN, REFACTOR, MUTATION. Use VERIFIED_RED, VERIFIED_GREEN, VERIFIED_REFACTOR, INCONCLUSIVE or NOT_EXECUTED for the matching TDD phases, and EXECUTED, INCONCLUSIVE or NOT_EXECUTED for MUTATION. RED and GREEN evidence cells must identify the missing logs, run records, and revisions. Each evidence cell must be nonempty."
 expect:
   exit_code: 0
 judge:

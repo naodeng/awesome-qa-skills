@@ -1,7 +1,7 @@
 id: red
 title: "red evidence boundary"
 input:
-  prompt: "请使用 $tdd-quality-workflow 评估以下演练材料；可用只读命令读取 Skill 文件，但不要执行测试或修改项目。本练习假定所列 CI 归档真实且已核验；它们是模拟记录，不是你亲自运行。行为：订单金额 100、九折后应付 90。\nRED，2026-01-01 10:00，源快照 1111111111111111111111111111111111111111，pytest -q test_discount.py::test_discount，退出 1，1 failed；断言 expected 90, got 100。目标测试已运行，无收集或环境错误，记录表明当时尚无实现。\nGREEN，10:05，源快照 2222222222222222222222222222222222222222，最小实现，运行相同目标测试，退出 0，1 passed。\nREFACTOR，10:10，源快照 3333333333333333333333333333333333333333，重构后同一目标测试退出 0，1 passed。项目要求的相关回归就是该目标测试。明确没有执行变异测试。\n最后附一张用于评测的表，每个阶段恰好一行，格式 `阶段 | 状态 | 依据`，阶段名必须为 RED、GREEN、REFACTOR、MUTATION；前 3 个状态只使用 VERIFIED_RED、VERIFIED_GREEN、VERIFIED_REFACTOR、INCONCLUSIVE、NOT_EXECUTED（匹配各自阶段），MUTATION 使用 EXECUTED、INCONCLUSIVE、NOT_EXECUTED。每行依据不可为空。"
+  prompt: "请使用 $tdd-quality-workflow 评估以下演练材料；可用只读命令读取 Skill 文件，但不要执行测试或修改项目。本练习假定所列 CI 归档真实且已核验；它们是模拟记录，不是你亲自运行。行为：订单金额 100、九折后应付 90。\nRED，2026-01-01 10:00，源快照 1111111111111111111111111111111111111111，pytest -q test_discount.py::test_discount，退出 1，1 failed；断言 expected 90, got 100。目标测试已运行，无收集或环境错误，记录表明当时尚无实现。\nGREEN，10:05，源快照 2222222222222222222222222222222222222222，最小实现，运行相同目标测试，退出 0，1 passed。\nREFACTOR，10:10，源快照 3333333333333333333333333333333333333333，重构后同一目标测试退出 0，1 passed。项目要求的相关回归就是该目标测试。明确没有执行变异测试。\n最后附一张用于评测的表，每个阶段恰好一行，格式 `阶段 | 状态 | 依据`，阶段名必须为 RED、GREEN、REFACTOR、MUTATION；前 3 个状态只使用 VERIFIED_RED、VERIFIED_GREEN、VERIFIED_REFACTOR、INCONCLUSIVE、NOT_EXECUTED（匹配各自阶段），MUTATION 使用 EXECUTED、INCONCLUSIVE、NOT_EXECUTED。每个 VERIFIED 依据都要写出对应源快照、目标命令、退出码和测试数量；RED 还需写断言结果。每行依据不可为空。"
 expect:
   exit_code: 0
 judge:
