@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "tdd-quality-workflow"
+interface:
+  display_name: "TDD 质量工作流"
+  short_description: "记录 TDD 阶段与测试有效性的质量证据"
+  default_prompt: "Use $tdd-quality-workflow to guide TDD and report evidence for each stage."
+policy:
+  allow_implicit_invocation: true

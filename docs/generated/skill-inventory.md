@@ -2,7 +2,7 @@
 
 # Skill Inventory
 
-> Snapshot scope: 165 Chinese and 165 English Skill directories. This records verifiable filesystem structure only; it does not assert virtual Domain, Capability Match, quality score, or runtime effectiveness.
+> Snapshot scope: 166 Chinese and 166 English Skill directories. This records verifiable filesystem structure only; it does not assert virtual Domain, Capability Match, quality score, or runtime effectiveness.
 
 | Skill | Language | Physical category | Required artifact contract |
 | --- | --- | --- | --- |
@@ -164,6 +164,7 @@
 | `qa-quality-perspective` | zh | testing-workflows | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `release-testing-workflow` | zh | testing-workflows | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `sprint-testing-workflow` | zh | testing-workflows | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
+| `tdd-quality-workflow` | zh | testing-workflows | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `technical-quality-perspective` | zh | testing-workflows | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `ux-quality-perspective` | zh | testing-workflows | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `skill-change-verification` | zh | skill-engineering | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
@@ -329,6 +330,7 @@
 | `qa-quality-perspective` | en | testing-workflows | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `release-testing-workflow` | en | testing-workflows | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `sprint-testing-workflow` | en | testing-workflows | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
+| `tdd-quality-workflow` | en | testing-workflows | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `technical-quality-perspective` | en | testing-workflows | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `ux-quality-perspective` | en | testing-workflows | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `skill-change-verification` | en | skill-engineering | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |

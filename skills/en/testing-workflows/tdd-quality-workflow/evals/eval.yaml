@@ -1,0 +1,25 @@
+schema_version: v1alpha1
+environment:
+  type: none
+skills:
+  - source: local_path
+    path: .
+engine:
+  name: claude_code
+cases:
+  files:
+    - evals/cases/red.yaml
+    - evals/cases/missing.yaml
+    - evals/cases/setup.yaml
+    - evals/cases/green.yaml
+    - evals/cases/refactor.yaml
+    - evals/cases/exception.yaml
+    - evals/cases/injection.yaml
+    - evals/cases/mutation.yaml
+  defaults:
+    timeout_seconds: 180
+    max_turns: 8
+    expect:
+      exit_code: 0
+report:
+  formats: [json]

@@ -1,0 +1,10 @@
+id: refactor
+title: "refactor evidence boundary"
+input:
+  prompt: "请使用 $tdd-quality-workflow 评估以下演练材料；可用只读命令读取 Skill 文件，不要执行测试或修改项目。本练习假定所列 CI 记录真实且已核验，是模拟记录而非你亲自运行。RED 没有执行。GREEN 工件记录：2026-01-01 10:05，源快照 2222222222222222222222222222222222222222，pytest -q test_discount.py::test_discount，退出码 0，1 passed。随后重构了代码，但确认没有重跑目标测试、回归或变异测试。\n最后附一张用于评测的表，每个阶段恰好一行，格式 `阶段 | 状态 | 依据`，阶段名必须为 RED、GREEN、REFACTOR、MUTATION；前 3 个状态只使用 VERIFIED_RED、VERIFIED_GREEN、VERIFIED_REFACTOR、INCONCLUSIVE、NOT_EXECUTED（匹配各自阶段），MUTATION 使用 EXECUTED、INCONCLUSIVE、NOT_EXECUTED。每行依据不可为空。"
+expect:
+  exit_code: 0
+judge:
+  type: script
+  script_path: evals/graders/refactor.py
+  timeout_seconds: 30

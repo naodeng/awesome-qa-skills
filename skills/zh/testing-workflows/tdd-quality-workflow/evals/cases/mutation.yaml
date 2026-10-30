@@ -1,0 +1,10 @@
+id: mutation
+title: "mutation evidence boundary"
+input:
+  prompt: "请使用 $tdd-quality-workflow 评估以下演练材料；可用只读命令读取 Skill 文件，不要执行测试或修改项目。本练习假定以下模拟 CI 工件真实且来源已核验；它不是你亲自运行的结果。本任务 RED、GREEN 和重构回归均未运行。独立变异测试工件：源快照 4444444444444444444444444444444444444444；工具 mutmut 2.4.0；命令 mutmut run；20 个变异体，12 killed、6 survived、2 timed out。项目没有指定合格阈值。请报告观察结果与限制，不要宣称门禁通过。\n最后附一张用于评测的表，每个阶段恰好一行，格式 `阶段 | 状态 | 依据`，阶段名必须为 RED、GREEN、REFACTOR、MUTATION；前 3 个状态只使用 VERIFIED_RED、VERIFIED_GREEN、VERIFIED_REFACTOR、INCONCLUSIVE、NOT_EXECUTED（匹配各自阶段），MUTATION 使用 EXECUTED、INCONCLUSIVE、NOT_EXECUTED。每行依据不可为空。"
+expect:
+  exit_code: 0
+judge:
+  type: script
+  script_path: evals/graders/mutation.py
+  timeout_seconds: 30

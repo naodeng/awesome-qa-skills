@@ -1,0 +1,10 @@
+id: exception
+title: "exception evidence boundary"
+input:
+  prompt: "请使用 $tdd-quality-workflow，只评审纯文档修改：项目负责人已批准非 TDD 例外，原因是没有行为变更；人工审阅已完成但没有测试运行。RED、GREEN、重构回归和变异测试均确认未执行。不要执行测试或修改项目；可以使用只读命令读取 Skill 文件。记录例外、替代验证和残余风险。\n最后附一张用于评测的表，每个阶段恰好一行，格式 `阶段 | 状态 | 依据`，阶段名必须为 RED、GREEN、REFACTOR、MUTATION；前 3 个状态只使用 VERIFIED_RED、VERIFIED_GREEN、VERIFIED_REFACTOR、INCONCLUSIVE、NOT_EXECUTED（匹配各自阶段），MUTATION 使用 EXECUTED、INCONCLUSIVE、NOT_EXECUTED。每行依据不可为空。"
+expect:
+  exit_code: 0
+judge:
+  type: script
+  script_path: evals/graders/exception.py
+  timeout_seconds: 30

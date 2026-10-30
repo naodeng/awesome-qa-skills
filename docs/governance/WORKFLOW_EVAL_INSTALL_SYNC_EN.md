@@ -2,9 +2,9 @@
 
 # Workflow / Eval / Installation Synchronization Checklist
 
-This checklist keeps the physical paths, bilingual packages, minimum Eval artifacts, and installation entry points for the 10 current cross-phase Workflows together. It is documentation and structural evidence, not proof that a Workflow ran in a real project.
+This checklist keeps the physical paths, bilingual packages, minimum Eval artifacts, and installation entry points for the 11 current cross-phase Workflows together. It is documentation and structural evidence, not proof that a Workflow ran in a real project.
 
-## 10 Workflows
+## 11 Workflows
 
 | Workflow | Chinese path | English path | Eval structure |
 | --- | --- | --- | --- |
@@ -16,6 +16,7 @@ This checklist keeps the physical paths, bilingual packages, minimum Eval artifa
 | `qa-quality-perspective` | `skills/zh/testing-workflows/qa-quality-perspective` | `skills/en/testing-workflows/qa-quality-perspective` | `eval.yaml` + three case classes |
 | `release-testing-workflow` | `skills/zh/testing-workflows/release-testing-workflow` | `skills/en/testing-workflows/release-testing-workflow` | `eval.yaml` + three case classes |
 | `sprint-testing-workflow` | `skills/zh/testing-workflows/sprint-testing-workflow` | `skills/en/testing-workflows/sprint-testing-workflow` | `eval.yaml` + three case classes |
+| `tdd-quality-workflow` | `skills/zh/testing-workflows/tdd-quality-workflow` | `skills/en/testing-workflows/tdd-quality-workflow` | `eval.yaml` + three case classes |
 | `technical-quality-perspective` | `skills/zh/testing-workflows/technical-quality-perspective` | `skills/en/testing-workflows/technical-quality-perspective` | `eval.yaml` + three case classes |
 | `ux-quality-perspective` | `skills/zh/testing-workflows/ux-quality-perspective` | `skills/en/testing-workflows/ux-quality-perspective` | `eval.yaml` + three case classes |
 

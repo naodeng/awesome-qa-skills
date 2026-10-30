@@ -1,0 +1,10 @@
+id: setup
+title: "setup evidence boundary"
+input:
+  prompt: "请使用 $tdd-quality-workflow，只评审：RED 尝试运行 pytest 时因缺少依赖而导入失败，未运行任何目标断言；GREEN、重构回归和变异测试明确未执行。不要执行测试或修改项目，可用只读命令读取 Skill 文件。说明该失败证明了什么。\n最后附一张用于评测的表，每个阶段恰好一行，格式 `阶段 | 状态 | 依据`，阶段名必须为 RED、GREEN、REFACTOR、MUTATION；前 3 个状态只使用 VERIFIED_RED、VERIFIED_GREEN、VERIFIED_REFACTOR、INCONCLUSIVE、NOT_EXECUTED（匹配各自阶段），MUTATION 使用 EXECUTED、INCONCLUSIVE、NOT_EXECUTED。每行依据不可为空。"
+expect:
+  exit_code: 0
+judge:
+  type: script
+  script_path: evals/graders/setup.py
+  timeout_seconds: 30

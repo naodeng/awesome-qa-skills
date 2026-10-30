@@ -101,10 +101,11 @@ class VirtualDomainCatalogTest(unittest.TestCase):
     def test_current_repository_uses_all_sixteen_domains(self):
         mapping = virtual_domains.repository_mapping(ROOT)
 
-        self.assertEqual(len(mapping), 165)
+        self.assertEqual(len(mapping), 166)
         self.assertEqual(set(mapping.values()), set(EXPECTED_DOMAIN_IDS))
         self.assertEqual(mapping[("testing-types", "api-testing")], "D06")
         self.assertEqual(mapping[("skill-engineering", "skill-prose-review")], "D14")
+        self.assertEqual(mapping[("testing-workflows", "tdd-quality-workflow")], "D03")
 
 
 if __name__ == "__main__":

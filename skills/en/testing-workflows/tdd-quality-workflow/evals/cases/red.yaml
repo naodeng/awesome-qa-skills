@@ -1,0 +1,10 @@
+id: red
+title: "red evidence boundary"
+input:
+  prompt: "Use $tdd-quality-workflow to assess this exercise; read-only shell commands may be used to read Skill files, but do not execute tests or modify the project. In this exercise, assume the following CI archive excerpts are authentic and verified; these are simulated records, not your own test executions. Behavior: a 10% discount on 100 yields 90.\nRED, 2026-01-01 10:00, source snapshot 1111111111111111111111111111111111111111, pytest -q test_discount.py::test_discount, exit 1, 1 failed; assertion expected 90, got 100. The target ran without collection or environment errors, before implementation.\nGREEN, 10:05, source snapshot 2222222222222222222222222222222222222222, minimal implementation, the same target test, exit 0, 1 passed.\nREFACTOR, 10:10, source snapshot 3333333333333333333333333333333333333333, same target test after refactoring, exit 0, 1 passed. The project specifies this target test as the required regression. Mutation testing explicitly did not run.\nFinish with an evaluation table containing exactly one row per phase in the format `phase | status | evidence`; phase names must be RED, GREEN, REFACTOR, MUTATION. Use VERIFIED_RED, VERIFIED_GREEN, VERIFIED_REFACTOR, INCONCLUSIVE or NOT_EXECUTED for the matching TDD phases, and EXECUTED, INCONCLUSIVE or NOT_EXECUTED for MUTATION. Each evidence cell must be nonempty."
+expect:
+  exit_code: 0
+judge:
+  type: script
+  script_path: evals/graders/red.py
+  timeout_seconds: 30

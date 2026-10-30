@@ -1,0 +1,10 @@
+id: mutation
+title: "mutation evidence boundary"
+input:
+  prompt: "Use $tdd-quality-workflow to assess this exercise; read-only shell commands may be used to read Skill files, but do not execute tests or modify the project. Assume the simulated CI artifact below is authentic and its provenance verified; it is not a result you personally ran. RED, GREEN, and refactor regression did not run for this task. The separate mutation artifact contains source snapshot 4444444444444444444444444444444444444444; tool mutmut 2.4.0; command mutmut run; 20 mutants, 12 killed, 6 survived, and 2 timed out. The project has no pass threshold. Report observations and limits without claiming a gate passed.\nFinish with an evaluation table containing exactly one row per phase in the format `phase | status | evidence`; phase names must be RED, GREEN, REFACTOR, MUTATION. Use VERIFIED_RED, VERIFIED_GREEN, VERIFIED_REFACTOR, INCONCLUSIVE or NOT_EXECUTED for the matching TDD phases, and EXECUTED, INCONCLUSIVE or NOT_EXECUTED for MUTATION. Each evidence cell must be nonempty."
+expect:
+  exit_code: 0
+judge:
+  type: script
+  script_path: evals/graders/mutation.py
+  timeout_seconds: 30

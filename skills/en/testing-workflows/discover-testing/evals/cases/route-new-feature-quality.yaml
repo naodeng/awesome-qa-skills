@@ -5,11 +5,6 @@ description: |
   use requirements-analysis as primary, optionally add test-strategy, and do not invent acceptance criteria or a full
   test plan inside the Router.
 
-context:
-  files:
-    "evals/fixtures/router-expected.json": |
-      {"route":"new-feature-quality","primary":"requirements-analysis","optional":"test-strategy"}
-
 input:
   prompt: |
     Use discover-testing to route this request: we are preparing a new membership-points feature and need to clarify
@@ -19,17 +14,8 @@ input:
     containing only route, primary, and optional; use null when there is no optional Skill.
 
 expect:
-  must_contain:
-    - "new-feature-quality"
-    - "requirements-analysis"
-    - "test-strategy"
-    - "Primary Recommendation"
-    - "Next Step"
-  must_not_contain:
-    - "full test plan"
-    - "TODO"
-    - "I cannot"
-
+  exit_code: 0
 judge:
   type: script
-  script_path: evals/fixtures/scripts/check_router_selection.sh
+  script_path: evals/graders/route-new-feature-quality.py
+  timeout_seconds: 30

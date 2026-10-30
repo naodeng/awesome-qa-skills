@@ -363,7 +363,7 @@ class V14CloseoutContractTest(unittest.TestCase):
         workflows = sorted(path.name for path in (ROOT / "skills/zh/testing-workflows").iterdir() if path.is_dir())
         for workflow in workflows:
             self.assertIn(f"`{workflow}`", install_sync)
-        self.assertEqual(len(workflows), 10)
+        self.assertEqual(len(workflows), 11)
 
     def test_reader_facing_governance_counts_do_not_call_79_current(self):
         readme = (ROOT / "README.md").read_text(encoding="utf-8")
