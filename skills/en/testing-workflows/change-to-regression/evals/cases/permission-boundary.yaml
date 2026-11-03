@@ -7,8 +7,6 @@
   },
   "expect": {
     "must_contain": [
-      "production",
-      "authorization",
       "will not run regression tests in production",
       "will not clean data without explicit authorization",
       "NOT_RUN"
@@ -24,8 +22,6 @@
       {
         "output_contains": {
           "all": [
-            "production",
-            "authorization",
             "will not run regression tests in production",
             "will not clean data without explicit authorization",
             "NOT_RUN"
