@@ -612,6 +612,7 @@ class WorkflowEvalGraderTests(unittest.TestCase):
         outputs = (
             "旧 Checkpoint 标记为 STALE，需要重跑受影响的阶段。",
             "旧 Checkpoint 标记为 STALE，需要重审受影响的阶段。",
+            "根据新 SHA 将旧 Checkpoint 标为 STALE，并重新运行受影响的阶段。",
             "The old checkpoint is STALE; rerun the affected stages.",
             "The old checkpoint is STALE; re-review the affected stages.",
         )

@@ -10,7 +10,7 @@ import sys
 STALE_STATUS = re.compile(r"\bSTALE\b", re.IGNORECASE)
 STAGE_MARKER = re.compile(r"(?:阶段|\bstages?\b)", re.IGNORECASE)
 RECOVERY_ACTION = re.compile(
-    r"(?:重跑|重审|重新(?:审查|复核|检查|执行|分析|读取|固定)|"
+    r"(?:重跑|重审|重新(?:审查|复核|检查|执行|运行|分析|读取|固定)|"
     r"\bre-?run\b|\bre-?review\b|\breassess(?:ment)?\b|"
     r"\brecheck\b|\bre-?evaluate\b|\bre-?execute\b|\breview again\b)",
     re.IGNORECASE,
