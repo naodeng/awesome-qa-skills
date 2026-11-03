@@ -24,7 +24,7 @@ Skill IDs are capability navigation, not automatic installation dependencies. If
 
 ## `evidence.json`
 
-Evidence is classified as `fact`, `inference`, `plan`, or `execution`. Each record carries a claim, status, source, producer version, and observation time; an inference also lists its basis. Execution evidence records execution type, scope, environment, and start/end times; test execution also requires a command and exit code. `static_analysis` proves only its static-check scope and cannot substantiate a passing `test_execution` claim.
+Evidence is classified as `fact`, `inference`, `plan`, or `execution`. Each record carries a claim, status, source, producer version, and observation time; an inference also lists its basis. Execution evidence records execution type, scope, environment, and start/end times; test execution also requires a command and exit code, and a `PASS` status requires exit code `0`. `static_analysis` proves only its static-check scope and cannot substantiate a passing `test_execution` claim.
 
 `PASS`, `FAIL`, `BLOCKED`, and `UNKNOWN` apply only to the scope stated in the claim. Derive a workflow summary status from its evidence items using `FAIL > BLOCKED > UNKNOWN > PASS`; PASS requires at least one evidence item and every item to be PASS. No evidence means UNKNOWN. Missing sources, run records, or versions keep a claim UNKNOWN. A PASS past `valid_until` cannot be reused. A local workflow PASS does not authorize product release or risk acceptance.
 

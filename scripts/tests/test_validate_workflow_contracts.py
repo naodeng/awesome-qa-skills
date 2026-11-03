@@ -176,6 +176,22 @@ class WorkflowContractTests(unittest.TestCase):
 
         self.assertTrue(any("cannot substantiate test_execution" in error for error in errors), errors)
 
+    def test_rejects_pass_test_execution_with_nonzero_exit_code(self) -> None:
+        evidence = valid_evidence()
+        evidence["evidence"][0]["execution"]["exit_code"] = 1
+
+        errors = validate_evidence(evidence)
+
+        self.assertTrue(any("PASS" in error and "exit_code" in error for error in errors), errors)
+
+    def test_rejects_boolean_test_execution_exit_code(self) -> None:
+        evidence = valid_evidence()
+        evidence["evidence"][0]["execution"]["exit_code"] = True
+
+        errors = validate_evidence(evidence)
+
+        self.assertTrue(any("integer exit code" in error for error in errors), errors)
+
     def test_requires_execution_details_for_execution_evidence(self) -> None:
         evidence = valid_evidence()
         evidence["evidence"][0].pop("execution")
@@ -343,6 +359,38 @@ class WorkflowContractTests(unittest.TestCase):
         pass_items = rules["PASS"].get("properties", {}).get("evidence", {})
         self.assertGreaterEqual(pass_items.get("minItems", 0), 1)
         self.assertEqual(pass_items.get("items", {}).get("properties", {}).get("status", {}).get("const"), "PASS")
+
+    def test_evidence_schema_requires_successful_exit_for_passing_test_execution(self) -> None:
+        schema_path = REPO_ROOT / "resources/workflows/schemas/evidence.schema.json"
+        schema = json.loads(schema_path.read_text(encoding="utf-8"))
+        rules = schema["$defs"]["evidenceItem"]["allOf"]
+
+        def has_test_execution_scope(rule: dict) -> bool:
+            return (
+                rule.get("if", {})
+                .get("properties", {})
+                .get("execution", {})
+                .get("properties", {})
+                .get("scope", {})
+                .get("const")
+                == "test_execution"
+            )
+
+        requires_exit_code = any(
+            has_test_execution_scope(rule)
+            and set(rule.get("if", {}).get("properties", {}).get("status", {}).get("enum", [])) == {"PASS", "FAIL"}
+            and "exit_code" in rule.get("then", {}).get("properties", {}).get("execution", {}).get("required", [])
+            for rule in rules
+        )
+        passing_exit_code = any(
+            has_test_execution_scope(rule)
+            and rule.get("if", {}).get("properties", {}).get("status", {}).get("const") == "PASS"
+            and rule.get("then", {}).get("properties", {}).get("execution", {}).get("properties", {}).get("exit_code", {}).get("const") == 0
+            for rule in rules
+        )
+
+        self.assertTrue(requires_exit_code, "PASS/FAIL test_execution must require exit_code")
+        self.assertTrue(passing_exit_code, "PASS test_execution must require exit_code 0")
 
     def test_repository_check_reports_bilingual_contract_drift(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir:

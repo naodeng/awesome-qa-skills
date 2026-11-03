@@ -366,9 +366,16 @@ def validate_evidence(
             if (
                 execution.get("scope") == "test_execution"
                 and record.get("status") in ("PASS", "FAIL")
-                and not isinstance(execution.get("exit_code"), int)
+                and type(execution.get("exit_code")) is not int
             ):
                 errors.append(f"{location}.execution.exit_code: test_execution requires an integer exit code")
+            if (
+                execution.get("scope") == "test_execution"
+                and record.get("status") == "PASS"
+                and type(execution.get("exit_code")) is int
+                and execution["exit_code"] != 0
+            ):
+                errors.append(f"{location}.status: PASS test_execution requires execution.exit_code 0")
             for field in ("started_at", "finished_at"):
                 if not _parse_datetime(execution.get(field)):
                     errors.append(f"{location}.execution.{field}: must be an ISO-8601 timestamp with a timezone")

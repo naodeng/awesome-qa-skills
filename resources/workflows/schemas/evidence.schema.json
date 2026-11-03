@@ -117,7 +117,27 @@
       },
       "allOf": [
         { "if": { "properties": { "kind": { "const": "execution" } }, "required": ["kind"] }, "then": { "required": ["execution"] } },
-        { "if": { "properties": { "kind": { "const": "inference" } }, "required": ["kind"] }, "then": { "required": ["basis"] } }
+        { "if": { "properties": { "kind": { "const": "inference" } }, "required": ["kind"] }, "then": { "required": ["basis"] } },
+        {
+          "if": {
+            "properties": {
+              "status": { "enum": ["PASS", "FAIL"] },
+              "execution": { "properties": { "scope": { "const": "test_execution" } }, "required": ["scope"] }
+            },
+            "required": ["status", "execution"]
+          },
+          "then": { "properties": { "execution": { "required": ["exit_code"] } } }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": { "const": "PASS" },
+              "execution": { "properties": { "scope": { "const": "test_execution" } }, "required": ["scope"] }
+            },
+            "required": ["status", "execution"]
+          },
+          "then": { "properties": { "execution": { "properties": { "exit_code": { "const": 0 } } } } }
+        }
       ]
     }
   }

@@ -24,7 +24,7 @@ Skill ID 是能力导航，不是自动安装依赖。宿主没有提供安装�
 
 ## `evidence.json`
 
-证据分为 `fact`、`inference`、`plan`、`execution`。每条记录都带声明、状态、来源、生产者版本和观察时间；推断还需列出依据。运行证据必须记录执行类型、范围、环境和起止时间；测试执行需提供命令与退出码。`static_analysis` 只能证明其静态检查范围，不能作为 `test_execution` 通过证据。
+证据分为 `fact`、`inference`、`plan`、`execution`。每条记录都带声明、状态、来源、生产者版本和观察时间；推断还需列出依据。运行证据必须记录执行类型、范围、环境和起止时间；测试执行需提供命令与退出码，状态为 `PASS` 时退出码必须为 `0`。`static_analysis` 只能证明其静态检查范围，不能作为 `test_execution` 通过证据。
 
 状态 `PASS`、`FAIL`、`BLOCKED`、`UNKNOWN` 只针对声明中写明的范围。工作流汇总状态按 `FAIL > BLOCKED > UNKNOWN > PASS` 从证据项推导；只有至少一条证据且所有证据均为 PASS 时，汇总状态才能为 PASS。没有证据时为 UNKNOWN。缺少来源、运行记录或版本时标 UNKNOWN；已过 `valid_until` 的 PASS 不可继续使用。局部工作流 PASS 不构成产品放行或风险接受。
 
