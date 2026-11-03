@@ -93,7 +93,7 @@ bash scripts/run_skill_eval.sh skills/en/testing-types/functional-testing/evals/
   --include-case-name "basic-success"
 ```
 
-Always write eval artifacts outside the Skill package, under `.skill-up-workspaces/`.
+Always write raw eval artifacts outside the Skill package, under `.skill-up-workspaces/<skill>-workspace/`, and do not commit those raw runs. When a delivery or governance record explicitly requires it, curated and sanitized evidence with source, time, version, and input-fingerprint provenance may be committed under `docs/governance/eval-runs/`; do not copy raw workspace output there wholesale.
 
 ## Distribution Compatibility
 

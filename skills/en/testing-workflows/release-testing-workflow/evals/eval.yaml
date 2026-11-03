@@ -20,6 +20,9 @@ cases:
     - evals/cases/edge-incomplete-input.yaml
     - evals/cases/edge-gates-handoff.yaml
     - evals/cases/review-repair-regression.yaml
+    - evals/cases/expired-quality-evidence.yaml
+    - evals/cases/approval-boundary.yaml
+    - evals/cases/comparison-release-readiness.yaml
   defaults:
     timeout_seconds: 180
     max_turns: 8
@@ -27,6 +30,8 @@ cases:
       exit_code: 0
       must_not_contain:
         - "TODO"
+        - "rollout_summaries/"
+        - "MEMORY.md"
         - "I cannot"
 
 report:

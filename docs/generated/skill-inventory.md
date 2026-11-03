@@ -2,7 +2,7 @@
 
 # Skill Inventory
 
-> Snapshot scope: 166 Chinese and 166 English Skill directories. This records verifiable filesystem structure only; it does not assert virtual Domain, Capability Match, quality score, or runtime effectiveness.
+> Snapshot scope: 169 Chinese and 169 English Skill directories. This records verifiable filesystem structure only; it does not assert virtual Domain, Capability Match, quality score, or runtime effectiveness.
 
 | Skill | Language | Physical category | Required artifact contract |
 | --- | --- | --- | --- |
@@ -156,13 +156,16 @@
 | `ui-test-wait-strategy-review` | zh | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `ui-test-webdriverio` | zh | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `visual-regression-testing` | zh | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
+| `change-to-regression` | zh | testing-workflows | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `daily-testing-workflow` | zh | testing-workflows | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `discover-testing` | zh | testing-workflows | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `multi-role-quality-synthesis` | zh | testing-workflows | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
+| `pr-quality-review` | zh | testing-workflows | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `product-quality-perspective` | zh | testing-workflows | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `project-delivery-perspective` | zh | testing-workflows | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `qa-quality-perspective` | zh | testing-workflows | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `release-testing-workflow` | zh | testing-workflows | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
+| `requirement-to-test` | zh | testing-workflows | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `sprint-testing-workflow` | zh | testing-workflows | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `tdd-quality-workflow` | zh | testing-workflows | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `technical-quality-perspective` | zh | testing-workflows | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
@@ -322,13 +325,16 @@
 | `ui-test-wait-strategy-review` | en | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `ui-test-webdriverio` | en | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `visual-regression-testing` | en | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
+| `change-to-regression` | en | testing-workflows | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `daily-testing-workflow` | en | testing-workflows | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `discover-testing` | en | testing-workflows | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `multi-role-quality-synthesis` | en | testing-workflows | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
+| `pr-quality-review` | en | testing-workflows | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `product-quality-perspective` | en | testing-workflows | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `project-delivery-perspective` | en | testing-workflows | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `qa-quality-perspective` | en | testing-workflows | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `release-testing-workflow` | en | testing-workflows | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
+| `requirement-to-test` | en | testing-workflows | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `sprint-testing-workflow` | en | testing-workflows | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `tdd-quality-workflow` | en | testing-workflows | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `technical-quality-perspective` | en | testing-workflows | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |

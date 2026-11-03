@@ -1,0 +1,34 @@
+{
+  "id": "expired-quality-evidence",
+  "title": "发布就绪：过期的质量证据不得继续 PASS",
+  "description": "输入报告过期且来自旧 Commit；应将其标为 UNKNOWN/失效并阻止无条件 Go。",
+  "input": {
+    "prompt": "请使用 release-testing-workflow 并用中文回复。发布版本是 v3.8.0，当前 Commit 为 cccc。唯一测试报告来自旧 Commit bbbb，生成于 2026-10-01，有效期到 2026-10-15，今天是 2026-10-30。请将旧报告标为 `STALE`，将当前测试结果标为 `UNKNOWN`，区分证据过期、未运行和待补证，不要无条件建议 Go。"
+  },
+  "expect": {
+    "must_contain": [
+      "有效期",
+      "STALE",
+      "UNKNOWN",
+      "Go"
+    ],
+    "must_not_contain": [
+      "TODO"
+    ]
+  },
+  "judge": {
+    "type": "rule_based",
+    "success": [
+      {
+        "output_contains": {
+          "all": [
+            "有效期",
+            "STALE",
+            "UNKNOWN",
+            "Go"
+          ]
+        }
+      }
+    ]
+  }
+}

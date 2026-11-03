@@ -1,0 +1,86 @@
+{
+  "record_version": "workflow-eval-run/v1",
+  "run_id": "skill-up-requirement-to-test-f24a6ac3ed774a79b8a31bb881375f3a",
+  "workflow_id": "requirement-to-test",
+  "locale": "en-US",
+  "execution_type": "model_eval",
+  "runner": {
+    "name": "skill-up",
+    "version": "skill-up version 0.12.0"
+  },
+  "engine": {
+    "name": "codex",
+    "version": "codex-cli 0.166.0",
+    "model_id_reported": "not reported"
+  },
+  "engine_version_capture": "captured before run",
+  "repo_head_at_archive": "ed94f827f2f564c039ae6ca9111f85851ad3771f",
+  "worktree_state_at_archive": "dirty; 270 paths changed",
+  "input_fingerprint_capture": "captured before run",
+  "input_fingerprint": "6c2674779ef05507f74ef08a414198c7338149c51adf361a576bfdf42dc1729b",
+  "input_fingerprint_after": "6c2674779ef05507f74ef08a414198c7338149c51adf361a576bfdf42dc1729b",
+  "skill_package_sha256_at_start": "f92242bff0d7677ed40b17ce8e05ad5524f36b1aa4746cb6a08be0ffaffb7ffa",
+  "raw_result_sha256": "e4c710f3c5d9d419acf92a2c4c8fb5fc0c78f502813cf5ac606de9fb07a2b3d8",
+  "started_at": "2026-11-03T02:49:33.034518Z",
+  "finished_at": "2026-11-03T02:50:03.949692Z",
+  "summary": {
+    "case_count": 1,
+    "passed": 1,
+    "failed": 0,
+    "errors": 0,
+    "blocked": 0,
+    "unknown": 0,
+    "overall_status": "PASS"
+  },
+  "execution_notes": "Generated from the raw skill-up report. Input fingerprint was captured before execution; post-run fingerprint equality is available in this record.",
+  "redaction": "Absolute repository and ephemeral skill-up install prefixes in case data were replaced with repository-relative Skill paths. raw_result_sha256 identifies the unmodified report.",
+  "cases": [
+    {
+      "case_id": "comparison-requirement-to-test",
+      "title": "Requirement-to-Test comparison",
+      "status": "PASS",
+      "duration_ms": 30210,
+      "turns": 3,
+      "input_tokens": 39464,
+      "output_tokens": 1485,
+      "grading": {
+        "status": "PASS",
+        "turns_executed": 3,
+        "turns_total": 1,
+        "assertion_results": [
+          {
+            "text": "expect.must_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.must_not_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.exit_code",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "output_contains{all:[Prioritize Requirement traceability NOT_RUN]}",
+            "passed": true,
+            "evidence": "output satisfies all contains checks (all:[Prioritize Requirement traceability NOT_RUN])"
+          }
+        ],
+        "summary": {
+          "passed": 4,
+          "failed": 0,
+          "total": 4,
+          "pass_rate": 1
+        }
+      },
+      "configuration": "with_skill",
+      "prompt": "Use only the material in this prompt. Respond in English. Do not inspect the workspace/repository, create files, search external sources, or run commands/tests. Requirement: coupons apply only to valid orders, once per account, and expired coupons are rejected. Flag rules that need confirmation, then provide a risk-driven strategy, representative positive/negative cases, and requirement traceability. Mark NOT_RUN without execution evidence. Headings may vary, but cover each requested content area and state test execution as `NOT_RUN`.",
+      "response": "## Requirement interpretation\n\n- **R1 — Order eligibility:** Apply a coupon only to a valid order.\n- **R2 — Per-account limit:** A coupon may be used no more than once per account.\n- **R3 — Expiry:** Reject expired coupons.\n\nThe requirements do not define what makes an order valid, when a use counts, or how expiry boundaries are handled. Confirm the rules below before treating the proposed expected results as acceptance criteria.\n\n## Rules to confirm\n\n1. Does “once per account” mean each coupon can be used once by each account, or that an account can use only one coupon in total?\n2. Does a coupon use count when it is applied, when an order is submitted, or only when the order completes? Should a failed or canceled order release the use?\n3. What makes an order valid, and at what point is that checked?\n4. What exact time, time zone, and inclusivity define expiry? For example, is a coupon expired at the stated timestamp or only after it?\n5. Can another account use the same coupon after one account has redeemed it, assuming the coupon has remaining availability?\n6. Should concurrent attempts by the same account result in at most one successful redemption?\n\n## Risk-driven test strategy\n\nPrioritize the cases most likely to cause an invalid discount or duplicate use:\n\n1. **Eligibility enforcement:** Check that a valid order can receive an active, unused coupon and an invalid order cannot.\n2. **Expiry enforcement:** Check rejection after expiry and clarify the exact expiry boundary before testing it.\n3. **Per-account enforcement:** Check the first use and a repeat attempt by the same account. If concurrent requests are in scope, verify that only one succeeds.\n4. **Usage state:** Check whether failed, canceled, or otherwise incomplete orders consume the use, once that rule is confirmed.\n5. **Account scope:** Check whether a different account can use the coupon, once the per-account and shared-coupon rules are confirmed.\n\n## Representative cases\n\n| ID | Scenario | Expected result |\n|---|---|---|\n| T1 | Valid order; active coupon; account has not used it | Coupon is applied. |\n| T2 | Invalid order; active coupon | Coupon is not applied. Whether the attempt consumes a use needs confirmation. |\n| T3 | Valid order; coupon is expired | Coupon is rejected. |\n| T4 | Valid order; account has already used the coupon | A second use by that account is rejected. |\n| T5 | Two simultaneous attempts by the same account to use the coupon | At most one succeeds, if concurrent enforcement is required. |\n| T6 | First order attempt fails or is canceled after coupon application | Whether the account can use the coupon again needs confirmation. |\n| T7 | A different account attempts to use a coupon already used by another account | Outcome depends on the confirmed account-scope and coupon-availability rules. |\n| T8 | Order is submitted exactly at the coupon’s expiry boundary | Outcome depends on the confirmed timestamp, time zone, and boundary rule. |\n\n## Requirement traceability\n\n| Requirement | Cases |\n|---|---|\n| R1 — Coupon applies only to valid orders | T1, T2 |\n| R2 — Coupon can be used once per account | T4, T5; T6 and T7 depend on confirmation |\n| R3 — Expired coupons are rejected | T3, T8 |\n\n## Test execution\n\n**NOT_RUN** — No execution evidence was provided. These are proposed test cases and expected outcomes, not test results.",
+      "observed_version": "0.166.0"
+    }
+  ],
+  "archived_at": "2026-11-03T03:00:30.848464Z"
+}

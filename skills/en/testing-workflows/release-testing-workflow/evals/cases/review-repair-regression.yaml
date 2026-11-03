@@ -6,7 +6,7 @@ input:
     Analyze the sanitized static material only; do not perform external actions. Follow the main prompt with reasons, sources, evidence gaps, and minimal validation. Append `ID | DECISION | Evidence`, one row per ID, using the supplied enum values. PASS/FAIL is fixture comparison only, not real execution.
     Allowed DECISION values: NO_GO, READY.
 
-    R1: P0 regression passed for build b42; required security suite not run; no approval owner/time. R2: 30-minute hotfix for build b43; narrow impact documented; required regression and security passed; rollback ready; authorized owner Lin approved b43 with evidence record approval-43. Do not change facts or execute a release. Classify release evidence readiness; keep AI advice separate from the recorded approval.
+    R1: P0 regression passed for build b42; required security suite not run; no approval owner/time. R2: 30-minute hotfix for build b43; narrow impact and exclusions documented; required regression and security passed; rollback ready; monitoring and alert readiness are ready; no open blockers remain; the authorized owner Lin approved the documented b43 scope at approval time 2026-10-30T14:00Z with evidence record approval-43. Do not change facts or execute a release. Classify release evidence readiness; keep AI advice separate from the recorded approval.
 expect:
   exit_code: 0
 judge:

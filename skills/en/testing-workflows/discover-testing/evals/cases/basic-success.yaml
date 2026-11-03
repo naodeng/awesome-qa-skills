@@ -7,12 +7,13 @@ input:
   prompt: |
     Use discover-testing.
     Request: we have OpenAPI and need auth, idempotency, and error-code coverage for order APIs.
-    Route only: primary skill, optional supporting skill, why, and next step. Do not produce a full test plan in this skill.
+    Route only: primary skill, optional supporting skill, why, and a `Next Step` handoff. Do not produce a full test plan in this skill.
 
 expect:
   must_contain:
-    - "Primary Recommendation"
     - "api-testing"
+    - "api-contract-testing"
+    - "Next Step"
   must_not_contain:
     - "TODO"
     - "I cannot"
@@ -22,5 +23,6 @@ judge:
   success:
     - output_contains:
         all:
-          - "Primary Recommendation"
+          - "api-testing"
+          - "api-contract-testing"
           - "Next Step"

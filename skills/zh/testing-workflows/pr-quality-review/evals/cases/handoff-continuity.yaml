@@ -1,0 +1,19 @@
+{
+  "id": "handoff-continuity",
+  "title": "交接：保留上游证据 ID 和结论范围",
+  "description": "后续阶段不得丢失上游影响分析来源。",
+  "input": {
+    "prompt": "这是完整自包含 fixture；不要搜索本地文件，也不要访问 GitHub。上游变更影响记录 E-91 的原始范围为 `billing/retry.py`，风险为重试时可能重复扣款，状态是推断，输入 SHA 为 abc123。上游待验证动作原文是：“在支付沙箱中验证使用相同幂等键重试时只产生一次扣款。”请继续审查，保留 E-91、原始范围、SHA、该待验证动作及推断状态；不得声称已经查看源码或执行了测试。"
+  },
+  "expect": {
+    "must_not_contain": [
+      "已确认重复扣款已发生",
+      "TODO"
+    ]
+  },
+  "judge": {
+    "type": "script",
+    "script_path": "evals/graders/evidence_handoff.py",
+    "timeout_seconds": 30
+  }
+}

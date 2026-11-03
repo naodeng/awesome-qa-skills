@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0.0",
+  "id": "example-workflow",
+  "version": "1.0.0",
+  "kind": "sequence",
+  "title": { "zh": "工作流模板", "en": "Workflow template" },
+  "summary": { "zh": "复制后替换为具体流程契约。", "en": "Copy this file and replace it with a concrete workflow contract." },
+  "lifecycle_state": "UNASSESSED",
+  "inputs": [
+    { "id": "user_request", "required": true, "description": "User goal and supplied evidence." }
+  ],
+  "outputs": [
+    { "id": "source_facts", "description": "Source-backed facts and evidence gaps within scope.", "evidence_kind": "fact" },
+    { "id": "risk_inferences", "description": "Risks and conclusions inferred from identified evidence.", "evidence_kind": "inference" },
+    { "id": "recommended_actions", "description": "Planned next steps and handoff; not executed results or approvals.", "evidence_kind": "plan" }
+  ],
+  "steps": [
+    {
+      "id": "inspect",
+      "description": "Inspect supplied inputs and establish scope.",
+      "skill_ids": [],
+      "depends_on": [],
+      "on_failure": "stop",
+      "permission": "read_only",
+      "approval_required": false,
+      "skip_when": [
+        {
+          "condition": "A prior valid checkpoint already contains this side-effect-free result.",
+          "reason": "Avoid repeating completed analysis; verify the input fingerprint and Commit SHA first."
+        }
+      ]
+    }
+  ],
+  "failure_policy": { "on_missing_dependency": "ask_user", "on_blocked": "stop" },
+  "permission_policy": {
+    "default": "read_only",
+    "approval_required_for": ["execute_command", "write_repo", "external_write", "publish", "delete", "release_approval"]
+  },
+  "checkpoint_policy": {
+    "host_runtime_required": true,
+    "fingerprint_fields": ["inputs", "commit_sha"],
+    "invalidate_on_change": ["inputs", "commit_sha"],
+    "automatic_replay": "side_effect_free_only"
+  },
+  "handoff": { "required_fields": ["workflow_id", "source", "status", "open_gaps", "next_step"] },
+  "evidence_contract_version": "1.0.0"
+}

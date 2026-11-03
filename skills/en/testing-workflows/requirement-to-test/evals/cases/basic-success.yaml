@@ -1,0 +1,34 @@
+{
+  "id": "basic-success",
+  "title": "Normal: create traceable tests from testable requirements",
+  "description": "Acceptance criteria are provided; output a strategy, cases, and trace links.",
+  "input": {
+    "prompt": "Use only the material in this prompt. Respond in English. Do not inspect the workspace/repository, create files, search external sources, or run commands/tests. Use requirement-to-test. Requirement: a coupon applies only to valid orders, at most once per account; expired coupons must be rejected. Use requirement IDs R1-R3 and case IDs TC-01 onward. Identify what is testable and ambiguous, prioritize the financial/data-integrity risks, and provide representative boundary/negative cases with requirement traceability. Available Skills: requirement-quality-review, testability-analysis, test-strategy, test-case-writing, test-gap-analysis. Headings may vary, but cover each requested content area. No tests were executed in this task; mark execution `NOT_RUN` and result evidence `UNKNOWN`."
+  },
+  "expect": {
+    "must_contain": [
+      "financial",
+      "TC-01",
+      "R1",
+      "NOT_RUN"
+    ],
+    "must_not_contain": [
+      "TODO"
+    ]
+  },
+  "judge": {
+    "type": "rule_based",
+    "success": [
+      {
+        "output_contains": {
+          "all": [
+            "financial",
+            "TC-01",
+            "R1",
+            "NOT_RUN"
+          ]
+        }
+      }
+    ]
+  }
+}

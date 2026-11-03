@@ -1,0 +1,224 @@
+{
+  "record_version": "workflow-eval-run/v1",
+  "run_id": "skill-up-release-testing-workflow-52db2e888eaf495491e40f67edc3b116",
+  "workflow_id": "release-testing-workflow",
+  "locale": "en-US",
+  "execution_type": "model_eval",
+  "runner": {
+    "name": "skill-up",
+    "version": "skill-up version 0.12.0"
+  },
+  "engine": {
+    "name": "codex",
+    "version": "codex-cli 0.166.0",
+    "model_id_reported": "not reported"
+  },
+  "engine_version_capture": "captured before run",
+  "repo_head_at_archive": "12c5b8f15021b756f6edf72284d048bdc423498a",
+  "worktree_state_at_archive": "clean",
+  "input_fingerprint_capture": "captured before run",
+  "input_fingerprint": "4f017f24e60dcaa58ee7bf446dd895ba56b2b21d2babc4a593c181f0488d0178",
+  "input_fingerprint_after": "4f017f24e60dcaa58ee7bf446dd895ba56b2b21d2babc4a593c181f0488d0178",
+  "skill_package_sha256_at_start": "bd2982326b2909cbc08c6172474d4bbb6cd5e881dbebc85f3cee3de2720b40b3",
+  "raw_result_sha256": "e6d12ec84d2acb4d20efb060ff1eeadbf756c164fff6874799ede6d26ccb5f4f",
+  "started_at": "2026-11-03T08:28:46.408027Z",
+  "finished_at": "2026-11-03T08:31:11.927858Z",
+  "summary": {
+    "case_count": 4,
+    "passed": 4,
+    "failed": 0,
+    "errors": 0,
+    "blocked": 0,
+    "unknown": 0,
+    "overall_status": "PASS"
+  },
+  "execution_notes": "Generated from the raw skill-up report. Input fingerprint was captured before execution; post-run fingerprint equality is available in this record.",
+  "redaction": "Absolute repository and ephemeral skill-up install prefixes in case data were replaced with repository-relative Skill paths. raw_result_sha256 identifies the unmodified report.",
+  "cases": [
+    {
+      "case_id": "comparison-release-readiness",
+      "title": "Release readiness with/without Skill comparison",
+      "status": "PASS",
+      "duration_ms": 111664,
+      "turns": 1,
+      "input_tokens": 727180,
+      "output_tokens": 7691,
+      "grading": {
+        "status": "PASS",
+        "turns_executed": 1,
+        "turns_total": 1,
+        "assertion_results": [
+          {
+            "text": "expect.must_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.must_not_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.exit_code",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "output_contains{all:[P1 UNKNOWN pending authorized decision]}",
+            "passed": true,
+            "evidence": "output satisfies all contains checks (all:[P1 UNKNOWN pending authorized decision])"
+          }
+        ],
+        "summary": {
+          "passed": 4,
+          "failed": 0,
+          "total": 4,
+          "pass_rate": 1
+        }
+      },
+      "configuration": "with_skill",
+      "prompt": "Use release-testing-workflow for candidate RC-7. The performance smoke and API contract reports are two weeks old and were produced before RC-7 existed. Security evidence is UNKNOWN, and one P1 payment defect remains open. No authorized decision-maker has approved the release. Summarize evidence freshness, blockers, residual risk, a Go/No-Go recommendation, and the formal approval state. State exactly that formal approval is \"pending authorized decision\"; never approve on anyone's behalf.\n",
+      "response": "## 1. Release Context and Scope\n\nCandidate: **RC-7**. The release scope, exclusions, release date, environment, and owners were not provided. The current phase is the RC assessment; the exact T−N window is unknown.\n\nThis assessment uses the facts you supplied. The current workspace contained no RC-7 reports to inspect independently.\n\n## 2. Timeline Position and Gate Board\n\n| Gate | Status | Basis |\n|---|---|---|\n| Scope | `UNKNOWN` | Scope and exclusions were not provided. |\n| Quality | `BLOCKED` | A P1 payment defect remains open; performance and API contract evidence is stale; security evidence is unknown. |\n| Operations | `UNKNOWN` | Rollback and monitoring readiness were not provided. |\n| Decision | `BLOCKED` | The evidence pack is incomplete and no authorized decision-maker has approved. |\n\n## 3. This-Window Evidence and Queue\n\n| Evidence | Status | Finding |\n|---|---|---|\n| Performance smoke | `STALE` | About two weeks old and produced before RC-7 existed. |\n| API contract | `STALE` | About two weeks old and produced before RC-7 existed. |\n| Security | `UNKNOWN` | No current security result for RC-7 is established. |\n| Payment defect | `OPEN` | One P1 remains unresolved. |\n\nNext, rerun performance smoke and API contract checks against RC-7, obtain current security evidence, and resolve and retest the payment defect—or obtain documented authorized risk acceptance for it.\n\n## 4. Defects and Residual Risks\n\nThe open P1 leaves payment behavior at risk. Performance and API compatibility on RC-7 are unverified, and security exposure is unknown. Rollback and monitoring readiness are also unknown from the supplied information.\n\n## 5. Handoff\n\nUse `performance-testing`, `api-contract-testing`, and `security-testing` for candidate-specific evidence; use `manual-testing` or `functional-testing` to retest the payment fix. Then use `test-reporting` to assemble the decision evidence. Carry RC-7’s build identity, release scope, the open P1, and the stale/unknown evidence statuses into each handoff. Owners were not provided.\n\n## 6. Go/No-Go Assessment\n\n**Recommendation: No-Go for RC-7 on the current evidence.** Reconsider after the required RC-7 checks are complete, the P1 is resolved or formally risk-accepted, and operational readiness is established.\n\n**Formal approval:** \"pending authorized decision\" (`PENDING`). No authorized decision-maker has approved the release. This is a recommendation, not an approval.\n\n## 7. Assumptions and Open Questions\n\nThe release date and scope, test environment, rollback and monitoring readiness, evidence owners, and disposition of the P1 remain unknown. These should be recorded in the decision pack before an authorized decision is made.",
+      "observed_version": "0.166.0"
+    },
+    {
+      "case_id": "edge-gates-handoff",
+      "title": "Release workflow: entry/exit gates and handoff",
+      "status": "PASS",
+      "duration_ms": 145425,
+      "turns": 1,
+      "input_tokens": 370003,
+      "output_tokens": 8986,
+      "grading": {
+        "status": "PASS",
+        "turns_executed": 1,
+        "turns_total": 1,
+        "assertion_results": [
+          {
+            "text": "expect.must_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.must_not_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.exit_code",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "output_contains{all:[Entry criteria handoff]}",
+            "passed": true,
+            "evidence": "output satisfies all contains checks (all:[Entry criteria handoff])"
+          }
+        ],
+        "summary": {
+          "passed": 4,
+          "failed": 0,
+          "total": 4,
+          "pass_rate": 1
+        }
+      },
+      "configuration": "with_skill",
+      "prompt": "Use release-testing-workflow. Respond in English.\nScenario: no RC until feature-freeze gate passes; no Go with open blockers; specialized tests due T-5–T-4.\nWrite clear entry/exit criteria (gates) and how to hand off to execution skills (e.g. performance-testing, security-testing, test-reporting—names and handoff points only; no file-path links to other skills).\n",
+      "response": "# Release Gate Plan\n\nNo release date, version, scope, defect list, or gate evidence was provided. This defines the gates; it does not assess an actual release. Use `PASS`, `FAIL`, `BLOCKED`, or `UNKNOWN` for gate status. Missing evidence is `UNKNOWN`, not a pass.\n\n## Entry and exit criteria\n\n| Window / gate | Entry criteria | Exit criteria |\n|---|---|---|\n| **T-14 — Planning** | Release intent and target date are identified. | Scope, exclusions, risk order, test plan, and owners are recorded. |\n| **T-10 to T-8 — Prep** | Scope and test plan are reviewed; test environment is available. | Pre-production is testable; regression baseline, test data, and candidate build identity are ready. |\n| **T-7 — Feature-freeze gate** | Freeze is in effect; scope and exclusions are recorded; frozen-scope build is identified. | **PASS** only when the build matches the approved scope, P0 paths have current passing evidence, and every post-freeze change is controlled, impact-assessed, and retested as needed. **No RC before this gate passes.** Otherwise, hold RC designation. |\n| **T-5 to T-4 — Specialized testing** | Feature-freeze gate is `PASS`; the frozen test candidate is identified; environments, thresholds, and required specialties are set. | Each required specialty has a report for that candidate, with results and findings recorded and triaged. Missing reports remain `UNKNOWN` or `BLOCKED`; they do not count as passes. This work is due in this window. |\n| **T-3 — RC gate** | Feature-freeze gate is `PASS`; candidate identity and scope are fixed; specialty outcomes are available for review. | RC regression and exploratory results are recorded, defects are triaged, and the candidate is identified. Any later change triggers impact assessment and retesting of affected areas. RC status does not authorize release. |\n| **T-2 to T-1 — Go/No-Go** | Required gate evidence is current for the same candidate; defect status, residual risks, rollback readiness, and monitoring readiness are available. | **Go** only when all required gates pass and there are **zero open blockers**. Any open blocker means **No-Go**. An authorized decision owner records the decision, candidate, scope, time, and evidence. |\n| **T+0 onward — Post-release** | An authorized Go decision is recorded; rollout, monitoring, and escalation paths are ready. | The agreed watch period and thresholds are observed; incidents follow the escalation or rollback path. |\n\n## Handoffs\n\n| Handoff point | Skill names |\n|---|---|\n| T-14 planning | `test-strategy`, `requirements-analysis` |\n| T-10 to T-8 prep | `automation-testing`, `test-strategy` |\n| T-7 feature freeze | `test-case-writing`, `functional-testing` |\n| T-5 to T-4 specialized testing | `performance-testing`, `security-testing`, `accessibility-testing` |\n| T-3 RC | `manual-testing`, `functional-testing`, `bug-reporting` |\n| T-2 to T-1 Go/No-Go | `test-reporting` |\n| T+0 post-release | `production-verification` |\n\nEach handoff carries the candidate version/build, scope, gate status, known defects, and evidence gaps. If the freeze gate or a required specialty misses its window, record the gap and hold the affected gate; do not infer a pass.\n\n**Current decision state:** The release’s actual T-window and gate statuses are `UNKNOWN`. No Go/No-Go assessment can be made without release details and evidence.",
+      "observed_version": "0.166.0"
+    },
+    {
+      "case_id": "approval-boundary",
+      "title": "Release readiness: keep approval pending without decision-maker evidence",
+      "status": "PASS",
+      "duration_ms": 86298,
+      "turns": 1,
+      "input_tokens": 572002,
+      "output_tokens": 6645,
+      "grading": {
+        "status": "PASS",
+        "turns_executed": 1,
+        "turns_total": 1,
+        "assertion_results": [
+          {
+            "text": "expect.must_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.must_not_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.exit_code",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "output_contains{all:[PENDING approval]}",
+            "passed": true,
+            "evidence": "output satisfies all contains checks (all:[PENDING approval])"
+          }
+        ],
+        "summary": {
+          "passed": 4,
+          "failed": 0,
+          "total": 4,
+          "pass_rate": 1
+        }
+      },
+      "configuration": "with_skill",
+      "prompt": "Use release-testing-workflow. Test reports are supplied, but there is no authorized release decision-maker, approval time, or approved-scope record. Provide a quality recommendation and state formal approval status with the exact uppercase status token `PENDING`. Do not approve the release on anyone’s behalf.",
+      "response": "## Release assessment\n\nThe request says test reports are supplied, but their contents aren’t accessible in the material available here. I can’t verify their results or whether they cover the release candidate.\n\n| Gate | Status | Gap |\n|---|---|---|\n| Scope | `UNKNOWN` | Candidate, approved scope, and exclusions aren’t available |\n| Quality | `UNKNOWN` | Report findings, candidate coverage, and defect disposition can’t be verified |\n| Operations | `UNKNOWN` | Rollback and monitoring readiness aren’t documented here |\n| Decision | `BLOCKED` | No authorized decision-maker, approval time, or approved-scope record |\n\n**Quality recommendation: NO-GO / hold on the evidence currently verifiable.** This reflects unverified gates; it does not mean the tests failed. The release date is also unknown, so I can’t place it in a T-window.\n\n**Formal approval status: `PENDING`.** I have not approved the release. Before reassessment, make the reports available with their candidate version/build and environment, provide the scope and exclusions plus open-defect dispositions, and document rollback and monitoring readiness. Then the authorized decision-maker can record the decision, approved scope, time, and evidence source. `test-reporting` is the next handoff for assembling that decision pack.",
+      "observed_version": "0.166.0"
+    },
+    {
+      "case_id": "expired-quality-evidence",
+      "title": "Release readiness: expired evidence cannot remain PASS",
+      "status": "PASS",
+      "duration_ms": 106389,
+      "turns": 1,
+      "input_tokens": 496656,
+      "output_tokens": 5251,
+      "grading": {
+        "status": "PASS",
+        "turns_executed": 1,
+        "turns_total": 1,
+        "assertion_results": [
+          {
+            "text": "expect.must_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.must_not_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.exit_code",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "output_contains{all:[STALE UNKNOWN Go]}",
+            "passed": true,
+            "evidence": "output satisfies all contains checks (all:[STALE UNKNOWN Go])"
+          }
+        ],
+        "summary": {
+          "passed": 4,
+          "failed": 0,
+          "total": 4,
+          "pass_rate": 1
+        }
+      },
+      "configuration": "with_skill",
+      "prompt": "Use release-testing-workflow. Respond in English. Release is v3.8.0 at current Commit cccc. The only test report is from old Commit bbbb, generated 2026-10-01 and valid until 2026-10-15; today is 2026-10-30. Respond in English. Label the old report `STALE`, the current test-result state `UNKNOWN`, distinguish expired evidence from unrun work, and do not recommend unconditional Go.",
+      "response": "### 1. Release Context and Scope\n\n- **Release:** v3.8.0 at current commit `cccc`\n- **As of:** 2026-10-30\n- **Scope and exclusions:** UNKNOWN\n\n### 2. Timeline Position and Gate Board\n\nThe release date was not provided, so the T-window cannot be located. This is a Go/No-Go assessment based on the supplied evidence.\n\n| Gate or evidence | Status | Assessment |\n|---|---|---|\n| Old report for commit `bbbb` | **STALE** | Generated 2026-10-01; expired after 2026-10-15. It does not support commit `cccc`. |\n| Current test results for `cccc` | **UNKNOWN** | No current result was provided. This does not establish that tests were not run. |\n| Scope gate | **UNKNOWN** | Scope and exclusions were not provided. |\n| Quality gate | **BLOCKED** | Current-candidate quality cannot be established from the stale report. This is not evidence of a test failure. |\n| Ops gate | **UNKNOWN** | Rollback and monitoring readiness were not provided. |\n| Formal release decision | **PENDING** | No authorized approval record was provided. |\n\n### 3. This-Window Evidence and Queue\n\nThe only available report is stale. Obtain current test results tied to `cccc`, then assess the required regression and specialty gates against the release scope. **NOT_RUN** is not supported by the information provided; use it only if someone confirms no execution occurred. Owners and ETAs are UNKNOWN.\n\n### 4. Defects and Residual Risks\n\nCurrent defects and specialty-test outcomes are UNKNOWN. The main release risk is that the available evidence cannot establish the quality of commit `cccc`.\n\n### 5. Handoff\n\n`manual-testing` → run the required release regression against v3.8.0 at `cccc`, recording actual outcomes and defects. Carry forward the old report as **STALE** and current results as **UNKNOWN** until new evidence exists. Then hand the evidence pack to `test-reporting`.\n\n### 6. Go/No-Go Assessment\n\n**Recommendation: No-Go on the evidence currently available.** Reassess after current-candidate results and the scope and operations gates are documented. This is a recommendation, not formal approval; an authorized decision remains **PENDING**.\n\n### 7. Assumptions and Open Questions\n\nThe release date, scope and exclusions, current test execution/results, known defects, rollback plan, monitoring readiness, decision owner, and approval record were not provided. The stated date, 2026-10-30, is used as the assessment date.",
+      "observed_version": "0.166.0"
+    }
+  ],
+  "archived_at": "2026-11-03T08:31:40.650283Z"
+}

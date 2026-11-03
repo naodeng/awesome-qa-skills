@@ -1,0 +1,29 @@
+{
+  "id": "stale-checkpoint",
+  "title": "Recovery: reanalyze after the input fingerprint changes",
+  "description": "The requirement changed, so previous testability conclusions may be stale.",
+  "input": {
+    "prompt": "Use only the material in this prompt. Do not inspect the workspace/repository, create files, search external sources, or run commands/tests. The previous requirement fingerprint was sha256:aaaa. The user changed “once per account” to “once per order.” Is the old checkpoint reusable? Because the fingerprint changed, explicitly emit the exact uppercase status token `STALE` and state which stages must be analyzed again."
+  },
+  "expect": {
+    "must_contain": [
+      "STALE"
+    ],
+    "must_not_contain": [
+      "reuse the old cases directly",
+      "TODO"
+    ]
+  },
+  "judge": {
+    "type": "rule_based",
+    "success": [
+      {
+        "output_contains": {
+          "all": [
+            "STALE"
+          ]
+        }
+      }
+    ]
+  }
+}

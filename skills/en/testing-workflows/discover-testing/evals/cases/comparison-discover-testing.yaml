@@ -1,0 +1,18 @@
+id: comparison-discover-testing
+title: "Discover Testing with/without Skill comparison"
+description: "The same bounded request is evaluated with and without this Skill; this is a case comparison, not a population-level effectiveness estimate."
+input:
+  prompt: |
+    I need a one-page, risk-based test strategy for a checkout change. I want a strategy only, not test cases or test execution. Recommend the best single primary Skill, at most one helper, and a next-step handoff. Do not claim any tests ran.
+expect:
+  must_contain:
+    - "one-page-test-strategy"
+  must_not_contain:
+    - "tests passed"
+    - "TODO"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "one-page-test-strategy"

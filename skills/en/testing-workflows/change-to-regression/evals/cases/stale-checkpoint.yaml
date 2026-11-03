@@ -1,0 +1,31 @@
+{
+  "id": "stale-checkpoint",
+  "title": "Recovery: reassess an old regression set after the Commit SHA changes",
+  "description": "The prior regression selection used a different Commit SHA.",
+  "input": {
+    "prompt": "Use only the material in this prompt. Do not inspect the workspace/repository, create files, search external sources, or run commands/tests. The old checkpoint used Commit SHA 1111111. The branch is now at 2222222 and also changed auth/permissions.py. Mark the old result with the exact uppercase status token `STALE` and reassess the impact stage."
+  },
+  "expect": {
+    "must_contain": [
+      "STALE",
+      "auth/permissions.py"
+    ],
+    "must_not_contain": [
+      "reuse the old result",
+      "TODO"
+    ]
+  },
+  "judge": {
+    "type": "rule_based",
+    "success": [
+      {
+        "output_contains": {
+          "all": [
+            "STALE",
+            "auth/permissions.py"
+          ]
+        }
+      }
+    ]
+  }
+}

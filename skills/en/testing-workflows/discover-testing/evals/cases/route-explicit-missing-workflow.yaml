@@ -1,0 +1,33 @@
+{
+  "id": "route-explicit-missing-workflow",
+  "title": "Missing dependency: do not claim an explicitly absent workflow is callable",
+  "description": "The host inventory excludes the workflow; report unavailable and give the minimum install/single-step alternative.",
+  "input": {
+    "prompt": "Route with discover-testing: I want the full change-impact-to-regression plan. The host inventory contains only change-impact-analysis and regression-test-selection; change-to-regression is absent. State availability using the exact uppercase token `UNAVAILABLE` and give next steps without claiming invocation."
+  },
+  "expect": {
+    "must_contain": [
+      "UNAVAILABLE",
+      "change-to-regression"
+    ],
+    "must_not_contain": [
+      "already ran change-to-regression",
+      "memory reference",
+      "rollout_summaries/",
+      "TODO"
+    ]
+  },
+  "judge": {
+    "type": "rule_based",
+    "success": [
+      {
+        "output_contains": {
+          "all": [
+            "UNAVAILABLE",
+            "change-to-regression"
+          ]
+        }
+      }
+    ]
+  }
+}

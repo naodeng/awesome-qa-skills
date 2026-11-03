@@ -1,0 +1,29 @@
+{
+  "id": "route-pr-quality-review",
+  "title": "Route only: PR quality review workflow",
+  "description": "A full diff, test-impact, test-effectiveness, and evidence review should route to the orchestration workflow.",
+  "input": {
+    "prompt": "Route with discover-testing: I need a full code review, test-impact, test-effectiveness, and evidence summary for PR #42. The available Skills include pr-quality-review. Only route the request; do not perform the review, inspect the workspace, open the PR, or call GitHub. Return one primary Skill and a practical handoff."
+  },
+  "expect": {
+    "must_contain": [
+      "pr-quality-review"
+    ],
+    "must_not_contain": [
+      "a menu of code-review, pr-test-impact-analysis, test-code-review, quality-gate-design",
+      "TODO"
+    ]
+  },
+  "judge": {
+    "type": "rule_based",
+    "success": [
+      {
+        "output_contains": {
+          "all": [
+            "pr-quality-review"
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "comparison-change-to-regression",
+  "title": "变更到回归 Skill 对照",
+  "description": "Same user prompt and rule-based assertions are used for the Skill-enabled and no-Skill arms; this is a scenario comparison, not a population-level effectiveness estimate.",
+  "input": {
+    "prompt": "仅使用本提示中的材料。不要检查工作区/仓库、创建文件、搜索外部来源或运行命令/测试。Diff 更新了支付重试、幂等键校验和账单状态转换，Commit SHA 是 8f1a23。请先输出“变更摘要：”，并在该行原样保留 `8f1a23`。然后列出受影响路径，回归类别严格使用标题“必须执行”“可延后”“排除”，说明理由和未覆盖风险；没有运行记录时标为 NOT_RUN。"
+  },
+  "expect": {
+    "must_contain": [
+      "8f1a23",
+      "必须执行",
+      "可延后",
+      "排除",
+      "NOT_RUN"
+    ],
+    "must_not_contain": [
+      "回归已通过",
+      "TODO"
+    ]
+  },
+  "judge": {
+    "type": "rule_based",
+    "success": [
+      {
+        "output_contains": {
+          "all": [
+            "8f1a23",
+            "必须执行",
+            "可延后",
+            "排除",
+            "NOT_RUN"
+          ]
+        }
+      }
+    ]
+  }
+}

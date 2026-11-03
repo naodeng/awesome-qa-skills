@@ -6,21 +6,18 @@ description: |
 input:
   prompt: |
     Use discover-testing.
+    Reply in English.
     The user only said: "Please test the new feature." No scope, test type, or phase.
-    Clarify what must be asked first; do not pretend a skill is already selected and actionable.
+    Reply with the three numbered plain-text questions for feature/scope, current phase, and requested deliverable.
+    Do not recommend a Skill, ask about an environment, or call tools; the user has not requested execution.
+    Do not pretend a Skill is already selected and actionable.
 
 expect:
-  must_contain:
-    - "clarif"
-    - "Open Questions"
   must_not_contain:
     - "TODO"
     - "I cannot"
 
 judge:
-  type: rule_based
-  success:
-    - output_contains:
-        all:
-          - "clarif"
-          - "Open Questions"
+  type: script
+  script_path: evals/graders/clarification.py
+  timeout_seconds: 30

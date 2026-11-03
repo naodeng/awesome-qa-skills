@@ -1,0 +1,29 @@
+{
+  "id": "stale-checkpoint",
+  "title": "恢复：输入指纹变化时重新分析",
+  "description": "需求内容更新使之前的可测试性结论过期。",
+  "input": {
+    "prompt": "仅使用本提示中的材料。不要检查工作区/仓库、创建文件、搜索外部来源或运行命令/测试。上次需求指纹为 sha256:aaaa。用户现将“每账户一次”改为“每订单一次”。请判断旧 Checkpoint 是否可恢复；因需求指纹变化，请明确输出大写状态码 `STALE`，并指出需要重新分析的阶段。"
+  },
+  "expect": {
+    "must_contain": [
+      "STALE"
+    ],
+    "must_not_contain": [
+      "直接沿用旧用例",
+      "TODO"
+    ]
+  },
+  "judge": {
+    "type": "rule_based",
+    "success": [
+      {
+        "output_contains": {
+          "all": [
+            "STALE"
+          ]
+        }
+      }
+    ]
+  }
+}

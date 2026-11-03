@@ -1,0 +1,34 @@
+{
+  "id": "basic-success",
+  "title": "Happy path: combine code, test-impact, and test-quality evidence",
+  "description": "The input includes a PR diff, test changes, and upstream impact evidence; preserve sources and severity.",
+  "input": {
+    "prompt": "This is a complete inline fixture; review only the diff below, do not search local files, and do not access GitHub. Review PR #42. Diff excerpt:\n```diff\n def refund_order(order, key):\n-    if find_refund(key): return existing_refund(key)\n-    provider.refund(order.payment_id)\n-    save_refund(key, \"completed\")\n+    provider.refund(order.payment_id)\n+    save_refund(key, \"completed\")\n```\nThe added test only asserts `response.status_code == 200`; it does not check refund state or duplicate refunds. Upstream impact evidence E-17 identifies duplicate-refund risk on retry. Report P0/P1/P2 findings, test impact, test obligations, and blockers. Use the exact heading `Test impact and effectiveness` and discuss test impact and effectiveness there. Do not run tests or claim they passed."
+  },
+  "expect": {
+    "must_contain": [
+      "P0",
+      "P1",
+      "E-17",
+      "Test impact"
+    ],
+    "must_not_contain": [
+      "TODO"
+    ]
+  },
+  "judge": {
+    "type": "rule_based",
+    "success": [
+      {
+        "output_contains": {
+          "all": [
+            "P0",
+            "P1",
+            "E-17",
+            "Test impact"
+          ]
+        }
+      }
+    ]
+  }
+}

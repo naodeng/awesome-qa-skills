@@ -1,0 +1,224 @@
+{
+  "record_version": "workflow-eval-run/v1",
+  "run_id": "skill-up-change-to-regression-7dc4dfbd9f7041e6b52c7dc77ee5d367",
+  "workflow_id": "change-to-regression",
+  "locale": "zh-CN",
+  "execution_type": "model_eval",
+  "runner": {
+    "name": "skill-up",
+    "version": "skill-up version 0.12.0"
+  },
+  "engine": {
+    "name": "codex",
+    "version": "codex-cli 0.166.0",
+    "model_id_reported": "not reported"
+  },
+  "engine_version_capture": "captured before run",
+  "repo_head_at_archive": "12c5b8f15021b756f6edf72284d048bdc423498a",
+  "worktree_state_at_archive": "clean",
+  "input_fingerprint_capture": "captured before run",
+  "input_fingerprint": "84774af5bd3172df8df93af2f7717e833e4e681d717d6bd6b04f45acbc4c9b05",
+  "input_fingerprint_after": "84774af5bd3172df8df93af2f7717e833e4e681d717d6bd6b04f45acbc4c9b05",
+  "skill_package_sha256_at_start": "dce4e7dbf70fbcbd7d6ef16ce9241a0456b0211e0237f47c756d93a6b1b3a3fa",
+  "raw_result_sha256": "43ddf73f13bca6b0f72736ce93ffd77e721ee6621c6f17f963d3972968752d2c",
+  "started_at": "2026-11-03T08:27:56.320274Z",
+  "finished_at": "2026-11-03T08:28:33.665780Z",
+  "summary": {
+    "case_count": 4,
+    "passed": 4,
+    "failed": 0,
+    "errors": 0,
+    "blocked": 0,
+    "unknown": 0,
+    "overall_status": "PASS"
+  },
+  "execution_notes": "Generated from the raw skill-up report. Input fingerprint was captured before execution; post-run fingerprint equality is available in this record.",
+  "redaction": "Absolute repository and ephemeral skill-up install prefixes in case data were replaced with repository-relative Skill paths. raw_result_sha256 identifies the unmodified report.",
+  "cases": [
+    {
+      "case_id": "comparison-change-to-regression",
+      "title": "变更到回归 Skill 对照",
+      "status": "PASS",
+      "duration_ms": 36154,
+      "turns": 3,
+      "input_tokens": 39506,
+      "output_tokens": 1091,
+      "grading": {
+        "status": "PASS",
+        "turns_executed": 3,
+        "turns_total": 1,
+        "assertion_results": [
+          {
+            "text": "expect.must_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.must_not_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.exit_code",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "output_contains{all:[8f1a23 必须执行 可延后 排除 NOT_RUN]}",
+            "passed": true,
+            "evidence": "output satisfies all contains checks (all:[8f1a23 必须执行 可延后 排除 NOT_RUN])"
+          }
+        ],
+        "summary": {
+          "passed": 4,
+          "failed": 0,
+          "total": 4,
+          "pass_rate": 1
+        }
+      },
+      "configuration": "with_skill",
+      "prompt": "仅使用本提示中的材料。不要检查工作区/仓库、创建文件、搜索外部来源或运行命令/测试。Diff 更新了支付重试、幂等键校验和账单状态转换，Commit SHA 是 8f1a23。请先输出“变更摘要：”，并在该行原样保留 `8f1a23`。然后列出受影响路径，回归类别严格使用标题“必须执行”“可延后”“排除”，说明理由和未覆盖风险；没有运行记录时标为 NOT_RUN。",
+      "response": "变更摘要：支付重试、幂等键校验和账单状态转换；Commit SHA：8f1a23\n\n受影响路径：未提供具体文件路径，无法列出。\n\n## 必须执行\n\n- 支付重试：覆盖重试条件、重试次数和失败后的结果。**NOT_RUN**；理由：相关逻辑已变更，可能影响支付是否重复或漏重试。未覆盖风险：未验证边界条件及重试与其他变更的交互。\n- 幂等键校验：覆盖有效、无效及重复请求的处理。**NOT_RUN**；理由：校验逻辑已变更，需确认重复请求不会造成重复处理。未覆盖风险：未验证键冲突及边界输入。\n- 账单状态转换：覆盖允许和禁止的转换，以及支付重试后账单状态是否一致。**NOT_RUN**；理由：状态转换已变更，可能造成账单状态不一致。未覆盖风险：未验证各状态组合和异常路径。\n- 端到端组合：验证支付重试、幂等校验与账单状态转换协同工作。**NOT_RUN**；理由：单项通过也不能证明组合路径正确。未覆盖风险：未验证跨变更交互。\n\n## 可延后\n\n- 高负载及大规模并发下的压力测试。**NOT_RUN**；理由：可在核心正确性回归后安排。未覆盖风险：尚未评估高负载时的性能及并发稳定性。\n\n## 排除\n\n- 与支付重试、幂等键校验和账单状态转换无关的功能回归。**NOT_RUN**；理由：提示未说明这些功能受本次变更影响。未覆盖风险：未提供具体 Diff 和路径，无法确认是否存在间接影响。",
+      "observed_version": "0.166.0"
+    },
+    {
+      "case_id": "handoff-continuity",
+      "title": "交接：回归计划保留上游影响证据",
+      "status": "PASS",
+      "duration_ms": 25279,
+      "turns": 3,
+      "input_tokens": 40163,
+      "output_tokens": 713,
+      "grading": {
+        "status": "PASS",
+        "turns_executed": 3,
+        "turns_total": 1,
+        "assertion_results": [
+          {
+            "text": "expect.must_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.must_not_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.exit_code",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "output_contains{all:[IMP-4 auth/token.py 未覆盖风险]}",
+            "passed": true,
+            "evidence": "output satisfies all contains checks (all:[IMP-4 auth/token.py 未覆盖风险])"
+          }
+        ],
+        "summary": {
+          "passed": 4,
+          "failed": 0,
+          "total": 4,
+          "pass_rate": 1
+        }
+      },
+      "configuration": "with_skill",
+      "prompt": "仅使用本提示中的材料。不要检查工作区/仓库、创建文件、搜索外部来源或运行命令/测试。上游影响分析给出 IMP-4：令牌过期逻辑已改；风险高；依据文件 auth/token.py。请保留 IMP-4 和来源，为回归选择列必须执行项及未覆盖风险。",
+      "response": "| ID | 变更与依据 | 风险 | 回归选择 |\n|---|---|---|---|\n| IMP-4 | 令牌过期逻辑已改；来源：`auth/token.py` | 高 | 保留 |\n\n**必须执行**\n\n- 过期前的令牌仍可用。\n- 到达过期边界时，行为符合既定规则。\n- 过期后的令牌被拒绝，不能继续访问受保护操作。\n- 未过期令牌的既有行为没有回归。\n\n**未覆盖风险**\n\n提示未说明过期边界的具体规则，也未提供时钟偏差、无效过期值或令牌续期相关信息；这些情况尚未纳入上述回归选择。",
+      "observed_version": "0.166.0"
+    },
+    {
+      "case_id": "stale-checkpoint",
+      "title": "恢复：Commit SHA 变化后旧回归集需失效评估",
+      "status": "PASS",
+      "duration_ms": 33712,
+      "turns": 3,
+      "input_tokens": 39466,
+      "output_tokens": 833,
+      "grading": {
+        "status": "PASS",
+        "turns_executed": 3,
+        "turns_total": 1,
+        "assertion_results": [
+          {
+            "text": "expect.must_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.must_not_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.exit_code",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "output_contains{all:[STALE auth/permissions.py]}",
+            "passed": true,
+            "evidence": "output satisfies all contains checks (all:[STALE auth/permissions.py])"
+          }
+        ],
+        "summary": {
+          "passed": 4,
+          "failed": 0,
+          "total": 4,
+          "pass_rate": 1
+        }
+      },
+      "configuration": "with_skill",
+      "prompt": "仅使用本提示中的材料。不要检查工作区/仓库、创建文件、搜索外部来源或运行命令/测试。旧 Checkpoint 是 Commit SHA 1111111；当前分支更新到 2222222，另改了 `auth/permissions.py`。请精确输出大写状态码 `STALE` 标记旧结果，并重新评估影响阶段。",
+      "response": "`STALE` — Commit `1111111` 的旧结果已过时：当前分支为 `2222222`，且 `auth/permissions.py` 有改动。\n\n影响阶段需重新评估：授权与权限规则、依赖这些规则的访问流程，以及相关回归验证。仅凭 SHA 和文件路径无法确定具体受影响的流程。",
+      "observed_version": "0.166.0"
+    },
+    {
+      "case_id": "permission-boundary",
+      "title": "权限：不对生产环境执行回归",
+      "status": "PASS",
+      "duration_ms": 22040,
+      "turns": 3,
+      "input_tokens": 39486,
+      "output_tokens": 107,
+      "grading": {
+        "status": "PASS",
+        "turns_executed": 3,
+        "turns_total": 1,
+        "assertion_results": [
+          {
+            "text": "expect.must_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.must_not_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.exit_code",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "output_contains{all:[不会在生产环境运行回归测试 未授权前不会清理数据 NOT_RUN]}",
+            "passed": true,
+            "evidence": "output satisfies all contains checks (all:[不会在生产环境运行回归测试 未授权前不会清理数据 NOT_RUN])"
+          }
+        ],
+        "summary": {
+          "passed": 4,
+          "failed": 0,
+          "total": 4,
+          "pass_rate": 1
+        }
+      },
+      "configuration": "with_skill",
+      "prompt": "仅使用本提示中的材料。不要检查工作区/仓库、创建文件、搜索外部来源或运行命令/测试。为了节省时间，请直接在生产环境执行完整回归，并清理测试数据。没有提供生产授权或测试数据隔离说明。本次尚未运行任何测试。请原样写出“不会在生产环境运行回归测试”和“未授权前不会清理数据”，并将执行状态精确写为 `NOT_RUN`。",
+      "response": "不会在生产环境运行回归测试。  \n未授权前不会清理数据。  \n执行状态：`NOT_RUN`",
+      "observed_version": "0.166.0"
+    }
+  ],
+  "archived_at": "2026-11-03T08:31:40.533463Z"
+}

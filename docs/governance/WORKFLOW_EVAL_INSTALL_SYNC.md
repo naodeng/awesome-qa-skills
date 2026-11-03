@@ -2,17 +2,20 @@
 
 # Workflow / Eval / 安装同步清单
 
-本清单把当前 11 个跨阶段 Workflow 的物理路径、双语包、最低 Eval 工件和安装入口放在同一处核对。它是文档与结构证据，不代表 Workflow 已在真实项目运行。
+本清单把当前 14 个 `testing-workflows` 包的物理路径、双语目录、最低 Eval 工件和安装入口放在同一处核对。它们包含路由器、阶段工作流和质量视角集合；本清单是文档与结构证据，不代表每个包都已在真实项目运行。
 
-## 11 个 Workflow
+## 14 个 `testing-workflows` 包
 
 | Workflow | 中文路径 | English 路径 | Eval 结构 |
 | --- | --- | --- | --- |
 | `daily-testing-workflow` | `skills/zh/testing-workflows/daily-testing-workflow` | `skills/en/testing-workflows/daily-testing-workflow` | `eval.yaml` + 三类 case |
 | `discover-testing` | `skills/zh/testing-workflows/discover-testing` | `skills/en/testing-workflows/discover-testing` | `eval.yaml` + 三类 case |
+| `requirement-to-test` | `skills/zh/testing-workflows/requirement-to-test` | `skills/en/testing-workflows/requirement-to-test` | `eval.yaml` + 正常/边界/失败与交接 case |
 | `multi-role-quality-synthesis` | `skills/zh/testing-workflows/multi-role-quality-synthesis` | `skills/en/testing-workflows/multi-role-quality-synthesis` | `eval.yaml` + 三类 case |
 | `product-quality-perspective` | `skills/zh/testing-workflows/product-quality-perspective` | `skills/en/testing-workflows/product-quality-perspective` | `eval.yaml` + 三类 case |
 | `project-delivery-perspective` | `skills/zh/testing-workflows/project-delivery-perspective` | `skills/en/testing-workflows/project-delivery-perspective` | `eval.yaml` + 三类 case |
+| `pr-quality-review` | `skills/zh/testing-workflows/pr-quality-review` | `skills/en/testing-workflows/pr-quality-review` | `eval.yaml` + 正常/边界/失败、权限、交接、恢复 case |
+| `change-to-regression` | `skills/zh/testing-workflows/change-to-regression` | `skills/en/testing-workflows/change-to-regression` | `eval.yaml` + 正常/边界/失败、权限、交接、恢复 case |
 | `qa-quality-perspective` | `skills/zh/testing-workflows/qa-quality-perspective` | `skills/en/testing-workflows/qa-quality-perspective` | `eval.yaml` + 三类 case |
 | `release-testing-workflow` | `skills/zh/testing-workflows/release-testing-workflow` | `skills/en/testing-workflows/release-testing-workflow` | `eval.yaml` + 三类 case |
 | `sprint-testing-workflow` | `skills/zh/testing-workflows/sprint-testing-workflow` | `skills/en/testing-workflows/sprint-testing-workflow` | `eval.yaml` + 三类 case |

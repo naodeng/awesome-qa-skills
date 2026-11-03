@@ -1,0 +1,28 @@
+{
+  "id": "edge-no-diff",
+  "title": "Boundary: do not invent a precise regression set without change evidence",
+  "description": "No diff or affected-module information is available.",
+  "input": {
+    "prompt": "Use only the material in this prompt. Do not inspect the workspace/repository, create files, search external sources, or run commands/tests. Provide the precise regression set for this change, but no Commit SHA, diff, module map, or historical test information is provided. Explain the limitation and minimum additional inputs; do not guess affected tests. Mark affected modules and test selection `UNKNOWN`; list the minimum inputs needed to make a precise plan."
+  },
+  "expect": {
+    "must_contain": [
+      "UNKNOWN"
+    ],
+    "must_not_contain": [
+      "TODO"
+    ]
+  },
+  "judge": {
+    "type": "rule_based",
+    "success": [
+      {
+        "output_contains": {
+          "all": [
+            "UNKNOWN"
+          ]
+        }
+      }
+    ]
+  }
+}

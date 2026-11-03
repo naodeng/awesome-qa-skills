@@ -1,0 +1,37 @@
+{
+  "id": "comparison-pr-quality-review",
+  "title": "PR 质量审查 Skill 对照",
+  "description": "Same user prompt and rule-based assertions are used for the Skill-enabled and no-Skill arms; this is a scenario comparison, not a population-level effectiveness estimate.",
+  "input": {
+    "prompt": "审查这项退款改动。Diff 摘录：\n```diff\n def refund_order(order, key):\n-    if find_refund(key): return existing_refund(key)\n-    provider.refund(order.payment_id)\n-    save_refund(key, \"completed\")\n+    provider.refund(order.payment_id)\n+    save_refund(key, \"completed\")\n```\n新增测试只有 `assert response.status_code == 200`，没有验证退款状态，也没有覆盖相同幂等键的并发重试。已有影响记录 E-17 指向重复退款风险。报告代码风险、测试影响和有效性、P0/P1/P2 发现、阻断项与来源。不要运行测试或声称测试通过。"
+  },
+  "expect": {
+    "must_contain": [
+      "E-17",
+      "P0",
+      "P1",
+      "P2",
+      "200"
+    ],
+    "must_not_contain": [
+      "测试已通过",
+      "TODO"
+    ]
+  },
+  "judge": {
+    "type": "rule_based",
+    "success": [
+      {
+        "output_contains": {
+          "all": [
+            "E-17",
+            "P0",
+            "P1",
+            "P2",
+            "200"
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "schema_version": "1.0.0",
+  "id": "multi-role-quality-synthesis",
+  "version": "1.0.0",
+  "kind": "sequence",
+  "title": {
+    "zh": "多视角质量综合",
+    "en": "Multi-role Quality Synthesis"
+  },
+  "summary": {
+    "zh": "汇总多个质量视角的发现、冲突和证据。",
+    "en": "Synthesize findings, disagreements, and evidence from multiple quality perspectives."
+  },
+  "lifecycle_state": "UNASSESSED",
+  "inputs": [
+    {
+      "id": "user_request",
+      "required": true,
+      "description": "User request and available project evidence."
+    }
+  ],
+  "outputs": [
+    {
+      "id": "evidence_gaps",
+      "description": "审查范围内缺失、冲突或过期的来源证据。",
+      "evidence_kind": "fact"
+    },
+    {
+      "id": "role_findings",
+      "description": "根据参与角色视角综合得出的质量发现。",
+      "evidence_kind": "inference"
+    },
+    {
+      "id": "follow_up_actions",
+      "description": "按优先级排列的后续行动和责任交接。",
+      "evidence_kind": "plan"
+    }
+  ],
+  "steps": [
+    {
+      "id": "normalize",
+      "description": "Normalize",
+      "skill_ids": [],
+      "prompt": "prompts/multi-role-quality-synthesis.md",
+      "depends_on": [],
+      "on_failure": "stop",
+      "permission": "read_only",
+      "approval_required": false
+    },
+    {
+      "id": "compare",
+      "description": "Compare",
+      "skill_ids": [],
+      "prompt": "prompts/multi-role-quality-synthesis.md",
+      "depends_on": [
+        "normalize"
+      ],
+      "on_failure": "stop",
+      "permission": "read_only",
+      "approval_required": false
+    },
+    {
+      "id": "synthesize",
+      "description": "Synthesize",
+      "skill_ids": [],
+      "prompt": "prompts/multi-role-quality-synthesis.md",
+      "depends_on": [
+        "normalize",
+        "compare"
+      ],
+      "on_failure": "stop",
+      "permission": "read_only",
+      "approval_required": false
+    }
+  ],
+  "failure_policy": {
+    "on_missing_dependency": "continue_with_limitations",
+    "on_blocked": "stop"
+  },
+  "permission_policy": {
+    "default": "read_only",
+    "approval_required_for": [
+      "execute_command",
+      "write_repo",
+      "external_write",
+      "publish",
+      "delete",
+      "release_approval"
+    ]
+  },
+  "checkpoint_policy": {
+    "host_runtime_required": true,
+    "fingerprint_fields": [
+      "inputs",
+      "commit_sha"
+    ],
+    "invalidate_on_change": [
+      "inputs",
+      "commit_sha"
+    ],
+    "automatic_replay": "side_effect_free_only"
+  },
+  "handoff": {
+    "required_fields": [
+      "workflow_id",
+      "source",
+      "status",
+      "open_gaps",
+      "next_step"
+    ]
+  },
+  "evidence_contract_version": "1.0.0"
+}

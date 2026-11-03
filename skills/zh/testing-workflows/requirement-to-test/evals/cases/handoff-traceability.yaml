@@ -1,0 +1,33 @@
+{
+  "id": "handoff-traceability",
+  "title": "交接：保留需求 ID 与未覆盖条目",
+  "description": "用例必须保留来源需求编号。",
+  "input": {
+    "prompt": "仅使用本提示中的材料。不要检查工作区/仓库、创建文件、搜索外部来源或运行命令/测试。需求 R-17 要求账户冻结时拒绝退款；R-18 要求正常账户退款成功。请给出用例并保留 R-17/R-18 的追踪关系；没有实现或执行记录时，不要声称行为已验证。 本任务没有执行测试；执行状态标为 `NOT_RUN`，行为证据标为 `UNKNOWN`。"
+  },
+  "expect": {
+    "must_contain": [
+      "R-17",
+      "R-18",
+      "NOT_RUN"
+    ],
+    "must_not_contain": [
+      "需求已验证通过",
+      "TODO"
+    ]
+  },
+  "judge": {
+    "type": "rule_based",
+    "success": [
+      {
+        "output_contains": {
+          "all": [
+            "R-17",
+            "R-18",
+            "NOT_RUN"
+          ]
+        }
+      }
+    ]
+  }
+}

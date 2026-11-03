@@ -1,0 +1,128 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://inaodeng.com/qaskills/schemas/workflow-v1.schema.json",
+  "title": "Awesome QA Workflow Contract",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "id", "version", "kind", "title", "summary",
+    "inputs", "outputs", "steps", "failure_policy", "permission_policy",
+    "checkpoint_policy", "handoff", "evidence_contract_version", "lifecycle_state"
+  ],
+  "properties": {
+    "schema_version": { "const": "1.0.0" },
+    "id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+    "version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:-[0-9A-Za-z.-]+)?$" },
+    "kind": { "enum": ["sequence", "router", "task_set", "single_task"] },
+    "title": { "$ref": "#/$defs/localizedText" },
+    "summary": { "$ref": "#/$defs/localizedText" },
+    "lifecycle_state": { "enum": ["UNASSESSED", "EXPERIMENTAL", "STABLE", "MAINTENANCE", "DEPRECATED"] },
+    "inputs": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/input" } },
+    "outputs": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/output" } },
+    "steps": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/step" } },
+    "failure_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["on_missing_dependency", "on_blocked"],
+      "properties": {
+        "on_missing_dependency": { "enum": ["fail_closed", "continue_with_limitations", "ask_user"] },
+        "on_blocked": { "enum": ["stop", "continue_with_gap", "handoff"] }
+      }
+    },
+    "permission_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["default", "approval_required_for"],
+      "properties": {
+        "default": { "enum": ["read_only", "suggest_only", "write"] },
+        "approval_required_for": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "enum": ["execute_command", "write_repo", "external_write", "publish", "delete", "release_approval"] }
+        }
+      }
+    },
+    "checkpoint_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["host_runtime_required", "fingerprint_fields", "invalidate_on_change", "automatic_replay"],
+      "properties": {
+        "host_runtime_required": { "const": true },
+        "fingerprint_fields": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string" } },
+        "invalidate_on_change": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string" },
+          "allOf": [
+            { "contains": { "const": "inputs" } },
+            { "contains": { "const": "commit_sha" } }
+          ]
+        },
+        "automatic_replay": { "enum": ["none", "side_effect_free_only"] }
+      }
+    },
+    "handoff": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["required_fields"],
+      "properties": {
+        "required_fields": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string" } }
+      }
+    },
+    "evidence_contract_version": { "const": "1.0.0" }
+  },
+  "$defs": {
+    "localizedText": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["zh", "en"],
+      "properties": { "zh": { "type": "string", "minLength": 1 }, "en": { "type": "string", "minLength": 1 } }
+    },
+    "input": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "required", "description"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z][a-z0-9_-]*$" },
+        "required": { "type": "boolean" },
+        "description": { "type": "string", "minLength": 1 }
+      }
+    },
+    "output": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "description", "evidence_kind"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z][a-z0-9_-]*$" },
+        "description": { "type": "string", "minLength": 1 },
+        "evidence_kind": { "enum": ["fact", "inference", "plan", "execution"] }
+      }
+    },
+    "step": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "description", "skill_ids", "depends_on", "on_failure", "permission", "approval_required"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z][a-z0-9_-]*$" },
+        "description": { "type": "string", "minLength": 1 },
+        "skill_ids": { "type": "array", "uniqueItems": true, "items": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" } },
+        "prompt": { "type": "string", "minLength": 1 },
+        "skip_when": { "type": "array", "items": { "$ref": "#/$defs/skipCondition" } },
+        "depends_on": { "type": "array", "uniqueItems": true, "items": { "type": "string", "pattern": "^[a-z][a-z0-9_-]*$" } },
+        "on_failure": { "enum": ["stop", "continue_with_gap", "handoff"] },
+        "permission": { "enum": ["read_only", "suggest_only", "write"] },
+        "approval_required": { "type": "boolean" }
+      }
+    },
+    "skipCondition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["condition", "reason"],
+      "properties": {
+        "condition": { "type": "string", "minLength": 1 },
+        "reason": { "type": "string", "minLength": 1 }
+      }
+    }
+  }
+}

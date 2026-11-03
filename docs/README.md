@@ -10,6 +10,7 @@
 - [Composition 路由目录](./catalog/skills-composition.md)：查看五条结构化任务路线、主辅 Skill 和导航关系；它提供选择建议，不会自动编排或执行 Skills。
 - [Skill 关系图](./catalog/skills-graph.md)：查看目录与能力关系。
 - [Skills CLI 集成指南](./integrations/SKILLS_CLI_INTEGRATION.md)：CLI 分发契约、兼容性门禁和验证边界。
+- [Agent 兼容矩阵](./integrations/AGENT_COMPATIBILITY_MATRIX.md)：区分安装器、CLI 与 Host 内运行证据。
 - [安装手册](../scripts/INSTALL_SKILLS.md)：CLI、仓库脚本、单 Skill 快捷脚本、克隆、子模块和手动复制。
 - [支持的 AI 工具](../README.md#支持的-ai-工具)：查看工具对应的安装方式。
 
@@ -31,6 +32,10 @@
 - [Skill 治理基线](./governance/SKILL_GOVERNANCE_V1.md)：源代码结构记录和证据边界。
 - [Skill 弃用指南](./SKILL_DEPRECATION_GUIDE.md)：弃用、归档和替代路径。
 - [Workflow / Eval / 安装同步清单](./governance/WORKFLOW_EVAL_INSTALL_SYNC.md)：工作流与双语安装、评测入口的同步要求。
+- [Skill 生命周期治理](./governance/SKILL_LIFECYCLE_POLICY.md)：生命周期状态、采用证据、弃用迁移与只读残留检查。
+- [Workflow Reliability Enhancement v1.0](./governance/WORKFLOW_RELIABILITY_ENHANCEMENT_V1.md)：本轮审计、12 项实施决策和完成标准。
+- [Workflow Contract](./workflows/WORKFLOW_CONTRACT.md)：工作流、证据和恢复的数据契约与验证器。
+- [本地 Workflow 状态 CLI](./workflows/WORKFLOW_STATE_RUNTIME.md)：Run State、Checkpoint、失效检测和显式审批记录工具及其宿主边界。
 - [治理和版本文档](./governance/)：质量契约、版本收口、计划和其他治理资料。
 
 ## 评审记录与生成资料

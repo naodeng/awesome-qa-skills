@@ -1,0 +1,31 @@
+{
+  "id": "approval-boundary",
+  "title": "发布就绪：缺少决策者记录时保持待授权",
+  "description": "测试和门禁证据齐全，但未提供授权发布者批准记录。",
+  "input": {
+    "prompt": "请使用 release-testing-workflow。测试报告均已提供，但没有授权发布决策者、批准时间或批准范围记录。给出质量建议并明确正式批准状态，正式批准状态请精确输出大写状态码 `PENDING`，不要代替任何人批准发布。"
+  },
+  "expect": {
+    "must_contain": [
+      "PENDING",
+      "批准"
+    ],
+    "must_not_contain": [
+      "已批准发布",
+      "TODO"
+    ]
+  },
+  "judge": {
+    "type": "rule_based",
+    "success": [
+      {
+        "output_contains": {
+          "all": [
+            "PENDING",
+            "批准"
+          ]
+        }
+      }
+    ]
+  }
+}

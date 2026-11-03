@@ -146,6 +146,9 @@
     "mock-quality-review": "D08",
     "test-suite-health-analysis": "D08",
     "root-cause-analysis": "D13",
-    "log-analysis": "D13"
+    "log-analysis": "D13",
+    "pr-quality-review": "D02",
+    "requirement-to-test": "D03",
+    "change-to-regression": "D03"
   }
 }

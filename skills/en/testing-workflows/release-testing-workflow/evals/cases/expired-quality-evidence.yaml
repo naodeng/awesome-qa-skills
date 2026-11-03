@@ -1,0 +1,32 @@
+{
+  "id": "expired-quality-evidence",
+  "title": "Release readiness: expired evidence cannot remain PASS",
+  "description": "The report is expired and belongs to an old Commit; mark it stale/UNKNOWN and block an unconditional Go.",
+  "input": {
+    "prompt": "Use release-testing-workflow. Respond in English. Release is v3.8.0 at current Commit cccc. The only test report is from old Commit bbbb, generated 2026-10-01 and valid until 2026-10-15; today is 2026-10-30. Respond in English. Label the old report `STALE`, the current test-result state `UNKNOWN`, distinguish expired evidence from unrun work, and do not recommend unconditional Go."
+  },
+  "expect": {
+    "must_contain": [
+      "STALE",
+      "UNKNOWN",
+      "Go"
+    ],
+    "must_not_contain": [
+      "TODO"
+    ]
+  },
+  "judge": {
+    "type": "rule_based",
+    "success": [
+      {
+        "output_contains": {
+          "all": [
+            "STALE",
+            "UNKNOWN",
+            "Go"
+          ]
+        }
+      }
+    ]
+  }
+}

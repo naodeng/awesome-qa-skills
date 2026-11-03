@@ -1,0 +1,86 @@
+{
+  "record_version": "workflow-eval-run/v1",
+  "run_id": "skill-up-change-to-regression-3b5e78ba6213465aba63ebabb6823717",
+  "workflow_id": "change-to-regression",
+  "locale": "zh-CN",
+  "execution_type": "model_eval",
+  "runner": {
+    "name": "skill-up",
+    "version": "skill-up version 0.12.0"
+  },
+  "engine": {
+    "name": "codex",
+    "version": "codex-cli 0.166.0",
+    "model_id_reported": "not reported"
+  },
+  "engine_version_capture": "captured before run",
+  "repo_head_at_archive": "ed94f827f2f564c039ae6ca9111f85851ad3771f",
+  "worktree_state_at_archive": "dirty; 270 paths changed",
+  "input_fingerprint_capture": "captured before run",
+  "input_fingerprint": "a08c5da60d4a5b052780d385070584af94951bd45b6d29cee431014afa93858f",
+  "input_fingerprint_after": "a08c5da60d4a5b052780d385070584af94951bd45b6d29cee431014afa93858f",
+  "skill_package_sha256_at_start": "d6eb9b0db22fd41bb29b3cdf9015478fc32211778ea5408c5a213f2dcac4e188",
+  "raw_result_sha256": "9a749b6b633a2ac63eddb1d04b79cdc00df38a5fef3176934d4b8f7188f13dd1",
+  "started_at": "2026-11-03T02:44:48.940221Z",
+  "finished_at": "2026-11-03T02:45:29.237235Z",
+  "summary": {
+    "case_count": 1,
+    "passed": 1,
+    "failed": 0,
+    "errors": 0,
+    "blocked": 0,
+    "unknown": 0,
+    "overall_status": "PASS"
+  },
+  "execution_notes": "Generated from the raw skill-up report. Input fingerprint was captured before execution; post-run fingerprint equality is available in this record.",
+  "redaction": "Absolute repository and ephemeral skill-up install prefixes in case data were replaced with repository-relative Skill paths. raw_result_sha256 identifies the unmodified report.",
+  "cases": [
+    {
+      "case_id": "comparison-change-to-regression",
+      "title": "变更到回归 Skill 对照",
+      "status": "PASS",
+      "duration_ms": 40187,
+      "turns": 3,
+      "input_tokens": 40161,
+      "output_tokens": 1708,
+      "grading": {
+        "status": "PASS",
+        "turns_executed": 3,
+        "turns_total": 1,
+        "assertion_results": [
+          {
+            "text": "expect.must_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.must_not_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.exit_code",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "output_contains{all:[8f1a23 必须执行 可延后 排除 NOT_RUN]}",
+            "passed": true,
+            "evidence": "output satisfies all contains checks (all:[8f1a23 必须执行 可延后 排除 NOT_RUN])"
+          }
+        ],
+        "summary": {
+          "passed": 4,
+          "failed": 0,
+          "total": 4,
+          "pass_rate": 1
+        }
+      },
+      "configuration": "with_skill",
+      "prompt": "仅使用本提示中的材料。不要检查工作区/仓库、创建文件、搜索外部来源或运行命令/测试。Diff 更新了支付重试、幂等键校验和账单状态转换，Commit SHA 是 8f1a23。列出受影响路径，回归类别严格使用标题“必须执行”“可延后”“排除”，说明理由和未覆盖风险；没有运行记录时标为 NOT_RUN。",
+      "response": "**Commit：**`8f1a23`\n\n提示中没有提供具体文件名，因此无法确认仓库文件路径。按功能路径，受影响范围是：支付重试（决定是否重试、执行尝试、记录结果）、幂等键校验（接收请求、校验键、处理重复请求）和账单状态转换（触发转换、校验转换、保存状态）。\n\n### 必须执行\n\n- **支付重试**：覆盖重试决策、重复尝试和结果记录，检查不会因重试产生重复扣款。**状态：NOT_RUN**。理由：重试逻辑已更新。未覆盖风险：具体重试条件、次数和副作用规则未提供。\n- **幂等键校验**：覆盖无效键、重复键，以及相同键重复提交。**状态：NOT_RUN**。理由：幂等键校验已更新。未覆盖风险：键的具体格式、作用范围和重复请求预期未提供。\n- **账单状态转换**：覆盖允许和拒绝的转换，并检查重复事件或重试不会造成错误状态。**状态：NOT_RUN**。理由：状态转换已更新。未覆盖风险：账单状态集合和合法转换表未提供。\n\n### 可延后\n\n- 支付服务、存储及事件处理之间的集成与并发场景，例如并发提交相同幂等键、超时后重试。**状态：NOT_RUN**。理由：提示未说明这些接口和场景是否在 Diff 范围内。未覆盖风险：跨系统重复处理、状态与支付结果不一致。\n- 重试退避、性能及异常恢复场景。**状态：NOT_RUN**。理由：提示没有提供相关策略或变更细节。未覆盖风险：负载升高时的重试行为和中断恢复。\n\n### 排除\n\n- 与支付重试、幂等键校验、账单状态转换无关的功能回归。**状态：NOT_RUN**。理由：给出的 Diff 摘要未涉及这些范围。未覆盖风险：仅凭摘要无法确认是否有间接影响。",
+      "observed_version": "0.166.0"
+    }
+  ],
+  "archived_at": "2026-11-03T03:00:30.902095Z"
+}

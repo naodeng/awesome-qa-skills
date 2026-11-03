@@ -1,0 +1,154 @@
+{
+  "schema_version": "1.0.0",
+  "id": "requirement-to-test",
+  "version": "1.0.0",
+  "kind": "sequence",
+  "title": {
+    "zh": "需求到测试工作流",
+    "en": "Requirement-to-Test Workflow"
+  },
+  "summary": {
+    "zh": "把需求转成可测试、风险驱动并可追踪的用例设计。",
+    "en": "Turn requirements into testable, risk-driven, traceable test design."
+  },
+  "lifecycle_state": "EXPERIMENTAL",
+  "inputs": [
+    {
+      "id": "user_request",
+      "required": true,
+      "description": "User request and available project evidence."
+    }
+  ],
+  "outputs": [
+    {
+      "id": "requirement_facts",
+      "description": "有来源的需求原文、标识符和验收标准。",
+      "evidence_kind": "fact"
+    },
+    {
+      "id": "testability_findings",
+      "description": "根据需求推断的歧义、冲突和可测试性结论。",
+      "evidence_kind": "inference"
+    },
+    {
+      "id": "test_design_plan",
+      "description": "风险驱动的测试用例、追踪关系、覆盖缺口和待确认问题。",
+      "evidence_kind": "plan"
+    }
+  ],
+  "steps": [
+    {
+      "id": "decompose",
+      "description": "Decompose",
+      "skill_ids": [
+        "requirements-analysis"
+      ],
+      "prompt": "prompts/requirement-to-test.md",
+      "depends_on": [],
+      "on_failure": "stop",
+      "permission": "read_only",
+      "approval_required": false
+    },
+    {
+      "id": "testability",
+      "description": "Testability",
+      "skill_ids": [
+        "requirement-quality-review",
+        "testability-analysis"
+      ],
+      "prompt": "prompts/requirement-to-test.md",
+      "depends_on": [
+        "decompose"
+      ],
+      "on_failure": "stop",
+      "permission": "read_only",
+      "approval_required": false
+    },
+    {
+      "id": "strategy",
+      "description": "Strategy",
+      "skill_ids": [
+        "test-strategy"
+      ],
+      "prompt": "prompts/requirement-to-test.md",
+      "depends_on": [
+        "decompose",
+        "testability"
+      ],
+      "on_failure": "stop",
+      "permission": "read_only",
+      "approval_required": false
+    },
+    {
+      "id": "design",
+      "description": "Design",
+      "skill_ids": [
+        "test-case-writing"
+      ],
+      "prompt": "prompts/requirement-to-test.md",
+      "depends_on": [
+        "decompose",
+        "testability",
+        "strategy"
+      ],
+      "on_failure": "stop",
+      "permission": "read_only",
+      "approval_required": false
+    },
+    {
+      "id": "traceability",
+      "description": "Traceability",
+      "skill_ids": [
+        "requirement-traceability-analysis",
+        "test-gap-analysis"
+      ],
+      "prompt": "prompts/requirement-to-test.md",
+      "depends_on": [
+        "decompose",
+        "testability",
+        "strategy",
+        "design"
+      ],
+      "on_failure": "stop",
+      "permission": "read_only",
+      "approval_required": false
+    }
+  ],
+  "failure_policy": {
+    "on_missing_dependency": "continue_with_limitations",
+    "on_blocked": "stop"
+  },
+  "permission_policy": {
+    "default": "read_only",
+    "approval_required_for": [
+      "execute_command",
+      "write_repo",
+      "external_write",
+      "publish",
+      "delete",
+      "release_approval"
+    ]
+  },
+  "checkpoint_policy": {
+    "host_runtime_required": true,
+    "fingerprint_fields": [
+      "inputs",
+      "commit_sha"
+    ],
+    "invalidate_on_change": [
+      "inputs",
+      "commit_sha"
+    ],
+    "automatic_replay": "side_effect_free_only"
+  },
+  "handoff": {
+    "required_fields": [
+      "workflow_id",
+      "source",
+      "status",
+      "open_gaps",
+      "next_step"
+    ]
+  },
+  "evidence_contract_version": "1.0.0"
+}

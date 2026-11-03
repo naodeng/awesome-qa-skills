@@ -1,0 +1,34 @@
+{
+  "id": "basic-success",
+  "title": "正常路径：变更影响到回归集合",
+  "description": "有 Diff 与模块关系时，列必测和可延后候选。",
+  "input": {
+    "prompt": "仅使用本提示中的材料。不要检查工作区/仓库、创建文件、搜索外部来源或运行命令/测试。请使用 change-to-regression。Diff 修改支付重试、幂等键校验和账单状态转换；Commit SHA 是 8f1a23。请分析受影响路径，分出必须执行/可延后回归，说明选择和排除依据、未覆盖风险，并在变更摘要中原样写出 Commit SHA `8f1a23`。可用 Skill：change-impact-analysis、regression-scope-analysis、regression-test-selection、flaky-test-analysis。 使用表格标签“必须执行”“可延后”“排除”。本任务没有执行回归测试；执行状态标为 `NOT_RUN`，当前结果证据标为 `UNKNOWN`。"
+  },
+  "expect": {
+    "must_contain": [
+      "8f1a23",
+      "必须执行",
+      "可延后",
+      "NOT_RUN"
+    ],
+    "must_not_contain": [
+      "TODO"
+    ]
+  },
+  "judge": {
+    "type": "rule_based",
+    "success": [
+      {
+        "output_contains": {
+          "all": [
+            "8f1a23",
+            "必须执行",
+            "可延后",
+            "NOT_RUN"
+          ]
+        }
+      }
+    ]
+  }
+}

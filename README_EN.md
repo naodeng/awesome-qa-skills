@@ -9,8 +9,8 @@ Skills provide task guidance, test design, and reusable workflows; actual automa
 ![Awesome QA Skills social preview](social-preview.jpg)
 
 [![License: PolyForm Noncommercial 1.0.0](https://img.shields.io/badge/License-PolyForm%20Noncommercial%201.0.0-blue.svg)](./LICENSE)
-[![Skills](https://img.shields.io/badge/skills-332%20(zh%2Ben)-0A7EA4)](./docs/catalog/skills-index_EN.md)
-[![Workflows](https://img.shields.io/badge/workflows-11-informational)](./skills/en/testing-workflows/)
+[![Skills](https://img.shields.io/badge/skills-338%20(zh%2Ben)-0A7EA4)](./docs/catalog/skills-index_EN.md)
+[![Workflows](https://img.shields.io/badge/workflows-14-informational)](./skills/en/testing-workflows/)
 [![Testing types](https://img.shields.io/badge/testing%20types-150-informational)](./skills/en/testing-types/)
 [![Skill engineering](https://img.shields.io/badge/skill%20engineering-5-informational)](./skills/en/skill-engineering/)
 [![skills.sh](https://skills.sh/b/naodeng/awesome-qa-skills)](https://skills.sh/naodeng/awesome-qa-skills)
@@ -23,11 +23,11 @@ Skills provide task guidance, test design, and reusable workflows; actual automa
 
 ## What's included
 
-Each language has **166 Skills**, for **332 Skill directories** across Chinese and English:
+Each language has **169 Skills**, for **338 Skill directories** across Chinese and English:
 
 | Category | Count | Coverage |
 | --- | ---: | --- |
-| Testing workflows | 11 per language | Routing, daily and iteration testing, release workflows, and quality perspectives |
+| Testing workflows | 14 per language | Routing, requirement-to-test, PR review, change regression, iteration and release workflows, and quality perspectives |
 | Testing types | 150 per language | Requirements and strategy, test cases, functional/API/UI, regression, performance, security, production quality, and AI/LLM/agent testing |
 | Skill Engineering | 5 per language | Skill review, evaluation, change verification, and prose review |
 
@@ -113,7 +113,7 @@ Core QA Skills → Engineering QA Skills → Production Quality Skills → AI Na
 
 ## Complete Skill catalog
 
-Each language provides **166** Skills: 11 workflows, 150 testing types, and 5 Skill Engineering packages; **332** bilingual directories in total. Physical directories remain stable; the catalog below is logical navigation only.
+Each language provides **169** Skills: 14 workflows, 150 testing types, and 5 Skill Engineering packages; **338** bilingual directories in total. Physical directories remain stable; the catalog below is logical navigation only.
 
 ### Cross-phase workflows
 
@@ -124,6 +124,7 @@ Workflows orchestrate lifecycle phases and do not form a fifth capability stage.
 | Skill | Directory | Primary use |
 | --- | --- | --- |
 | Testing Skill Discovery | [`discover-testing`](skills/en/testing-workflows/discover-testing/) | Use this skill when you need to route a request to the right testing skill before execution; triggers include discover testing, testing skill router, and which… |
+| Requirement-to-Test Workflow | [`requirement-to-test`](skills/en/testing-workflows/requirement-to-test/) | Connect requirement quality, testability, strategy, case design, and traceability. |
 | Product Quality Perspective | [`product-quality-perspective`](skills/en/testing-workflows/product-quality-perspective/) | Identify user value, business rules, acceptance gaps, and decision risks across product quality stages. |
 | QA quality perspective | [`qa-quality-perspective`](skills/en/testing-workflows/qa-quality-perspective/) | Assesses testability, risk-based coverage, defect risk, and evidence-bound quality conclusions across QA stages. |
 | UX Quality Perspective | [`ux-quality-perspective`](skills/en/testing-workflows/ux-quality-perspective/) | Identify information architecture, interaction-state, consistency, responsive, and accessibility risks across quality stages. |
@@ -137,6 +138,8 @@ Workflows orchestrate lifecycle phases and do not form a fifth capability stage.
 | Sprint Testing Workflow | [`sprint-testing-workflow`](skills/en/testing-workflows/sprint-testing-workflow/) | Use this skill when you need a sprint-based QA workflow from planning through review and retrospective; triggers include sprint testing workflow and sprint QA… |
 | TDD Quality Workflow | [`tdd-quality-workflow`](skills/en/testing-workflows/tdd-quality-workflow/) | Guide Red, Green, and Refactor with inspectable test and quality evidence. |
 | Project Delivery Perspective | [`project-delivery-perspective`](skills/en/testing-workflows/project-delivery-perspective/) | Capture attributable delivery constraints and actions for supported strategy and report-review stages without changing quality facts. |
+| PR Quality Review Workflow | [`pr-quality-review`](skills/en/testing-workflows/pr-quality-review/) | Combine code review, test impact, test effectiveness, and evidence gates. |
+| Change-to-Regression Workflow | [`change-to-regression`](skills/en/testing-workflows/change-to-regression/) | Derive must-run/defer regression scope and uncovered risk from a change. |
 
 #### Release
 
@@ -504,11 +507,11 @@ Suggested pilots: `functional-testing`, `api-testing`, `api-test-bruno`, `bug-re
 | [Skills CLI integration guide](docs/integrations/SKILLS_CLI_INTEGRATION_EN.md) | CLI distribution contract, compatibility checks, and installation boundaries |
 | [QA_SKILLS_EVOLUTION_ROADMAP_EN.md](docs/governance/QA_SKILLS_EVOLUTION_ROADMAP_EN.md) | Four-stage capability evolution and R&D/testing lifecycle map |
 | [DOCUMENTATION_POLICY_EN.md](docs/governance/DOCUMENTATION_POLICY_EN.md) | Chinese-first bilingual documentation policy |
-| [SKILL_GOVERNANCE_V1_EN.md](docs/governance/SKILL_GOVERNANCE_V1_EN.md) | v1.0 source-governance baseline and current 166-pair static-record entry point (earlier baseline: 79 pairs; not runtime quality) |
+| [SKILL_GOVERNANCE_V1_EN.md](docs/governance/SKILL_GOVERNANCE_V1_EN.md) | v1.0 source-governance baseline and current 169-pair static-record entry point (earlier baseline: 79 pairs; not runtime quality) |
 | [PHASE_0_V1_4_CLOSEOUT_EN.md](docs/governance/PHASE_0_V1_4_CLOSEOUT_EN.md) | Evidence closeout and version boundaries for all 35 v1.4 Project cards (not release approval) |
 | [BILINGUAL_CONSISTENCY_CONTRACT_EN.md](docs/governance/BILINGUAL_CONSISTENCY_CONTRACT_EN.md) | Contract for Chinese/English paths, entry points, Catalog, and links |
 | [QUALITY_SCORE_EVAL_CONTRACT_EN.md](docs/governance/QUALITY_SCORE_EVAL_CONTRACT_EN.md) | Nine-dimension scoring and minimum Eval artifact standard |
-| [WORKFLOW_EVAL_INSTALL_SYNC_EN.md](docs/governance/WORKFLOW_EVAL_INSTALL_SYNC_EN.md) | Bilingual, Eval, and installation checklist for 10 Workflows |
+| [WORKFLOW_EVAL_INSTALL_SYNC_EN.md](docs/governance/WORKFLOW_EVAL_INSTALL_SYNC_EN.md) | Bilingual, Eval, and installation checklist for 14 `testing-workflows` packages |
 | [PHASE_1_REQUIREMENTS_QUALITY_EN.md](docs/governance/PHASE_1_REQUIREMENTS_QUALITY_EN.md) | v1.1 Phase 1 scope, cards, evidence, and acceptance boundaries for the first five requirement-quality Skills |
 | [SKILL_EVAL_RULES_EN.md](docs/SKILL_EVAL_RULES_EN.md) | Twenty local deterministic evaluation rules for `codex exec --json` Skill traces |
 | [skills/DIRECTORY_GUIDE_EN.md](skills/DIRECTORY_GUIDE_EN.md) | Directory and naming rules |

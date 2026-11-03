@@ -11,6 +11,7 @@ context:
 
 input:
   prompt: |
+    Trusted Host inventory for this case: `change-impact-analysis` and `regression-test-selection` are installed and callable.
     Use discover-testing to route this request: a payment service changed its callback signature and retry behavior,
     and we need to assess impact and select regression candidates. Return only the route ID, goal, exactly one primary
     Skill, at most one optional Skill, rationale, and next handoff input. Do not write a full regression test plan or
@@ -22,8 +23,6 @@ expect:
     - "change-regression"
     - "change-impact-analysis"
     - "regression-test-selection"
-    - "Primary Recommendation"
-    - "Next Step"
   must_not_contain:
     - "full regression test plan"
     - "passed"

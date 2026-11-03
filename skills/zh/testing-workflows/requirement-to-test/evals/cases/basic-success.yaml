@@ -1,0 +1,34 @@
+{
+  "id": "basic-success",
+  "title": "正常路径：从可测需求生成可追踪测试",
+  "description": "输入有验收标准；输出策略、用例和追踪关系。",
+  "input": {
+    "prompt": "仅使用本提示中的材料。不要检查工作区/仓库、创建文件、搜索外部来源或运行命令/测试。请使用 requirement-to-test。需求：优惠券仅对有效订单生效，每个账户最多使用一次；过期优惠券应被拒绝。请指出可测试之处和歧义，优先分析财务与数据完整性风险，并提供代表性边界/负向用例及需求追踪。可用 Skill：requirement-quality-review、testability-analysis、test-strategy、test-case-writing、test-gap-analysis。章节标题可以不同，但须覆盖所要求的内容。本任务没有执行测试；执行状态标为 `NOT_RUN`，结果证据标为 `UNKNOWN`。"
+  },
+  "expect": {
+    "must_contain": [
+      "财务",
+      "TC-01",
+      "R1",
+      "NOT_RUN"
+    ],
+    "must_not_contain": [
+      "TODO"
+    ]
+  },
+  "judge": {
+    "type": "rule_based",
+    "success": [
+      {
+        "output_contains": {
+          "all": [
+            "财务",
+            "TC-01",
+            "R1",
+            "NOT_RUN"
+          ]
+        }
+      }
+    ]
+  }
+}

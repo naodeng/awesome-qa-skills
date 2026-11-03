@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "pr-quality-review"
+interface:
+  display_name: "PR 质量审查工作流"
+  short_description: "Use this skill when you need review PR code, test impact, test effectiveness, and evidence."
+  default_prompt: "Use the pr-quality-review skill to produce traceable, evidence-bounded workflow results."
+policy:
+  allow_implicit_invocation: true

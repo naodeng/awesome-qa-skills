@@ -1,0 +1,25 @@
+{
+  "id": "stale-checkpoint",
+  "title": "Recovery: invalidate a checkpoint after a commit change",
+  "description": "Do not reuse analysis from an older SHA without re-evaluation.",
+  "input": {
+    "prompt": "This is a synthetic Eval case. Use only the material in this prompt. Do not inspect the workspace/repository, prior chats, internal memory, external sources, or run commands. A hypothetical PR review checkpoint records commit SHA 1111111; the hypothetical current PR is at SHA 2222222. State the resume status using the exact uppercase token `STALE`, which stages need rerunning, and how old evidence is marked. Do not cite any internal memory or session-summary file."
+  },
+  "expect": {
+    "must_contain": [
+      "STALE",
+      "stage"
+    ],
+    "must_not_contain": [
+      "reuse old evidence",
+      "TODO",
+      "MEMORY.md",
+      "rollout_summaries/"
+    ]
+  },
+  "judge": {
+    "type": "script",
+    "script_path": "evals/graders/checkpoint_recovery.py",
+    "timeout_seconds": 30
+  }
+}

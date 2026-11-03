@@ -1,0 +1,34 @@
+{
+  "id": "basic-success",
+  "title": "正常路径：整合代码、测试影响和测试质量证据",
+  "description": "输入包含 PR Diff、测试变更和已有影响分析结果；应保留来源并分级报告。",
+  "input": {
+    "prompt": "这是完整内嵌 fixture；只审查下方 Diff，不要搜索本地文件，也不要访问 GitHub。请审查 PR #42。Diff 摘录：\n```diff\n def refund_order(order, key):\n-    if find_refund(key): return existing_refund(key)\n-    provider.refund(order.payment_id)\n-    save_refund(key, \"completed\")\n+    provider.refund(order.payment_id)\n+    save_refund(key, \"completed\")\n```\n新增测试只有 `assert response.status_code == 200`，没有检查退款状态或重复退款。上游影响分析 E-17 指向重试时重复退款风险。给出 P0/P1/P2 发现、测试影响、需要的测试义务和阻断项；请使用精确标题“测试影响与有效性”单独说明测试影响和有效性。不要运行测试或声称测试通过。"
+  },
+  "expect": {
+    "must_contain": [
+      "P0",
+      "P1",
+      "E-17",
+      "测试影响"
+    ],
+    "must_not_contain": [
+      "TODO"
+    ]
+  },
+  "judge": {
+    "type": "rule_based",
+    "success": [
+      {
+        "output_contains": {
+          "all": [
+            "P0",
+            "P1",
+            "E-17",
+            "测试影响"
+          ]
+        }
+      }
+    ]
+  }
+}

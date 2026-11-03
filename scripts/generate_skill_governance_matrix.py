@@ -22,6 +22,7 @@ VALID_DECISION_STATES = {"PROPOSED", "REVIEWED_WITH_LIMITATION", "REVIEWED"}
 VALID_MATCH_REVIEW_CONCLUSIONS = {"EXISTING", "MATCH", "ENHANCE", "MERGE"}
 VALID_MATCH_REVIEW_STATES = {"REVIEWED_WITH_LIMITATION"}
 VALID_SCORE_STATES = {"NOT_SCORED", "PARTIALLY_SCORED", "SCORED"}
+VALID_LIFECYCLE_STATES = {"UNASSESSED", "EXPERIMENTAL", "STABLE", "MAINTENANCE", "DEPRECATED", "ARCHIVED"}
 VALID_PROJECT_ACCEPTANCE_STATES = {"COMPLETE", "INCOMPLETE", "BLOCKED"}
 MATCH_FIELDS = ("name", "purpose", "inputs", "outputs", "decision_logic", "workflow_role")
 MATCH_REVIEW_FIELDS = ("candidate", "conclusion", "review_state", "target_skills", "evidence_paths", "next_action")
@@ -109,7 +110,7 @@ def validate_skill(skill: dict[str, object], domain_ids: set[str] | None = None)
     errors: list[str] = []
     for key in (
         "slug", "zh_path", "en_path", "virtual_domain", "sdlc_stage", "roles",
-        "priority", "inputs", "outputs", "related", "workflow", "governance_evidence", "evidence_paths",
+        "priority", "inputs", "outputs", "related", "workflow", "governance_evidence", "evidence_paths", "lifecycle",
     ):
         value = skill.get(key)
         if value is None or (isinstance(value, str) and not value.strip()) or value == []:
@@ -137,6 +138,14 @@ def validate_skill(skill: dict[str, object], domain_ids: set[str] | None = None)
             errors.append("SCORED requires nine dimensions")
         if not str(score.get("evidence", "")).strip():
             errors.append("SCORED requires evidence")
+    lifecycle = skill.get("lifecycle", {})
+    if not isinstance(lifecycle, dict) or lifecycle.get("state") not in VALID_LIFECYCLE_STATES:
+        errors.append("invalid lifecycle state")
+    else:
+        if not str(lifecycle.get("reason", "")).strip():
+            errors.append("lifecycle requires a reason")
+        if lifecycle["state"] != "UNASSESSED" and not lifecycle.get("evidence_paths"):
+            errors.append(f"{lifecycle['state']} lifecycle requires evidence_paths")
     return errors
 
 
@@ -343,6 +352,11 @@ def validate_registry(registry: GovernanceRegistry, physical: set[str], root: Pa
             for path in skill.get("evidence_paths", []):
                 if not (root / str(path)).exists():
                     errors.append(f"{skill.get('slug')}: missing evidence path: {path}")
+            lifecycle = skill.get("lifecycle", {})
+            if isinstance(lifecycle, dict):
+                for path in lifecycle.get("evidence_paths", []):
+                    if not (root / str(path)).exists():
+                        errors.append(f"{skill.get('slug')}: missing lifecycle evidence path: {path}")
             for language in LANGUAGES:
                 path = root / str(skill.get(f"{language}_path", ""))
                 if not path.is_dir():
@@ -445,11 +459,12 @@ def render_matrix(registry: GovernanceRegistry, locale: str, root: Path | None =
         if english else
         "由 `docs/governance/skill-governance-registry.yaml` 生成；结构和评审状态不证明运行效果。"
     )
-    lines = [f'<div align="right"><a href="./{target}">{switch}</a></div>', "", f"# {title}", "", intro, "", "| Skill | Section | Virtual Domain | SDLC | Roles | Status | Priority | Scope evidence | Inputs | Outputs | Related / Workflow | Quality Score | Eval Execution | Evidence |", "| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |"]
+    lines = [f'<div align="right"><a href="./{target}">{switch}</a></div>', "", f"# {title}", "", intro, "", "| Skill | Section | Virtual Domain | SDLC | Roles | Status | Lifecycle | Priority | Scope evidence | Inputs | Outputs | Related / Workflow | Quality Score | Eval Execution | Evidence |", "| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |"]
     reviews_by_target = match_reviews_by_target(registry)
     for skill in sorted(registry.skills, key=lambda item: str(item.get("slug", ""))):
         score = skill.get("quality_score", {}).get("state", "UNASSESSED")
         execution = skill.get("eval_execution", {}).get("state", "UNASSESSED")
+        lifecycle = skill.get("lifecycle", {}).get("state", "UNASSESSED")
         roles = ", ".join(skill.get("roles", [])) if isinstance(skill.get("roles"), list) else skill.get("roles", "UNASSESSED")
         related = skill.get("related", "UNASSESSED")
         if reviews := reviews_by_target.get(str(skill.get("slug", ""))):
@@ -464,7 +479,7 @@ def render_matrix(registry: GovernanceRegistry, locale: str, root: Path | None =
             if domain_catalog is not None and virtual_domain in domain_catalog.domain_ids()
             else virtual_domain
         )
-        lines.append(f"| `{skill.get('slug', '')}` | {skill.get('section', 'UNASSESSED')} | {domain_label} | {skill.get('sdlc_stage', 'UNASSESSED')} | {roles} | {skill.get('status', 'UNASSESSED')} | {skill.get('priority', 'UNASSESSED')} | {scope} | {skill.get('inputs', 'UNASSESSED')} | {skill.get('outputs', 'UNASSESSED')} | {related} / {workflow} | `{score}` | `{execution}` | {evidence} |")
+        lines.append(f"| `{skill.get('slug', '')}` | {skill.get('section', 'UNASSESSED')} | {domain_label} | {skill.get('sdlc_stage', 'UNASSESSED')} | {roles} | {skill.get('status', 'UNASSESSED')} | `{lifecycle}` | {skill.get('priority', 'UNASSESSED')} | {scope} | {skill.get('inputs', 'UNASSESSED')} | {skill.get('outputs', 'UNASSESSED')} | {related} / {workflow} | `{score}` | `{execution}` | {evidence} |")
     return "\n".join(lines) + "\n"
 
 

@@ -1,0 +1,30 @@
+{
+  "id": "stale-checkpoint",
+  "title": "恢复：Commit SHA 变化后旧回归集需失效评估",
+  "description": "之前记录的回归选择来自旧 Commit。",
+  "input": {
+    "prompt": "仅使用本提示中的材料。不要检查工作区/仓库、创建文件、搜索外部来源或运行命令/测试。旧 Checkpoint 是 Commit SHA 1111111；当前分支更新到 2222222，另改了 `auth/permissions.py`。请精确输出大写状态码 `STALE` 标记旧结果，并重新评估影响阶段。"
+  },
+  "expect": {
+    "must_contain": [
+      "STALE",
+      "auth/permissions.py"
+    ],
+    "must_not_contain": [
+      "TODO"
+    ]
+  },
+  "judge": {
+    "type": "rule_based",
+    "success": [
+      {
+        "output_contains": {
+          "all": [
+            "STALE",
+            "auth/permissions.py"
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "id": "missing-skill",
+  "title": "依赖：没有可用清单时不假称调用",
+  "description": "明确标记专业 Skill 可用性未知。",
+  "input": {
+    "prompt": "仅使用本提示中的材料。不要检查工作区/仓库、创建文件、搜索外部来源或运行命令/测试。Host 没提供安装清单。请分析变更并给回归计划，列出需要但无法确认可调用的 Skill。当前没有提供产品变更或 Diff。不要把 Skill 包本身当作待审查变更；说明所需的变更证据。没有 Diff 时将影响状态标为 `UNKNOWN`；没有 Host 安装清单时，请在输出中原样写状态字段 `Skill 可用性：UNKNOWN`。"
+  },
+  "expect": {
+    "must_contain": [
+      "Skill 可用性：UNKNOWN"
+    ],
+    "must_not_contain": [
+      "已经调用 regression-test-selection",
+      "TODO"
+    ]
+  },
+  "judge": {
+    "type": "rule_based",
+    "success": [
+      {
+        "output_contains": {
+          "all": [
+            "Skill 可用性：UNKNOWN"
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "record_version": "workflow-eval-run/v1",
+  "run_id": "skill-up-change-to-regression-448ba5f526874da4b864bb886de4dfff",
+  "workflow_id": "change-to-regression",
+  "locale": "en-US",
+  "execution_type": "model_eval",
+  "runner": {
+    "name": "skill-up",
+    "version": "skill-up version 0.12.0"
+  },
+  "engine": {
+    "name": "codex",
+    "version": "codex-cli 0.166.0",
+    "model_id_reported": "not reported"
+  },
+  "engine_version_capture": "captured before run",
+  "repo_head_at_archive": "ed94f827f2f564c039ae6ca9111f85851ad3771f",
+  "worktree_state_at_archive": "dirty; 270 paths changed",
+  "input_fingerprint_capture": "captured before run",
+  "input_fingerprint": "0bb35f0ff50e6e5be43416830341c46244e29cc19af4509eeda4ec3e979ba00f",
+  "input_fingerprint_after": "0bb35f0ff50e6e5be43416830341c46244e29cc19af4509eeda4ec3e979ba00f",
+  "skill_package_sha256_at_start": "d7e7612629e10a52a07765fbea00cb5abcd226ef67e95c0fb3572aa93236fb28",
+  "raw_result_sha256": "d3b8c44d06d8e2f0f785dc42ab54484bc710bd59b520223e30a4f3c52e7dc7af",
+  "started_at": "2026-11-03T02:47:52.730847Z",
+  "finished_at": "2026-11-03T02:48:22.927706Z",
+  "summary": {
+    "case_count": 1,
+    "passed": 1,
+    "failed": 0,
+    "errors": 0,
+    "blocked": 0,
+    "unknown": 0,
+    "overall_status": "PASS"
+  },
+  "execution_notes": "Generated from the raw skill-up report. Input fingerprint was captured before execution; post-run fingerprint equality is available in this record.",
+  "redaction": "Absolute repository and ephemeral skill-up install prefixes in case data were replaced with repository-relative Skill paths. raw_result_sha256 identifies the unmodified report.",
+  "cases": [
+    {
+      "case_id": "comparison-change-to-regression",
+      "title": "Change-to-Regression comparison",
+      "status": "PASS",
+      "duration_ms": 29243,
+      "turns": 3,
+      "input_tokens": 40155,
+      "output_tokens": 1358,
+      "grading": {
+        "status": "PASS",
+        "turns_executed": 3,
+        "turns_total": 1,
+        "assertion_results": [
+          {
+            "text": "expect.must_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.must_not_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.exit_code",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "output_contains{all:[8f1a23 Required Deferred Excluded Deferred NOT_RUN]}",
+            "passed": true,
+            "evidence": "output satisfies all contains checks (all:[8f1a23 Required Deferred Excluded Deferred NOT_RUN])"
+          }
+        ],
+        "summary": {
+          "passed": 4,
+          "failed": 0,
+          "total": 4,
+          "pass_rate": 1
+        }
+      },
+      "configuration": "with_skill",
+      "prompt": "Use only the material in this prompt. Do not inspect the workspace/repository, create files, search external sources, or run commands/tests. The diff updates payment retries, idempotency-key validation, and invoice state transitions; Commit SHA is 8f1a23. List affected paths, then use the exact headings `Required`, `Deferred`, and `Excluded` for the regression categories with rationale and uncovered risk. Mark NOT_RUN without execution records.",
+      "response": "Affected paths: **NOT PROVIDED**. The prompt names the change areas but gives no file paths. Commit SHA supplied: `8f1a23`.\n\nExecution status: **NOT_RUN** — no execution records were provided.\n\n## Required\n\n- **Payment retry behavior:** Check retryable versus terminal failures, retry limits, and recovery after a retry. Rationale: these changes can affect whether payments are eventually collected or charged more than once. **Uncovered risk:** missed payments, duplicate charges, or runaway retries.\n- **Idempotency-key validation:** Check accepted and rejected keys, plus repeated requests using the same key. Rationale: validation must preserve duplicate-request protection without rejecting valid requests. **Uncovered risk:** duplicate charges or valid payments being rejected.\n- **Invoice state transitions:** Check permitted and rejected transitions, including repeated updates and terminal states. Rationale: transitions must keep invoice status consistent through payment retries. **Uncovered risk:** invoices becoming stuck, advancing incorrectly, or diverging from payment status.\n\n## Deferred\n\n- **Extended failure and load scenarios:** Provider outages, prolonged retry sequences, and high-volume concurrency. Rationale: these require broader resilience coverage beyond the behavior described in the prompt. **Uncovered risk:** retry delays, overload, or concurrency failures under sustained stress.\n\n## Excluded\n\n- **Unrelated product areas**, such as UI or reporting regressions. Rationale: the prompt identifies only payment retries, idempotency-key validation, and invoice transitions. **Uncovered risk:** the missing diff and paths mean effects outside those named areas cannot be assessed.",
+      "observed_version": "0.166.0"
+    }
+  ],
+  "archived_at": "2026-11-03T03:00:30.962640Z"
+}

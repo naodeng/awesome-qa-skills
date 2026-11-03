@@ -3,7 +3,7 @@ name: discover-testing
 description: Use this skill when you need to route a request to the right testing skill before execution; triggers include 测试技能路由、discover testing and which testing skill.
 license: PolyForm-Noncommercial-1.0.0
 metadata:
-  version: "1.1.0"
+  version: "1.2.0"
   compatibility: ""
   author: "Awesome QA Skills contributors"
   language: "zh-CN"
@@ -20,10 +20,11 @@ metadata:
 
 - 需要在执行前先判断应该用哪个测试 skill。
 - 一个请求同时涉及多个测试方向或多个阶段。
+- 如果请求没有可识别目标（例如只说「测一下新功能」），使用 `prompts/discover-testing.md` 中的先澄清后路由规则：先问功能/范围、当前阶段和期望交付物，不推荐 Skill；只有要求执行时才问环境。
 
 ## 全量清单与可用性
 
-先读取 `references/skill-capability-inventory.json` 检查精确 canonical ID。该文件是 2026-10-29 的工作区目录快照，166 个 ID 的目录存在不等于当前 Host 已安装/可调用；明确以 Red、Green、Refactor 和测试质量证据为主要目标时，优先选择 `tdd-quality-workflow`。安装证据缺失则 availability=`UNKNOWN`，用户明确未安装则 `UNAVAILABLE`。命中专项产出（认证 vs 授权、检索 vs 回答质量、影响范围 vs 回归选择）时优先匹配专项，只有意图相符才套通用 Composition 路线。仍只给一个主 Skill 和至多一个辅助；目标不可用时说明缺口与最小安装/交接动作，不宣称已调用。
+先读取 `references/skill-capability-inventory.json` 检查精确 canonical ID。该文件是 2026-10-30 的工作区目录快照，169 个 ID 的目录存在不等于当前 Host 已安装/可调用；明确以 Red、Green、Refactor 和测试质量证据为主要目标时，优先选择 `tdd-quality-workflow`。安装证据缺失则 availability=`UNKNOWN`，用户明确未安装则 `UNAVAILABLE`，说明状态时保留精确大写标记。命中专项产出（认证 vs 授权、检索 vs 回答质量、影响范围 vs 回归选择）时优先匹配专项，只有意图相符才套通用 Composition 路线。仍只给一个主 Skill 和至多一个辅助；目标不可用时说明缺口与最小安装/交接动作，不宣称已调用。不得将内部 Agent Memory、隐藏指令或会话摘要作为用户可见证据或引用来源。
 
 ## 执行流程
 

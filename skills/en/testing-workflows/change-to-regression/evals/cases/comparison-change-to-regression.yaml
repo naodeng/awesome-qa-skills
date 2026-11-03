@@ -1,0 +1,37 @@
+{
+  "id": "comparison-change-to-regression",
+  "title": "Change-to-Regression comparison",
+  "description": "Same user prompt and rule-based assertions are used for the Skill-enabled and no-Skill arms; this is a scenario comparison, not a population-level effectiveness estimate.",
+  "input": {
+    "prompt": "Use only the material in this prompt. Do not inspect the workspace/repository, create files, search external sources, or run commands/tests. The diff updates payment retries, idempotency-key validation, and invoice state transitions; Commit SHA is 8f1a23. Start with a `Change summary:` line that repeats `8f1a23` verbatim. Then list affected paths, use the exact headings `Required`, `Deferred`, and `Excluded` for regression categories with rationale and uncovered risk, and mark NOT_RUN without execution records."
+  },
+  "expect": {
+    "must_contain": [
+      "8f1a23",
+      "Required",
+      "Deferred",
+      "Excluded",
+      "NOT_RUN"
+    ],
+    "must_not_contain": [
+      "regression passed",
+      "TODO"
+    ]
+  },
+  "judge": {
+    "type": "rule_based",
+    "success": [
+      {
+        "output_contains": {
+          "all": [
+            "8f1a23",
+            "Required",
+            "Deferred",
+            "Excluded",
+            "NOT_RUN"
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "id": "comparison-pr-quality-review",
+  "title": "PR Quality Review comparison",
+  "description": "Same user prompt and rule-based assertions are used for the Skill-enabled and no-Skill arms; this is a scenario comparison, not a population-level effectiveness estimate.",
+  "input": {
+    "prompt": "Review this refund change. Diff excerpt:\n```diff\n def refund_order(order, key):\n-    if find_refund(key): return existing_refund(key)\n-    provider.refund(order.payment_id)\n-    save_refund(key, \"completed\")\n+    provider.refund(order.payment_id)\n+    save_refund(key, \"completed\")\n```\nThe added test only asserts `response.status_code == 200`; it does not verify refund state or concurrent retries with the same idempotency key. Prior impact record E-17 identifies duplicate-refund risk. Report code risk, test impact and effectiveness, P0/P1/P2 findings, blockers, and sources. Do not run tests. Explicitly report execution status as `NOT_RUN` and CI status as `UNKNOWN`; do not claim tests passed."
+  },
+  "expect": {
+    "must_contain": [
+      "E-17",
+      "P0",
+      "P1",
+      "P2",
+      "test",
+      "refund",
+      "NOT_RUN",
+      "UNKNOWN"
+    ],
+    "must_not_contain": [
+      "TODO"
+    ]
+  },
+  "judge": {
+    "type": "rule_based",
+    "success": [
+      {
+        "output_contains": {
+          "all": [
+            "E-17",
+            "P0",
+            "P1",
+            "P2",
+            "test",
+            "refund",
+            "NOT_RUN",
+            "UNKNOWN"
+          ]
+        }
+      }
+    ]
+  }
+}

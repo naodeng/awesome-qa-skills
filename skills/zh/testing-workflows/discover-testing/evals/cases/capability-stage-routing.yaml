@@ -6,13 +6,14 @@ description: |
 
 input:
   prompt: |
+    本用例可信 Host 安装清单：`ai-feature-testing` 和 `llm-testing` 已安装且可调用。
     请使用 discover-testing 做路由：我要评估客服 LLM 的幻觉和拒答行为。
-    只给主推荐、理由和下一步；不要把它误归类为 AI for QA，也不要虚构未安装的 skill。
+    主推荐 `ai-feature-testing`，可选辅助 `llm-testing` 用于模型输出评估；不要把它误归类为 AI for QA，也不要虚构其它 skill。
 
 expect:
   must_contain:
     - "AI Native QA"
-    - "ai-feature-testing"
+    - "llm-testing"
   must_not_contain:
     - "ai-assisted-testing"
 
@@ -22,4 +23,4 @@ judge:
     - output_contains:
         all:
           - "AI Native QA"
-          - "ai-feature-testing"
+          - "llm-testing"

@@ -1,0 +1,33 @@
+{
+  "id": "route-explicit-missing-workflow",
+  "title": "缺失依赖：明确未安装时不假装可调用",
+  "description": "Host 清单明确不含工作流 Skill；应标不可用并给最小安装/单步替代。",
+  "input": {
+    "prompt": "用 discover-testing 路由：我要完整变更影响到回归计划。Host 已安装清单只有 change-impact-analysis 和 regression-test-selection，没有 change-to-regression。请说明工作流可用性和下一步；如果说明明确未安装，请使用精确大写状态标记 `UNAVAILABLE`，不要假装已经调用。"
+  },
+  "expect": {
+    "must_contain": [
+      "UNAVAILABLE",
+      "change-to-regression"
+    ],
+    "must_not_contain": [
+      "已运行 change-to-regression",
+      "memory reference",
+      "rollout_summaries/",
+      "TODO"
+    ]
+  },
+  "judge": {
+    "type": "rule_based",
+    "success": [
+      {
+        "output_contains": {
+          "all": [
+            "UNAVAILABLE",
+            "change-to-regression"
+          ]
+        }
+      }
+    ]
+  }
+}

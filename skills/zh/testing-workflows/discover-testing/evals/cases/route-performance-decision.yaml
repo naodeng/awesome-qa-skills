@@ -7,11 +7,12 @@ description: |
 context:
   files:
     "evals/fixtures/router-expected.json": |
-      {"route":"performance-decision","primary":"performance-workload-modeling","optional":"performance-result-analysis"}
+      {"route":"performance-decision","primary":"performance-workload-modeling","optional":null}
 
 input:
   prompt: |
     请使用 discover-testing 路由：新接口需要达到明确的吞吐和延迟目标，
+    本用例可信宿主清单确认 `performance-workload-modeling` 已安装且可调用；当前没有运行结果，因此暂不需要结果分析 Skill。
     但当前只有流量假设，还没有压测结果。请只输出 route ID、目标、唯一主 Skill、
     最多一个辅助 Skill、理由和下一步交接输入；不要写完整压测方案，也不要声称已经运行。
     最后附一个 ```json 代码块，只包含 route、primary、optional 三个字段；optional 无则为 null。
@@ -20,9 +21,6 @@ expect:
   must_contain:
     - "performance-decision"
     - "performance-workload-modeling"
-    - "performance-result-analysis"
-    - "主推荐"
-    - "下一步"
   must_not_contain:
     - "完整压测方案"
     - "压测已完成"

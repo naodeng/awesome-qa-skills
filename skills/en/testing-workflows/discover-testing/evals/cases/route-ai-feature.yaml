@@ -11,10 +11,12 @@ context:
 
 input:
   prompt: |
-    Use discover-testing to route this request: a customer-support AI feature has input/output samples,
+    Use discover-testing to route this request: a customer-support AI feature has input/output samples.
+    Trusted Host inventory for this case confirms `ai-feature-testing` and `llm-testing` are installed and callable.
     and we need behavior validation plus LLM output evaluation planning. Return only the route ID, goal,
     exactly one primary Skill, at most one optional Skill, rationale, and next handoff input. Do not write a full
-    evaluation plan or claim that the model has passed. End with one ```json code block containing only route,
+    evaluation plan or claim that the model has passed. State that these samples do not prove model effectiveness;
+    use the exact phrase `no model results are established`. End with one ```json code block containing only route,
     primary, and optional; use null when there is no optional Skill.
 
 expect:
@@ -22,11 +24,9 @@ expect:
     - "ai-feature-validation"
     - "ai-feature-testing"
     - "llm-testing"
-    - "Primary Recommendation"
-    - "Next Step"
+    - "no model results are established"
   must_not_contain:
     - "full evaluation plan"
-    - "model has passed"
     - "TODO"
 
 judge:

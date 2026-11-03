@@ -1,0 +1,86 @@
+{
+  "record_version": "workflow-eval-run/v1",
+  "run_id": "skill-up-release-testing-workflow-52f8689681aa42dd8d2873a445fafd62",
+  "workflow_id": "release-testing-workflow",
+  "locale": "en-US",
+  "execution_type": "model_eval",
+  "runner": {
+    "name": "skill-up",
+    "version": "skill-up version 0.12.0"
+  },
+  "engine": {
+    "name": "codex",
+    "version": "codex-cli 0.166.0",
+    "model_id_reported": "not reported"
+  },
+  "engine_version_capture": "captured before run",
+  "repo_head_at_archive": "ed94f827f2f564c039ae6ca9111f85851ad3771f",
+  "worktree_state_at_archive": "dirty; 270 paths changed",
+  "input_fingerprint_capture": "captured before run",
+  "input_fingerprint": "8ef187abbb75d1d890d8dd7ed424bd7ccfa5f8dc1f6b980fb7dcbab4a955dded",
+  "input_fingerprint_after": "8ef187abbb75d1d890d8dd7ed424bd7ccfa5f8dc1f6b980fb7dcbab4a955dded",
+  "skill_package_sha256_at_start": "6623fb16cb4cce60ac07d0aa09313e7041678256705dd3add94d48a136f26b5a",
+  "raw_result_sha256": "1a5a5ac33e9a494a58a89f0864b865eae42c563d6634827f8ed68109b0bac597",
+  "started_at": "2026-11-03T02:44:48.671890Z",
+  "finished_at": "2026-11-03T02:46:21.058602Z",
+  "summary": {
+    "case_count": 1,
+    "passed": 1,
+    "failed": 0,
+    "errors": 0,
+    "blocked": 0,
+    "unknown": 0,
+    "overall_status": "PASS"
+  },
+  "execution_notes": "Generated from the raw skill-up report. Input fingerprint was captured before execution; post-run fingerprint equality is available in this record.",
+  "redaction": "Absolute repository and ephemeral skill-up install prefixes in case data were replaced with repository-relative Skill paths. raw_result_sha256 identifies the unmodified report.",
+  "cases": [
+    {
+      "case_id": "comparison-release-readiness",
+      "title": "Release readiness with/without Skill comparison",
+      "status": "PASS",
+      "duration_ms": 92286,
+      "turns": 1,
+      "input_tokens": 285854,
+      "output_tokens": 6334,
+      "grading": {
+        "status": "PASS",
+        "turns_executed": 1,
+        "turns_total": 1,
+        "assertion_results": [
+          {
+            "text": "expect.must_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.must_not_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.exit_code",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "output_contains{all:[P1 UNKNOWN pending authorized decision]}",
+            "passed": true,
+            "evidence": "output satisfies all contains checks (all:[P1 UNKNOWN pending authorized decision])"
+          }
+        ],
+        "summary": {
+          "passed": 4,
+          "failed": 0,
+          "total": 4,
+          "pass_rate": 1
+        }
+      },
+      "configuration": "with_skill",
+      "prompt": "Use release-testing-workflow for candidate RC-7. The performance smoke and API contract reports are two weeks old and were produced before RC-7 existed. Security evidence is UNKNOWN, and one P1 payment defect remains open. No authorized decision-maker has approved the release. Summarize evidence freshness, blockers, residual risk, a Go/No-Go recommendation, and the formal approval state. State exactly that formal approval is \"pending authorized decision\"; never approve on anyone's behalf.\n",
+      "response": "### 1. Release context and scope\n\nCandidate: **RC-7**. The release date, build identifier, scope, and exclusions were not provided, so the exact release window cannot be determined.\n\n### 2. Gate board\n\n| Gate | Status | Basis |\n|---|---|---|\n| Scope | `UNKNOWN` | Scope and exclusions were not provided. |\n| Quality | `BLOCKED` | Performance and API reports are stale; security evidence is unknown; a P1 payment defect remains open. |\n| Operations | `UNKNOWN` | Rollback and monitoring readiness were not provided. |\n| Decision | `BLOCKED` | No authorized approval is recorded, and the evidence pack is incomplete. |\n\n### 3. Evidence freshness\n\n- Performance smoke: `STALE` — two weeks old and produced before RC-7 existed; it does not establish RC-7 performance.\n- API contract: `STALE` — two weeks old and produced before RC-7 existed; it does not establish RC-7 contract status.\n- Security: `UNKNOWN` — no usable result is available.\n- No current-candidate pass can be inferred from these reports.\n\n### 4. Defects and residual risk\n\nThe open P1 payment defect is an unresolved release risk; its impact and any authorized risk acceptance were not provided. Security risk also remains unknown. Treat the quality gate as blocked until current evidence is available and the defect is resolved or explicitly risk-accepted by an authorized owner.\n\n### 5. Handoff\n\nRun performance, API contract, and security checks against the exact RC-7 build. Resolve and retest the P1 payment defect. Then assemble the decision pack with `test-reporting`.\n\n### 6. Go/No-Go assessment\n\n**Recommendation: No-Go for RC-7** on the evidence provided. The reports do not cover this candidate, security status is unknown, and the P1 payment defect remains open.\n\n**Formal approval:** \"pending authorized decision\"  \n**Status token:** `PENDING`\n\nThis is a recommendation; no release approval is being granted.\n\n### 7. Assumptions and open questions\n\nThe release date, RC-7 build identifier, scope and exclusions, rollback and monitoring readiness, and disposition of the P1 defect remain unspecified.",
+      "observed_version": "0.166.0"
+    }
+  ],
+  "archived_at": "2026-11-03T03:00:31.083646Z"
+}

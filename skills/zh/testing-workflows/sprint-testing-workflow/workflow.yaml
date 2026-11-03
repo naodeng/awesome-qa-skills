@@ -1,0 +1,140 @@
+{
+  "schema_version": "1.0.0",
+  "id": "sprint-testing-workflow",
+  "version": "1.0.0",
+  "kind": "sequence",
+  "title": {
+    "zh": "迭代测试工作流程",
+    "en": "Sprint Testing Workflow"
+  },
+  "summary": {
+    "zh": "按迭代组织范围、测试设计、执行和评审。",
+    "en": "Organize scope, test design, execution, and review across a sprint."
+  },
+  "lifecycle_state": "UNASSESSED",
+  "inputs": [
+    {
+      "id": "user_request",
+      "required": true,
+      "description": "User request and available project evidence."
+    }
+  ],
+  "outputs": [
+    {
+      "id": "sprint_scope",
+      "description": "有来源的迭代范围、目标、构建/环境状态和限制。",
+      "evidence_kind": "fact"
+    },
+    {
+      "id": "test_execution_evidence",
+      "description": "可用时提供范围明确的已核验迭代测试运行和结果。",
+      "evidence_kind": "execution"
+    },
+    {
+      "id": "sprint_risk_assessment",
+      "description": "根据当前证据推断的迭代质量风险和门禁状态。",
+      "evidence_kind": "inference"
+    },
+    {
+      "id": "test_plan",
+      "description": "按风险排序的测试工作、取舍和专业 Skill 交接。",
+      "evidence_kind": "plan"
+    }
+  ],
+  "steps": [
+    {
+      "id": "plan",
+      "description": "Plan",
+      "skill_ids": [
+        "test-strategy"
+      ],
+      "prompt": "prompts/sprint-testing-workflow.md",
+      "depends_on": [],
+      "on_failure": "stop",
+      "permission": "read_only",
+      "approval_required": false
+    },
+    {
+      "id": "design",
+      "description": "Design",
+      "skill_ids": [
+        "test-case-writing"
+      ],
+      "prompt": "prompts/sprint-testing-workflow.md",
+      "depends_on": [
+        "plan"
+      ],
+      "on_failure": "stop",
+      "permission": "read_only",
+      "approval_required": false
+    },
+    {
+      "id": "execute",
+      "description": "Execute",
+      "skill_ids": [
+        "functional-testing"
+      ],
+      "prompt": "prompts/sprint-testing-workflow.md",
+      "depends_on": [
+        "plan",
+        "design"
+      ],
+      "on_failure": "stop",
+      "permission": "read_only",
+      "approval_required": false
+    },
+    {
+      "id": "review",
+      "description": "Review",
+      "skill_ids": [
+        "test-reporting"
+      ],
+      "prompt": "prompts/sprint-testing-workflow.md",
+      "depends_on": [
+        "plan",
+        "design",
+        "execute"
+      ],
+      "on_failure": "stop",
+      "permission": "read_only",
+      "approval_required": false
+    }
+  ],
+  "failure_policy": {
+    "on_missing_dependency": "continue_with_limitations",
+    "on_blocked": "stop"
+  },
+  "permission_policy": {
+    "default": "read_only",
+    "approval_required_for": [
+      "execute_command",
+      "write_repo",
+      "external_write",
+      "publish",
+      "delete",
+      "release_approval"
+    ]
+  },
+  "checkpoint_policy": {
+    "host_runtime_required": true,
+    "fingerprint_fields": [
+      "inputs",
+      "commit_sha"
+    ],
+    "invalidate_on_change": [
+      "inputs",
+      "commit_sha"
+    ],
+    "automatic_replay": "side_effect_free_only"
+  },
+  "handoff": {
+    "required_fields": [
+      "workflow_id",
+      "source",
+      "status",
+      "open_gaps",
+      "next_step"
+    ]
+  },
+  "evidence_contract_version": "1.0.0"
+}

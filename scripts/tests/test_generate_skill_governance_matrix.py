@@ -10,7 +10,7 @@ from scripts import generate_skill_governance_matrix as matrix
 from scripts.tests.v3_v4_skill_contracts import CARD_IDS as V34_CANDIDATE_SLUGS
 
 ROOT = Path(__file__).resolve().parents[2]
-EXPECTED_LOGICAL_SKILL_COUNT = 166
+EXPECTED_LOGICAL_SKILL_COUNT = 169
 EXPECTED_CANDIDATE_COUNT = 101
 V20_CANDIDATE_SLUGS = {
     "decision-table-testing",
@@ -71,6 +71,7 @@ def complete_skill(**overrides):
         "evidence_paths": ["skills/zh/testing-types/sample/SKILL.md"],
         "quality_score": {"state": "NOT_SCORED"},
         "eval_execution": {"state": "NOT_RUN"},
+        "lifecycle": {"state": "UNASSESSED", "reason": "No use evidence."},
     }
     skill.update(overrides)
     return skill
@@ -560,11 +561,13 @@ class GovernanceMatrixTest(unittest.TestCase):
             "virtual_domain": "D01", "status": "Candidate",
             "quality_score": {"state": "NOT_SCORED"},
             "eval_execution": {"state": "NOT_RUN"},
+            "lifecycle": {"state": "UNASSESSED", "reason": "No use evidence."},
         }], "candidates": []})
         rendered = matrix.render_matrix(registry, "zh")
         self.assertIn("NOT_SCORED", rendered)
         self.assertIn("NOT_RUN", rendered)
         self.assertIn("SDLC", rendered)
+        self.assertIn("Lifecycle", rendered)
         self.assertIn("UNASSESSED", rendered)
 
     def test_check_outputs_detects_stale_matrix(self):
@@ -696,6 +699,10 @@ class GovernanceMatrixTest(unittest.TestCase):
         skill = complete_skill(quality_score={"state": "SCORED", "dimensions": {}})
         self.assertEqual(matrix.validate_skill(skill), ["SCORED requires nine dimensions", "SCORED requires evidence"])
 
+    def test_rejects_stable_lifecycle_without_review_evidence(self):
+        skill = complete_skill(lifecycle={"state": "STABLE", "reason": "Looks good", "evidence_paths": []})
+        self.assertIn("STABLE lifecycle requires evidence_paths", matrix.validate_skill(skill))
+
     def test_rejects_skill_without_required_governance_fields(self):
         skill = {
             "slug": "sample",
@@ -706,7 +713,7 @@ class GovernanceMatrixTest(unittest.TestCase):
             "eval_execution": {"state": "NOT_RUN"},
         }
         errors = matrix.validate_skill(skill)
-        for field in ("virtual_domain", "sdlc_stage", "roles", "priority", "inputs", "outputs", "related", "workflow", "governance_evidence"):
+        for field in ("virtual_domain", "sdlc_stage", "roles", "priority", "inputs", "outputs", "related", "workflow", "governance_evidence", "lifecycle"):
             self.assertIn(f"missing {field}", errors)
 
     def test_rejects_mismatched_or_unpaired_paths(self):
@@ -727,6 +734,7 @@ class GovernanceMatrixTest(unittest.TestCase):
             "evidence_paths": ["skills/zh/testing-types/sample/SKILL.md"],
             "quality_score": {"state": "NOT_SCORED"},
             "eval_execution": {"state": "NOT_RUN"},
+            "lifecycle": {"state": "UNASSESSED", "reason": "No use evidence."},
         }
         self.assertIn("zh_path does not end in slug", matrix.validate_skill(skill))
 

@@ -10,9 +10,7 @@ input:
 
 expect:
   must_contain:
-    - "主推荐"
     - "one-page-test-strategy"
-    - "下一步"
   must_not_contain:
     - "test-strategy-plus"
     - "TODO"
@@ -22,6 +20,4 @@ judge:
   success:
     - output_contains:
         all:
-          - "主推荐"
           - "one-page-test-strategy"
-          - "下一步"

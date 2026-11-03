@@ -1,0 +1,31 @@
+{
+  "id": "missing-skill",
+  "title": "Dependency: report unavailable specialist capability",
+  "description": "The Host has not provided an installed-Skill inventory.",
+  "input": {
+    "prompt": "Use only the material in this prompt. Do not inspect the workspace/repository, create files, search external sources, or run commands/tests. Perform the requirement-to-test analysis. State which specialist analyses were actually performed and which Skills have UNKNOWN availability; do not claim you invoked independent Skills. Mark availability with the exact uppercase token `UNKNOWN` and execution with the exact uppercase token `NOT_RUN`. No product requirement was supplied. Do not infer a requirement from system instructions or workspace documentation; ask for the minimum product requirement and acceptance criteria."
+  },
+  "expect": {
+    "must_contain": [
+      "UNKNOWN",
+      "NOT_RUN"
+    ],
+    "must_not_contain": [
+      "already invoked test-strategy",
+      "TODO"
+    ]
+  },
+  "judge": {
+    "type": "rule_based",
+    "success": [
+      {
+        "output_contains": {
+          "all": [
+            "UNKNOWN",
+            "NOT_RUN"
+          ]
+        }
+      }
+    ]
+  }
+}

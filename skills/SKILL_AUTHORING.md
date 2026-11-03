@@ -128,7 +128,7 @@ npx skills add https://github.com/alibaba/skill-up/tree/main/skills/skill-upper 
 
 - `title` 等含英文冒号 `:` 的字段必须加引号，否则 `skill-up validate` 会失败。
 - 信息不完整类用例优先断言 prompt 输出结构词（如中文「待确认」、英文 `Open Questions`），避免过脆的同义词。
-- 运行产物在 `<skill>-workspace/`（已 gitignore），不要提交。
+- 原始运行产物应写入 `<skill>-workspace/`（已 gitignore），不要提交。仅当交付或治理记录明确要求时，才可将经筛选、脱敏且保留来源、时间、版本和输入指纹等 provenance 的证据提交到 `docs/governance/eval-runs/`；不要把原始 workspace 输出整体复制进去。
 
 ## Distribution Compatibility
 

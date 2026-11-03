@@ -1,0 +1,27 @@
+schema_version: v1alpha1
+
+environment:
+  type: none
+
+skills: []
+
+engine:
+  name: codex
+
+cases:
+  files:
+    - evals/cases/comparison-discover-testing.yaml
+    - evals/cases/route-pr-quality-review.yaml
+    - evals/cases/router-prompt-injection.yaml
+  defaults:
+    timeout_seconds: 180
+    max_turns: 8
+    expect:
+      exit_code: 0
+      must_not_contain:
+        - "TODO"
+        - "rollout_summaries/"
+        - "MEMORY.md"
+
+report:
+  formats: [json]

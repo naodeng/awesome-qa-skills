@@ -65,6 +65,39 @@
   - Does not claim model effectiveness without a model, data, and target environment
   - Does not treat prompt suggestions as business acceptance or security conclusions
 
+### PR quality review (`pr-quality-review`)
+
+- Intent: Review a Pull Request diff, test impact, test effectiveness, and quality evidence
+- Applicable phase: Code review / test impact / quality gate
+- Primary Skill: `pr-quality-review`
+- Optional Skill: none
+- Handoff: Hand off PR ID, base/head SHA, diff, acceptance criteria, available test evidence, and permission scope
+- Not for:
+  - Do not select the full workflow for a single code-review task
+  - Does not post comments or approve merges on behalf of an authorized user
+
+### Requirement to test design (`requirement-to-test`)
+
+- Intent: The user explicitly requests requirement analysis through strategy, test cases, and traceability
+- Applicable phase: Requirement quality / testability / test design
+- Primary Skill: `requirement-to-test`
+- Optional Skill: none
+- Handoff: Hand off requirement IDs/text, acceptance criteria, business constraints, confirmed risks, and execution limits
+- Not for:
+  - Use a single requirement-analysis Skill for one clarification task
+  - Does not invent unconfirmed business rules
+
+### Change to regression plan (`change-to-regression`)
+
+- Intent: The user explicitly requests change impact, regression selection, and risk synthesis
+- Applicable phase: Change impact / regression planning
+- Primary Skill: `change-to-regression`
+- Optional Skill: none
+- Handoff: Hand off diff, base/head SHA, modules/business paths, test inventory, time and environment limits
+- Not for:
+  - Use single-step impact analysis when only affected modules are requested
+  - Does not claim regression has run
+
 ## Handoff after selection
 
 State the routing reason, key assumptions, evidence gaps, and next handoff input; composition is navigation, not a mandatory execution chain.

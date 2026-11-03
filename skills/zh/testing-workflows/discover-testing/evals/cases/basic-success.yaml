@@ -11,8 +11,9 @@ input:
 
 expect:
   must_contain:
-    - "主推荐"
     - "api-testing"
+    - "api-contract-testing"
+    - "下一步"
   must_not_contain:
     - "TODO"
     - "我无法"
@@ -22,5 +23,6 @@ judge:
   success:
     - output_contains:
         all:
-          - "主推荐"
+          - "api-testing"
+          - "api-contract-testing"
           - "下一步"

@@ -2,7 +2,7 @@
 
 # Skills 全量索引
 
-每种语言包含 11 个工作流、150 个测试类型和 5 个 Skill Engineering，共 166 个；中英文合计 332 个目录。以下是逻辑导航，实际目录不变。长期治理入口见 [Skill 治理路线图](../governance/SKILL_GOVERNANCE_ROADMAP.md)、[治理矩阵](../SKILL_MATRIX.md)、[匹配登记表](../SKILL_MATCHING_REGISTER.md) 和 [v1.4 收口](../governance/PHASE_0_V1_4_CLOSEOUT.md)。
+每种语言包含 14 个工作流、150 个测试类型和 5 个 Skill Engineering，共 169 个；中英文合计 338 个目录。以下是逻辑导航，实际目录不变。长期治理入口见 [Skill 治理路线图](../governance/SKILL_GOVERNANCE_ROADMAP.md)、[治理矩阵](../SKILL_MATRIX.md)、[匹配登记表](../SKILL_MATCHING_REGISTER.md) 和 [v1.4 收口](../governance/PHASE_0_V1_4_CLOSEOUT.md)。
 
 Composition 路由和组合关系见 [v1.5.2 Composition Catalog](skills-composition.md)；它是导航元数据，不是安装依赖或自动执行链。
 
@@ -13,6 +13,7 @@ Composition 路由和组合关系见 [v1.5.2 Composition Catalog](skills-composi
 | Skill | 中文 | English |
 | --- | --- | --- |
 | `discover-testing` | [中文](../../skills/zh/testing-workflows/discover-testing/) | [English](../../skills/en/testing-workflows/discover-testing/) |
+| `requirement-to-test` | [中文](../../skills/zh/testing-workflows/requirement-to-test/) | [English](../../skills/en/testing-workflows/requirement-to-test/) |
 | `product-quality-perspective` | [中文](../../skills/zh/testing-workflows/product-quality-perspective/) | [English](../../skills/en/testing-workflows/product-quality-perspective/) |
 | `qa-quality-perspective` | [中文](../../skills/zh/testing-workflows/qa-quality-perspective/) | [English](../../skills/en/testing-workflows/qa-quality-perspective/) |
 | `ux-quality-perspective` | [中文](../../skills/zh/testing-workflows/ux-quality-perspective/) | [English](../../skills/en/testing-workflows/ux-quality-perspective/) |
@@ -26,6 +27,8 @@ Composition 路由和组合关系见 [v1.5.2 Composition Catalog](skills-composi
 | `sprint-testing-workflow` | [中文](../../skills/zh/testing-workflows/sprint-testing-workflow/) | [English](../../skills/en/testing-workflows/sprint-testing-workflow/) |
 | `tdd-quality-workflow` | [中文](../../skills/zh/testing-workflows/tdd-quality-workflow/) | [English](../../skills/en/testing-workflows/tdd-quality-workflow/) |
 | `project-delivery-perspective` | [中文](../../skills/zh/testing-workflows/project-delivery-perspective/) | [English](../../skills/en/testing-workflows/project-delivery-perspective/) |
+| `pr-quality-review` | [中文](../../skills/zh/testing-workflows/pr-quality-review/) | [English](../../skills/en/testing-workflows/pr-quality-review/) |
+| `change-to-regression` | [中文](../../skills/zh/testing-workflows/change-to-regression/) | [English](../../skills/en/testing-workflows/change-to-regression/) |
 
 ### 发布与综合
 

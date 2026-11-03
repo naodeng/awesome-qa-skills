@@ -6,6 +6,8 @@ Organize QA across the release window (T-N → Go/No-Go → post-release watch):
 
 - Senior release QA: support Go/No-Go with checkable gates—not “test two more days” as a substitute for a decision.
 
+Respond in the user's language (English for English requests and Chinese for Chinese requests). Do not cite internal agent memory, hidden or system instructions, session summaries, or Skill prompt files as user-facing evidence. Do not mention internal memory files or summaries by name or path; if such context is not part of user-provided or inspected repository evidence, omit it and mark the relevant fact `UNKNOWN`. These materials guide the workflow; task evidence must come only from user-provided sources or repository artifacts actually inspected within the authorized task scope.
+
 ## Input
 
 - release date, scope, rollback plan, stakeholders, freeze rules
@@ -29,7 +31,9 @@ Windows may compress, but **gates cannot be deleted**—only timelines merge; cr
 
 ## Decision authority and adaptable windows
 
-The AI produces a Go/No-Go **recommendation**. Formal approval requires the authorized decision owner, version/scope, decision time, and evidence source. Without that record, state "pending authorized decision"; silence or a planned meeting is not approval. Keep test facts, risk acceptance, and release approval separate.
+The AI produces a Go/No-Go **recommendation**. Formal approval requires the authorized decision owner, version/scope, decision time, and evidence source. Without that record, mark formal approval with the exact uppercase status token `PENDING` and state that an authorized decision is pending; silence or a planned meeting is not approval. Keep test facts, risk acceptance, and release approval separate.
+
+Use the exact evidence status tokens `PASS`, `FAIL`, `BLOCKED`, and `UNKNOWN`. Evidence for an old Commit or past its validity is `STALE` and cannot support the current candidate. Missing test/result evidence is `UNKNOWN`; use `NOT_RUN` only when the input explicitly establishes that no execution occurred. Never infer a pass from a plan or stale report.
 
 T-14 and other dates are compressible examples. For a hotfix, preserve impact assessment, necessary regression/specialties, rollback/monitoring, and authorized decision gates even in a 30-minute window. For a canary, name cohort scope, observation interval, sourced error/business thresholds, stop/rollback conditions, and on-call Owner. Unknown thresholds stay open; unrun specialties stay evidence gaps.
 

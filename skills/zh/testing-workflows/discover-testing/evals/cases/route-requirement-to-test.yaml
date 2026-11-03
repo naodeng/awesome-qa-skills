@@ -1,0 +1,29 @@
+{
+  "id": "route-requirement-to-test",
+  "title": "明确终点：需求到用例与追踪矩阵",
+  "description": "明确要求从需求走到测试策略、用例和需求追踪。",
+  "input": {
+    "prompt": "用 discover-testing 路由：从这份验收标准完成需求质量、可测试性、测试策略、测试用例和追踪矩阵。请选合适的单个工作流 Skill。"
+  },
+  "expect": {
+    "must_contain": [
+      "requirement-to-test"
+    ],
+    "must_not_contain": [
+      "多个主 Skill",
+      "TODO"
+    ]
+  },
+  "judge": {
+    "type": "rule_based",
+    "success": [
+      {
+        "output_contains": {
+          "all": [
+            "requirement-to-test"
+          ]
+        }
+      }
+    ]
+  }
+}

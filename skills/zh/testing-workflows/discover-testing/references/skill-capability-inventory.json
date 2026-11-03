@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "snapshot_date": "2026-10-29",
+  "snapshot_date": "2026-10-30",
   "source_revision": "UNCOMMITTED_WORKTREE",
   "source": "awesome-qa-skills canonical catalog; snapshot of the working tree; update when names change",
   "installation_evidence": "UNKNOWN",
@@ -231,6 +231,12 @@
       "name": "change-impact-analysis",
       "category": "testing-types",
       "capability": "变更影响分析",
+      "availability": "UNKNOWN"
+    },
+    {
+      "name": "change-to-regression",
+      "category": "testing-workflows",
+      "capability": "变更到回归工作流",
       "availability": "UNKNOWN"
     },
     {
@@ -504,6 +510,12 @@
       "availability": "UNKNOWN"
     },
     {
+      "name": "pr-quality-review",
+      "category": "testing-workflows",
+      "capability": "PR 质量审查工作流",
+      "availability": "UNKNOWN"
+    },
+    {
       "name": "pr-test-impact-analysis",
       "category": "testing-types",
       "capability": "PR 测试影响分析",
@@ -675,6 +687,12 @@
       "name": "requirement-quality-review",
       "category": "testing-types",
       "capability": "需求质量评审",
+      "availability": "UNKNOWN"
+    },
+    {
+      "name": "requirement-to-test",
+      "category": "testing-workflows",
+      "capability": "需求到测试工作流",
       "availability": "UNKNOWN"
     },
     {

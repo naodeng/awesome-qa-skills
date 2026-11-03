@@ -1,0 +1,108 @@
+{
+  "schema_version": "1.0.0",
+  "id": "project-delivery-perspective",
+  "version": "1.0.0",
+  "kind": "task_set",
+  "title": {
+    "zh": "项目交付视角",
+    "en": "Project Delivery Perspective"
+  },
+  "summary": {
+    "zh": "按需选择项目交付分析任务，不定义固定阶段流水线。",
+    "en": "Select project-delivery analysis tasks on demand; this package is not a fixed pipeline."
+  },
+  "lifecycle_state": "UNASSESSED",
+  "inputs": [
+    {
+      "id": "user_request",
+      "required": true,
+      "description": "User request and available project evidence."
+    }
+  ],
+  "outputs": [
+    {
+      "id": "delivery_facts",
+      "description": "有来源的交付范围、里程碑、依赖和当前状态。",
+      "evidence_kind": "fact"
+    },
+    {
+      "id": "delivery_risks",
+      "description": "根据所给状态和依赖推断的交付风险。",
+      "evidence_kind": "inference"
+    },
+    {
+      "id": "delivery_actions",
+      "description": "候选缓解措施、责任人和后续行动。",
+      "evidence_kind": "plan"
+    }
+  ],
+  "steps": [
+    {
+      "id": "test-report-review",
+      "description": "Test report review",
+      "skill_ids": [],
+      "prompt": "prompts/test-report-review.md",
+      "depends_on": [],
+      "on_failure": "continue_with_gap",
+      "permission": "read_only",
+      "approval_required": false
+    },
+    {
+      "id": "test-strategy-review",
+      "description": "Test strategy review",
+      "skill_ids": [],
+      "prompt": "prompts/test-strategy-review.md",
+      "depends_on": [],
+      "on_failure": "continue_with_gap",
+      "permission": "read_only",
+      "approval_required": false
+    },
+    {
+      "id": "test-strategy",
+      "description": "Test strategy",
+      "skill_ids": [],
+      "prompt": "prompts/test-strategy.md",
+      "depends_on": [],
+      "on_failure": "continue_with_gap",
+      "permission": "read_only",
+      "approval_required": false
+    }
+  ],
+  "failure_policy": {
+    "on_missing_dependency": "continue_with_limitations",
+    "on_blocked": "stop"
+  },
+  "permission_policy": {
+    "default": "read_only",
+    "approval_required_for": [
+      "execute_command",
+      "write_repo",
+      "external_write",
+      "publish",
+      "delete",
+      "release_approval"
+    ]
+  },
+  "checkpoint_policy": {
+    "host_runtime_required": true,
+    "fingerprint_fields": [
+      "inputs",
+      "commit_sha"
+    ],
+    "invalidate_on_change": [
+      "inputs",
+      "commit_sha"
+    ],
+    "automatic_replay": "side_effect_free_only"
+  },
+  "handoff": {
+    "required_fields": [
+      "workflow_id",
+      "source",
+      "status",
+      "open_gaps",
+      "next_step"
+    ]
+  },
+  "evidence_contract_version": "1.0.0"
+}

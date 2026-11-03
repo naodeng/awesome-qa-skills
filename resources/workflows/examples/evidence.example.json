@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0.0",
+  "workflow_id": "pr-quality-review",
+  "workflow_version": "1.0.0",
+  "run_id": "example-not-a-real-run",
+  "input_fingerprint": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "commit_sha": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+  "generated_at": "2026-10-30T08:00:00Z",
+  "status": "UNKNOWN",
+  "decision": "Example only: no test execution is claimed.",
+  "evidence": [
+    {
+      "id": "focused-tests",
+      "kind": "execution",
+      "claim": "The focused tests have not been executed in this example.",
+      "status": "UNKNOWN",
+      "source": {"type": "user_statement", "reference": "example fixture; no real run"},
+      "producer": {"skill_id": "pr-quality-review", "version": "1.0.0"},
+      "observed_at": "2026-10-30T08:00:00Z",
+      "execution": {
+        "type": "unit_test",
+        "scope": "test_execution",
+        "command": "pytest -q",
+        "environment": "illustrative",
+        "started_at": "2026-10-30T07:59:00Z",
+        "finished_at": "2026-10-30T08:00:00Z"
+      }
+    }
+  ]
+}

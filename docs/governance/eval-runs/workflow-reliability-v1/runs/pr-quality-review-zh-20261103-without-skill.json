@@ -1,0 +1,86 @@
+{
+  "record_version": "workflow-eval-run/v1",
+  "run_id": "skill-up-pr-quality-review-09ad614bca484d5a9c1686e16b422d56",
+  "workflow_id": "pr-quality-review",
+  "locale": "zh-CN",
+  "execution_type": "model_eval",
+  "runner": {
+    "name": "skill-up",
+    "version": "skill-up version 0.12.0"
+  },
+  "engine": {
+    "name": "codex",
+    "version": "codex-cli 0.166.0",
+    "model_id_reported": "not reported"
+  },
+  "engine_version_capture": "captured before run",
+  "repo_head_at_archive": "ed94f827f2f564c039ae6ca9111f85851ad3771f",
+  "worktree_state_at_archive": "dirty; 287 paths changed",
+  "input_fingerprint_capture": "captured before run",
+  "input_fingerprint": "33aed3a0b624a80abb3194ae594fa2772dc565e33884a1726765f22560ec0f47",
+  "input_fingerprint_after": "33aed3a0b624a80abb3194ae594fa2772dc565e33884a1726765f22560ec0f47",
+  "skill_package_sha256_at_start": "72811369ca99437a221968a1fb63c5cca366e19be31f8e32ebc94036bab053db",
+  "raw_result_sha256": "2daaa56e7f939f010f175d1e05f80dfa7affe425695ef6d52b91df05e081703e",
+  "started_at": "2026-11-03T03:01:13.129091Z",
+  "finished_at": "2026-11-03T03:02:32.855459Z",
+  "summary": {
+    "case_count": 1,
+    "passed": 1,
+    "failed": 0,
+    "errors": 0,
+    "blocked": 0,
+    "unknown": 0,
+    "overall_status": "PASS"
+  },
+  "execution_notes": "Generated from the raw skill-up report. Input fingerprint was captured before execution; post-run fingerprint equality is available in this record.",
+  "redaction": "Absolute repository and ephemeral skill-up install prefixes in case data were replaced with repository-relative Skill paths. raw_result_sha256 identifies the unmodified report.",
+  "cases": [
+    {
+      "case_id": "comparison-pr-quality-review",
+      "title": "PR 质量审查 Skill 对照",
+      "status": "PASS",
+      "duration_ms": 79391,
+      "turns": 1,
+      "input_tokens": 317826,
+      "output_tokens": 7662,
+      "grading": {
+        "status": "PASS",
+        "turns_executed": 1,
+        "turns_total": 1,
+        "assertion_results": [
+          {
+            "text": "expect.must_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.must_not_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.exit_code",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "output_contains{all:[E-17 P0 P1 P2 200]}",
+            "passed": true,
+            "evidence": "output satisfies all contains checks (all:[E-17 P0 P1 P2 200])"
+          }
+        ],
+        "summary": {
+          "passed": 4,
+          "failed": 0,
+          "total": 4,
+          "pass_rate": 1
+        }
+      },
+      "configuration": "with_skill",
+      "prompt": "审查这项退款改动。Diff 摘录：\n```diff\n def refund_order(order, key):\n-    if find_refund(key): return existing_refund(key)\n-    provider.refund(order.payment_id)\n-    save_refund(key, \"completed\")\n+    provider.refund(order.payment_id)\n+    save_refund(key, \"completed\")\n```\n新增测试只有 `assert response.status_code == 200`，没有验证退款状态，也没有覆盖相同幂等键的并发重试。已有影响记录 E-17 指向重复退款风险。报告代码风险、测试影响和有效性、P0/P1/P2 发现、阻断项与来源。不要运行测试或声称测试通过。",
+      "response": "## 审查结论\n\n**建议阻断合并。** 该改动删除了相同幂等键的重放检查，可能导致重复退款。\n\n## 发现\n\n- **P0：无。**\n- **P1：退款调用失去幂等保护。** `find_refund(key)` 被删除后，即使首次请求已成功并保存为 `completed`，相同 `key` 的重试仍会再次调用 `provider.refund(order.payment_id)`。如果支付服务不会自行去重，就可能产生真实的重复退款。片段没有把 `key` 传给 provider，也没有展示 provider 的去重保证。[S1][S3]\n  \n  并发重试同样有风险。需要注意，即使恢复原来的查询，单纯“查询后调用、最后保存”仍有并发竞态；而 provider 调用成功、`save_refund` 失败时，重试也可能再次退款。后两点是现有流程的风险，摘录不足以确认是否有其他机制兜底。[S1]\n\n- **P2：新增测试不足以保护退款行为。** `assert response.status_code == 200` 只验证 HTTP 状态。它没有验证退款状态或持久化结果，也没有断言同键重试时 provider 只调用一次，因此无法发现上述幂等性回归。[S2]\n\n## 阻断项与来源\n\n合并前应确认同一幂等键在串行和并发重试中最多触发一次退款，并用测试断言 provider 调用次数及最终退款记录/状态。实现还需检查 provider 的幂等能力，以及外部退款成功后本地保存失败时如何恢复或对账。\n\n来源范围：S1 为你提供的 diff 摘录；S2 为你描述的测试断言；S3 为你指出的 E-17 重复退款风险记录。当前工作目录没有项目文件或 Git 仓库，因此无法独立核对完整实现、测试、provider 合同或 E-17 原文。**按你的要求，未运行测试，也不声称测试通过。**",
+      "observed_version": "0.166.0"
+    }
+  ],
+  "archived_at": "2026-11-03T03:02:59.313574Z"
+}

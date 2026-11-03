@@ -81,11 +81,17 @@ sync_dir() {
 
   mkdir -p "$(dirname "$dst")"
   if command -v rsync >/dev/null 2>&1; then
-    rsync -a --delete "$src/" "$dst/"
+    rsync -a --delete --delete-excluded \
+      --exclude='__pycache__/' \
+      --exclude='*.pyc' \
+      --exclude='.DS_Store' \
+      "$src/" "$dst/"
   else
     rm -rf "$dst"
     mkdir -p "$dst"
     cp -R "$src/." "$dst/"
+    find "$dst" -type d -name '__pycache__' -prune -exec rm -rf {} +
+    find "$dst" -type f \( -name '*.pyc' -o -name '.DS_Store' \) -delete
   fi
 }
 

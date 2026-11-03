@@ -21,6 +21,9 @@ cat /tmp/skills-cli-compatibility-check.out
 echo "[3/11] Check generated governance inventory"
 python3 scripts/generate_skill_governance_inventory.py --check
 
+echo "[3b/11] Validate Workflow, Evidence, and Run State contracts"
+python3 scripts/validate_workflow_contracts.py --repo-root . --report /tmp/workflow-contract-check.json
+
 echo "[3a/11] Validate Skill Composition manifest and generated views"
 python3 scripts/validate_skill_composition.py --repo-root .
 python3 scripts/generate_skill_composition_views.py --repo-root . --check

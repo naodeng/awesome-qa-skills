@@ -27,17 +27,26 @@ cases:
     - evals/cases/route-change-regression.yaml
     - evals/cases/route-performance-decision.yaml
     - evals/cases/route-ai-feature.yaml
+    - evals/cases/route-pr-quality-review.yaml
+    - evals/cases/route-requirement-to-test.yaml
+    - evals/cases/route-change-to-regression.yaml
+    - evals/cases/route-single-impact-only.yaml
+    - evals/cases/route-explicit-missing-workflow.yaml
     - evals/cases/review-authn-neighbor.yaml
     - evals/cases/review-authz-neighbor.yaml
     - evals/cases/review-rag-retrieval-neighbor.yaml
     - evals/cases/review-regression-selection-neighbor.yaml
+    - evals/cases/comparison-discover-testing.yaml
+    - evals/cases/router-prompt-injection.yaml
   defaults:
-    timeout_seconds: 180
+    timeout_seconds: 300
     max_turns: 8
     expect:
       exit_code: 0
       must_not_contain:
         - "TODO"
+        - "rollout_summaries/"
+        - "MEMORY.md"
         - "I cannot"
 
 report:

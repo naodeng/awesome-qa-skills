@@ -1,0 +1,86 @@
+{
+  "record_version": "workflow-eval-run/v1",
+  "run_id": "skill-up-release-testing-workflow-56ada52398cc47408a06d1b781b121af",
+  "workflow_id": "release-testing-workflow",
+  "locale": "zh-CN",
+  "execution_type": "model_eval",
+  "runner": {
+    "name": "skill-up",
+    "version": "skill-up version 0.12.0"
+  },
+  "engine": {
+    "name": "codex",
+    "version": "codex-cli 0.166.0",
+    "model_id_reported": "not reported"
+  },
+  "engine_version_capture": "captured before run",
+  "repo_head_at_archive": "ed94f827f2f564c039ae6ca9111f85851ad3771f",
+  "worktree_state_at_archive": "dirty; 270 paths changed",
+  "input_fingerprint_capture": "captured before run",
+  "input_fingerprint": "7379a0c1b3e68a2574b387e8618165f2cdc0fc21e97c605f9fb70a5f60454b07",
+  "input_fingerprint_after": "7379a0c1b3e68a2574b387e8618165f2cdc0fc21e97c605f9fb70a5f60454b07",
+  "skill_package_sha256_at_start": "e1f10e0f43b888a15b18c090b5b1df36b9f64946f3e664d9a5b02bf91b094a2d",
+  "raw_result_sha256": "8c8e062114a6b92c995d32cd2830d50e1d7694eb5be52181d1d7b939a067af4d",
+  "started_at": "2026-11-03T02:44:47.433690Z",
+  "finished_at": "2026-11-03T02:46:22.369302Z",
+  "summary": {
+    "case_count": 1,
+    "passed": 1,
+    "failed": 0,
+    "errors": 0,
+    "blocked": 0,
+    "unknown": 0,
+    "overall_status": "PASS"
+  },
+  "execution_notes": "Generated from the raw skill-up report. Input fingerprint was captured before execution; post-run fingerprint equality is available in this record.",
+  "redaction": "Absolute repository and ephemeral skill-up install prefixes in case data were replaced with repository-relative Skill paths. raw_result_sha256 identifies the unmodified report.",
+  "cases": [
+    {
+      "case_id": "comparison-release-readiness",
+      "title": "Release Readiness 有/无 Skill 对照",
+      "status": "PASS",
+      "duration_ms": 93868,
+      "turns": 1,
+      "input_tokens": 426916,
+      "output_tokens": 6784,
+      "grading": {
+        "status": "PASS",
+        "turns_executed": 1,
+        "turns_total": 1,
+        "assertion_results": [
+          {
+            "text": "expect.must_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.must_not_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.exit_code",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "output_contains{all:[P1 UNKNOWN 待授权决策]}",
+            "passed": true,
+            "evidence": "output satisfies all contains checks (all:[P1 UNKNOWN 待授权决策])"
+          }
+        ],
+        "summary": {
+          "passed": 4,
+          "failed": 0,
+          "total": 4,
+          "pass_rate": 1
+        }
+      },
+      "configuration": "with_skill",
+      "prompt": "请使用 release-testing-workflow 评估候选 RC-7。性能冒烟和 API 契约报告已有两周，且是在 RC-7 构建前生成的。安全证据为 UNKNOWN，仍有一个 P1 支付缺陷未关闭。没有授权决策人批准此次发布。请总结证据时效、阻断项、剩余风险、Go/No-Go 建议和正式审批状态。正式审批状态请明确写为“待授权决策”；不要代替任何人批准。\n",
+      "response": "## RC-7 发布评估\n\n**建议：NO-GO。** 当前证据不足以支持放行，且 P1 支付缺陷仍未关闭。正式审批状态：**PENDING（待授权决策）**；这不是批准记录。\n\n| 门禁 / 证据 | 状态 | 评估 |\n|---|---|---|\n| 性能冒烟 | `STALE` | 报告约两周前生成，早于 RC-7 构建，不能证明当前候选版本通过。 |\n| API 契约 | `STALE` | 同样早于 RC-7 构建，不能证明当前候选版本的契约状态。 |\n| 安全证据 | `UNKNOWN` | 目前无法判断安全门禁是否满足；未知不等于失败，也不能视为通过。 |\n| P1 支付缺陷 | `BLOCKED` | 缺陷未关闭，当前没有提供授权的风险接受记录。 |\n| 正式审批 | `PENDING` | 没有授权决策人批准本次发布。 |\n\n**阻断项与剩余风险：** P1 支付问题尚未解决；RC-7 缺少有效的性能、API 契约和安全证据。因而支付链路风险、安全风险以及当前构建的性能和兼容性状态都未得到确认。发布范围、发布日期、回滚方案和监控就绪情况也未提供，暂标为 `UNKNOWN`；因此无法定位具体 T 窗口。\n\n**后续门禁：** 针对 RC-7 当前构建重做性能冒烟和 API 契约验证；补齐安全评估；关闭并回归验证 P1 支付缺陷，或取得授权且可追溯的风险接受；补齐回滚与监控证据。随后由 `test-reporting` 汇总证据包供授权决策。以上仅依据你提供的状态评估；没有提供报告原件、构建标识或审批记录。",
+      "observed_version": "0.166.0"
+    }
+  ],
+  "archived_at": "2026-11-03T03:00:31.023617Z"
+}

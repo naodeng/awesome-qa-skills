@@ -1,0 +1,171 @@
+{
+  "schema_version": "1.0.0",
+  "id": "pr-quality-review",
+  "version": "1.0.0",
+  "kind": "sequence",
+  "title": {
+    "zh": "PR 质量审查工作流",
+    "en": "PR Quality Review Workflow"
+  },
+  "summary": {
+    "zh": "汇总 PR 代码风险、测试影响、测试有效性和质量证据。",
+    "en": "Synthesize PR code risk, test impact, test effectiveness, and quality evidence."
+  },
+  "lifecycle_state": "EXPERIMENTAL",
+  "inputs": [
+    {
+      "id": "user_request",
+      "required": true,
+      "description": "User request and available project evidence."
+    }
+  ],
+  "outputs": [
+    {
+      "id": "review_findings",
+      "description": "Risk findings derived from the supplied code and test review evidence.",
+      "evidence_kind": "inference"
+    },
+    {
+      "id": "evidence_gaps",
+      "description": "Missing, stale, or unverified evidence with its source and scope.",
+      "evidence_kind": "fact"
+    },
+    {
+      "id": "next_actions",
+      "description": "Recommended follow-up or manual review actions.",
+      "evidence_kind": "plan"
+    }
+  ],
+  "steps": [
+    {
+      "id": "scope",
+      "description": "Scope",
+      "skill_ids": [
+        "code-review"
+      ],
+      "prompt": "prompts/pr-quality-review.md",
+      "depends_on": [],
+      "on_failure": "stop",
+      "permission": "read_only",
+      "approval_required": false
+    },
+    {
+      "id": "code-review",
+      "description": "Code review",
+      "skill_ids": [
+        "code-review"
+      ],
+      "prompt": "prompts/pr-quality-review.md",
+      "depends_on": [
+        "scope"
+      ],
+      "on_failure": "stop",
+      "permission": "read_only",
+      "approval_required": false
+    },
+    {
+      "id": "test-impact",
+      "description": "Test impact",
+      "skill_ids": [
+        "pr-test-impact-analysis"
+      ],
+      "prompt": "prompts/pr-quality-review.md",
+      "depends_on": [
+        "scope",
+        "code-review"
+      ],
+      "on_failure": "stop",
+      "permission": "read_only",
+      "approval_required": false
+    },
+    {
+      "id": "test-effectiveness",
+      "description": "Test effectiveness",
+      "skill_ids": [
+        "test-code-review",
+        "ai-generated-test-review"
+      ],
+      "prompt": "prompts/pr-quality-review.md",
+      "depends_on": [
+        "scope",
+        "code-review",
+        "test-impact"
+      ],
+      "on_failure": "stop",
+      "permission": "read_only",
+      "approval_required": false
+    },
+    {
+      "id": "evidence-gate",
+      "description": "Evidence gate",
+      "skill_ids": [
+        "quality-gate-design"
+      ],
+      "prompt": "prompts/pr-quality-review.md",
+      "depends_on": [
+        "scope",
+        "code-review",
+        "test-impact",
+        "test-effectiveness"
+      ],
+      "on_failure": "stop",
+      "permission": "read_only",
+      "approval_required": false
+    },
+    {
+      "id": "synthesis",
+      "description": "Synthesis",
+      "skill_ids": [
+        "test-report-review"
+      ],
+      "prompt": "prompts/pr-quality-review.md",
+      "depends_on": [
+        "scope",
+        "code-review",
+        "test-impact",
+        "test-effectiveness",
+        "evidence-gate"
+      ],
+      "on_failure": "stop",
+      "permission": "read_only",
+      "approval_required": false
+    }
+  ],
+  "failure_policy": {
+    "on_missing_dependency": "continue_with_limitations",
+    "on_blocked": "stop"
+  },
+  "permission_policy": {
+    "default": "read_only",
+    "approval_required_for": [
+      "execute_command",
+      "write_repo",
+      "external_write",
+      "publish",
+      "delete",
+      "release_approval"
+    ]
+  },
+  "checkpoint_policy": {
+    "host_runtime_required": true,
+    "fingerprint_fields": [
+      "inputs",
+      "commit_sha"
+    ],
+    "invalidate_on_change": [
+      "inputs",
+      "commit_sha"
+    ],
+    "automatic_replay": "side_effect_free_only"
+  },
+  "handoff": {
+    "required_fields": [
+      "workflow_id",
+      "source",
+      "status",
+      "open_gaps",
+      "next_step"
+    ]
+  },
+  "evidence_contract_version": "1.0.0"
+}
