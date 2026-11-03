@@ -1,0 +1,124 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://inaodeng.com/qaskills/schemas/workflow-evidence-v1.schema.json",
+  "title": "Awesome QA Workflow Evidence Contract",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "workflow_id", "workflow_version", "run_id", "input_fingerprint", "commit_sha", "generated_at", "status", "evidence"],
+  "properties": {
+    "schema_version": { "const": "1.0.0" },
+    "workflow_id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+    "workflow_version": { "type": "string" },
+    "run_id": { "type": "string", "minLength": 1 },
+    "input_fingerprint": { "type": "string", "pattern": "^[a-fA-F0-9]{64}$" },
+    "commit_sha": { "type": "string", "pattern": "^(?:[a-fA-F0-9]{40}|[a-fA-F0-9]{64})$" },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "status": { "enum": ["PASS", "FAIL", "BLOCKED", "UNKNOWN"] },
+    "evidence": { "type": "array", "items": { "$ref": "#/$defs/evidenceItem" } },
+    "decision": { "type": "string" }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "status": { "const": "PASS" } }, "required": ["status"] },
+      "then": {
+        "properties": {
+          "evidence": {
+            "minItems": 1,
+            "items": { "properties": { "status": { "const": "PASS" } }, "required": ["status"] }
+          }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "status": { "const": "FAIL" } }, "required": ["status"] },
+      "then": {
+        "properties": {
+          "evidence": {
+            "contains": { "properties": { "status": { "const": "FAIL" } }, "required": ["status"] }
+          }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "status": { "const": "BLOCKED" } }, "required": ["status"] },
+      "then": {
+        "properties": {
+          "evidence": {
+            "contains": { "properties": { "status": { "const": "BLOCKED" } }, "required": ["status"] },
+            "not": { "contains": { "properties": { "status": { "const": "FAIL" } }, "required": ["status"] } }
+          }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "status": { "const": "UNKNOWN" } }, "required": ["status"] },
+      "then": {
+        "properties": {
+          "evidence": {
+            "allOf": [
+              { "not": { "contains": { "properties": { "status": { "const": "FAIL" } }, "required": ["status"] } } },
+              { "not": { "contains": { "properties": { "status": { "const": "BLOCKED" } }, "required": ["status"] } } },
+              { "anyOf": [
+                { "maxItems": 0 },
+                { "contains": { "properties": { "status": { "const": "UNKNOWN" } }, "required": ["status"] } }
+              ] }
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "evidenceItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "kind", "claim", "status", "source", "producer", "observed_at"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "kind": { "enum": ["fact", "inference", "plan", "execution"] },
+        "claim": { "type": "string", "minLength": 1 },
+        "status": { "enum": ["PASS", "FAIL", "BLOCKED", "UNKNOWN"] },
+        "source": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "reference"],
+          "properties": {
+            "type": { "enum": ["file", "command", "artifact", "user_statement", "ci_run", "model_eval", "manual_observation"] },
+            "reference": { "type": "string", "minLength": 1 },
+            "sha256": { "type": "string", "pattern": "^[a-fA-F0-9]{64}$" }
+          }
+        },
+        "producer": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["skill_id", "version"],
+          "properties": { "skill_id": { "type": "string" }, "version": { "type": "string" }, "tool": { "type": "string" }, "tool_version": { "type": "string" } }
+        },
+        "observed_at": { "type": "string", "format": "date-time" },
+        "valid_until": { "type": "string", "format": "date-time" },
+        "scope": { "type": "string" },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "basis": { "type": "array", "items": { "type": "string" } },
+        "execution": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "scope", "environment", "started_at", "finished_at"],
+          "properties": {
+            "type": { "enum": ["static_analysis", "unit_test", "integration_test", "e2e_test", "manual_test", "model_eval", "install_check", "build", "other"] },
+            "scope": { "enum": ["static_structure", "static_analysis", "test_execution", "model_behavior", "install_compatibility", "other"] },
+            "command": { "type": "string" },
+            "exit_code": { "type": "integer" },
+            "environment": { "type": "string", "minLength": 1 },
+            "started_at": { "type": "string", "format": "date-time" },
+            "finished_at": { "type": "string", "format": "date-time" },
+            "result_reference": { "type": "string" }
+          }
+        }
+      },
+      "allOf": [
+        { "if": { "properties": { "kind": { "const": "execution" } }, "required": ["kind"] }, "then": { "required": ["execution"] } },
+        { "if": { "properties": { "kind": { "const": "inference" } }, "required": ["kind"] }, "then": { "required": ["basis"] } }
+      ]
+    }
+  }
+}

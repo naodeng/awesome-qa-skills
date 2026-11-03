@@ -1,0 +1,25 @@
+{
+  "id": "stale-checkpoint",
+  "title": "恢复：Commit SHA 变化后使旧检查点过期",
+  "description": "不能把旧 SHA 的分析结果直接复用到新 Commit。",
+  "input": {
+    "prompt": "这是一个合成评测场景。仅使用本提示中的材料。不要检查工作区/仓库、之前的对话、内部 memory、外部来源或运行命令。假设 PR 审查 Checkpoint 记录 Commit SHA 1111111，假设当前 PR 已更新到 SHA 2222222。请使用标准状态码 `STALE` 说明恢复状态、哪些阶段需要重跑以及旧证据如何标记。不得引用任何内部 memory 或会话摘要文件。"
+  },
+  "expect": {
+    "must_contain": [
+      "STALE",
+      "阶段"
+    ],
+    "must_not_contain": [
+      "继续使用旧证据",
+      "TODO",
+      "MEMORY.md",
+      "rollout_summaries/"
+    ]
+  },
+  "judge": {
+    "type": "script",
+    "script_path": "evals/graders/checkpoint_recovery.py",
+    "timeout_seconds": 30
+  }
+}

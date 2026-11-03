@@ -3,10 +3,9 @@ title: "discover-testing: sourced repair regression"
 input:
   prompt: |
     Use discover-testing.
-    Analyze the sanitized static material only; do not perform external actions. Follow the main prompt with reasons, sources, evidence gaps, and minimal validation. Append `ID | DECISION | Evidence`, one row per ID, using the supplied enum values. PASS/FAIL is fixture comparison only, not real execution.
-    Allowed DECISION values: rag-retrieval-testing.
+    Analyze the sanitized static material only; do not perform external actions. Follow the main prompt with reasons, sources, evidence gaps, and minimal validation. PASS/FAIL is fixture comparison only, not real execution.
 
-    Route a request with labeled query->document relevance and top-k recall evidence; no answer text is supplied, target installation is unknown. Select retrieval evaluation, not answer-quality judgment. Append a table row `ROUTE | <exact canonical ID> | availability evidence`. The DECISION cell here is the canonical target ID.
+    Route a request with labeled query->document relevance and top-k recall evidence; no answer text is supplied, target installation is unknown. Select retrieval evaluation, not answer-quality judgment. End with exactly one decision row: `ROUTE | rag-retrieval-testing | Host installation: UNKNOWN`. Do not emit another machine-readable decision row.
 expect:
   exit_code: 0
 judge:

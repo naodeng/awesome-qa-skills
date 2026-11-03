@@ -18,7 +18,11 @@ EXPECTED_ROUTE_IDS = {
     "change-regression",
     "performance-decision",
     "ai-feature-validation",
+    "pr-quality-review",
+    "requirement-to-test",
+    "change-to-regression",
 }
+WORKFLOW_TARGETS = {"pr-quality-review", "requirement-to-test", "change-to-regression"}
 ALLOWED_RELATION_TYPES = {
     "precedes",
     "recommended_with",
@@ -35,7 +39,7 @@ class SkillCompositionContractTest(unittest.TestCase):
     def errors_for(self, manifest):
         return composition.validate_manifest(manifest, ROOT)
 
-    def test_current_manifest_has_five_unique_routes(self):
+    def test_current_manifest_has_unique_routes(self):
         routes = self.manifest["routes"]
         route_ids = [route["id"] for route in routes]
         self.assertEqual(set(route_ids), EXPECTED_ROUTE_IDS)
@@ -69,11 +73,15 @@ class SkillCompositionContractTest(unittest.TestCase):
                 "performance-result-analysis",
                 "ai-feature-testing",
                 "llm-testing",
+                "pr-quality-review",
+                "requirement-to-test",
+                "change-to-regression",
             },
         )
         for target in targets:
-            self.assertTrue((ROOT / "skills/zh" / "testing-types" / target).is_dir())
-            self.assertTrue((ROOT / "skills/en" / "testing-types" / target).is_dir())
+            section = "testing-workflows" if target in WORKFLOW_TARGETS else "testing-types"
+            self.assertTrue((ROOT / "skills/zh" / section / target).is_dir())
+            self.assertTrue((ROOT / "skills/en" / section / target).is_dir())
 
     def test_relation_types_are_limited_to_navigation_contract(self):
         self.assertTrue(self.manifest["relations"])
@@ -140,9 +148,9 @@ class SkillCompositionContractTest(unittest.TestCase):
         )
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
         summary = json.loads(result.stdout)
-        self.assertEqual(summary["routes"], 5)
+        self.assertEqual(summary["routes"], 8)
         self.assertGreaterEqual(summary["relations"], 1)
-        self.assertEqual(summary["target_skills"], 10)
+        self.assertEqual(summary["target_skills"], 13)
 
 
 if __name__ == "__main__":

@@ -4,7 +4,7 @@
 
 本目录是中文主语言 Skill 根目录，与 `skills/en` 使用相同 Skill 名和物理结构。
 
-每种语言共 **166** 个 Skill：11 workflows + 150 testing types + 5 Skill Engineering。完整项目说明见 [中文 README](../../README.md) 和 [English README](../../README_EN.md)；长期治理见 [治理路线图](../../docs/governance/SKILL_GOVERNANCE_ROADMAP.md) 与 [治理矩阵](../../docs/SKILL_MATRIX.md)。
+每种语言共 **169** 个 Skill：14 workflows + 150 testing types + 5 Skill Engineering。完整项目说明见 [中文 README](../../README.md) 和 [English README](../../README_EN.md)；长期治理见 [治理路线图](../../docs/governance/SKILL_GOVERNANCE_ROADMAP.md) 与 [治理矩阵](../../docs/SKILL_MATRIX.md)。
 
 ## 跨阶段工作流
 
@@ -13,6 +13,7 @@
 | Skill | 目录 |
 | --- | --- |
 | Testing Skill Discovery | [`discover-testing`](testing-workflows/discover-testing/) |
+| 需求到测试工作流 | [`requirement-to-test`](testing-workflows/requirement-to-test/) |
 | 产品质量视角 | [`product-quality-perspective`](testing-workflows/product-quality-perspective/) |
 | QA 质量视角 | [`qa-quality-perspective`](testing-workflows/qa-quality-perspective/) |
 | UX 质量视角 | [`ux-quality-perspective`](testing-workflows/ux-quality-perspective/) |
@@ -26,6 +27,8 @@
 | 迭代测试工作流程（中文版） | [`sprint-testing-workflow`](testing-workflows/sprint-testing-workflow/) |
 | TDD 质量工作流 | [`tdd-quality-workflow`](testing-workflows/tdd-quality-workflow/) |
 | 项目交付视角 | [`project-delivery-perspective`](testing-workflows/project-delivery-perspective/) |
+| PR 质量审查工作流 | [`pr-quality-review`](testing-workflows/pr-quality-review/) |
+| 变更到回归工作流 | [`change-to-regression`](testing-workflows/change-to-regression/) |
 
 ### 发布与综合
 

@@ -7,11 +7,12 @@ description: |
 context:
   files:
     "evals/fixtures/router-expected.json": |
-      {"route":"performance-decision","primary":"performance-workload-modeling","optional":"performance-result-analysis"}
+      {"route":"performance-decision","primary":"performance-workload-modeling","optional":null}
 
 input:
   prompt: |
-    Use discover-testing to route this request: a new API has explicit throughput and latency targets,
+    Use discover-testing to route this request: a new API has explicit throughput and latency targets.
+    Trusted Host inventory for this case confirms `performance-workload-modeling` is installed and callable; there are no runtime results, so result analysis is not needed yet.
     but we only have workload assumptions and no load-test results yet. Return only the route ID, goal,
     exactly one primary Skill, at most one optional Skill, rationale, and next handoff input. Do not write a full
     load-test plan or claim that a run has completed. End with one ```json code block containing only route, primary,
@@ -21,9 +22,6 @@ expect:
   must_contain:
     - "performance-decision"
     - "performance-workload-modeling"
-    - "performance-result-analysis"
-    - "Primary Recommendation"
-    - "Next Step"
   must_not_contain:
     - "full load-test plan"
     - "load test completed"

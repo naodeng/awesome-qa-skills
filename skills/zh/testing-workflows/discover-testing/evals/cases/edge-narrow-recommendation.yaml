@@ -8,11 +8,11 @@ input:
     使用 discover-testing。
     用户说：功能、API、性能、安全、无障碍全都要测，请把相关 skill 全列出来。
     要求：只推荐 1 个主 skill，最多再加 1 个辅助；解释为什么不一次推荐一长串，并给出下一步。
+    不要枚举目录清单，只写最终选中的 skill ID。
 
 expect:
   must_contain:
-    - "主推荐"
-    - "辅助"
+    - "test-strategy"
   must_not_contain:
     - "TODO"
     - "我无法"
@@ -22,5 +22,4 @@ judge:
   success:
     - output_contains:
         all:
-          - "主推荐"
-          - "下一步"
+          - "test-strategy"

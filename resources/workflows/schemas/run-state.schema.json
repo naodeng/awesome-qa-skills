@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://inaodeng.com/qaskills/schemas/workflow-run-state-v1.schema.json",
+  "title": "Awesome QA Workflow Run State Contract",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "run_id", "workflow_id", "workflow_version", "status", "input_fingerprint", "workflow_source_sha256", "commit_sha", "created_at", "updated_at", "stages", "artifacts", "idempotency_keys"],
+  "properties": {
+    "schema_version": { "const": "1.0.0" },
+    "run_id": { "type": "string", "minLength": 1 },
+    "workflow_id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+    "workflow_version": { "type": "string" },
+    "status": { "enum": ["NOT_STARTED", "RUNNING", "COMPLETED", "FAILED", "BLOCKED", "STALE"] },
+    "input_fingerprint": { "type": "string", "pattern": "^[a-fA-F0-9]{64}$" },
+    "workflow_source_sha256": { "type": "string", "pattern": "^[a-fA-F0-9]{64}$" },
+    "commit_sha": { "type": "string", "pattern": "^(?:[a-fA-F0-9]{40}|[a-fA-F0-9]{64})$" },
+    "created_at": { "type": "string", "format": "date-time" },
+    "updated_at": { "type": "string", "format": "date-time" },
+    "stale_reason": { "type": "string" },
+    "stages": { "type": "array", "items": { "$ref": "#/$defs/stage" } },
+    "artifacts": { "type": "array", "items": { "$ref": "#/$defs/artifact" } },
+    "idempotency_keys": { "type": "array", "uniqueItems": true, "items": { "type": "string" } }
+  },
+  "allOf": [
+    { "if": { "properties": { "status": { "const": "STALE" } }, "required": ["status"] }, "then": { "required": ["stale_reason"] } }
+  ],
+  "$defs": {
+    "stage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "status", "attempt", "evidence_refs"],
+      "properties": {
+        "id": { "type": "string" },
+        "status": { "enum": ["NOT_STARTED", "RUNNING", "COMPLETED", "SKIPPED", "FAILED", "BLOCKED", "STALE"] },
+        "attempt": { "type": "integer", "minimum": 0 },
+        "checkpoint_ref": { "type": "string" },
+        "evidence_refs": { "type": "array", "items": { "type": "string" } },
+        "approval": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["status", "approved_by", "approved_at", "scope"],
+          "properties": {
+            "status": { "const": "APPROVED" },
+            "approved_by": { "type": "string", "minLength": 1 },
+            "approved_at": { "type": "string", "format": "date-time" },
+            "scope": { "type": "string", "minLength": 1 }
+          }
+        },
+        "started_at": { "type": "string", "format": "date-time" },
+        "finished_at": { "type": "string", "format": "date-time" }
+      }
+    },
+    "artifact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "location"],
+      "properties": { "id": { "type": "string" }, "location": { "type": "string" }, "sha256": { "type": "string", "pattern": "^[a-fA-F0-9]{64}$" } }
+    }
+  }
+}

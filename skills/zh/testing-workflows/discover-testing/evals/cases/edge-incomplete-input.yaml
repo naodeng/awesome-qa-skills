@@ -6,21 +6,18 @@ description: |
 input:
   prompt: |
     请用 discover-testing。
+    请用中文回复。
     用户只说：「帮我测一下新功能。」没有范围、测试类型、当前阶段。
-    请先澄清必问项；在信息不足时不要假装已经选定且可落地。
+    请只用三个编号文字问题询问功能/范围、当前阶段和期望交付物。
+    不要推荐 Skill、不要询问环境，也不要调用工具；用户没有要求执行。
+    不要假装已经选定且可落地。
 
 expect:
-  must_contain:
-    - "澄清"
-    - "待确认"
   must_not_contain:
     - "TODO"
     - "我无法"
 
 judge:
-  type: rule_based
-  success:
-    - output_contains:
-        all:
-          - "澄清"
-          - "待确认"
+  type: script
+  script_path: evals/graders/clarification.py
+  timeout_seconds: 30

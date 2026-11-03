@@ -10,6 +10,7 @@ Browse project documentation by task and topic. New users can start with the roo
 - [Composition routes](./catalog/skills-composition_EN.md): see five structured task routes, primary/optional Skills, and navigation relationships. These routes guide selection; they do not orchestrate or execute Skills automatically.
 - [Skill relationship graph](./catalog/skills-graph_EN.md): browse directory and capability relationships.
 - [Skills CLI integration guide](./integrations/SKILLS_CLI_INTEGRATION_EN.md): CLI distribution contract, compatibility gate, and validation boundaries.
+- [Agent compatibility matrix](./integrations/AGENT_COMPATIBILITY_MATRIX_EN.md): separates installer, CLI, and in-Host execution evidence.
 - [Installation guide](../scripts/INSTALL_SKILLS_EN.md): CLI, repository installers, per-Skill shortcuts, cloning, submodules, and manual copying.
 - [Supported AI tools](../README_EN.md#supported-ai-tools): review installation methods by tool.
 
@@ -31,6 +32,10 @@ Browse project documentation by task and topic. New users can start with the roo
 - [Skill governance baseline](./governance/SKILL_GOVERNANCE_V1_EN.md): source-structure records and evidence boundaries.
 - [Skill deprecation guide](./SKILL_DEPRECATION_GUIDE_EN.md): deprecation, archiving, and replacement paths.
 - [Workflow / Eval / installation checklist](./governance/WORKFLOW_EVAL_INSTALL_SYNC_EN.md): synchronization requirements for workflows and bilingual installation/Eval entry points.
+- [Skill Lifecycle Governance](./governance/SKILL_LIFECYCLE_POLICY_EN.md): lifecycle states, adoption evidence, retirement, and read-only residual install checks.
+- [Workflow Reliability Enhancement v1.0](./governance/WORKFLOW_RELIABILITY_ENHANCEMENT_V1_EN.md): baseline audit, 12 implementation decisions, and completion criteria.
+- [Workflow Contract](./workflows/WORKFLOW_CONTRACT_EN.md): Workflow, evidence, and recovery data contracts and validator.
+- [Local Workflow State CLI](./workflows/WORKFLOW_STATE_RUNTIME_EN.md): Run State, checkpoints, stale detection, approval records, and host-runtime boundaries.
 - [Governance and version documents](./governance/): quality contracts, version closeouts, plans, and other governance material.
 
 ## Reviews and generated material

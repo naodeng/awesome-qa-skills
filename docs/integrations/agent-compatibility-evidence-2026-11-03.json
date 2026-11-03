@@ -1,0 +1,758 @@
+{
+  "record_version": "agent-compatibility-verification/v1",
+  "verified_at": "2026-11-03T03:32:33Z",
+  "scope": "Repository installer and standalone package checks in disposable temporary roots. No Agent Host auto-discovery or prompt execution is asserted.",
+  "tools": [
+    "codex",
+    "claude",
+    "cursor"
+  ],
+  "locales": [
+    "zh",
+    "en"
+  ],
+  "skills": [
+    "discover-testing",
+    "pr-quality-review",
+    "requirement-to-test",
+    "change-to-regression",
+    "release-testing-workflow"
+  ],
+  "summary": {
+    "isolated_installs": 60,
+    "same_target_upgrade_checks": 10,
+    "uninstall_previews": 10,
+    "uninstall_applies": 10,
+    "post_uninstall_residue_checks": 10,
+    "standalone_zips": 10,
+    "failures": 0
+  },
+  "results": {
+    "isolated_installs": [
+      {
+        "tool": "codex",
+        "locale": "zh",
+        "skill": "discover-testing",
+        "repeat": 1,
+        "file_count": 64,
+        "tree_sha256": "3b81ed75285238c9a13b968da8ffa8b4188a4a320468110c55d002498b52385f",
+        "result": "PASS"
+      },
+      {
+        "tool": "codex",
+        "locale": "zh",
+        "skill": "discover-testing",
+        "repeat": 2,
+        "file_count": 64,
+        "tree_sha256": "3b81ed75285238c9a13b968da8ffa8b4188a4a320468110c55d002498b52385f",
+        "result": "PASS"
+      },
+      {
+        "tool": "codex",
+        "locale": "zh",
+        "skill": "pr-quality-review",
+        "repeat": 1,
+        "file_count": 20,
+        "tree_sha256": "2797d2083f6f105ac2d9a16d9ed884afe029a319ff1463cc537dcea6d5dfbdda",
+        "result": "PASS"
+      },
+      {
+        "tool": "codex",
+        "locale": "zh",
+        "skill": "pr-quality-review",
+        "repeat": 2,
+        "file_count": 20,
+        "tree_sha256": "2797d2083f6f105ac2d9a16d9ed884afe029a319ff1463cc537dcea6d5dfbdda",
+        "result": "PASS"
+      },
+      {
+        "tool": "codex",
+        "locale": "zh",
+        "skill": "requirement-to-test",
+        "repeat": 1,
+        "file_count": 15,
+        "tree_sha256": "4006554a3e0c993d434278ca3e278d6e73b02b7e44fe1f9b1a500d6510e45d2d",
+        "result": "PASS"
+      },
+      {
+        "tool": "codex",
+        "locale": "zh",
+        "skill": "requirement-to-test",
+        "repeat": 2,
+        "file_count": 15,
+        "tree_sha256": "4006554a3e0c993d434278ca3e278d6e73b02b7e44fe1f9b1a500d6510e45d2d",
+        "result": "PASS"
+      },
+      {
+        "tool": "codex",
+        "locale": "zh",
+        "skill": "change-to-regression",
+        "repeat": 1,
+        "file_count": 15,
+        "tree_sha256": "87d4212b311323ff4472c645fee1a8676e5754f0010f350f1985b0673ff079f1",
+        "result": "PASS"
+      },
+      {
+        "tool": "codex",
+        "locale": "zh",
+        "skill": "change-to-regression",
+        "repeat": 2,
+        "file_count": 15,
+        "tree_sha256": "87d4212b311323ff4472c645fee1a8676e5754f0010f350f1985b0673ff079f1",
+        "result": "PASS"
+      },
+      {
+        "tool": "codex",
+        "locale": "zh",
+        "skill": "release-testing-workflow",
+        "repeat": 1,
+        "file_count": 40,
+        "tree_sha256": "59984f548dd76853880235513f4bf79c790161c831e02dc7103f0ed13c31ef1b",
+        "result": "PASS"
+      },
+      {
+        "tool": "codex",
+        "locale": "zh",
+        "skill": "release-testing-workflow",
+        "repeat": 2,
+        "file_count": 40,
+        "tree_sha256": "59984f548dd76853880235513f4bf79c790161c831e02dc7103f0ed13c31ef1b",
+        "result": "PASS"
+      },
+      {
+        "tool": "codex",
+        "locale": "en",
+        "skill": "discover-testing",
+        "repeat": 1,
+        "file_count": 64,
+        "tree_sha256": "76c9f343cf8847fa56e4b6fb88e5698c78172c6fa24fdbda3152863dd7e7ee22",
+        "result": "PASS"
+      },
+      {
+        "tool": "codex",
+        "locale": "en",
+        "skill": "discover-testing",
+        "repeat": 2,
+        "file_count": 64,
+        "tree_sha256": "76c9f343cf8847fa56e4b6fb88e5698c78172c6fa24fdbda3152863dd7e7ee22",
+        "result": "PASS"
+      },
+      {
+        "tool": "codex",
+        "locale": "en",
+        "skill": "pr-quality-review",
+        "repeat": 1,
+        "file_count": 20,
+        "tree_sha256": "985e0c1540424466d6e8c33514c6702c81909666f1693d390fa8f536de952dd8",
+        "result": "PASS"
+      },
+      {
+        "tool": "codex",
+        "locale": "en",
+        "skill": "pr-quality-review",
+        "repeat": 2,
+        "file_count": 20,
+        "tree_sha256": "985e0c1540424466d6e8c33514c6702c81909666f1693d390fa8f536de952dd8",
+        "result": "PASS"
+      },
+      {
+        "tool": "codex",
+        "locale": "en",
+        "skill": "requirement-to-test",
+        "repeat": 1,
+        "file_count": 15,
+        "tree_sha256": "24b1a76d357a90166f7a34de5f72e12e977b29efac8b1404e0e7622d49f67d5b",
+        "result": "PASS"
+      },
+      {
+        "tool": "codex",
+        "locale": "en",
+        "skill": "requirement-to-test",
+        "repeat": 2,
+        "file_count": 15,
+        "tree_sha256": "24b1a76d357a90166f7a34de5f72e12e977b29efac8b1404e0e7622d49f67d5b",
+        "result": "PASS"
+      },
+      {
+        "tool": "codex",
+        "locale": "en",
+        "skill": "change-to-regression",
+        "repeat": 1,
+        "file_count": 15,
+        "tree_sha256": "e0365fa72ef772ce957096b7f4a3bc6ac958915066d366e0642e4a4b969227dd",
+        "result": "PASS"
+      },
+      {
+        "tool": "codex",
+        "locale": "en",
+        "skill": "change-to-regression",
+        "repeat": 2,
+        "file_count": 15,
+        "tree_sha256": "e0365fa72ef772ce957096b7f4a3bc6ac958915066d366e0642e4a4b969227dd",
+        "result": "PASS"
+      },
+      {
+        "tool": "codex",
+        "locale": "en",
+        "skill": "release-testing-workflow",
+        "repeat": 1,
+        "file_count": 40,
+        "tree_sha256": "c67acd250091d5f417575c6c63a0285ac37e768b2472e0478b95ddc43963ec73",
+        "result": "PASS"
+      },
+      {
+        "tool": "codex",
+        "locale": "en",
+        "skill": "release-testing-workflow",
+        "repeat": 2,
+        "file_count": 40,
+        "tree_sha256": "c67acd250091d5f417575c6c63a0285ac37e768b2472e0478b95ddc43963ec73",
+        "result": "PASS"
+      },
+      {
+        "tool": "claude",
+        "locale": "zh",
+        "skill": "discover-testing",
+        "repeat": 1,
+        "file_count": 64,
+        "tree_sha256": "3b81ed75285238c9a13b968da8ffa8b4188a4a320468110c55d002498b52385f",
+        "result": "PASS"
+      },
+      {
+        "tool": "claude",
+        "locale": "zh",
+        "skill": "discover-testing",
+        "repeat": 2,
+        "file_count": 64,
+        "tree_sha256": "3b81ed75285238c9a13b968da8ffa8b4188a4a320468110c55d002498b52385f",
+        "result": "PASS"
+      },
+      {
+        "tool": "claude",
+        "locale": "zh",
+        "skill": "pr-quality-review",
+        "repeat": 1,
+        "file_count": 20,
+        "tree_sha256": "2797d2083f6f105ac2d9a16d9ed884afe029a319ff1463cc537dcea6d5dfbdda",
+        "result": "PASS"
+      },
+      {
+        "tool": "claude",
+        "locale": "zh",
+        "skill": "pr-quality-review",
+        "repeat": 2,
+        "file_count": 20,
+        "tree_sha256": "2797d2083f6f105ac2d9a16d9ed884afe029a319ff1463cc537dcea6d5dfbdda",
+        "result": "PASS"
+      },
+      {
+        "tool": "claude",
+        "locale": "zh",
+        "skill": "requirement-to-test",
+        "repeat": 1,
+        "file_count": 15,
+        "tree_sha256": "4006554a3e0c993d434278ca3e278d6e73b02b7e44fe1f9b1a500d6510e45d2d",
+        "result": "PASS"
+      },
+      {
+        "tool": "claude",
+        "locale": "zh",
+        "skill": "requirement-to-test",
+        "repeat": 2,
+        "file_count": 15,
+        "tree_sha256": "4006554a3e0c993d434278ca3e278d6e73b02b7e44fe1f9b1a500d6510e45d2d",
+        "result": "PASS"
+      },
+      {
+        "tool": "claude",
+        "locale": "zh",
+        "skill": "change-to-regression",
+        "repeat": 1,
+        "file_count": 15,
+        "tree_sha256": "87d4212b311323ff4472c645fee1a8676e5754f0010f350f1985b0673ff079f1",
+        "result": "PASS"
+      },
+      {
+        "tool": "claude",
+        "locale": "zh",
+        "skill": "change-to-regression",
+        "repeat": 2,
+        "file_count": 15,
+        "tree_sha256": "87d4212b311323ff4472c645fee1a8676e5754f0010f350f1985b0673ff079f1",
+        "result": "PASS"
+      },
+      {
+        "tool": "claude",
+        "locale": "zh",
+        "skill": "release-testing-workflow",
+        "repeat": 1,
+        "file_count": 40,
+        "tree_sha256": "59984f548dd76853880235513f4bf79c790161c831e02dc7103f0ed13c31ef1b",
+        "result": "PASS"
+      },
+      {
+        "tool": "claude",
+        "locale": "zh",
+        "skill": "release-testing-workflow",
+        "repeat": 2,
+        "file_count": 40,
+        "tree_sha256": "59984f548dd76853880235513f4bf79c790161c831e02dc7103f0ed13c31ef1b",
+        "result": "PASS"
+      },
+      {
+        "tool": "claude",
+        "locale": "en",
+        "skill": "discover-testing",
+        "repeat": 1,
+        "file_count": 64,
+        "tree_sha256": "76c9f343cf8847fa56e4b6fb88e5698c78172c6fa24fdbda3152863dd7e7ee22",
+        "result": "PASS"
+      },
+      {
+        "tool": "claude",
+        "locale": "en",
+        "skill": "discover-testing",
+        "repeat": 2,
+        "file_count": 64,
+        "tree_sha256": "76c9f343cf8847fa56e4b6fb88e5698c78172c6fa24fdbda3152863dd7e7ee22",
+        "result": "PASS"
+      },
+      {
+        "tool": "claude",
+        "locale": "en",
+        "skill": "pr-quality-review",
+        "repeat": 1,
+        "file_count": 20,
+        "tree_sha256": "985e0c1540424466d6e8c33514c6702c81909666f1693d390fa8f536de952dd8",
+        "result": "PASS"
+      },
+      {
+        "tool": "claude",
+        "locale": "en",
+        "skill": "pr-quality-review",
+        "repeat": 2,
+        "file_count": 20,
+        "tree_sha256": "985e0c1540424466d6e8c33514c6702c81909666f1693d390fa8f536de952dd8",
+        "result": "PASS"
+      },
+      {
+        "tool": "claude",
+        "locale": "en",
+        "skill": "requirement-to-test",
+        "repeat": 1,
+        "file_count": 15,
+        "tree_sha256": "24b1a76d357a90166f7a34de5f72e12e977b29efac8b1404e0e7622d49f67d5b",
+        "result": "PASS"
+      },
+      {
+        "tool": "claude",
+        "locale": "en",
+        "skill": "requirement-to-test",
+        "repeat": 2,
+        "file_count": 15,
+        "tree_sha256": "24b1a76d357a90166f7a34de5f72e12e977b29efac8b1404e0e7622d49f67d5b",
+        "result": "PASS"
+      },
+      {
+        "tool": "claude",
+        "locale": "en",
+        "skill": "change-to-regression",
+        "repeat": 1,
+        "file_count": 15,
+        "tree_sha256": "e0365fa72ef772ce957096b7f4a3bc6ac958915066d366e0642e4a4b969227dd",
+        "result": "PASS"
+      },
+      {
+        "tool": "claude",
+        "locale": "en",
+        "skill": "change-to-regression",
+        "repeat": 2,
+        "file_count": 15,
+        "tree_sha256": "e0365fa72ef772ce957096b7f4a3bc6ac958915066d366e0642e4a4b969227dd",
+        "result": "PASS"
+      },
+      {
+        "tool": "claude",
+        "locale": "en",
+        "skill": "release-testing-workflow",
+        "repeat": 1,
+        "file_count": 40,
+        "tree_sha256": "c67acd250091d5f417575c6c63a0285ac37e768b2472e0478b95ddc43963ec73",
+        "result": "PASS"
+      },
+      {
+        "tool": "claude",
+        "locale": "en",
+        "skill": "release-testing-workflow",
+        "repeat": 2,
+        "file_count": 40,
+        "tree_sha256": "c67acd250091d5f417575c6c63a0285ac37e768b2472e0478b95ddc43963ec73",
+        "result": "PASS"
+      },
+      {
+        "tool": "cursor",
+        "locale": "zh",
+        "skill": "discover-testing",
+        "repeat": 1,
+        "file_count": 64,
+        "tree_sha256": "3b81ed75285238c9a13b968da8ffa8b4188a4a320468110c55d002498b52385f",
+        "result": "PASS"
+      },
+      {
+        "tool": "cursor",
+        "locale": "zh",
+        "skill": "discover-testing",
+        "repeat": 2,
+        "file_count": 64,
+        "tree_sha256": "3b81ed75285238c9a13b968da8ffa8b4188a4a320468110c55d002498b52385f",
+        "result": "PASS"
+      },
+      {
+        "tool": "cursor",
+        "locale": "zh",
+        "skill": "pr-quality-review",
+        "repeat": 1,
+        "file_count": 20,
+        "tree_sha256": "2797d2083f6f105ac2d9a16d9ed884afe029a319ff1463cc537dcea6d5dfbdda",
+        "result": "PASS"
+      },
+      {
+        "tool": "cursor",
+        "locale": "zh",
+        "skill": "pr-quality-review",
+        "repeat": 2,
+        "file_count": 20,
+        "tree_sha256": "2797d2083f6f105ac2d9a16d9ed884afe029a319ff1463cc537dcea6d5dfbdda",
+        "result": "PASS"
+      },
+      {
+        "tool": "cursor",
+        "locale": "zh",
+        "skill": "requirement-to-test",
+        "repeat": 1,
+        "file_count": 15,
+        "tree_sha256": "4006554a3e0c993d434278ca3e278d6e73b02b7e44fe1f9b1a500d6510e45d2d",
+        "result": "PASS"
+      },
+      {
+        "tool": "cursor",
+        "locale": "zh",
+        "skill": "requirement-to-test",
+        "repeat": 2,
+        "file_count": 15,
+        "tree_sha256": "4006554a3e0c993d434278ca3e278d6e73b02b7e44fe1f9b1a500d6510e45d2d",
+        "result": "PASS"
+      },
+      {
+        "tool": "cursor",
+        "locale": "zh",
+        "skill": "change-to-regression",
+        "repeat": 1,
+        "file_count": 15,
+        "tree_sha256": "87d4212b311323ff4472c645fee1a8676e5754f0010f350f1985b0673ff079f1",
+        "result": "PASS"
+      },
+      {
+        "tool": "cursor",
+        "locale": "zh",
+        "skill": "change-to-regression",
+        "repeat": 2,
+        "file_count": 15,
+        "tree_sha256": "87d4212b311323ff4472c645fee1a8676e5754f0010f350f1985b0673ff079f1",
+        "result": "PASS"
+      },
+      {
+        "tool": "cursor",
+        "locale": "zh",
+        "skill": "release-testing-workflow",
+        "repeat": 1,
+        "file_count": 40,
+        "tree_sha256": "59984f548dd76853880235513f4bf79c790161c831e02dc7103f0ed13c31ef1b",
+        "result": "PASS"
+      },
+      {
+        "tool": "cursor",
+        "locale": "zh",
+        "skill": "release-testing-workflow",
+        "repeat": 2,
+        "file_count": 40,
+        "tree_sha256": "59984f548dd76853880235513f4bf79c790161c831e02dc7103f0ed13c31ef1b",
+        "result": "PASS"
+      },
+      {
+        "tool": "cursor",
+        "locale": "en",
+        "skill": "discover-testing",
+        "repeat": 1,
+        "file_count": 64,
+        "tree_sha256": "76c9f343cf8847fa56e4b6fb88e5698c78172c6fa24fdbda3152863dd7e7ee22",
+        "result": "PASS"
+      },
+      {
+        "tool": "cursor",
+        "locale": "en",
+        "skill": "discover-testing",
+        "repeat": 2,
+        "file_count": 64,
+        "tree_sha256": "76c9f343cf8847fa56e4b6fb88e5698c78172c6fa24fdbda3152863dd7e7ee22",
+        "result": "PASS"
+      },
+      {
+        "tool": "cursor",
+        "locale": "en",
+        "skill": "pr-quality-review",
+        "repeat": 1,
+        "file_count": 20,
+        "tree_sha256": "985e0c1540424466d6e8c33514c6702c81909666f1693d390fa8f536de952dd8",
+        "result": "PASS"
+      },
+      {
+        "tool": "cursor",
+        "locale": "en",
+        "skill": "pr-quality-review",
+        "repeat": 2,
+        "file_count": 20,
+        "tree_sha256": "985e0c1540424466d6e8c33514c6702c81909666f1693d390fa8f536de952dd8",
+        "result": "PASS"
+      },
+      {
+        "tool": "cursor",
+        "locale": "en",
+        "skill": "requirement-to-test",
+        "repeat": 1,
+        "file_count": 15,
+        "tree_sha256": "24b1a76d357a90166f7a34de5f72e12e977b29efac8b1404e0e7622d49f67d5b",
+        "result": "PASS"
+      },
+      {
+        "tool": "cursor",
+        "locale": "en",
+        "skill": "requirement-to-test",
+        "repeat": 2,
+        "file_count": 15,
+        "tree_sha256": "24b1a76d357a90166f7a34de5f72e12e977b29efac8b1404e0e7622d49f67d5b",
+        "result": "PASS"
+      },
+      {
+        "tool": "cursor",
+        "locale": "en",
+        "skill": "change-to-regression",
+        "repeat": 1,
+        "file_count": 15,
+        "tree_sha256": "e0365fa72ef772ce957096b7f4a3bc6ac958915066d366e0642e4a4b969227dd",
+        "result": "PASS"
+      },
+      {
+        "tool": "cursor",
+        "locale": "en",
+        "skill": "change-to-regression",
+        "repeat": 2,
+        "file_count": 15,
+        "tree_sha256": "e0365fa72ef772ce957096b7f4a3bc6ac958915066d366e0642e4a4b969227dd",
+        "result": "PASS"
+      },
+      {
+        "tool": "cursor",
+        "locale": "en",
+        "skill": "release-testing-workflow",
+        "repeat": 1,
+        "file_count": 40,
+        "tree_sha256": "c67acd250091d5f417575c6c63a0285ac37e768b2472e0478b95ddc43963ec73",
+        "result": "PASS"
+      },
+      {
+        "tool": "cursor",
+        "locale": "en",
+        "skill": "release-testing-workflow",
+        "repeat": 2,
+        "file_count": 40,
+        "tree_sha256": "c67acd250091d5f417575c6c63a0285ac37e768b2472e0478b95ddc43963ec73",
+        "result": "PASS"
+      }
+    ],
+    "upgrade_uninstall": [
+      {
+        "tool": "codex",
+        "locale": "zh",
+        "skill": "discover-testing",
+        "stale_marker_removed": true,
+        "uninstall_preview": "PASS",
+        "uninstall_apply": "PASS",
+        "residue_findings": [],
+        "result": "PASS"
+      },
+      {
+        "tool": "codex",
+        "locale": "zh",
+        "skill": "pr-quality-review",
+        "stale_marker_removed": true,
+        "uninstall_preview": "PASS",
+        "uninstall_apply": "PASS",
+        "residue_findings": [],
+        "result": "PASS"
+      },
+      {
+        "tool": "codex",
+        "locale": "zh",
+        "skill": "requirement-to-test",
+        "stale_marker_removed": true,
+        "uninstall_preview": "PASS",
+        "uninstall_apply": "PASS",
+        "residue_findings": [],
+        "result": "PASS"
+      },
+      {
+        "tool": "codex",
+        "locale": "zh",
+        "skill": "change-to-regression",
+        "stale_marker_removed": true,
+        "uninstall_preview": "PASS",
+        "uninstall_apply": "PASS",
+        "residue_findings": [],
+        "result": "PASS"
+      },
+      {
+        "tool": "codex",
+        "locale": "zh",
+        "skill": "release-testing-workflow",
+        "stale_marker_removed": true,
+        "uninstall_preview": "PASS",
+        "uninstall_apply": "PASS",
+        "residue_findings": [],
+        "result": "PASS"
+      },
+      {
+        "tool": "codex",
+        "locale": "en",
+        "skill": "discover-testing",
+        "stale_marker_removed": true,
+        "uninstall_preview": "PASS",
+        "uninstall_apply": "PASS",
+        "residue_findings": [],
+        "result": "PASS"
+      },
+      {
+        "tool": "codex",
+        "locale": "en",
+        "skill": "pr-quality-review",
+        "stale_marker_removed": true,
+        "uninstall_preview": "PASS",
+        "uninstall_apply": "PASS",
+        "residue_findings": [],
+        "result": "PASS"
+      },
+      {
+        "tool": "codex",
+        "locale": "en",
+        "skill": "requirement-to-test",
+        "stale_marker_removed": true,
+        "uninstall_preview": "PASS",
+        "uninstall_apply": "PASS",
+        "residue_findings": [],
+        "result": "PASS"
+      },
+      {
+        "tool": "codex",
+        "locale": "en",
+        "skill": "change-to-regression",
+        "stale_marker_removed": true,
+        "uninstall_preview": "PASS",
+        "uninstall_apply": "PASS",
+        "residue_findings": [],
+        "result": "PASS"
+      },
+      {
+        "tool": "codex",
+        "locale": "en",
+        "skill": "release-testing-workflow",
+        "stale_marker_removed": true,
+        "uninstall_preview": "PASS",
+        "uninstall_apply": "PASS",
+        "residue_findings": [],
+        "result": "PASS"
+      }
+    ],
+    "standalone_zips": [
+      {
+        "locale": "zh",
+        "skill": "discover-testing",
+        "file_count": 64,
+        "required_root_files": true,
+        "zip_sha256": "5d3bf046d1fd0d73f85d0f52344d6f75d20e88ad45dd8f8ee5c17d9e2b24f1bb",
+        "result": "PASS"
+      },
+      {
+        "locale": "zh",
+        "skill": "pr-quality-review",
+        "file_count": 20,
+        "required_root_files": true,
+        "zip_sha256": "389dc7c0dfe78258f8be1903fdd44144170b83748b9f83687c5ddd8c75615150",
+        "result": "PASS"
+      },
+      {
+        "locale": "zh",
+        "skill": "requirement-to-test",
+        "file_count": 15,
+        "required_root_files": true,
+        "zip_sha256": "72491320abe0ba3799e60a947845bd49aa81de0513d751b7662b1dcd9df31c43",
+        "result": "PASS"
+      },
+      {
+        "locale": "zh",
+        "skill": "change-to-regression",
+        "file_count": 15,
+        "required_root_files": true,
+        "zip_sha256": "f0fb92f6940807a4c2e80d3e7ff3ea9ebb0929b4aa4c5737f15cd47a5f5f46f9",
+        "result": "PASS"
+      },
+      {
+        "locale": "zh",
+        "skill": "release-testing-workflow",
+        "file_count": 40,
+        "required_root_files": true,
+        "zip_sha256": "e9676789318165fbd637b7fa57c4ddfc3a2934a9a8910e87efc7012cc78f26ec",
+        "result": "PASS"
+      },
+      {
+        "locale": "en",
+        "skill": "discover-testing",
+        "file_count": 64,
+        "required_root_files": true,
+        "zip_sha256": "62470eb15c4ce06ceb85a3113ab5c50ca52c5acb034d2995b93d7561c73a43a6",
+        "result": "PASS"
+      },
+      {
+        "locale": "en",
+        "skill": "pr-quality-review",
+        "file_count": 20,
+        "required_root_files": true,
+        "zip_sha256": "9319c81bc5bcfc0a2d22fc76ce9da0f8385a86fd0ea998a4b2cc56813cd90f08",
+        "result": "PASS"
+      },
+      {
+        "locale": "en",
+        "skill": "requirement-to-test",
+        "file_count": 15,
+        "required_root_files": true,
+        "zip_sha256": "c62b66f01d80304ab89c3f67ebc759efa4ac148b2d8f8cfe85c083edf4f7f0f0",
+        "result": "PASS"
+      },
+      {
+        "locale": "en",
+        "skill": "change-to-regression",
+        "file_count": 15,
+        "required_root_files": true,
+        "zip_sha256": "fdeab06e73e5b41f5215175935ae64e68e4323b946248372c5f91b6d4e815c5b",
+        "result": "PASS"
+      },
+      {
+        "locale": "en",
+        "skill": "release-testing-workflow",
+        "file_count": 40,
+        "required_root_files": true,
+        "zip_sha256": "e25aff3bd6de05a792647e60c3a759989f93e852f518601dc49bc68859fc8802",
+        "result": "PASS"
+      }
+    ]
+  }
+}

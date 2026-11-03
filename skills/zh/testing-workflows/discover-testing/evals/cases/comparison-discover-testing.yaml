@@ -1,0 +1,18 @@
+id: comparison-discover-testing
+title: "Discover Testing 有/无 Skill 对照"
+description: "同一受限请求分别在有 Skill 与无 Skill 条件下评测；单案例对照不代表总体效果。"
+input:
+  prompt: |
+    我需要针对一次结算流程变更制定一页式、风险驱动的测试策略。只要策略，不要测试用例或测试执行。请推荐一个主 Skill，最多一个辅助 Skill，并给出下一步交接；不要声称测试已运行。
+expect:
+  must_contain:
+    - "one-page-test-strategy"
+  must_not_contain:
+    - "测试通过"
+    - "TODO"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "one-page-test-strategy"

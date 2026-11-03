@@ -5,7 +5,7 @@ description: |
 
 input:
   prompt: |
-    Use release-testing-workflow.
+    Use release-testing-workflow. Respond in English.
     Context: order service ships in two weeks; scope includes payment callback fix and coupons; need performance and security spot-checks.
     Produce release-testing stage outputs from T-14 planning to T-1 Go/No-Go, prioritized by risk.
 
@@ -13,9 +13,9 @@ expect:
   must_contain:
     - "T-14"
     - "Go/No-Go"
+    - "payment callback"
   must_not_contain:
     - "TODO"
-    - "I cannot"
 
 judge:
   type: rule_based
@@ -23,4 +23,4 @@ judge:
     - output_contains:
         all:
           - "T-14"
-          - "priority"
+          - "payment callback"

@@ -1,0 +1,148 @@
+{
+  "schema_version": "1.0.0",
+  "id": "qa-quality-perspective",
+  "version": "1.0.0",
+  "kind": "task_set",
+  "title": {
+    "zh": "QA 质量视角",
+    "en": "QA Quality Perspective"
+  },
+  "summary": {
+    "zh": "按需选择 QA 分析任务，不定义固定阶段流水线。",
+    "en": "Select QA analysis tasks on demand; this package is not a fixed pipeline."
+  },
+  "lifecycle_state": "UNASSESSED",
+  "inputs": [
+    {
+      "id": "user_request",
+      "required": true,
+      "description": "User request and available project evidence."
+    }
+  ],
+  "outputs": [
+    {
+      "id": "workflow_result",
+      "description": "Scoped result, evidence states, open gaps, and next handoff.",
+      "evidence_kind": "fact"
+    }
+  ],
+  "steps": [
+    {
+      "id": "code-review",
+      "description": "Code review",
+      "skill_ids": [],
+      "prompt": "prompts/code-review.md",
+      "depends_on": [],
+      "on_failure": "continue_with_gap",
+      "permission": "read_only",
+      "approval_required": false
+    },
+    {
+      "id": "requirements-analysis",
+      "description": "Requirements analysis",
+      "skill_ids": [],
+      "prompt": "prompts/requirements-analysis.md",
+      "depends_on": [],
+      "on_failure": "continue_with_gap",
+      "permission": "read_only",
+      "approval_required": false
+    },
+    {
+      "id": "test-case-review",
+      "description": "Test case review",
+      "skill_ids": [],
+      "prompt": "prompts/test-case-review.md",
+      "depends_on": [],
+      "on_failure": "continue_with_gap",
+      "permission": "read_only",
+      "approval_required": false
+    },
+    {
+      "id": "test-case-writing",
+      "description": "Test case writing",
+      "skill_ids": [],
+      "prompt": "prompts/test-case-writing.md",
+      "depends_on": [],
+      "on_failure": "continue_with_gap",
+      "permission": "read_only",
+      "approval_required": false
+    },
+    {
+      "id": "test-report-review",
+      "description": "Test report review",
+      "skill_ids": [],
+      "prompt": "prompts/test-report-review.md",
+      "depends_on": [],
+      "on_failure": "continue_with_gap",
+      "permission": "read_only",
+      "approval_required": false
+    },
+    {
+      "id": "test-reporting",
+      "description": "Test reporting",
+      "skill_ids": [],
+      "prompt": "prompts/test-reporting.md",
+      "depends_on": [],
+      "on_failure": "continue_with_gap",
+      "permission": "read_only",
+      "approval_required": false
+    },
+    {
+      "id": "test-strategy-review",
+      "description": "Test strategy review",
+      "skill_ids": [],
+      "prompt": "prompts/test-strategy-review.md",
+      "depends_on": [],
+      "on_failure": "continue_with_gap",
+      "permission": "read_only",
+      "approval_required": false
+    },
+    {
+      "id": "test-strategy",
+      "description": "Test strategy",
+      "skill_ids": [],
+      "prompt": "prompts/test-strategy.md",
+      "depends_on": [],
+      "on_failure": "continue_with_gap",
+      "permission": "read_only",
+      "approval_required": false
+    }
+  ],
+  "failure_policy": {
+    "on_missing_dependency": "continue_with_limitations",
+    "on_blocked": "stop"
+  },
+  "permission_policy": {
+    "default": "read_only",
+    "approval_required_for": [
+      "execute_command",
+      "write_repo",
+      "external_write",
+      "publish",
+      "delete",
+      "release_approval"
+    ]
+  },
+  "checkpoint_policy": {
+    "host_runtime_required": true,
+    "fingerprint_fields": [
+      "inputs",
+      "commit_sha"
+    ],
+    "invalidate_on_change": [
+      "inputs",
+      "commit_sha"
+    ],
+    "automatic_replay": "side_effect_free_only"
+  },
+  "handoff": {
+    "required_fields": [
+      "workflow_id",
+      "source",
+      "status",
+      "open_gaps",
+      "next_step"
+    ]
+  },
+  "evidence_contract_version": "1.0.0"
+}

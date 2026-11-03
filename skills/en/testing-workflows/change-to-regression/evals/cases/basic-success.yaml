@@ -1,0 +1,34 @@
+{
+  "id": "basic-success",
+  "title": "Normal: map a change to a regression set",
+  "description": "Diff and module relationships are provided; separate must-run and deferrable candidates.",
+  "input": {
+    "prompt": "Use only the material in this prompt. Respond in English. Do not inspect the workspace/repository, create files, search external sources, or run commands/tests. Use change-to-regression. The diff changes payment retries, idempotency-key validation, and invoice state transitions; Commit SHA is 8f1a23. Include the supplied Commit SHA `8f1a23` verbatim in the summary. Identify affected paths, separate must-run from deferrable regression tests, explain selection/exclusion rationale, and list uncovered risks. Available Skills: change-impact-analysis, regression-scope-analysis, regression-test-selection, flaky-test-analysis. Use exact table labels `Required`, `Deferred`, and `Excluded`. No regression tests were executed in this task; mark execution `NOT_RUN` and current result evidence `UNKNOWN`."
+  },
+  "expect": {
+    "must_contain": [
+      "8f1a23",
+      "Required",
+      "Deferred",
+      "NOT_RUN"
+    ],
+    "must_not_contain": [
+      "TODO"
+    ]
+  },
+  "judge": {
+    "type": "rule_based",
+    "success": [
+      {
+        "output_contains": {
+          "all": [
+            "8f1a23",
+            "Required",
+            "Deferred",
+            "NOT_RUN"
+          ]
+        }
+      }
+    ]
+  }
+}

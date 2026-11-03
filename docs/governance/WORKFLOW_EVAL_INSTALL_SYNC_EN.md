@@ -2,17 +2,20 @@
 
 # Workflow / Eval / Installation Synchronization Checklist
 
-This checklist keeps the physical paths, bilingual packages, minimum Eval artifacts, and installation entry points for the 11 current cross-phase Workflows together. It is documentation and structural evidence, not proof that a Workflow ran in a real project.
+This checklist keeps the physical paths, bilingual directories, minimum Eval artifacts, and installation entry points for the 14 current `testing-workflows` packages together. They include a router, staged Workflows, and quality-perspective collections; this checklist is documentation and structural evidence, not proof that each package ran in a real project.
 
-## 11 Workflows
+## 14 `testing-workflows` packages
 
 | Workflow | Chinese path | English path | Eval structure |
 | --- | --- | --- | --- |
 | `daily-testing-workflow` | `skills/zh/testing-workflows/daily-testing-workflow` | `skills/en/testing-workflows/daily-testing-workflow` | `eval.yaml` + three case classes |
 | `discover-testing` | `skills/zh/testing-workflows/discover-testing` | `skills/en/testing-workflows/discover-testing` | `eval.yaml` + three case classes |
+| `requirement-to-test` | `skills/zh/testing-workflows/requirement-to-test` | `skills/en/testing-workflows/requirement-to-test` | `eval.yaml` + normal/boundary/failure and handoff cases |
 | `multi-role-quality-synthesis` | `skills/zh/testing-workflows/multi-role-quality-synthesis` | `skills/en/testing-workflows/multi-role-quality-synthesis` | `eval.yaml` + three case classes |
 | `product-quality-perspective` | `skills/zh/testing-workflows/product-quality-perspective` | `skills/en/testing-workflows/product-quality-perspective` | `eval.yaml` + three case classes |
 | `project-delivery-perspective` | `skills/zh/testing-workflows/project-delivery-perspective` | `skills/en/testing-workflows/project-delivery-perspective` | `eval.yaml` + three case classes |
+| `pr-quality-review` | `skills/zh/testing-workflows/pr-quality-review` | `skills/en/testing-workflows/pr-quality-review` | `eval.yaml` + normal/boundary/failure, permission, handoff, and recovery cases |
+| `change-to-regression` | `skills/zh/testing-workflows/change-to-regression` | `skills/en/testing-workflows/change-to-regression` | `eval.yaml` + normal/boundary/failure, permission, handoff, and recovery cases |
 | `qa-quality-perspective` | `skills/zh/testing-workflows/qa-quality-perspective` | `skills/en/testing-workflows/qa-quality-perspective` | `eval.yaml` + three case classes |
 | `release-testing-workflow` | `skills/zh/testing-workflows/release-testing-workflow` | `skills/en/testing-workflows/release-testing-workflow` | `eval.yaml` + three case classes |
 | `sprint-testing-workflow` | `skills/zh/testing-workflows/sprint-testing-workflow` | `skills/en/testing-workflows/sprint-testing-workflow` | `eval.yaml` + three case classes |

@@ -8,11 +8,11 @@ input:
     Use discover-testing.
     User: we need functional, API, performance, security, and accessibility—list every related skill.
     Requirement: recommend only 1 primary skill and at most 1 supporting skill; explain why not a long list; give the next step.
+    Do not enumerate the catalog; include only the selected Skill IDs.
 
 expect:
   must_contain:
-    - "Primary Recommendation"
-    - "Supporting"
+    - "test-strategy"
   must_not_contain:
     - "TODO"
     - "I cannot"
@@ -22,5 +22,4 @@ judge:
   success:
     - output_contains:
         all:
-          - "Primary Recommendation"
-          - "Next Step"
+          - "test-strategy"

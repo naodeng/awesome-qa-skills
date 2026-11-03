@@ -1,0 +1,29 @@
+{
+  "id": "route-change-to-regression",
+  "title": "明确终点：变更分析到完整回归计划",
+  "description": "用户要求影响分析、回归选择和风险总结，应选择工作流。",
+  "input": {
+    "prompt": "用 discover-testing 路由：我需要一个从变更影响到回归计划的完整工作流，包括必测、可延后测试和未覆盖风险。可信安装清单包含 change-to-regression。只做路由，不读取工作区或分析 Diff。"
+  },
+  "expect": {
+    "must_contain": [
+      "change-to-regression"
+    ],
+    "must_not_contain": [
+      "已执行回归",
+      "TODO"
+    ]
+  },
+  "judge": {
+    "type": "rule_based",
+    "success": [
+      {
+        "output_contains": {
+          "all": [
+            "change-to-regression"
+          ]
+        }
+      }
+    ]
+  }
+}

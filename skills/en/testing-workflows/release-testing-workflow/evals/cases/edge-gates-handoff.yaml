@@ -5,13 +5,13 @@ description: |
 
 input:
   prompt: |
-    Use release-testing-workflow.
+    Use release-testing-workflow. Respond in English.
     Scenario: no RC until feature-freeze gate passes; no Go with open blockers; specialized tests due T-5–T-4.
     Write clear entry/exit criteria (gates) and how to hand off to execution skills (e.g. performance-testing, security-testing, test-reporting—names and handoff points only; no file-path links to other skills).
 
 expect:
   must_contain:
-    - "entry"
+    - "Entry criteria"
     - "handoff"
   must_not_contain:
     - "TODO"
@@ -22,5 +22,5 @@ judge:
   success:
     - output_contains:
         all:
-          - "gate"
+          - "Entry criteria"
           - "handoff"

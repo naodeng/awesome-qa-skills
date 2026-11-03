@@ -15,6 +15,9 @@
 | `change-regression` — 变更与回归 | 变更分析 / 回归规划 | `change-impact-analysis` (`skills/zh/testing-types/change-impact-analysis`) | `regression-test-selection` (`skills/zh/testing-types/regression-test-selection`) | 不声称已经执行回归测试; 不在没有变更证据时给出精确影响结论 |
 | `performance-decision` — 性能决策 | 性能建模 / 结果分析 | `performance-workload-modeling` (`skills/zh/testing-types/performance-workload-modeling`) | `performance-result-analysis` (`skills/zh/testing-types/performance-result-analysis`) | 不替代压测工具或目标环境的实际运行; 不把静态工作负载模型当作运行结果 |
 | `ai-feature-validation` — AI 功能验证 | AI 功能设计 / 评测规划 | `ai-feature-testing` (`skills/zh/testing-types/ai-feature-testing`) | `llm-testing` (`skills/zh/testing-types/llm-testing`) | 不在没有模型、数据和目标环境时声称模型效果; 不把提示词建议当作业务验收或安全结论 |
+| `pr-quality-review` — PR 质量审查 | 代码审查 / 测试影响 / 质量门禁 | `pr-quality-review` (`skills/zh/testing-workflows/pr-quality-review`) | 无 | 只需单项代码审查时不要强行进入完整工作流; 不能代替授权者评论或批准合并 |
+| `requirement-to-test` — 需求到测试设计 | 需求质量 / 可测试性 / 测试设计 | `requirement-to-test` (`skills/zh/testing-workflows/requirement-to-test`) | 无 | 只需澄清单条需求时优先单步需求分析; 不替业务方补写未确认规则 |
+| `change-to-regression` — 变更到回归计划 | 变更影响 / 回归规划 | `change-to-regression` (`skills/zh/testing-workflows/change-to-regression`) | 无 | 只需识别受影响模块时使用单步变更影响分析; 不声称回归已执行 |
 
 ## Relations
 

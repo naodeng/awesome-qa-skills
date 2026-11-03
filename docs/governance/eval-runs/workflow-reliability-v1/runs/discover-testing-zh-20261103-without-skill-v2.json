@@ -1,0 +1,86 @@
+{
+  "record_version": "workflow-eval-run/v1",
+  "run_id": "skill-up-discover-testing-3bf5261092954b37a767c14ec6675864",
+  "workflow_id": "discover-testing",
+  "locale": "zh-CN",
+  "execution_type": "model_eval",
+  "runner": {
+    "name": "skill-up",
+    "version": "skill-up version 0.12.0"
+  },
+  "engine": {
+    "name": "codex",
+    "version": "codex-cli 0.166.0",
+    "model_id_reported": "not reported"
+  },
+  "engine_version_capture": "captured before run",
+  "repo_head_at_archive": "ed94f827f2f564c039ae6ca9111f85851ad3771f",
+  "worktree_state_at_archive": "dirty; 291 paths changed",
+  "input_fingerprint_capture": "captured before run",
+  "input_fingerprint": "bef4b720d4e55f386a0095516b8290065b27dcc23d6fa219e9be4a2c6c33a8e6",
+  "input_fingerprint_after": "bef4b720d4e55f386a0095516b8290065b27dcc23d6fa219e9be4a2c6c33a8e6",
+  "skill_package_sha256_at_start": "abf2ba06e8881244366073230048c6286a6248c78aa487be9739c23706562294",
+  "raw_result_sha256": "ae8e0e72a68a170d26cfaebe9b568a8ef8d089e53156b5c3fc23d46ff8b84469",
+  "started_at": "2026-11-03T03:37:31.031044Z",
+  "finished_at": "2026-11-03T03:38:32.150720Z",
+  "summary": {
+    "case_count": 1,
+    "passed": 1,
+    "failed": 0,
+    "errors": 0,
+    "blocked": 0,
+    "unknown": 0,
+    "overall_status": "PASS"
+  },
+  "execution_notes": "Generated from the raw skill-up report. Input fingerprint was captured before execution; post-run fingerprint equality is available in this record.",
+  "redaction": "Absolute repository and ephemeral skill-up install prefixes in case data were replaced with repository-relative Skill paths. raw_result_sha256 identifies the unmodified report.",
+  "cases": [
+    {
+      "case_id": "comparison-discover-testing",
+      "title": "Discover Testing 有/无 Skill 对照",
+      "status": "PASS",
+      "duration_ms": 60977,
+      "turns": 1,
+      "input_tokens": 357118,
+      "output_tokens": 4116,
+      "grading": {
+        "status": "PASS",
+        "turns_executed": 1,
+        "turns_total": 1,
+        "assertion_results": [
+          {
+            "text": "expect.must_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.must_not_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.exit_code",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "output_contains{all:[one-page-test-strategy]}",
+            "passed": true,
+            "evidence": "output satisfies all contains checks (all:[one-page-test-strategy])"
+          }
+        ],
+        "summary": {
+          "passed": 4,
+          "failed": 0,
+          "total": 4,
+          "pass_rate": 1
+        }
+      },
+      "configuration": "with_skill",
+      "prompt": "我需要针对一次结算流程变更制定一页式、风险驱动的测试策略。只要策略，不要测试用例或测试执行。请推荐一个主 Skill，最多一个辅助 Skill，并给出下一步交接；不要声称测试已运行。\n",
+      "response": "### 主 Skill\n\n`one-page-test-strategy`：与“一页式、风险驱动的测试策略”直接匹配，适合整理风险优先级、策略范围、取舍、假设和待确认问题。\n\n### 辅助 Skill\n\n无。当前目标只需要策略；加上用例设计或执行类 Skill 会超出范围。\n\n### 下一步交接\n\n把以下信息交给主 Skill：\n\n- 变更前后的结算流程，以及具体改动的规则和验收约束\n- 涉及的系统、状态边界和外部集成\n- 关键业务影响与已知风险；金额、重复处理、状态一致性、失败补偿等仅提供实际适用项\n- 环境、数据、发布约束，以及尚未确认的问题\n\n要求产出一页策略，区分已确认事实和假设，按风险排序，并明确策略范围、验证重点和取舍；不要列测试用例、生成脚本或执行测试。\n\n**可用性说明：**本机路由清单能识别 `one-page-test-strategy`，但标记为 `UNKNOWN`，当前 Host 是否可调用尚未确认；若无法调用，需要先加载该 Skill 再交接。本次未生成测试用例，也未执行测试。",
+      "observed_version": "0.166.0"
+    }
+  ],
+  "archived_at": "2026-11-03T03:38:36.518320Z"
+}

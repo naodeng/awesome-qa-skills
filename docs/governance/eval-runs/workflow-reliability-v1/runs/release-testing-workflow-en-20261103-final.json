@@ -1,0 +1,357 @@
+{
+  "record_version": "workflow-eval-run/v1",
+  "run_id": "skill-up-release-testing-workflow-7df18532f82444cda8203b54317ca9a2",
+  "workflow_id": "release-testing-workflow",
+  "locale": "en-US",
+  "execution_type": "model_eval",
+  "runner": {
+    "name": "skill-up",
+    "version": "skill-up version 0.12.0"
+  },
+  "engine": {
+    "name": "codex",
+    "version": "codex-cli 0.166.0",
+    "model_id_reported": "not reported"
+  },
+  "engine_version_capture": "captured before run",
+  "repo_head_at_archive": "ed94f827f2f564c039ae6ca9111f85851ad3771f",
+  "worktree_state_at_archive": "dirty; 270 paths changed",
+  "input_fingerprint_capture": "captured before run",
+  "input_fingerprint": "bb3a0836eed49b401b219e620a029af0063ba296d6c1b1493791af27ca878090",
+  "input_fingerprint_after": "bb3a0836eed49b401b219e620a029af0063ba296d6c1b1493791af27ca878090",
+  "skill_package_sha256_at_start": "6623fb16cb4cce60ac07d0aa09313e7041678256705dd3add94d48a136f26b5a",
+  "raw_result_sha256": "5cf07a8c20cc5d7f8c5652e5fc10a843722416d49333d096b7a0ca3791378670",
+  "started_at": "2026-11-03T02:36:14.143785Z",
+  "finished_at": "2026-11-03T02:43:58.400427Z",
+  "summary": {
+    "case_count": 7,
+    "passed": 7,
+    "failed": 0,
+    "errors": 0,
+    "blocked": 0,
+    "unknown": 0,
+    "overall_status": "PASS"
+  },
+  "execution_notes": "Generated from the raw skill-up report. Input fingerprint was captured before execution; post-run fingerprint equality is available in this record.",
+  "redaction": "Absolute repository and ephemeral skill-up install prefixes in case data were replaced with repository-relative Skill paths. raw_result_sha256 identifies the unmodified report.",
+  "cases": [
+    {
+      "case_id": "basic-success",
+      "title": "Release workflow: T-14 through Go/No-Go outputs",
+      "status": "PASS",
+      "duration_ms": 103119,
+      "turns": 1,
+      "input_tokens": 194410,
+      "output_tokens": 9634,
+      "grading": {
+        "status": "PASS",
+        "turns_executed": 1,
+        "turns_total": 1,
+        "assertion_results": [
+          {
+            "text": "expect.must_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.must_not_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.exit_code",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "output_contains{all:[T-14 payment callback]}",
+            "passed": true,
+            "evidence": "output satisfies all contains checks (all:[T-14 payment callback])"
+          }
+        ],
+        "summary": {
+          "passed": 4,
+          "failed": 0,
+          "total": 4,
+          "pass_rate": 1
+        }
+      },
+      "configuration": "with_skill",
+      "prompt": "Use release-testing-workflow. Respond in English.\nContext: order service ships in two weeks; scope includes payment callback fix and coupons; need performance and security spot-checks.\nProduce release-testing stage outputs from T-14 planning to T-1 Go/No-Go, prioritized by risk.\n",
+      "response": "## 1. Release Context and Scope\n\n**Assumed release date:** November 17, 2026 (T), two weeks after November 3, 2026. This is a calendar-day plan; confirm weekend coverage for T-10, T-3, and T-2.\n\n**In scope:** payment callback fix, coupon changes, and the order and checkout regressions those changes can affect. Performance and security checks are targeted spot-checks.\n\n**Assumed exclusions:** unrelated order-service changes and full performance certification or penetration testing. Confirm exclusions at T-14.\n\n**Risk order:** R1 payment callback correctness and payment/order reconciliation; R2 coupon pricing, eligibility, and redemption integrity; R3 payment-and-coupon lifecycle interactions; R4 performance headroom; R5 security issues in the callback and coupon surfaces. These are ranked by potential impact; likelihood is unknown.\n\nOwners below are role placeholders because names were not provided. `UNKNOWN` means the request contains no result evidence; it does not establish that testing has not happened.\n\n## 2. Timeline Position and Gate Board\n\n| Stage | Window and date | Planned output and exit evidence | Owner |\n|---|---|---|---|\n| Release planning | T-14 · Nov 3 | Confirm scope, acceptance rules, risk order, data plan, freeze rules, and named owners. | QA/release lead, service owner |\n| Prep | T-10–T-8 · Nov 7–9 | Pre-prod usable; synthetic or sandbox data ready; regression baseline and evidence capture set up. | QA, environment owner |\n| Feature-freeze validation | T-7 · Nov 10 | Freeze or controlled-change list recorded; P0 callback and coupon paths have candidate-specific evidence. | QA, payments and coupons leads |\n| Specialty testing | T-5–T-4 · Nov 12–13 | Separate performance and security spot-check reports; high-risk findings tracked. | Performance/SRE owner; security owner |\n| Release candidate | T-3 · Nov 14 | Candidate identified; final regression and focused exploratory checks complete; blockers cleared or escalated. | QA, service owner |\n| Go/No-Go | T-2–T-1 · Nov 15–16 | Evidence pack, recommendation, residual-risk record, and authorized decision record. | Release lead, decision owner |\n\nThe plan should bring weekend work forward where possible, but retain every gate and its exit criteria.\n\n| Release gate | Status at T-14 | Required evidence to close |\n|---|---|---|\n| Scope | `UNKNOWN` | Written in-scope and excluded changes, acceptance rules, and controlled-change process. |\n| Quality | `UNKNOWN` | P0 regression results tied to the release candidate; no unaccepted blockers or critical specialty findings. |\n| Ops | `UNKNOWN` | Usable rollback steps or drill evidence; monitoring, alerts, and on-call ownership ready. |\n| Decision | `UNKNOWN` | Evidence pack and recorded recommendation. Formal approval is `PENDING` until an authorized owner records it. |\n\n## 3. This-Window Evidence and Queue\n\n**T-14 planning deliverables, in risk order:**\n\n1. **Payment callback:** define expected behavior for valid events, duplicate/retried events, out-of-order delivery, timeouts, invalid signatures, and order/amount/currency mismatches. Capture the expected payment and fulfillment outcome for each.\n2. **Coupons:** confirm rules for eligibility, expiry boundaries and timezone, stacking, discount rounding and limits, usage caps, concurrent redemption, retries, cancellations, and refunds. The exact policy is currently unknown.\n3. **Cross-flow reconciliation:** verify that the final discounted amount, payment event, order state, and fulfillment action agree through success, retry, cancellation, and refund paths.\n4. **Performance spot-check plan:** identify representative checkout, callback retry, and coupon redemption traffic; find the source of the applicable latency, error, throughput, and capacity targets. Do not invent thresholds.\n5. **Security spot-check plan:** check callback authentication and replay handling, binding to the expected order and amount, and sensitive-data logging; check coupon authorization, enumeration or abuse, and concurrent reuse.\n\nUse provider sandbox or synthetic payment data and test coupon accounts where available. Record the candidate build or commit, environment, configuration, timestamp, evidence link, and result for each execution. No result evidence was supplied for this plan, so current execution status is `UNKNOWN`.\n\n## 4. Defects and Residual Risks\n\nNo defect inventory or candidate build was provided; known defect state is `UNKNOWN`, not “none.”\n\n| Priority | Risk to resolve | Owner | Release impact if unresolved |\n|---|---|---|---|\n| R1 · stop-ship candidate | Callback retries, duplicate or invalid events, or incorrect order/amount binding could produce duplicate or incorrect payment and fulfillment state. | Payments lead | Any failed or unknown P0 callback integrity check blocks Go. |\n| R2 · high | Coupon policy gaps or redemption races could apply an incorrect discount or exceed usage limits. Promote to stop-ship if broad or high-value abuse is possible. | Coupons/product lead | Unresolved monetary-integrity failure blocks Go. |\n| R3 · high | Callback and coupon flows could disagree on the payable amount or leave inconsistent state after cancellation/refund. | Order-service owner | Must reconcile across the release candidate. |\n| R4 · medium-high | Checkout or callback retry load could degrade latency or exhaust capacity. Targets and baseline are unknown. | Performance/SRE owner | No performance conclusion until compared with an agreed target or baseline. |\n| R5 · high | Weak callback verification/replay handling or coupon abuse could permit forged or repeated actions. | Security owner | Critical finding blocks Go; spot-check scope and residual findings must be recorded. |\n\n## 5. Handoff (Next Skill)\n\nEach handoff must carry the release version/build, scope, current gate status, relevant known defects, and evidence links. The candidate version/build is currently `UNKNOWN`.\n\n| Stage | Skill | Must carry |\n|---|---|---|\n| T-14 planning | `test-strategy` | R1/R2 acceptance rules, scope and exclusions, test data plan, owners, open policy questions. |\n| T-10–T-8 prep | `automation-testing` | Environment, regression baseline, candidate identification, evidence capture, sandbox/test data. |\n| T-7 freeze | `functional-testing` | Frozen scope or controlled-change list; callback, coupon, and lifecycle cases. |\n| T-5 performance check | `performance-testing` | Candidate and environment, representative workload, baseline/target source, open performance risks. |\n| T-4 security check | `security-testing` | Candidate and environment, callback and coupon threat surfaces, safe test accounts, open security risks. |\n| T-3 RC | `manual-testing` | Same-candidate regression evidence, specialty findings, defect and blocker list. |\n| T-2–T-1 decision | `test-reporting` | Gate board, evidence pack, residual risks and acceptors, recommendation, approval-record fields. |\n\n## 6. Go/No-Go Assessment\n\n**At T-14:** not yet at the decision point. No release recommendation or test pass is claimed.\n\n**T-1 decision rules:**\n\n- **Recommend GO** only if all four gates are `PASS` on the same candidate, P0 callback and coupon integrity checks have evidence, specialty results show no unaccepted criticals, and rollback and monitoring are ready.\n- **Recommend NO-GO** if a required gate is `FAIL`, `BLOCKED`, or still `UNKNOWN`; if callback or coupon monetary correctness is unresolved; if a critical specialty finding remains unaccepted; or if rollback/monitoring readiness is missing.\n- **Conditional GO** only for a named non-critical residual risk with a written accepting owner, measurable condition and deadline, and an explicit automatic No-Go consequence if the condition is missed. Do not use this for unresolved payment, coupon integrity, or critical security issues.\n\nFormal approval remains `PENDING` until the authorized decision owner records the version, scope, decision time, and evidence source. The decision owner was not provided.\n\n## 7. Assumptions and Open Questions\n\nResolve these early, ideally by T-14 or T-10:\n\n- What payment provider, callback contract, retry behavior, and callback fix acceptance criteria apply?\n- What are the coupon rules, especially stacking, limits, expiry boundaries, concurrency, cancellation, and refund behavior?\n- What candidate build/version, pre-prod environment, freeze rule, and controlled-change approver will be used?\n- What traffic profile and performance thresholds should the spot-check use, and where are they sourced?\n- Who owns release approval, rollback, monitoring, and weekend coverage? What are the rollback trigger and alert thresholds?\n\nUntil those details and execution evidence are available, the gate statuses remain `UNKNOWN`.",
+      "observed_version": "0.166.0"
+    },
+    {
+      "case_id": "edge-incomplete-input",
+      "title": "Release workflow: incomplete input still yields a draft",
+      "status": "PASS",
+      "duration_ms": 46943,
+      "turns": 3,
+      "input_tokens": 150105,
+      "output_tokens": 3122,
+      "grading": {
+        "status": "PASS",
+        "turns_executed": 3,
+        "turns_total": 1,
+        "assertion_results": [
+          {
+            "text": "expect.must_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.must_not_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.exit_code",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "output_contains{all:[T-14 UNKNOWN]}",
+            "passed": true,
+            "evidence": "output satisfies all contains checks (all:[T-14 UNKNOWN])"
+          }
+        ],
+        "summary": {
+          "passed": 4,
+          "failed": 0,
+          "total": 4,
+          "pass_rate": 1
+        }
+      },
+      "configuration": "with_skill",
+      "prompt": "Use release-testing-workflow. Respond in English.\nI only know \"we're about to release—help plan release testing\"—no date, change list, environment, or acceptance criteria.\nGive a usable first draft of the release testing cadence anchored at T-14 through T+1, mark unassessed gates `UNKNOWN`, and list the information we must fill in. Headings may vary.\n",
+      "response": "# First draft: release testing cadence\n\n**T** is the planned release day; its calendar date and time zone are `UNKNOWN`. This is a planning draft: statuses below describe evidence available now. Since no release details or results were provided, every gate is `UNKNOWN`.\n\n## Release context\n\n- **Version/build and release scope:** `UNKNOWN`\n- **Included changes and exclusions:** `UNKNOWN`\n- **Acceptance criteria and critical user journeys:** `UNKNOWN`\n- **Known defects and residual risks:** `UNKNOWN`\n- **Owners, environments, and release decision authority:** `UNKNOWN`\n\n## Cadence: T-14 through T+1\n\n| When | Focus and evidence to produce | Status |\n|---|---|---|\n| **T-14** | Kick off planning. Confirm release date, version, scope, exclusions, risk order, owners, freeze rules, and required test specialties. Produce a reviewed release test plan. | Scope and planning readiness: `UNKNOWN` |\n| **T-13 to T-11** | Map changes to acceptance criteria and critical journeys. Set regression coverage, test data needs, defect severity rules, and any specialty thresholds. | Criteria and coverage baseline: `UNKNOWN` |\n| **T-10 to T-8** | Prepare pre-prod, access, data, CI, and regression suite. Record the candidate build and establish a usable regression baseline. | Environment and test readiness: `UNKNOWN` |\n| **T-7** | Validate after feature freeze, or document controlled changes and their impact. Gather evidence for agreed P0 paths. | Freeze and P0 evidence: `UNKNOWN` |\n| **T-6** | Confirm the candidate build, specialty scope, test owners, and any remaining environment or data gaps. | Candidate and specialty readiness: `UNKNOWN` |\n| **T-5 to T-4** | Run agreed specialties (for example, performance, security, accessibility, or compliance). Record results, evidence, and open high risks. | Specialty gate: `UNKNOWN` |\n| **T-3** | Run final candidate regression and targeted exploratory testing. Triage defects; confirm blockers are cleared or explicitly escalated. | RC quality gate: `UNKNOWN` |\n| **T-2 to T-1** | Assemble the evidence pack: scope, build, regression and specialty results, defects, residual risks, rollback steps, monitoring readiness, and decision record. Obtain the authorized Go/No-Go decision. | Decision gate: `UNKNOWN` |\n| **T+0** | If authorized to ship, follow the agreed rollout plan. Run production smoke checks, observe monitoring, and use the documented stop/rollback path if a sourced threshold is breached. | Release and operational readiness: `UNKNOWN` |\n| **T+1** | Review post-release signals, incidents, support reports, and rollout status against agreed thresholds. Decide whether to continue, expand, pause, roll back, or close the watch. | Post-release outcome: `UNKNOWN` |\n\nAssign an owner for each activity before its window. Likely roles to assign include release coordinator, QA lead, feature owner, specialty testers, operations/on-call, and the authorized decision owner; the actual people are `UNKNOWN`.\n\n## Gate board\n\n| Gate | Status | Evidence needed |\n|---|---|---|\n| Scope: shipped contents match the written scope and exclusions | `UNKNOWN` | Approved change list, exclusions, and candidate build |\n| Quality: no unaccepted blockers; agreed critical paths and specialties meet criteria | `UNKNOWN` | Current-candidate results, defect list, and specialty reports |\n| Operations: rollback and monitoring are ready | `UNKNOWN` | Usable rollback steps or drill evidence, alerts, thresholds, and on-call path |\n| Decision: Go/No-Go is based on evidence and recorded by an authorized owner | `UNKNOWN` | Evidence pack and decision record naming version/scope, owner, and time |\n| Post-release: watch and escalation are defined | `UNKNOWN` | Monitoring plan, observation window, thresholds, and escalation owner |\n\nNo test results, defect state, or approval are established by this plan. At T-2/T-1, unresolved required evidence means there is no evidence basis for a Go recommendation; conditional Go needs named, verifiable conditions and an identified risk acceptor.\n\n## Information to fill in\n\n1. Release date, time zone, version, candidate build/commit, and rollout schedule.\n2. Change list, explicit exclusions, acceptance criteria, and critical user journeys.\n3. Feature-freeze date/rules, allowed exceptions, and how late changes affect scope and timing.\n4. Test environments, access, test data, CI/regression suite, and environment owner.\n5. Known defects, severity, fix status, accepted risks, and relevant past release issues.\n6. Required specialties, owners, pass thresholds, and evidence format.\n7. Rollback steps, monitoring/alert thresholds, on-call owner, and escalation path.\n8. Stakeholders and the authorized Go/No-Go owner, plus how the decision will be recorded.\n\n## Next handoff\n\nStart with **`test-strategy-plus`** (or **`test-strategy`**) to turn the change list and acceptance criteria into a risk-ordered plan. Carry the release date, version/build, scope/exclusions, current gate statuses, and known defects; each is currently `UNKNOWN`.",
+      "observed_version": "0.166.0"
+    },
+    {
+      "case_id": "edge-gates-handoff",
+      "title": "Release workflow: entry/exit gates and handoff",
+      "status": "PASS",
+      "duration_ms": 82446,
+      "turns": 1,
+      "input_tokens": 342677,
+      "output_tokens": 6921,
+      "grading": {
+        "status": "PASS",
+        "turns_executed": 1,
+        "turns_total": 1,
+        "assertion_results": [
+          {
+            "text": "expect.must_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.must_not_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.exit_code",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "output_contains{all:[Entry criteria handoff]}",
+            "passed": true,
+            "evidence": "output satisfies all contains checks (all:[Entry criteria handoff])"
+          }
+        ],
+        "summary": {
+          "passed": 4,
+          "failed": 0,
+          "total": 4,
+          "pass_rate": 1
+        }
+      },
+      "configuration": "with_skill",
+      "prompt": "Use release-testing-workflow. Respond in English.\nScenario: no RC until feature-freeze gate passes; no Go with open blockers; specialized tests due T-5–T-4.\nWrite clear entry/exit criteria (gates) and how to hand off to execution skills (e.g. performance-testing, security-testing, test-reporting—names and handoff points only; no file-path links to other skills).\n",
+      "response": "## 1. Release Context and Scope\n\nTreat **T** as the planned release day; the release date, version, build, scope, owners, and current test evidence were not supplied. This is a gate plan, not a claim that any gate has passed.\n\nTwo hard rules apply:\n\n- **No RC work or designation until the feature-freeze gate is `PASS`.**\n- **No Go while any blocker is open.**\n\nSpecialized testing is due during **T-5 to T-4**. Missing evidence is `UNKNOWN`; it does not count as a pass.\n\n## 2. Timeline Position and Gate Board\n\nThe current T window is unknown, so actual gate statuses are `UNKNOWN`.\n\n| Stage | Entry criteria | Exit criteria |\n|---|---|---|\n| Planning — T-14 | Release intent and target date are set. | Scope and exclusions, risk order, test plan, and accountable owners are recorded. |\n| Prep — T-10 to T-8 | Scope and test plan are reviewed. | Pre-production environment and test data are usable; regression baseline and candidate build are identified. |\n| **Feature-freeze validation — T-7** | Freeze is active or controlled changes are documented; build identity is recorded. | P0 paths have passing evidence on the frozen build; exceptions and their impact are recorded. **Only `PASS` opens the RC gate.** |\n| Specialized testing — T-5 to T-4 | Feature-freeze gate is `PASS`; specialists have the same identified candidate and agreed scope. | Required specialist reports are complete for that candidate; findings are recorded and triaged, with blockers clearly identified. |\n| RC validation — T-3 | Feature-freeze gate is `PASS` and required specialist evidence is available. | Final regression and exploratory checks are complete on the RC; changes and defects are recorded. An RC does not authorize release. |\n| Go/No-Go — T-2 to T-1 | Current evidence is assembled; blocker list, rollback, and monitoring readiness are reviewed. | Authorized decision owner records the decision, version, scope, time, and evidence. **Any open blocker means No-Go.** |\n| Post-release — T+0 onward | Release is authorized; monitoring, on-call, and rollback path are ready. | The agreed observation period ends against known thresholds, with incidents and follow-up actions recorded. |\n\nA failed gate is `FAIL`; a gate that cannot be evaluated because required evidence is missing is `UNKNOWN` or `BLOCKED`. Neither permits advancing past a gate that requires `PASS`.\n\n## 3. This-Window Evidence and Queue\n\nBecause the current T window is unknown, use this as the ordered queue:\n\n- At T-7, record the frozen build and feature-freeze result, plus P0-path evidence.\n- At T-5 to T-4, collect required specialist reports tied to the same candidate.\n- At T-3, collect RC regression and exploratory results and update the defect list.\n- At T-2 to T-1, assemble current gate results, open blockers, residual risks, rollback and monitoring readiness, and the decision record.\n\nNo execution results were provided, so evidence status remains `UNKNOWN`.\n\n## 4. Defects and Residual Risks\n\nThe blocker count and defect inventory are `UNKNOWN`. Recheck them at the Go/No-Go gate. **Any open blocker requires No-Go**, including one with a proposed workaround. Residual non-blocker risks may be considered only when an owner, measurable condition, and consequence for failing that condition are recorded.\n\n## 5. Handoff (Next Skill)\n\n- T-14: `test-strategy`\n- T-10 to T-8: `automation-testing`\n- T-7: `test-case-writing`, `functional-testing`\n- T-5 to T-4: `performance-testing`, `security-testing`, `accessibility-testing`\n- T-3: `manual-testing`, `functional-testing`\n- T-2 to T-1: `test-reporting`\n\nCarry the version/build, scope, gate status, and known defects into each handoff.\n\n## 6. Go/No-Go Assessment\n\nNot at a decision point: release details and evidence are missing. No Go recommendation can be supported from the information provided. At the decision gate, require all release gates to pass, **zero open blockers**, current evidence for the candidate, operational readiness, and an authorized decision record. If approval has not been recorded, its status is `PENDING`.\n\n## 7. Assumptions and Open Questions\n\nTo apply this board to a specific release, supply the target date, version/build, scope and exclusions, accountable owners, required specialties, blocker list, rollback plan, monitoring thresholds, and available execution evidence.",
+      "observed_version": "0.166.0"
+    },
+    {
+      "case_id": "review-repair-regression",
+      "title": "release-testing-workflow: sourced repair regression",
+      "status": "PASS",
+      "duration_ms": 82637,
+      "turns": 1,
+      "input_tokens": 223394,
+      "output_tokens": 8038,
+      "grading": {
+        "status": "PASS",
+        "turns_executed": 1,
+        "turns_total": 1,
+        "assertion_results": [
+          {
+            "text": "expect.must_not_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.exit_code",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "script: skills/en/testing-workflows/release-testing-workflow/evals/graders/review-repair-regression.py",
+            "passed": true,
+            "evidence": "Exact fixture decisions passed; semantic explanation remains separately reviewable"
+          }
+        ],
+        "summary": {
+          "passed": 3,
+          "failed": 0,
+          "total": 3,
+          "pass_rate": 1
+        }
+      },
+      "configuration": "with_skill",
+      "prompt": "Use release-testing-workflow.\nAnalyze the sanitized static material only; do not perform external actions. Follow the main prompt with reasons, sources, evidence gaps, and minimal validation. Append `ID | DECISION | Evidence`, one row per ID, using the supplied enum values. PASS/FAIL is fixture comparison only, not real execution.\nAllowed DECISION values: NO_GO, READY.\n\nR1: P0 regression passed for build b42; required security suite not run; no approval owner/time. R2: 30-minute hotfix for build b43; narrow impact and exclusions documented; required regression and security passed; rollback ready; monitoring and alert readiness are ready; no open blockers remain; the authorized owner Lin approved the documented b43 scope at approval time 2026-10-30T14:00Z with evidence record approval-43. Do not change facts or execute a release. Classify release evidence readiness; keep AI advice separate from the recorded approval.\n",
+      "response": "## 1. Release context and scope\n\nThese are two separate fixture cases: R1 concerns build **b42**; R2 is a **30-minute hotfix for b43** with narrow impact and documented exclusions. No release date is supplied, so the calendar T-window is unknown.\n\n## 2. Timeline position and gate board\n\n| Case | Scope | Quality | Operations | Decision record |\n|---|---|---|---|---|\n| R1 | `UNKNOWN` | `BLOCKED`: P0 regression is reported passed for b42; required security suite is `NOT_RUN` | `UNKNOWN` | `PENDING`: no approval owner or time supplied |\n| R2 | `PASS` per fixture: narrow impact and exclusions documented | `PASS` per fixture: required regression and security passed; no open blockers reported | `PASS` per fixture: rollback, monitoring, and alerts ready | `PASS`: Lin approved the documented b43 scope at 2026-10-30T14:00Z; record `approval-43` |\n\n## 3. Evidence and queue\n\n- **R1:** The security result and authorized approval record are missing. The b42 P0 result supports b42 only. Both gaps must be closed before the evidence is ready.\n- **R2:** The fixture reports all required gates ready and provides a complete approval record. It does not include the underlying test reports or detailed operational artifacts; this classification treats the supplied fixture statements as its source.\n\n## 4. Defects and residual risks\n\nNo defect details are supplied for R1. R2 reports no open blockers; that does not establish that there are no other open defects.\n\n## 5. Handoff\n\n- **R1:** `security-testing` → `test-reporting`; carry b42, the P0 result, the unrun security suite, and pending authorization.\n- **R2:** `test-reporting`; carry b43, the documented scope and exclusions, reported gate results, and `approval-43` for the post-release watch handoff.\n\n## 6. Go/No-Go assessment\n\n- **R1 — NO_GO:** required security evidence is absent and approval is pending.\n- **R2 — READY:** the supplied fixture reports scope, quality, operations, and authorization gates ready. This is the AI evidence-readiness assessment; Lin’s approval remains a separate recorded decision. `READY` does not assert that release occurred.\n\n## 7. Assumptions and minimal validation\n\nSources are only the sanitized R1 and R2 material supplied here. I compared those statements with the scope, quality, operations, and decision gates; I did not execute tests or perform release actions. Any `PASS` or `FAIL` refers only to fixture comparison, not real execution. Release timing and underlying test artifacts were not provided.\n\nID | DECISION | Evidence\nR1 | NO_GO | Source: R1 fixture. P0 regression reported passed for b42; required security suite NOT_RUN; approval PENDING because owner and time are absent.\nR2 | READY | Source: R2 fixture. b43 scope and exclusions documented; regression and security reported passed; rollback, monitoring, and alerts ready; no blockers reported; Lin’s approval recorded at 2026-10-30T14:00Z as approval-43.",
+      "observed_version": "0.166.0"
+    },
+    {
+      "case_id": "expired-quality-evidence",
+      "title": "Release readiness: expired evidence cannot remain PASS",
+      "status": "PASS",
+      "duration_ms": 48017,
+      "turns": 1,
+      "input_tokens": 224708,
+      "output_tokens": 3403,
+      "grading": {
+        "status": "PASS",
+        "turns_executed": 1,
+        "turns_total": 1,
+        "assertion_results": [
+          {
+            "text": "expect.must_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.must_not_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.exit_code",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "output_contains{all:[STALE UNKNOWN Go]}",
+            "passed": true,
+            "evidence": "output satisfies all contains checks (all:[STALE UNKNOWN Go])"
+          }
+        ],
+        "summary": {
+          "passed": 4,
+          "failed": 0,
+          "total": 4,
+          "pass_rate": 1
+        }
+      },
+      "configuration": "with_skill",
+      "prompt": "Use release-testing-workflow. Respond in English. Release is v3.8.0 at current Commit cccc. The only test report is from old Commit bbbb, generated 2026-10-01 and valid until 2026-10-15; today is 2026-10-30. Respond in English. Label the old report `STALE`, the current test-result state `UNKNOWN`, distinguish expired evidence from unrun work, and do not recommend unconditional Go.",
+      "response": "## 1. Release Context and Scope\n\n- **Release:** v3.8.0\n- **Candidate commit:** `cccc`\n- **Assessment date:** 2026-10-30, using the date provided\n- **Scope, exclusions, and environment:** UNKNOWN\n\n## 2. Timeline Position and Gate Board\n\nThe target release date was not provided, so the T-window is **UNKNOWN**.\n\n| Gate | Status | Evidence |\n|---|---|---|\n| Scope | UNKNOWN | Release contents and exclusions were not supplied |\n| Quality | BLOCKED | Current test-result state is **UNKNOWN** |\n| Ops | UNKNOWN | Rollback and monitoring readiness were not supplied |\n| Decision | BLOCKED | Evidence pack is incomplete |\n\n## 3. This-Window Evidence and Queue\n\n- **Available report:** **STALE** — it covers commit `bbbb`, was generated 2026-10-01, and expired 2026-10-15. It cannot support candidate `cccc`.\n- **Current test results for `cccc`:** **UNKNOWN** — no current-commit result was provided.\n- **Unrun work:** Not established. The missing current result does **not** prove tests were never run; use `NOT_RUN` only if execution is confirmed not to have occurred.\n\nRun the required regression and agreed specialty checks against `cccc`, then record the commit, execution date, environment, results, and defects.\n\n## 4. Defects and Residual Risks\n\nKnown defects are **UNKNOWN**; the old report’s detailed results were not supplied. Release confidence is insufficient until current evidence is available. Rollback and monitoring readiness are also **UNKNOWN**.\n\n## 5. Handoff (Next Skill)\n\n**Current regression / RC evidence → `functional-testing`**  \nCarry forward v3.8.0, commit `cccc`, the required scope and P0 paths, test environment, and defect reporting. After execution, pass the results to `test-reporting` for the decision pack.\n\n## 6. Go/No-Go Assessment\n\n**Recommendation: No-Go pending current evidence.** The quality gate has not been cleared; this is an evidence gap, not a finding that the release failed testing. Do not recommend unconditional Go. Formal approval is **PENDING** an authorized decision owner and a complete evidence record.\n\n## 7. Assumptions and Open Questions\n\nRelease date, scope and exclusions, required specialty coverage, test environment, rollback plan, monitoring readiness, known defects, and decision owner were not provided.",
+      "observed_version": "0.166.0"
+    },
+    {
+      "case_id": "approval-boundary",
+      "title": "Release readiness: keep approval pending without decision-maker evidence",
+      "status": "PASS",
+      "duration_ms": 44941,
+      "turns": 1,
+      "input_tokens": 214974,
+      "output_tokens": 4060,
+      "grading": {
+        "status": "PASS",
+        "turns_executed": 1,
+        "turns_total": 1,
+        "assertion_results": [
+          {
+            "text": "expect.must_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.must_not_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.exit_code",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "output_contains{all:[PENDING approval]}",
+            "passed": true,
+            "evidence": "output satisfies all contains checks (all:[PENDING approval])"
+          }
+        ],
+        "summary": {
+          "passed": 4,
+          "failed": 0,
+          "total": 4,
+          "pass_rate": 1
+        }
+      },
+      "configuration": "with_skill",
+      "prompt": "Use release-testing-workflow. Test reports are supplied, but there is no authorized release decision-maker, approval time, or approved-scope record. Provide a quality recommendation and state formal approval status with the exact uppercase status token `PENDING`. Do not approve the release on anyone’s behalf.",
+      "response": "## 1. Release context and scope\n\n- Release date, candidate version/build, scope, and exclusions: `UNKNOWN`.\n- You state that test reports are supplied, but I could not access their contents in the available task files. I can’t verify their results or whether they cover the release candidate.\n\n## 2. Timeline and gate board\n\nThe release date is unknown, so I can’t place this in a T-window.\n\n| Gate | Status | Evidence gap |\n|---|---|---|\n| Scope | `UNKNOWN` | No approved scope or exclusions record |\n| Quality | `UNKNOWN` | Report findings, candidate identity, regression results, and defect status aren’t verifiable |\n| Operations | `UNKNOWN` | Rollback and monitoring readiness aren’t documented here |\n| Decision | `BLOCKED` | Required evidence and approval record are incomplete |\n\n## 3. Recommendation\n\n**QA recommendation: No-Go / hold on the evidence currently available.** This reflects unverified release gates; it is not a finding that tests failed.\n\n**Formal approval status: `PENDING`.** No authorized decision-maker, approval time, or approved-scope record was provided. I have not approved the release.\n\n## 4. Next actions and handoff\n\nMake the reports accessible with the candidate version/build and environment identified; provide the approved scope and exclusions, open defects and risk acceptances, and rollback/monitoring evidence. Then have the authorized decision-maker record the decision and time.\n\n**Next skill:** `test-reporting` to assemble the evidence-backed decision pack. Release owner, QA evidence-pack owner, and decision time remain `UNKNOWN`.",
+      "observed_version": "0.166.0"
+    },
+    {
+      "case_id": "comparison-release-readiness",
+      "title": "Release readiness with/without Skill comparison",
+      "status": "PASS",
+      "duration_ms": 55118,
+      "turns": 1,
+      "input_tokens": 210038,
+      "output_tokens": 4397,
+      "grading": {
+        "status": "PASS",
+        "turns_executed": 1,
+        "turns_total": 1,
+        "assertion_results": [
+          {
+            "text": "expect.must_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.must_not_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.exit_code",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "output_contains{all:[P1 UNKNOWN pending authorized decision]}",
+            "passed": true,
+            "evidence": "output satisfies all contains checks (all:[P1 UNKNOWN pending authorized decision])"
+          }
+        ],
+        "summary": {
+          "passed": 4,
+          "failed": 0,
+          "total": 4,
+          "pass_rate": 1
+        }
+      },
+      "configuration": "with_skill",
+      "prompt": "Use release-testing-workflow for candidate RC-7. The performance smoke and API contract reports are two weeks old and were produced before RC-7 existed. Security evidence is UNKNOWN, and one P1 payment defect remains open. No authorized decision-maker has approved the release. Summarize evidence freshness, blockers, residual risk, a Go/No-Go recommendation, and the formal approval state. State exactly that formal approval is \"pending authorized decision\"; never approve on anyone's behalf.\n",
+      "response": "## RC-7 release assessment\n\n**Recommendation: NO-GO.** The current evidence does not support release: two reports predate RC-7, security evidence is unknown, and a P1 payment defect remains open.\n\n### Evidence and release gates\n\n| Gate or evidence | Status | Assessment |\n|---|---|---|\n| Performance smoke | **STALE** | Report is two weeks old and predates RC-7; it cannot establish RC-7 performance. |\n| API contract | **STALE** | Report is two weeks old and predates RC-7; it cannot establish RC-7 contract compatibility. |\n| Security | **UNKNOWN** | No current security evidence was provided. |\n| Payment defect | **BLOCKED** | The P1 defect remains open; no documented acceptance was provided. |\n| Scope and exclusions | **UNKNOWN** | Not provided. |\n| Rollback and monitoring readiness | **UNKNOWN** | Not provided. |\n| Decision gate | **BLOCKED** | No authorized decision-maker has approved the release. |\n\nThe release date was not provided, so the exact T-window cannot be determined. This is an RC-7 assessment; I found no RC-7 evidence artifacts in the current workspace, so it uses the facts in your request.\n\n### Residual risk\n\nResidual risk is **high and unquantified**: payment behavior may still be affected by the open P1; performance and API compatibility have not been evidenced on RC-7; and security risk remains unknown. Scope, rollback, and monitoring readiness also remain unverified.\n\n### Next actions\n\n- `performance-testing` and the API contract owner: produce fresh results against the exact RC-7 build.\n- `security-testing`: provide current security evidence for RC-7.\n- `manual-testing`: verify the payment fix and relevant RC regression after the defect is resolved.\n- `test-reporting`: consolidate the refreshed evidence and defect disposition for the decision record.\n\nOwners and ETAs were not provided. Reassess after these items are complete or explicitly dispositioned.\n\n### Formal approval\n\nFormal approval is **\"pending authorized decision\"** (`PENDING`). This is a QA recommendation only; I have not approved the release on anyone’s behalf.",
+      "observed_version": "0.166.0"
+    }
+  ],
+  "archived_at": "2026-11-03T03:00:30.637513Z"
+}

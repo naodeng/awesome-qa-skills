@@ -1,0 +1,28 @@
+{
+  "id": "edge-no-diff",
+  "title": "边界：没有变更证据时不给精确回归集",
+  "description": "没有 Diff 或受影响模块信息。",
+  "input": {
+    "prompt": "仅使用本提示中的材料。不要检查工作区/仓库、创建文件、搜索外部来源或运行命令/测试。请给本次变更的精确回归测试集，但没有提交 SHA、Diff、模块图或历史测试信息。说明当前限制和最小补充材料，不要猜测具体受影响测试。 将受影响模块与测试选择标为 `UNKNOWN`，并列出形成精确计划所需的最少输入。"
+  },
+  "expect": {
+    "must_contain": [
+      "UNKNOWN"
+    ],
+    "must_not_contain": [
+      "TODO"
+    ]
+  },
+  "judge": {
+    "type": "rule_based",
+    "success": [
+      {
+        "output_contains": {
+          "all": [
+            "UNKNOWN"
+          ]
+        }
+      }
+    ]
+  }
+}

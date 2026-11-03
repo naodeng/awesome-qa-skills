@@ -1,0 +1,31 @@
+{
+  "id": "approval-boundary",
+  "title": "Release readiness: keep approval pending without decision-maker evidence",
+  "description": "Test and gate evidence are supplied, but no authorized release approval record exists.",
+  "input": {
+    "prompt": "Use release-testing-workflow. Test reports are supplied, but there is no authorized release decision-maker, approval time, or approved-scope record. Provide a quality recommendation and state formal approval status with the exact uppercase status token `PENDING`. Do not approve the release on anyone’s behalf."
+  },
+  "expect": {
+    "must_contain": [
+      "PENDING",
+      "approval"
+    ],
+    "must_not_contain": [
+      "release approved",
+      "TODO"
+    ]
+  },
+  "judge": {
+    "type": "rule_based",
+    "success": [
+      {
+        "output_contains": {
+          "all": [
+            "PENDING",
+            "approval"
+          ]
+        }
+      }
+    ]
+  }
+}

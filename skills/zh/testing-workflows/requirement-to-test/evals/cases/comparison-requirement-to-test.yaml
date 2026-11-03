@@ -1,0 +1,35 @@
+{
+  "id": "comparison-requirement-to-test",
+  "title": "需求到测试 Skill 对照",
+  "description": "Same user prompt and rule-based assertions are used for the Skill-enabled and no-Skill arms; this is a scenario comparison, not a population-level effectiveness estimate.",
+  "input": {
+    "prompt": "仅使用本提示中的材料。不要检查工作区/仓库、创建文件、搜索外部来源或运行命令/测试。需求：优惠券只能用于有效订单，每账户最多使用一次，过期券必须拒绝。请标出需要确认的规则，输出风险驱动测试策略、代表性正向/负向用例和需求追踪关系；没有执行证据时标为 NOT_RUN。章节标题可以不同，但须覆盖所要求的内容，并将测试执行状态写为 `NOT_RUN`。"
+  },
+  "expect": {
+    "must_contain": [
+      "有效订单",
+      "风险驱动",
+      "需求追踪",
+      "NOT_RUN"
+    ],
+    "must_not_contain": [
+      "需求已验证",
+      "TODO"
+    ]
+  },
+  "judge": {
+    "type": "rule_based",
+    "success": [
+      {
+        "output_contains": {
+          "all": [
+            "有效订单",
+            "风险驱动",
+            "需求追踪",
+            "NOT_RUN"
+          ]
+        }
+      }
+    ]
+  }
+}

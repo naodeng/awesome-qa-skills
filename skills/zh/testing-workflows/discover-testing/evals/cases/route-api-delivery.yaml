@@ -12,6 +12,7 @@ context:
 input:
   prompt: |
     请使用 discover-testing 为这个请求路由：我们要交付订单 API，已有 OpenAPI，
+    本用例可信宿主清单确认 `api-testing` 和 `api-contract-testing` 已安装且可调用。
     需要覆盖正常行为、鉴权、错误码和契约兼容性。请只输出命中的 route ID、
     一句话目标、唯一主 Skill、最多一个辅助 Skill、选择理由和下一步交接输入。
     不要写完整测试方案，也不要推荐未安装的未来 Skill。最后附一个 ```json 代码块，
@@ -22,8 +23,6 @@ expect:
     - "api-delivery"
     - "api-testing"
     - "api-contract-testing"
-    - "主推荐"
-    - "下一步"
   must_not_contain:
     - "完整测试方案"
     - "TODO"

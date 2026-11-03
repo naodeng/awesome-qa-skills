@@ -1,0 +1,33 @@
+{
+  "id": "handoff-continuity",
+  "title": "交接：回归计划保留上游影响证据",
+  "description": "上游已给证据 ID 和排除理由。",
+  "input": {
+    "prompt": "仅使用本提示中的材料。不要检查工作区/仓库、创建文件、搜索外部来源或运行命令/测试。上游影响分析给出 IMP-4：令牌过期逻辑已改；风险高；依据文件 auth/token.py。请保留 IMP-4 和来源，为回归选择列必须执行项及未覆盖风险。"
+  },
+  "expect": {
+    "must_contain": [
+      "IMP-4",
+      "auth/token.py",
+      "未覆盖风险"
+    ],
+    "must_not_contain": [
+      "测试已经执行通过",
+      "TODO"
+    ]
+  },
+  "judge": {
+    "type": "rule_based",
+    "success": [
+      {
+        "output_contains": {
+          "all": [
+            "IMP-4",
+            "auth/token.py",
+            "未覆盖风险"
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "id": "edge-incomplete-input",
+  "title": "Boundary: do not infer code risks without a diff",
+  "description": "No code-change material was supplied; identify the evidence gap.",
+  "input": {
+    "prompt": "This is a self-contained example with no repository identity; do not search local files and do not access GitHub. Review PR #51, but no diff, file list, base SHA, or test/CI results were supplied. State what can be concluded, what is missing, and next steps. Because test results were not supplied, mark test execution/result status UNKNOWN; do not say tests were not run. Use NOT_RUN only if the input explicitly confirms no execution. Do not invent findings or test results."
+  },
+  "expect": {
+    "must_contain": [
+      "diff",
+      "UNKNOWN"
+    ],
+    "must_not_contain": [
+      "P0 finding confirmed",
+      "all tests passed",
+      "TODO",
+      "MEMORY.md",
+      "rollout_summaries/"
+    ]
+  },
+  "judge": {
+    "type": "script",
+    "script_path": "evals/graders/execution_status.py",
+    "timeout_seconds": 30
+  }
+}

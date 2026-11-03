@@ -1,0 +1,33 @@
+{
+  "id": "handoff-traceability",
+  "title": "Handoff: preserve requirement IDs and uncovered items",
+  "description": "Cases must retain their source requirement identifiers.",
+  "input": {
+    "prompt": "Use only the material in this prompt. Do not inspect the workspace/repository, create files, search external sources, or run commands/tests. Requirement R-17 says a frozen account must be denied a refund; R-18 says a normal account refund succeeds. Propose test cases and preserve traceability to R-17/R-18. Without implementation or run records, do not claim behavior was verified. No tests were executed in this task; mark execution `NOT_RUN` and behavior evidence `UNKNOWN`."
+  },
+  "expect": {
+    "must_contain": [
+      "R-17",
+      "R-18",
+      "NOT_RUN"
+    ],
+    "must_not_contain": [
+      "requirements verified successfully",
+      "TODO"
+    ]
+  },
+  "judge": {
+    "type": "rule_based",
+    "success": [
+      {
+        "output_contains": {
+          "all": [
+            "R-17",
+            "R-18",
+            "NOT_RUN"
+          ]
+        }
+      }
+    ]
+  }
+}

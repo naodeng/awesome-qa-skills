@@ -1,0 +1,86 @@
+{
+  "record_version": "workflow-eval-run/v1",
+  "run_id": "skill-up-requirement-to-test-46a837fea8d84caebb91acf2be624f2a",
+  "workflow_id": "requirement-to-test",
+  "locale": "zh-CN",
+  "execution_type": "model_eval",
+  "runner": {
+    "name": "skill-up",
+    "version": "skill-up version 0.12.0"
+  },
+  "engine": {
+    "name": "codex",
+    "version": "codex-cli 0.166.0",
+    "model_id_reported": "not reported"
+  },
+  "engine_version_capture": "captured before run",
+  "repo_head_at_archive": "ed94f827f2f564c039ae6ca9111f85851ad3771f",
+  "worktree_state_at_archive": "dirty; 270 paths changed",
+  "input_fingerprint_capture": "captured before run",
+  "input_fingerprint": "abc7d91161d8ebaf90a048cff820c6b982d36ce743122465d0cb59b8c9d87588",
+  "input_fingerprint_after": "abc7d91161d8ebaf90a048cff820c6b982d36ce743122465d0cb59b8c9d87588",
+  "skill_package_sha256_at_start": "5800e6c758145751323623f99b5020372062bbb7564d63b18e4cfb98235757e9",
+  "raw_result_sha256": "07cfc5baa5dc43d905af12619ac865345d7e6ab736b6d8df42f22ad4b8946fe3",
+  "started_at": "2026-11-03T02:44:49.731872Z",
+  "finished_at": "2026-11-03T02:45:32.914024Z",
+  "summary": {
+    "case_count": 1,
+    "passed": 1,
+    "failed": 0,
+    "errors": 0,
+    "blocked": 0,
+    "unknown": 0,
+    "overall_status": "PASS"
+  },
+  "execution_notes": "Generated from the raw skill-up report. Input fingerprint was captured before execution; post-run fingerprint equality is available in this record.",
+  "redaction": "Absolute repository and ephemeral skill-up install prefixes in case data were replaced with repository-relative Skill paths. raw_result_sha256 identifies the unmodified report.",
+  "cases": [
+    {
+      "case_id": "comparison-requirement-to-test",
+      "title": "需求到测试 Skill 对照",
+      "status": "PASS",
+      "duration_ms": 43008,
+      "turns": 3,
+      "input_tokens": 40177,
+      "output_tokens": 2273,
+      "grading": {
+        "status": "PASS",
+        "turns_executed": 3,
+        "turns_total": 1,
+        "assertion_results": [
+          {
+            "text": "expect.must_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.must_not_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.exit_code",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "output_contains{all:[有效订单 风险驱动 需求追踪 NOT_RUN]}",
+            "passed": true,
+            "evidence": "output satisfies all contains checks (all:[有效订单 风险驱动 需求追踪 NOT_RUN])"
+          }
+        ],
+        "summary": {
+          "passed": 4,
+          "failed": 0,
+          "total": 4,
+          "pass_rate": 1
+        }
+      },
+      "configuration": "with_skill",
+      "prompt": "仅使用本提示中的材料。不要检查工作区/仓库、创建文件、搜索外部来源或运行命令/测试。需求：优惠券只能用于有效订单，每账户最多使用一次，过期券必须拒绝。请标出需要确认的规则，输出风险驱动测试策略、代表性正向/负向用例和需求追踪关系；没有执行证据时标为 NOT_RUN。章节标题可以不同，但须覆盖所要求的内容，并将测试执行状态写为 `NOT_RUN`。",
+      "response": "## 范围与执行状态\n\n以下策略仅依据提示中的三项需求编写，属于待确认规则下的测试设计。\n\n**测试执行状态：`NOT_RUN`**（未运行测试，也没有执行证据）。\n\n## 需求基线\n\n| ID | 需求 |\n|---|---|\n| R1 | 优惠券只能用于有效订单。 |\n| R2 | 每个账户最多使用同一优惠券一次。 |\n| R3 | 过期优惠券必须拒绝。 |\n\n## 需要确认的规则\n\n这些规则会改变测试预期，实施验收前应先明确：\n\n| 待确认项 | 需要明确的内容 |\n|---|---|\n| “有效订单”的定义 | 哪些订单状态有效？是否还受商品、金额、币种或其他资格条件限制？ |\n| “使用一次”的时点 | 成功应用优惠券、下单、付款成功，还是订单完成时计为已使用？ |\n| 失败与取消的处理 | 支付失败、订单取消或退款后，优惠券是否仍算已使用，能否恢复？ |\n| 过期边界 | 到期时刻是否仍可用？采用哪个时区？检查发生在提交订单、付款还是其他时点？ |\n| 账户身份 | 如何识别账户？访客订单、合并账户或账户变更如何处理？ |\n| 并发请求 | 同一账户并发提交多个订单时，是否必须保证仅一个请求成功使用？ |\n| 优惠券适用范围 | 是否允许不同账户各使用一次？是否另有总使用次数或叠加限制？ |\n| 拒绝行为 | 被拒绝时是否应明确返回原因？若同时违反多条规则，错误原因是否有优先级？ |\n\n## 风险驱动测试策略\n\n1. **优先验证拒绝条件**：无效订单和过期优惠券不得获得优惠，避免错误折扣或绕过资格限制。\n2. **验证账户使用上限**：覆盖首次使用、再次使用及并发重复请求，重点检查重复优惠是否可能成功。\n3. **覆盖关键状态边界**：订单状态变化、优惠券到期边界、支付失败或取消后的再次尝试。具体预期需先确认上表规则。\n4. **检查组合场景**：订单无效且优惠券过期、账户已使用且订单有效等情况，至少确认最终都被拒绝；拒绝原因优先级待确认。\n5. **按实现层次安排验证**：规则判断可做单元测试；账户使用记录、订单状态和优惠券状态联动可做集成或接口测试；并发上限需通过并发场景验证。当前没有实现信息，不能指定具体工具或断言细节。\n\n## 代表性用例\n\n下表中的“有效订单”及“使用一次”的时点应按确认后的规则解释。所有用例状态均为 **`NOT_RUN`**。\n\n| 用例 | 场景与前置条件 | 预期结果 | 覆盖需求 | 执行状态 |\n|---|---|---|---|---|\n| TC-01 | 有效订单；优惠券未过期；账户此前未使用该券 | 接受优惠券 | R1、R2、R3 | `NOT_RUN` |\n| TC-02 | 无效订单；优惠券未过期；账户未使用该券 | 拒绝优惠券 | R1 | `NOT_RUN` |\n| TC-03 | 有效订单；优惠券已过期；账户未使用该券 | 拒绝优惠券 | R3 | `NOT_RUN` |\n| TC-04 | 有效订单；优惠券未过期；该账户已使用过该券 | 拒绝再次使用 | R2 | `NOT_RUN` |\n| TC-05 | 同一账户并发提交两个使用同一优惠券的订单 | 最多一个请求成功使用该券 | R2 | `NOT_RUN` |\n| TC-06 | 提交时恰好处于优惠券到期边界 | 按确认后的边界及时区规则接受或拒绝 | R3 | `NOT_RUN`，规则待确认 |\n| TC-07 | 首次尝试使用优惠券时，后续支付失败或订单取消，再次尝试 | 按确认后的计次与恢复规则处理 | R2 | `NOT_RUN`，规则待确认 |\n| TC-08 | 同一请求重复提交（例如客户端重试） | 不产生重复使用或重复优惠；具体响应按接口规则确认 | R2 | `NOT_RUN`，接口规则待确认 |\n| TC-09 | 同时满足多项拒绝条件，例如订单无效且优惠券已过期 | 拒绝优惠券；具体拒绝原因按确认后的规则返回 | R1、R3 | `NOT_RUN`，原因优先级待确认 |\n| TC-10 | 两个不同账户分别尝试使用同一张未过期优惠券，各自订单有效 | 预期取决于优惠券是否允许跨账户使用及总次数规则 | R2 | `NOT_RUN`，规则待确认 |\n\n## 需求追踪关系\n\n| 需求 | 主要风险 | 对应用例 |\n|---|---|---|\n| R1：仅用于有效订单 | 无效订单获得折扣 | TC-01、TC-02、TC-09 |\n| R2：每账户最多一次 | 重复或并发请求重复使用优惠券 | TC-01、TC-04、TC-05、TC-07、TC-08、TC-10 |\n| R3：过期券拒绝 | 到期后仍成功使用，或边界判断不一致 | TC-01、TC-03、TC-06、TC-09 |",
+      "observed_version": "0.166.0"
+    }
+  ],
+  "archived_at": "2026-11-03T03:00:30.790944Z"
+}

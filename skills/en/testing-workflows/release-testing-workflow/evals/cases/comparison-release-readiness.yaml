@@ -1,0 +1,22 @@
+id: comparison-release-readiness
+title: "Release readiness with/without Skill comparison"
+description: "The same release evidence is evaluated with and without this Skill; this single-case comparison is not a population-level effectiveness estimate."
+input:
+  prompt: |
+    Use release-testing-workflow for candidate RC-7. The performance smoke and API contract reports are two weeks old and were produced before RC-7 existed. Security evidence is UNKNOWN, and one P1 payment defect remains open. No authorized decision-maker has approved the release. Summarize evidence freshness, blockers, residual risk, a Go/No-Go recommendation, and the formal approval state. State exactly that formal approval is "pending authorized decision"; never approve on anyone's behalf.
+expect:
+  must_contain:
+    - "P1"
+    - "UNKNOWN"
+    - "pending authorized decision"
+  must_not_contain:
+    - "release approved"
+    - "TODO"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "P1"
+          - "UNKNOWN"
+          - "pending authorized decision"

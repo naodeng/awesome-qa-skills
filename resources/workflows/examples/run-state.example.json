@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0.0",
+  "run_id": "example-not-a-real-run",
+  "workflow_id": "pr-quality-review",
+  "workflow_version": "1.0.0",
+  "status": "BLOCKED",
+  "input_fingerprint": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "workflow_source_sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+  "commit_sha": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+  "created_at": "2026-10-30T07:00:00Z",
+  "updated_at": "2026-10-30T08:00:00Z",
+  "stages": [
+    {"id": "diff-review", "status": "COMPLETED", "attempt": 1, "evidence_refs": ["source-inventory"]},
+    {"id": "test-execution", "status": "BLOCKED", "attempt": 0, "evidence_refs": ["focused-tests"]}
+  ],
+  "artifacts": [
+    {"id": "source-inventory", "location": "artifacts/source-inventory.json"},
+    {"id": "focused-tests", "location": "resources/workflows/examples/evidence.example.json"}
+  ],
+  "idempotency_keys": ["example-not-a-real-run:diff-review:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"]
+}

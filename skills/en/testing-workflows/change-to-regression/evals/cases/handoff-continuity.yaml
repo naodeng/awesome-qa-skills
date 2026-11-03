@@ -1,0 +1,33 @@
+{
+  "id": "handoff-continuity",
+  "title": "Handoff: preserve upstream impact evidence",
+  "description": "The upstream impact record includes its identifier, risk, and source path.",
+  "input": {
+    "prompt": "Use only the material in this prompt. Do not inspect the workspace/repository, create files, search external sources, or run commands/tests. The upstream impact analysis reports IMP-4: token-expiration logic changed; risk is high; source file is auth/token.py. Preserve IMP-4 and its source. Select must-run regression and state uncovered risks."
+  },
+  "expect": {
+    "must_contain": [
+      "IMP-4",
+      "auth/token.py",
+      "Uncovered risks"
+    ],
+    "must_not_contain": [
+      "tests have passed",
+      "TODO"
+    ]
+  },
+  "judge": {
+    "type": "rule_based",
+    "success": [
+      {
+        "output_contains": {
+          "all": [
+            "IMP-4",
+            "auth/token.py",
+            "Uncovered risks"
+          ]
+        }
+      }
+    ]
+  }
+}

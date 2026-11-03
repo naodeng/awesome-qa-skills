@@ -1,0 +1,357 @@
+{
+  "record_version": "workflow-eval-run/v1",
+  "run_id": "skill-up-release-testing-workflow-7c8ee43a0d3e4a84a5ff7973d7fc4cd8",
+  "workflow_id": "release-testing-workflow",
+  "locale": "zh-CN",
+  "execution_type": "model_eval",
+  "runner": {
+    "name": "skill-up",
+    "version": "skill-up version 0.12.0"
+  },
+  "engine": {
+    "name": "codex",
+    "version": "codex-cli 0.166.0",
+    "model_id_reported": "not reported"
+  },
+  "engine_version_capture": "captured before run",
+  "repo_head_at_archive": "ed94f827f2f564c039ae6ca9111f85851ad3771f",
+  "worktree_state_at_archive": "dirty; 270 paths changed",
+  "input_fingerprint_capture": "captured before run",
+  "input_fingerprint": "a8c5ec82c337f4d2bc7aef5f2be9a97c3629a26679c321fcfcaa87dff1d5738b",
+  "input_fingerprint_after": "a8c5ec82c337f4d2bc7aef5f2be9a97c3629a26679c321fcfcaa87dff1d5738b",
+  "skill_package_sha256_at_start": "e1f10e0f43b888a15b18c090b5b1df36b9f64946f3e664d9a5b02bf91b094a2d",
+  "raw_result_sha256": "50d412a220c0c273acb2036e9c6e7265b2eee730d5b63db93c62c70461f3b4e6",
+  "started_at": "2026-11-03T02:36:09.843067Z",
+  "finished_at": "2026-11-03T02:43:55.386471Z",
+  "summary": {
+    "case_count": 7,
+    "passed": 7,
+    "failed": 0,
+    "errors": 0,
+    "blocked": 0,
+    "unknown": 0,
+    "overall_status": "PASS"
+  },
+  "execution_notes": "Generated from the raw skill-up report. Input fingerprint was captured before execution; post-run fingerprint equality is available in this record.",
+  "redaction": "Absolute repository and ephemeral skill-up install prefixes in case data were replaced with repository-relative Skill paths. raw_result_sha256 identifies the unmodified report.",
+  "cases": [
+    {
+      "case_id": "basic-success",
+      "title": "发布工作流：产出 T-14 到 Go/No-Go 阶段产出",
+      "status": "PASS",
+      "duration_ms": 63875,
+      "turns": 1,
+      "input_tokens": 262854,
+      "output_tokens": 5317,
+      "grading": {
+        "status": "PASS",
+        "turns_executed": 1,
+        "turns_total": 1,
+        "assertion_results": [
+          {
+            "text": "expect.must_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.must_not_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.exit_code",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "output_contains{all:[T-14 支付回调]}",
+            "passed": true,
+            "evidence": "output satisfies all contains checks (all:[T-14 支付回调])"
+          }
+        ],
+        "summary": {
+          "passed": 4,
+          "failed": 0,
+          "total": 4,
+          "pass_rate": 1
+        }
+      },
+      "configuration": "with_skill",
+      "prompt": "请使用 release-testing-workflow 并用中文回复。\n背景：订单服务两周后发版；范围含支付回调修复与优惠券；需性能与安全抽查。\n请给出从 T-14 规划到 T-1 Go/No-Go 的发布测试阶段产出，并按风险排优先级。\n",
+      "response": "## 1. 发布背景与范围\n\n按当前日期 **2026-11-03** 和“两周后发版”估算，暂以 **T=2026-11-17** 排期；以下 T-N 按日历日计算，若实际发布时间不同，整体平移。\n\n- **范围**：订单服务的支付回调修复、优惠券功能；对支付与优惠券链路做定向性能和安全抽查。\n- **排除项**：尚未提供完整发布清单；需在 T-14 明确本版包含和不包含的改动。当前计划不假定覆盖全量压测或完整渗透测试。\n- **证据状态**：目前没有候选版本、测试结果、缺陷清单、回滚方案等执行证据，相关门禁先标为 `UNKNOWN`，不能据此认定通过。\n\n## 2. 时间线定位与门禁看板\n\n| 阶段 | 时间（估算） | 阶段产出 | 退出条件 |\n|---|---|---|---|\n| 发布规划 | T-14（11/03） | 发布范围与排除项；风险排序；测试策略、数据与环境计划；Owner 和冻结规则；门禁及指标来源 | 计划评审通过，范围和责任人明确 |\n| 准备 | T-10～T-8（11/07～11/09） | 可测预发环境；回归集基线；支付与优惠券测试数据；CI/执行记录；监控、告警及回滚步骤草案 | 环境可测，核心回归集可执行 |\n| 功能冻结验证 | T-7（11/10） | 冻结候选版本及变更清单；支付、优惠券核心路径结果；回归证据；缺陷清单 | P0 路径有可追溯证据；未解决阻断项已升级决策 |\n| 专项测试 | T-5～T-4（11/12～11/13） | 性能抽查报告、安全抽查报告；未关闭高风险项及处置建议 | 专项结论与风险接受状态明确 |\n| 候选版本 | T-3（11/14） | RC 版本标识；最终回归与探索测试结果；缺陷处置记录；回滚和监控就绪证据 | RC 证据对应准确构建；Blocker 清零或已有正式处置决定 |\n| Go/No-Go | T-2～T-1（11/15～11/16） | 决策证据包；门禁状态；剩余风险、责任人和条件；授权决策记录 | 授权决策者针对明确版本、范围和证据作出决定 |\n\n**当前门禁看板（基于已提供信息）：**\n\n| 门禁 | 当前状态 | T-1 放行要求 |\n|---|---|---|\n| 范围 | `UNKNOWN` | 发布清单与“不进本版”清单一致 |\n| 功能质量 | `UNKNOWN` | 支付和优惠券 P0 回归有当前 RC 证据；无未接受 Blocker |\n| 性能 | `UNKNOWN` | 定向抽查完成，结果符合已有 SLO/容量基线 |\n| 安全 | `UNKNOWN` | 定向检查完成；无未接受的严重或高危问题 |\n| 运维 | `UNKNOWN` | 回滚步骤可用，监控与告警就绪，Owner 明确 |\n| 正式决策 | `PENDING` | 有授权决策者、版本/范围、批准时间和证据来源 |\n\n## 3. 本窗口证据与队列（按风险优先）\n\n| 优先级 | 风险与验证重点 | 必须留下的证据 | 建议 Owner |\n|---|---|---|---|\n| **P0-1** | 支付回调造成重复入账/履约、漏单或错误订单状态；校验签名、订单与金额绑定、重复/重放、乱序、重试和超时 | 回调请求与订单状态转换记录；幂等与异常场景结果；账务/订单一致性核对 | 支付服务负责人、QA |\n| **P0-2** | 优惠券规则造成错误折扣或资金损失；校验适用范围、门槛、叠加、金额精度、过期、限额及并发领取/使用 | 边界与并发用例结果；价格计算与支付金额一致性证据；失败回滚记录 | 优惠券负责人、产品/财务规则 Owner、QA |\n| **P0-3** | 回调或优惠券接口可被伪造、越权或篡改 | 签名绕过/重放、用户或券 ID 越权、金额/规则参数篡改等抽查记录；缺陷等级和修复复测证据 | 安全负责人、服务 Owner |\n| **P1** | 结算、回调重试或券校验在目标负载下变慢、超时或引发级联故障 | 代表性负载及峰值假设、延迟/错误率/资源结果、与基线对比、异常后的恢复表现 | 性能负责人、SRE |\n\n性能阈值须引用现有 SLO、容量目标或经确认的流量模型，**不要临时编造数字**。若抽查发现支付成功率、订单一致性或系统稳定性受影响，应升级为 P0 发布风险。\n\n## 4. 缺陷与剩余风险\n\n目前没有提供已知缺陷或历史发布问题，因此缺陷状态为 `UNKNOWN`，不是“无缺陷”。每项至少记录：严重级别、影响链路、复现证据、修复版本、复测结果、是否接受风险及接受人。\n\nT-1 前不得接受以下未处置情况：支付金额或订单状态不一致、重复扣款/重复履约、优惠券计算错误、严重安全问题，或使关键交易链路不可用的性能问题。\n\n## 5. 交接说明（下一 skill）\n\n- **T-14 规划** → `test-strategy`、`requirements-analysis`：提供发布范围、业务规则、风险排序和门禁目标。\n- **T-10～T-8 准备** → `automation-testing`：提供预发环境、测试数据和回归集范围。\n- **T-7 功能冻结** → `functional-testing`、`test-case-writing`：针对冻结版本和支付/优惠券 P0 场景收集证据。\n- **T-5～T-4 专项** → 分别交接给 `performance-testing` 与 `security-testing`：注明候选版本、目标链路、负载/安全范围和验收阈值来源。\n- **T-3 RC** → `manual-testing`：针对 RC 做最终回归和探索补洞。\n- **T-2～T-1 决策包** → `test-reporting`：汇总版本、范围、门禁状态、缺陷、剩余风险和证据来源。\n\n## 6. Go/No-Go 评估\n\n现在处于规划阶段，尚无测试结果，因此**当前不能建议 Go**，也不能把计划当作通过证据。到 T-1：\n\n- **Go**：范围、质量、性能、安全、运维门禁均有当前 RC 证据；无未接受 Blocker/高风险；授权决策记录完整。\n- **No-Go**：任一关键门禁为 `FAIL`；或支付/优惠券 P0 风险未解决；或必要证据仍为 `UNKNOWN`。\n- **条件放行**：写明可验证的条件、验收人、截止时间；条件未满足时自动转为 No-Go。不能用“继续观察”替代条件。\n\n## 7. 假设与开放问题\n\nT-14 需要确认：实际发布日和候选版本标识、完整发布清单与冻结规则、支付及优惠券业务规则、预发环境和测试数据、性能 SLO/流量基线、安全抽查边界、回滚方案、监控阈值及 Owner、最终授权决策者。若这些信息未及时补齐，对应门禁保持 `UNKNOWN`；到 T-1 仍缺关键证据时按 No-Go 处理。",
+      "observed_version": "0.166.0"
+    },
+    {
+      "case_id": "edge-incomplete-input",
+      "title": "发布工作流：信息不全仍给初版",
+      "status": "PASS",
+      "duration_ms": 52392,
+      "turns": 1,
+      "input_tokens": 216423,
+      "output_tokens": 4504,
+      "grading": {
+        "status": "PASS",
+        "turns_executed": 1,
+        "turns_total": 1,
+        "assertion_results": [
+          {
+            "text": "expect.must_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.must_not_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.exit_code",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "output_contains{all:[T-14 UNKNOWN]}",
+            "passed": true,
+            "evidence": "output satisfies all contains checks (all:[T-14 UNKNOWN])"
+          }
+        ],
+        "summary": {
+          "passed": 4,
+          "failed": 0,
+          "total": 4,
+          "pass_rate": 1
+        }
+      },
+      "configuration": "with_skill",
+      "prompt": "请用 release-testing-workflow 并用中文回复。\n我只知道「快要发版了，帮我安排发布测试」，没有确切日期、变更列表、环境与验收标准。\n请给出从 T-14 到 T+1 的发布测试节奏初版，将未评估门禁标为 `UNKNOWN`，并列出必须补齐的信息。标题可以不同。\n",
+      "response": "# 初版发布测试节奏（T-14 至 T+1）\n\n这是一份**待补上下文的排期初稿**。这里的 `T` 指实际发布日；当前发布日、版本和范围均为 `UNKNOWN`，因此无法判断现在处于哪个窗口。没有提供测试结果时，门禁标为 `UNKNOWN`，不推断为通过或未执行。\n\n## 1. 发布背景与范围\n\n- 发布日期与时区：`UNKNOWN`\n- 候选版本、构建号或 Commit：`UNKNOWN`\n- 本次发布范围与排除项：`UNKNOWN`\n- 发布方式（一次发布、灰度等）：`UNKNOWN`\n- 测试环境与验收标准：`UNKNOWN`\n\n## 2. 时间线与门禁看板\n\n| 窗口 | 主要工作 | 退出证据 | 建议 Owner | 状态 |\n|---|---|---|---|---|\n| **T-14 规划** | 确定范围、风险、依赖、冻结规则、测试计划与责任人 | 发布测试计划、风险排序、Owner 清单 | 发布 QA、产品、开发负责人；姓名待定 | `UNKNOWN` |\n| **T-10～T-8 准备** | 检查预发环境、CI、测试数据和回归集；建立基线 | 环境可测记录、回归集版本、数据准备记录 | QA 自动化、环境/CI Owner；姓名待定 | `UNKNOWN` |\n| **T-7 功能冻结验证** | 确认冻结范围与变更审批规则；执行关键路径和回归 | 冻结范围、受控变更清单、当前候选版本的测试证据 | 功能 QA、模块 Owner；姓名待定 | `UNKNOWN` |\n| **T-5～T-4 专项测试** | 按确认适用范围执行性能、安全、无障碍、合规等专项 | 专项结论、未关闭高风险项与处置记录 | 对应专项 Owner；姓名待定 | `UNKNOWN` |\n| **T-3 候选版本** | 固定 RC 版本；完成最终回归与探索性测试；复测缺陷 | 版本/构建标识、回归报告、缺陷与复测记录 | 发布 QA、模块 Owner；姓名待定 | `UNKNOWN` |\n| **T-2～T-1 Go/No-Go** | 汇总证据、缺陷、剩余风险、回滚和监控准备；提交授权决策 | 完整证据包、决策者及其对具体版本和范围的审批记录 | 发布负责人、授权决策者；姓名待定 | `UNKNOWN`；正式批准为 `PENDING` |\n| **T+0 发布** | 按批准范围执行发布；完成发布后冒烟检查，按既定阈值决定继续、停止或回滚 | 部署记录、冒烟结果、监控记录、停止/回滚决策记录 | 发布/运维 Owner、值班 Owner；姓名待定 | `UNKNOWN` |\n| **T+1 发布后** | 复核观测数据与事件；整理新缺陷、遗留风险和后续动作 | 观测摘要、事件/缺陷清单、复盘与后续责任人 | 值班 Owner、QA、产品/开发负责人；姓名待定 | `UNKNOWN` |\n\n## 3. 发布门禁\n\n| 门禁 | 判据 | 当前状态 |\n|---|---|---|\n| **范围门禁** | 发布内容与书面范围、排除项及冻结规则一致 | `UNKNOWN` |\n| **质量门禁** | 无未接受的 Blocker；约定的 P0 回归有证据；适用专项无未接受的高风险项 | `UNKNOWN` |\n| **运维门禁** | 回滚步骤可用；监控、告警、值班与停止条件明确 | `UNKNOWN` |\n| **决策门禁** | 证据包齐全，并由授权决策者对明确版本和范围作出记录 | `UNKNOWN`；批准状态 `PENDING` |\n\n当前没有足够信息形成 Go/No-Go 建议。到 T-2～T-1 时，应基于当时的版本证据、缺陷和风险再给建议；未满足的门禁必须保留为缺口。\n\n## 4. 证据、缺陷与剩余风险\n\n目前没有收到发布范围、构建信息、测试报告、缺陷清单、回滚方案或监控阈值等材料，因此这些证据及已知缺陷状态均为 `UNKNOWN`。这表示**尚无可核实的评估结果**，不代表测试通过，也不代表已确认未执行。\n\n## 5. 下一步交接\n\n- **T-14 规划 → `test-strategy`、`requirements-analysis`**：带上发布日期、版本范围、排除项、业务关键路径和风险；当前信息均为 `UNKNOWN`。\n- **T-10～T-8 准备 → `automation-testing`、`test-strategy`**：带上环境、CI、回归集和测试数据要求。\n- **T-7 功能冻结 → `test-case-writing`、`functional-testing`**：带上冻结范围、候选版本和关键验收标准。\n- **T-5～T-4 专项 → 按适用项交接 `performance-testing`、`security-testing` 或 `accessibility-testing`**：适用性待确认；每次交接明确专项范围、版本和门禁。\n- **T-3 候选版本 → `manual-testing`、`functional-testing`**：带上 RC 标识、回归范围和已知缺陷。\n- **T-2～T-1 决策 → `test-reporting`**：带上当前版本的测试证据、缺陷与风险、回滚和监控就绪情况。\n\n## 6. 必须补齐的信息\n\n**先补齐，以便把相对排期变成实际日历计划：**\n\n1. 发布日期、时间、时区，以及版本/构建标识。\n2. 发布范围、明确排除项、依赖和变更清单；冻结时间与冻结后的变更规则。\n3. 发布负责人、各阶段 Owner、授权 Go/No-Go 决策者。\n4. 关键业务路径、验收标准、必跑回归集，以及缺陷严重级别和风险接受规则。\n5. 测试环境、CI 状态、测试数据准备方式和候选版本的交付方式。\n6. 性能、安全、无障碍、合规等专项的适用性与验收标准。\n7. 发布/灰度策略、回滚步骤与负责人；监控指标、阈值来源、停止/回滚条件、值班安排和观测时长。\n\n**假设：**以上 T-N 窗口是标准节奏示例，需按真实发布日调整；排期可以压缩或合并，但发布门禁判据不能省略。",
+      "observed_version": "0.166.0"
+    },
+    {
+      "case_id": "edge-gates-handoff",
+      "title": "发布工作流：进出标准与执行 skill 交接",
+      "status": "PASS",
+      "duration_ms": 58242,
+      "turns": 3,
+      "input_tokens": 154351,
+      "output_tokens": 4328,
+      "grading": {
+        "status": "PASS",
+        "turns_executed": 3,
+        "turns_total": 1,
+        "assertion_results": [
+          {
+            "text": "expect.must_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.must_not_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.exit_code",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "output_contains{all:[进入标准 交接]}",
+            "passed": true,
+            "evidence": "output satisfies all contains checks (all:[进入标准 交接])"
+          }
+        ],
+        "summary": {
+          "passed": 4,
+          "failed": 0,
+          "total": 4,
+          "pass_rate": 1
+        }
+      },
+      "configuration": "with_skill",
+      "prompt": "使用 release-testing-workflow 并用中文回复。\n场景：功能冻结未过不得进入 RC；阻塞缺陷未清不得 Go；专项测试需在 T-5～T-4 完成。\n请写清发布阶段进出标准/门禁，并说明如何交接给执行类 skill（如 performance-testing、security-testing、test-reporting——只写 skill 名与交接要点，不要给其他 skill 的文件路径链接）。\n",
+      "response": "## 1. 发布背景与范围\n\n以下按相对发布日期 **T** 定义阶段与门禁，落实三个硬约束：\n\n- **功能冻结未通过，不得进入 RC。**\n- **阻塞缺陷未清，不得 Go。**\n- **必选专项测试必须在 T-5～T-4 完成，并形成报告。**\n\n目前没有具体版本、发布日期、范围或测试证据，因此这是一份流程规则，不代表某个实际版本已通过门禁。\n\n## 2. 时间线定位与门禁看板\n\n| 阶段 | 窗口 | 进入标准 | 退出标准与门禁 |\n|---|---|---|---|\n| 发布规划 | T-14 | 发布意图和目标日期明确 | 发布范围、排除项、风险排序、测试计划、负责人和时间点明确。 |\n| 准备 | T-10～T-8 | 计划已评审，范围初步明确 | 预发环境可测；回归集基线、测试数据、CI 和环境负责人就绪。 |\n| 功能冻结验证 | T-7 | 功能范围已书面确认；候选构建和变更记录可追踪 | P0 功能路径有测试证据；冻结范围及例外变更清单明确。**冻结未通过时停留在此阶段，不得进入 RC。** |\n| 专项测试 | T-5～T-4 | 功能冻结已通过；测试构建、环境、范围和基线可用 | 必选性能、安全、无障碍等专项在窗口内完成，并提交结果、问题和剩余风险。未完成或缺少报告即未过门禁，不得把计划当结果。 |\n| 候选版本（RC） | T-3 | 功能冻结门禁通过；必选专项已在 T-5～T-4 完成且结论可审阅 | RC 版本号或构建标识固定；最终回归完成；缺陷及其处置清单完整。阻塞缺陷可以仍在处理，但未清除前不得 Go。 |\n| Go/No-Go | T-2～T-1 | RC 证据包齐备；质量、运维和风险状态可审阅 | 授权决策者对明确的版本和范围作出决定，并记录时间和证据来源。阻塞缺陷未清时结论为 **No-Go**。 |\n| 发布与观察 | T+0～ | 已有授权 Go 决策；发布批次、监控和回滚条件明确 | 完成部署与冒烟检查；监控、值班和升级路径运行；观察结束后记录结果与遗留问题。 |\n\n**当前看板（依据本次提供的信息）：**功能冻结、专项结果、缺陷状态、P0 回归及运维就绪度均为 `UNKNOWN`；没有授权批准记录，正式批准状态为 `PENDING`。这些状态需要由对应证据更新。\n\n## 3. 本窗口证据与队列\n\n每个门禁都应记录版本或构建标识、测试范围、执行环境、执行时间、结果、缺陷及证据来源。缺少结果时标为 `UNKNOWN`；只有明确未执行时才标为 `NOT_RUN`。旧版本或已过期证据不能证明当前候选版本通过。\n\nT-5～T-4 的专项报告至少应包含：\n\n- 所测版本、构建标识、范围和环境；\n- 覆盖项目、执行结果及证据；\n- 发现的问题、风险等级、负责人和处置状态；\n- 未覆盖内容及其原因。\n\n如果专项没能在规定窗口内完成，应标记门禁未通过并调整发布安排；不能将专项延期解释为已满足门禁。\n\n## 4. 缺陷与剩余风险\n\n- **阻塞缺陷：**必须修复、复测并确认关闭，才可 Go。未关闭时不得用风险接受或“条件放行”绕过此门槛。\n- **高风险项：**须有明确的处置结论、负责人和证据；未接受的高风险项阻止 Go。\n- **非阻塞遗留项：**若允许带入发布，须记录影响、负责人、处理期限和验收方式。条件放行还须写明条件未满足时是否自动转为 No-Go。\n- RC 阶段发现的问题应及时更新缺陷清单和回归结果；修复导致候选构建变化时，相关证据须对应新的构建重新确认。\n\n## 5. 交接说明（下一 Skill）\n\n交接时只点名 Skill，并附上版本/构建标识、测试范围、门禁状态、已知缺陷、环境和所需证据。专项测试一次交接一个主 Skill，避免范围和结果归属不清。\n\n| 阶段 | Skill | 交接要点 |\n|---|---|---|\n| 发布规划 | `test-strategy`、`requirements-analysis` | 发布范围与排除项、风险、必选测试、负责人、T 日计划。 |\n| 准备 | `automation-testing`、`test-strategy` | 目标构建、环境、回归集基线、数据、CI 状态及未就绪项。 |\n| 功能冻结验证 | `test-case-writing`、`functional-testing` | 冻结范围、受控变更清单、P0 路径、验收条件和结果证据。 |\n| T-5～T-4 专项 | `performance-testing`、`security-testing`、`accessibility-testing` | 每次指定一个专项主 Skill；给出目标构建、范围、环境、基线、阈值来源及报告截止时间；要求返回发现、证据、限制和风险。 |\n| RC 最终回归 | `manual-testing`、`functional-testing`、`bug-reporting` | 固定 RC 构建、回归范围、已知缺陷、复测要求及缺陷关闭证据。 |\n| Go/No-Go 与发布后回顾 | `test-reporting` | 汇总各门禁状态、缺陷、高风险项、回滚与监控就绪度、建议结论及尚待授权的决定；发布后补入观察结果。 |\n\n## 6. Go/No-Go 评估\n\n目前未提供某个具体版本的证据，因此不能给出实际 Go 结论。正式 Go 至少要求：\n\n1. 功能冻结门禁为 `PASS`，且当前 RC 构建与冻结验证范围对应；\n2. 必选专项已在 T-5～T-4 完成并有可审阅报告；\n3. 阻塞缺陷为零，P0 回归通过；\n4. 无未接受的高风险项；\n5. 回滚步骤、监控和告警就绪；\n6. 版本、范围、批准者、批准时间及证据来源有记录。\n\n阻塞缺陷未清时结论为 **No-Go**。AI 或 QA 的输出是放行建议；若授权记录缺失，正式批准状态仍为 `PENDING`。\n\n## 7. 假设与开放问题\n\n本流程假定 T 为计划发布日期，且项目会明确哪些专项是必选项。实际排期和看板还需补充：发布日、版本与范围、功能冻结状态、RC 构建标识、阻塞缺陷清单、必选专项及负责人，以及回滚和监控条件。",
+      "observed_version": "0.166.0"
+    },
+    {
+      "case_id": "review-repair-regression",
+      "title": "release-testing-workflow: sourced repair regression",
+      "status": "PASS",
+      "duration_ms": 94612,
+      "turns": 1,
+      "input_tokens": 222944,
+      "output_tokens": 7903,
+      "grading": {
+        "status": "PASS",
+        "turns_executed": 1,
+        "turns_total": 1,
+        "assertion_results": [
+          {
+            "text": "expect.must_not_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.exit_code",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "script: skills/zh/testing-workflows/release-testing-workflow/evals/graders/review-repair-regression.py",
+            "passed": true,
+            "evidence": "Exact fixture decisions passed; semantic explanation remains separately reviewable"
+          }
+        ],
+        "summary": {
+          "passed": 3,
+          "failed": 0,
+          "total": 3,
+          "pass_rate": 1
+        }
+      },
+      "configuration": "with_skill",
+      "prompt": "Use release-testing-workflow.\n只分析以下脱敏静态材料，不执行外部操作。按主 Prompt 给出理由、来源、信息缺口和最小验证。最后附表 `ID | DECISION | Evidence`，每个 ID 一行，DECISION 使用所给枚举之一。PASS/FAIL 只表示材料比较，不代表真实测试执行。\nAllowed DECISION values: NO_GO, READY.\n\nR1: P0 regression passed for build b42; required security suite not run; no approval owner/time. R2: 30-minute hotfix for build b43; narrow impact and exclusions documented; required regression and security passed; rollback ready; monitoring and alert readiness are ready; no open blockers remain; the authorized owner Lin approved the documented b43 scope at approval time 2026-10-30T14:00Z with evidence record approval-43. Do not change facts or execute a release. Classify release evidence readiness; keep AI advice separate from the recorded approval.\n",
+      "response": "### 1. 发布背景与范围\n\n以下判断仅基于本轮提供的脱敏材料，R1（build b42）与 R2（build b43）分别评估，不把 b42 的证据转用于 b43。未运行测试、未访问底层报告，也未执行发布操作。\n\n### 2. 时间线定位与门禁看板\n\n发布日期和 T 日未提供；R2 只说明热修窗口为 30 分钟，因此无法定位具体 T 窗口。按主 Prompt，热修可以压缩时间，但不能省略门禁。\n\n| 项目 | 范围门禁 | 质量门禁 | 运维门禁 | 决策门禁 |\n|---|---|---|---|---|\n| R1 / b42 | `UNKNOWN`：未给范围与排除项 | `BLOCKED`：P0 回归材料状态 `PASS`；必需安全套件 `NOT_RUN` | `UNKNOWN`：未给回滚、监控和告警信息 | `PENDING`：缺授权 Owner、批准时间及记录 |\n| R2 / b43 | `PASS`：窄影响范围与排除项已记录 | `PASS`：材料称必需回归、安全均通过，且无未解决 blocker | `PASS`：材料称回滚、监控与告警就绪 | `PASS`：Lin 对 b43 记录范围的批准含时间及记录 ID |\n\n这里的 `PASS` 仅表示材料中有相应陈述或记录，不代表我执行或独立验证了测试。\n\n### 3. 本窗口证据与最小验证\n\n- **R1 来源：**本轮提供的 R1 材料。它明确称 b42 的 P0 回归通过、安全套件未运行，并且缺少批准 Owner 和时间。最小补证是取得对应 **b42** 的安全套件结果、确认范围/排除项及回滚和监控准备情况，并补齐授权批准记录。当前安全门禁未满足，因此为 `NO_GO`。\n- **R2 来源：**本轮提供的 R2 材料。它称 b43 的必需回归和安全检查已通过，运维准备就绪、无未解决 blocker，并记录了授权人 Lin 对文档化范围的批准。最小静态核对是确认回归与安全结果对应 b43 和该范围，且 `approval-43` 的记录仍覆盖当前候选版本与范围；本次未做这些底层材料核验。\n\n### 4. 缺陷与剩余风险\n\nR1 未提供 blocker、缺陷清单或剩余风险信息，不能据此推断为零。R2 明确称无未解决 blocker，但未提供缺陷/剩余风险明细，也没有回归、安全、回滚和监控材料的直接引用；因此可以判断摘要层面的证据就绪，尚不能独立复核这些陈述与 b43 的对应关系。R2 的批准时间和记录已提供，但批准有效期及之后是否变更版本或范围未知。\n\n### 5. 交接说明\n\n- **R1：**若后续进入专项执行，交接 `security-testing`，上下文为 b42、必需安全套件 `NOT_RUN`；门禁补齐后再由 `test-reporting` 汇总 Go/No-Go 证据。\n- **R2：**进入 Go/No-Go 证据汇总时交接 `test-reporting`，带上 b43 范围与排除项、回归/安全结果引用、剩余风险，以及 `approval-43`。\n\n以上仅为 AI 对证据就绪度的建议。R2 的正式批准是材料中记录的 Lin 批准，不是 AI 作出的批准；本次没有作出或执行发布决定。\n\n### 6. Go/No-Go 评估\n\n- **R1：`NO_GO`。** 必需安全套件明确未运行；授权批准状态为 `PENDING`，且范围与运维门禁信息缺失。\n- **R2：`READY`（基于所给材料摘要）。** 材料覆盖范围、质量、运维和授权批准门禁；仍需注意上节列出的独立复核缺口。\n\n### 7. 假设与开放问题\n\n- R1、R2 是独立候选，不假定 R2 继承或修复了 R1 的证据。\n- 发布日期、生产/灰度批次、观察时长、告警阈值与值班 Owner 均未提供，无法进一步评估发布后观察安排。\n- R2 若候选 build 或批准范围自 `approval-43` 记录后发生变化，需重新核对批准覆盖范围。\n\n| ID | DECISION | Evidence |\n|---|---|---|\n| R1 | NO_GO | R1 材料称 b42 的 P0 回归通过，但必需安全套件未运行；批准 Owner/时间缺失，记为 `PENDING`。范围及运维准备信息也缺失。 |\n| R2 | READY | R2 材料称 b43 范围与排除项已记录，必需回归和安全通过，回滚及监控告警就绪、无未解决 blocker；并提供 Lin 的授权批准时间和 `approval-43`。 |",
+      "observed_version": "0.166.0"
+    },
+    {
+      "case_id": "expired-quality-evidence",
+      "title": "发布就绪：过期的质量证据不得继续 PASS",
+      "status": "PASS",
+      "duration_ms": 64065,
+      "turns": 1,
+      "input_tokens": 231500,
+      "output_tokens": 5059,
+      "grading": {
+        "status": "PASS",
+        "turns_executed": 1,
+        "turns_total": 1,
+        "assertion_results": [
+          {
+            "text": "expect.must_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.must_not_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.exit_code",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "output_contains{all:[有效期 STALE UNKNOWN Go]}",
+            "passed": true,
+            "evidence": "output satisfies all contains checks (all:[有效期 STALE UNKNOWN Go])"
+          }
+        ],
+        "summary": {
+          "passed": 4,
+          "failed": 0,
+          "total": 4,
+          "pass_rate": 1
+        }
+      },
+      "configuration": "with_skill",
+      "prompt": "请使用 release-testing-workflow 并用中文回复。发布版本是 v3.8.0，当前 Commit 为 cccc。唯一测试报告来自旧 Commit bbbb，生成于 2026-10-01，有效期到 2026-10-15，今天是 2026-10-30。请将旧报告标为 `STALE`，将当前测试结果标为 `UNKNOWN`，区分证据过期、未运行和待补证，不要无条件建议 Go。",
+      "response": "### 1. 发布背景与范围\n\n- 版本：`v3.8.0`\n- 当前 Commit：`cccc`\n- 当前日期：`2026-10-30`（按你提供的日期）\n- 发布范围、排除项和发布日期：**UNKNOWN**\n\n### 2. 时间线定位与门禁看板\n\n缺少计划发布日期，无法确定当前处于哪个 T 窗口。\n\n| 项目 | 状态 | 依据 |\n|---|---|---|\n| 唯一现有测试报告 | `STALE` | 报告来自旧 Commit `bbbb`，且有效期于 `2026-10-15` 结束；不能证明 `cccc` 的质量 |\n| 当前候选版本测试结果 | `UNKNOWN` | 没有 `cccc` 对应的有效测试结果 |\n| 测试是否未运行 | `UNKNOWN` | 现有信息没有说明测试是否执行；只有确认未执行时才标为 `NOT_RUN` |\n| 范围门禁 | `UNKNOWN` | 未提供范围及排除项 |\n| 质量门禁 | `BLOCKED` | 当前候选版本缺少有效测试证据；这表示证据门禁未满足，不表示测试失败 |\n| 回滚与监控门禁 | `UNKNOWN` | 未提供相关证据 |\n| 正式发布批准 | `PENDING` | 未提供授权决策者及批准记录 |\n\n### 3. 本窗口证据与队列\n\n待补证：为 `v3.8.0` / `cccc` 提供当前测试报告，包含执行日期、环境、范围、结果和缺陷信息。若确认尚未运行，则先标记 `NOT_RUN`，执行后再更新结果。\n\n同时需要补充发布范围、必需专项、未关闭缺陷、回滚方案和监控就绪情况。当前未提供 Owner 或完成时间。\n\n### 4. 缺陷与剩余风险\n\n缺陷状态未知，不能推断“无缺陷”；回滚和监控 readiness 也无法确认。\n\n### 5. 交接说明\n\n当前候选版本回归：交接 `manual-testing`，上下文为 `v3.8.0`、Commit `cccc`，并附发布范围、必需门禁及旧报告 `STALE` 的说明。证据收齐后交接 `test-reporting` 汇总放行建议。\n\n### 6. Go/No-Go 评估\n\n**当前建议：No-Go（暂缓放行）。** 当前证据不足以支持 Go；这是证据门禁结论，不是测试失败结论。取得 `cccc` 的有效结果并完成其他适用门禁后，再重新评估。正式批准仍为 `PENDING`。\n\n### 7. 假设与开放问题\n\n仍需确认计划发布日期、发布范围与排除项、`cccc` 的测试是否执行、缺陷情况，以及回滚和监控准备情况。",
+      "observed_version": "0.166.0"
+    },
+    {
+      "case_id": "approval-boundary",
+      "title": "发布就绪：缺少决策者记录时保持待授权",
+      "status": "PASS",
+      "duration_ms": 72419,
+      "turns": 1,
+      "input_tokens": 383957,
+      "output_tokens": 6408,
+      "grading": {
+        "status": "PASS",
+        "turns_executed": 1,
+        "turns_total": 1,
+        "assertion_results": [
+          {
+            "text": "expect.must_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.must_not_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.exit_code",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "output_contains{all:[PENDING 批准]}",
+            "passed": true,
+            "evidence": "output satisfies all contains checks (all:[PENDING 批准])"
+          }
+        ],
+        "summary": {
+          "passed": 4,
+          "failed": 0,
+          "total": 4,
+          "pass_rate": 1
+        }
+      },
+      "configuration": "with_skill",
+      "prompt": "请使用 release-testing-workflow。测试报告均已提供，但没有授权发布决策者、批准时间或批准范围记录。给出质量建议并明确正式批准状态，正式批准状态请精确输出大写状态码 `PENDING`，不要代替任何人批准发布。",
+      "response": "### 1. 发布背景与范围\n\n你说明测试报告均已提供。本轮可见信息没有报告正文，也没有候选版本、发布范围或排除项，因此无法核对报告是否对应本次待发布构建。\n\n### 2. 时间线与门禁看板\n\n未提供计划发布日期，当前 T 窗口为 `UNKNOWN`。\n\n| 门禁 | 状态 | 说明 |\n|---|---|---|\n| 发布范围 | `UNKNOWN` | 缺少版本、构建标识及范围清单 |\n| 质量结果 | `UNKNOWN` | 报告已提供，但本轮无法核对具体结果、缺陷和风险 |\n| 回滚与监控 | `UNKNOWN` | 未提供回滚方案、监控阈值或值班安排 |\n| 正式决策 | `PENDING` | 缺少授权决策者、批准时间和批准范围记录 |\n\n### 3. 本窗口证据与队列\n\n先确认每份报告对应的候选版本或提交、测试环境与时间、覆盖范围、结果摘要、未关闭缺陷及其风险接受记录。再将报告覆盖范围与拟发布范围逐项对齐，并补齐回滚和发布后监控证据。\n\n### 4. 缺陷与剩余风险\n\n目前不能判断是否存在 Blocker 或高风险未关闭项。已知的主要风险是：没有批准范围记录，无法确认拟发布内容与已测试内容一致。\n\n### 5. 交接说明\n\n建议交给 `test-reporting` 汇总 Go/No-Go 决策包，随附候选版本、发布范围、报告结论、未关闭缺陷、剩余风险、回滚方案及监控安排。\n\n### 6. Go/No-Go 评估\n\n**质量建议：暂缓实际放行，直至授权决策者审阅证据，并记录对应版本与范围、批准时间及决策来源。** 报告齐备本身不能替代正式批准，也不能据此推断报告结论为通过。\n\n正式批准状态：`PENDING`\n\n### 7. 假设与开放问题\n\n以上以“测试报告均已提供”为前提；报告详细内容、发布日、候选版本、范围和运维准备情况在本轮未能核实。当前建议不构成任何人的正式发布批准。",
+      "observed_version": "0.166.0"
+    },
+    {
+      "case_id": "comparison-release-readiness",
+      "title": "Release Readiness 有/无 Skill 对照",
+      "status": "PASS",
+      "duration_ms": 56888,
+      "turns": 1,
+      "input_tokens": 346825,
+      "output_tokens": 5157,
+      "grading": {
+        "status": "PASS",
+        "turns_executed": 1,
+        "turns_total": 1,
+        "assertion_results": [
+          {
+            "text": "expect.must_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.must_not_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.exit_code",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "output_contains{all:[P1 UNKNOWN 待授权决策]}",
+            "passed": true,
+            "evidence": "output satisfies all contains checks (all:[P1 UNKNOWN 待授权决策])"
+          }
+        ],
+        "summary": {
+          "passed": 4,
+          "failed": 0,
+          "total": 4,
+          "pass_rate": 1
+        }
+      },
+      "configuration": "with_skill",
+      "prompt": "请使用 release-testing-workflow 评估候选 RC-7。性能冒烟和 API 契约报告已有两周，且是在 RC-7 构建前生成的。安全证据为 UNKNOWN，仍有一个 P1 支付缺陷未关闭。没有授权决策人批准此次发布。请总结证据时效、阻断项、剩余风险、Go/No-Go 建议和正式审批状态。正式审批状态请明确写为“待授权决策”；不要代替任何人批准。\n",
+      "response": "## RC-7 发布评估\n\n**建议：NO-GO。** 当前发布证据不足，且有未关闭的 P1 支付缺陷；此结论是 QA 建议，不是正式发布决定。\n\n### 证据时效与门禁\n\n| 项目 | 状态 | 评估 |\n|---|---|---|\n| 性能冒烟 | `STALE` | 报告已有两周，且早于 RC-7 构建，不能证明 RC-7 的性能表现。 |\n| API 契约 | `STALE` | 同样早于 RC-7 构建，不能证明当前候选版本的契约兼容性。 |\n| 安全 | `UNKNOWN` | 没有可判定的安全结果；不能视为通过。 |\n| P1 支付缺陷 | `BLOCKED` | 缺陷仍未关闭。在修复并复测，或由授权决策人正式接受风险前，视为放行阻断项。 |\n| 发布范围、回滚与监控准备 | `UNKNOWN` | 本次未提供相应信息，无法确认这些门禁已满足。 |\n\n报告“已有两周”本身不能说明它们必然失效；关键问题是报告生成于 RC-7 构建之前，因此不能作为当前候选版本的有效证据。\n\n### 剩余风险与所需证据\n\n若按当前信息发布，支付缺陷仍未解决；RC-7 的性能和 API 契约表现没有新证据，安全状态也未知。风险影响和严重程度的更多细节、回滚及监控准备情况均未提供，无法评估。\n\n重新评估前，需针对**确切的 RC-7 构建**补齐性能、API 契约和安全结果；处理 P1 支付缺陷并留存复测结果，或取得授权决策人的明确风险接受记录；同时确认发布范围、回滚和监控准备。\n\n### 正式审批状态\n\n**PENDING（待授权决策）**——未提供授权决策人对 RC-7 的批准记录。本评估不构成批准。\n\n### 时间窗口与交接\n\n目前只能定位为 **RC / Go-No-Go 评估阶段**；未提供目标发布日期，无法判断具体 T-窗口。建议分别由 `performance-testing`、`security-testing` 补齐对应专项证据，再由 `test-reporting` 汇总证据、缺陷和剩余风险供授权决策人评审。具体负责人和完成时间尚未提供。\n\n本评估仅依据你提供的信息；未收到原始报告、RC-7 构建标识或其他门禁材料。",
+      "observed_version": "0.166.0"
+    }
+  ],
+  "archived_at": "2026-11-03T03:00:30.585628Z"
+}

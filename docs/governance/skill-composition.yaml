@@ -156,6 +156,99 @@
         "zh": "交接功能目标、输入输出样本、风险维度、评测数据和未运行项",
         "en": "Hand off feature goals, input/output samples, risk dimensions, evaluation data, and unrun items"
       }
+    },
+    {
+      "id": "pr-quality-review",
+      "label": {
+        "zh": "PR 质量审查",
+        "en": "PR quality review"
+      },
+      "intent": {
+        "zh": "审查 Pull Request 代码变更、测试影响、测试有效性并汇总质量证据",
+        "en": "Review a Pull Request diff, test impact, test effectiveness, and quality evidence"
+      },
+      "phase": {
+        "zh": "代码审查 / 测试影响 / 质量门禁",
+        "en": "Code review / test impact / quality gate"
+      },
+      "not_for": {
+        "zh": [
+          "只需单项代码审查时不要强行进入完整工作流",
+          "不能代替授权者评论或批准合并"
+        ],
+        "en": [
+          "Do not select the full workflow for a single code-review task",
+          "Does not post comments or approve merges on behalf of an authorized user"
+        ]
+      },
+      "primary": "pr-quality-review",
+      "handoff": {
+        "zh": "交接 PR ID、base/head SHA、Diff、验收标准、可用测试证据和权限范围",
+        "en": "Hand off PR ID, base/head SHA, diff, acceptance criteria, available test evidence, and permission scope"
+      },
+      "optional": null
+    },
+    {
+      "id": "requirement-to-test",
+      "label": {
+        "zh": "需求到测试设计",
+        "en": "Requirement to test design"
+      },
+      "intent": {
+        "zh": "用户明确要求从需求分析走到测试策略、用例与追踪矩阵",
+        "en": "The user explicitly requests requirement analysis through strategy, test cases, and traceability"
+      },
+      "phase": {
+        "zh": "需求质量 / 可测试性 / 测试设计",
+        "en": "Requirement quality / testability / test design"
+      },
+      "not_for": {
+        "zh": [
+          "只需澄清单条需求时优先单步需求分析",
+          "不替业务方补写未确认规则"
+        ],
+        "en": [
+          "Use a single requirement-analysis Skill for one clarification task",
+          "Does not invent unconfirmed business rules"
+        ]
+      },
+      "primary": "requirement-to-test",
+      "handoff": {
+        "zh": "交接需求 ID/原文、验收标准、业务约束、已确认风险和测试执行边界",
+        "en": "Hand off requirement IDs/text, acceptance criteria, business constraints, confirmed risks, and execution limits"
+      },
+      "optional": null
+    },
+    {
+      "id": "change-to-regression",
+      "label": {
+        "zh": "变更到回归计划",
+        "en": "Change to regression plan"
+      },
+      "intent": {
+        "zh": "用户明确要求从代码变更完成影响分析、回归选择和风险汇总",
+        "en": "The user explicitly requests change impact, regression selection, and risk synthesis"
+      },
+      "phase": {
+        "zh": "变更影响 / 回归规划",
+        "en": "Change impact / regression planning"
+      },
+      "not_for": {
+        "zh": [
+          "只需识别受影响模块时使用单步变更影响分析",
+          "不声称回归已执行"
+        ],
+        "en": [
+          "Use single-step impact analysis when only affected modules are requested",
+          "Does not claim regression has run"
+        ]
+      },
+      "primary": "change-to-regression",
+      "handoff": {
+        "zh": "交接 Diff、base/head SHA、模块/业务路径、测试清单、时间与环境限制",
+        "en": "Hand off diff, base/head SHA, modules/business paths, test inventory, time and environment limits"
+      },
+      "optional": null
     }
   ],
   "relations": [

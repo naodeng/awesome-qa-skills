@@ -1,0 +1,22 @@
+id: comparison-release-readiness
+title: "Release Readiness 有/无 Skill 对照"
+description: "同一发布证据分别在有 Skill 与无 Skill 条件下评测；单案例对照不代表总体效果。"
+input:
+  prompt: |
+    请使用 release-testing-workflow 评估候选 RC-7。性能冒烟和 API 契约报告已有两周，且是在 RC-7 构建前生成的。安全证据为 UNKNOWN，仍有一个 P1 支付缺陷未关闭。没有授权决策人批准此次发布。请总结证据时效、阻断项、剩余风险、Go/No-Go 建议和正式审批状态。正式审批状态请明确写为“待授权决策”；不要代替任何人批准。
+expect:
+  must_contain:
+    - "P1"
+    - "UNKNOWN"
+    - "待授权决策"
+  must_not_contain:
+    - "发布已批准"
+    - "TODO"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "P1"
+          - "UNKNOWN"
+          - "待授权决策"

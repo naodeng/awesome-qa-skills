@@ -1,0 +1,86 @@
+{
+  "record_version": "workflow-eval-run/v1",
+  "run_id": "skill-up-pr-quality-review-5669e45694a54ea0891ad07710f1dd59",
+  "workflow_id": "pr-quality-review",
+  "locale": "en-US",
+  "execution_type": "model_eval",
+  "runner": {
+    "name": "skill-up",
+    "version": "skill-up version 0.12.0"
+  },
+  "engine": {
+    "name": "codex",
+    "version": "codex-cli 0.166.0",
+    "model_id_reported": "not reported"
+  },
+  "engine_version_capture": "captured before run",
+  "repo_head_at_archive": "ed94f827f2f564c039ae6ca9111f85851ad3771f",
+  "worktree_state_at_archive": "dirty; 287 paths changed",
+  "input_fingerprint_capture": "captured before run",
+  "input_fingerprint": "798cd312dd1a584dc833dfc5fae360db0af0a571d59015ac7f5c6d90d0377b29",
+  "input_fingerprint_after": "798cd312dd1a584dc833dfc5fae360db0af0a571d59015ac7f5c6d90d0377b29",
+  "skill_package_sha256_at_start": "ebd427d26862cb20555979e418dce91eadd83f4d57cc9c6250c8854f408fd0b8",
+  "raw_result_sha256": "5cb8abe81299971395433d0d57d7a2250bfe2a4883aa379da5d17ac205cbc9c8",
+  "started_at": "2026-11-03T03:01:10.926780Z",
+  "finished_at": "2026-11-03T03:02:25.073844Z",
+  "summary": {
+    "case_count": 1,
+    "passed": 1,
+    "failed": 0,
+    "errors": 0,
+    "blocked": 0,
+    "unknown": 0,
+    "overall_status": "PASS"
+  },
+  "execution_notes": "Generated from the raw skill-up report. Input fingerprint was captured before execution; post-run fingerprint equality is available in this record.",
+  "redaction": "Absolute repository and ephemeral skill-up install prefixes in case data were replaced with repository-relative Skill paths. raw_result_sha256 identifies the unmodified report.",
+  "cases": [
+    {
+      "case_id": "comparison-pr-quality-review",
+      "title": "PR Quality Review comparison",
+      "status": "PASS",
+      "duration_ms": 73241,
+      "turns": 1,
+      "input_tokens": 381448,
+      "output_tokens": 5585,
+      "grading": {
+        "status": "PASS",
+        "turns_executed": 1,
+        "turns_total": 1,
+        "assertion_results": [
+          {
+            "text": "expect.must_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.must_not_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.exit_code",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "output_contains{all:[E-17 P0 P1 P2 test refund NOT_RUN UNKNOWN]}",
+            "passed": true,
+            "evidence": "output satisfies all contains checks (all:[E-17 P0 P1 P2 test refund NOT_RUN UNKNOWN])"
+          }
+        ],
+        "summary": {
+          "passed": 4,
+          "failed": 0,
+          "total": 4,
+          "pass_rate": 1
+        }
+      },
+      "configuration": "with_skill",
+      "prompt": "Review this refund change. Diff excerpt:\n```diff\n def refund_order(order, key):\n-    if find_refund(key): return existing_refund(key)\n-    provider.refund(order.payment_id)\n-    save_refund(key, \"completed\")\n+    provider.refund(order.payment_id)\n+    save_refund(key, \"completed\")\n```\nThe added test only asserts `response.status_code == 200`; it does not verify refund state or concurrent retries with the same idempotency key. Prior impact record E-17 identifies duplicate-refund risk. Report code risk, test impact and effectiveness, P0/P1/P2 findings, blockers, and sources. Do not run tests. Explicitly report execution status as `NOT_RUN` and CI status as `UNKNOWN`; do not claim tests passed.",
+      "response": "## Findings\n\n- **P1 — Same-key retries can issue duplicate refund requests.** The new code calls `provider.refund(order.payment_id)` on every invocation and saves the key only afterward. The excerpt shows no idempotency key passed to the provider, so sequential or concurrent retries can each trigger a refund request. This matches the duplicate-refund risk identified in E-17. **[S1, S3]**\n\n- **P2 — The added test is weak regression protection.** As described, it checks only `response.status_code == 200`. It does not establish that a refund occurred exactly once, verify the saved refund state, or exercise sequential or concurrent retries with the same key. It could miss the P1 defect. **[S2]**\n\n**P0:** None identified from the supplied excerpt.\n\n**Blockers:** Treat the P1 finding as an approval blocker until same-key retries are guaranteed to cause at most one refund and regression coverage checks the refund effect and state. The full provider/API behavior and E-17 record were not supplied, so I can’t verify whether the provider independently deduplicates requests or quantify the resulting financial impact.\n\n**Execution status:** `NOT_RUN` (as requested).  \n**CI status:** `UNKNOWN`.\n\n**Sources**\n\n- **[S1]** Supplied `refund_order` diff.\n- **[S2]** User-provided summary of the added test assertion.\n- **[S3]** E-17 impact record, as described in the request.",
+      "observed_version": "0.166.0"
+    }
+  ],
+  "archived_at": "2026-11-03T03:02:59.258454Z"
+}

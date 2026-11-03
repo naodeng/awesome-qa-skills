@@ -1,0 +1,28 @@
+{
+  "id": "route-single-impact-only",
+  "title": "Reverse: single impact analysis should not force a full workflow",
+  "description": "The user only wants affected modules, not a regression plan or end-to-end result.",
+  "input": {
+    "prompt": "Route with discover-testing: I only need to know which modules this commit affects; I do not need a regression plan or full workflow. Recommend one Skill."
+  },
+  "expect": {
+    "must_contain": [
+      "change-impact-analysis"
+    ],
+    "must_not_contain": [
+      "TODO"
+    ]
+  },
+  "judge": {
+    "type": "rule_based",
+    "success": [
+      {
+        "output_contains": {
+          "all": [
+            "change-impact-analysis"
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "id": "route-change-to-regression",
+  "title": "Explicit end state: change analysis through regression plan",
+  "description": "Impact analysis, regression selection, and risk synthesis should route to the workflow.",
+  "input": {
+    "prompt": "Route with discover-testing: I need a change-impact-to-regression plan, including required and deferrable tests and uncovered risk. The trusted installed inventory includes change-to-regression. Only route the request; do not inspect the workspace or analyze a diff."
+  },
+  "expect": {
+    "must_contain": [
+      "change-to-regression"
+    ],
+    "must_not_contain": [
+      "regression already ran",
+      "TODO"
+    ]
+  },
+  "judge": {
+    "type": "rule_based",
+    "success": [
+      {
+        "output_contains": {
+          "all": [
+            "change-to-regression"
+          ]
+        }
+      }
+    ]
+  }
+}

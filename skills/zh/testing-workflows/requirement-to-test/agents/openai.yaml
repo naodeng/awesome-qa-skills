@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "requirement-to-test"
+interface:
+  display_name: "需求到测试工作流"
+  short_description: "Use this skill when you need turn requirements into testable, risk-driven, traceable test design."
+  default_prompt: "Use the requirement-to-test skill to produce traceable, evidence-bounded workflow results."
+policy:
+  allow_implicit_invocation: true

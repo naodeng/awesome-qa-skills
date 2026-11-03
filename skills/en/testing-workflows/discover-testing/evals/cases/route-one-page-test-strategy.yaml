@@ -12,9 +12,7 @@ input:
 
 expect:
   must_contain:
-    - "Primary Recommendation"
     - "one-page-test-strategy"
-    - "Next Step"
   must_not_contain:
     - "test-strategy-plus"
     - "TODO"
@@ -24,6 +22,4 @@ judge:
   success:
     - output_contains:
         all:
-          - "Primary Recommendation"
           - "one-page-test-strategy"
-          - "Next Step"

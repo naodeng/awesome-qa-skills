@@ -1,0 +1,145 @@
+{
+  "schema_version": "1.0.0",
+  "id": "release-testing-workflow",
+  "version": "1.0.0",
+  "kind": "sequence",
+  "title": {
+    "zh": "发布测试工作流程",
+    "en": "Release Testing Workflow"
+  },
+  "summary": {
+    "zh": "按发布窗口组织范围、质量证据、风险和放行建议。",
+    "en": "Organize release scope, quality evidence, risk, and recommendation by release window."
+  },
+  "lifecycle_state": "UNASSESSED",
+  "inputs": [
+    {
+      "id": "user_request",
+      "required": true,
+      "description": "User request and available project evidence."
+    }
+  ],
+  "outputs": [
+    {
+      "id": "workflow_result",
+      "description": "Scoped result, evidence states, open gaps, and next handoff.",
+      "evidence_kind": "fact"
+    }
+  ],
+  "steps": [
+    {
+      "id": "scope",
+      "description": "Scope",
+      "skill_ids": [
+        "test-strategy"
+      ],
+      "prompt": "prompts/release-testing-workflow.md",
+      "depends_on": [],
+      "on_failure": "stop",
+      "permission": "read_only",
+      "approval_required": false
+    },
+    {
+      "id": "readiness",
+      "description": "Readiness",
+      "skill_ids": [
+        "production-verification",
+        "quality-gate-design"
+      ],
+      "prompt": "prompts/release-testing-workflow.md",
+      "depends_on": [
+        "scope"
+      ],
+      "on_failure": "stop",
+      "permission": "read_only",
+      "approval_required": false
+    },
+    {
+      "id": "specialist-evidence",
+      "description": "Specialist evidence",
+      "skill_ids": [
+        "performance-testing",
+        "security-testing",
+        "accessibility-testing"
+      ],
+      "prompt": "prompts/release-testing-workflow.md",
+      "depends_on": [
+        "scope",
+        "readiness"
+      ],
+      "on_failure": "stop",
+      "permission": "read_only",
+      "approval_required": false
+    },
+    {
+      "id": "go-no-go",
+      "description": "Go no go",
+      "skill_ids": [
+        "test-reporting"
+      ],
+      "prompt": "prompts/release-testing-workflow.md",
+      "depends_on": [
+        "scope",
+        "readiness",
+        "specialist-evidence"
+      ],
+      "on_failure": "stop",
+      "permission": "read_only",
+      "approval_required": false
+    },
+    {
+      "id": "post-release",
+      "description": "Post release",
+      "skill_ids": [
+        "production-verification"
+      ],
+      "prompt": "prompts/release-testing-workflow.md",
+      "depends_on": [
+        "scope",
+        "readiness",
+        "specialist-evidence",
+        "go-no-go"
+      ],
+      "on_failure": "stop",
+      "permission": "read_only",
+      "approval_required": false
+    }
+  ],
+  "failure_policy": {
+    "on_missing_dependency": "continue_with_limitations",
+    "on_blocked": "stop"
+  },
+  "permission_policy": {
+    "default": "read_only",
+    "approval_required_for": [
+      "execute_command",
+      "write_repo",
+      "external_write",
+      "publish",
+      "delete",
+      "release_approval"
+    ]
+  },
+  "checkpoint_policy": {
+    "host_runtime_required": true,
+    "fingerprint_fields": [
+      "inputs",
+      "commit_sha"
+    ],
+    "invalidate_on_change": [
+      "inputs",
+      "commit_sha"
+    ],
+    "automatic_replay": "side_effect_free_only"
+  },
+  "handoff": {
+    "required_fields": [
+      "workflow_id",
+      "source",
+      "status",
+      "open_gaps",
+      "next_step"
+    ]
+  },
+  "evidence_contract_version": "1.0.0"
+}

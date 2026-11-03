@@ -1,0 +1,32 @@
+{
+  "schema_version": "v1alpha1",
+  "environment": {
+    "type": "none"
+  },
+  "skills": [],
+  "engine": {
+    "name": "codex"
+  },
+  "cases": {
+    "files": [
+      "evals/cases/comparison-change-to-regression.yaml"
+    ],
+    "defaults": {
+      "timeout_seconds": 180,
+      "max_turns": 8,
+      "expect": {
+        "exit_code": 0,
+        "must_not_contain": [
+          "TODO",
+          "MEMORY.md",
+          "rollout_summaries/"
+        ]
+      }
+    }
+  },
+  "report": {
+    "formats": [
+      "json"
+    ]
+  }
+}

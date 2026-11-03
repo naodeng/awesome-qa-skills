@@ -1,26 +1,25 @@
 id: edge-incomplete-input
 title: "Release workflow: incomplete input still yields a draft"
 description: |
-  Missing exact date/SLA should still yield a release cadence draft with assumptions and gaps.
+    Missing exact date/SLA should still yield a T-14 to T+1 release cadence draft with unknown gates and missing-input prompts.
 
 input:
   prompt: |
-    Use release-testing-workflow.
+    Use release-testing-workflow. Respond in English.
     I only know "we're about to release—help plan release testing"—no date, change list, environment, or acceptance criteria.
-    Give a usable first draft of the release testing cadence and list the information we must fill in.
+    Give a usable first draft of the release testing cadence anchored at T-14 through T+1, mark unassessed gates `UNKNOWN`, and list the information we must fill in. Headings may vary.
 
 expect:
   must_contain:
-    - "assumption"
-    - "Open Questions"
+    - "T-14"
+    - "UNKNOWN"
   must_not_contain:
     - "TODO"
-    - "I cannot"
 
 judge:
   type: rule_based
   success:
     - output_contains:
         all:
-          - "assumption"
-          - "Open Questions"
+          - "T-14"
+          - "UNKNOWN"

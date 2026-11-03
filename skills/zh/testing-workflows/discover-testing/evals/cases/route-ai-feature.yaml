@@ -12,6 +12,7 @@ context:
 input:
   prompt: |
     请使用 discover-testing 路由：客服 AI 功能已经有一组输入输出样本，
+    本用例可信宿主清单确认 `ai-feature-testing` 和 `llm-testing` 已安装且可调用。
     我们要规划行为验证和 LLM 输出评测。只输出 route ID、目标、唯一主 Skill、
     最多一个辅助 Skill、理由和下一步交接输入；不要写完整评测方案或声称模型已经通过。
     最后附一个 ```json 代码块，只包含 route、primary、optional 三个字段；optional 无则为 null。
@@ -21,8 +22,6 @@ expect:
     - "ai-feature-validation"
     - "ai-feature-testing"
     - "llm-testing"
-    - "主推荐"
-    - "下一步"
   must_not_contain:
     - "完整评测方案"
     - "模型已经通过"

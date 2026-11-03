@@ -6,7 +6,7 @@
 
 ### 1. What does this project contain?
 
-A bilingual QA Agent Skills library for AI coding agents. Each language has 165 Skills: 10 testing workflows, 150 testing types, and 5 Skill Engineering packages, for 330 Skill directories total. Browse the [complete index](docs/catalog/skills-index_EN.md).
+A bilingual QA Agent Skills library for AI coding agents. Each language has 169 Skills: 14 `testing-workflows` packages, 150 testing types, and 5 Skill Engineering packages, for 338 Skill directories total. Browse the [complete index](docs/catalog/skills-index_EN.md).
 
 ### 2. Which AI tools are supported?
 
@@ -53,24 +53,28 @@ Markdown is the default. Support for Excel, CSV, JSON, and other formats depends
 
 Check the language source, the target tool's Skills directory, the Skill's `SKILL.md`, and whether the other language version with the same name is already installed. For Chinese CLI installs, select `skills/zh`. See the [installation guide](scripts/INSTALL_SKILLS_EN.md) for troubleshooting.
 
-### 11. Are community-recommended Skills part of this project?
+### 11. What do Workflows, evidence, and Evals mean here?
+
+Workflow documents define routing, stage handoffs, and gates. The local state CLI validates Run State and evidence records, but this repository does not provide an automatic scheduler or Host permission engine. Only an actually executed Eval with source, time, version, and input fingerprint is model-behavior evidence; schema and installation checks do not replace real Agent Host acceptance. See the [Workflow Contract](docs/workflows/WORKFLOW_CONTRACT_EN.md), [state CLI boundary](docs/workflows/WORKFLOW_STATE_RUNTIME_EN.md), and [compatibility matrix](docs/integrations/AGENT_COMPATIBILITY_MATRIX_EN.md).
+
+### 12. Are community-recommended Skills part of this project?
 
 No. The README's [community list](README_EN.md#community-recommended-external-skills) helps you discover Skills maintained by external projects. Check each upstream source for its license, version, dependencies, and compatibility; inclusion does not mean this repository has runtime-evaluated it.
 
 ## Contributing and license
 
-### 12. How do I add or update a Skill?
+### 13. How do I add or update a Skill?
 
 Read the [contribution guide](CONTRIBUTING_EN.md) and [Skill Authoring Guide](skills/SKILL_AUTHORING_EN.md). Skill changes must maintain bilingual directories, metadata, and Eval cases, and should pass the repository quality checks.
 
-### 13. How do I report a problem or request a Skill?
+### 14. How do I report a problem or request a Skill?
 
 Search [existing Issues](https://github.com/naodeng/awesome-qa-skills/issues) first. If there is no matching report, open an Issue with reproduction steps, use case, and expected result.
 
-### 14. What license does the project use?
+### 15. What license does the project use?
 
 This repository uses the [PolyForm Noncommercial License 1.0.0](LICENSE), which permits noncommercial use only. Community-recommended Skills retain their upstream licenses.
 
 ---
 
-**Last updated: 2026-10-26**
+**Last updated: 2026-11-02**

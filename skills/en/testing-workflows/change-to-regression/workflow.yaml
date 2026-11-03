@@ -1,0 +1,143 @@
+{
+  "schema_version": "1.0.0",
+  "id": "change-to-regression",
+  "version": "1.0.0",
+  "kind": "sequence",
+  "title": {
+    "zh": "变更到回归工作流",
+    "en": "Change-to-Regression Workflow"
+  },
+  "summary": {
+    "zh": "从变更证据选择有依据的回归范围并标注未覆盖风险。",
+    "en": "Select a sourced regression scope from change evidence and report uncovered risk."
+  },
+  "lifecycle_state": "EXPERIMENTAL",
+  "inputs": [
+    {
+      "id": "user_request",
+      "required": true,
+      "description": "User request and available project evidence."
+    }
+  ],
+  "outputs": [
+    {
+      "id": "workflow_result",
+      "description": "Scoped result, evidence states, open gaps, and next handoff.",
+      "evidence_kind": "fact"
+    }
+  ],
+  "steps": [
+    {
+      "id": "anchor-change",
+      "description": "Anchor change",
+      "skill_ids": [
+        "change-impact-analysis"
+      ],
+      "prompt": "prompts/change-to-regression.md",
+      "depends_on": [],
+      "on_failure": "stop",
+      "permission": "read_only",
+      "approval_required": false
+    },
+    {
+      "id": "impact",
+      "description": "Impact",
+      "skill_ids": [
+        "change-impact-analysis"
+      ],
+      "prompt": "prompts/change-to-regression.md",
+      "depends_on": [
+        "anchor-change"
+      ],
+      "on_failure": "stop",
+      "permission": "read_only",
+      "approval_required": false
+    },
+    {
+      "id": "select-regression",
+      "description": "Select regression",
+      "skill_ids": [
+        "regression-scope-analysis",
+        "regression-test-selection"
+      ],
+      "prompt": "prompts/change-to-regression.md",
+      "depends_on": [
+        "anchor-change",
+        "impact"
+      ],
+      "on_failure": "stop",
+      "permission": "read_only",
+      "approval_required": false
+    },
+    {
+      "id": "risk-review",
+      "description": "Risk review",
+      "skill_ids": [
+        "flaky-test-analysis"
+      ],
+      "prompt": "prompts/change-to-regression.md",
+      "depends_on": [
+        "anchor-change",
+        "impact",
+        "select-regression"
+      ],
+      "on_failure": "stop",
+      "permission": "read_only",
+      "approval_required": false
+    },
+    {
+      "id": "handoff",
+      "description": "Handoff",
+      "skill_ids": [
+        "test-reporting"
+      ],
+      "prompt": "prompts/change-to-regression.md",
+      "depends_on": [
+        "anchor-change",
+        "impact",
+        "select-regression",
+        "risk-review"
+      ],
+      "on_failure": "stop",
+      "permission": "read_only",
+      "approval_required": false
+    }
+  ],
+  "failure_policy": {
+    "on_missing_dependency": "continue_with_limitations",
+    "on_blocked": "stop"
+  },
+  "permission_policy": {
+    "default": "read_only",
+    "approval_required_for": [
+      "execute_command",
+      "write_repo",
+      "external_write",
+      "publish",
+      "delete",
+      "release_approval"
+    ]
+  },
+  "checkpoint_policy": {
+    "host_runtime_required": true,
+    "fingerprint_fields": [
+      "inputs",
+      "commit_sha"
+    ],
+    "invalidate_on_change": [
+      "inputs",
+      "commit_sha"
+    ],
+    "automatic_replay": "side_effect_free_only"
+  },
+  "handoff": {
+    "required_fields": [
+      "workflow_id",
+      "source",
+      "status",
+      "open_gaps",
+      "next_step"
+    ]
+  },
+  "evidence_contract_version": "1.0.0"
+}

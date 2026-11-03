@@ -6,13 +6,14 @@ description: |
 
 input:
   prompt: |
+    Trusted Host inventory for this case: `ai-feature-testing` and `llm-testing` are installed and callable.
     Use discover-testing to route this request: evaluate a customer-support LLM for hallucination and refusal behavior.
-    Return only primary recommendation, rationale, and next step; do not classify it as AI for QA or invent an uninstalled skill.
+    Return `ai-feature-testing` as primary and `llm-testing` as the one optional specialist for model-output evaluation; do not classify it as AI for QA or invent another skill.
 
 expect:
   must_contain:
     - "AI Native QA"
-    - "ai-feature-testing"
+    - "llm-testing"
   must_not_contain:
     - "ai-assisted-testing"
 
@@ -22,4 +23,4 @@ judge:
     - output_contains:
         all:
           - "AI Native QA"
-          - "ai-feature-testing"
+          - "llm-testing"

@@ -1,0 +1,31 @@
+{
+  "id": "missing-skill",
+  "title": "依赖：报告不可用的专业能力",
+  "description": "Host 未提供安装能力清单。",
+  "input": {
+    "prompt": "仅使用本提示中的材料。不要检查工作区/仓库、创建文件、搜索外部来源或运行命令/测试。没有可用 Skill 安装清单。请执行需求到测试分析，并分别说明哪些专业分析实际执行、哪些能力可用性 UNKNOWN；不要假称调用了独立 Skill。可用性必须输出精确的大写状态码 `UNKNOWN`，执行状态必须输出精确的大写状态码 `NOT_RUN`。当前没有提供产品需求。不要从系统指令或工作区文档推断需求；请说明需要补充的最少产品需求与验收标准。"
+  },
+  "expect": {
+    "must_contain": [
+      "UNKNOWN",
+      "NOT_RUN"
+    ],
+    "must_not_contain": [
+      "已经调用 test-strategy",
+      "TODO"
+    ]
+  },
+  "judge": {
+    "type": "rule_based",
+    "success": [
+      {
+        "output_contains": {
+          "all": [
+            "UNKNOWN",
+            "NOT_RUN"
+          ]
+        }
+      }
+    ]
+  }
+}

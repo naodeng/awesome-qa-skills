@@ -1,0 +1,86 @@
+{
+  "record_version": "workflow-eval-run/v1",
+  "run_id": "skill-up-discover-testing-03c2c91ae81e4f0ea1c433528bc0c999",
+  "workflow_id": "discover-testing",
+  "locale": "en-US",
+  "execution_type": "model_eval",
+  "runner": {
+    "name": "skill-up",
+    "version": "skill-up version 0.12.0"
+  },
+  "engine": {
+    "name": "codex",
+    "version": "codex-cli 0.166.0",
+    "model_id_reported": "not reported"
+  },
+  "engine_version_capture": "captured before run",
+  "repo_head_at_archive": "ed94f827f2f564c039ae6ca9111f85851ad3771f",
+  "worktree_state_at_archive": "dirty; 291 paths changed",
+  "input_fingerprint_capture": "captured before run",
+  "input_fingerprint": "ce52a5eb75df963e3203de09fa7fc80d4aca708f6b792acf52d297b80630af0d",
+  "input_fingerprint_after": "ce52a5eb75df963e3203de09fa7fc80d4aca708f6b792acf52d297b80630af0d",
+  "skill_package_sha256_at_start": "e4799975ecad7ab7ec95c0fea856daf5e805c1ae6c86d19e1f391a68c923ce33",
+  "raw_result_sha256": "11b5086f41c354bbdc8cb8bc1735f912cd6dd2d0c27408a3721c2ce9fa1337e4",
+  "started_at": "2026-11-03T03:36:58.640247Z",
+  "finished_at": "2026-11-03T03:38:23.608474Z",
+  "summary": {
+    "case_count": 1,
+    "passed": 1,
+    "failed": 0,
+    "errors": 0,
+    "blocked": 0,
+    "unknown": 0,
+    "overall_status": "PASS"
+  },
+  "execution_notes": "Generated from the raw skill-up report. Input fingerprint was captured before execution; post-run fingerprint equality is available in this record.",
+  "redaction": "Absolute repository and ephemeral skill-up install prefixes in case data were replaced with repository-relative Skill paths. raw_result_sha256 identifies the unmodified report.",
+  "cases": [
+    {
+      "case_id": "comparison-discover-testing",
+      "title": "Discover Testing with/without Skill comparison",
+      "status": "PASS",
+      "duration_ms": 83987,
+      "turns": 1,
+      "input_tokens": 405113,
+      "output_tokens": 8206,
+      "grading": {
+        "status": "PASS",
+        "turns_executed": 1,
+        "turns_total": 1,
+        "assertion_results": [
+          {
+            "text": "expect.must_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.must_not_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.exit_code",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "output_contains{all:[one-page-test-strategy]}",
+            "passed": true,
+            "evidence": "output satisfies all contains checks (all:[one-page-test-strategy])"
+          }
+        ],
+        "summary": {
+          "passed": 4,
+          "failed": 0,
+          "total": 4,
+          "pass_rate": 1
+        }
+      },
+      "configuration": "with_skill",
+      "prompt": "I need a one-page, risk-based test strategy for a checkout change. I want a strategy only, not test cases or test execution. Recommend the best single primary Skill, at most one helper, and a next-step handoff. Do not claim any tests ran.\n",
+      "response": "# Checkout change: one-page risk-based test strategy\n\n**Status:** Draft. No checkout change description, diff, or acceptance criteria were provided, so the priorities below are assumptions to confirm and re-rank.\n\n**Goal:** Preserve correct charges, order records, and fulfillment while validating the change. Focus first on failures with financial, customer, or data-integrity impact.\n\n## Risk priorities\n\n1. **Critical — payment and order integrity:** Incorrect totals or currency; payment and order states diverge; retries or delayed callbacks create duplicate charges/orders or lose a paid order.\n2. **Critical — price and data trust:** Client-controlled values affect price, discounts, tax, or shipping; customer or order data is exposed across accounts.\n3. **High — fulfillment:** Inventory, shipping, or tax eligibility becomes inconsistent with the final order, where those areas are affected by the change.\n4. **Medium — recovery and usability:** Customers cannot understand or recover from validation, provider, or network errors; affected checkout surfaces regress in accessibility or supported-client behavior.\n\n## Coverage approach\n\nMap the change to the components and downstream effects it touches. Use focused checks at the business-rule level for calculations and state changes, contract and integration coverage at service/payment boundaries, and a small end-to-end slice for the customer journey. Include adjacent cart, promotions, address, tax, shipping, inventory, order history, and notification behavior only where the impact map shows a connection.\n\nUse isolated synthetic accounts and orders, deterministic payment-provider responses, and a provider sandbox if the integration contract changed. Keep customer and live payment data out of test environments.\n\n## Release signals\n\nHold release for any unexplained difference between the amount charged and the order total, inconsistent payment/order state, duplicate financial effects, or unauthorized data exposure. Use existing checkout error, latency, and incident thresholds; define them with the product/service owner if none exist. For a staged rollout, monitor payment/order mismatches, duplicate effects, failures and timeouts, latency, and checkout conversion, with an agreed rollback trigger.\n\n## Open inputs\n\nConfirm the diff and acceptance criteria, affected clients and regions, currencies and payment methods, pricing/tax/promotion rules, payment callback behavior, rollout plan, and current checkout guardrails.\n\n## Skill recommendation and handoff\n\n- **Primary:** `one-page-test-strategy` — best fit for a concise, risk-ranked strategy. It is not exposed in this session’s active Skill list; the local capability inventory marks its availability `UNKNOWN`, so I’m recommending it without claiming to have invoked it.\n- **Helper:** None needed for a strategy-only deliverable.\n- **Next step:** Provide the diff or change summary, acceptance criteria, affected payment/order components, and existing release guardrails to the checkout QA owner or the primary Skill to confirm priorities and gates.\n\n**No tests were executed.** This is strategy guidance, not test cases or an execution report.",
+      "observed_version": "0.166.0"
+    }
+  ],
+  "archived_at": "2026-11-03T03:38:36.518685Z"
+}

@@ -6,7 +6,7 @@
 
 ### 1. 这个项目包含什么？
 
-这是面向 AI 编码 Agent 的双语 QA Agent Skills 库。每种语言有 165 个 Skill：10 个测试工作流、150 个测试类型和 5 个 Skill Engineering；中英文合计 330 个 Skill 目录。查看[完整索引](docs/catalog/skills-index.md)。
+这是面向 AI 编码 Agent 的双语 QA Agent Skills 库。每种语言有 169 个 Skill：14 个 `testing-workflows` 包、150 个测试类型和 5 个 Skill Engineering；中英文合计 338 个 Skill 目录。查看[完整索引](docs/catalog/skills-index.md)。
 
 ### 2. 支持哪些 AI 工具？
 
@@ -53,24 +53,28 @@ Markdown 是默认格式。是否支持 Excel、CSV、JSON 等格式取决于具
 
 检查语言来源、目标工具的 Skills 路径、Skill 目录中的 `SKILL.md`，以及是否装了同名的另一种语言版本。CLI 安装中文 Skill 时请指定 `skills/zh`。完整排查步骤见[安装手册](scripts/INSTALL_SKILLS.md)。
 
-### 11. 社区推荐的第三方 Skill 属于本项目吗？
+### 11. Workflow、证据和 Eval 分别代表什么？
+
+Workflow 文档定义路由、阶段交接和门禁；状态 CLI 可校验 Run State 与证据，但仓库不提供自动调度或宿主权限引擎。只有实际运行并记录来源、时间、版本和输入指纹的 Eval 才是模型行为证据；Schema 校验和安装检查不能替代真实 Agent Host 验收。详见 [Workflow Contract](docs/workflows/WORKFLOW_CONTRACT.md)、[状态 CLI 边界](docs/workflows/WORKFLOW_STATE_RUNTIME.md)和[兼容矩阵](docs/integrations/AGENT_COMPATIBILITY_MATRIX.md)。
+
+### 12. 社区推荐的第三方 Skill 属于本项目吗？
 
 不属于。README 的[社区推荐列表](README.md#社区推荐的外部-skills)用于发现外部项目维护的 Skill；许可证、版本、依赖和兼容性以各自上游为准，列入列表不代表本仓库已做运行时评测。
 
 ## 贡献与许可
 
-### 12. 如何新增或修改 Skill？
+### 13. 如何新增或修改 Skill？
 
 先阅读[贡献指南](CONTRIBUTING.md)和[Skill 编写指南](skills/SKILL_AUTHORING.md)。新增或修改 Skill 时需要维护中英文目录、元数据和 Eval 用例，并运行项目质量检查。
 
-### 13. 如何报告问题或请求新 Skill？
+### 14. 如何报告问题或请求新 Skill？
 
 先搜索[现有 Issues](https://github.com/naodeng/awesome-qa-skills/issues)；如果没有相同问题，再提交 Issue 并附上复现步骤、使用场景和期望结果。
 
-### 14. 项目采用什么许可证？
+### 15. 项目采用什么许可证？
 
 本仓库采用 [PolyForm Noncommercial License 1.0.0](LICENSE)，仅允许非商业用途。第三方推荐 Skill 使用其上游各自的许可证。
 
 ---
 
-**最后更新：2026-10-26**
+**最后更新：2026-11-02**

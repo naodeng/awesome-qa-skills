@@ -1,0 +1,126 @@
+{
+  "schema_version": "1.0.0",
+  "id": "daily-testing-workflow",
+  "version": "1.0.0",
+  "kind": "sequence",
+  "title": {
+    "zh": "日常测试工作流程",
+    "en": "Daily Testing Workflow"
+  },
+  "summary": {
+    "zh": "按日组织 QA 计划、执行、缺陷记录和收口。",
+    "en": "Organize QA planning, execution, defect tracking, and closeout by day."
+  },
+  "lifecycle_state": "UNASSESSED",
+  "inputs": [
+    {
+      "id": "user_request",
+      "required": true,
+      "description": "User request and available project evidence."
+    }
+  ],
+  "outputs": [
+    {
+      "id": "workflow_result",
+      "description": "Scoped result, evidence states, open gaps, and next handoff.",
+      "evidence_kind": "fact"
+    }
+  ],
+  "steps": [
+    {
+      "id": "plan",
+      "description": "Plan",
+      "skill_ids": [
+        "test-strategy"
+      ],
+      "prompt": "prompts/daily-testing-workflow.md",
+      "depends_on": [],
+      "on_failure": "stop",
+      "permission": "read_only",
+      "approval_required": false
+    },
+    {
+      "id": "execute",
+      "description": "Execute",
+      "skill_ids": [
+        "manual-testing",
+        "functional-testing"
+      ],
+      "prompt": "prompts/daily-testing-workflow.md",
+      "depends_on": [
+        "plan"
+      ],
+      "on_failure": "stop",
+      "permission": "read_only",
+      "approval_required": false
+    },
+    {
+      "id": "triage",
+      "description": "Triage",
+      "skill_ids": [
+        "bug-reporting"
+      ],
+      "prompt": "prompts/daily-testing-workflow.md",
+      "depends_on": [
+        "plan",
+        "execute"
+      ],
+      "on_failure": "stop",
+      "permission": "read_only",
+      "approval_required": false
+    },
+    {
+      "id": "closeout",
+      "description": "Closeout",
+      "skill_ids": [
+        "test-reporting"
+      ],
+      "prompt": "prompts/daily-testing-workflow.md",
+      "depends_on": [
+        "plan",
+        "execute",
+        "triage"
+      ],
+      "on_failure": "stop",
+      "permission": "read_only",
+      "approval_required": false
+    }
+  ],
+  "failure_policy": {
+    "on_missing_dependency": "continue_with_limitations",
+    "on_blocked": "stop"
+  },
+  "permission_policy": {
+    "default": "read_only",
+    "approval_required_for": [
+      "execute_command",
+      "write_repo",
+      "external_write",
+      "publish",
+      "delete",
+      "release_approval"
+    ]
+  },
+  "checkpoint_policy": {
+    "host_runtime_required": true,
+    "fingerprint_fields": [
+      "inputs",
+      "commit_sha"
+    ],
+    "invalidate_on_change": [
+      "inputs",
+      "commit_sha"
+    ],
+    "automatic_replay": "side_effect_free_only"
+  },
+  "handoff": {
+    "required_fields": [
+      "workflow_id",
+      "source",
+      "status",
+      "open_gaps",
+      "next_step"
+    ]
+  },
+  "evidence_contract_version": "1.0.0"
+}

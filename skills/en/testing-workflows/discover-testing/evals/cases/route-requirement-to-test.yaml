@@ -1,0 +1,29 @@
+{
+  "id": "route-requirement-to-test",
+  "title": "Explicit end state: requirements through cases and traceability",
+  "description": "The user requests requirement quality, testability, strategy, cases, and traceability.",
+  "input": {
+    "prompt": "Route with discover-testing: take these acceptance criteria through requirement quality, testability, strategy, cases, and a traceability matrix. Choose one suitable workflow Skill."
+  },
+  "expect": {
+    "must_contain": [
+      "requirement-to-test"
+    ],
+    "must_not_contain": [
+      "multiple primary Skills",
+      "TODO"
+    ]
+  },
+  "judge": {
+    "type": "rule_based",
+    "success": [
+      {
+        "output_contains": {
+          "all": [
+            "requirement-to-test"
+          ]
+        }
+      }
+    ]
+  }
+}

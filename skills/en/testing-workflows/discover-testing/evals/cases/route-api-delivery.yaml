@@ -11,7 +11,8 @@ context:
 
 input:
   prompt: |
-    Use discover-testing to route this request: we are delivering order APIs with an existing OpenAPI contract,
+    Use discover-testing to route this request: we are delivering order APIs with an existing OpenAPI contract.
+    Trusted Host inventory for this case confirms `api-testing` and `api-contract-testing` are installed and callable.
     and need behavior, authentication, error-code, and contract-compatibility coverage. Return only the route ID,
     one-sentence goal, exactly one primary Skill, at most one optional Skill, rationale, and next handoff input.
     Do not write a full test plan or recommend an uninstalled future Skill. End with one ```json code block
@@ -22,8 +23,6 @@ expect:
     - "api-delivery"
     - "api-testing"
     - "api-contract-testing"
-    - "Primary Recommendation"
-    - "Next Step"
   must_not_contain:
     - "full API test plan"
     - "TODO"

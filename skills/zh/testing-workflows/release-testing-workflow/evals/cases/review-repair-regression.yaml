@@ -6,7 +6,7 @@ input:
     只分析以下脱敏静态材料，不执行外部操作。按主 Prompt 给出理由、来源、信息缺口和最小验证。最后附表 `ID | DECISION | Evidence`，每个 ID 一行，DECISION 使用所给枚举之一。PASS/FAIL 只表示材料比较，不代表真实测试执行。
     Allowed DECISION values: NO_GO, READY.
 
-    R1: P0 regression passed for build b42; required security suite not run; no approval owner/time. R2: 30-minute hotfix for build b43; narrow impact documented; required regression and security passed; rollback ready; authorized owner Lin approved b43 with evidence record approval-43. Do not change facts or execute a release. Classify release evidence readiness; keep AI advice separate from the recorded approval.
+    R1: P0 regression passed for build b42; required security suite not run; no approval owner/time. R2: 30-minute hotfix for build b43; narrow impact and exclusions documented; required regression and security passed; rollback ready; monitoring and alert readiness are ready; no open blockers remain; the authorized owner Lin approved the documented b43 scope at approval time 2026-10-30T14:00Z with evidence record approval-43. Do not change facts or execute a release. Classify release evidence readiness; keep AI advice separate from the recorded approval.
 expect:
   exit_code: 0
 judge:

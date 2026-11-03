@@ -2,7 +2,7 @@
 
 # Complete Skills Index
 
-Each language contains 11 workflows, 150 testing types, and 5 Skill Engineering packages: 166 per language and 332 directories total. This is logical navigation; physical directories do not change. See the [Skill governance roadmap](../governance/SKILL_GOVERNANCE_ROADMAP_EN.md), [governance matrix](../SKILL_MATRIX_EN.md), [matching register](../SKILL_MATCHING_REGISTER_EN.md), and [v1.4 closeout](../governance/PHASE_0_V1_4_CLOSEOUT_EN.md) for long-term governance.
+Each language contains 14 workflows, 150 testing types, and 5 Skill Engineering packages: 169 per language and 338 directories total. This is logical navigation; physical directories do not change. See the [Skill governance roadmap](../governance/SKILL_GOVERNANCE_ROADMAP_EN.md), [governance matrix](../SKILL_MATRIX_EN.md), [matching register](../SKILL_MATCHING_REGISTER_EN.md), and [v1.4 closeout](../governance/PHASE_0_V1_4_CLOSEOUT_EN.md) for long-term governance.
 
 See the [v1.5.2 Composition Catalog](skills-composition_EN.md) for route and composition navigation; it is metadata, not an installation dependency or automatic execution chain.
 
@@ -13,6 +13,7 @@ See the [v1.5.2 Composition Catalog](skills-composition_EN.md) for route and com
 | Skill | 中文 | English |
 | --- | --- | --- |
 | `discover-testing` | [中文](../../skills/zh/testing-workflows/discover-testing/) | [English](../../skills/en/testing-workflows/discover-testing/) |
+| `requirement-to-test` | [中文](../../skills/zh/testing-workflows/requirement-to-test/) | [English](../../skills/en/testing-workflows/requirement-to-test/) |
 | `product-quality-perspective` | [中文](../../skills/zh/testing-workflows/product-quality-perspective/) | [English](../../skills/en/testing-workflows/product-quality-perspective/) |
 | `qa-quality-perspective` | [中文](../../skills/zh/testing-workflows/qa-quality-perspective/) | [English](../../skills/en/testing-workflows/qa-quality-perspective/) |
 | `ux-quality-perspective` | [中文](../../skills/zh/testing-workflows/ux-quality-perspective/) | [English](../../skills/en/testing-workflows/ux-quality-perspective/) |
@@ -26,6 +27,8 @@ See the [v1.5.2 Composition Catalog](skills-composition_EN.md) for route and com
 | `sprint-testing-workflow` | [中文](../../skills/zh/testing-workflows/sprint-testing-workflow/) | [English](../../skills/en/testing-workflows/sprint-testing-workflow/) |
 | `tdd-quality-workflow` | [中文](../../skills/zh/testing-workflows/tdd-quality-workflow/) | [English](../../skills/en/testing-workflows/tdd-quality-workflow/) |
 | `project-delivery-perspective` | [中文](../../skills/zh/testing-workflows/project-delivery-perspective/) | [English](../../skills/en/testing-workflows/project-delivery-perspective/) |
+| `pr-quality-review` | [中文](../../skills/zh/testing-workflows/pr-quality-review/) | [English](../../skills/en/testing-workflows/pr-quality-review/) |
+| `change-to-regression` | [中文](../../skills/zh/testing-workflows/change-to-regression/) | [English](../../skills/en/testing-workflows/change-to-regression/) |
 
 ### Release
 

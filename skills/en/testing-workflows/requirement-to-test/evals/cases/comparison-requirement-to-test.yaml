@@ -1,0 +1,33 @@
+{
+  "id": "comparison-requirement-to-test",
+  "title": "Requirement-to-Test comparison",
+  "description": "Same user prompt and rule-based assertions are used for the Skill-enabled and no-Skill arms; this is a scenario comparison, not a population-level effectiveness estimate.",
+  "input": {
+    "prompt": "Use only the material in this prompt. Respond in English. Do not inspect the workspace/repository, create files, search external sources, or run commands/tests. Requirement: coupons apply only to valid orders, once per account, and expired coupons are rejected. Flag rules that need confirmation, then provide a risk-driven strategy, representative positive/negative cases, and requirement traceability. Mark NOT_RUN without execution evidence. Headings may vary, but cover each requested content area and state test execution as `NOT_RUN`."
+  },
+  "expect": {
+    "must_contain": [
+      "Prioritize",
+      "Requirement traceability",
+      "NOT_RUN"
+    ],
+    "must_not_contain": [
+      "requirements verified",
+      "TODO"
+    ]
+  },
+  "judge": {
+    "type": "rule_based",
+    "success": [
+      {
+        "output_contains": {
+          "all": [
+            "Prioritize",
+            "Requirement traceability",
+            "NOT_RUN"
+          ]
+        }
+      }
+    ]
+  }
+}

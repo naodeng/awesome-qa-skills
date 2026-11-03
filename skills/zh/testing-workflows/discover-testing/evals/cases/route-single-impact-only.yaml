@@ -1,0 +1,28 @@
+{
+  "id": "route-single-impact-only",
+  "title": "反向：单项变更影响分析不强制进完整工作流",
+  "description": "用户只要受影响模块列表，没有要求回归选择或完整交付。",
+  "input": {
+    "prompt": "用 discover-testing 路由：我只想知道这个提交影响了哪些模块，不需要回归计划或完整流程。请推荐一个 Skill。"
+  },
+  "expect": {
+    "must_contain": [
+      "change-impact-analysis"
+    ],
+    "must_not_contain": [
+      "TODO"
+    ]
+  },
+  "judge": {
+    "type": "rule_based",
+    "success": [
+      {
+        "output_contains": {
+          "all": [
+            "change-impact-analysis"
+          ]
+        }
+      }
+    ]
+  }
+}

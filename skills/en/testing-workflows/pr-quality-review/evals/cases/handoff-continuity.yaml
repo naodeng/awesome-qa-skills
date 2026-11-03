@@ -1,0 +1,19 @@
+{
+  "id": "handoff-continuity",
+  "title": "Handoff: preserve upstream evidence IDs and scope",
+  "description": "The downstream stage must retain the source of upstream impact evidence.",
+  "input": {
+    "prompt": "This is a self-contained fixture; do not search local files and do not access GitHub. Upstream change-impact evidence E-91 has this exact scope: `billing/retry.py` may cause duplicate charges on retry; status is inference; input SHA is abc123. Its original pending follow-up is: “Verify in a payment sandbox that retries with the same idempotency key produce only one charge.” Continue the review and preserve E-91, its original scope and SHA, the pending follow-up, and its inference status. Do not claim you inspected source or executed tests."
+  },
+  "expect": {
+    "must_not_contain": [
+      "duplicate charge confirmed",
+      "TODO"
+    ]
+  },
+  "judge": {
+    "type": "script",
+    "script_path": "evals/graders/evidence_handoff.py",
+    "timeout_seconds": 30
+  }
+}

@@ -4,7 +4,7 @@
 
 This is the English Skill root and mirrors `skills/zh` with identical Skill names and physical structure.
 
-Each language provides **166** Skills: 11 workflows + 150 testing types + 5 Skill Engineering. See the [Chinese README](../../README.md) and [English README](../../README_EN.md); see the [governance roadmap](../../docs/governance/SKILL_GOVERNANCE_ROADMAP_EN.md) and [governance matrix](../../docs/SKILL_MATRIX_EN.md) for long-term governance.
+Each language provides **169** Skills: 14 workflows + 150 testing types + 5 Skill Engineering. See the [Chinese README](../../README.md) and [English README](../../README_EN.md); see the [governance roadmap](../../docs/governance/SKILL_GOVERNANCE_ROADMAP_EN.md) and [governance matrix](../../docs/SKILL_MATRIX_EN.md) for long-term governance.
 
 ## Cross-phase workflows
 
@@ -13,6 +13,7 @@ Each language provides **166** Skills: 11 workflows + 150 testing types + 5 Skil
 | Skill | Directory |
 | --- | --- |
 | Testing Skill Discovery | [`discover-testing`](testing-workflows/discover-testing/) |
+| Requirement-to-Test Workflow | [`requirement-to-test`](testing-workflows/requirement-to-test/) |
 | Product Quality Perspective | [`product-quality-perspective`](testing-workflows/product-quality-perspective/) |
 | QA quality perspective | [`qa-quality-perspective`](testing-workflows/qa-quality-perspective/) |
 | UX Quality Perspective | [`ux-quality-perspective`](testing-workflows/ux-quality-perspective/) |
@@ -26,6 +27,8 @@ Each language provides **166** Skills: 11 workflows + 150 testing types + 5 Skil
 | Sprint Testing Workflow | [`sprint-testing-workflow`](testing-workflows/sprint-testing-workflow/) |
 | TDD Quality Workflow | [`tdd-quality-workflow`](testing-workflows/tdd-quality-workflow/) |
 | Project Delivery Perspective | [`project-delivery-perspective`](testing-workflows/project-delivery-perspective/) |
+| PR Quality Review Workflow | [`pr-quality-review`](testing-workflows/pr-quality-review/) |
+| Change-to-Regression Workflow | [`change-to-regression`](testing-workflows/change-to-regression/) |
 
 ### Release
 

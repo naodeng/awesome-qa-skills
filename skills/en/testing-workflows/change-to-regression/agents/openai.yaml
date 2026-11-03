@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "change-to-regression"
+interface:
+  display_name: "Change-to-Regression Workflow"
+  short_description: "Use this skill when you need select explainable regression scope from a change and its risk."
+  default_prompt: "Use the change-to-regression skill to produce traceable, evidence-bounded workflow results."
+policy:
+  allow_implicit_invocation: true

@@ -5,13 +5,13 @@ description: |
 
 input:
   prompt: |
-    使用 release-testing-workflow。
+    使用 release-testing-workflow 并用中文回复。
     场景：功能冻结未过不得进入 RC；阻塞缺陷未清不得 Go；专项测试需在 T-5～T-4 完成。
     请写清发布阶段进出标准/门禁，并说明如何交接给执行类 skill（如 performance-testing、security-testing、test-reporting——只写 skill 名与交接要点，不要给其他 skill 的文件路径链接）。
 
 expect:
   must_contain:
-    - "进出标准"
+    - "进入标准"
     - "交接"
   must_not_contain:
     - "TODO"
@@ -22,5 +22,5 @@ judge:
   success:
     - output_contains:
         all:
-          - "门禁"
+          - "进入标准"
           - "交接"
