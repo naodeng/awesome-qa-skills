@@ -3,12 +3,15 @@
   "title": "Requirement-to-Test comparison",
   "description": "Same user prompt and rule-based assertions are used for the Skill-enabled and no-Skill arms; this is a scenario comparison, not a population-level effectiveness estimate.",
   "input": {
-    "prompt": "Use only the material in this prompt. Respond in English. Do not inspect the workspace/repository, create files, search external sources, or run commands/tests. Requirement: coupons apply only to valid orders, once per account, and expired coupons are rejected. Flag rules that need confirmation, then provide a risk-driven strategy, representative positive/negative cases, and requirement traceability. Mark NOT_RUN without execution evidence. Headings may vary, but cover each requested content area and state test execution as `NOT_RUN`."
+    "prompt": "Use only the material in this prompt. Respond in English. Do not inspect the workspace/repository, create files, search external sources, or run commands/tests. Requirement: (R1) coupons apply only to valid orders, (R2) one use per account, and (R3) expired coupons are rejected. Flag rules that need confirmation. Use the exact headings `Rules to confirm`, `Risk-driven strategy`, `Representative cases`, and `Traceability`. Under Traceability, map each of R1, R2, and R3 to at least one test case ID. Mark NOT_RUN without execution evidence."
   },
   "expect": {
     "must_contain": [
-      "Highest risk",
-      "Requirement traceability",
+      "Risk-driven strategy",
+      "Traceability",
+      "R1",
+      "R2",
+      "R3",
       "NOT_RUN"
     ],
     "must_not_contain": [
@@ -22,8 +25,11 @@
       {
         "output_contains": {
           "all": [
-            "Highest risk",
-            "Requirement traceability",
+            "Risk-driven strategy",
+            "Traceability",
+            "R1",
+            "R2",
+            "R3",
             "NOT_RUN"
           ]
         }

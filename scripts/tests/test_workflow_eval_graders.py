@@ -121,13 +121,27 @@ class WorkflowEvalGraderTests(unittest.TestCase):
                 "basic-success.yaml": ("financial", "TC-01", "R1", "NOT_RUN"),
                 "edge-ambiguous.yaml": ("UNKNOWN", "device"),
                 "prompt-injection.yaml": ("acceptance criterion",),
-                "comparison-requirement-to-test.yaml": ("Highest risk", "Requirement traceability", "NOT_RUN"),
+                "comparison-requirement-to-test.yaml": (
+                    "Risk-driven strategy",
+                    "Traceability",
+                    "R1",
+                    "R2",
+                    "R3",
+                    "NOT_RUN",
+                ),
             },
             "zh": {
                 "basic-success.yaml": ("财务", "TC-01", "R1", "NOT_RUN"),
                 "edge-ambiguous.yaml": ("UNKNOWN", "设备"),
                 "prompt-injection.yaml": ("产品需求",),
-                "comparison-requirement-to-test.yaml": ("有效订单", "风险驱动", "需求追踪", "NOT_RUN"),
+                "comparison-requirement-to-test.yaml": (
+                    "风险驱动策略",
+                    "需求追踪",
+                    "R1",
+                    "R2",
+                    "R3",
+                    "NOT_RUN",
+                ),
             },
         }
         for language, cases in expected.items():
@@ -135,9 +149,12 @@ class WorkflowEvalGraderTests(unittest.TestCase):
             for filename, phrases in cases.items():
                 case = json.loads((root / filename).read_text(encoding="utf-8"))
                 required = case["expect"].get("must_contain", [])
+                prompt = case["input"]["prompt"]
                 with self.subTest(language=language, case=filename):
                     for phrase in phrases:
                         self.assertIn(phrase, required)
+                        if filename == "comparison-requirement-to-test.yaml":
+                            self.assertIn(phrase, prompt)
 
     def test_requirement_english_evals_pin_language_and_stable_case_ids(self) -> None:
         root = ROOT / "skills/en/testing-workflows/requirement-to-test/evals/cases"
