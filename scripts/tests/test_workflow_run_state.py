@@ -98,6 +98,24 @@ class WorkflowRunStateTests(unittest.TestCase):
     def read_state(self) -> dict:
         return json.loads(self.state_file.read_text(encoding="utf-8"))
 
+    def create_run_with_workflow(self, workflow: dict, run_id: str) -> None:
+        self.workflow.write_text(json.dumps(workflow), encoding="utf-8")
+        result = self.call(
+            "create",
+            "--workflow-file",
+            str(self.workflow),
+            "--state-dir",
+            str(self.state_dir),
+            "--input-fingerprint",
+            FINGERPRINT,
+            "--commit-sha",
+            COMMIT,
+            "--run-id",
+            run_id,
+        )
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.state_file = Path(json.loads(result.stdout)["state_file"])
+
     def start(self, stage_id: str, *extra: str) -> subprocess.CompletedProcess[str]:
         return self.call(
             "start-stage",
@@ -175,6 +193,121 @@ class WorkflowRunStateTests(unittest.TestCase):
         self.assertEqual(first.returncode, 0, first.stderr)
         self.assertEqual(second.returncode, 2)
         self.assertEqual(self.read_state()["idempotency_keys"], [f"run-1:inspect:{FINGERPRINT}"])
+
+    def test_continue_with_gap_failure_allows_an_independent_stage_and_keeps_gap(self) -> None:
+        workflow = workflow_document()
+        first_stage, next_stage = workflow["steps"]
+        first_stage.update(id="code-review", on_failure="continue_with_gap")
+        next_stage.update(
+            id="requirements-analysis",
+            depends_on=[],
+            permission="read_only",
+            approval_required=False,
+            on_failure="continue_with_gap",
+        )
+        self.create_run_with_workflow(workflow, "run-continue-gap")
+
+        self.assertEqual(self.start("code-review").returncode, 0)
+        failed = self.call(
+            "fail-stage",
+            "--state-file",
+            str(self.state_file),
+            "--stage-id",
+            "code-review",
+            "--reason",
+            "review evidence unavailable",
+        )
+        self.assertEqual(failed.returncode, 0, failed.stderr)
+
+        next_stage = self.start("requirements-analysis")
+        self.assertEqual(next_stage.returncode, 0, next_stage.stderr)
+        completed = self.call(
+            "complete-stage",
+            "--state-file",
+            str(self.state_file),
+            "--stage-id",
+            "requirements-analysis",
+            "--evidence-ref",
+            "evidence:requirements-1",
+        )
+
+        self.assertEqual(completed.returncode, 0, completed.stderr)
+        state = self.read_state()
+        self.assertEqual(state["status"], "FAILED")
+        self.assertEqual(
+            {stage["id"]: stage["status"] for stage in state["stages"]},
+            {"code-review": "FAILED", "requirements-analysis": "COMPLETED"},
+        )
+
+    def test_stop_failure_still_blocks_an_independent_stage(self) -> None:
+        workflow = workflow_document()
+        first_stage, next_stage = workflow["steps"]
+        first_stage.update(id="code-review", on_failure="stop")
+        next_stage.update(
+            id="requirements-analysis",
+            depends_on=[],
+            permission="read_only",
+            approval_required=False,
+            on_failure="continue_with_gap",
+        )
+        self.create_run_with_workflow(workflow, "run-stop")
+
+        self.assertEqual(self.start("code-review").returncode, 0)
+        failed = self.call(
+            "fail-stage",
+            "--state-file",
+            str(self.state_file),
+            "--stage-id",
+            "code-review",
+            "--reason",
+            "review failed",
+        )
+        self.assertEqual(failed.returncode, 0, failed.stderr)
+
+        denied = self.start("requirements-analysis")
+        self.assertEqual(denied.returncode, 2)
+        self.assertIn("run status is FAILED", denied.stderr)
+
+    def test_continue_with_gap_does_not_bypass_another_blocked_stage(self) -> None:
+        workflow = workflow_document()
+        failed_stage, blocked_stage = workflow["steps"]
+        failed_stage.update(id="code-review", on_failure="continue_with_gap")
+        blocked_stage.update(
+            id="requirements-analysis",
+            depends_on=[],
+            permission="read_only",
+            approval_required=False,
+            on_failure="continue_with_gap",
+        )
+        workflow["steps"].append({**blocked_stage, "id": "test-case-review"})
+        self.create_run_with_workflow(workflow, "run-blocked-gap")
+
+        self.assertEqual(self.start("code-review").returncode, 0)
+        self.assertEqual(self.start("requirements-analysis").returncode, 0)
+        failed = self.call(
+            "fail-stage",
+            "--state-file",
+            str(self.state_file),
+            "--stage-id",
+            "code-review",
+            "--reason",
+            "review evidence unavailable",
+        )
+        self.assertEqual(failed.returncode, 0, failed.stderr)
+        blocked = self.call(
+            "block-stage",
+            "--state-file",
+            str(self.state_file),
+            "--stage-id",
+            "requirements-analysis",
+            "--reason",
+            "human review required",
+        )
+        self.assertEqual(blocked.returncode, 0, blocked.stderr)
+        self.assertEqual(self.read_state()["status"], "FAILED")
+
+        denied = self.start("test-case-review")
+        self.assertEqual(denied.returncode, 2)
 
     def test_input_or_commit_change_marks_saved_checkpoint_stale(self) -> None:
         resumed = self.resume(fingerprint="c" * 64)

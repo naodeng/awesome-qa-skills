@@ -240,8 +240,19 @@ def fingerprint_inputs(args: argparse.Namespace) -> int:
 def mutate_state(args: argparse.Namespace) -> int:
     with _locked_state(args.state_file) as (path, state):
         if args.command == "start-stage":
-            if state["status"] in {"STALE", "FAILED", "COMPLETED", "BLOCKED"}:
+            if state["status"] in {"STALE", "COMPLETED", "BLOCKED"}:
                 raise ValueError(f"cannot start a stage while run status is {state['status']}; inspect or create a new run")
+            if state["status"] == "FAILED":
+                failed_stages = [stage for stage in state["stages"] if stage["status"] == "FAILED"]
+                if (
+                    not failed_stages
+                    or any(stage["status"] in {"BLOCKED", "STALE"} for stage in state["stages"])
+                    or any(
+                        _step(args.workflow, stage["id"])[0].get("on_failure") != "continue_with_gap"
+                        for stage in failed_stages
+                    )
+                ):
+                    raise ValueError("cannot start a stage while run status is FAILED; inspect or create a new run")
             package_fingerprint = workflow_package_sha256(args.workflow_file)
             if not _expected_match(state, args.expected_input_fingerprint, args.expected_commit_sha, package_fingerprint):
                 _write_atomic(path, state)

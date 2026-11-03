@@ -14,8 +14,6 @@ metadata:
 
 # Change-to-Regression Workflow
 
-**Chinese version:** See `README.md`.
-
 ## When to use
 
 Use this Skill to select explainable regression scope from a change and its risk.
@@ -31,7 +29,7 @@ Compose existing specialist Skills without copying their analysis rules. Mark ho
 ## Load on demand
 
 - Main process: `prompts/change-to-regression.md`
-- Usage and FAQ: `README_EN.md`
+- Usage and FAQ: `README.md`
 - Evals: `evals/`
 
 ## Before delivery

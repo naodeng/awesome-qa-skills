@@ -14,8 +14,6 @@ metadata:
 
 # Requirement-to-Test Workflow
 
-**Chinese version:** See `README.md`.
-
 ## When to use
 
 Use this Skill to turn requirements into testable, risk-driven, traceable test design.
@@ -31,7 +29,7 @@ Compose existing specialist Skills without copying their analysis rules. Mark ho
 ## Load on demand
 
 - Main process: `prompts/requirement-to-test.md`
-- Usage and FAQ: `README_EN.md`
+- Usage and FAQ: `README.md`
 - Evals: `evals/`
 
 ## Before delivery

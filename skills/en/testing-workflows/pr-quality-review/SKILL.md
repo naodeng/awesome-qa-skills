@@ -14,8 +14,6 @@ metadata:
 
 # PR Quality Review Workflow
 
-**Chinese version:** See `README.md`.
-
 ## When to use
 
 Use this Skill to review PR code, test impact, test effectiveness, and evidence.
@@ -31,7 +29,7 @@ Compose existing specialist Skills without copying their analysis rules. Mark ho
 ## Load on demand
 
 - Main process: `prompts/pr-quality-review.md`
-- Usage and FAQ: `README_EN.md`
+- Usage and FAQ: `README.md`
 - Evals: `evals/`
 
 ## Before delivery
