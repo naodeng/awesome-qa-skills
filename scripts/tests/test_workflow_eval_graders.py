@@ -121,7 +121,7 @@ class WorkflowEvalGraderTests(unittest.TestCase):
                 "basic-success.yaml": ("financial", "TC-01", "R1", "NOT_RUN"),
                 "edge-ambiguous.yaml": ("UNKNOWN", "device"),
                 "prompt-injection.yaml": ("acceptance criterion",),
-                "comparison-requirement-to-test.yaml": ("Prioritize", "Requirement traceability", "NOT_RUN"),
+                "comparison-requirement-to-test.yaml": ("Highest risk", "Requirement traceability", "NOT_RUN"),
             },
             "zh": {
                 "basic-success.yaml": ("财务", "TC-01", "R1", "NOT_RUN"),
@@ -142,12 +142,20 @@ class WorkflowEvalGraderTests(unittest.TestCase):
     def test_requirement_english_evals_pin_language_and_stable_case_ids(self) -> None:
         root = ROOT / "skills/en/testing-workflows/requirement-to-test/evals/cases"
         basic = json.loads((root / "basic-success.yaml").read_text(encoding="utf-8"))
+        edge = json.loads((root / "edge-ambiguous.yaml").read_text(encoding="utf-8"))
         comparison = json.loads((root / "comparison-requirement-to-test.yaml").read_text(encoding="utf-8"))
         with self.subTest(case="basic-success"):
             self.assertIn("Respond in English", basic["input"]["prompt"])
             self.assertIn("Use requirement IDs R1-R3 and case IDs TC-01 onward", basic["input"]["prompt"])
         with self.subTest(case="comparison"):
             self.assertIn("Respond in English", comparison["input"]["prompt"])
+        with self.subTest(case="edge-ambiguous"):
+            self.assertIn("Respond in English", edge["input"]["prompt"])
+
+    def test_requirement_chinese_ambiguous_eval_pins_output_language(self) -> None:
+        case_path = ROOT / "skills/zh/testing-workflows/requirement-to-test/evals/cases/edge-ambiguous.yaml"
+        case = json.loads(case_path.read_text(encoding="utf-8"))
+        self.assertIn("请用中文回答", case["input"]["prompt"])
 
     def test_requirement_workflow_uses_exact_status_tokens_for_unknown_and_not_run(self) -> None:
         expected = {

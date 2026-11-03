@@ -7,7 +7,7 @@
   },
   "expect": {
     "must_contain": [
-      "Prioritize",
+      "Highest risk",
       "Requirement traceability",
       "NOT_RUN"
     ],
@@ -22,7 +22,7 @@
       {
         "output_contains": {
           "all": [
-            "Prioritize",
+            "Highest risk",
             "Requirement traceability",
             "NOT_RUN"
           ]

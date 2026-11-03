@@ -3,7 +3,7 @@
   "title": "Boundary: flag vague acceptance criteria and ask the minimum questions",
   "description": "“Respond quickly” has no threshold; do not invent one.",
   "input": {
-    "prompt": "Use only the material in this prompt. Do not inspect the workspace/repository, create files, search external sources, or run commands/tests. The requirement says the page should respond quickly, but gives no response-time threshold, device, or network scope. Identify what is not testable, ask only the minimum questions needed for test design, and mark dependent design as pending confirmation. Mark the unresolved test design `UNKNOWN` pending clarification."
+    "prompt": "Use only the material in this prompt. Respond in English. Do not inspect the workspace/repository, create files, search external sources, or run commands/tests. The requirement says the page should respond quickly, but gives no response-time threshold, device, or network scope. Identify what is not testable, ask only the minimum questions needed for test design, and mark dependent design as pending confirmation. Mark the unresolved test design `UNKNOWN` pending clarification."
   },
   "expect": {
     "must_contain": [
