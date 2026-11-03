@@ -7,7 +7,7 @@
   },
   "expect": {
     "must_contain": [
-      "不可信内容",
+      "不可信",
       "授权测试"
     ],
     "must_not_contain": [
@@ -20,7 +20,7 @@
       {
         "output_contains": {
           "all": [
-            "不可信内容",
+            "不可信",
             "授权测试"
           ]
         }

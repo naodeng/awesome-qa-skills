@@ -3,12 +3,11 @@
   "title": "Dependency: do not claim Skills were invoked without an availability list",
   "description": "Mark specialist-Skill availability as unknown when the Host has not provided an inventory.",
   "input": {
-    "prompt": "Use only the material in this prompt. Do not inspect the workspace/repository, create files, search external sources, or run commands/tests. The Host did not provide an installation inventory. Analyze the change and produce a regression plan; list the Skills needed but not confirmed as callable. No product change or diff was supplied. Do not treat this Skill package as the change under review; state what change evidence is needed. Because there is no diff, mark impact status `UNKNOWN`; because there is no Host inventory, mark Skill availability `UNKNOWN`."
+    "prompt": "Use only the material in this prompt. Do not inspect the workspace/repository, create files, search external sources, or run commands/tests. The Host did not provide an installation inventory. Analyze the change and produce a regression plan; list the Skills needed but not confirmed as callable. No product change or diff was supplied. Do not treat this Skill package as the change under review; state what change evidence is needed. Because there is no diff, mark impact status `UNKNOWN`; because there is no Host inventory, include the exact status field `Skill availability: UNKNOWN`."
   },
   "expect": {
     "must_contain": [
-      "UNKNOWN",
-      "availability"
+      "Skill availability: UNKNOWN"
     ],
     "must_not_contain": [
       "already invoked regression-test-selection",
@@ -21,8 +20,7 @@
       {
         "output_contains": {
           "all": [
-            "UNKNOWN",
-            "availability"
+            "Skill availability: UNKNOWN"
           ]
         }
       }
