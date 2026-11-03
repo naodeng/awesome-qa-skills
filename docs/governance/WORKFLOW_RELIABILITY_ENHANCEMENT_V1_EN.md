@@ -53,7 +53,7 @@ This is one continuous delivery. The four iterations show dependency order; they
 - Each new or behaviorally changed Skill has normal, boundary, failure/permission, and regression Evals; record structural validation and actual model runs separately.
 - Evidence includes source, time, version, input fingerprint, and execution type; unknown facts remain UNKNOWN/NOT_RUN.
 - Schema, contract, bilingual, independence, and quality checks pass; any unrun host validation is reported as unverified.
-- Do not commit or push; preserve pre-existing uncommitted changes.
+- Commit or push only on explicit user request; before delivery, verify the target branch, remote SHA, PR state, and worktree.
 
 ## Status convention
 
@@ -75,11 +75,23 @@ Final Codex behavior Evals used skill-up 0.12.0 and Codex CLI 0.166.0. With-Skil
 
 This pass fixed two Eval false negatives: the PR comparison no longer requires a literal heading, and the Router clarification graders now accept plural English `behaviors` and Chinese “用户流程”. Both fixes started with failing regression tests. The final English and Chinese full Router Evals passed **22/22** each; their no-Skill comparisons passed **1/1** each. The table links only to final runs for the current package version. Other Workflow results are listed above.
 
-Final quality gates: Workflow Contract validation covered **14 packages, 28 Workflow files, and 0 errors**; `skill-up validate` passed **348/348**; bilingual documentation checks reported **0 findings**; and the full quality script's Python unit suite passed **393/393**. The local-source `skills@1.7.0` compatibility gate discovered **169 Skills** and passed the isolated English `functional-testing` install smoke. Distribution verification passed **60** isolated bilingual installs, **10** same-target upgrades, **10** uninstall previews/applies with zero-residue scans, and exact file checks on **10** standalone ZIPs, with **0 failures**. See the [compatibility verification record](../integrations/agent-compatibility-evidence-2026-11-03.json).
+### PR #43 review follow-up verification (2026-11-03)
+
+After the review fixes, the three affected Workflows' full bilingual Skill-up Evals were rerun: **48/48 passed** across six runs, each with 8/8 cases. These are follow-up regressions for existing scenarios, not 48 new unique cases; the cases and graders were tightened based on review findings. Each record preserves the run-time commit, Skill package fingerprint, and raw report hash:
+
+| Workflow | Chinese with Skill | English with Skill | Commit at evaluation |
+| --- | --- | --- | --- |
+| `change-to-regression` | [8/8](eval-runs/workflow-reliability-v1/runs/change-to-regression-zh-20261103-pr43-followup.json) | [8/8](eval-runs/workflow-reliability-v1/runs/change-to-regression-en-20261103-pr43-followup.json) | `306a57c0` |
+| `pr-quality-review` | [8/8](eval-runs/workflow-reliability-v1/runs/pr-quality-review-zh-20261103-pr43-followup.json) | [8/8](eval-runs/workflow-reliability-v1/runs/pr-quality-review-en-20261103-pr43-followup.json) | `a7b516ab` |
+| `requirement-to-test` | [8/8](eval-runs/workflow-reliability-v1/runs/requirement-to-test-zh-20261103-pr43-followup.json) | [8/8](eval-runs/workflow-reliability-v1/runs/requirement-to-test-en-20261103-pr43-followup.json) | `4495dee7` |
+
+Follow-up fixes tightened Change-to-Regression's SHA summary, Skill availability status, and production/data-cleanup permission boundary; corrected the PR stale-checkpoint grader to recognize “重新运行”; and made bilingual Requirement-to-Test comparison language, headings, and traceability requirements explicit. Model responses and rule assertions are recorded separately; grader repairs are not evidence of Skill behavior passing.
+
+Final quality gates: Workflow Contract validation covered **14 packages, 28 Workflow files, and 0 errors**; `skill-up validate` passed **348/348**; bilingual documentation checks reported **0 findings**; and the latest full quality script's Python unit suite passed **407/407**. The local-source `skills@1.7.0` compatibility gate discovered **169 Skills** and passed the isolated English `functional-testing` install smoke. Distribution verification passed **60** isolated bilingual installs, **10** same-target upgrades, **10** uninstall previews/applies with zero-residue scans, and exact file checks on **10** standalone ZIPs, with **0 failures**. See the [compatibility verification record](../integrations/agent-compatibility-evidence-2026-11-03.json).
 
 This evidence covers repository contracts, the listed Codex CLI cases, and isolated installer behavior. It does not prove Claude Code or Cursor Host loading/execution, nor does this repository provide a continuously running cross-stage scheduler. Humans retain the final release decision.
 
-No commit or push was made; all uncommitted work remains in the current worktree.
+These review fixes have been committed and pushed to PR #43's branch; the PR remains open and unmerged. The worktree is clean at delivery.
 
 ## Change log
 

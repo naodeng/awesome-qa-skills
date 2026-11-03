@@ -53,7 +53,7 @@
 - 每个新增或修改行为的 Skill 有正常、边界、失败/权限、回归 Eval；结构校验与实际模型运行分别记录。
 - 证据包含来源、时间、版本、输入指纹和执行类型；未知事实保持 UNKNOWN/NOT_RUN。
 - Schema/契约/双语/独立安装/质量脚本通过；任何未运行的宿主验证都如实列为未验证。
-- 不提交、不推送；保留开始任务时已有的未提交改动。
+- 仅在用户明确要求时提交或推送；交付前核对目标分支、远端 SHA、PR 状态和工作区。
 
 ## 状态约定
 
@@ -75,11 +75,23 @@
 
 本轮修正了两处 Eval 误报：PR 对照不再把固定标题当作语义要求；Router 澄清评分器接受英文复数 `behaviors` 和中文“用户流程”。两处均先添加失败回归测试，再调整断言/匹配。最终中英文完整 Eval 各 **22/22 PASS**，Router no-Skill 对照各 **1/1 PASS**；表格链接只保留当前包版本的最终运行证据。其他工作流结果如表所示。
 
-最终质量门禁结果：Workflow Contract 校验 **14 个包、28 个 Workflow 文件、0 错误**；`skill-up validate` **348/348**；中英文文档检查 **0 findings**；完整质量脚本中的 Python 单元测试 **393/393 PASS**。源码 `skills@1.7.0` 兼容门禁发现 **169 个 Skill**，English `functional-testing` 隔离安装 smoke 通过。Agent 分发复核完成 **60 次**双语隔离安装、**10 次**同目标升级、**10 次**卸载预览/实际删除与零残留扫描、**10 个**独立 ZIP 逐文件校验，失败 **0**；详见[兼容验证记录](../integrations/agent-compatibility-evidence-2026-11-03.json)。
+### PR #43 审查后续验证（2026-11-03）
+
+审查修复后，对三条受影响工作流重新运行完整双语 Skill-up Evals，共 **48/48 PASS**（六次运行，每次 8/8）。这些是既有场景的后续回归，不是新增 48 个唯一场景；用例和 grader 按审查结果收紧。每条记录保留运行时 Commit、Skill 包指纹和原始报告哈希：
+
+| 工作流 | 中文 With Skill | 英文 With Skill | 评测时 Commit |
+| --- | --- | --- | --- |
+| `change-to-regression` | [8/8](eval-runs/workflow-reliability-v1/runs/change-to-regression-zh-20261103-pr43-followup.json) | [8/8](eval-runs/workflow-reliability-v1/runs/change-to-regression-en-20261103-pr43-followup.json) | `306a57c0` |
+| `pr-quality-review` | [8/8](eval-runs/workflow-reliability-v1/runs/pr-quality-review-zh-20261103-pr43-followup.json) | [8/8](eval-runs/workflow-reliability-v1/runs/pr-quality-review-en-20261103-pr43-followup.json) | `a7b516ab` |
+| `requirement-to-test` | [8/8](eval-runs/workflow-reliability-v1/runs/requirement-to-test-zh-20261103-pr43-followup.json) | [8/8](eval-runs/workflow-reliability-v1/runs/requirement-to-test-en-20261103-pr43-followup.json) | `4495dee7` |
+
+后续修复强化了 Change-to-Regression 的 SHA 摘要、Skill 可用性状态和生产/数据清理权限边界；修正 PR stale-checkpoint grader 对“重新运行”的漏判；并为双语 Requirement-to-Test 对照明确输出语言、章节与需求追踪要求。模型响应与规则断言分开记录，评测器修复不作为 Skill 行为通过证据。
+
+最终质量门禁结果：Workflow Contract 校验 **14 个包、28 个 Workflow 文件、0 错误**；`skill-up validate` **348/348**；中英文文档检查 **0 findings**；最新完整质量脚本中的 Python 单元测试 **407/407 PASS**。源码 `skills@1.7.0` 兼容门禁发现 **169 个 Skill**，English `functional-testing` 隔离安装 smoke 通过。Agent 分发复核完成 **60 次**双语隔离安装、**10 次**同目标升级、**10 次**卸载预览/实际删除与零残留扫描、**10 个**独立 ZIP 逐文件校验，失败 **0**；详见[兼容验证记录](../integrations/agent-compatibility-evidence-2026-11-03.json)。
 
 这些证据只证明仓库契约、Codex CLI 用例及隔离安装流程达到所列范围；不证明 Claude Code/Cursor Host 内加载与执行，也不提供持续运行的跨阶段调度器。最终发布决定仍由人工承担。
 
-本轮未提交或推送；所有未提交工作保留在当前工作区。
+本次审查修复已提交并推送到 PR #43 分支；PR 仍为开放、未合并状态。交付时工作区保持干净。
 
 ## 变更记录
 
