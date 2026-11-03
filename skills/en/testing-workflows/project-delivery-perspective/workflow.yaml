@@ -21,9 +21,19 @@
   ],
   "outputs": [
     {
-      "id": "workflow_result",
-      "description": "Scoped result, evidence states, open gaps, and next handoff.",
+      "id": "delivery_facts",
+      "description": "有来源的交付范围、里程碑、依赖和当前状态。",
       "evidence_kind": "fact"
+    },
+    {
+      "id": "delivery_risks",
+      "description": "根据所给状态和依赖推断的交付风险。",
+      "evidence_kind": "inference"
+    },
+    {
+      "id": "delivery_actions",
+      "description": "候选缓解措施、责任人和后续行动。",
+      "evidence_kind": "plan"
     }
   ],
   "steps": [

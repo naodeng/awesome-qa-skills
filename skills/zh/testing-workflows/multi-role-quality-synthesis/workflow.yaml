@@ -21,9 +21,19 @@
   ],
   "outputs": [
     {
-      "id": "workflow_result",
-      "description": "Scoped result, evidence states, open gaps, and next handoff.",
+      "id": "evidence_gaps",
+      "description": "审查范围内缺失、冲突或过期的来源证据。",
       "evidence_kind": "fact"
+    },
+    {
+      "id": "role_findings",
+      "description": "根据参与角色视角综合得出的质量发现。",
+      "evidence_kind": "inference"
+    },
+    {
+      "id": "follow_up_actions",
+      "description": "按优先级排列的后续行动和责任交接。",
+      "evidence_kind": "plan"
     }
   ],
   "steps": [

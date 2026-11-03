@@ -21,9 +21,19 @@
   ],
   "outputs": [
     {
-      "id": "workflow_result",
-      "description": "Scoped result, evidence states, open gaps, and next handoff.",
+      "id": "qa_facts",
+      "description": "有来源的 QA 范围、约束和质量观察证据。",
       "evidence_kind": "fact"
+    },
+    {
+      "id": "qa_findings",
+      "description": "根据现有证据推断的 QA 风险和结论。",
+      "evidence_kind": "inference"
+    },
+    {
+      "id": "qa_actions",
+      "description": "候选 QA 改进措施和下一步交接。",
+      "evidence_kind": "plan"
     }
   ],
   "steps": [

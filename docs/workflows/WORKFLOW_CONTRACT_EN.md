@@ -14,7 +14,7 @@ Each `skills/{zh,en}/testing-workflows/<slug>/workflow.yaml` records:
 
 - `id`, semantic version, kind (sequential workflow, router, independent task set, or single task), and lifecycle state.
 - Required/optional inputs, deliverables, stage order, and `depends_on` links.
-- An output's `evidence_kind` marks its primary evidence type. Split composite reports into outputs by type, and preserve each claim's type in `evidence.json`.
+- An output's `evidence_kind` marks its primary evidence type. Split composite reports into outputs by type, and preserve each claim's type in `evidence.json`; do not label a composite `workflow_result` as `fact`.
 - A stage may declare `skip_when`; every entry must give a checkable condition and reason. Without an explicit condition, the stage runs and cannot be silently skipped.
 - Canonical Skill IDs used by a stage, optional package-local prompt paths, and behavior on failure or missing dependencies.
 - Default permissions, side effects requiring explicit approval, handoff fields, and evidence-contract version.

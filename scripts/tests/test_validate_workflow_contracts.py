@@ -115,6 +115,20 @@ class WorkflowContractTests(unittest.TestCase):
     def test_accepts_a_complete_workflow_contract(self) -> None:
         self.assertEqual(validate_workflow(valid_workflow()), [])
 
+    def test_rejects_untagged_composite_workflow_result_deliverable(self) -> None:
+        workflow = valid_workflow()
+        workflow["outputs"] = [
+            {
+                "id": "workflow_result",
+                "description": "Scoped result, evidence states, open gaps, and next handoff.",
+                "evidence_kind": "fact",
+            }
+        ]
+
+        errors = validate_workflow(workflow)
+
+        self.assertTrue(any("not a typed deliverable" in error for error in errors), errors)
+
     def test_rejects_a_step_that_depends_on_an_unknown_step(self) -> None:
         workflow = valid_workflow()
         workflow["steps"][0]["depends_on"] = ["missing-step"]

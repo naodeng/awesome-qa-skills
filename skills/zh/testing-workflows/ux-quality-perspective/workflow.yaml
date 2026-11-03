@@ -21,9 +21,19 @@
   ],
   "outputs": [
     {
-      "id": "workflow_result",
-      "description": "Scoped result, evidence states, open gaps, and next handoff.",
+      "id": "ux_facts",
+      "description": "有来源的用户、旅程、无障碍和界面约束。",
       "evidence_kind": "fact"
+    },
+    {
+      "id": "ux_findings",
+      "description": "根据现有证据推断的 UX 质量风险和结论。",
+      "evidence_kind": "inference"
+    },
+    {
+      "id": "ux_actions",
+      "description": "候选 UX 改进措施和下一步验证交接。",
+      "evidence_kind": "plan"
     }
   ],
   "steps": [

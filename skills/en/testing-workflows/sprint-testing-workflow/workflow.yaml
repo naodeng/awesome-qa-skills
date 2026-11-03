@@ -21,9 +21,24 @@
   ],
   "outputs": [
     {
-      "id": "workflow_result",
-      "description": "Scoped result, evidence states, open gaps, and next handoff.",
+      "id": "sprint_scope",
+      "description": "有来源的迭代范围、目标、构建/环境状态和限制。",
       "evidence_kind": "fact"
+    },
+    {
+      "id": "test_execution_evidence",
+      "description": "可用时提供范围明确的已核验迭代测试运行和结果。",
+      "evidence_kind": "execution"
+    },
+    {
+      "id": "sprint_risk_assessment",
+      "description": "根据当前证据推断的迭代质量风险和门禁状态。",
+      "evidence_kind": "inference"
+    },
+    {
+      "id": "test_plan",
+      "description": "按风险排序的测试工作、取舍和专业 Skill 交接。",
+      "evidence_kind": "plan"
     }
   ],
   "steps": [

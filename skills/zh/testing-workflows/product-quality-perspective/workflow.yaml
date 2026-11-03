@@ -21,9 +21,19 @@
   ],
   "outputs": [
     {
-      "id": "workflow_result",
-      "description": "Scoped result, evidence states, open gaps, and next handoff.",
+      "id": "source_facts",
+      "description": "来自已标注来源的产品范围、约束和观察证据。",
       "evidence_kind": "fact"
+    },
+    {
+      "id": "quality_findings",
+      "description": "根据来源事实推断的产品质量风险和结论。",
+      "evidence_kind": "inference"
+    },
+    {
+      "id": "recommendations",
+      "description": "候选产品质量行动及下一步交接。",
+      "evidence_kind": "plan"
     }
   ],
   "steps": [

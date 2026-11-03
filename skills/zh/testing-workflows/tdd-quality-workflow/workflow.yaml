@@ -21,9 +21,24 @@
   ],
   "outputs": [
     {
-      "id": "workflow_result",
-      "description": "Scoped result, evidence states, open gaps, and next handoff.",
+      "id": "change_facts",
+      "description": "有来源的实现范围和所给验收标准。",
       "evidence_kind": "fact"
+    },
+    {
+      "id": "test_execution_evidence",
+      "description": "包含命令、范围和结果的已核验失败及通过测试记录。",
+      "evidence_kind": "execution"
+    },
+    {
+      "id": "tdd_assessment",
+      "description": "根据现有证据得出的 TDD 循环结论和剩余质量风险。",
+      "evidence_kind": "inference"
+    },
+    {
+      "id": "next_actions",
+      "description": "建议的下一 TDD 步骤、后续工作和交接。",
+      "evidence_kind": "plan"
     }
   ],
   "steps": [

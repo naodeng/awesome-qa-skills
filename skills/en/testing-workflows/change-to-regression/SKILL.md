@@ -1,6 +1,6 @@
 ---
 name: change-to-regression
-description: Use this skill when you need to select explainable regression scope from a change and its risk; triggers include change-to-regression and Change-to-Regression Workflow.
+description: Use this skill when you need to select explainable regression scope from a change and its risk; triggers include change-to-regression, 变更回归, and Change-to-Regression Workflow.
 license: PolyForm-Noncommercial-1.0.0
 metadata:
   version: "1.0.0"
@@ -14,23 +14,27 @@ metadata:
 
 # Change-to-Regression Workflow
 
-## When to use
+## When to Use
 
 Use this Skill to select explainable regression scope from a change and its risk.
 
-## Workflow
+## Output Format Options
 
-Read `prompts/change-to-regression.md` first; validate inputs, complete each stage, preserve sources, and return risk and handoff details.
+Default to Markdown with a required/deferred/excluded regression table. If JSON is requested, preserve the prompt's separate facts, inferences, plans, execution states, and sources.
 
 ## Core constraints
 
 Compose existing specialist Skills without copying their analysis rules. Mark host installation `UNKNOWN` without evidence. Do not report plans or static analysis as executed results. Read-only by default; external writes require authorization.
 
-## Load on demand
+## How to Use
 
-- Main process: `prompts/change-to-regression.md`
-- Usage and FAQ: `README.md`
-- Evals: `evals/`
+Read `prompts/change-to-regression.md` first; validate inputs, complete each stage, preserve sources, and return risk and handoff details. Use `README.md` for invocation examples and FAQ.
+
+## Reference Files
+
+- `prompts/change-to-regression.md`: full workflow, coverage, output, and recovery rules.
+- `README.md`: usage examples and FAQ.
+- `evals/`: trigger and behavior regression cases.
 
 ## Before delivery
 
@@ -39,6 +43,10 @@ Compose existing specialist Skills without copying their analysis rules. Mark ho
 - [ ] Execution evidence is separate from plans
 - [ ] Next steps and permission boundary are clear
 
-## Common mistakes
+## Common Pitfalls
 
 Do not invent input, assume dependencies are installed, or present recommendations as execution or approval.
+
+## Best Practices
+
+Provide exact base/head SHA, the full diff, test runtimes, and environment limits. After execution, attach its time, Commit, and run record.

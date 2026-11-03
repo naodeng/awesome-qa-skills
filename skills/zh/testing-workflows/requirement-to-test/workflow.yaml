@@ -21,9 +21,19 @@
   ],
   "outputs": [
     {
-      "id": "workflow_result",
-      "description": "Scoped result, evidence states, open gaps, and next handoff.",
+      "id": "requirement_facts",
+      "description": "有来源的需求原文、标识符和验收标准。",
       "evidence_kind": "fact"
+    },
+    {
+      "id": "testability_findings",
+      "description": "根据需求推断的歧义、冲突和可测试性结论。",
+      "evidence_kind": "inference"
+    },
+    {
+      "id": "test_design_plan",
+      "description": "风险驱动的测试用例、追踪关系、覆盖缺口和待确认问题。",
+      "evidence_kind": "plan"
     }
   ],
   "steps": [

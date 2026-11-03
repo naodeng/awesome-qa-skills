@@ -21,9 +21,19 @@
   ],
   "outputs": [
     {
-      "id": "workflow_result",
-      "description": "Scoped result, evidence states, open gaps, and next handoff.",
+      "id": "technical_facts",
+      "description": "有来源的技术设计、约束和实现观察证据。",
       "evidence_kind": "fact"
+    },
+    {
+      "id": "technical_findings",
+      "description": "根据现有证据推断的技术质量风险和结论。",
+      "evidence_kind": "inference"
+    },
+    {
+      "id": "technical_actions",
+      "description": "候选技术改进措施和后续交接。",
+      "evidence_kind": "plan"
     }
   ],
   "steps": [

@@ -122,8 +122,13 @@ def validate_workflow(
                 errors.append(f"{location}.description: must be a non-empty string")
             if field == "inputs" and not isinstance(item.get("required"), bool):
                 errors.append(f"{location}.required: must be a boolean")
-            if field == "outputs" and item.get("evidence_kind") not in {"fact", "inference", "plan", "execution"}:
-                errors.append(f"{location}.evidence_kind: is not a supported evidence kind")
+            if field == "outputs":
+                if item.get("evidence_kind") not in {"fact", "inference", "plan", "execution"}:
+                    errors.append(f"{location}.evidence_kind: is not a supported evidence kind")
+                if item.get("id") == "workflow_result":
+                    errors.append(
+                        f"{location}.id: workflow_result is not a typed deliverable; split it by evidence_kind"
+                    )
     steps = workflow.get("steps")
     step_ids = _check_unique_ids(steps, "workflow.steps", errors)
     for index, step in enumerate(steps if isinstance(steps, list) else []):

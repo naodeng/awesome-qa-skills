@@ -21,9 +21,19 @@
   ],
   "outputs": [
     {
-      "id": "workflow_result",
-      "description": "Scoped result, evidence states, open gaps, and next handoff.",
+      "id": "capability_evidence",
+      "description": "实际观察到的 Skill 清单、可用性证据及未知项。",
       "evidence_kind": "fact"
+    },
+    {
+      "id": "route_recommendation",
+      "description": "根据用户意图和能力情况推荐的 Skill 或工作流。",
+      "evidence_kind": "inference"
+    },
+    {
+      "id": "next_actions",
+      "description": "最少澄清問題，或下一次調用及交接上下文。",
+      "evidence_kind": "plan"
     }
   ],
   "steps": [

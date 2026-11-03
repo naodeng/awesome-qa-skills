@@ -21,9 +21,24 @@
   ],
   "outputs": [
     {
-      "id": "workflow_result",
-      "description": "Scoped result, evidence states, open gaps, and next handoff.",
+      "id": "daily_scope",
+      "description": "有来源的当日目标、工作项、环境和限制。",
       "evidence_kind": "fact"
+    },
+    {
+      "id": "test_execution_evidence",
+      "description": "可用时提供范围和结果明确的已核验检查与测试记录。",
+      "evidence_kind": "execution"
+    },
+    {
+      "id": "quality_assessment",
+      "description": "根据所给证据得出的就绪度、质量风险和门禁评估。",
+      "evidence_kind": "inference"
+    },
+    {
+      "id": "next_actions",
+      "description": "按优先级排列的日常工作、升级事项和下一 Skill 交接。",
+      "evidence_kind": "plan"
     }
   ],
   "steps": [

@@ -21,9 +21,24 @@
   ],
   "outputs": [
     {
-      "id": "workflow_result",
-      "description": "Scoped result, evidence states, open gaps, and next handoff.",
+      "id": "change_facts",
+      "description": "有来源的变更范围、Commit SHA、文件和依赖上下文。",
       "evidence_kind": "fact"
+    },
+    {
+      "id": "impact_assessment",
+      "description": "对模块、业务路径、数据/状态、API 和权限的影响推断。",
+      "evidence_kind": "inference"
+    },
+    {
+      "id": "regression_plan",
+      "description": "包含理由和预期证据的必须执行、可延后和排除检查。",
+      "evidence_kind": "plan"
+    },
+    {
+      "id": "execution_evidence",
+      "description": "可用时提供命令、范围和结果的已核验测试执行记录。",
+      "evidence_kind": "execution"
     }
   ],
   "steps": [

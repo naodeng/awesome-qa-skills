@@ -21,9 +21,24 @@
   ],
   "outputs": [
     {
-      "id": "workflow_result",
-      "description": "Scoped result, evidence states, open gaps, and next handoff.",
+      "id": "release_scope",
+      "description": "有来源的发布内容、候选版本、日期和门禁证据。",
       "evidence_kind": "fact"
+    },
+    {
+      "id": "release_execution_evidence",
+      "description": "针对指定候选版本和范围的已核验测试及运维结果。",
+      "evidence_kind": "execution"
+    },
+    {
+      "id": "residual_risks",
+      "description": "根据当前证据和未关闭缺陷推断的剩余发布风险。",
+      "evidence_kind": "inference"
+    },
+    {
+      "id": "release_recommendation",
+      "description": "Go/No-Go 建议、条件和所需人工决策。",
+      "evidence_kind": "plan"
     }
   ],
   "steps": [

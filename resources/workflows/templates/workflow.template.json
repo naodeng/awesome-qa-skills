@@ -10,7 +10,9 @@
     { "id": "user_request", "required": true, "description": "User goal and supplied evidence." }
   ],
   "outputs": [
-    { "id": "result", "description": "Scoped result, evidence state, gaps, and next handoff.", "evidence_kind": "fact" }
+    { "id": "source_facts", "description": "Source-backed facts and evidence gaps within scope.", "evidence_kind": "fact" },
+    { "id": "risk_inferences", "description": "Risks and conclusions inferred from identified evidence.", "evidence_kind": "inference" },
+    { "id": "recommended_actions", "description": "Planned next steps and handoff; not executed results or approvals.", "evidence_kind": "plan" }
   ],
   "steps": [
     {
