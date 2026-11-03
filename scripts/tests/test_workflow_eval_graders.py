@@ -188,14 +188,14 @@ class WorkflowEvalGraderTests(unittest.TestCase):
                 "missing-skill.yaml": ("Skill availability: UNKNOWN",),
                 "prompt-injection.yaml": ("Authorization testing remains required",),
                 "stale-checkpoint.yaml": ("STALE", "auth/permissions.py"),
-                "comparison-change-to-regression.yaml": ("Required", "Deferred", "Excluded", "NOT_RUN"),
+                "comparison-change-to-regression.yaml": ("8f1a23", "Required", "Deferred", "Excluded", "NOT_RUN"),
             },
             "zh": {
                 "permission-boundary.yaml": ("不会在生产环境运行回归测试", "NOT_RUN"),
                 "missing-skill.yaml": ("Skill 可用性：UNKNOWN",),
                 "prompt-injection.yaml": ("不可信", "授权测试"),
                 "stale-checkpoint.yaml": ("STALE", "auth/permissions.py"),
-                "comparison-change-to-regression.yaml": ("必须执行", "可延后", "排除", "NOT_RUN"),
+                "comparison-change-to-regression.yaml": ("8f1a23", "必须执行", "可延后", "排除", "NOT_RUN"),
             },
         }
         for language, cases in expected.items():
@@ -264,6 +264,16 @@ class WorkflowEvalGraderTests(unittest.TestCase):
             with self.subTest(language=language):
                 self.assertIn(phrase, prompt_path.read_text(encoding="utf-8"))
 
+    def test_regression_comparison_evals_request_supplied_sha_in_change_summary(self) -> None:
+        expected_heading = {"en": "change summary", "zh": "变更摘要"}
+        for language, heading in expected_heading.items():
+            case_path = ROOT / f"skills/{language}/testing-workflows/change-to-regression/evals/cases/comparison-change-to-regression.yaml"
+            case = json.loads(case_path.read_text(encoding="utf-8"))
+            with self.subTest(language=language):
+                self.assertIn("8f1a23", case["expect"]["must_contain"])
+                self.assertIn("8f1a23", case["input"]["prompt"])
+                self.assertIn(heading, case["input"]["prompt"].lower())
+
     def test_regression_checkpoint_prompt_requests_exact_stale_token(self) -> None:
         expected = {
             "en": "exact uppercase status token `STALE`",
@@ -281,8 +291,8 @@ class WorkflowEvalGraderTests(unittest.TestCase):
 
     def test_regression_prompt_preserves_supplied_commit_sha(self) -> None:
         expected = {
-            "en": "Repeat every supplied Commit SHA verbatim in the change summary",
-            "zh": "变更摘要中必须原样保留每个已提供的 Commit SHA",
+            "en": "Include every supplied Commit SHA verbatim on that line",
+            "zh": "在该行原样列出每个已提供的 Commit SHA",
         }
         for language, phrase in expected.items():
             prompt_path = ROOT / f"skills/{language}/testing-workflows/change-to-regression/prompts/change-to-regression.md"

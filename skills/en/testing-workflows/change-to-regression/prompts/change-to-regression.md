@@ -11,7 +11,7 @@ Turn a code change into an explainable regression plan and evidence checklist.
 
 ## What to Do
 
-1. Record the change SHA, files, dependencies, scope, and exclusions. Repeat every supplied Commit SHA verbatim in the change summary.
+1. Start the response with a `Change summary:` line. Include every supplied Commit SHA verbatim on that line, even when the user asks only for affected paths or regression categories; record files, dependencies, scope, and exclusions.
 2. Identify direct and indirect effects on code, data/state, APIs, permissions, and critical business paths.
 3. Select regression checks by risk, coverage, dependencies, and time. Classify each as `Required`, `Deferred`, or `Excluded`, with rationale.
 4. Identify uncovered modules, environment/data prerequisites, flaky risk, and evidence actions. Separate planned work from executed work.
