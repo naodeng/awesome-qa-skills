@@ -9,7 +9,10 @@
   },
   "cases": {
     "files": [
-      "evals/cases/comparison-requirement-to-test.yaml"
+      "evals/cases/comparison-requirement-to-test.yaml",
+      "evals/cases/handoff-traceability.yaml",
+      "evals/cases/stale-checkpoint.yaml",
+      "evals/cases/permission-boundary.yaml"
     ],
     "defaults": {
       "timeout_seconds": 180,

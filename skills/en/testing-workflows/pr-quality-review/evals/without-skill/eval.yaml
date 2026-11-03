@@ -9,7 +9,10 @@
   },
   "cases": {
     "files": [
-      "evals/cases/comparison-pr-quality-review.yaml"
+      "evals/cases/comparison-pr-quality-review.yaml",
+      "evals/cases/handoff-continuity.yaml",
+      "evals/cases/stale-checkpoint.yaml",
+      "evals/cases/permission-boundary.yaml"
     ],
     "defaults": {
       "timeout_seconds": 180,

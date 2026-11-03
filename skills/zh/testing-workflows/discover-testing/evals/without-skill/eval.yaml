@@ -11,6 +11,8 @@ engine:
 cases:
   files:
     - evals/cases/comparison-discover-testing.yaml
+    - evals/cases/route-pr-quality-review.yaml
+    - evals/cases/router-prompt-injection.yaml
   defaults:
     timeout_seconds: 180
     max_turns: 8
