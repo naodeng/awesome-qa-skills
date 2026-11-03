@@ -63,17 +63,19 @@
 
 12 项工作在本仓库可交付范围内均已实施并完成检查：增强现有 Router 与发布工作流，新增三个薄编排 Skill，补齐标准契约、证据和 Run State 工具、双语 Evals、生命周期治理与安装交付。Run State CLI 可将阶段和 Checkpoint 写入文件，校验输入指纹、Commit SHA 与工作流包指纹，在变化时拒绝续跑，并阻止阶段静默重放；它不调度 Skill 或执行跨阶段 Host 自动化。真实 Host 自动发现、Prompt 执行及 Claude Code/Cursor 内的工作流运行仍标为 `NOT_RUN`。
 
-最终 Codex 行为 Eval 使用 skill-up 0.12.0 与 Codex CLI 0.166.0。With-Skill 全量用例 **106/106 PASS**（每种语言 53/53）；同输入的 no-Skill 场景对照 **10/10 PASS**（每个工作流、每种语言各 1 个场景）。对照用于检查案例在有无 Skill 时的输出，不是总体效果或能力提升的统计结论。报告保留原始输出哈希、运行器版本和输入指纹：
+最终 Codex 行为 Eval 使用 skill-up 0.12.0 与 Codex CLI 0.166.0。With-Skill 全量用例 **106/106 PASS**（每种语言 53/53）；当前 no-Skill 套件 **38/38 PASS**（每种语言 19/19），覆盖路由、交接、Checkpoint 恢复、权限边界及发布证据。它们是场景级检查，不代表总体效果或能力提升的统计结论。报告保留原始输出哈希、运行器版本和输入指纹：
+
+这里的 no-Skill 指对应 `evals/without-skill/eval.yaml` 显式设置 `skills: []`，skill-up 因此不会安装被评测的 Skill；运行配置标签本身不代表 Skill 已安装。
 
 | 工作流 | 中文 With Skill | 英文 With Skill | 中文 no-Skill | 英文 no-Skill |
 | --- | --- | --- | --- | --- |
-| `discover-testing` | [22/22](eval-runs/workflow-reliability-v1/runs/discover-testing-zh-20261103-final-v2.json) | [22/22](eval-runs/workflow-reliability-v1/runs/discover-testing-en-20261103-final-v2.json) | [1/1](eval-runs/workflow-reliability-v1/runs/discover-testing-zh-20261103-without-skill-v2.json) | [1/1](eval-runs/workflow-reliability-v1/runs/discover-testing-en-20261103-without-skill-v2.json) |
-| `pr-quality-review` | [8/8](eval-runs/workflow-reliability-v1/runs/pr-quality-review-zh-20261103-final.json) | [8/8](eval-runs/workflow-reliability-v1/runs/pr-quality-review-en-20261103-final.json) | [1/1](eval-runs/workflow-reliability-v1/runs/pr-quality-review-zh-20261103-without-skill.json) | [1/1](eval-runs/workflow-reliability-v1/runs/pr-quality-review-en-20261103-without-skill.json) |
-| `requirement-to-test` | [8/8](eval-runs/workflow-reliability-v1/runs/requirement-to-test-zh-20261103-final.json) | [8/8](eval-runs/workflow-reliability-v1/runs/requirement-to-test-en-20261103-final.json) | [1/1](eval-runs/workflow-reliability-v1/runs/requirement-to-test-zh-20261103-without-skill.json) | [1/1](eval-runs/workflow-reliability-v1/runs/requirement-to-test-en-20261103-without-skill.json) |
-| `change-to-regression` | [8/8](eval-runs/workflow-reliability-v1/runs/change-to-regression-zh-20261103-final.json) | [8/8](eval-runs/workflow-reliability-v1/runs/change-to-regression-en-20261103-final.json) | [1/1](eval-runs/workflow-reliability-v1/runs/change-to-regression-zh-20261103-without-skill.json) | [1/1](eval-runs/workflow-reliability-v1/runs/change-to-regression-en-20261103-without-skill.json) |
-| `release-testing-workflow` | [7/7](eval-runs/workflow-reliability-v1/runs/release-testing-workflow-zh-20261103-final.json) | [7/7](eval-runs/workflow-reliability-v1/runs/release-testing-workflow-en-20261103-final.json) | [1/1](eval-runs/workflow-reliability-v1/runs/release-testing-workflow-zh-20261103-without-skill.json) | [1/1](eval-runs/workflow-reliability-v1/runs/release-testing-workflow-en-20261103-without-skill.json) |
+| `discover-testing` | [22/22](eval-runs/workflow-reliability-v1/runs/discover-testing-zh-20261103-final-v2.json) | [22/22](eval-runs/workflow-reliability-v1/runs/discover-testing-en-20261103-final-v2.json) | [3/3](eval-runs/workflow-reliability-v1/runs/discover-testing-zh-20261103-pr43-no-skill-full.json) | [3/3](eval-runs/workflow-reliability-v1/runs/discover-testing-en-20261103-pr43-no-skill-full.json) |
+| `pr-quality-review` | [8/8](eval-runs/workflow-reliability-v1/runs/pr-quality-review-zh-20261103-final.json) | [8/8](eval-runs/workflow-reliability-v1/runs/pr-quality-review-en-20261103-final.json) | [4/4](eval-runs/workflow-reliability-v1/runs/pr-quality-review-zh-20261103-pr43-no-skill-full.json) | [4/4](eval-runs/workflow-reliability-v1/runs/pr-quality-review-en-20261103-pr43-no-skill-full.json) |
+| `requirement-to-test` | [8/8](eval-runs/workflow-reliability-v1/runs/requirement-to-test-zh-20261103-final.json) | [8/8](eval-runs/workflow-reliability-v1/runs/requirement-to-test-en-20261103-final.json) | [4/4](eval-runs/workflow-reliability-v1/runs/requirement-to-test-zh-20261103-pr43-no-skill-full.json) | [4/4](eval-runs/workflow-reliability-v1/runs/requirement-to-test-en-20261103-pr43-no-skill-full.json) |
+| `change-to-regression` | [8/8](eval-runs/workflow-reliability-v1/runs/change-to-regression-zh-20261103-final.json) | [8/8](eval-runs/workflow-reliability-v1/runs/change-to-regression-en-20261103-final.json) | [4/4](eval-runs/workflow-reliability-v1/runs/change-to-regression-zh-20261103-pr43-no-skill-full.json) | [4/4](eval-runs/workflow-reliability-v1/runs/change-to-regression-en-20261103-pr43-no-skill-full.json) |
+| `release-testing-workflow` | [7/7](eval-runs/workflow-reliability-v1/runs/release-testing-workflow-zh-20261103-final.json) | [7/7](eval-runs/workflow-reliability-v1/runs/release-testing-workflow-en-20261103-final.json) | [4/4](eval-runs/workflow-reliability-v1/runs/release-testing-workflow-zh-20261103-pr43-no-skill-full.json) | [4/4](eval-runs/workflow-reliability-v1/runs/release-testing-workflow-en-20261103-pr43-no-skill-full.json) |
 
-本轮修正了两处 Eval 误报：PR 对照不再把固定标题当作语义要求；Router 澄清评分器接受英文复数 `behaviors` 和中文“用户流程”。两处均先添加失败回归测试，再调整断言/匹配。最终中英文完整 Eval 各 **22/22 PASS**，Router no-Skill 对照各 **1/1 PASS**；表格链接只保留当前包版本的最终运行证据。其他工作流结果如表所示。
+本轮修正了两处 Eval 误报：PR 对照不再把固定标题当作语义要求；Router 澄清评分器接受英文复数 `behaviors` 和中文“用户流程”。两处均先添加失败回归测试，再调整断言/匹配。最终中英文完整 Eval 各 **22/22 PASS**，Router no-Skill 套件各 **3/3 PASS**；表格链接只保留当前包版本的最终运行证据。其他工作流结果如表所示。
 
 ### PR #43 审查后续验证（2026-11-03）
 
@@ -87,6 +89,8 @@
 
 后续修复强化了 Change-to-Regression 的 SHA 摘要、Skill 可用性状态和生产/数据清理权限边界；修正 PR stale-checkpoint grader 对“重新运行”的漏判；并为双语 Requirement-to-Test 对照明确输出语言、章节与需求追踪要求。模型响应与规则断言分开记录，评测器修复不作为 Skill 行为通过证据。
 
+规范复核还发现 no-Skill 套件原先每个工作流、每种语言只运行一个对照场景。现已扩展路由/注入、交接、恢复、权限、发布交接/审批与证据时效场景；当前提交 `12c5b8f1` 上完整 no-Skill 套件 **38/38 PASS**（每种语言 19/19），表中链接到十份路径脱敏的运行记录。
+
 最终质量门禁结果：Workflow Contract 校验 **14 个包、28 个 Workflow 文件、0 错误**；`skill-up validate` **348/348**；中英文文档检查 **0 findings**；最新完整质量脚本中的 Python 单元测试 **407/407 PASS**。源码 `skills@1.7.0` 兼容门禁发现 **169 个 Skill**，English `functional-testing` 隔离安装 smoke 通过。Agent 分发复核完成 **60 次**双语隔离安装、**10 次**同目标升级、**10 次**卸载预览/实际删除与零残留扫描、**10 个**独立 ZIP 逐文件校验，失败 **0**；详见[兼容验证记录](../integrations/agent-compatibility-evidence-2026-11-03.json)。
 
 这些证据只证明仓库契约、Codex CLI 用例及隔离安装流程达到所列范围；不证明 Claude Code/Cursor Host 内加载与执行，也不提供持续运行的跨阶段调度器。最终发布决定仍由人工承担。
@@ -96,4 +100,4 @@
 ## 变更记录
 
 - **2026-10-30 · v1.0.0**：建立双语 Workflow、Evidence 与 Run State 契约；增强 Router；增加 PR 质量、需求到测试、变更到回归三个编排包；扩展现有发布工作流；加入 Eval、生命周期、安装包和质量门禁记录。
-- **2026-11-03 · v1.0 收尾**：完成双语 Router 最终行为 Eval、no-Skill 对照和澄清评分器回归修复；复核仓库质量门禁、CLI 兼容、隔离安装、升级/卸载及独立 ZIP 证据，保留 Host 内运行与自动调度为 `NOT_RUN`。
+- **2026-11-03 · v1.0 收尾**：完成双语 Router 行为 Eval、覆盖路由/交接/恢复/权限的 no-Skill 套件和澄清评分器回归修复；复核仓库质量门禁、CLI 兼容、隔离安装、升级/卸载及独立 ZIP 证据，保留 Host 内运行与自动调度为 `NOT_RUN`。

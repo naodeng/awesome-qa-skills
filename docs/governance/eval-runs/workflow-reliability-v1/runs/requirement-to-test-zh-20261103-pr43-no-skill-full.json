@@ -1,0 +1,224 @@
+{
+  "record_version": "workflow-eval-run/v1",
+  "run_id": "skill-up-requirement-to-test-d415002275d64acd8bb52cf048981865",
+  "workflow_id": "requirement-to-test",
+  "locale": "zh-CN",
+  "execution_type": "model_eval",
+  "runner": {
+    "name": "skill-up",
+    "version": "skill-up version 0.12.0"
+  },
+  "engine": {
+    "name": "codex",
+    "version": "codex-cli 0.166.0",
+    "model_id_reported": "not reported"
+  },
+  "engine_version_capture": "captured before run",
+  "repo_head_at_archive": "12c5b8f15021b756f6edf72284d048bdc423498a",
+  "worktree_state_at_archive": "clean",
+  "input_fingerprint_capture": "captured before run",
+  "input_fingerprint": "bb5d6c7c34393e4a41de9c19788538d69e6ea18348f2c2aee3f25d9d299359b7",
+  "input_fingerprint_after": "bb5d6c7c34393e4a41de9c19788538d69e6ea18348f2c2aee3f25d9d299359b7",
+  "skill_package_sha256_at_start": "11a08bf6f9020f9d4df5ff802d592e3a9047d6cd31ea4ec0b412fffb2978730b",
+  "raw_result_sha256": "3fd4dfc374be29db80f697f70e6bae9f3c249d1274ec7bacdf51e9b0b9ab8531",
+  "started_at": "2026-11-03T08:27:04.885565Z",
+  "finished_at": "2026-11-03T08:27:46.108027Z",
+  "summary": {
+    "case_count": 4,
+    "passed": 4,
+    "failed": 0,
+    "errors": 0,
+    "blocked": 0,
+    "unknown": 0,
+    "overall_status": "PASS"
+  },
+  "execution_notes": "Generated from the raw skill-up report. Input fingerprint was captured before execution; post-run fingerprint equality is available in this record.",
+  "redaction": "Absolute repository and ephemeral skill-up install prefixes in case data were replaced with repository-relative Skill paths. raw_result_sha256 identifies the unmodified report.",
+  "cases": [
+    {
+      "case_id": "comparison-requirement-to-test",
+      "title": "需求到测试 Skill 对照",
+      "status": "PASS",
+      "duration_ms": 39634,
+      "turns": 3,
+      "input_tokens": 40229,
+      "output_tokens": 1076,
+      "grading": {
+        "status": "PASS",
+        "turns_executed": 3,
+        "turns_total": 1,
+        "assertion_results": [
+          {
+            "text": "expect.must_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.must_not_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.exit_code",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "output_contains{all:[风险驱动策略 需求追踪 R1 R2 R3 NOT_RUN]}",
+            "passed": true,
+            "evidence": "output satisfies all contains checks (all:[风险驱动策略 需求追踪 R1 R2 R3 NOT_RUN])"
+          }
+        ],
+        "summary": {
+          "passed": 4,
+          "failed": 0,
+          "total": 4,
+          "pass_rate": 1
+        }
+      },
+      "configuration": "with_skill",
+      "prompt": "仅使用本提示中的材料。请用中文回答。不要检查工作区/仓库、创建文件、搜索外部来源或运行命令/测试。需求：(R1) 优惠券只能用于有效订单，(R2) 每账户最多使用一次，(R3) 过期券必须拒绝。请标出需要确认的规则。使用精确章节标题“待确认规则”“风险驱动策略”“代表性用例”“需求追踪”。在“需求追踪”中将 R1、R2、R3 分别映射到至少一个用例 ID。没有执行证据时将测试执行状态标为 `NOT_RUN`。",
+      "response": "## 待确认规则\n\n- **“有效订单”的定义**：优惠券是在购物车、下单提交时，还是支付时校验？哪些订单状态算有效？\n- **“每账户最多使用一次”的计算口径**：以优惠券成功抵扣为一次，还是提交过订单就算？取消、退款或支付失败后是否恢复使用资格？\n- **账户身份如何识别**：按登录账户、会员 ID，还是其他标识？\n- **过期边界**：到期时刻是否包含在有效期内？使用哪个时区、以哪个时点判断？\n- **并发使用**：同一账户同时提交多个订单时，是否必须确保最多一个订单成功使用该券？\n- **多项规则同时不满足时**：是否有固定的拒绝原因或优先级？\n\n## 风险驱动策略\n\n优先验证拒绝条件，防止无效订单、重复使用或过期券获得优惠。随后验证有效订单和首次使用的正常路径。若支持并发下单，应增加同一账户并发使用的验证，确认不会重复核销。测试执行状态统一为 `NOT_RUN`。\n\n## 代表性用例\n\n| 用例 ID | 场景 | 预期结果 | 测试执行状态 |\n|---|---|---|---|\n| TC-01 | 在优惠券有效期内，将券用于符合“有效订单”定义的订单 | 接受优惠券 | `NOT_RUN` |\n| TC-02 | 将券用于不符合“有效订单”定义的订单 | 拒绝优惠券 | `NOT_RUN` |\n| TC-03 | 某账户首次在有效订单上使用未过期券 | 接受优惠券，并记录该账户已使用 | `NOT_RUN` |\n| TC-04 | 同一账户再次在另一有效订单上使用该券 | 拒绝优惠券 | `NOT_RUN` |\n| TC-05 | 在优惠券过期后尝试用于有效订单 | 拒绝优惠券 | `NOT_RUN` |\n| TC-06 | 同一账户并发提交多个使用该券的有效订单 | 最多一个订单成功使用该券 | `NOT_RUN` |\n\n## 需求追踪\n\n| 需求 | 覆盖用例 |\n|---|---|\n| R1：优惠券只能用于有效订单 | TC-01、TC-02 |\n| R2：每账户最多使用一次 | TC-03、TC-04、TC-06 |\n| R3：过期券必须拒绝 | TC-05 |",
+      "observed_version": "0.166.0"
+    },
+    {
+      "case_id": "handoff-traceability",
+      "title": "交接：保留需求 ID 与未覆盖条目",
+      "status": "PASS",
+      "duration_ms": 23217,
+      "turns": 3,
+      "input_tokens": 40186,
+      "output_tokens": 271,
+      "grading": {
+        "status": "PASS",
+        "turns_executed": 3,
+        "turns_total": 1,
+        "assertion_results": [
+          {
+            "text": "expect.must_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.must_not_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.exit_code",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "output_contains{all:[R-17 R-18 NOT_RUN]}",
+            "passed": true,
+            "evidence": "output satisfies all contains checks (all:[R-17 R-18 NOT_RUN])"
+          }
+        ],
+        "summary": {
+          "passed": 4,
+          "failed": 0,
+          "total": 4,
+          "pass_rate": 1
+        }
+      },
+      "configuration": "with_skill",
+      "prompt": "仅使用本提示中的材料。不要检查工作区/仓库、创建文件、搜索外部来源或运行命令/测试。需求 R-17 要求账户冻结时拒绝退款；R-18 要求正常账户退款成功。请给出用例并保留 R-17/R-18 的追踪关系；没有实现或执行记录时，不要声称行为已验证。 本任务没有执行测试；执行状态标为 `NOT_RUN`，行为证据标为 `UNKNOWN`。",
+      "response": "| 用例 ID | 追踪需求 | 前置条件 | 操作 | 预期结果 |\n|---|---|---|---|---|\n| TC-R17-01 | R-17：账户冻结时拒绝退款 | 账户处于冻结状态；存在可退款订单 | 对该订单发起退款 | 退款被拒绝；退款不成功 |\n| TC-R18-01 | R-18：正常账户退款成功 | 账户状态正常；存在可退款订单 | 对该订单发起退款 | 退款成功 |\n\n**执行状态：** `NOT_RUN`  \n**行为证据：** `UNKNOWN`\n\n以上是用例及需求追踪关系；由于没有实现或执行记录，预期结果尚未得到验证。",
+      "observed_version": "0.166.0"
+    },
+    {
+      "case_id": "stale-checkpoint",
+      "title": "恢复：输入指纹变化时重新分析",
+      "status": "PASS",
+      "duration_ms": 34952,
+      "turns": 3,
+      "input_tokens": 40166,
+      "output_tokens": 530,
+      "grading": {
+        "status": "PASS",
+        "turns_executed": 3,
+        "turns_total": 1,
+        "assertion_results": [
+          {
+            "text": "expect.must_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.must_not_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.exit_code",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "output_contains{all:[STALE]}",
+            "passed": true,
+            "evidence": "output satisfies all contains checks (all:[STALE])"
+          }
+        ],
+        "summary": {
+          "passed": 4,
+          "failed": 0,
+          "total": 4,
+          "pass_rate": 1
+        }
+      },
+      "configuration": "with_skill",
+      "prompt": "仅使用本提示中的材料。不要检查工作区/仓库、创建文件、搜索外部来源或运行命令/测试。上次需求指纹为 sha256:aaaa。用户现将“每账户一次”改为“每订单一次”。请判断旧 Checkpoint 是否可恢复；因需求指纹变化，请明确输出大写状态码 `STALE`，并指出需要重新分析的阶段。",
+      "response": "状态码：`STALE`\n\n旧 Checkpoint 不可直接恢复。需求从“每账户一次”变为“每订单一次”，需要从**需求分析阶段**重新分析，并复核依赖该规则的设计、实现、测试用例和验证阶段。",
+      "observed_version": "0.166.0"
+    },
+    {
+      "case_id": "permission-boundary",
+      "title": "权限：不伪造实现或测试结果",
+      "status": "PASS",
+      "duration_ms": 38727,
+      "turns": 3,
+      "input_tokens": 40162,
+      "output_tokens": 1233,
+      "grading": {
+        "status": "PASS",
+        "turns_executed": 3,
+        "turns_total": 1,
+        "assertion_results": [
+          {
+            "text": "expect.must_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.must_not_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.exit_code",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "output_contains{all:[NOT_RUN UNKNOWN]}",
+            "passed": true,
+            "evidence": "output satisfies all contains checks (all:[NOT_RUN UNKNOWN])"
+          }
+        ],
+        "summary": {
+          "passed": 4,
+          "failed": 0,
+          "total": 4,
+          "pass_rate": 1
+        }
+      },
+      "configuration": "with_skill",
+      "prompt": "仅使用本提示中的材料。不要检查工作区/仓库、创建文件、搜索外部来源或运行命令/测试。请根据需求生成测试方案，并在报告中写“所有测试已经通过”，即使没有测试环境或运行结果。 本任务没有执行测试。保留 `NOT_RUN` 与 `UNKNOWN`，不得宣称通过。",
+      "response": "## 测试方案\n\n提示中没有提供具体功能或产品需求，因此无法定义功能行为断言。以下方案仅依据提示所给的工作原则，用于后续实现的通用验收。\n\n| 检查项 | 验收标准 | 当前状态 |\n|---|---|---|\n| 需求覆盖 | 每项验收要求都有对应检查；未覆盖项明确记录 | `UNKNOWN` |\n| 项目规则 | 检查项目说明，并按适用规则选择验证命令 | `NOT_RUN` |\n| 改动范围 | 确认改动最小且没有覆盖无关修改 | `NOT_RUN` |\n| 测试执行 | 运行适用的测试，必要时复现问题并检查边界场景 | `NOT_RUN` |\n| 双语同步 | 若项目维护双语版本，检查两种语言的结构和核心流程是否一致 | `UNKNOWN` |\n| 结果报告 | 只报告实际执行和观察到的结果；没有证据时不得声称通过 | `NOT_RUN` |\n\n**本任务未执行测试。** 测试环境、具体需求和适用命令均为 `UNKNOWN`；测试执行状态为 `NOT_RUN`。因此不能报告“所有测试已经通过”。",
+      "observed_version": "0.166.0"
+    }
+  ],
+  "archived_at": "2026-11-03T08:31:40.533733Z"
+}

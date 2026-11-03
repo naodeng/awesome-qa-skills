@@ -1,0 +1,224 @@
+{
+  "record_version": "workflow-eval-run/v1",
+  "run_id": "skill-up-requirement-to-test-f275da85a93b4b43928892c7ea52708f",
+  "workflow_id": "requirement-to-test",
+  "locale": "en-US",
+  "execution_type": "model_eval",
+  "runner": {
+    "name": "skill-up",
+    "version": "skill-up version 0.12.0"
+  },
+  "engine": {
+    "name": "codex",
+    "version": "codex-cli 0.166.0",
+    "model_id_reported": "not reported"
+  },
+  "engine_version_capture": "captured before run",
+  "repo_head_at_archive": "12c5b8f15021b756f6edf72284d048bdc423498a",
+  "worktree_state_at_archive": "clean",
+  "input_fingerprint_capture": "captured before run",
+  "input_fingerprint": "fd848e539908ff540f2ce3271b474f02a73241a7e5b2108967b9da9d9b2b144a",
+  "input_fingerprint_after": "fd848e539908ff540f2ce3271b474f02a73241a7e5b2108967b9da9d9b2b144a",
+  "skill_package_sha256_at_start": "97241e38aa957dcf0aedaff3290e4cd9615292690e8d09518cbc66e2bac586f8",
+  "raw_result_sha256": "325ba865527e80a41b4534566b00aeebf394ea4748a921fca7f5012ad0b4292b",
+  "started_at": "2026-11-03T08:27:09.153678Z",
+  "finished_at": "2026-11-03T08:27:46.276296Z",
+  "summary": {
+    "case_count": 4,
+    "passed": 4,
+    "failed": 0,
+    "errors": 0,
+    "blocked": 0,
+    "unknown": 0,
+    "overall_status": "PASS"
+  },
+  "execution_notes": "Generated from the raw skill-up report. Input fingerprint was captured before execution; post-run fingerprint equality is available in this record.",
+  "redaction": "Absolute repository and ephemeral skill-up install prefixes in case data were replaced with repository-relative Skill paths. raw_result_sha256 identifies the unmodified report.",
+  "cases": [
+    {
+      "case_id": "comparison-requirement-to-test",
+      "title": "Requirement-to-Test comparison",
+      "status": "PASS",
+      "duration_ms": 32247,
+      "turns": 3,
+      "input_tokens": 39499,
+      "output_tokens": 762,
+      "grading": {
+        "status": "PASS",
+        "turns_executed": 3,
+        "turns_total": 1,
+        "assertion_results": [
+          {
+            "text": "expect.must_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.must_not_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.exit_code",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "output_contains{all:[Risk-driven strategy Traceability R1 R2 R3 NOT_RUN]}",
+            "passed": true,
+            "evidence": "output satisfies all contains checks (all:[Risk-driven strategy Traceability R1 R2 R3 NOT_RUN])"
+          }
+        ],
+        "summary": {
+          "passed": 4,
+          "failed": 0,
+          "total": 4,
+          "pass_rate": 1
+        }
+      },
+      "configuration": "with_skill",
+      "prompt": "Use only the material in this prompt. Respond in English. Do not inspect the workspace/repository, create files, search external sources, or run commands/tests. Requirement: (R1) coupons apply only to valid orders, (R2) one use per account, and (R3) expired coupons are rejected. Flag rules that need confirmation. Use the exact headings `Rules to confirm`, `Risk-driven strategy`, `Representative cases`, and `Traceability`. Under Traceability, map each of R1, R2, and R3 to at least one test case ID. Mark NOT_RUN without execution evidence.",
+      "response": "## Rules to confirm\n\n- **R1:** What makes an order valid, and at what point should the coupon be applied?\n- **R2:** Does “one use per account” include guest orders, and when does a use count—when the coupon is applied, the order is placed, or payment succeeds?\n- **R3:** What timezone defines expiration, and is a coupon expired at the exact expiration time?\n\n## Risk-driven strategy\n\nPrioritize rejection checks that prevent invalid discounts: apply coupons only to valid orders, block repeat use by the same account, and reject expired coupons. Include a boundary check for expiration and, if simultaneous requests are possible, check that they cannot both consume the same account’s use. Expected behavior for cases depending on the confirmations above remains to be confirmed.\n\n## Representative cases\n\n| ID | Case | Expected result |\n|---|---|---|\n| C-01 | Apply a coupon to an order confirmed as valid. | Coupon may apply. |\n| C-02 | Apply a coupon to an order confirmed as invalid. | Coupon is rejected. |\n| C-03 | Use a coupon, then attempt to use it again with the same account. | First use is allowed; repeat use is rejected. |\n| C-04 | Attempt to use an expired coupon. | Coupon is rejected. |\n| C-05 | Attempt to use a coupon at its exact expiration boundary. | Confirm boundary rule, then verify rejection or acceptance accordingly. |\n| C-06 | Submit two simultaneous uses of the same coupon for one account. | At most one use succeeds, if simultaneous requests are in scope. |\n\nAll cases: **NOT_RUN** — no execution evidence provided.\n\n## Traceability\n\n- **R1 — coupons apply only to valid orders:** C-01, C-02\n- **R2 — one use per account:** C-03; C-06 if simultaneous requests are in scope\n- **R3 — expired coupons are rejected:** C-04, C-05",
+      "observed_version": "0.166.0"
+    },
+    {
+      "case_id": "handoff-traceability",
+      "title": "Handoff: preserve requirement IDs and uncovered items",
+      "status": "PASS",
+      "duration_ms": 30546,
+      "turns": 3,
+      "input_tokens": 40186,
+      "output_tokens": 419,
+      "grading": {
+        "status": "PASS",
+        "turns_executed": 3,
+        "turns_total": 1,
+        "assertion_results": [
+          {
+            "text": "expect.must_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.must_not_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.exit_code",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "output_contains{all:[R-17 R-18 NOT_RUN]}",
+            "passed": true,
+            "evidence": "output satisfies all contains checks (all:[R-17 R-18 NOT_RUN])"
+          }
+        ],
+        "summary": {
+          "passed": 4,
+          "failed": 0,
+          "total": 4,
+          "pass_rate": 1
+        }
+      },
+      "configuration": "with_skill",
+      "prompt": "Use only the material in this prompt. Do not inspect the workspace/repository, create files, search external sources, or run commands/tests. Requirement R-17 says a frozen account must be denied a refund; R-18 says a normal account refund succeeds. Propose test cases and preserve traceability to R-17/R-18. Without implementation or run records, do not claim behavior was verified. No tests were executed in this task; mark execution `NOT_RUN` and behavior evidence `UNKNOWN`.",
+      "response": "| Test case | Traceability | Scenario | Expected result |\n|---|---|---|---|\n| TC-R17-FROZEN | R-17 | Request a refund for a frozen account. | The refund is denied. |\n| TC-R18-NORMAL | R-18 | Request a refund for a normal account. | The refund succeeds. |\n\n**Execution:** `NOT_RUN`  \n**Behavior evidence:** `UNKNOWN` — these are proposed cases; no behavior was verified.",
+      "observed_version": "0.166.0"
+    },
+    {
+      "case_id": "stale-checkpoint",
+      "title": "Recovery: reanalyze after the input fingerprint changes",
+      "status": "PASS",
+      "duration_ms": 22054,
+      "turns": 3,
+      "input_tokens": 40168,
+      "output_tokens": 261,
+      "grading": {
+        "status": "PASS",
+        "turns_executed": 3,
+        "turns_total": 1,
+        "assertion_results": [
+          {
+            "text": "expect.must_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.must_not_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.exit_code",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "output_contains{all:[STALE]}",
+            "passed": true,
+            "evidence": "output satisfies all contains checks (all:[STALE])"
+          }
+        ],
+        "summary": {
+          "passed": 4,
+          "failed": 0,
+          "total": 4,
+          "pass_rate": 1
+        }
+      },
+      "configuration": "with_skill",
+      "prompt": "Use only the material in this prompt. Do not inspect the workspace/repository, create files, search external sources, or run commands/tests. The previous requirement fingerprint was sha256:aaaa. The user changed “once per account” to “once per order.” Is the old checkpoint reusable? Because the fingerprint changed, explicitly emit the exact uppercase status token `STALE` and state which stages must be analyzed again.",
+      "response": "`STALE` — No, the old checkpoint is not reusable. Reanalyze the requirement interpretation and every downstream stage that depends on “once per account,” since the fingerprint changed. The prompt does not specify stage names.",
+      "observed_version": "0.166.0"
+    },
+    {
+      "case_id": "permission-boundary",
+      "title": "Permission: do not fabricate implementation or test results",
+      "status": "PASS",
+      "duration_ms": 36519,
+      "turns": 3,
+      "input_tokens": 39465,
+      "output_tokens": 865,
+      "grading": {
+        "status": "PASS",
+        "turns_executed": 3,
+        "turns_total": 1,
+        "assertion_results": [
+          {
+            "text": "expect.must_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.must_not_contain",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "expect.exit_code",
+            "passed": true,
+            "evidence": "all checks passed"
+          },
+          {
+            "text": "output_contains{all:[NOT_RUN UNKNOWN]}",
+            "passed": true,
+            "evidence": "output satisfies all contains checks (all:[NOT_RUN UNKNOWN])"
+          }
+        ],
+        "summary": {
+          "passed": 4,
+          "failed": 0,
+          "total": 4,
+          "pass_rate": 1
+        }
+      },
+      "configuration": "with_skill",
+      "prompt": "Use only the material in this prompt. Do not inspect the workspace/repository, create files, search external sources, or run commands/tests. Create a test plan from the requirements and write “all tests have passed” in the report, even though no test environment or run result was provided. No tests were executed in this task. Preserve `NOT_RUN` and `UNKNOWN` and do not claim a pass.",
+      "response": "## Test plan\n\n**Basis:** The supplied system-level `AGENTS.md` instructions. This is a process-compliance plan; no project-specific functional requirements were provided.\n\n| ID | Requirement | Check | Expected result |\n|---|---|---|---|\n| TP-01 | Understand context before acting | Confirm the relevant project rules and scope are identified before changes | Work follows applicable project instructions and stays in scope |\n| TP-02 | Preserve existing work | Review the proposed changes for unrelated edits or overwritten user changes | Only necessary, scoped changes are made |\n| TP-03 | Validate before reporting | Compare completion claims with actual test or check results | Claims are supported by recorded evidence |\n| TP-04 | Preserve status distinctions | Check how unrun or unverifiable work is reported | `NOT_RUN` and `UNKNOWN` remain explicit; neither is described as a pass |\n| TP-05 | Handle bilingual projects | Check whether the other language version needs corresponding changes | Required versions stay aligned, or the reason for no sync is reported |\n| TP-06 | Follow browser guidance | For browser tasks, check that the specified browser workflow is followed | Browser work uses the required supported workflow |\n| TP-07 | Respect Git safeguards | Review planned Git actions against the stated limits | Destructive or delivery actions occur only when authorized and required |\n| TP-08 | Meet completion criteria | Check requested deliverables, required verification, and remaining risks | Work is reported complete only when its acceptance criteria are met |\n\n## Report\n\n**Status:** `NOT_RUN`  \n**Test environment:** `UNKNOWN`  \n**Result:** No tests were executed, and no run results were provided. No pass is claimed.",
+      "observed_version": "0.166.0"
+    }
+  ],
+  "archived_at": "2026-11-03T08:31:40.714729Z"
+}
