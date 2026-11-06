@@ -61,7 +61,7 @@ Registry 记录 21 个不同能力候选项和 23 条卡片复核：EXISTING 9�
 
 | 命令 / 证据 | 结果 |
 | --- | --- |
-| `bash scripts/check_skills_quality.sh` | `通过`: 全部质量门禁通过；Eval YAML 348/348；单元测试 412 项通过。 |
+| `bash scripts/check_skills_quality.sh` | `通过`: 全部质量门禁通过；Eval YAML 348/348；单元测试 414 项通过。 |
 | `SKILLS_CLI_PACKAGE=$PWD bash scripts/check_skills_cli_compatibility.sh` | `通过`: skills@1.7.0 从当前工作树发现 169 个 Skill，并完成 functional-testing 安装与 metadata 保留检查。 |
 | `git diff --check` | `通过`: 最终仓库差异无空白错误。 |
 | `Project #4 status re-query` | `通过`: 23 张范围内卡片均为 Done；范围外 13 张 Todo 的 item ID 与批次基线一致。 |

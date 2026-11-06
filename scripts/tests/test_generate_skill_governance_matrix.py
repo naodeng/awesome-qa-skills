@@ -36,6 +36,56 @@ PROJECT_4_CANDIDATE_SLUGS = {
     "continuous-quality-workflow",
     "ai-native-quality-workflow",
 }
+EXPECTED_PROJECT_4_REVIEW_CANDIDATES = {
+    "PVTI_lAHOAHP1as4BjBhVzg6Sd_E": "ai-agent-testing",
+    "PVTI_lAHOAHP1as4BjBhVzg6SeBc": "agent-tool-testing",
+    "PVTI_lAHOAHP1as4BjBhVzg6SeDE": "ai-assisted-testing",
+    "PVTI_lAHOAHP1as4BjBhVzg6SeEo": "ai-feature-testing",
+    "PVTI_lAHOAHP1as4BjBhVzg6SeF8": "ai-generated-test-review",
+    "PVTI_lAHOAHP1as4BjBhVzg6SeHo": "llm-testing",
+    "PVTI_lAHOAHP1as4BjBhVzg6SeJc": "llm-evaluation-design",
+    "PVTI_lAHOAHP1as4BjBhVzg6SeK0": "prompt-testing",
+    "PVTI_lAHOAHP1as4BjBhVzg6SeMg": "prompt-injection-testing",
+    "PVTI_lAHOAHP1as4BjBhVzg6S3fA": "requirement-strategy-impact",
+    "PVTI_lAHOAHP1as4BjBhVzg6S3gw": "test-case-capability-boundary",
+    "PVTI_lAHOAHP1as4BjBhVzg6S3iU": "api-methodology-tool-adapter",
+    "PVTI_lAHOAHP1as4BjBhVzg6S3kE": "ui-e2e-methodology-tool-adapter",
+    "PVTI_lAHOAHP1as4BjBhVzg6S3mo": "performance-capability-tiers",
+    "PVTI_lAHOAHP1as4BjBhVzg6S3og": "ai-llm-agent-capability-boundary",
+    "PVTI_lAHOAHP1as4BjBhVzg6SeOA": "continuous-quality-workflow",
+    "PVTI_lAHOAHP1as4BjBhVzg6SePg": "ai-native-quality-workflow",
+    "PVTI_lAHOAHP1as4BjBhVzg6S3qc": "requirement-quality-workflow",
+    "PVTI_lAHOAHP1as4BjBhVzg6S3sc": "test-analysis-workflow",
+    "PVTI_lAHOAHP1as4BjBhVzg6S3uU": "automation-quality-workflow",
+    "PVTI_lAHOAHP1as4BjBhVzg6S3v8": "release-quality-workflow",
+    "PVTI_lAHOAHP1as4BjBhVzg6S3xM": "continuous-quality-workflow",
+    "PVTI_lAHOAHP1as4BjBhVzg6S3y4": "ai-native-quality-workflow",
+}
+EXPECTED_PROJECT_4_DUPLICATE_GROUPS = {
+    "continuous-quality-workflow": [
+        "PVTI_lAHOAHP1as4BjBhVzg6SeOA",
+        "PVTI_lAHOAHP1as4BjBhVzg6S3xM",
+    ],
+    "ai-native-quality-workflow": [
+        "PVTI_lAHOAHP1as4BjBhVzg6SePg",
+        "PVTI_lAHOAHP1as4BjBhVzg6S3y4",
+    ],
+}
+EXPECTED_PROJECT_4_OUT_OF_SCOPE_TODO_IDS = {
+    "PVTI_lAHOAHP1as4BjBhVzg6S3-E",
+    "PVTI_lAHOAHP1as4BjBhVzg6S34A",
+    "PVTI_lAHOAHP1as4BjBhVzg6S35Y",
+    "PVTI_lAHOAHP1as4BjBhVzg6S37A",
+    "PVTI_lAHOAHP1as4BjBhVzg6S3_Q",
+    "PVTI_lAHOAHP1as4BjBhVzg6S4BA",
+    "PVTI_lAHOAHP1as4BjBhVzg6Ta0I",
+    "PVTI_lAHOAHP1as4BjBhVzg6Tap0",
+    "PVTI_lAHOAHP1as4BjBhVzg6TatI",
+    "PVTI_lAHOAHP1as4BjBhVzg6Tauk",
+    "PVTI_lAHOAHP1as4BjBhVzg6Taww",
+    "PVTI_lAHOAHP1as4BjBhVzg6Tayo",
+    "PVTI_lAHOAHP1as4BjBhVzhBJmDk",
+}
 V20_CANDIDATE_SLUGS = {
     "decision-table-testing",
     "state-transition-testing",
@@ -177,6 +227,10 @@ class GovernanceMatrixTest(unittest.TestCase):
         self.assertEqual(len(registry.project_reviews), 23)
         self.assertEqual(len({review["item_id"] for review in registry.project_reviews}), 23)
         self.assertEqual(
+            {review["item_id"]: review["candidate"] for review in registry.project_reviews},
+            EXPECTED_PROJECT_4_REVIEW_CANDIDATES,
+        )
+        self.assertEqual(
             {candidate["slug"] for candidate in registry.candidates if candidate["slug"] in PROJECT_4_CANDIDATE_SLUGS},
             PROJECT_4_CANDIDATE_SLUGS,
         )
@@ -186,6 +240,61 @@ class GovernanceMatrixTest(unittest.TestCase):
         self.assertIn("Project #4 card review", matrix_en)
         self.assertIn("PROJECT_4_SKILL_CARDS_CLOSEOUT.md", matrix_zh)
         self.assertIn("PROJECT_4_SKILL_CARDS_CLOSEOUT_EN.md", matrix_en)
+        requirement_row_zh = next(
+            line for line in matrix_zh.splitlines() if line.startswith("| `requirement-quality-review` |")
+        )
+        requirement_row_en = next(
+            line for line in matrix_en.splitlines() if line.startswith("| `requirement-quality-review` |")
+        )
+        self.assertIn("semantic overlap with existing requirement Skills remains UNASSESSED", requirement_row_zh)
+        self.assertIn("semantic overlap with existing requirement Skills remains UNASSESSED", requirement_row_en)
+
+    def test_project_4_batch_pins_scope_duplicate_groups_and_closeout_status(self):
+        data = json.loads((ROOT / "docs/governance/skill-governance-registry.yaml").read_text(encoding="utf-8"))
+        batch = data["project_4_batch"]
+        self.assertEqual(batch.get("expected_item_candidates"), EXPECTED_PROJECT_4_REVIEW_CANDIDATES)
+        self.assertEqual(set(batch.get("out_of_scope_todo_item_ids", [])), EXPECTED_PROJECT_4_OUT_OF_SCOPE_TODO_IDS)
+        self.assertEqual(len(batch.get("out_of_scope_todo_item_ids", [])), 13)
+        self.assertEqual(batch.get("duplicate_groups"), EXPECTED_PROJECT_4_DUPLICATE_GROUPS)
+        self.assertEqual(batch.get("closeout_status"), "Done")
+
+    def test_project_4_batch_validator_rejects_scope_status_duplicate_and_snapshot_drift(self):
+        data = json.loads((ROOT / "docs/governance/skill-governance-registry.yaml").read_text(encoding="utf-8"))
+        data["project_4_batch"].update({
+            "expected_item_candidates": EXPECTED_PROJECT_4_REVIEW_CANDIDATES,
+            "out_of_scope_todo_item_ids": sorted(EXPECTED_PROJECT_4_OUT_OF_SCOPE_TODO_IDS),
+            "duplicate_groups": EXPECTED_PROJECT_4_DUPLICATE_GROUPS,
+            "closeout_status": "Done",
+        })
+        physical = matrix.discover_physical_skills(ROOT)
+        valid_registry = matrix.parse_registry(data)
+        self.assertEqual(matrix.validate_registry(valid_registry, physical, ROOT), [])
+
+        mutations = []
+        changed_id = deepcopy(data)
+        changed_id["project_reviews"][0]["item_id"] = "PVTI_unexpected_project_card"
+        mutations.append(("substituted item ID", changed_id))
+
+        changed_status = deepcopy(data)
+        changed_status["project_reviews"][0]["current_status"] = "Todo"
+        mutations.append(("non-Done closeout status", changed_status))
+
+        changed_duplicates = deepcopy(data)
+        changed_duplicates["project_reviews"][15]["duplicate_group"] = None
+        mutations.append(("duplicate group drift", changed_duplicates))
+
+        changed_snapshot = deepcopy(data)
+        changed_snapshot["project_4_batch"]["out_of_scope_todo_item_ids"].pop()
+        mutations.append(("missing out-of-scope Todo ID", changed_snapshot))
+
+        malformed_status = deepcopy(data)
+        malformed_status["project_4_batch"]["closeout_status"] = []
+        mutations.append(("malformed closeout status", malformed_status))
+
+        for label, mutated in mutations:
+            with self.subTest(label=label):
+                errors = matrix.validate_registry(matrix.parse_registry(mutated), physical, ROOT)
+                self.assertTrue(any("project_4_batch" in error for error in errors), errors)
 
     def test_project_4_closeout_documents_are_registry_generated_and_bilingual(self):
         data = json.loads((ROOT / "docs/governance/skill-governance-registry.yaml").read_text(encoding="utf-8"))

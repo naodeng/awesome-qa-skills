@@ -13951,12 +13951,63 @@
     "in_scope_items": 23,
     "in_scope_todo_at_snapshot": 23,
     "out_of_scope_todo_items": 13,
+    "expected_item_candidates": {
+      "PVTI_lAHOAHP1as4BjBhVzg6Sd_E": "ai-agent-testing",
+      "PVTI_lAHOAHP1as4BjBhVzg6SeBc": "agent-tool-testing",
+      "PVTI_lAHOAHP1as4BjBhVzg6SeDE": "ai-assisted-testing",
+      "PVTI_lAHOAHP1as4BjBhVzg6SeEo": "ai-feature-testing",
+      "PVTI_lAHOAHP1as4BjBhVzg6SeF8": "ai-generated-test-review",
+      "PVTI_lAHOAHP1as4BjBhVzg6SeHo": "llm-testing",
+      "PVTI_lAHOAHP1as4BjBhVzg6SeJc": "llm-evaluation-design",
+      "PVTI_lAHOAHP1as4BjBhVzg6SeK0": "prompt-testing",
+      "PVTI_lAHOAHP1as4BjBhVzg6SeMg": "prompt-injection-testing",
+      "PVTI_lAHOAHP1as4BjBhVzg6S3fA": "requirement-strategy-impact",
+      "PVTI_lAHOAHP1as4BjBhVzg6S3gw": "test-case-capability-boundary",
+      "PVTI_lAHOAHP1as4BjBhVzg6S3iU": "api-methodology-tool-adapter",
+      "PVTI_lAHOAHP1as4BjBhVzg6S3kE": "ui-e2e-methodology-tool-adapter",
+      "PVTI_lAHOAHP1as4BjBhVzg6S3mo": "performance-capability-tiers",
+      "PVTI_lAHOAHP1as4BjBhVzg6S3og": "ai-llm-agent-capability-boundary",
+      "PVTI_lAHOAHP1as4BjBhVzg6SeOA": "continuous-quality-workflow",
+      "PVTI_lAHOAHP1as4BjBhVzg6SePg": "ai-native-quality-workflow",
+      "PVTI_lAHOAHP1as4BjBhVzg6S3qc": "requirement-quality-workflow",
+      "PVTI_lAHOAHP1as4BjBhVzg6S3sc": "test-analysis-workflow",
+      "PVTI_lAHOAHP1as4BjBhVzg6S3uU": "automation-quality-workflow",
+      "PVTI_lAHOAHP1as4BjBhVzg6S3v8": "release-quality-workflow",
+      "PVTI_lAHOAHP1as4BjBhVzg6S3xM": "continuous-quality-workflow",
+      "PVTI_lAHOAHP1as4BjBhVzg6S3y4": "ai-native-quality-workflow"
+    },
+    "out_of_scope_todo_item_ids": [
+      "PVTI_lAHOAHP1as4BjBhVzg6S3-E",
+      "PVTI_lAHOAHP1as4BjBhVzg6S34A",
+      "PVTI_lAHOAHP1as4BjBhVzg6S35Y",
+      "PVTI_lAHOAHP1as4BjBhVzg6S37A",
+      "PVTI_lAHOAHP1as4BjBhVzg6S3_Q",
+      "PVTI_lAHOAHP1as4BjBhVzg6S4BA",
+      "PVTI_lAHOAHP1as4BjBhVzg6Ta0I",
+      "PVTI_lAHOAHP1as4BjBhVzg6Tap0",
+      "PVTI_lAHOAHP1as4BjBhVzg6TatI",
+      "PVTI_lAHOAHP1as4BjBhVzg6Tauk",
+      "PVTI_lAHOAHP1as4BjBhVzg6Taww",
+      "PVTI_lAHOAHP1as4BjBhVzg6Tayo",
+      "PVTI_lAHOAHP1as4BjBhVzhBJmDk"
+    ],
+    "duplicate_groups": {
+      "continuous-quality-workflow": [
+        "PVTI_lAHOAHP1as4BjBhVzg6SeOA",
+        "PVTI_lAHOAHP1as4BjBhVzg6S3xM"
+      ],
+      "ai-native-quality-workflow": [
+        "PVTI_lAHOAHP1as4BjBhVzg6SePg",
+        "PVTI_lAHOAHP1as4BjBhVzg6S3y4"
+      ]
+    },
+    "closeout_status": "Done",
     "validation_results": [
       {
         "command": "bash scripts/check_skills_quality.sh",
         "result": "PASS",
-        "notes_zh": "全部质量门禁通过；Eval YAML 348/348；单元测试 412 项通过。",
-        "notes_en": "All quality gates passed; Eval YAML 348/348; 412 unit tests passed."
+        "notes_zh": "全部质量门禁通过；Eval YAML 348/348；单元测试 414 项通过。",
+        "notes_en": "All quality gates passed; Eval YAML 348/348; 414 unit tests passed."
       },
       {
         "command": "SKILLS_CLI_PACKAGE=$PWD bash scripts/check_skills_cli_compatibility.sh",

@@ -61,7 +61,7 @@ No Skill behavior contract changed in this batch, so new Skill-up behavior Eval 
 
 | Command / evidence | Result |
 | --- | --- |
-| `bash scripts/check_skills_quality.sh` | `PASS`: All quality gates passed; Eval YAML 348/348; 412 unit tests passed. |
+| `bash scripts/check_skills_quality.sh` | `PASS`: All quality gates passed; Eval YAML 348/348; 414 unit tests passed. |
 | `SKILLS_CLI_PACKAGE=$PWD bash scripts/check_skills_cli_compatibility.sh` | `PASS`: skills@1.7.0 discovered 169 Skills from the current worktree and passed functional-testing installation and metadata preservation checks. |
 | `git diff --check` | `PASS`: The final repository diff has no whitespace errors. |
 | `Project #4 status re-query` | `PASS`: All 23 scoped cards are Done; the 13 out-of-scope Todo item IDs match the batch baseline. |

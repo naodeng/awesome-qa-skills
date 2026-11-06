@@ -84,6 +84,7 @@ class GovernanceRegistry:
     match_reviews: tuple[dict[str, object], ...]
     candidates: tuple[dict[str, object], ...]
     project_reviews: tuple[dict[str, object], ...] = ()
+    project_4_batch: dict[str, object] | None = None
 
 
 def discover_physical_skills(root: Path) -> set[str]:
@@ -102,14 +103,18 @@ def parse_registry(data: dict[str, object]) -> GovernanceRegistry:
     match_reviews = data.get("match_reviews", [])
     candidates = data.get("candidates", [])
     project_reviews = data.get("project_reviews", [])
+    project_4_batch = data.get("project_4_batch")
     if (
         not isinstance(skills, list)
         or not isinstance(match_reviews, list)
         or not isinstance(candidates, list)
         or not isinstance(project_reviews, list)
+        or (project_4_batch is not None and not isinstance(project_4_batch, dict))
     ):
-        raise ValueError("registry skills, match_reviews, candidates, and project_reviews must be lists")
-    return GovernanceRegistry(tuple(skills), tuple(match_reviews), tuple(candidates), tuple(project_reviews))
+        raise ValueError("registry skills, match_reviews, candidates, and project_reviews must be lists; project_4_batch must be a mapping")
+    return GovernanceRegistry(
+        tuple(skills), tuple(match_reviews), tuple(candidates), tuple(project_reviews), project_4_batch
+    )
 
 
 def load_registry(path: Path) -> GovernanceRegistry:
@@ -373,6 +378,62 @@ def validate_project_review(
     return errors
 
 
+def validate_project_4_batch(
+    project_reviews: tuple[dict[str, object], ...],
+    batch: dict[str, object] | None,
+) -> list[str]:
+    if not isinstance(batch, dict):
+        return ["project_4_batch must be a mapping when Project #4 reviews are present"]
+
+    errors: list[str] = []
+    expected = batch.get("expected_item_candidates")
+    if not isinstance(expected, dict) or not expected:
+        errors.append("project_4_batch.expected_item_candidates must be a non-empty mapping")
+        expected = {}
+    expected_pairs = {str(item_id): str(candidate) for item_id, candidate in expected.items()}
+    actual_pairs = {
+        str(review.get("item_id", "")): str(review.get("candidate", ""))
+        for review in project_reviews
+    }
+    if len(project_reviews) != batch.get("in_scope_items"):
+        errors.append("project_4_batch.in_scope_items must equal the Project #4 review count")
+    if actual_pairs != expected_pairs or len(actual_pairs) != len(project_reviews):
+        errors.append("project_4_batch expected item/candidate mapping does not match project_reviews")
+
+    out_of_scope = batch.get("out_of_scope_todo_item_ids")
+    if not isinstance(out_of_scope, list) or any(not isinstance(item_id, str) or not item_id for item_id in out_of_scope):
+        errors.append("project_4_batch.out_of_scope_todo_item_ids must be a list of item IDs")
+        out_of_scope = []
+    if len(out_of_scope) != batch.get("out_of_scope_todo_items") or len(out_of_scope) != len(set(out_of_scope)):
+        errors.append("project_4_batch out-of-scope Todo IDs must be unique and match the recorded count")
+    if set(out_of_scope).intersection(expected_pairs):
+        errors.append("project_4_batch out-of-scope Todo IDs must not overlap the in-scope cards")
+
+    expected_groups = batch.get("duplicate_groups")
+    if not isinstance(expected_groups, dict):
+        errors.append("project_4_batch.duplicate_groups must be a mapping")
+        expected_groups = {}
+    actual_groups: dict[str, list[str]] = {}
+    for review in project_reviews:
+        group = review.get("duplicate_group")
+        if group:
+            actual_groups.setdefault(str(group), []).append(str(review.get("item_id", "")))
+    normalized_groups = {
+        str(group): [str(item_id) for item_id in item_ids]
+        for group, item_ids in expected_groups.items()
+        if isinstance(item_ids, list)
+    }
+    if normalized_groups != actual_groups or len(normalized_groups) != len(expected_groups):
+        errors.append("project_4_batch duplicate_groups do not match project_reviews")
+
+    closeout_status = batch.get("closeout_status")
+    if not isinstance(closeout_status, str) or closeout_status not in {"Todo", "In Progress", "Done"}:
+        errors.append("project_4_batch.closeout_status is invalid")
+    elif any(review.get("current_status") != closeout_status for review in project_reviews):
+        errors.append("project_4_batch closeout_status must match every Project #4 review current_status")
+    return errors
+
+
 def validate_registry(registry: GovernanceRegistry, physical: set[str], root: Path | None = None) -> list[str]:
     rows = {str(skill.get("slug")): skill for skill in registry.skills}
     candidate_rows = {str(candidate.get("slug")): candidate for candidate in registry.candidates}
@@ -452,6 +513,8 @@ def validate_registry(registry: GovernanceRegistry, physical: set[str], root: Pa
                 f"{item_id}: {error}"
                 for error in validate_repository_relative_files(root, review.get("evidence_paths"), "evidence_paths")
             )
+    if registry.project_reviews or registry.project_4_batch is not None:
+        errors.extend(validate_project_4_batch(registry.project_reviews, registry.project_4_batch))
     if root is not None:
         actual_match_reviews = {
             str(review.get("candidate")): (
@@ -544,11 +607,15 @@ def render_matrix(registry: GovernanceRegistry, locale: str, root: Path | None =
         lifecycle = skill.get("lifecycle", {}).get("state", "UNASSESSED")
         roles = ", ".join(skill.get("roles", [])) if isinstance(skill.get("roles"), list) else skill.get("roles", "UNASSESSED")
         related = skill.get("related", "UNASSESSED")
+        slug = str(skill.get("slug", ""))
+        project_review_rows = project_reviews.get(slug, ())
         if reviews := reviews_by_target.get(str(skill.get("slug", ""))):
             related_lines = [render_review_relationship(review, locale) for review in reviews]
+        elif project_review_rows:
+            related_lines = [str(related)] if related else []
         else:
             related_lines = []
-        if project_reviews.get(str(skill.get("slug", ""))):
+        if project_review_rows:
             closeout = (
                 "governance/PROJECT_4_SKILL_CARDS_CLOSEOUT_EN.md"
                 if english
