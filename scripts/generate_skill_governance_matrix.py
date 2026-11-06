@@ -408,6 +408,13 @@ def validate_project_4_batch(
         errors.append("project_4_batch out-of-scope Todo IDs must be unique and match the recorded count")
     if set(out_of_scope).intersection(expected_pairs):
         errors.append("project_4_batch out-of-scope Todo IDs must not overlap the in-scope cards")
+    out_of_scope_statuses = batch.get("out_of_scope_todo_status_snapshot")
+    if not isinstance(out_of_scope_statuses, dict):
+        errors.append("project_4_batch.out_of_scope_todo_status_snapshot must be a mapping")
+    elif set(out_of_scope_statuses) != set(out_of_scope) or any(
+        status != "Todo" for status in out_of_scope_statuses.values()
+    ):
+        errors.append("project_4_batch out-of-scope status snapshot must map every out-of-scope card to Todo")
 
     expected_groups = batch.get("duplicate_groups")
     if not isinstance(expected_groups, dict):

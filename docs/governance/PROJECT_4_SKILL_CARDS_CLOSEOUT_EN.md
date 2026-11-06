@@ -47,6 +47,26 @@ The registry records 21 distinct capability candidates and 23 card reviews: 9 EX
 | `PVTI_lAHOAHP1as4BjBhVzg6S3xM` | v3.4｜Workflow｜continuous-quality-workflow | P2 / v1.7 | `REVIEWED_WITH_LIMITATION` · `MERGE` | [daily-testing-workflow](../../skills/en/testing-workflows/daily-testing-workflow/SKILL.md)<br>[sprint-testing-workflow](../../skills/en/testing-workflows/sprint-testing-workflow/SKILL.md)<br>[requirement-to-test](../../skills/en/testing-workflows/requirement-to-test/SKILL.md)<br>[pr-quality-review](../../skills/en/testing-workflows/pr-quality-review/SKILL.md)<br>[change-to-regression](../../skills/en/testing-workflows/change-to-regression/SKILL.md)<br>[release-testing-workflow](../../skills/en/testing-workflows/release-testing-workflow/SKILL.md) | Requirements, PRs, change regression, daily/sprint work, and release are covered by bounded workflows; the repository defines no continuous scheduler/runtime or unified state-machine contract. The v3.4 and v4.0 card bodies are identical and share one scope review. Merge into the listed existing specialist packages/workflow roles; add no package. Create a scoped follow-up with Evals only if later project material proves a distinct contract. [Six-field evidence](../SKILL_MATCHING_REGISTER_EN.md). | `Todo → Done` |
 | `PVTI_lAHOAHP1as4BjBhVzg6S3y4` | v4.0｜Workflow｜ai-native-quality-workflow | P2 / v1.7 | `REVIEWED_WITH_LIMITATION` · `MERGE` | [discover-testing](../../skills/en/testing-workflows/discover-testing/SKILL.md)<br>[ai-feature-testing](../../skills/en/testing-types/ai-feature-testing/SKILL.md)<br>[llm-testing](../../skills/en/testing-types/llm-testing/SKILL.md)<br>[ai-agent-testing](../../skills/en/testing-types/ai-agent-testing/SKILL.md)<br>[agent-tool-testing](../../skills/en/testing-types/agent-tool-testing/SKILL.md)<br>[ai-assisted-testing](../../skills/en/testing-types/ai-assisted-testing/SKILL.md)<br>[ai-generated-test-review](../../skills/en/testing-types/ai-generated-test-review/SKILL.md)<br>[llm-evaluation-design](../../skills/en/testing-types/llm-evaluation-design/SKILL.md)<br>[prompt-testing](../../skills/en/testing-types/prompt-testing/SKILL.md)<br>[prompt-injection-testing](../../skills/en/testing-types/prompt-injection-testing/SKILL.md) | discover-testing and its ai-feature-validation route plus nine specialist packages cover evidenced AI quality entry points; no independent end-to-end stage, input/output, or host-runtime contract is specified. The two v4.0 cards have the same title and body and share one scope review. Merge into the listed existing specialist packages/workflow roles; add no package. Create a scoped follow-up with Evals only if later project material proves a distinct contract. [Six-field evidence](../SKILL_MATCHING_REGISTER_EN.md). | `Todo → Done` |
 
+## Out-of-scope Todo status snapshot
+
+Post-closeout re-query: each out-of-scope card remains Todo.
+
+| Project item ID | Current status |
+| --- | --- |
+| `PVTI_lAHOAHP1as4BjBhVzg6S3-E` | `Todo` |
+| `PVTI_lAHOAHP1as4BjBhVzg6S34A` | `Todo` |
+| `PVTI_lAHOAHP1as4BjBhVzg6S35Y` | `Todo` |
+| `PVTI_lAHOAHP1as4BjBhVzg6S37A` | `Todo` |
+| `PVTI_lAHOAHP1as4BjBhVzg6S3_Q` | `Todo` |
+| `PVTI_lAHOAHP1as4BjBhVzg6S4BA` | `Todo` |
+| `PVTI_lAHOAHP1as4BjBhVzg6Ta0I` | `Todo` |
+| `PVTI_lAHOAHP1as4BjBhVzg6Tap0` | `Todo` |
+| `PVTI_lAHOAHP1as4BjBhVzg6TatI` | `Todo` |
+| `PVTI_lAHOAHP1as4BjBhVzg6Tauk` | `Todo` |
+| `PVTI_lAHOAHP1as4BjBhVzg6Taww` | `Todo` |
+| `PVTI_lAHOAHP1as4BjBhVzg6Tayo` | `Todo` |
+| `PVTI_lAHOAHP1as4BjBhVzhBJmDk` | `Todo` |
+
 ## Duplicate cards and shared evidence
 
 - `continuous-quality-workflow`: the v3.4 and v4.0 cards share one capability review; each card keeps its own item ID, priority, target version, and status.

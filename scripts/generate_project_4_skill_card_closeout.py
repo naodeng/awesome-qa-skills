@@ -48,6 +48,9 @@ def render_closeout(data: dict[str, object], locale: str) -> str:
     english = locale == "en"
     rows = data.get("project_reviews", [])
     batch = data.get("project_4_batch", {})
+    out_of_scope_statuses = batch.get("out_of_scope_todo_status_snapshot", {})
+    if not isinstance(out_of_scope_statuses, dict):
+        raise ValueError("project_4_batch.out_of_scope_todo_status_snapshot must be a mapping")
     candidates = data.get("candidates", [])
     if len(rows) != 23:
         raise ValueError(f"expected 23 Project #4 card reviews, found {len(rows)}")
@@ -98,6 +101,9 @@ def render_closeout(data: dict[str, object], locale: str) -> str:
         )
         verification_title = "Verification results"
         result_head = "| Command / evidence | Result |"
+        scope_status_title = "Out-of-scope Todo status snapshot"
+        scope_status_intro = "Post-closeout re-query: each out-of-scope card remains Todo."
+        scope_status_head = "| Project item ID | Current status |"
     else:
         title = "Project #4 Skill 卡片批次收口"
         intro = (
@@ -136,6 +142,9 @@ def render_closeout(data: dict[str, object], locale: str) -> str:
         )
         verification_title = "验证结果"
         result_head = "| 命令 / 证据 | 结果 |"
+        scope_status_title = "范围外 Todo 状态快照"
+        scope_status_intro = "收口后的状态重查：以下每张范围外卡片仍为 Todo。"
+        scope_status_head = "| Project item ID | 当前状态 |"
 
     lines = [
         '<div align="right">' + ('<a href="./PROJECT_4_SKILL_CARDS_CLOSEOUT.md">中文</a>' if english else '<a href="./PROJECT_4_SKILL_CARDS_CLOSEOUT_EN.md">English</a>') + '</div>',
@@ -170,6 +179,19 @@ def render_closeout(data: dict[str, object], locale: str) -> str:
             f"| `{row['item_id']}` | {row['title']} | {row['priority']} / {row['target_version']} | `{'REVIEWED_WITH_LIMITATION'}` · `{row['conclusion']}` | {target_links} | {result} | `{status}` |"
         )
     lines.extend(table_rows[1:])
+    lines.extend([
+        "",
+        f"## {scope_status_title}",
+        "",
+        scope_status_intro,
+        "",
+        scope_status_head,
+        "| --- | --- |",
+        *[
+            f"| `{item_id}` | `{status}` |"
+            for item_id, status in sorted(out_of_scope_statuses.items())
+        ],
+    ])
 
     if english:
         lines.extend([

@@ -47,6 +47,26 @@ Registry 记录 21 个不同能力候选项和 23 条卡片复核：EXISTING 9�
 | `PVTI_lAHOAHP1as4BjBhVzg6S3xM` | v3.4｜Workflow｜continuous-quality-workflow | P2 / v1.7 | `REVIEWED_WITH_LIMITATION` · `MERGE` | [daily-testing-workflow](../../skills/zh/testing-workflows/daily-testing-workflow/SKILL.md)<br>[sprint-testing-workflow](../../skills/zh/testing-workflows/sprint-testing-workflow/SKILL.md)<br>[requirement-to-test](../../skills/zh/testing-workflows/requirement-to-test/SKILL.md)<br>[pr-quality-review](../../skills/zh/testing-workflows/pr-quality-review/SKILL.md)<br>[change-to-regression](../../skills/zh/testing-workflows/change-to-regression/SKILL.md)<br>[release-testing-workflow](../../skills/zh/testing-workflows/release-testing-workflow/SKILL.md) | 需求、PR、变更回归、日常/迭代与发布已由多个边界清楚的工作流覆盖；仓库没有持续调度运行时或统一状态机合同。 v3.4 与 v4.0 卡片正文相同，共用一份范围分析。 合并到列出的现有专业包/Workflow 角色；不新增包。若后续项目材料证明存在独立合同，再建立具体范围和 Eval 的后续卡。 [六项证据](../SKILL_MATCHING_REGISTER.md). | `Todo → Done` |
 | `PVTI_lAHOAHP1as4BjBhVzg6S3y4` | v4.0｜Workflow｜ai-native-quality-workflow | P2 / v1.7 | `REVIEWED_WITH_LIMITATION` · `MERGE` | [discover-testing](../../skills/zh/testing-workflows/discover-testing/SKILL.md)<br>[ai-feature-testing](../../skills/zh/testing-types/ai-feature-testing/SKILL.md)<br>[llm-testing](../../skills/zh/testing-types/llm-testing/SKILL.md)<br>[ai-agent-testing](../../skills/zh/testing-types/ai-agent-testing/SKILL.md)<br>[agent-tool-testing](../../skills/zh/testing-types/agent-tool-testing/SKILL.md)<br>[ai-assisted-testing](../../skills/zh/testing-types/ai-assisted-testing/SKILL.md)<br>[ai-generated-test-review](../../skills/zh/testing-types/ai-generated-test-review/SKILL.md)<br>[llm-evaluation-design](../../skills/zh/testing-types/llm-evaluation-design/SKILL.md)<br>[prompt-testing](../../skills/zh/testing-types/prompt-testing/SKILL.md)<br>[prompt-injection-testing](../../skills/zh/testing-types/prompt-injection-testing/SKILL.md) | discover-testing 与 ai-feature-validation 路由加上九个专项包覆盖当前可证明的 AI 质量入口；没有独立端到端阶段、输入/输出和宿主运行合同。 两张 v4.0 卡标题和正文相同，共用一份范围分析。 合并到列出的现有专业包/Workflow 角色；不新增包。若后续项目材料证明存在独立合同，再建立具体范围和 Eval 的后续卡。 [六项证据](../SKILL_MATCHING_REGISTER.md). | `Todo → Done` |
 
+## 范围外 Todo 状态快照
+
+收口后的状态重查：以下每张范围外卡片仍为 Todo。
+
+| Project item ID | 当前状态 |
+| --- | --- |
+| `PVTI_lAHOAHP1as4BjBhVzg6S3-E` | `Todo` |
+| `PVTI_lAHOAHP1as4BjBhVzg6S34A` | `Todo` |
+| `PVTI_lAHOAHP1as4BjBhVzg6S35Y` | `Todo` |
+| `PVTI_lAHOAHP1as4BjBhVzg6S37A` | `Todo` |
+| `PVTI_lAHOAHP1as4BjBhVzg6S3_Q` | `Todo` |
+| `PVTI_lAHOAHP1as4BjBhVzg6S4BA` | `Todo` |
+| `PVTI_lAHOAHP1as4BjBhVzg6Ta0I` | `Todo` |
+| `PVTI_lAHOAHP1as4BjBhVzg6Tap0` | `Todo` |
+| `PVTI_lAHOAHP1as4BjBhVzg6TatI` | `Todo` |
+| `PVTI_lAHOAHP1as4BjBhVzg6Tauk` | `Todo` |
+| `PVTI_lAHOAHP1as4BjBhVzg6Taww` | `Todo` |
+| `PVTI_lAHOAHP1as4BjBhVzg6Tayo` | `Todo` |
+| `PVTI_lAHOAHP1as4BjBhVzhBJmDk` | `Todo` |
+
 ## 重复卡与共享证据
 
 - `continuous-quality-workflow`：v3.4 与 v4.0 两张卡共用同一能力复核；各自 item ID、Priority、Target Version 和状态仍独立保留。

@@ -86,6 +86,9 @@ EXPECTED_PROJECT_4_OUT_OF_SCOPE_TODO_IDS = {
     "PVTI_lAHOAHP1as4BjBhVzg6Tayo",
     "PVTI_lAHOAHP1as4BjBhVzhBJmDk",
 }
+EXPECTED_PROJECT_4_OUT_OF_SCOPE_TODO_STATUSES = {
+    item_id: "Todo" for item_id in EXPECTED_PROJECT_4_OUT_OF_SCOPE_TODO_IDS
+}
 V20_CANDIDATE_SLUGS = {
     "decision-table-testing",
     "state-transition-testing",
@@ -255,6 +258,7 @@ class GovernanceMatrixTest(unittest.TestCase):
         self.assertEqual(batch.get("expected_item_candidates"), EXPECTED_PROJECT_4_REVIEW_CANDIDATES)
         self.assertEqual(set(batch.get("out_of_scope_todo_item_ids", [])), EXPECTED_PROJECT_4_OUT_OF_SCOPE_TODO_IDS)
         self.assertEqual(len(batch.get("out_of_scope_todo_item_ids", [])), 13)
+        self.assertEqual(batch.get("out_of_scope_todo_status_snapshot"), EXPECTED_PROJECT_4_OUT_OF_SCOPE_TODO_STATUSES)
         self.assertEqual(batch.get("duplicate_groups"), EXPECTED_PROJECT_4_DUPLICATE_GROUPS)
         self.assertEqual(batch.get("closeout_status"), "Done")
 
@@ -263,6 +267,7 @@ class GovernanceMatrixTest(unittest.TestCase):
         data["project_4_batch"].update({
             "expected_item_candidates": EXPECTED_PROJECT_4_REVIEW_CANDIDATES,
             "out_of_scope_todo_item_ids": sorted(EXPECTED_PROJECT_4_OUT_OF_SCOPE_TODO_IDS),
+            "out_of_scope_todo_status_snapshot": EXPECTED_PROJECT_4_OUT_OF_SCOPE_TODO_STATUSES,
             "duplicate_groups": EXPECTED_PROJECT_4_DUPLICATE_GROUPS,
             "closeout_status": "Done",
         })
@@ -287,6 +292,12 @@ class GovernanceMatrixTest(unittest.TestCase):
         changed_snapshot["project_4_batch"]["out_of_scope_todo_item_ids"].pop()
         mutations.append(("missing out-of-scope Todo ID", changed_snapshot))
 
+        changed_out_of_scope_status = deepcopy(data)
+        changed_out_of_scope_status["project_4_batch"]["out_of_scope_todo_status_snapshot"][
+            "PVTI_lAHOAHP1as4BjBhVzg6S3-E"
+        ] = "Done"
+        mutations.append(("changed out-of-scope card status", changed_out_of_scope_status))
+
         malformed_status = deepcopy(data)
         malformed_status["project_4_batch"]["closeout_status"] = []
         mutations.append(("malformed closeout status", malformed_status))
@@ -302,11 +313,16 @@ class GovernanceMatrixTest(unittest.TestCase):
         en = project_4_closeout.render_closeout(data, "en")
         self.assertEqual(zh, (ROOT / "docs/governance/PROJECT_4_SKILL_CARDS_CLOSEOUT.md").read_text(encoding="utf-8"))
         self.assertEqual(en, (ROOT / "docs/governance/PROJECT_4_SKILL_CARDS_CLOSEOUT_EN.md").read_text(encoding="utf-8"))
-        ids_zh = re.findall(r"PVTI_lAHOAHP1as4BjBhVzg6S[A-Za-z0-9_]+", zh)
-        ids_en = re.findall(r"PVTI_lAHOAHP1as4BjBhVzg6S[A-Za-z0-9_]+", en)
+        card_section_zh = zh.split("## 范围外 Todo 状态快照", 1)[0]
+        card_section_en = en.split("## Out-of-scope Todo status snapshot", 1)[0]
+        ids_zh = re.findall(r"PVTI_lAHOAHP1as4BjBhVzg6S[A-Za-z0-9_]+", card_section_zh)
+        ids_en = re.findall(r"PVTI_lAHOAHP1as4BjBhVzg6S[A-Za-z0-9_]+", card_section_en)
         self.assertEqual(len(ids_zh), 23)
         self.assertEqual(sorted(ids_zh), sorted(ids_en))
         self.assertEqual(len(set(ids_zh)), 23)
+        for item_id in EXPECTED_PROJECT_4_OUT_OF_SCOPE_TODO_STATUSES:
+            self.assertIn(f"| `{item_id}` | `Todo` |", zh)
+            self.assertIn(f"| `{item_id}` | `Todo` |", en)
 
     def test_repository_match_reviews_cover_the_twenty_roadmap_mappings(self):
         registry = matrix.load_registry(ROOT / "docs/governance/skill-governance-registry.yaml")
