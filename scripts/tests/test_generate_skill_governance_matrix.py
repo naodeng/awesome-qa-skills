@@ -7,11 +7,88 @@ from tempfile import TemporaryDirectory
 import unittest
 
 from scripts import generate_skill_governance_matrix as matrix
+from scripts import generate_project_4_skill_card_closeout as project_4_closeout
 from scripts.tests.v3_v4_skill_contracts import CARD_IDS as V34_CANDIDATE_SLUGS
 
 ROOT = Path(__file__).resolve().parents[2]
 EXPECTED_LOGICAL_SKILL_COUNT = 169
-EXPECTED_CANDIDATE_COUNT = 101
+EXPECTED_CANDIDATE_COUNT = 122
+PROJECT_4_CANDIDATE_SLUGS = {
+    "ai-agent-testing",
+    "agent-tool-testing",
+    "ai-assisted-testing",
+    "ai-feature-testing",
+    "ai-generated-test-review",
+    "llm-testing",
+    "llm-evaluation-design",
+    "prompt-testing",
+    "prompt-injection-testing",
+    "requirement-strategy-impact",
+    "test-case-capability-boundary",
+    "api-methodology-tool-adapter",
+    "ui-e2e-methodology-tool-adapter",
+    "performance-capability-tiers",
+    "ai-llm-agent-capability-boundary",
+    "requirement-quality-workflow",
+    "test-analysis-workflow",
+    "automation-quality-workflow",
+    "release-quality-workflow",
+    "continuous-quality-workflow",
+    "ai-native-quality-workflow",
+}
+EXPECTED_PROJECT_4_REVIEW_CANDIDATES = {
+    "PVTI_lAHOAHP1as4BjBhVzg6Sd_E": "ai-agent-testing",
+    "PVTI_lAHOAHP1as4BjBhVzg6SeBc": "agent-tool-testing",
+    "PVTI_lAHOAHP1as4BjBhVzg6SeDE": "ai-assisted-testing",
+    "PVTI_lAHOAHP1as4BjBhVzg6SeEo": "ai-feature-testing",
+    "PVTI_lAHOAHP1as4BjBhVzg6SeF8": "ai-generated-test-review",
+    "PVTI_lAHOAHP1as4BjBhVzg6SeHo": "llm-testing",
+    "PVTI_lAHOAHP1as4BjBhVzg6SeJc": "llm-evaluation-design",
+    "PVTI_lAHOAHP1as4BjBhVzg6SeK0": "prompt-testing",
+    "PVTI_lAHOAHP1as4BjBhVzg6SeMg": "prompt-injection-testing",
+    "PVTI_lAHOAHP1as4BjBhVzg6S3fA": "requirement-strategy-impact",
+    "PVTI_lAHOAHP1as4BjBhVzg6S3gw": "test-case-capability-boundary",
+    "PVTI_lAHOAHP1as4BjBhVzg6S3iU": "api-methodology-tool-adapter",
+    "PVTI_lAHOAHP1as4BjBhVzg6S3kE": "ui-e2e-methodology-tool-adapter",
+    "PVTI_lAHOAHP1as4BjBhVzg6S3mo": "performance-capability-tiers",
+    "PVTI_lAHOAHP1as4BjBhVzg6S3og": "ai-llm-agent-capability-boundary",
+    "PVTI_lAHOAHP1as4BjBhVzg6SeOA": "continuous-quality-workflow",
+    "PVTI_lAHOAHP1as4BjBhVzg6SePg": "ai-native-quality-workflow",
+    "PVTI_lAHOAHP1as4BjBhVzg6S3qc": "requirement-quality-workflow",
+    "PVTI_lAHOAHP1as4BjBhVzg6S3sc": "test-analysis-workflow",
+    "PVTI_lAHOAHP1as4BjBhVzg6S3uU": "automation-quality-workflow",
+    "PVTI_lAHOAHP1as4BjBhVzg6S3v8": "release-quality-workflow",
+    "PVTI_lAHOAHP1as4BjBhVzg6S3xM": "continuous-quality-workflow",
+    "PVTI_lAHOAHP1as4BjBhVzg6S3y4": "ai-native-quality-workflow",
+}
+EXPECTED_PROJECT_4_DUPLICATE_GROUPS = {
+    "continuous-quality-workflow": [
+        "PVTI_lAHOAHP1as4BjBhVzg6SeOA",
+        "PVTI_lAHOAHP1as4BjBhVzg6S3xM",
+    ],
+    "ai-native-quality-workflow": [
+        "PVTI_lAHOAHP1as4BjBhVzg6SePg",
+        "PVTI_lAHOAHP1as4BjBhVzg6S3y4",
+    ],
+}
+EXPECTED_PROJECT_4_OUT_OF_SCOPE_TODO_IDS = {
+    "PVTI_lAHOAHP1as4BjBhVzg6S3-E",
+    "PVTI_lAHOAHP1as4BjBhVzg6S34A",
+    "PVTI_lAHOAHP1as4BjBhVzg6S35Y",
+    "PVTI_lAHOAHP1as4BjBhVzg6S37A",
+    "PVTI_lAHOAHP1as4BjBhVzg6S3_Q",
+    "PVTI_lAHOAHP1as4BjBhVzg6S4BA",
+    "PVTI_lAHOAHP1as4BjBhVzg6Ta0I",
+    "PVTI_lAHOAHP1as4BjBhVzg6Tap0",
+    "PVTI_lAHOAHP1as4BjBhVzg6TatI",
+    "PVTI_lAHOAHP1as4BjBhVzg6Tauk",
+    "PVTI_lAHOAHP1as4BjBhVzg6Taww",
+    "PVTI_lAHOAHP1as4BjBhVzg6Tayo",
+    "PVTI_lAHOAHP1as4BjBhVzhBJmDk",
+}
+EXPECTED_PROJECT_4_OUT_OF_SCOPE_TODO_STATUSES = {
+    item_id: "Todo" for item_id in EXPECTED_PROJECT_4_OUT_OF_SCOPE_TODO_IDS
+}
 V20_CANDIDATE_SLUGS = {
     "decision-table-testing",
     "state-transition-testing",
@@ -147,6 +224,105 @@ class GovernanceMatrixTest(unittest.TestCase):
         self.assertEqual(len(registry.skills), EXPECTED_LOGICAL_SKILL_COUNT)
         self.assertEqual(len(registry.skills), len(physical))
         self.assertEqual(len({skill["slug"] for skill in registry.skills}), len(registry.skills))
+
+    def test_project_4_reviews_are_complete_and_surface_in_the_matrix(self):
+        registry = matrix.load_registry(ROOT / "docs/governance/skill-governance-registry.yaml")
+        self.assertEqual(len(registry.project_reviews), 23)
+        self.assertEqual(len({review["item_id"] for review in registry.project_reviews}), 23)
+        self.assertEqual(
+            {review["item_id"]: review["candidate"] for review in registry.project_reviews},
+            EXPECTED_PROJECT_4_REVIEW_CANDIDATES,
+        )
+        self.assertEqual(
+            {candidate["slug"] for candidate in registry.candidates if candidate["slug"] in PROJECT_4_CANDIDATE_SLUGS},
+            PROJECT_4_CANDIDATE_SLUGS,
+        )
+        matrix_zh = matrix.render_matrix(registry, "zh", ROOT)
+        matrix_en = matrix.render_matrix(registry, "en", ROOT)
+        self.assertIn("Project #4 卡片复核", matrix_zh)
+        self.assertIn("Project #4 card review", matrix_en)
+        self.assertIn("PROJECT_4_SKILL_CARDS_CLOSEOUT.md", matrix_zh)
+        self.assertIn("PROJECT_4_SKILL_CARDS_CLOSEOUT_EN.md", matrix_en)
+        requirement_row_zh = next(
+            line for line in matrix_zh.splitlines() if line.startswith("| `requirement-quality-review` |")
+        )
+        requirement_row_en = next(
+            line for line in matrix_en.splitlines() if line.startswith("| `requirement-quality-review` |")
+        )
+        self.assertIn("semantic overlap with existing requirement Skills remains UNASSESSED", requirement_row_zh)
+        self.assertIn("semantic overlap with existing requirement Skills remains UNASSESSED", requirement_row_en)
+
+    def test_project_4_batch_pins_scope_duplicate_groups_and_closeout_status(self):
+        data = json.loads((ROOT / "docs/governance/skill-governance-registry.yaml").read_text(encoding="utf-8"))
+        batch = data["project_4_batch"]
+        self.assertEqual(batch.get("expected_item_candidates"), EXPECTED_PROJECT_4_REVIEW_CANDIDATES)
+        self.assertEqual(set(batch.get("out_of_scope_todo_item_ids", [])), EXPECTED_PROJECT_4_OUT_OF_SCOPE_TODO_IDS)
+        self.assertEqual(len(batch.get("out_of_scope_todo_item_ids", [])), 13)
+        self.assertEqual(batch.get("out_of_scope_todo_status_snapshot"), EXPECTED_PROJECT_4_OUT_OF_SCOPE_TODO_STATUSES)
+        self.assertEqual(batch.get("duplicate_groups"), EXPECTED_PROJECT_4_DUPLICATE_GROUPS)
+        self.assertEqual(batch.get("closeout_status"), "Done")
+
+    def test_project_4_batch_validator_rejects_scope_status_duplicate_and_snapshot_drift(self):
+        data = json.loads((ROOT / "docs/governance/skill-governance-registry.yaml").read_text(encoding="utf-8"))
+        data["project_4_batch"].update({
+            "expected_item_candidates": EXPECTED_PROJECT_4_REVIEW_CANDIDATES,
+            "out_of_scope_todo_item_ids": sorted(EXPECTED_PROJECT_4_OUT_OF_SCOPE_TODO_IDS),
+            "out_of_scope_todo_status_snapshot": EXPECTED_PROJECT_4_OUT_OF_SCOPE_TODO_STATUSES,
+            "duplicate_groups": EXPECTED_PROJECT_4_DUPLICATE_GROUPS,
+            "closeout_status": "Done",
+        })
+        physical = matrix.discover_physical_skills(ROOT)
+        valid_registry = matrix.parse_registry(data)
+        self.assertEqual(matrix.validate_registry(valid_registry, physical, ROOT), [])
+
+        mutations = []
+        changed_id = deepcopy(data)
+        changed_id["project_reviews"][0]["item_id"] = "PVTI_unexpected_project_card"
+        mutations.append(("substituted item ID", changed_id))
+
+        changed_status = deepcopy(data)
+        changed_status["project_reviews"][0]["current_status"] = "Todo"
+        mutations.append(("non-Done closeout status", changed_status))
+
+        changed_duplicates = deepcopy(data)
+        changed_duplicates["project_reviews"][15]["duplicate_group"] = None
+        mutations.append(("duplicate group drift", changed_duplicates))
+
+        changed_snapshot = deepcopy(data)
+        changed_snapshot["project_4_batch"]["out_of_scope_todo_item_ids"].pop()
+        mutations.append(("missing out-of-scope Todo ID", changed_snapshot))
+
+        changed_out_of_scope_status = deepcopy(data)
+        changed_out_of_scope_status["project_4_batch"]["out_of_scope_todo_status_snapshot"][
+            "PVTI_lAHOAHP1as4BjBhVzg6S3-E"
+        ] = "Done"
+        mutations.append(("changed out-of-scope card status", changed_out_of_scope_status))
+
+        malformed_status = deepcopy(data)
+        malformed_status["project_4_batch"]["closeout_status"] = []
+        mutations.append(("malformed closeout status", malformed_status))
+
+        for label, mutated in mutations:
+            with self.subTest(label=label):
+                errors = matrix.validate_registry(matrix.parse_registry(mutated), physical, ROOT)
+                self.assertTrue(any("project_4_batch" in error for error in errors), errors)
+
+    def test_project_4_closeout_documents_are_registry_generated_and_bilingual(self):
+        data = json.loads((ROOT / "docs/governance/skill-governance-registry.yaml").read_text(encoding="utf-8"))
+        zh = project_4_closeout.render_closeout(data, "zh")
+        en = project_4_closeout.render_closeout(data, "en")
+        self.assertEqual(zh, (ROOT / "docs/governance/PROJECT_4_SKILL_CARDS_CLOSEOUT.md").read_text(encoding="utf-8"))
+        self.assertEqual(en, (ROOT / "docs/governance/PROJECT_4_SKILL_CARDS_CLOSEOUT_EN.md").read_text(encoding="utf-8"))
+        card_section_zh = zh.split("## 范围外 Todo 状态快照", 1)[0]
+        card_section_en = en.split("## Out-of-scope Todo status snapshot", 1)[0]
+        ids_zh = re.findall(r"PVTI_lAHOAHP1as4BjBhVzg6S[A-Za-z0-9_]+", card_section_zh)
+        ids_en = re.findall(r"PVTI_lAHOAHP1as4BjBhVzg6S[A-Za-z0-9_]+", card_section_en)
+        self.assertEqual(len(ids_zh), 23)
+        self.assertEqual(sorted(ids_zh), sorted(ids_en))
+        self.assertEqual(len(set(ids_zh)), 23)
+        for item_id in EXPECTED_PROJECT_4_OUT_OF_SCOPE_TODO_STATUSES:
+            self.assertIn(f"| `{item_id}` | `Todo` |", zh)
+            self.assertIn(f"| `{item_id}` | `Todo` |", en)
 
     def test_repository_match_reviews_cover_the_twenty_roadmap_mappings(self):
         registry = matrix.load_registry(ROOT / "docs/governance/skill-governance-registry.yaml")
@@ -324,6 +500,16 @@ class GovernanceMatrixTest(unittest.TestCase):
                 target_paths = candidate["target_evidence_paths"]
                 self.assertTrue(target_paths)
                 self.assertTrue(all((ROOT / path).is_file() for path in target_paths))
+                continue
+            if candidate["slug"] in PROJECT_4_CANDIDATE_SLUGS:
+                self.assertEqual(candidate["decision_state"], "REVIEWED_WITH_LIMITATION")
+                self.assertIn("Project #4", candidate["candidate_source"])
+                self.assertTrue(candidate.get("capability_match"))
+                target_paths = candidate["target_evidence_paths"]
+                self.assertTrue(target_paths)
+                self.assertTrue(all((ROOT / path).is_file() for path in target_paths))
+                for field in matrix.MATCH_FIELDS:
+                    self.assertNotIn("UNASSESSED", candidate["evidence"][field])
                 continue
             if candidate["slug"] in V34_CANDIDATE_SLUGS:
                 self.assertEqual(candidate["decision_state"], "REVIEWED_WITH_LIMITATION")

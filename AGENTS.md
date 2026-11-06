@@ -142,6 +142,7 @@ python3 scripts/check_skills_cli_compatibility.py --skills-root skills --fail-on
 python3 scripts/validate_skills_integrity.py --fail-on-findings
 python3 scripts/check_external_snapshots.py --skills-root skills --max-per-skill 5
 bash scripts/validate_skill_evals.sh
+python3 scripts/generate_project_4_skill_card_closeout.py --check  # 若更新 Project #4 批次卡片复核来源
 python3 scripts/check_docs_bilingual.py --repo-root .
 ```
 

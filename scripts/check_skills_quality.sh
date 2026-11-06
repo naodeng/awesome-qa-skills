@@ -32,6 +32,8 @@ echo "[4/11] Check generated governance matrix"
 python3 scripts/generate_skill_governance_matrix.py --check
 echo "[4b/11] Check v1.4 governance closeout views"
 python3 scripts/generate_v14_closeout.py --check
+echo "[4c/11] Check generated Project #4 Skill-card closeout views"
+python3 scripts/generate_project_4_skill_card_closeout.py --check
 
 echo "[5/11] Validate skills independence"
 python3 scripts/validate_skills_independence.py --skills-root skills --fail-on-findings --report-md /tmp/skills-independence-check.md >/tmp/skills-independence-check.out
