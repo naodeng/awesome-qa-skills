@@ -7,11 +7,35 @@ from tempfile import TemporaryDirectory
 import unittest
 
 from scripts import generate_skill_governance_matrix as matrix
+from scripts import generate_project_4_skill_card_closeout as project_4_closeout
 from scripts.tests.v3_v4_skill_contracts import CARD_IDS as V34_CANDIDATE_SLUGS
 
 ROOT = Path(__file__).resolve().parents[2]
 EXPECTED_LOGICAL_SKILL_COUNT = 169
-EXPECTED_CANDIDATE_COUNT = 101
+EXPECTED_CANDIDATE_COUNT = 122
+PROJECT_4_CANDIDATE_SLUGS = {
+    "ai-agent-testing",
+    "agent-tool-testing",
+    "ai-assisted-testing",
+    "ai-feature-testing",
+    "ai-generated-test-review",
+    "llm-testing",
+    "llm-evaluation-design",
+    "prompt-testing",
+    "prompt-injection-testing",
+    "requirement-strategy-impact",
+    "test-case-capability-boundary",
+    "api-methodology-tool-adapter",
+    "ui-e2e-methodology-tool-adapter",
+    "performance-capability-tiers",
+    "ai-llm-agent-capability-boundary",
+    "requirement-quality-workflow",
+    "test-analysis-workflow",
+    "automation-quality-workflow",
+    "release-quality-workflow",
+    "continuous-quality-workflow",
+    "ai-native-quality-workflow",
+}
 V20_CANDIDATE_SLUGS = {
     "decision-table-testing",
     "state-transition-testing",
@@ -147,6 +171,33 @@ class GovernanceMatrixTest(unittest.TestCase):
         self.assertEqual(len(registry.skills), EXPECTED_LOGICAL_SKILL_COUNT)
         self.assertEqual(len(registry.skills), len(physical))
         self.assertEqual(len({skill["slug"] for skill in registry.skills}), len(registry.skills))
+
+    def test_project_4_reviews_are_complete_and_surface_in_the_matrix(self):
+        registry = matrix.load_registry(ROOT / "docs/governance/skill-governance-registry.yaml")
+        self.assertEqual(len(registry.project_reviews), 23)
+        self.assertEqual(len({review["item_id"] for review in registry.project_reviews}), 23)
+        self.assertEqual(
+            {candidate["slug"] for candidate in registry.candidates if candidate["slug"] in PROJECT_4_CANDIDATE_SLUGS},
+            PROJECT_4_CANDIDATE_SLUGS,
+        )
+        matrix_zh = matrix.render_matrix(registry, "zh", ROOT)
+        matrix_en = matrix.render_matrix(registry, "en", ROOT)
+        self.assertIn("Project #4 卡片复核", matrix_zh)
+        self.assertIn("Project #4 card review", matrix_en)
+        self.assertIn("PROJECT_4_SKILL_CARDS_CLOSEOUT.md", matrix_zh)
+        self.assertIn("PROJECT_4_SKILL_CARDS_CLOSEOUT_EN.md", matrix_en)
+
+    def test_project_4_closeout_documents_are_registry_generated_and_bilingual(self):
+        data = json.loads((ROOT / "docs/governance/skill-governance-registry.yaml").read_text(encoding="utf-8"))
+        zh = project_4_closeout.render_closeout(data, "zh")
+        en = project_4_closeout.render_closeout(data, "en")
+        self.assertEqual(zh, (ROOT / "docs/governance/PROJECT_4_SKILL_CARDS_CLOSEOUT.md").read_text(encoding="utf-8"))
+        self.assertEqual(en, (ROOT / "docs/governance/PROJECT_4_SKILL_CARDS_CLOSEOUT_EN.md").read_text(encoding="utf-8"))
+        ids_zh = re.findall(r"PVTI_lAHOAHP1as4BjBhVzg6S[A-Za-z0-9_]+", zh)
+        ids_en = re.findall(r"PVTI_lAHOAHP1as4BjBhVzg6S[A-Za-z0-9_]+", en)
+        self.assertEqual(len(ids_zh), 23)
+        self.assertEqual(sorted(ids_zh), sorted(ids_en))
+        self.assertEqual(len(set(ids_zh)), 23)
 
     def test_repository_match_reviews_cover_the_twenty_roadmap_mappings(self):
         registry = matrix.load_registry(ROOT / "docs/governance/skill-governance-registry.yaml")
@@ -324,6 +375,16 @@ class GovernanceMatrixTest(unittest.TestCase):
                 target_paths = candidate["target_evidence_paths"]
                 self.assertTrue(target_paths)
                 self.assertTrue(all((ROOT / path).is_file() for path in target_paths))
+                continue
+            if candidate["slug"] in PROJECT_4_CANDIDATE_SLUGS:
+                self.assertEqual(candidate["decision_state"], "REVIEWED_WITH_LIMITATION")
+                self.assertIn("Project #4", candidate["candidate_source"])
+                self.assertTrue(candidate.get("capability_match"))
+                target_paths = candidate["target_evidence_paths"]
+                self.assertTrue(target_paths)
+                self.assertTrue(all((ROOT / path).is_file() for path in target_paths))
+                for field in matrix.MATCH_FIELDS:
+                    self.assertNotIn("UNASSESSED", candidate["evidence"][field])
                 continue
             if candidate["slug"] in V34_CANDIDATE_SLUGS:
                 self.assertEqual(candidate["decision_state"], "REVIEWED_WITH_LIMITATION")

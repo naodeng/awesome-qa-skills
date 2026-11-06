@@ -26,6 +26,10 @@ VALID_LIFECYCLE_STATES = {"UNASSESSED", "EXPERIMENTAL", "STABLE", "MAINTENANCE",
 VALID_PROJECT_ACCEPTANCE_STATES = {"COMPLETE", "INCOMPLETE", "BLOCKED"}
 MATCH_FIELDS = ("name", "purpose", "inputs", "outputs", "decision_logic", "workflow_role")
 MATCH_REVIEW_FIELDS = ("candidate", "conclusion", "review_state", "target_skills", "evidence_paths", "next_action")
+PROJECT_REVIEW_FIELDS = (
+    "item_id", "candidate", "title", "priority", "target_version", "baseline_status",
+    "current_status", "conclusion", "review_state", "target_skills", "evidence_paths", "next_action",
+)
 PHASE_1_MATCH_TARGETS = {
     "capacity-planning": "capacity-planning-analysis",
     "workload-modeling": "performance-workload-modeling",
@@ -79,6 +83,7 @@ class GovernanceRegistry:
     skills: tuple[dict[str, object], ...]
     match_reviews: tuple[dict[str, object], ...]
     candidates: tuple[dict[str, object], ...]
+    project_reviews: tuple[dict[str, object], ...] = ()
 
 
 def discover_physical_skills(root: Path) -> set[str]:
@@ -96,9 +101,15 @@ def parse_registry(data: dict[str, object]) -> GovernanceRegistry:
     skills = data.get("skills", [])
     match_reviews = data.get("match_reviews", [])
     candidates = data.get("candidates", [])
-    if not isinstance(skills, list) or not isinstance(match_reviews, list) or not isinstance(candidates, list):
-        raise ValueError("registry skills, match_reviews, and candidates must be lists")
-    return GovernanceRegistry(tuple(skills), tuple(match_reviews), tuple(candidates))
+    project_reviews = data.get("project_reviews", [])
+    if (
+        not isinstance(skills, list)
+        or not isinstance(match_reviews, list)
+        or not isinstance(candidates, list)
+        or not isinstance(project_reviews, list)
+    ):
+        raise ValueError("registry skills, match_reviews, candidates, and project_reviews must be lists")
+    return GovernanceRegistry(tuple(skills), tuple(match_reviews), tuple(candidates), tuple(project_reviews))
 
 
 def load_registry(path: Path) -> GovernanceRegistry:
@@ -312,6 +323,56 @@ def match_reviews_by_target(registry: GovernanceRegistry) -> dict[str, tuple[dic
     return {target: tuple(reviews) for target, reviews in grouped.items()}
 
 
+def project_reviews_by_target(registry: GovernanceRegistry) -> dict[str, tuple[dict[str, object], ...]]:
+    grouped: dict[str, list[dict[str, object]]] = {}
+    for review in registry.project_reviews:
+        for target in review.get("target_skills", []):
+            grouped.setdefault(str(target), []).append(review)
+    return {target: tuple(reviews) for target, reviews in grouped.items()}
+
+
+def validate_project_review(
+    review: dict[str, object],
+    physical: set[str],
+    candidates: dict[str, dict[str, object]],
+) -> list[str]:
+    errors: list[str] = []
+    for field in PROJECT_REVIEW_FIELDS:
+        value = review.get(field)
+        if value is None or (isinstance(value, str) and not value.strip()) or value == []:
+            errors.append(f"missing {field}")
+    if review.get("conclusion") not in VALID_CONCLUSIONS:
+        errors.append("invalid project review conclusion")
+    if review.get("review_state") != "REVIEWED_WITH_LIMITATION":
+        errors.append("project review must remain REVIEWED_WITH_LIMITATION")
+    if review.get("baseline_status") != "Todo":
+        errors.append("project review baseline_status must preserve the Todo snapshot")
+    if review.get("current_status") not in {"Todo", "In Progress", "Done"}:
+        errors.append("invalid project review current_status")
+    targets = review.get("target_skills", [])
+    if not isinstance(targets, list) or not targets:
+        errors.append("target_skills must be a non-empty list")
+        targets = []
+    target_names = [str(target).strip() for target in targets]
+    if len(target_names) != len(set(target_names)):
+        errors.append("target_skills must not contain duplicates")
+    errors.extend(f"unknown target Skill: {target}" for target in target_names if target not in physical)
+    evidence_paths = review.get("evidence_paths", [])
+    if not isinstance(evidence_paths, list) or not evidence_paths:
+        errors.append("evidence_paths must be a non-empty list")
+    candidate_slug = str(review.get("candidate", ""))
+    source = candidates.get(candidate_slug)
+    if source is None:
+        errors.append("project review must reference a registered candidate")
+    else:
+        if source.get("conclusion") != review.get("conclusion"):
+            errors.append("project review conclusion differs from candidate record")
+        source_targets = tuple(part.strip() for part in str(source.get("target", "")).split(",") if part.strip())
+        if tuple(target_names) != source_targets:
+            errors.append("project review targets differ from candidate record")
+    return errors
+
+
 def validate_registry(registry: GovernanceRegistry, physical: set[str], root: Path | None = None) -> list[str]:
     rows = {str(skill.get("slug")): skill for skill in registry.skills}
     candidate_rows = {str(candidate.get("slug")): candidate for candidate in registry.candidates}
@@ -374,6 +435,21 @@ def validate_registry(registry: GovernanceRegistry, physical: set[str], root: Pa
         if root is not None:
             errors.extend(
                 f"{candidate}: {error}"
+                for error in validate_repository_relative_files(root, review.get("evidence_paths"), "evidence_paths")
+            )
+    seen_project_review_ids: set[str] = set()
+    for review in registry.project_reviews:
+        item_id = str(review.get("item_id", ""))
+        if item_id in seen_project_review_ids:
+            errors.append(f"duplicate project review item: {item_id}")
+        seen_project_review_ids.add(item_id)
+        errors.extend(
+            f"{item_id}: {error}"
+            for error in validate_project_review(review, physical, candidate_rows)
+        )
+        if root is not None:
+            errors.extend(
+                f"{item_id}: {error}"
                 for error in validate_repository_relative_files(root, review.get("evidence_paths"), "evidence_paths")
             )
     if root is not None:
@@ -461,6 +537,7 @@ def render_matrix(registry: GovernanceRegistry, locale: str, root: Path | None =
     )
     lines = [f'<div align="right"><a href="./{target}">{switch}</a></div>', "", f"# {title}", "", intro, "", "| Skill | Section | Virtual Domain | SDLC | Roles | Status | Lifecycle | Priority | Scope evidence | Inputs | Outputs | Related / Workflow | Quality Score | Eval Execution | Evidence |", "| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |"]
     reviews_by_target = match_reviews_by_target(registry)
+    project_reviews = project_reviews_by_target(registry)
     for skill in sorted(registry.skills, key=lambda item: str(item.get("slug", ""))):
         score = skill.get("quality_score", {}).get("state", "UNASSESSED")
         execution = skill.get("eval_execution", {}).get("state", "UNASSESSED")
@@ -468,7 +545,25 @@ def render_matrix(registry: GovernanceRegistry, locale: str, root: Path | None =
         roles = ", ".join(skill.get("roles", [])) if isinstance(skill.get("roles"), list) else skill.get("roles", "UNASSESSED")
         related = skill.get("related", "UNASSESSED")
         if reviews := reviews_by_target.get(str(skill.get("slug", ""))):
-            related = "<br>".join(render_review_relationship(review, locale) for review in reviews)
+            related_lines = [render_review_relationship(review, locale) for review in reviews]
+        else:
+            related_lines = []
+        if project_reviews.get(str(skill.get("slug", ""))):
+            closeout = (
+                "governance/PROJECT_4_SKILL_CARDS_CLOSEOUT_EN.md"
+                if english
+                else "governance/PROJECT_4_SKILL_CARDS_CLOSEOUT.md"
+            )
+            closeout_text = (
+                f"Project #4 card review: [card decisions and scope limits]({closeout}); "
+                "skill behavior and lifecycle states remain unchanged."
+                if english
+                else
+                f"Project #4 卡片复核：[卡片决策与范围边界]({closeout})；Skill 行为和生命周期状态未因此变更。"
+            )
+            related_lines.append(closeout_text)
+        if related_lines:
+            related = "<br>".join(related_lines)
         workflow = skill.get("workflow", "UNASSESSED")
         scope = skill_description(root, skill, locale)
         evidence_paths = skill.get("evidence_paths", [skill.get("governance_evidence", "UNASSESSED")])
