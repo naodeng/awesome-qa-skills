@@ -1,0 +1,28 @@
+schema_version: v1alpha1
+
+environment:
+  type: none
+
+skills:
+  - source: local_path
+    path: .
+
+engine:
+  name: codex
+
+cases:
+  files:
+    - evals/cases/basic-success.yaml
+    - evals/cases/edge-incomplete-source.yaml
+    - evals/cases/edge-write-confirmation.yaml
+    - evals/cases/edge-untrusted-source-instructions.yaml
+  defaults:
+    timeout_seconds: 180
+    max_turns: 8
+    expect:
+      exit_code: 0
+      must_not_contain:
+        - "TODO"
+
+report:
+  formats: [json]

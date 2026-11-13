@@ -2,7 +2,7 @@
 
 # Skill Inventory
 
-> Snapshot scope: 169 Chinese and 169 English Skill directories. This records verifiable filesystem structure only; it does not assert virtual Domain, Capability Match, quality score, or runtime effectiveness.
+> Snapshot scope: 171 Chinese and 171 English Skill directories. This records verifiable filesystem structure only; it does not assert virtual Domain, Capability Match, quality score, or runtime effectiveness.
 
 | Skill | Language | Physical category | Required artifact contract |
 | --- | --- | --- | --- |
@@ -124,6 +124,8 @@
 | `session-security-testing` | zh | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `state-transition-testing` | zh | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `technical-design-quality-review` | zh | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
+| `test-case-importer` | zh | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
+| `test-case-retrieval` | zh | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `test-case-reviewer` | zh | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `test-case-reviewer-plus` | zh | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `test-case-writing` | zh | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
@@ -293,6 +295,8 @@
 | `session-security-testing` | en | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `state-transition-testing` | en | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `technical-design-quality-review` | en | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
+| `test-case-importer` | en | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
+| `test-case-retrieval` | en | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `test-case-reviewer` | en | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `test-case-reviewer-plus` | en | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `test-case-writing` | en | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |

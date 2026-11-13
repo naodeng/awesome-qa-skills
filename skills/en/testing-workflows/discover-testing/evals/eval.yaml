@@ -29,6 +29,8 @@ cases:
     - evals/cases/route-ai-feature.yaml
     - evals/cases/route-pr-quality-review.yaml
     - evals/cases/route-requirement-to-test.yaml
+    - evals/cases/route-test-case-import.yaml
+    - evals/cases/route-test-case-retrieval.yaml
     - evals/cases/route-change-to-regression.yaml
     - evals/cases/route-single-impact-only.yaml
     - evals/cases/route-explicit-missing-workflow.yaml

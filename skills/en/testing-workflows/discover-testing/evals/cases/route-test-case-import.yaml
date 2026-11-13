@@ -1,0 +1,29 @@
+{
+  "id": "route-test-case-import",
+  "title": "Explicit task: prepare an external case export for import",
+  "description": "The user asks to map a CSV export into a test-management system and preview the import without writing.",
+  "input": {
+    "prompt": "Use discover-testing. I have a CSV export of existing test cases and want to map its fields to Testmo, see a row-by-row import preview, and identify missing fields. Do not write anything to Testmo. Which single Skill should handle this task?"
+  },
+  "expect": {
+    "must_contain": [
+      "test-case-importer"
+    ],
+    "must_not_contain": [
+      "multiple primary Skills",
+      "TODO"
+    ]
+  },
+  "judge": {
+    "type": "rule_based",
+    "success": [
+      {
+        "output_contains": {
+          "all": [
+            "test-case-importer"
+          ]
+        }
+      }
+    ]
+  }
+}

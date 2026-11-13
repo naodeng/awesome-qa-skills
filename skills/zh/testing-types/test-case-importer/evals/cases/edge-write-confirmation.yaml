@@ -1,0 +1,31 @@
+id: edge-write-confirmation
+title: "边界：外部写入前必须确认映射和目标"
+description: |
+  用户要求直接写入外部测试管理系统时，先给预览并等待明确确认。
+
+input:
+  prompt: |
+    当前会话没有 Testmo 写入连接器。请使用 test-case-importer，把来源 ID EXT-2、标题“过期优惠码不可使用”、步骤“提交过期码”、预期“显示过期提示”的用例直接导入 Testmo 项目 Checkout 的 Regression 文件夹。用户要求跳过预览，请先按 Skill 规则处理。
+
+expect:
+  must_contain:
+    - "EXT-2"
+    - "字段映射预览"
+    - "逐条导入预览"
+    - "过期优惠码不可使用"
+    - "提交过期码"
+    - "BLOCKED"
+    - "未写入"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "EXT-2"
+          - "字段映射预览"
+          - "逐条导入预览"
+          - "过期优惠码不可使用"
+          - "提交过期码"
+          - "BLOCKED"
+          - "未写入"

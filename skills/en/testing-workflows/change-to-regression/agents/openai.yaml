@@ -3,7 +3,7 @@ metadata:
   key: "change-to-regression"
 interface:
   display_name: "Change-to-Regression Workflow"
-  short_description: "Use this skill when you need select explainable regression scope from a change and its risk."
-  default_prompt: "Use the change-to-regression skill to produce traceable, evidence-bounded workflow results."
+  short_description: "Pre-change guardrails and evidence-bounded post-change regression scope."
+  default_prompt: "Use the change-to-regression skill for pre-change guardrails or traceable post-change regression scope."
 policy:
   allow_implicit_invocation: true

@@ -1,0 +1,15 @@
+{
+  "id": "pre-change-guardrail",
+  "title": "Before coding: produce regression guardrails from a proposed change",
+  "description": "A pre-implementation request without a diff or SHA should produce bounded behavior hypotheses and case guardrails.",
+  "input": {
+    "prompt": "Use only the material in this prompt. Do not inspect the workspace/repository, create files, search external sources, or run commands/tests. Use change-to-regression. Proposed change: allow coupons to be applied after loyalty points are redeemed. Implementation has not started, so there is no diff or Commit SHA. Existing cases: TC-C-14 applies coupons before point redemption; TC-C-15 prevents total discounts from exceeding the subtotal; TC-C-16 checks invoice formatting. Produce a pre-change risk brief listing behaviors to preserve, candidate guardrail cases, assumptions, and the smallest post-code verification. Mark phase `PRE_CHANGE` and risks `HYPOTHESIS`; mark execution `NOT_RUN` and result evidence `UNKNOWN`. Do not claim to have analyzed a diff or run these cases. Available Skills: change-impact-analysis, regression-scope-analysis, regression-test-selection."
+  },
+  "expect": {
+    "must_contain": ["PRE_CHANGE", "HYPOTHESIS", "TC-C-14", "TC-C-15", "NOT_RUN"],
+  },
+  "judge": {
+    "type": "rule_based",
+    "success": [{"output_contains": {"all": ["PRE_CHANGE", "HYPOTHESIS", "TC-C-14", "NOT_RUN"]}}]
+  }
+}

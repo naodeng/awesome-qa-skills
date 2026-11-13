@@ -2,7 +2,7 @@
 
 # Complete Skills Index
 
-Each language contains 14 workflows, 150 testing types, and 5 Skill Engineering packages: 169 per language and 338 directories total. This is logical navigation; physical directories do not change. See the [Skill governance roadmap](../governance/SKILL_GOVERNANCE_ROADMAP_EN.md), [governance matrix](../SKILL_MATRIX_EN.md), [matching register](../SKILL_MATCHING_REGISTER_EN.md), and [v1.4 closeout](../governance/PHASE_0_V1_4_CLOSEOUT_EN.md) for long-term governance.
+Each language contains 14 workflows, 152 testing types, and 5 Skill Engineering packages: 171 per language and 342 directories total. This is logical navigation; physical directories do not change. See the [Skill governance roadmap](../governance/SKILL_GOVERNANCE_ROADMAP_EN.md), [governance matrix](../SKILL_MATRIX_EN.md), [matching register](../SKILL_MATCHING_REGISTER_EN.md), and [v1.4 closeout](../governance/PHASE_0_V1_4_CLOSEOUT_EN.md) for long-term governance.
 
 See the [v1.5.2 Composition Catalog](skills-composition_EN.md) for route and composition navigation; it is metadata, not an installation dependency or automatic execution chain.
 
@@ -62,6 +62,8 @@ See the [v1.5.2 Composition Catalog](skills-composition_EN.md) for route and com
 | Skill | 中文 | English |
 | --- | --- | --- |
 | `test-case-writing` | [中文](../../skills/zh/testing-types/test-case-writing/) | [English](../../skills/en/testing-types/test-case-writing/) |
+| `test-case-importer` | [中文](../../skills/zh/testing-types/test-case-importer/) | [English](../../skills/en/testing-types/test-case-importer/) |
+| `test-case-retrieval` | [中文](../../skills/zh/testing-types/test-case-retrieval/) | [English](../../skills/en/testing-types/test-case-retrieval/) |
 | `testcase-writer-plus` | [中文](../../skills/zh/testing-types/testcase-writer-plus/) | [English](../../skills/en/testing-types/testcase-writer-plus/) |
 | `test-case-reviewer` | [中文](../../skills/zh/testing-types/test-case-reviewer/) | [English](../../skills/en/testing-types/test-case-reviewer/) |
 | `test-case-reviewer-plus` | [中文](../../skills/zh/testing-types/test-case-reviewer-plus/) | [English](../../skills/en/testing-types/test-case-reviewer-plus/) |

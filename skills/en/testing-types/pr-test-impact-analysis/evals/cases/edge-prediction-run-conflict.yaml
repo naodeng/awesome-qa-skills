@@ -1,0 +1,23 @@
+id: edge-prediction-run-conflict
+title: "Boundary: preserve a conflict between prediction and actual CI result"
+description: |
+  When a static prediction and a CI result disagree for one case, report both and propose an investigation.
+
+input:
+  prompt: |
+    Use pr-test-impact-analysis. The diff changes the maximum retry count from 3 to 5. TC-45 expects retry count 4 to be rejected; based on this diff, you predict a conflict with that expectation. Separate actual evidence is available: CI run 218, head SHA abc123, TC-45 status passed. Do not let either item overwrite the other. Report the prediction, execution evidence, discrepancy, and next action.
+
+expect:
+  must_contain:
+    - "PREDICTED_FAIL"
+    - "RUN_PASS"
+    - "TC-45"
+    - "abc123"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "PREDICTED_FAIL"
+          - "RUN_PASS"
+          - "TC-45"

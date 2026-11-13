@@ -1,0 +1,21 @@
+id: edge-no-corpus
+title: "Boundary: do not invent cases when no catalog or search tool is available"
+description: |
+  When no test assets are accessible, state the empty search scope and request the minimum source material.
+
+input:
+  prompt: |
+    Use test-case-retrieval to find all cases about expired coupons and refunds. There is no case list, repository connection, or search tool in this conversation. List the case IDs you found.
+
+expect:
+  must_contain:
+    - "NO_ACCESS"
+    - "search tool"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "NO_ACCESS"
+          - "search tool"

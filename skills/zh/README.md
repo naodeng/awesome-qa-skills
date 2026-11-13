@@ -4,7 +4,7 @@
 
 本目录是中文主语言 Skill 根目录，与 `skills/en` 使用相同 Skill 名和物理结构。
 
-每种语言共 **169** 个 Skill：14 workflows + 150 testing types + 5 Skill Engineering。完整项目说明见 [中文 README](../../README.md) 和 [English README](../../README_EN.md)；长期治理见 [治理路线图](../../docs/governance/SKILL_GOVERNANCE_ROADMAP.md) 与 [治理矩阵](../../docs/SKILL_MATRIX.md)。
+每种语言共 **171** 个 Skill：14 workflows + 152 testing types + 5 Skill Engineering。完整项目说明见 [中文 README](../../README.md) 和 [English README](../../README_EN.md)；长期治理见 [治理路线图](../../docs/governance/SKILL_GOVERNANCE_ROADMAP.md) 与 [治理矩阵](../../docs/SKILL_MATRIX.md)。
 
 ## 跨阶段工作流
 
@@ -62,6 +62,8 @@
 | Skill | 目录 |
 | --- | --- |
 | 测试用例编写（中文版） | [`test-case-writing`](testing-types/test-case-writing/) |
+| 测试用例导入 | [`test-case-importer`](testing-types/test-case-importer/) |
+| 测试用例检索 | [`test-case-retrieval`](testing-types/test-case-retrieval/) |
 | 测试用例编写加强版 | [`testcase-writer-plus`](testing-types/testcase-writer-plus/) |
 | 测试用例评审（中文版） | [`test-case-reviewer`](testing-types/test-case-reviewer/) |
 | 测试用例评审加强版 | [`test-case-reviewer-plus`](testing-types/test-case-reviewer-plus/) |

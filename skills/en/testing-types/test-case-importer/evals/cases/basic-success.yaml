@@ -1,0 +1,28 @@
+id: basic-success
+title: "Case import: preserve provenance and preview the field map"
+description: |
+  Convert existing cases into an import-ready list while preserving source IDs and showing the field map before write-back.
+
+input:
+  prompt: |
+    Use test-case-importer to prepare the following CSV rows for the Checkout project. Show a mapping preview first and do not write to any external system.
+
+    Case ID,Title,Precondition,Steps,Expected,Priority
+    SRC-17,Declined card blocks checkout,Cart has an item,Submit with a declined card,Decline is shown and no order is created,P1
+    SRC-18,Refund restores balance,Order is paid,Request a full refund,Balance returns to its pre-refund value,P2
+
+expect:
+  must_contain:
+    - "Case ID"
+    - "SRC-17"
+    - "SRC-18"
+    - "PREVIEW_ONLY"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Case ID"
+          - "SRC-17"
+          - "SRC-18"

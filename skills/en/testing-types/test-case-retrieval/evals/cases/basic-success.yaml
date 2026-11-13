@@ -1,0 +1,28 @@
+id: basic-success
+title: "Test case retrieval: return traceable candidates for a scenario"
+description: |
+  Retrieve relevant cases from the supplied catalog with source IDs and rationale without claiming unsearched assets.
+
+input:
+  prompt: |
+    Use test-case-retrieval to find candidate cases about failed login, account lockout, and password recovery in this supplied catalog. Return source ID, title, area, and relevance rationale. Do not claim assets outside this catalog were searched.
+
+    TC-A1 | Account locks after repeated failed login | Identity / Authentication | Account is locked after five failures
+    TC-A2 | Reset password by email | Identity / Recovery | User recovers password from an expired email link
+    TC-A3 | Successful normal login | Identity / Authentication | Correct password opens the home page
+    TC-P1 | Restore points after refund | Orders / Refund | Full refund returns points
+
+expect:
+  must_contain:
+    - "SEARCHED"
+    - "TC-A1"
+    - "TC-A2"
+    - "rationale"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "TC-A1"
+          - "TC-A2"
+          - "rationale"

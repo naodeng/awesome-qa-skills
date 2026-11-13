@@ -4,7 +4,7 @@
 
 This is the English Skill root and mirrors `skills/zh` with identical Skill names and physical structure.
 
-Each language provides **169** Skills: 14 workflows + 150 testing types + 5 Skill Engineering. See the [Chinese README](../../README.md) and [English README](../../README_EN.md); see the [governance roadmap](../../docs/governance/SKILL_GOVERNANCE_ROADMAP_EN.md) and [governance matrix](../../docs/SKILL_MATRIX_EN.md) for long-term governance.
+Each language provides **171** Skills: 14 workflows + 152 testing types + 5 Skill Engineering. See the [Chinese README](../../README.md) and [English README](../../README_EN.md); see the [governance roadmap](../../docs/governance/SKILL_GOVERNANCE_ROADMAP_EN.md) and [governance matrix](../../docs/SKILL_MATRIX_EN.md) for long-term governance.
 
 ## Cross-phase workflows
 
@@ -62,6 +62,8 @@ Each language provides **169** Skills: 14 workflows + 150 testing types + 5 Skil
 | Skill | Directory |
 | --- | --- |
 | Test Case Writing (English) | [`test-case-writing`](testing-types/test-case-writing/) |
+| Test Case Importer | [`test-case-importer`](testing-types/test-case-importer/) |
+| Test Case Retrieval | [`test-case-retrieval`](testing-types/test-case-retrieval/) |
 | Testcase Writer Plus | [`testcase-writer-plus`](testing-types/testcase-writer-plus/) |
 | Test Case Review | [`test-case-reviewer`](testing-types/test-case-reviewer/) |
 | Test Case Reviewer Plus | [`test-case-reviewer-plus`](testing-types/test-case-reviewer-plus/) |

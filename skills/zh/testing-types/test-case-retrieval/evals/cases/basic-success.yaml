@@ -1,0 +1,29 @@
+id: basic-success
+title: "测试用例检索：根据场景返回可追溯候选"
+description: |
+  从给定目录检索相关用例，返回来源 ID 和匹配理由，不扩大到未检查的资产。
+
+input:
+  prompt: |
+    请使用 test-case-retrieval。从下面已提供的测试目录中查找与登录失败、账号锁定和密码恢复有关的候选用例。列出来源 ID、标题、所在模块和匹配理由；不要声称目录以外的资产已被检索。
+
+    TC-A1 | 登录连续失败后锁定账号 | Identity / Authentication | 失败五次后账号进入锁定状态
+    TC-A2 | 通过邮件重置密码 | Identity / Recovery | 用户从过期邮件链接恢复密码
+    TC-A3 | 正常登录成功 | Identity / Authentication | 正确密码可进入首页
+    TC-P1 | 退款后恢复积分 | Orders / Refund | 全额退款后积分返还
+
+expect:
+  must_contain:
+    - "SEARCHED"
+    - "TC-A1"
+    - "TC-A2"
+    - "来源"
+    - "匹配理由"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "TC-A1"
+          - "TC-A2"
+          - "匹配理由"

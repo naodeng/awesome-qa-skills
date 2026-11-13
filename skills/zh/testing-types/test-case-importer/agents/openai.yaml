@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "test-case-importer"
+interface:
+  display_name: "测试用例导入"
+  short_description: "从现有文件或导出内容生成可追溯的用例导入预览。"
+  default_prompt: "Use the test-case-importer skill to map existing test cases into a reviewable import preview."
+policy:
+  allow_implicit_invocation: true

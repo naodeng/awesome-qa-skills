@@ -1,0 +1,22 @@
+id: edge-no-corpus
+title: "边界：没有测试目录或检索工具时不编造用例"
+description: |
+  缺少可访问的测试资产时说明检索范围为空并请求最小来源材料。
+
+input:
+  prompt: |
+    请使用 test-case-retrieval，查找所有关于优惠码过期和退款的测试用例。当前对话没有测试用例清单、仓库连接或搜索工具。先直接列出找到的用例 ID。
+
+expect:
+  must_contain:
+    - "NO_ACCESS"
+    - "用例清单"
+    - "测试仓库"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "NO_ACCESS"
+          - "用例清单"

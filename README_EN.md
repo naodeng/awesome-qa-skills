@@ -9,9 +9,9 @@ Skills provide task guidance, test design, and reusable workflows; actual automa
 ![Awesome QA Skills social preview](social-preview.jpg)
 
 [![License: PolyForm Noncommercial 1.0.0](https://img.shields.io/badge/License-PolyForm%20Noncommercial%201.0.0-blue.svg)](./LICENSE)
-[![Skills](https://img.shields.io/badge/skills-338%20(zh%2Ben)-0A7EA4)](./docs/catalog/skills-index_EN.md)
+[![Skills](https://img.shields.io/badge/skills-342%20(zh%2Ben)-0A7EA4)](./docs/catalog/skills-index_EN.md)
 [![Workflows](https://img.shields.io/badge/workflows-14-informational)](./skills/en/testing-workflows/)
-[![Testing types](https://img.shields.io/badge/testing%20types-150-informational)](./skills/en/testing-types/)
+[![Testing types](https://img.shields.io/badge/testing%20types-152-informational)](./skills/en/testing-types/)
 [![Skill engineering](https://img.shields.io/badge/skill%20engineering-5-informational)](./skills/en/skill-engineering/)
 [![skills.sh](https://skills.sh/b/naodeng/awesome-qa-skills)](https://skills.sh/naodeng/awesome-qa-skills)
 
@@ -23,12 +23,12 @@ Skills provide task guidance, test design, and reusable workflows; actual automa
 
 ## What's included
 
-Each language has **169 Skills**, for **338 Skill directories** across Chinese and English:
+Each language has **171 Skills**, for **342 Skill directories** across Chinese and English:
 
 | Category | Count | Coverage |
 | --- | ---: | --- |
 | Testing workflows | 14 per language | Routing, requirement-to-test, PR review, change regression, iteration and release workflows, and quality perspectives |
-| Testing types | 150 per language | Requirements and strategy, test cases, functional/API/UI, regression, performance, security, production quality, and AI/LLM/agent testing |
+| Testing types | 152 per language | Requirements and strategy, test cases, functional/API/UI, regression, performance, security, production quality, and AI/LLM/agent testing |
 | Skill Engineering | 5 per language | Skill review, evaluation, change verification, and prose review |
 
 Each Skill is an independently installable directory with a `SKILL.md`, primary prompt, and tool metadata; some also include examples, templates, scripts, and evaluation cases.
@@ -41,6 +41,7 @@ Skill names are shared canonical names across Chinese and English. Browse the [c
 | --- | --- |
 | Analyze requirements or plan test strategy | [Requirements analysis](skills/en/testing-types/requirements-analysis/) · [Acceptance criteria review](skills/en/testing-types/acceptance-criteria-review/) · [Test strategy](skills/en/testing-types/test-strategy/) · [One-page test strategy](skills/en/testing-types/one-page-test-strategy/) |
 | Write or review test cases | [Test case writing](skills/en/testing-types/test-case-writing/) · [Test case review](skills/en/testing-types/test-case-reviewer/) |
+| Import or find existing test cases | [Test case importer](skills/en/testing-types/test-case-importer/) · [Test case retrieval](skills/en/testing-types/test-case-retrieval/) |
 | Test APIs or browser UIs | [API testing](skills/en/testing-types/api-testing/) · [Playwright UI automation testing](skills/en/testing-types/ui-test-playwright/) |
 | Select regression tests for a code change | [Regression test selection](skills/en/testing-types/regression-test-selection/) |
 | Design performance tests or use k6 | [Performance testing](skills/en/testing-types/performance-testing/) · [k6 performance testing](skills/en/testing-types/performance-test-k6/) |
@@ -113,7 +114,7 @@ Core QA Skills → Engineering QA Skills → Production Quality Skills → AI Na
 
 ## Complete Skill catalog
 
-Each language provides **169** Skills: 14 workflows, 150 testing types, and 5 Skill Engineering packages; **338** bilingual directories in total. Physical directories remain stable; the catalog below is logical navigation only.
+Each language provides **171** Skills: 14 workflows, 152 testing types, and 5 Skill Engineering packages; **342** bilingual directories in total. Physical directories remain stable; the catalog below is logical navigation only.
 
 ### Cross-phase workflows
 
@@ -139,7 +140,7 @@ Workflows orchestrate lifecycle phases and do not form a fifth capability stage.
 | TDD Quality Workflow | [`tdd-quality-workflow`](skills/en/testing-workflows/tdd-quality-workflow/) | Guide Red, Green, and Refactor with inspectable test and quality evidence. |
 | Project Delivery Perspective | [`project-delivery-perspective`](skills/en/testing-workflows/project-delivery-perspective/) | Capture attributable delivery constraints and actions for supported strategy and report-review stages without changing quality facts. |
 | PR Quality Review Workflow | [`pr-quality-review`](skills/en/testing-workflows/pr-quality-review/) | Combine code review, test impact, test effectiveness, and evidence gates. |
-| Change-to-Regression Workflow | [`change-to-regression`](skills/en/testing-workflows/change-to-regression/) | Derive must-run/defer regression scope and uncovered risk from a change. |
+| Change-to-Regression Workflow | [`change-to-regression`](skills/en/testing-workflows/change-to-regression/) | Produce pre-change guardrails or derive regression scope and uncovered risk from an implemented change. |
 
 #### Release
 
@@ -175,6 +176,8 @@ Each testing-type Skill appears once; routers and workflows cover cross-phase co
 | Skill | Directory | Primary use |
 | --- | --- | --- |
 | Test Case Writing (English) <!-- data-skill:test-case-writing --> | [`test-case-writing`](skills/en/testing-types/test-case-writing/) | Use this skill when you need to create high-quality test cases with normal, exception, and boundary scenarios; triggers include test case writing and test desi… |
+| Test Case Importer <!-- data-skill:test-case-importer --> | [`test-case-importer`](skills/en/testing-types/test-case-importer/) | Prepare traceable import previews from existing files or test-case exports. |
+| Test Case Retrieval <!-- data-skill:test-case-retrieval --> | [`test-case-retrieval`](skills/en/testing-types/test-case-retrieval/) | Find and explain relevant candidates in accessible test assets. |
 | Testcase Writer Plus <!-- data-skill:testcase-writer-plus --> | [`testcase-writer-plus`](skills/en/testing-types/testcase-writer-plus/) | Use this skill when you need high-quality test cases from requirements and analysis artifacts; triggers include testcase writer plus and advanced test case wri… |
 | Test Case Review <!-- data-skill:test-case-reviewer --> | [`test-case-reviewer`](skills/en/testing-types/test-case-reviewer/) | Use this skill when you need to review test cases for completeness, clarity, maintainability, and missing scenarios; triggers include test case review and test… |
 | Test Case Reviewer Plus <!-- data-skill:test-case-reviewer-plus --> | [`test-case-reviewer-plus`](skills/en/testing-types/test-case-reviewer-plus/) | Use this skill when you need structured test-case review findings from requirements, strategy, and case docs; triggers include test case reviewer plus and adva… |
@@ -280,7 +283,7 @@ Each testing-type Skill appears once; routers and workflows cover cross-phase co
 | --- | --- | --- |
 | Code Review <!-- data-skill:code-review --> | [`code-review`](skills/en/testing-types/code-review/) | Risk-driven PR/diff code review with P0/P1/P2 findings and actionable fixes; triggers include code review and PR review. |
 | Change Impact Analysis <!-- data-skill:change-impact-analysis --> | [`change-impact-analysis`](skills/en/testing-types/change-impact-analysis/) | Analyze quality impact scope and risk from change |
-| PR Test Impact Analysis <!-- data-skill:pr-test-impact-analysis --> | [`pr-test-impact-analysis`](skills/en/testing-types/pr-test-impact-analysis/) | Analyze test impact from a PR or diff |
+| PR Test Impact Analysis <!-- data-skill:pr-test-impact-analysis --> | [`pr-test-impact-analysis`](skills/en/testing-types/pr-test-impact-analysis/) | Analyze PR impact, separating per-case predictions from actual run evidence. |
 | API Contract Testing <!-- data-skill:api-contract-testing --> | [`api-contract-testing`](skills/en/testing-types/api-contract-testing/) | Verify API contract compatibility and change risk |
 | Automation Testing (English) <!-- data-skill:automation-testing --> | [`automation-testing`](skills/en/testing-types/automation-testing/) | Use this skill when you need to design automation testing approaches using patterns like POM, data-driven testing, or BDD; triggers include automation testing… |
 | API Schema Validation <!-- data-skill:api-schema-validation --> | [`api-schema-validation`](skills/en/testing-types/api-schema-validation/) | Compare API schemas with sourced request, response, and version evidence. |
@@ -507,7 +510,7 @@ Suggested pilots: `functional-testing`, `api-testing`, `api-test-bruno`, `bug-re
 | [Skills CLI integration guide](docs/integrations/SKILLS_CLI_INTEGRATION_EN.md) | CLI distribution contract, compatibility checks, and installation boundaries |
 | [QA_SKILLS_EVOLUTION_ROADMAP_EN.md](docs/governance/QA_SKILLS_EVOLUTION_ROADMAP_EN.md) | Four-stage capability evolution and R&D/testing lifecycle map |
 | [DOCUMENTATION_POLICY_EN.md](docs/governance/DOCUMENTATION_POLICY_EN.md) | Chinese-first bilingual documentation policy |
-| [SKILL_GOVERNANCE_V1_EN.md](docs/governance/SKILL_GOVERNANCE_V1_EN.md) | v1.0 source-governance baseline and current 169-pair static-record entry point (earlier baseline: 79 pairs; not runtime quality) |
+| [SKILL_GOVERNANCE_V1_EN.md](docs/governance/SKILL_GOVERNANCE_V1_EN.md) | v1.0 source-governance baseline (169 Skill pairs at closeout; earlier baseline: 79 pairs; not runtime quality) |
 | [PHASE_0_V1_4_CLOSEOUT_EN.md](docs/governance/PHASE_0_V1_4_CLOSEOUT_EN.md) | Evidence closeout and version boundaries for all 35 v1.4 Project cards (not release approval) |
 | [BILINGUAL_CONSISTENCY_CONTRACT_EN.md](docs/governance/BILINGUAL_CONSISTENCY_CONTRACT_EN.md) | Contract for Chinese/English paths, entry points, Catalog, and links |
 | [QUALITY_SCORE_EVAL_CONTRACT_EN.md](docs/governance/QUALITY_SCORE_EVAL_CONTRACT_EN.md) | Nine-dimension scoring and minimum Eval artifact standard |

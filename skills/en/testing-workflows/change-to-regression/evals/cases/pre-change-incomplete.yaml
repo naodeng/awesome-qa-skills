@@ -1,0 +1,15 @@
+{
+  "id": "pre-change-incomplete",
+  "title": "Before coding: give a bounded brief for an underspecified change",
+  "description": "A vague proposal must not be expanded into exact modules or test IDs.",
+  "input": {
+    "prompt": "Use change-to-regression. We plan to optimize billing, but have not decided which behavior will change. There is no module map, case catalog, or diff. Give a bounded pre-change first pass, separate hypotheses from UNKNOWN scope, and ask for the minimum additional input. No tests ran; mark execution `NOT_RUN`."
+  },
+  "expect": {
+    "must_contain": ["PRE_CHANGE", "UNKNOWN", "NOT_RUN"],
+  },
+  "judge": {
+    "type": "rule_based",
+    "success": [{"output_contains": {"all": ["PRE_CHANGE", "UNKNOWN", "NOT_RUN"]}}]
+  }
+}

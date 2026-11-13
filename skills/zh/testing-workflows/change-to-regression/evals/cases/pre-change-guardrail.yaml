@@ -1,0 +1,15 @@
+{
+  "id": "pre-change-guardrail",
+  "title": "编码前：从拟议变更生成回归护栏",
+  "description": "没有 diff 或 SHA 的编码前请求应生成有边界的行为假设和用例护栏。",
+  "input": {
+    "prompt": "仅使用本提示中的材料。不要检查工作区/仓库、创建文件、搜索外部来源或运行命令/测试。请使用 change-to-regression。拟议变更：在优惠计算中允许积分抵扣后继续应用优惠码，目前尚未开始实现，因此没有 diff 或 Commit SHA。现有用例：TC-C-14 验证优惠码先于积分抵扣应用；TC-C-15 验证总折扣不超过商品小计；TC-C-16 验证账单格式。请提供编码前风险简报，列出需保持的行为、候选护栏用例、假设和编码后最小验证。阶段标为 `PRE_CHANGE`；风险标为 `HYPOTHESIS`；执行状态为 `NOT_RUN`，结果证据为 `UNKNOWN`。不要声称已分析 diff 或运行这些用例。可用 Skill：change-impact-analysis、regression-scope-analysis、regression-test-selection。"
+  },
+  "expect": {
+    "must_contain": ["PRE_CHANGE", "HYPOTHESIS", "TC-C-14", "TC-C-15", "NOT_RUN"],
+  },
+  "judge": {
+    "type": "rule_based",
+    "success": [{"output_contains": {"all": ["PRE_CHANGE", "HYPOTHESIS", "TC-C-14", "NOT_RUN"]}}]
+  }
+}

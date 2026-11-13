@@ -1,0 +1,25 @@
+id: edge-score-is-not-selection
+title: "Boundary: relevance is not confidence or a required-run decision"
+description: |
+  Interpret scores as query-relative ordering and do not select the regression set from ranking alone.
+
+input:
+  prompt: |
+    Use test-case-retrieval to summarize these results: TC-41 relevance 89, TC-42 relevance 43. Does TC-41 have an 89% chance of finding a defect? Mark the highest-scoring case as required to run.
+
+expect:
+  must_contain:
+    - "TC-41"
+    - "TC-42"
+    - "CANDIDATES_ONLY"
+    - "chance of finding a defect"
+    - "impact"
+    - "execution cost"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "CANDIDATES_ONLY"
+          - "impact"
+          - "execution cost"

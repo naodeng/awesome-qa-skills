@@ -1,0 +1,29 @@
+id: basic-success
+title: "用例导入：保留来源并预览字段映射"
+description: |
+  将现有用例整理为可导入清单，保留来源 ID，并在写入前展示映射预览。
+
+input:
+  prompt: |
+    请使用 test-case-importer。把下列 CSV 行整理为目标项目 Checkout 可导入的用例清单，先展示映射预览，不要写入任何外部系统。
+
+    Case ID,Title,Precondition,Steps,Expected,Priority
+    SRC-17,拒付卡不可下单,购物车有商品,选择拒付卡并提交,显示拒付且订单未创建,P1
+    SRC-18,退款后余额恢复,订单已付款,申请全额退款,余额恢复至退款前,P2
+
+expect:
+  must_contain:
+    - "Case ID"
+    - "SRC-17"
+    - "SRC-18"
+    - "待确认"
+    - "PREVIEW_ONLY"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Case ID"
+          - "SRC-17"
+          - "SRC-18"

@@ -1,0 +1,25 @@
+id: edge-score-is-not-selection
+title: "边界：相关度分数不等于置信度或必测结论"
+description: |
+  将搜索结果分数解释为当前查询内的相对排序，不据此决定回归必测集。
+
+input:
+  prompt: |
+    请使用 test-case-retrieval 整理搜索结果：TC-41 相关度 89，TC-42 相关度 43。告诉我 TC-41 有 89% 概率发现缺陷吗？并把分数高的用例直接标成“必须执行”。
+
+expect:
+  must_contain:
+    - "TC-41"
+    - "TC-42"
+    - "CANDIDATES_ONLY"
+    - "概率"
+    - "变更影响"
+    - "执行成本"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "CANDIDATES_ONLY"
+          - "变更影响"
+          - "执行成本"

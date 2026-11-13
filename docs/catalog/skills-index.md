@@ -2,7 +2,7 @@
 
 # Skills 全量索引
 
-每种语言包含 14 个工作流、150 个测试类型和 5 个 Skill Engineering，共 169 个；中英文合计 338 个目录。以下是逻辑导航，实际目录不变。长期治理入口见 [Skill 治理路线图](../governance/SKILL_GOVERNANCE_ROADMAP.md)、[治理矩阵](../SKILL_MATRIX.md)、[匹配登记表](../SKILL_MATCHING_REGISTER.md) 和 [v1.4 收口](../governance/PHASE_0_V1_4_CLOSEOUT.md)。
+每种语言包含 14 个工作流、152 个测试类型和 5 个 Skill Engineering，共 171 个；中英文合计 342 个目录。以下是逻辑导航，实际目录不变。长期治理入口见 [Skill 治理路线图](../governance/SKILL_GOVERNANCE_ROADMAP.md)、[治理矩阵](../SKILL_MATRIX.md)、[匹配登记表](../SKILL_MATCHING_REGISTER.md) 和 [v1.4 收口](../governance/PHASE_0_V1_4_CLOSEOUT.md)。
 
 Composition 路由和组合关系见 [v1.5.2 Composition Catalog](skills-composition.md)；它是导航元数据，不是安装依赖或自动执行链。
 
@@ -62,6 +62,8 @@ Composition 路由和组合关系见 [v1.5.2 Composition Catalog](skills-composi
 | Skill | 中文 | English |
 | --- | --- | --- |
 | `test-case-writing` | [中文](../../skills/zh/testing-types/test-case-writing/) | [English](../../skills/en/testing-types/test-case-writing/) |
+| `test-case-importer` | [中文](../../skills/zh/testing-types/test-case-importer/) | [English](../../skills/en/testing-types/test-case-importer/) |
+| `test-case-retrieval` | [中文](../../skills/zh/testing-types/test-case-retrieval/) | [English](../../skills/en/testing-types/test-case-retrieval/) |
 | `testcase-writer-plus` | [中文](../../skills/zh/testing-types/testcase-writer-plus/) | [English](../../skills/en/testing-types/testcase-writer-plus/) |
 | `test-case-reviewer` | [中文](../../skills/zh/testing-types/test-case-reviewer/) | [English](../../skills/en/testing-types/test-case-reviewer/) |
 | `test-case-reviewer-plus` | [中文](../../skills/zh/testing-types/test-case-reviewer-plus/) | [English](../../skills/en/testing-types/test-case-reviewer-plus/) |

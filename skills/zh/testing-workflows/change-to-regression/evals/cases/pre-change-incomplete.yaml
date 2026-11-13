@@ -1,0 +1,15 @@
+{
+  "id": "pre-change-incomplete",
+  "title": "编码前：变更描述不足时交付有限简报",
+  "description": "模糊的拟议变更不得被扩写成精确模块和测试 ID。",
+  "input": {
+    "prompt": "请使用 change-to-regression。我们准备优化账单，但还没决定改哪些行为，也没有模块图、用例目录或 diff。请给一个编码前初版，说明哪些风险只是待验证假设、哪些范围仍是 UNKNOWN，并提出最少的补充问题。没有执行测试，标记 `NOT_RUN`。"
+  },
+  "expect": {
+    "must_contain": ["PRE_CHANGE", "UNKNOWN", "NOT_RUN"],
+  },
+  "judge": {
+    "type": "rule_based",
+    "success": [{"output_contains": {"all": ["PRE_CHANGE", "UNKNOWN", "NOT_RUN"]}}]
+  }
+}

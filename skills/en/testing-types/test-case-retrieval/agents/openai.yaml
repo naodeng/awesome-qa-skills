@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "test-case-retrieval"
+interface:
+  display_name: "Test Case Retrieval"
+  short_description: "Find and explain relevant candidates in accessible test assets."
+  default_prompt: "Use the test-case-retrieval skill to find relevant existing test cases with traceable sources."
+policy:
+  allow_implicit_invocation: true
