@@ -2529,6 +2529,98 @@
       }
     },
     {
+      "slug": "test-case-importer",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/test-case-importer",
+      "en_path": "skills/en/testing-types/test-case-importer",
+      "virtual_domain": "D04",
+      "status": "Experimental",
+      "priority": "UNASSESSED: no roadmap priority is assigned",
+      "related": "UNASSESSED: no cross-Skill semantic relation is asserted without a dedicated review record",
+      "governance_evidence": "skills/zh/testing-types/test-case-importer/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No independent nine-dimension Quality Score review is recorded."
+      },
+      "eval_execution": {
+        "state": "UNASSESSED",
+        "reason": "Selected skill-up cases ran locally, but reports are not archived as governance evidence; effectiveness remains unassessed."
+      },
+      "sdlc_stage": "test-design-and-preparation",
+      "roles": [
+        "QA"
+      ],
+      "inputs": "Source test cases or CSV/export files, target project and schema, mapping rules, destination folder, and explicit write authorization.",
+      "outputs": "Import scope and status, field-mapping preview, row-level import preview, unresolved gaps, and next steps.",
+      "workflow": "UNASSESSED: reviewed source material does not declare a single workflow placement",
+      "evidence_paths": [
+        "skills/zh/testing-types/test-case-importer/SKILL.md",
+        "skills/en/testing-types/test-case-importer/SKILL.md",
+        "skills/zh/testing-types/test-case-importer/prompts/test-case-importer.md",
+        "skills/en/testing-types/test-case-importer/prompts/test-case-importer.md",
+        "skills/zh/testing-types/test-case-importer/evals/eval.yaml",
+        "skills/en/testing-types/test-case-importer/evals/eval.yaml",
+        "skills/zh/testing-types/test-case-importer/agents/openai.yaml",
+        "skills/en/testing-types/test-case-importer/agents/openai.yaml"
+      ],
+      "lifecycle": {
+        "state": "EXPERIMENTAL",
+        "reason": "New package; adoption and long-term effectiveness evidence are not recorded.",
+        "evidence_paths": [
+          "skills/zh/testing-types/test-case-importer/SKILL.md",
+          "skills/en/testing-types/test-case-importer/SKILL.md",
+          "skills/zh/testing-types/test-case-importer/evals/eval.yaml",
+          "skills/en/testing-types/test-case-importer/evals/eval.yaml"
+        ]
+      }
+    },
+    {
+      "slug": "test-case-retrieval",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/test-case-retrieval",
+      "en_path": "skills/en/testing-types/test-case-retrieval",
+      "virtual_domain": "D04",
+      "status": "Experimental",
+      "priority": "UNASSESSED: no roadmap priority is assigned",
+      "related": "UNASSESSED: no cross-Skill semantic relation is asserted without a dedicated review record",
+      "governance_evidence": "skills/zh/testing-types/test-case-retrieval/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No independent nine-dimension Quality Score review is recorded."
+      },
+      "eval_execution": {
+        "state": "UNASSESSED",
+        "reason": "Selected skill-up cases ran locally, but reports are not archived as governance evidence; effectiveness remains unassessed."
+      },
+      "sdlc_stage": "test-design-and-preparation",
+      "roles": [
+        "QA"
+      ],
+      "inputs": "A test scenario, an authorized searchable case catalog or supplied result set, and optional query constraints.",
+      "outputs": "Search scope and status, traceable candidate cases, match rationale, exclusions, and retrieval limits.",
+      "workflow": "UNASSESSED: reviewed source material does not declare a single workflow placement",
+      "evidence_paths": [
+        "skills/zh/testing-types/test-case-retrieval/SKILL.md",
+        "skills/en/testing-types/test-case-retrieval/SKILL.md",
+        "skills/zh/testing-types/test-case-retrieval/prompts/test-case-retrieval.md",
+        "skills/en/testing-types/test-case-retrieval/prompts/test-case-retrieval.md",
+        "skills/zh/testing-types/test-case-retrieval/evals/eval.yaml",
+        "skills/en/testing-types/test-case-retrieval/evals/eval.yaml",
+        "skills/zh/testing-types/test-case-retrieval/agents/openai.yaml",
+        "skills/en/testing-types/test-case-retrieval/agents/openai.yaml"
+      ],
+      "lifecycle": {
+        "state": "EXPERIMENTAL",
+        "reason": "New package; adoption and long-term effectiveness evidence are not recorded.",
+        "evidence_paths": [
+          "skills/zh/testing-types/test-case-retrieval/SKILL.md",
+          "skills/en/testing-types/test-case-retrieval/SKILL.md",
+          "skills/zh/testing-types/test-case-retrieval/evals/eval.yaml",
+          "skills/en/testing-types/test-case-retrieval/evals/eval.yaml"
+        ]
+      }
+    },
+    {
       "slug": "test-data-generation",
       "section": "testing-types",
       "zh_path": "skills/zh/testing-types/test-data-generation",

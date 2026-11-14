@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "test-case-importer"
+interface:
+  display_name: "Test Case Importer"
+  short_description: "Prepare traceable import previews from existing files or test-case exports."
+  default_prompt: "Use the test-case-importer skill to map existing test cases into a reviewable import preview."
+policy:
+  allow_implicit_invocation: true

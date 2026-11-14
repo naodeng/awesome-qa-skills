@@ -9,9 +9,9 @@
 ![Awesome QA Skills 社交媒体预览图](social-preview.jpg)
 
 [![License: PolyForm Noncommercial 1.0.0](https://img.shields.io/badge/License-PolyForm%20Noncommercial%201.0.0-blue.svg)](./LICENSE)
-[![Skills](https://img.shields.io/badge/skills-338%20(zh%2Ben)-0A7EA4)](./docs/catalog/skills-index.md)
+[![Skills](https://img.shields.io/badge/skills-342%20(zh%2Ben)-0A7EA4)](./docs/catalog/skills-index.md)
 [![Workflows](https://img.shields.io/badge/workflows-14-informational)](./skills/zh/testing-workflows/)
-[![Testing types](https://img.shields.io/badge/testing%20types-150-informational)](./skills/zh/testing-types/)
+[![Testing types](https://img.shields.io/badge/testing%20types-152-informational)](./skills/zh/testing-types/)
 [![Skill engineering](https://img.shields.io/badge/skill%20engineering-5-informational)](./skills/zh/skill-engineering/)
 [![skills.sh](https://skills.sh/b/naodeng/awesome-qa-skills)](https://skills.sh/naodeng/awesome-qa-skills)
 
@@ -23,12 +23,12 @@
 
 ## 项目包含什么
 
-每种语言有 **169 个 Skill**，中英文合计 **338 个 Skill 目录**：
+每种语言有 **171 个 Skill**，中英文合计 **342 个 Skill 目录**：
 
 | 类别 | 数量 | 覆盖范围 |
 | --- | ---: | --- |
 | 测试工作流 | 14 / 语言 | 路由、需求到测试、PR 审查、变更回归、迭代与发布流程、质量视角 |
-| 测试类型 | 150 / 语言 | 需求与策略、用例、功能/API/UI、回归、性能、安全、生产质量、AI/LLM/Agent 测试 |
+| 测试类型 | 152 / 语言 | 需求与策略、用例、功能/API/UI、回归、性能、安全、生产质量、AI/LLM/Agent 测试 |
 | Skill Engineering | 5 / 语言 | Skill 质量审查、评测、变更验证与文案审查 |
 
 每个 Skill 都是可独立安装的目录，包含 `SKILL.md`、主提示词和工具元数据；部分 Skill 还提供示例、模板、脚本和评测用例。
@@ -41,6 +41,7 @@
 | --- | --- |
 | 分析需求、制定测试策略 | [需求分析](skills/zh/testing-types/requirements-analysis/) · [验收标准评审](skills/zh/testing-types/acceptance-criteria-review/) · [测试策略](skills/zh/testing-types/test-strategy/) · [一页纸测试策略](skills/zh/testing-types/one-page-test-strategy/) |
 | 编写或评审测试用例 | [测试用例编写](skills/zh/testing-types/test-case-writing/) · [测试用例评审](skills/zh/testing-types/test-case-reviewer/) |
+| 导入或检索已有测试用例 | [测试用例导入](skills/zh/testing-types/test-case-importer/) · [测试用例检索](skills/zh/testing-types/test-case-retrieval/) |
 | 测试 API 或浏览器 UI | [API 测试](skills/zh/testing-types/api-testing/) · [Playwright UI 自动化测试](skills/zh/testing-types/ui-test-playwright/) |
 | 根据代码变更选择回归范围 | [回归测试选择](skills/zh/testing-types/regression-test-selection/) |
 | 设计性能测试或使用 k6 | [性能测试](skills/zh/testing-types/performance-testing/) · [k6 性能测试](skills/zh/testing-types/performance-test-k6/) |
@@ -113,7 +114,7 @@ Core QA Skills → Engineering QA Skills → Production Quality Skills → AI Na
 
 ## 完整技能目录
 
-每种语言共 **169** 个 Skill：14 个工作流、150 个测试类型和 5 个 Skill Engineering；中英文合计 **338** 个目录。物理目录保持稳定，下面只提供逻辑导航。
+每种语言共 **171** 个 Skill：14 个工作流、152 个测试类型和 5 个 Skill Engineering；中英文合计 **342** 个目录。物理目录保持稳定，下面只提供逻辑导航。
 
 ### 跨阶段工作流
 
@@ -139,7 +140,7 @@ Core QA Skills → Engineering QA Skills → Production Quality Skills → AI Na
 | TDD 质量工作流 | [`tdd-quality-workflow`](skills/zh/testing-workflows/tdd-quality-workflow/) | 按 Red、Green、Refactor 记录可核对的测试与质量证据。 |
 | 项目交付视角 | [`project-delivery-perspective`](skills/zh/testing-workflows/project-delivery-perspective/) | 在支持的策略与报告评审阶段记录带来源的交付约束和行动，不改变质量事实。 |
 | PR 质量审查工作流 | [`pr-quality-review`](skills/zh/testing-workflows/pr-quality-review/) | 汇总代码审查、测试影响、测试有效性和证据门禁。 |
-| 变更到回归工作流 | [`change-to-regression`](skills/zh/testing-workflows/change-to-regression/) | 从代码变更推导必测/可延后回归范围和未覆盖风险。 |
+| 变更到回归工作流 | [`change-to-regression`](skills/zh/testing-workflows/change-to-regression/) | 编码前生成回归护栏，或从已实现变更推导回归范围和未覆盖风险。 |
 
 #### 发布与综合
 
@@ -175,6 +176,8 @@ Core QA Skills → Engineering QA Skills → Production Quality Skills → AI Na
 | 名称 | 目录 | 主要用途 |
 | --- | --- | --- |
 | 测试用例编写 <!-- data-skill:test-case-writing --> | [`test-case-writing`](skills/zh/testing-types/test-case-writing/) | 编写覆盖正常、异常和边界场景的高质量测试用例。 |
+| 测试用例导入 <!-- data-skill:test-case-importer --> | [`test-case-importer`](skills/zh/testing-types/test-case-importer/) | 将已有用例映射为可追溯的导入预览，并在写入前确认目标与字段。 |
+| 测试用例检索 <!-- data-skill:test-case-retrieval --> | [`test-case-retrieval`](skills/zh/testing-types/test-case-retrieval/) | 从可访问的测试资产中查找带来源 ID 和匹配理由的候选用例。 |
 | 测试用例编写加强版 <!-- data-skill:testcase-writer-plus --> | [`testcase-writer-plus`](skills/zh/testing-types/testcase-writer-plus/) | 根据需求与分析产物生成高质量测试用例。 |
 | 测试用例评审 <!-- data-skill:test-case-reviewer --> | [`test-case-reviewer`](skills/zh/testing-types/test-case-reviewer/) | 评审测试用例的完整性、清晰度、可维护性和遗漏场景。 |
 | 测试用例评审加强版 <!-- data-skill:test-case-reviewer-plus --> | [`test-case-reviewer-plus`](skills/zh/testing-types/test-case-reviewer-plus/) | 从需求、策略和用例文档中形成结构化评审发现。 |
@@ -280,7 +283,7 @@ Core QA Skills → Engineering QA Skills → Production Quality Skills → AI Na
 | --- | --- | --- |
 | 代码审查 <!-- data-skill:code-review --> | [`code-review`](skills/zh/testing-types/code-review/) | 对 PR 或 Diff 进行风险驱动的代码审查，输出 P0/P1/P2 问题与可执行修复建议。 |
 | 变更影响分析 <!-- data-skill:change-impact-analysis --> | [`change-impact-analysis`](skills/zh/testing-types/change-impact-analysis/) | 分析变更的质量影响范围与风险 |
-| PR 测试影响分析 <!-- data-skill:pr-test-impact-analysis --> | [`pr-test-impact-analysis`](skills/zh/testing-types/pr-test-impact-analysis/) | 从 PR 或 Diff 分析测试影响 |
+| PR 测试影响分析 <!-- data-skill:pr-test-impact-analysis --> | [`pr-test-impact-analysis`](skills/zh/testing-types/pr-test-impact-analysis/) | 从 PR 或 Diff 分析测试影响，并把逐用例预测与实际运行证据分开。 |
 | API 契约测试 <!-- data-skill:api-contract-testing --> | [`api-contract-testing`](skills/zh/testing-types/api-contract-testing/) | 验证 API 契约兼容性与变更风险 |
 | 自动化测试 <!-- data-skill:automation-testing --> | [`automation-testing`](skills/zh/testing-types/automation-testing/) | 使用 POM、数据驱动或 BDD 等模式设计自动化测试方案。 |
 | API Schema 校验 <!-- data-skill:api-schema-validation --> | [`api-schema-validation`](skills/zh/testing-types/api-schema-validation/) | 将 API Schema 与请求、响应和版本证据进行可追溯比对。 |
@@ -507,7 +510,7 @@ bash scripts/run_skill_eval.sh skills/zh/testing-types/functional-testing/evals/
 | [Skills CLI 集成指南](docs/integrations/SKILLS_CLI_INTEGRATION.md) | CLI 分发约定、兼容性验证与安装边界 |
 | [QA_SKILLS_EVOLUTION_ROADMAP.md](docs/governance/QA_SKILLS_EVOLUTION_ROADMAP.md) | 四层能力演进与研发测试阶段地图 |
 | [DOCUMENTATION_POLICY.md](docs/governance/DOCUMENTATION_POLICY.md) | 中文优先的双语文档治理策略 |
-| [SKILL_GOVERNANCE_V1.md](docs/governance/SKILL_GOVERNANCE_V1.md) | v1.0 源代码治理基线与当前 169 对静态记录入口（早期基线 79 对；不代表运行质量） |
+| [SKILL_GOVERNANCE_V1.md](docs/governance/SKILL_GOVERNANCE_V1.md) | v1.0 源代码治理基线（收口时覆盖 169 对 Skill，早期基线 79 对；不代表运行质量） |
 | [PHASE_0_V1_4_CLOSEOUT.md](docs/governance/PHASE_0_V1_4_CLOSEOUT.md) | v1.4 35 张 Project 卡的证据收口与版本边界（不代表发布批准） |
 | [BILINGUAL_CONSISTENCY_CONTRACT.md](docs/governance/BILINGUAL_CONSISTENCY_CONTRACT.md) | 中英文路径、入口、Catalog 与链接一致性契约 |
 | [QUALITY_SCORE_EVAL_CONTRACT.md](docs/governance/QUALITY_SCORE_EVAL_CONTRACT.md) | 九维评分与最低 Eval 工件标准 |

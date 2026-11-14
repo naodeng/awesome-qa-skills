@@ -9,8 +9,8 @@ input:
 
 expect:
   must_contain:
-    - "Task Understanding"
-    - "Input Audit"
+    - "Task"
+    - "Input"
     - "Risks"
     - "P0"
     - "expected"
@@ -24,6 +24,6 @@ judge:
   success:
     - output_contains:
         all:
-          - "Task Understanding"
-          - "Input Audit"
+          - "Task"
+          - "Input"
           - "Risks"

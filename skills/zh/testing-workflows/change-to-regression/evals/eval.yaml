@@ -21,6 +21,8 @@
       "evals/cases/missing-skill.yaml",
       "evals/cases/prompt-injection.yaml",
       "evals/cases/stale-checkpoint.yaml",
+      "evals/cases/pre-change-guardrail.yaml",
+      "evals/cases/pre-change-incomplete.yaml",
       "evals/cases/comparison-change-to-regression.yaml"
     ],
     "defaults": {

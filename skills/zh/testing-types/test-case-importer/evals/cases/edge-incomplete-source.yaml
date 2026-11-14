@@ -1,0 +1,28 @@
+id: edge-incomplete-source
+title: "用例导入：来源字段不完整时保留原始内容"
+description: |
+  缺少标题和预期结果时标记映射缺口，不虚构测试行为。
+
+input:
+  prompt: |
+    请用 test-case-importer 整理以下来源记录并准备导入：
+
+    Source ID: RAW-9
+    Action: 连续点击提交按钮
+    Notes: 旧系统只保存了这两列，没有标题、前置条件或预期结果。
+
+    请先给出映射预览，不要根据常见做法补写缺失行为。
+
+expect:
+  must_contain:
+    - "RAW-9"
+    - "未提供"
+    - "预期结果"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "RAW-9"
+          - "未提供"
+          - "预期结果"

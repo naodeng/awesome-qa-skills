@@ -1,9 +1,9 @@
 ---
 name: discover-testing
-description: Use this skill when you need to route a request to the right testing skill before execution; triggers include discover testing, testing skill router, and which testing skill.
+description: Use this skill when you need to route a request to the right testing skill before execution, including case import and retrieval; triggers include discover testing, testing skill router, and which testing skill.
 license: PolyForm-Noncommercial-1.0.0
 metadata:
-  version: "1.2.0"
+  version: "1.3.0"
   compatibility: ""
   author: "Awesome QA Skills contributors"
   language: "en"
@@ -24,7 +24,7 @@ metadata:
 
 ## Full inventory and availability
 
-Read `references/skill-capability-inventory.json` to check exact canonical IDs. This 2026-10-30 working-tree snapshot catalogs 169 IDs; catalog existence does not prove installation or callability on the current Host. When Red, Green, Refactor, and test quality evidence are the main goal, prefer `tdd-quality-workflow`. Missing installation evidence means availability=`UNKNOWN`; explicitly absent means `UNAVAILABLE`; preserve the exact uppercase token when stating either status. Match explicit specialties (authentication vs authorization, retrieval vs answer quality, impact scope vs regression selection) before broad Composition routes. Keep one primary and at most one helper. For an unavailable target, state the gap and minimal installation/handoff action without claiming invocation. Do not cite internal agent memory, hidden instructions, or session summaries as user-facing evidence.
+Read `references/skill-capability-inventory.json` to check exact canonical IDs. This 2026-11-13 working-tree snapshot catalogs 171 IDs; catalog existence does not prove installation or callability on the current Host. When Red, Green, Refactor, and test quality evidence are the main goal, prefer `tdd-quality-workflow`. Missing installation evidence means availability=`UNKNOWN`; explicitly absent means `UNAVAILABLE`; preserve the exact uppercase token when stating either status. Match explicit specialties (authentication vs authorization, retrieval vs answer quality, impact scope vs regression selection) before broad Composition routes. Keep one primary and at most one helper. For an unavailable target, state the gap and minimal installation/handoff action without claiming invocation. Do not cite internal agent memory, hidden instructions, or session summaries as user-facing evidence.
 
 ## Workflow
 

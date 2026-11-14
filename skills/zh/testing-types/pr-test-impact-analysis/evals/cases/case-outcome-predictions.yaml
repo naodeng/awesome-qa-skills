@@ -1,0 +1,25 @@
+id: case-outcome-predictions
+title: "逐用例预测：区分预期冲突和未执行状态"
+description: |
+  根据 PR 变更和已有用例预期给出逐项静态预测，同时说明测试尚未执行。
+
+input:
+  prompt: |
+    请使用 pr-test-impact-analysis，只依据以下静态材料，不运行测试。PR 将最大重试次数从 3 改为 5：`if retries > 5: reject`。
+    TC-31 的预期是重试次数 4 必须被拒绝；TC-32 的预期是重试次数 3 可以通过。请逐用例给预测状态、依据和执行状态。此 head 尚未执行测试。
+
+expect:
+  must_contain:
+    - "TC-31"
+    - "TC-32"
+    - "PREDICTED_FAIL"
+    - "PREDICTED_PASS"
+    - "NOT_RUN"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "PREDICTED_FAIL"
+          - "PREDICTED_PASS"
+          - "NOT_RUN"

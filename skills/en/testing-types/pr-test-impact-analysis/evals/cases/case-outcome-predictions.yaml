@@ -1,0 +1,26 @@
+id: case-outcome-predictions
+title: "Per-case predictions: separate expectation conflicts from unexecuted tests"
+description: |
+  Make static per-case predictions from a PR change and existing expectations while reporting that tests were not run.
+
+input:
+  prompt: |
+    Use pr-test-impact-analysis and only the static material below; do not run tests. The PR changes the maximum retry count from 3 to 5: `if retries > 5: reject`.
+    TC-31 expects retry count 4 to be rejected; TC-32 expects retry count 3 to be accepted. Give each case a prediction, rationale, and execution status. No tests have run for this head.
+
+expect:
+  must_contain:
+    - "TC-31"
+    - "TC-32"
+    - "PREDICTED_FAIL"
+    - "PREDICTED_PASS"
+    - "NOT_RUN"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "PREDICTED_FAIL"
+          - "PREDICTED_PASS"
+          - "NOT_RUN"

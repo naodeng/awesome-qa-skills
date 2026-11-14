@@ -1,0 +1,29 @@
+{
+  "id": "route-test-case-retrieval",
+  "title": "Explicit task: find relevant existing test cases",
+  "description": "The user asks to retrieve traceable candidates from an existing case catalog, not design or select tests.",
+  "input": {
+    "prompt": "Use discover-testing. From our existing test-case catalog, find cases related to failed login, account lockout, and password recovery; return IDs and match reasons. I need candidate discovery only, not new test design or a required regression set. Which single Skill should handle this task?"
+  },
+  "expect": {
+    "must_contain": [
+      "test-case-retrieval"
+    ],
+    "must_not_contain": [
+      "multiple primary Skills",
+      "TODO"
+    ]
+  },
+  "judge": {
+    "type": "rule_based",
+    "success": [
+      {
+        "output_contains": {
+          "all": [
+            "test-case-retrieval"
+          ]
+        }
+      }
+    ]
+  }
+}

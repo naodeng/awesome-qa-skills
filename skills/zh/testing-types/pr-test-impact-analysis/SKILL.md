@@ -1,9 +1,9 @@
 ---
 name: pr-test-impact-analysis
-description: Use this skill when you need to determine test impact from a pull request or code diff; triggers include PR 测试影响分析 and PR test impact analysis.
+description: Use this skill when you need to determine test impact from a pull request or code diff and predict how specific existing cases align with the change; triggers include PR 测试影响分析, 逐用例变更预测, and PR test impact analysis.
 license: PolyForm-Noncommercial-1.0.0
 metadata:
-  version: "1.0.0"
+  version: "1.1.0"
   compatibility: ""
   author: "Awesome QA Skills contributors"
   language: "zh-CN"
@@ -17,6 +17,7 @@ metadata:
 ## 何时使用
 
 - 需要从 Pull Request 的 diff、依赖和历史风险确定最小充分测试范围。
+- 需要将变更与已有用例的预期逐项比较，并把静态预测与真实运行结果分开。
 - 需要对现有方案、结果或证据做风险评审，并形成可执行改进项。
 - 输入不完整，但仍需先给出带假设和信息缺口的可用初版。
 
@@ -33,6 +34,7 @@ metadata:
 3. 先做输入审计，再区分已确认事实、合理假设和待确认问题。
 4. 按风险和证据强度排序，产出可直接执行、评审或验证的结果。
 5. 信息不足时不要停在提问：先交付受限初版，并说明哪些结论暂不能成立。
+6. 有明确用例预期时，按用例输出 `PREDICTED_PASS`、`PREDICTED_FAIL` 或 `UNCERTAIN`，不得将预测写成执行结果。
 
 ## 参考文件
 
@@ -48,6 +50,7 @@ metadata:
 2. 输出变化符号→直接/传递消费者→保护义务→test ID/层级/执行版本的映射表，边标confirmed/candidate/unknown；只在有证据的隔离边界停止。
 3. 删除或改弱测试要核对所保护义务是否仍有独立覆盖，不能仅从当前测试集选取导致消失的风险被漏掉。
 4. 未知动态依赖或缺映射时保守纳入相关契约/集成候选并标缺口；区分候选范围、已执行和已满足，列追加验证/升级触发。
+5. 对输入中可定位且有预期结果的用例，记录用例 ID、预期行为、变更证据、预测状态和理由；缺少预期/实现证据时标 `UNCERTAIN`。执行证据另列为 `RUN_PASS`、`RUN_FAIL`、`NOT_RUN` 或 `UNKNOWN`。
 
 ## 核心约束
 
@@ -56,12 +59,14 @@ metadata:
 - 高风险且证据不足时应扩大范围
 - 不编造输入中不存在的系统行为、字段、数据、指标或根因。
 - 关键结论必须关联证据；证据不足时标记为假设并给出验证方法。
+- `PREDICTED_PASS` / `PREDICTED_FAIL` 是基于静态材料的预测，不表示实际运行通过/失败；只有匹配版本、用例 ID 和运行记录的证据才可标 `RUN_PASS` / `RUN_FAIL`。
 - 优先级必须说明业务影响、发生可能性或可探测性依据。
 
 ## 交付前自检
 
 - [ ] 已覆盖：变更意图、直接与传递影响、公共接口、数据变化、配置、安全、回滚、测试缺口。
 - [ ] 已区分事实、假设、缺口和建议。
+- [ ] 若给出逐用例预测，已分列预测状态与实际运行状态，并解释 `UNCERTAIN` 项。
 - [ ] 高风险项有明确优先级、证据、负责人或下一步。
 - [ ] 输出包含可验证的判断标准，而非泛泛而谈。
 - [ ] 未执行未经授权的生产写操作或破坏性动作。

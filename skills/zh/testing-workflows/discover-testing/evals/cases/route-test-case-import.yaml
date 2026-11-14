@@ -1,0 +1,29 @@
+{
+  "id": "route-test-case-import",
+  "title": "明确任务：准备导入外部用例清单",
+  "description": "用户要把 CSV 导出映射到测试管理系统，预览导入内容，但不执行写入。",
+  "input": {
+    "prompt": "用 discover-testing 路由。我有一份现有测试用例的 CSV 导出，想把字段映射到 Testmo，逐条查看导入预览并找出缺失字段；不要写入 Testmo。应该由哪个单一 Skill 处理？"
+  },
+  "expect": {
+    "must_contain": [
+      "test-case-importer"
+    ],
+    "must_not_contain": [
+      "多个主 Skill",
+      "TODO"
+    ]
+  },
+  "judge": {
+    "type": "rule_based",
+    "success": [
+      {
+        "output_contains": {
+          "all": [
+            "test-case-importer"
+          ]
+        }
+      }
+    ]
+  }
+}

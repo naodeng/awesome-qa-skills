@@ -1,0 +1,24 @@
+id: edge-prediction-run-conflict
+title: "边界：保留预测和 CI 实际结果之间的冲突"
+description: |
+  同一用例的静态预测与 CI 结果不一致时，分别记录并提出核查动作。
+
+input:
+  prompt: |
+    请使用 pr-test-impact-analysis。Diff 将最大重试次数从 3 改为 5。TC-45 的预期是重试次数 4 被拒绝；基于这段 diff，你预测它会与预期冲突。另有实际证据：CI run 218，head SHA abc123，TC-45 状态为 passed。不要用一项覆盖另一项，请分别列出预测、执行证据、差异和下一步。
+
+expect:
+  must_contain:
+    - "PREDICTED_FAIL"
+    - "RUN_PASS"
+    - "TC-45"
+    - "abc123"
+    - "差异"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "PREDICTED_FAIL"
+          - "RUN_PASS"
+          - "TC-45"

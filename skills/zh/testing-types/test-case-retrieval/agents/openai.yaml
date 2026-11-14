@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "test-case-retrieval"
+interface:
+  display_name: "测试用例检索"
+  short_description: "从可访问的测试资产中查找并解释相关用例候选。"
+  default_prompt: "Use the test-case-retrieval skill to find relevant existing test cases with traceable sources."
+policy:
+  allow_implicit_invocation: true

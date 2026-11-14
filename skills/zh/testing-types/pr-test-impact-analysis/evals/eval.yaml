@@ -20,6 +20,8 @@ cases:
     - evals/cases/edge-incomplete-input.yaml
     - evals/cases/edge-risk-priority.yaml
     - evals/cases/domain-method-regression.yaml
+    - evals/cases/case-outcome-predictions.yaml
+    - evals/cases/edge-prediction-run-conflict.yaml
   defaults:
     timeout_seconds: 180
     max_turns: 8

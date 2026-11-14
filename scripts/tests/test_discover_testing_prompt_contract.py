@@ -304,14 +304,14 @@ class DiscoverTestingPromptContractTest(unittest.TestCase):
                 self.assertIn(phrase.lower(), prompt)
                 self.assertIn("clarification-first fast path" if language == "en" else "先澄清后路由", skill)
 
-    def test_router_v2_keeps_bilingual_skill_metadata_on_the_next_minor_version(self) -> None:
+    def test_router_v3_keeps_bilingual_skill_metadata_on_the_next_minor_version(self) -> None:
         for language in ("zh", "en"):
             skill = (
                 ROOT / f"skills/{language}/testing-workflows/discover-testing/SKILL.md"
             ).read_text(encoding="utf-8")
             frontmatter = skill.split("---", 2)[1]
             with self.subTest(language=language):
-                self.assertIn('version: "1.2.0"', frontmatter)
+                self.assertIn('version: "1.3.0"', frontmatter)
 
     def test_end_state_router_eval_explicitly_forbids_executing_the_target_workflow(self) -> None:
         expected = {

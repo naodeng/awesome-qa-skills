@@ -11,7 +11,7 @@ from scripts import generate_project_4_skill_card_closeout as project_4_closeout
 from scripts.tests.v3_v4_skill_contracts import CARD_IDS as V34_CANDIDATE_SLUGS
 
 ROOT = Path(__file__).resolve().parents[2]
-EXPECTED_LOGICAL_SKILL_COUNT = 169
+EXPECTED_LOGICAL_SKILL_COUNT = 171
 EXPECTED_CANDIDATE_COUNT = 122
 PROJECT_4_CANDIDATE_SLUGS = {
     "ai-agent-testing",

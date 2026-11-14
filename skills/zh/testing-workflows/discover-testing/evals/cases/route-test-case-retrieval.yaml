@@ -1,0 +1,29 @@
+{
+  "id": "route-test-case-retrieval",
+  "title": "明确任务：查找已有相关测试用例",
+  "description": "用户要从现有用例目录检索可追溯候选，而不是设计或选择必测用例。",
+  "input": {
+    "prompt": "用 discover-testing 路由。从现有测试用例目录查找与登录失败、账号锁定和密码恢复相关的用例，返回 ID 和匹配理由。我只需要候选发现，不要设计新用例或确定必测回归集。应该由哪个单一 Skill 处理？"
+  },
+  "expect": {
+    "must_contain": [
+      "test-case-retrieval"
+    ],
+    "must_not_contain": [
+      "多个主 Skill",
+      "TODO"
+    ]
+  },
+  "judge": {
+    "type": "rule_based",
+    "success": [
+      {
+        "output_contains": {
+          "all": [
+            "test-case-retrieval"
+          ]
+        }
+      }
+    ]
+  }
+}

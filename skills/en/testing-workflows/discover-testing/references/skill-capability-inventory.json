@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "snapshot_date": "2026-10-30",
+  "snapshot_date": "2026-11-13",
   "source_revision": "UNCOMMITTED_WORKTREE",
   "source": "awesome-qa-skills canonical catalog; snapshot of the working tree; update when names change",
   "installation_evidence": "UNKNOWN",
@@ -819,6 +819,18 @@
       "name": "technical-quality-perspective",
       "category": "testing-workflows",
       "capability": "Technical quality perspective",
+      "availability": "UNKNOWN"
+    },
+    {
+      "name": "test-case-importer",
+      "category": "testing-types",
+      "capability": "Test Case Importer",
+      "availability": "UNKNOWN"
+    },
+    {
+      "name": "test-case-retrieval",
+      "category": "testing-types",
+      "capability": "Test Case Retrieval",
       "availability": "UNKNOWN"
     },
     {

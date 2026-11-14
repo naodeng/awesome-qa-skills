@@ -1,0 +1,28 @@
+id: edge-incomplete-source
+title: "Case import: preserve raw input when source fields are incomplete"
+description: |
+  Missing title and expected-result fields are reported as mapping gaps rather than invented behavior.
+
+input:
+  prompt: |
+    Use test-case-importer to prepare this record for import:
+
+    Source ID: RAW-9
+    Action: Click Submit repeatedly
+    Notes: The old system only retained these two columns; it has no title, preconditions, or expected result.
+
+    Show a mapping preview first. Do not fill missing behavior from common conventions.
+
+expect:
+  must_contain:
+    - "RAW-9"
+    - "Missing"
+    - "Expected result"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "RAW-9"
+          - "Missing"
+          - "Expected result"
