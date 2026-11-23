@@ -15,6 +15,8 @@ cases:
     - evals/cases/basic-success.yaml
     - evals/cases/edge-incomplete-input.yaml
     - evals/cases/edge-risk-boundary.yaml
+    - evals/cases/review-poisoned-resource-and-tool-description.yaml
+    - evals/cases/review-dual-era-version-compatibility.yaml
   defaults:
     timeout_seconds: 180
     max_turns: 8

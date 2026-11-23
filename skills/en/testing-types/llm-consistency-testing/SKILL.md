@@ -3,7 +3,7 @@ name: llm-consistency-testing
 description: Use this skill when you need evidence-bounded repeat inputs, version/model/prompt factors, invariants, variance evidence, and comparison boundaries; triggers include LLM 一致性 and LLM consistency.
 license: PolyForm-Noncommercial-1.0.0
 metadata:
-  version: "1.1.0"
+  version: "1.1.1"
   compatibility: ""
   author: "Awesome QA Skills contributors"
   language: "en"
@@ -50,6 +50,8 @@ metadata:
 4. Single observations establish no repeated consistency. Missing rubrics leave semantic consistency UNKNOWN. Separate parameter/version groups rather than pooling them as stability evidence.
 
 ## Core Constraints
+
+- A model/provider migration binds old and candidate versions to same-task dual runs, exact versions, run IDs, re-baseline approval, deprecation deadline, and rollback criteria.
 
 - Keep the analysis focused on repeat inputs, version/model/prompt factors, invariants, variance evidence, and comparison boundaries; do not replace business owners or Human risk acceptance, exception approval, or safety decisions.
 - Never invent system behavior, fields, model outputs, data, thresholds, root causes, execution records, or pass claims.

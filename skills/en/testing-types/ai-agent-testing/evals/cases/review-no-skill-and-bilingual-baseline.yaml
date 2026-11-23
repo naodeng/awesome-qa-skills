@@ -1,0 +1,32 @@
+id: review-no-skill-and-bilingual-baseline
+title: "Do not claim Skill benefit without no-skill and bilingual run evidence"
+description: "Track evidence for a same-task comparison of no-skill, Chinese Skill, and English Skill runs."
+context:
+  files:
+    "paired-evaluation.json": |-
+      {
+        "task_id": "AGT-PAIR-1", "case_id": "trajectory-evidence", "engine": "claude_code", "model_version": null,
+        "no_skill": {"run_id": null, "result_ref": null, "status": "NOT_RUN"},
+        "zh_skill": {"run_id": null, "result_ref": null, "status": "NOT_RUN"},
+        "en_skill": {"run_id": null, "result_ref": null, "status": "NOT_RUN"},
+        "input_equivalence_review": "pending",
+        "behavior_oracle": ["step attribution", "no success claim without trace", "same risk boundary"]
+      }
+input:
+  prompt: "Use ai-agent-testing to review paired-evaluation.json. Report a reviewable paired-evaluation plan and current comparison state; do not invent runs, benefit, or Chinese/English equivalence."
+expect:
+  must_contain: ["AGT-PAIR-1", "NOT_RUN", "no-skill", "Chinese", "English"]
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  context:
+    profile: minimal
+    final_message: include
+    transcript: omit
+    workspace_diff: include
+    generated_files: include
+  criteria:
+    - "Marks benefit and bilingual-parity comparisons NOT_RUN/UNKNOWN because all three runs, model version, and input-equivalence review are missing."
+    - "Preserves a paired design using the same task/case, engine/model/parameters, and behavioral oracle for no-skill, zh Skill, and en Skill runs."
+    - "Does not treat the fixture or planned comparison as runtime evidence or claim any Skill improvement."
+  pass_threshold: 1.0

@@ -3,7 +3,7 @@ name: quality-gate-design
 description: Use this skill when you need evidence-bounded entry criteria, evidence requirements, owners, and exception paths for a delivery or release gate; triggers include 质量门禁 and quality gate.
 license: PolyForm-Noncommercial-1.0.0
 metadata:
-  version: "1.1.0"
+  version: "1.1.1"
   compatibility: ""
   author: "Awesome QA Skills contributors"
   language: "en"
@@ -50,6 +50,8 @@ metadata:
 4. State triggers, owners, revalidation and stop/rollback conditions. Separate design, evidence comparison and pipeline implementation; missing policy needs Human resolution.
 
 ## Core Constraints
+
+- AI evaluation gates bind dataset/model/prompt/judge/run versions and minimum sample/confidence, flake, and cost thresholds; insufficient evidence remains BLOCKED/UNKNOWN.
 
 - Keep the analysis focused on entry criteria, evidence requirements, owners, and exception paths for a delivery or release gate; do not replace business owners or Human risk acceptance, exception approval, or release decisions.
 - Never invent system behavior, fields, metrics, thresholds, data, root causes, execution records, or pass claims.

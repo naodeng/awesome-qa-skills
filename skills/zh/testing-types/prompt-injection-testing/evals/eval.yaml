@@ -21,6 +21,7 @@ cases:
     - evals/cases/edge-risk-priority.yaml
     - evals/cases/review-canary-tool-traces.yaml
     - evals/cases/review-missing-evidence.yaml
+    - evals/cases/review-mcp-resource-and-tool-description-poisoning.yaml
   defaults:
     timeout_seconds: 180
     max_turns: 8

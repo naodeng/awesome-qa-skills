@@ -96,6 +96,12 @@ bash scripts/run_skill_eval.sh skills/en/testing-types/functional-testing/evals/
 
 Always write raw eval artifacts outside the Skill package, under `.skill-up-workspaces/<skill>-workspace/`, and do not commit those raw runs. When a delivery or governance record explicitly requires it, curated and sanitized evidence with source, time, version, and input-fingerprint provenance may be committed under `docs/governance/eval-runs/`; do not copy raw workspace output there wholesale.
 
+## AI Skill Effect and Bilingual Comparisons
+
+To claim that a Skill improves outcomes, run a no-skill baseline and a Skill-enabled candidate on the same task, equivalent input, data/fixture, engine, exact model version, and sampling parameters. Record model/prompt/dataset versions, run IDs, sample counts, result references, cost, and execution state for both groups. Compare only against the project's behavioral oracle; output length or heading matches are not quality evidence.
+
+To assess Chinese/English Skill parity, run the corresponding language Skill on semantically equivalent inputs for the same evaluation target. Compare required behavior, risk boundaries, evidence states, and failure classes; outputs need not be word-for-word identical. If the baseline or either language lacks actual run evidence, mark the comparison `NOT_RUN`/`UNKNOWN` and make no benefit or parity claim. YAML validation, static checks, and fixture presence establish structure only, not behavior.
+
 ## Distribution Compatibility
 
 This repository follows a compatible-not-coupled model: the `skills` CLI is the distribution layer, `skill-up` is the evaluation layer, and each Skill must remain directly copyable or usable by another compatible consumer. See the [Skills CLI integration guide](../docs/integrations/SKILLS_CLI_INTEGRATION_EN.md) for the pinned version, commands, and evidence boundary.

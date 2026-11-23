@@ -247,4 +247,13 @@ This section combines the gap review with the A–D iteration scope supplied by 
 - `ai-code-verification` is a route in `discover-testing`, not a new Skill. Multimodal remains under observation until a target product has image/voice input and reviewable acceptance samples.
 - After catalog synchronization, the repository should have 176 Skills per language (15 workflows, 155 testing types, 6 Skill Engineering), or 352 bilingual directories total.
 
-The reconciled worktree now contains the 4 new Skill packages, 1 Workflow package, and bilingual updates to 33 existing Skills. The full quality gate and CLI compatibility check passed. Real-model Evals remain `NOT_RUN`; no commit or push was made.
+### Final A–D Plan Closeout (2026-11-23)
+
+- **Scope implemented:** 4 new standalone Skills, 1 conditional Workflow, and 33 existing logical Skills; 38 canonical packages / 76 bilingual directories total. Iteration A's `ai-code-verification` route, `ai-eval-gate`, and reporting evidence are implemented. Iteration B/C protocol, generated-code, structured-output, security, Eval-gate, release-loop, and migration items are implemented. Iteration D's RAG, test-data, CI, code-review, requirements-review, productivity-metric, and ROI items are included in their corresponding Skills.
+- **Evaluation assets:** Added 12 bilingual Eval case pairs for B/C and the 20-AI-Skill evidence audit, covering MCP poisoning and dual-era compatibility, ATT/MCP handoff, structured-output evolution, judge/sample/CI gates, red-team testing, model migration, and trajectory/no-skill/bilingual comparison. Comparison runs remain `NOT_RUN`; no model output or behavioral evidence was fabricated.
+- **Versioning:** New Skills start at `1.0.0`; 9 existing Skills modified in this follow-up received patch bumps, with reasons recorded in both language version histories.
+- **Capability boundary:** Multimodal remains under observation and has no standalone Skill; its documented trigger conditions are not met.
+- **Verification:** `bash scripts/check_skills_quality.sh` PASS (352 directories, 362 skill-up validations, 415 tests); `SKILLS_CLI_PACKAGE="$PWD" bash scripts/check_skills_cli_compatibility.sh` PASS (pinned `skills@1.7.0` discovered 176 Skills and completed an isolated English install smoke); `git diff --check` PASS. Static validation is not real-model behavioral evaluation.
+- **Delivery:** All repository-level A–D plan items are implemented and committed to PR #50; the PR remains open and unmerged. PR CI must be read against the final commit.
+
+**Not run / risk:** Real-model Evals, the no-skill baseline, and Chinese/English behavioral comparisons are `NOT_RUN` (the original D2 default scope); runtime behavior is therefore not claimed as passed. A multimodal Skill remains conditional on its trigger.

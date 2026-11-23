@@ -53,3 +53,17 @@ This history tracks each Skill package's independent `metadata.version`; it is n
 | `test-reporting` | `1.0.0` → `1.1.0` / `1.0.0` → `1.1.0` | Adds AI evaluation version, run, sampling, cost, and execution-state fields. |
 | `pr-quality-review` | `1.0.0` → `1.1.0` / `1.0.0` → `1.1.0` | Strengthens test-impact, effectiveness, and evidence-boundary review for Agent PRs. |
 | `release-testing-workflow` | `1.1.0` → `1.2.0` / `1.1.0` → `1.2.0` | Adds the handoff contract from AI evaluation gates into release stages. |
+
+### Iteration B/C Gap Closure
+
+| Skill | Version (zh/en) | Update note |
+| --- | --- | --- |
+| `agent-tool-testing` | `1.0.1` → `1.0.2` / `1.0.1` → `1.0.2` | Adds `ATT-##`, MCP responsibility handoff, tool-description poisoning, and schema-evolution cases. |
+| `ai-agent-testing` | `1.1.0` → `1.1.1` / `1.1.0` → `1.1.1` | Adds a no-skill baseline, bilingual paired-comparison protocol, and missing-evidence case. |
+| `ai-safety-testing` | `1.0.1` → `1.0.2` / `1.0.1` → `1.0.2` | Adds an authorized red-team program, benign controls, over-refusal, and retest case. |
+| `discover-testing` | `1.4.0` → `1.4.1` / `1.4.0` → `1.4.1` | Adds structured-output and supply-chain routes, updates the AI-domain count, and tests the multimodal capability gap. |
+| `llm-consistency-testing` | `1.1.0` → `1.1.1` / `1.1.0` → `1.1.1` | Adds two-version/dual-run migration, re-baselining, deprecation, and rollback gates. |
+| `llm-evaluation-design` | `1.1.0` → `1.1.1` / `1.1.0` → `1.1.1` | Clarifies dataset hygiene, stratified samples, confidence requirements, judge calibration, and CI blocking. |
+| `llm-testing` | `1.1.0` → `1.1.1` / `1.1.0` → `1.1.1` | Adds domain-oracle boundaries, stratified sampling, cost budgets, and latency-evidence cases. |
+| `prompt-injection-testing` | `1.0.1` → `1.0.2` / `1.0.1` → `1.0.2` | Extends RAG/MCP/UI injection surfaces, exfiltration channels, and post-refusal side-effect assertions. |
+| `quality-gate-design` | `1.1.0` → `1.1.1` / `1.1.0` → `1.1.1` | Adds AI-evaluation sample, judge, flake, and cost gates plus a missing-evidence blocking case. |

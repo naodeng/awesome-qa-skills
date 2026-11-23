@@ -247,4 +247,13 @@
 - `ai-code-verification` 是 `discover-testing` 的路线，不新增 Skill。多模态继续观察；达到目标产品确有图像/语音输入且具备可复核验收样本的触发条件后再立项。
 - 完成目录同步后，仓库应为每种语言 176 个 Skill（15 个 Workflow、155 个测试类型、6 个 Skill Engineering），中英双语合计 352 个目录。
 
-范围复核后的工作树已创建 4 个新增 Skill 与 1 个 Workflow 包，并完成 33 个既有 Skill 的双语改动。完整质量门禁和 CLI 兼容检查均已通过；真实模型 Eval 仍为 `NOT_RUN`，未创建提交或推送。
+### A–D 计划最终收口（2026-11-23）
+
+- **范围已落地：** 4 个新增独立 Skill、1 个条件 Workflow、33 个既有逻辑 Skill；共 38 个 canonical package / 76 个双语目录。Iteration A 的 `ai-code-verification` 路线、`ai-eval-gate` 与报告证据项均已实现；Iteration B/C 的协议、生成代码、结构化输出、安全、Eval 门禁、发布闭环和迁移项均已实现。Iteration D 列出的 RAG、测试数据、CI、代码评审、需求评审、生产力指标与 ROI 项均已纳入对应 Skill。
+- **评测资产补齐：** 为 B/C 与 20 个 AI Skill 的证据审计新增 12 对双语 Eval 用例，覆盖 MCP 投毒与 dual-era、ATT/MCP 交接、结构化输出演进、Judge/样本/CI 门槛、红队、模型迁移、轨迹与 no-skill/双语对照。对照运行仍标为 `NOT_RUN`，没有伪造模型输出或行为证据。
+- **版本规则遵守：** 新增 Skill 初始版本为 `1.0.0`；本轮后续修改的 9 个既有 Skill 均升 patch 版本，并在中英文版本历史中记录原因。
+- **能力边界：** 多模态保持观察，没有新增独立 Skill；当前计划定义的触发条件尚未满足。
+- **验证：** `bash scripts/check_skills_quality.sh` PASS（352 个目录、362 项 skill-up 校验、415 项测试）；`SKILLS_CLI_PACKAGE="$PWD" bash scripts/check_skills_cli_compatibility.sh` PASS（固定 `skills@1.7.0` 发现 176 个 Skill，并完成英文隔离安装 smoke）；`git diff --check` PASS。静态验证不等于真实模型行为评测。
+- **交付状态：** 所有仓库内 A–D 计划项已完成，并已提交到 PR #50；PR 保持 open，尚未合并。PR CI 以最终提交为准。
+
+**未运行 / 风险：** 真实模型 Evals、no-skill baseline 和中英行为对照为 `NOT_RUN`（原计划 D2 的默认范围）；不据此宣称运行时行为通过。多模态 Skill 仍由触发条件控制。

@@ -46,6 +46,13 @@ For evaluation, regression, or result review, include an `evaluation_status` fie
 
 A structured trace records at least `trace_id`, input/sample ID, model/prompt/dataset/schema versions, result-affecting parameters, run/trial ID, parse status, schema status, semantic status, and evidence reference. Check JSON parsing, schema constraints, and domain semantics independently: a parse success does not prove schema or semantic success. Retain a redacted output or reviewable hash, repetition count, and denominator; missing evidence never becomes a pass.
 
+## Domain Oracles, Sampling, and Cost Budget
+
+- Select a domain oracle supported by user requirements, product policy, or traceable sources. Without an oracle, mark semantic outcomes `UNKNOWN` and hand rubric/dataset/judge design to `llm-evaluation-design`. Prompt-version regression belongs to `prompt-testing`; broad AI-feature risk belongs to `ai-feature-testing`.
+- Define a sampling frame and strata from the real task distribution (for example task class, risk, language, and context length). Pin sample IDs and parameters, use project-specified repetitions, and report successes/failures with denominators. State coverage limits; do not call a convenience sample representative.
+- Record input/output/cached tokens, price source, and billing window separately; report TTFT/total-latency percentiles with sample counts. Missing pricing, billing, or runtime evidence stays `UNKNOWN`/`NOT_RUN`, never zero.
+- Project owners set budget thresholds. Over-budget, missing-sample, or unexecuted evaluation cannot be `PASS`; report cost and quality conclusions separately.
+
 ## Minimum Coverage Checklist
 
 Unless the user narrows the scope, cover at least:

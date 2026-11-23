@@ -49,6 +49,13 @@ Apply these steps as design or static comparison of supplied material. Keep fixt
 2. Check run/step order, permission, idempotency, isolation, recovery, and budget invariants. Judge outcome correctness and process compliance separately; either failure prevents an overall pass.
 3. Classify termination as success, goal failure, budget exhaustion, cancellation, safety block, or environment error. Missing terminal events do not prove completion.
 4. Record model/prompt/tool/data/environment versions, sample selection, and project-supplied repetitions. Report per-sample pass/fail counts and intermittent failures; a single trial establishes no stability claim.
+## Skill Effect and Bilingual Comparison
+
+To assess Skill benefit or Chinese/English parity, use the same task, equivalent inputs, fixed engine/model/parameters, and the same fixture. Record no-skill, Skill-enabled, Chinese-Skill, and English-Skill results with trace/run IDs. Compare the same behavioral oracle, risk boundaries, and failure classes; outputs need not be textually identical.
+
+- If any side lacks an actual run, model identity, or reviewable result, mark the comparison `NOT_RUN`/`UNKNOWN`; do not claim a Skill benefit or language equivalence.
+- Record per-sample execution state and provenance. A static fixture, prompt check, case-file presence, or one-sided run is not a baseline result.
+
 ## Minimum Coverage Checklist
 
 Unless the user narrows the scope, cover at least:

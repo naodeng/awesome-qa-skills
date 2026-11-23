@@ -33,6 +33,14 @@ For every evaluation or regression conclusion, include an `evaluation_status` fi
 
 A structured trace records at least `trace_id`, `input_id`, model/prompt/dataset/schema versions, result-affecting parameters, run/trial ID, `parse_status`, `schema_status`, `semantic_status`, and evidence reference. Decide each status separately; retain a redacted raw output or reviewable hash, repetition count, and denominator. For machine consumption, follow the requested schema and validate required fields and enums.
 
+## Modes, Streaming Results, and Schema Evolution
+
+- Test JSON mode only when the target product declares support. Separately verify whether the mode was enabled, whether output parses, and whether it conforms to the schema; enabling a mode is not a structural guarantee.
+- Validate function-call arguments against the tool input schema. Record argument shape, whether a tool was called, the call result, and side effects separately. Do not execute a write-capable tool without separate authorization.
+- For streaming, inspect incremental chunks, the terminal marker, reconstructed final JSON, truncation/cancellation, and invalid intermediate chunks. An incomplete chunk is not a valid final result.
+- Bind schema evolution checks to old and new versions. Assess optional-field additions, required-field changes, enum narrowing, and field removal against compatibility requirements for existing consumers; without a consumer contract, report `UNKNOWN`.
+- Derive expected behavior from the project contract or declared platform capability; do not infer implementation details from labels such as “JSON mode” or “streaming.”
+
 ## Minimum Coverage Checklist
 
 - Valid JSON and type/required-field/enum/additional-field boundaries

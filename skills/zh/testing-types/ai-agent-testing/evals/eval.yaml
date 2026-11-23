@@ -22,6 +22,7 @@ cases:
     - evals/cases/domain-method-regression.yaml
     - evals/cases/review-missing-evaluation-evidence.yaml
     - evals/cases/trajectory-evidence.yaml
+    - evals/cases/review-no-skill-and-bilingual-baseline.yaml
   defaults:
     timeout_seconds: 180
     max_turns: 8

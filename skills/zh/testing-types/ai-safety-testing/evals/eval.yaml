@@ -17,6 +17,7 @@ cases:
     - evals/cases/edge-scope-boundary.yaml
     - evals/cases/domain-method-regression.yaml
     - evals/cases/review-safety-traces.yaml
+    - evals/cases/review-red-team-program.yaml
     - evals/cases/review-missing-evidence.yaml
   defaults:
     timeout_seconds: 180

@@ -3,7 +3,7 @@ name: ai-safety-testing
 description: Use this skill when you need evidence-bounded safety policy, abuse categories, refusal/redirect behavior, privacy, escalation, and Human risk decisions; triggers include AI 安全 and AI safety.
 license: PolyForm-Noncommercial-1.0.0
 metadata:
-  version: "1.0.1"
+  version: "1.0.2"
   compatibility: ""
   author: "Awesome QA Skills contributors"
   language: "zh-CN"
@@ -50,6 +50,8 @@ metadata:
 4. 标签记录政策来源、样本版本、预期分支与实际分支；未提供执行输出保持 NOT_RUN，未知政策边界保持 UNKNOWN。
 
 ## 核心约束
+
+- 红队活动先定授权范围、政策分类、停止/升级条件和有害/良性配对；分别判断安全失败与过度拒答，不把“未发现失败”写成通过。
 
 - 只分析安全政策、滥用类别、拒答/重定向、隐私、升级与 Human 风险决策，不替代业务负责人或 Human 的风险接受、例外批准和安全决定。
 - 不编造系统行为、字段、模型输出、数据、阈值、根因、执行记录或通过结论。

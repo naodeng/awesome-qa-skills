@@ -3,7 +3,7 @@ name: agent-tool-testing
 description: Use this skill when you need to test AI agent tool-call contracts, authorization, failures, and side-effect boundaries; triggers include Agent 工具调用测试 and agent tool testing.
 license: PolyForm-Noncommercial-1.0.0
 metadata:
-  version: "1.0.1"
+  version: "1.0.2"
   compatibility: ""
   author: "Awesome QA Skills contributors"
   language: "zh-CN"
@@ -41,6 +41,8 @@ metadata:
 - 只有目录实际存在且任务需要时，才读取 `references/`、`examples/`、`scripts/` 或 `output-formats.md`，不要假设不存在的资产。
 
 ## 核心约束
+
+- 使用 `ATT-##` 稳定发现编号；明确 Agent 工具选择/Schema/副作用与 MCP 服务端协议的交接边界。
 
 - 默认只使用 mock、dry-run 或隔离环境
 - 未经授权不得执行真实写操作

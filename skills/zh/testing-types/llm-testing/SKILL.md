@@ -3,7 +3,7 @@ name: llm-testing
 description: Use this skill when you need to test LLM behavior, failure modes, and evidence-based quality boundaries; triggers include LLM 测试 and llm testing.
 license: PolyForm-Noncommercial-1.0.0
 metadata:
-  version: "1.1.0"
+  version: "1.1.1"
   compatibility: ""
   author: "Awesome QA Skills contributors"
   language: "zh-CN"
@@ -41,6 +41,8 @@ metadata:
 - 只有目录实际存在且任务需要时，才读取 `references/`、`examples/`、`scripts/` 或 `output-formats.md`，不要假设不存在的资产。
 
 ## 核心约束
+
+- 明确与 feature、Prompt、Eval 设计的分工；按风险分层抽样，报告重复分母、token/成本来源和有样本依据的时延指标。
 
 - 避免只用精确字符串断言
 - 固定并记录模型参数

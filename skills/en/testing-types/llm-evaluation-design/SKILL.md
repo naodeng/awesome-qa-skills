@@ -3,7 +3,7 @@ name: llm-evaluation-design
 description: Use this skill when you need to design LLM evaluation datasets, judges, metrics, and human-review boundaries; triggers include llm evaluation design.
 license: PolyForm-Noncommercial-1.0.0
 metadata:
-  version: "1.1.0"
+  version: "1.1.1"
   compatibility: ""
   author: "Awesome QA Skills contributors"
   language: "en"
@@ -41,6 +41,8 @@ metadata:
 - Load `references/`, `examples/`, `scripts/`, or `output-formats.md` only when those directories exist and the task needs them.
 
 ## Core Constraints
+
+- Track provenance/licensing/PII, duplicates, and split leakage; derive sample/confidence plans from task risk, calibrate and pin judge versions, and block CI gates when evidence is insufficient.
 
 - map metrics to real tasks
 - calibrate and audit LLM judges

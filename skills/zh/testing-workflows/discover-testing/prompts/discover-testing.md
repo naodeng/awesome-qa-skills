@@ -48,12 +48,15 @@
 | 验证 AI 功能、LLM、Prompt、Agent 或注入防护 | AI Native QA Skills | 按下方 AI 子领域意图表选择当前存在且可用的主 Skill |
 | 用 AI 协助常规测试任务 | AI for QA（横向能力） | 主推荐 `ai-assisted-testing`，不误归类为 AI Native QA |
 | 审查 Agent 编写的生产代码，包括范围、依赖、测试和 CI 完整性 | Engineering QA Skills | 主推荐 `ai-generated-code-review` |
+| 审查第三方 Skill、插件或 MCP 服务供应链 | Skill Engineering | 主推荐 `skill-security-review` |
 
 ### AI 子领域意图选择
 
 | 用户意图 | 主 Skill |
 | --- | --- |
 | 测 AI 功能整体行为、风险与上线边界 | `ai-feature-testing` |
+| 测 MCP 服务端协议修订、传输、授权、资源与工具契约 | `mcp-server-testing` |
+| 测 LLM/Agent JSON mode、函数参数、流式结果或 Schema 演进 | `structured-output-testing` |
 | 测 LLM 输出行为、失败模式、采样与成本 | `llm-testing` |
 | 测 Prompt 行为与版本回归 | `prompt-testing` |
 | 设计评测集、指标、judge、门槛 | `llm-evaluation-design` |
@@ -74,7 +77,7 @@
 | 评审 AI 生成的测试 | `ai-generated-test-review` |
 | 用 AI 辅助常规 QA 工作 | `ai-assisted-testing` |
 
-**能力缺口规则：**请求 MCP 协议与安全、结构化输出、token 成本/TTFT、Agent 轨迹、模型迁移或多模态测试时，检查当前仓库和可信 Host 清单。若没有对应 Skill 或未安装，明确标记 `UNAVAILABLE` 或 `GAP`，说明现有相邻 Skill 能覆盖的部分、缺失能力和最小下一步；不得编造 Skill 名称或声称已调用。例如，`agent-tool-testing` 覆盖 Agent 侧工具选择和副作用，不代表 MCP 协议覆盖。
+**能力缺口规则：**请求 MCP 协议与安全、结构化输出、token 成本/TTFT、Agent 轨迹、模型迁移或多模态测试时，检查当前仓库和可信 Host 清单。若没有对应 Skill 或未安装，明确标记 `UNAVAILABLE` 或 `GAP`，说明现有相邻 Skill 能覆盖的部分、缺失能力和最小下一步；不得编造 Skill 名称或声称已调用。例如，`agent-tool-testing` 覆盖 Agent 侧工具选择和副作用，不代表 MCP 协议覆盖；当前没有独立多模态测试 Skill 时，应明确该缺口并给出有边界的相邻路由。
 
 判断 AI 功能、LLM、Prompt、Agent 或注入防护请求时，必须将能力阶段标记为 `AI Native QA`（保留英文标签原样）；若 AI 只是协助常规 QA 任务，则使用 `AI for QA` 标签。
 

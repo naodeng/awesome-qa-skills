@@ -131,6 +131,12 @@ npx skills add https://github.com/alibaba/skill-up/tree/main/skills/skill-upper 
 - 信息不完整类用例优先断言 prompt 输出结构词（如中文「待确认」、英文 `Open Questions`），避免过脆的同义词。
 - 原始运行产物应写入 `<skill>-workspace/`（已 gitignore），不要提交。仅当交付或治理记录明确要求时，才可将经筛选、脱敏且保留来源、时间、版本和输入指纹等 provenance 的证据提交到 `docs/governance/eval-runs/`；不要把原始 workspace 输出整体复制进去。
 
+## AI Skill 效果与双语对照
+
+要声称 Skill 带来效果提升，必须使用同一任务、等价输入、相同数据/fixture、engine、模型精确版本和采样参数，分别运行不启用 Skill 的 baseline 与启用 Skill 的候选组。记录每组的模型/Prompt/数据集版本、run ID、样本数、结果引用、成本与执行状态；只比较项目给定的行为 oracle，不以输出长度或标题命中代替质量。
+
+检查中英文 Skill 等效时，在同一评测目标下使用语义等价的中英文输入，分别运行对应语言 Skill，并对照相同的必需行为、风险边界、证据状态和失败分类；不要求逐字相同。baseline 或任一语言缺实际运行证据时，将对照标为 `NOT_RUN`/`UNKNOWN`，不得声称 Skill 有增益或双语等效。YAML 验证、静态检查和 fixture 文件存在只证明结构，不证明行为。
+
 ## Distribution Compatibility
 
 本仓库采用「兼容而不耦合」：`skills` CLI 是分发层，`skill-up` 是评测层，Skill 自身仍必须可以直接复制或被其他兼容消费者使用。完整的安装命令、固定版本和验证边界见 [`docs/integrations/SKILLS_CLI_INTEGRATION.md`](../docs/integrations/SKILLS_CLI_INTEGRATION.md)。

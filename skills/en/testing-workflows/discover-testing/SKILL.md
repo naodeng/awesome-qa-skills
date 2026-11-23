@@ -3,7 +3,7 @@ name: discover-testing
 description: Use this skill when you need to route a request to the right testing skill before execution, including case import and retrieval; triggers include discover testing, testing skill router, and which testing skill.
 license: PolyForm-Noncommercial-1.0.0
 metadata:
-  version: "1.4.0"
+  version: "1.4.1"
   compatibility: ""
   author: "Awesome QA Skills contributors"
   language: "en"
@@ -39,7 +39,7 @@ Read `references/skill-capability-inventory.json` to check exact canonical IDs. 
 - If the target skill is already obvious, say so directly.
 - Make the route actionable: name the skill and the reason.
 - Prefer the Composition route's one-primary/one-optional constraint; relations are navigation metadata, not installation dependencies or a mandatory execution chain.
-- Use `ai-assisted-testing` for AI for QA; route Testing for AI through the 20-domain table in the prompt. For unavailable MCP, structured-output, token-cost/TTFT, agent-trace, model-migration, or multimodal capabilities, state `GAP`/`UNAVAILABLE` and the smallest next step without inventing a Skill name.
+- Use `ai-assisted-testing` for AI for QA; route Testing for AI through the 22-domain table in the prompt. Route third-party Skill/plugin/MCP supply-chain review to `skill-security-review`. For unavailable token-cost/TTFT, agent-trace, model-migration, or multimodal capabilities, state `GAP`/`UNAVAILABLE` and the smallest next step without inventing a Skill name.
 
 ## Progressive Disclosure
 

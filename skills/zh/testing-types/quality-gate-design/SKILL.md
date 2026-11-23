@@ -3,7 +3,7 @@ name: quality-gate-design
 description: Use this skill when you need evidence-bounded entry criteria, evidence requirements, owners, and exception paths for a delivery or release gate; triggers include 质量门禁 and quality gate.
 license: PolyForm-Noncommercial-1.0.0
 metadata:
-  version: "1.1.0"
+  version: "1.1.1"
   compatibility: ""
   author: "Awesome QA Skills contributors"
   language: "zh-CN"
@@ -50,6 +50,8 @@ metadata:
 4. 明确门禁触发、负责人、重新验证和回滚/停止条件；设计、静态证据判定与实际流水线实施分别报告，缺规则提交待Human决策。
 
 ## 核心约束
+
+- AI 评测门禁绑定数据集/模型/Prompt/judge/run 版本、最低样本/置信要求、flake 与成本阈值；证据不足时保持 BLOCKED/UNKNOWN。
 
 - 只分析发布或交付入口的准入条件、证据要求、责任人与例外路径，不替代业务负责人或 Human 的风险接受、例外批准和发布决定。
 - 不编造系统行为、字段、指标、阈值、数据、根因、执行记录或通过结论。

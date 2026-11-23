@@ -41,6 +41,8 @@ metadata:
 
 ## Core Constraints
 
+- Test declared JSON mode, function-call arguments, stream chunks/termination, and old/new schema-consumer compatibility separately; a mode label is not success evidence.
+
 - `parse_status`, `schema_status`, and `semantic_status` are independent results; parseable JSON does not prove field or business correctness.
 - Every conclusion must trace to a sample, version, parameter, run record, or redacted output reference.
 - Separate one observation from distribution-level conclusions; report repetitions, failure counts, and denominators.

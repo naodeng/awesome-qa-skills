@@ -17,6 +17,7 @@ cases:
     - evals/cases/edge-scope-boundary.yaml
     - evals/cases/review-structured-trace.yaml
     - evals/cases/review-missing-evaluation-evidence.yaml
+    - evals/cases/review-json-mode-schema-evolution-streaming.yaml
   defaults:
     timeout_seconds: 180
     max_turns: 8

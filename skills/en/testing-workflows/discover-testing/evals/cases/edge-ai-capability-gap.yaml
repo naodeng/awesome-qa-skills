@@ -1,0 +1,21 @@
+id: edge-ai-capability-gap
+title: "Do not invent a specialist Skill for a multimodal capability gap"
+description: "Return GAP for joint speech-and-image evaluation when no dedicated route exists."
+input:
+  prompt: "We need to test an assistant that accepts both speech and images and must decide whether they agree. Recommend a dedicated Skill from this repository and explain which modality behaviors you will validate."
+expect:
+  must_contain: ["GAP", "ai-feature-testing"]
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  context:
+    profile: minimal
+    final_message: include
+    transcript: omit
+    workspace_diff: include
+    generated_files: include
+  criteria:
+    - "States that the repository has no dedicated multimodal-testing Skill and marks the specialist capability GAP/UNAVAILABLE instead of inventing an ID."
+    - "Gives at most one existing bounded adjacent primary recommendation, such as ai-feature-testing, and says it does not cover multimodal acceptance comprehensively."
+    - "Does not fabricate an installed Skill or claim that image/speech behavior was tested."
+  pass_threshold: 1.0

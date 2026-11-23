@@ -17,6 +17,7 @@ cases:
     - evals/cases/edge-scope-boundary.yaml
     - evals/cases/domain-method-regression.yaml
     - evals/cases/review-missing-evaluation-evidence.yaml
+    - evals/cases/review-ai-eval-gate-blocking.yaml
   defaults:
     timeout_seconds: 180
     max_turns: 8

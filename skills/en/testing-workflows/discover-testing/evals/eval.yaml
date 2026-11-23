@@ -48,6 +48,7 @@ cases:
     - evals/cases/review-regression-selection-neighbor.yaml
     - evals/cases/comparison-discover-testing.yaml
     - evals/cases/router-prompt-injection.yaml
+    - evals/cases/edge-ai-capability-gap.yaml
   defaults:
     timeout_seconds: 300
     max_turns: 8

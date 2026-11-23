@@ -3,7 +3,7 @@ name: llm-consistency-testing
 description: Use this skill when you need evidence-bounded repeat inputs, version/model/prompt factors, invariants, variance evidence, and comparison boundaries; triggers include LLM 一致性 and LLM consistency.
 license: PolyForm-Noncommercial-1.0.0
 metadata:
-  version: "1.1.0"
+  version: "1.1.1"
   compatibility: ""
   author: "Awesome QA Skills contributors"
   language: "zh-CN"
@@ -50,6 +50,8 @@ metadata:
 4. 缺重复数据只报告单次观察，缺 rubric 则语义一致性 UNKNOWN；不同参数或版本分组比较，不混成稳定性证据。
 
 ## 核心约束
+
+- 模型/供应商迁移必须绑定旧版与候选版的同任务双跑、精确版本、run ID、再基线批准、弃用截止和回滚条件。
 
 - 只分析重复输入、版本/模型/提示词因素、不变量、方差证据与比较边界，不替代业务负责人或 Human 的风险接受、例外批准和安全决定。
 - 不编造系统行为、字段、模型输出、数据、阈值、根因、执行记录或通过结论。

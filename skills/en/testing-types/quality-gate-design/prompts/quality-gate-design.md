@@ -46,6 +46,14 @@ For evaluation, regression, or result review, include an `evaluation_status` fie
 
 A structured trace records at least `trace_id`, input/sample ID, model/prompt/dataset/schema versions, result-affecting parameters, run/trial ID, parse status, schema status, semantic status, and evidence reference. Check JSON parsing, schema constraints, and domain semantics independently: a parse success does not prove schema or semantic success. Retain a redacted output or reviewable hash, repetition count, and denominator; missing evidence never becomes a pass.
 
+## AI Evaluation Gate Mode
+
+For an AI evaluation gate, bind each required check to `dataset_id/version`, model/prompt/judge versions, `run_id`, data provenance, and evidence references. From the project contract, record minimum sample/confidence requirements, quality thresholds, flake budget, and cost budget. Thresholds need an owner and source; the Skill must not invent business gates.
+
+- Recommend PASS only when every required evaluation has a fresh, traceable run, approved sample requirements are met, and each required assertion has evidence.
+- Missing run/version/provenance, insufficient samples, an uncalibrated judge, or `NOT_RUN`/`UNKNOWN` results must keep the gate BLOCKED/UNKNOWN; never turn a static plan, partial sample, or average score into green.
+- Report quality failures, variance/flake, cost overrun, and production guardrail state separately. Exceptions require Human approval, scope, expiry, and compensating controls.
+
 ## Minimum Coverage Checklist
 
 - gate objective, entry criteria, evidence source, owner role, exception and rollback

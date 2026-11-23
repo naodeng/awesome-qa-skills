@@ -3,7 +3,7 @@ name: discover-testing
 description: Use this skill when you need to route a request to the right testing skill before execution, including 测试用例导入和检索; triggers include 测试技能路由、discover testing and which testing skill.
 license: PolyForm-Noncommercial-1.0.0
 metadata:
-  version: "1.4.0"
+  version: "1.4.1"
   compatibility: ""
   author: "Awesome QA Skills contributors"
   language: "zh-CN"
@@ -39,7 +39,7 @@ metadata:
 - 目标 skill 已经很明显时，直接指出，不要无效绕路。
 - 路由结果要可执行：写清推荐 skill 名与理由。
 - 路由优先使用 Composition route 的主/辅唯一约束；组合关系只用于导航，不表示安装依赖或强制执行链。
-- AI for QA 使用 `ai-assisted-testing`；Testing for AI 属于 AI Native QA，并按 Prompt 中的 20 项 AI 子领域表路由。请求 MCP、结构化输出、token 成本/TTFT、Agent 轨迹、模型迁移或多模态等仓库缺失能力时，明确给出 `GAP`/`UNAVAILABLE` 和最小下一步，不编造 Skill 名称。
+- AI for QA 使用 `ai-assisted-testing`；Testing for AI 属于 AI Native QA，并按 Prompt 中的 22 项 AI 子领域表路由。第三方 Skill/插件/MCP 供应链审查使用 `skill-security-review`。请求 token 成本/TTFT、Agent 轨迹、模型迁移或多模态等仓库缺失能力时，明确给出 `GAP`/`UNAVAILABLE` 和最小下一步，不编造 Skill 名称。
 
 ## 按需加载
 

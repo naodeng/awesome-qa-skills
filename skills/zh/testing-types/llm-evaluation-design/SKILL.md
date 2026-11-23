@@ -3,7 +3,7 @@ name: llm-evaluation-design
 description: Use this skill when you need to design LLM evaluation datasets, judges, metrics, and human-review boundaries; triggers include LLM Eval 设计 and llm evaluation design.
 license: PolyForm-Noncommercial-1.0.0
 metadata:
-  version: "1.1.0"
+  version: "1.1.1"
   compatibility: ""
   author: "Awesome QA Skills contributors"
   language: "zh-CN"
@@ -41,6 +41,8 @@ metadata:
 - 只有目录实际存在且任务需要时，才读取 `references/`、`examples/`、`scripts/` 或 `output-formats.md`，不要假设不存在的资产。
 
 ## 核心约束
+
+- 记录来源/许可/PII、重复与切分泄漏；由任务风险决定样本/置信方案，校准并固定 judge 版本，缺证据时阻断 CI 门槛。
 
 - 指标必须映射真实任务
 - LLM-as-judge 要校准并抽检

@@ -3,7 +3,7 @@ name: llm-testing
 description: Use this skill when you need to test LLM behavior, failure modes, and evidence-based quality boundaries; triggers include llm testing.
 license: PolyForm-Noncommercial-1.0.0
 metadata:
-  version: "1.1.0"
+  version: "1.1.1"
   compatibility: ""
   author: "Awesome QA Skills contributors"
   language: "en"
@@ -41,6 +41,8 @@ metadata:
 - Load `references/`, `examples/`, `scripts/`, or `output-formats.md` only when those directories exist and the task needs them.
 
 ## Core Constraints
+
+- Keep boundaries with feature, Prompt, and Eval design explicit; stratify samples by risk and report repetition denominators, token/cost provenance, and latency metrics with sample counts.
 
 - avoid exact-string assertions alone
 - pin and record model settings
