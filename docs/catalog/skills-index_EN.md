@@ -2,7 +2,7 @@
 
 # Complete Skills Index
 
-Each language contains 14 workflows, 152 testing types, and 5 Skill Engineering packages: 171 per language and 342 directories total. This is logical navigation; physical directories do not change. See the [Skill governance roadmap](../governance/SKILL_GOVERNANCE_ROADMAP_EN.md), [governance matrix](../SKILL_MATRIX_EN.md), [matching register](../SKILL_MATCHING_REGISTER_EN.md), and [v1.4 closeout](../governance/PHASE_0_V1_4_CLOSEOUT_EN.md) for long-term governance.
+Each language contains 15 workflows, 155 testing types, and 6 Skill Engineering packages: 176 per language and 352 directories total. This is logical navigation; physical directories do not change. See the [Skill governance roadmap](../governance/SKILL_GOVERNANCE_ROADMAP_EN.md), [governance matrix](../SKILL_MATRIX_EN.md), [matching register](../SKILL_MATCHING_REGISTER_EN.md), and [v1.4 closeout](../governance/PHASE_0_V1_4_CLOSEOUT_EN.md) for long-term governance.
 
 See the [v1.5.2 Composition Catalog](skills-composition_EN.md) for route and composition navigation; it is metadata, not an installation dependency or automatic execution chain.
 
@@ -35,6 +35,7 @@ See the [v1.5.2 Composition Catalog](skills-composition_EN.md) for route and com
 | Skill | 中文 | English |
 | --- | --- | --- |
 | `release-testing-workflow` | [中文](../../skills/zh/testing-workflows/release-testing-workflow/) | [English](../../skills/en/testing-workflows/release-testing-workflow/) |
+| `ai-feature-release-workflow` | [中文](../../skills/zh/testing-workflows/ai-feature-release-workflow/) | [English](../../skills/en/testing-workflows/ai-feature-release-workflow/) |
 | `multi-role-quality-synthesis` | [中文](../../skills/zh/testing-workflows/multi-role-quality-synthesis/) | [English](../../skills/en/testing-workflows/multi-role-quality-synthesis/) |
 
 ## Four Capability Stages × R&D and Testing Lifecycle
@@ -170,6 +171,7 @@ See the [v1.5.2 Composition Catalog](skills-composition_EN.md) for route and com
 | Skill | 中文 | English |
 | --- | --- | --- |
 | `code-review` | [中文](../../skills/zh/testing-types/code-review/) | [English](../../skills/en/testing-types/code-review/) |
+| `ai-generated-code-review` | [中文](../../skills/zh/testing-types/ai-generated-code-review/) | [English](../../skills/en/testing-types/ai-generated-code-review/) |
 | `change-impact-analysis` | [中文](../../skills/zh/testing-types/change-impact-analysis/) | [English](../../skills/en/testing-types/change-impact-analysis/) |
 | `pr-test-impact-analysis` | [中文](../../skills/zh/testing-types/pr-test-impact-analysis/) | [English](../../skills/en/testing-types/pr-test-impact-analysis/) |
 | `api-contract-testing` | [中文](../../skills/zh/testing-types/api-contract-testing/) | [English](../../skills/en/testing-types/api-contract-testing/) |
@@ -270,6 +272,7 @@ See the [v1.5.2 Composition Catalog](skills-composition_EN.md) for route and com
 | --- | --- | --- |
 | `llm-evaluation-design` | [中文](../../skills/zh/testing-types/llm-evaluation-design/) | [English](../../skills/en/testing-types/llm-evaluation-design/) |
 | `llm-testing` | [中文](../../skills/zh/testing-types/llm-testing/) | [English](../../skills/en/testing-types/llm-testing/) |
+| `structured-output-testing` | [中文](../../skills/zh/testing-types/structured-output-testing/) | [English](../../skills/en/testing-types/structured-output-testing/) |
 | `prompt-testing` | [中文](../../skills/zh/testing-types/prompt-testing/) | [English](../../skills/en/testing-types/prompt-testing/) |
 | `rag-quality-testing` | [中文](../../skills/zh/testing-types/rag-quality-testing/) | [English](../../skills/en/testing-types/rag-quality-testing/) |
 | `rag-retrieval-testing` | [中文](../../skills/zh/testing-types/rag-retrieval-testing/) | [English](../../skills/en/testing-types/rag-retrieval-testing/) |
@@ -284,6 +287,7 @@ See the [v1.5.2 Composition Catalog](skills-composition_EN.md) for route and com
 | --- | --- | --- |
 | `ai-agent-testing` | [中文](../../skills/zh/testing-types/ai-agent-testing/) | [English](../../skills/en/testing-types/ai-agent-testing/) |
 | `agent-tool-testing` | [中文](../../skills/zh/testing-types/agent-tool-testing/) | [English](../../skills/en/testing-types/agent-tool-testing/) |
+| `mcp-server-testing` | [中文](../../skills/zh/testing-types/mcp-server-testing/) | [English](../../skills/en/testing-types/mcp-server-testing/) |
 | `prompt-injection-testing` | [中文](../../skills/zh/testing-types/prompt-injection-testing/) | [English](../../skills/en/testing-types/prompt-injection-testing/) |
 | `agent-loop-testing` | [中文](../../skills/zh/testing-types/agent-loop-testing/) | [English](../../skills/en/testing-types/agent-loop-testing/) |
 | `agent-memory-testing` | [中文](../../skills/zh/testing-types/agent-memory-testing/) | [English](../../skills/en/testing-types/agent-memory-testing/) |
@@ -302,6 +306,7 @@ See the [v1.5.2 Composition Catalog](skills-composition_EN.md) for route and com
 | `skill-evaluation` | [中文](../../skills/zh/skill-engineering/skill-evaluation/) | [English](../../skills/en/skill-engineering/skill-evaluation/) |
 | `skill-prose-review` | [中文](../../skills/zh/skill-engineering/skill-prose-review/) | [English](../../skills/en/skill-engineering/skill-prose-review/) |
 | `skill-prose-trim` | [中文](../../skills/zh/skill-engineering/skill-prose-trim/) | [English](../../skills/en/skill-engineering/skill-prose-trim/) |
+| `skill-security-review` | [中文](../../skills/zh/skill-engineering/skill-security-review/) | [English](../../skills/en/skill-engineering/skill-security-review/) |
 
 Evolution details:
 

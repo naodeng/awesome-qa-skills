@@ -1,0 +1,15 @@
+id: edge-evidence-boundary
+title: AI 生成测试审查：缺少测试本体时阻塞且保留状态边界
+input:
+  prompt: |
+    使用 ai-generated-test-review 审查 AI 测试“会员续费成功”。没有测试代码或断言，也没有需求、被测实现或 CI 日志。我明确还没有运行这条测试；模型、Prompt 和生成轨迹也没有提供。请用 `review_status`、`classification`、`test_status`、`result_evidence` 和 `provenance_status` 汇报边界，不要猜测测试内容。
+expect:
+  must_contain: ["review_status", "BLOCKED", "classification", "UNASSESSED", "test_status", "NOT_RUN", "result_evidence", "UNKNOWN", "provenance_status"]
+  must_not_contain: ["测试通过"]
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "Marks the behavior review BLOCKED and classification UNASSESSED because no test code/assertion is available; does not invent how the test behaves."
+    - "Marks test_status NOT_RUN because the user explicitly says it was not run, and result_evidence UNKNOWN because no CI/run result was supplied."
+    - "Marks provenance_status UNKNOWN because model, prompt, and trace are absent; asks for the missing test and contract/implementation material."

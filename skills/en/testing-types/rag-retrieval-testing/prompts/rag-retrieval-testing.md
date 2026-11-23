@@ -22,6 +22,8 @@ Start with an input audit and record known, missing, conflicting, stale, out_of_
 5. Report residual risk, evidence gaps, and next actions without presenting assumptions as facts.
 
 ## Execution Rules
+- Plans, static analysis, and Eval fixtures are not run evidence. When asked to assess real evaluation/execution and the trace lacks a valid run ID and raw result, output `evaluation_status: NOT_RUN`, `run_evidence: []`, and `domain_conclusion: UNASSESSED`; never claim PASS.
+
 
 - Give a source, evidence state, and validation method for every important conclusion.
 - Each scenario must include preconditions, action or stimulus, expected behavior or decision criterion, required evidence, and a stop condition.
@@ -39,10 +41,14 @@ Apply these steps as design or static comparison of supplied material. Keep fixt
 2. Check rank, relevance, permission/tenant filters, freshness and version for each hit. Relevant but unauthorized hits are failures; high scores cannot cure stale content.
 3. Compare configurations under matched queries, index, filters and resources. Incomplete relevant sets allow proxy measurements, not claims of complete recall.
 4. Distinguish missing retrieval from correct retrieval followed by wrong generation. Missing generation output cannot locate its failure; absent labels leave UNKNOWN.
+5. Pin embedding model/dimensions/normalization, chunking, and index-build identity for migration. Compare old and new indexes on the same queries, relevance labels, permission filters, and top-k; do not attribute changes to one factor when models, chunking, and ranking all changed together.
+6. For hybrid retrieval, record each retriever's contribution and the fusion rule. For reranking, pin the candidate set, input truncation, rank output, and model version; verify reranking never bypasses tenant or permission filters.
+7. For rebuild/refresh, verify propagation of document additions, updates, and deletions plus index identity. Check tombstones, duplicate writes, partial failure, and rollback to old/new indexes. If the project supplies no freshness threshold, leave it open rather than inventing one.
 
 ## Minimum Coverage Checklist
 
 - query variants, chunking, filters, recall proxy, ranking and freshness
+- embedding/index migration, hybrid fusion, reranking, rebuilds, and freshness propagation
 - confirmed facts, working assumptions, open questions, evidence quality, and recency
 - high-risk paths, blockers, stop/escalation/rollback or human-handoff conditions
 - smallest validation action, owner role, close condition, residual risk, and Human decision

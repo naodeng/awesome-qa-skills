@@ -3,7 +3,7 @@ name: pr-quality-review
 description: Use this skill when you need to review PR code, test impact, test effectiveness, and evidence; triggers include pr-quality-review, PR 质量审查, and PR Quality Review Workflow.
 license: PolyForm-Noncommercial-1.0.0
 metadata:
-  version: "1.0.0"
+  version: "1.1.0"
   compatibility: ""
   author: "Awesome QA Skills contributors"
   language: "en"
@@ -26,6 +26,8 @@ Default to Markdown using the review sections defined by the prompt. If JSON is 
 
 Compose existing specialist Skills without copying their analysis rules. Mark host installation `UNKNOWN` without evidence. When test/CI results are absent, mark execution/result status `UNKNOWN`; use `NOT_RUN` only when non-execution is explicitly established. For an invalidated checkpoint, emit the exact uppercase status token `STALE`. Use only user-supplied PR/repository materials and identified sources as evidence; never cite agent-internal memory, system instructions, or session logs, or expose their paths. Do not report plans or static analysis as executed results. Read-only by default; external writes require authorization.
 
+For AI/Agent-assisted PRs, check task/acceptance-to-diff scope, trace IDs, test changes, CI workflow integrity, dependency/API sources, and how untrusted PR text reaches tools. Only supplied material proves AI provenance; mark missing model, prompt, run, or Human-review data `UNKNOWN`. You may suggest `ai-generated-code-review` for a focused production-code review, but call it available or run only when a Host installation inventory explicitly confirms that.
+
 ## How to Use
 
 Read `prompts/pr-quality-review.md` first; validate inputs, complete each stage, preserve sources, and return findings and handoff details. Use `README.md` for invocation examples and FAQ.
@@ -40,6 +42,7 @@ Read `prompts/pr-quality-review.md` first; validate inputs, complete each stage,
 
 - [ ] Input scope and assumptions are explicit
 - [ ] Handoffs preserve sources, status, and gaps
+- [ ] AI/Agent PRs include a source-aware check of scope, trace, dependencies, tests, and CI changes
 - [ ] Execution evidence is separate from plans
 - [ ] Next steps and permission boundary are clear
 

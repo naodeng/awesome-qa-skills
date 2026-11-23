@@ -1,0 +1,26 @@
+id: basic-success
+title: "Plan an evidence-backed AI feature canary"
+description: "A complete version map and approved evaluation record support a bounded rollout recommendation without granting release approval."
+input:
+  prompt: |
+    Use ai-feature-release-workflow to plan release 8.2 of the support-answer feature. Candidate model M2, prompt P7, dataset D4, and judge J3 are identified. Evaluation run R19 has raw report URI report://R19, 240 samples, 95% pass with a 95% lower confidence bound of 92%; the gate is 90%. The run is current and has no unresolved critical failures. A human release owner is named but has not approved. Propose a 5% canary for 30 minutes with sourced error and quality guardrails, on-call owner, automatic hold/rollback conditions, and post-canary review. Do not claim the canary has run or approve release.
+expect:
+  must_contain:
+    - "R19"
+    - "M2"
+    - "P7"
+    - "D4"
+    - "J3"
+    - "human_release_decision: PENDING"
+    - "rollout_status: NOT_RUN"
+  must_not_contain:
+    - "release approved"
+    - "canary passed"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "human_release_decision: PENDING"
+          - "rollout_status: NOT_RUN"
+          - "rollback"

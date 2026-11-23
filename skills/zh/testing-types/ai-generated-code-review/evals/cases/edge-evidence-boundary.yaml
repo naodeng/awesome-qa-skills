@@ -1,0 +1,20 @@
+id: edge-evidence-boundary
+title: AI 生成代码评审：区分 BLOCKED、NOT_RUN 与 UNKNOWN
+input:
+  prompt: |
+    使用 ai-generated-code-review 静态审查仓库 shop-api PR #231，head 31e0a22，base 9f31d2a。Diff：
+    ```diff
+    - payment.capture(order.id, key=order.id)
+    + payment.capture(order.id, key=str(uuid4()))
+    ```
+    模型和生成轨迹未提供。负责人明确说“测试没有运行”；没有 CI 日志、测试报告或平台状态。请给出有限静态评审，并用 `review_status`、`test_status`、`ci_status`、`provenance_status` 明确区分状态。不要批准合并。
+expect:
+  must_contain: ["review_status", "COMPLETE", "test_status", "NOT_RUN", "ci_status", "UNKNOWN", "provenance_status"]
+  must_not_contain: ["测试通过", "已获批准"]
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "Performs a bounded static review because both code identity and diff are present; does not use BLOCKED merely because tests were not run."
+    - "Marks test_status NOT_RUN because non-execution is explicit, ci_status UNKNOWN because no CI result was supplied, and provenance_status UNKNOWN because generator details are absent."
+    - "Does not claim tests passed, approve merge, or infer model authorship; separates static findings from execution evidence."

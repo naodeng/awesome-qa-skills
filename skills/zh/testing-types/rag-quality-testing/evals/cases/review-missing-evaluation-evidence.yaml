@@ -1,0 +1,39 @@
+id: review-missing-evaluation-evidence
+title: "rag-quality-testing: RAG 质量：引用与答案轨迹 — missing run evidence"
+description: "验证答案主张可追溯到检索片段，并识别无支持断言。"
+context:
+  files:
+    "structured-trace.json": |-
+      {
+        "trace_id": "TRACE-NORUN-RAG-QUALITY-TESTING",
+        "subject": "rag-quality-testing",
+        "identity": {
+          "model_version": "model-A",
+          "prompt_version": "prompt-1",
+          "dataset_version": "dataset-1"
+        },
+        "run_id": null,
+        "attempted": false,
+        "run_evidence": [],
+        "evaluation_status": "NOT_RUN"
+      }
+input:
+  prompt: |
+    请使用 rag-quality-testing 审阅 structured-trace.json。按 claim 检查 grounding、引用和完整性，保留 chunk_id；不要把检索到相关文档当成答案已被支持。
+    The trace has no run_id and no raw result. Output exactly these machine-readable lines:
+    evaluation_status: NOT_RUN
+    run_evidence: []
+    domain_conclusion: UNASSESSED
+expect:
+  must_contain:
+    - "evaluation_status: NOT_RUN"
+    - "run_evidence: []"
+    - "domain_conclusion: UNASSESSED"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "evaluation_status: NOT_RUN"
+          - "run_evidence: []"
+          - "domain_conclusion: UNASSESSED"

@@ -1,0 +1,25 @@
+id: route-bugfix-verification
+title: "Explicit request: verify a defect fix and select regression tests"
+description: "Routes reproduction, fix verification, and regression selection without claiming verification has occurred."
+input:
+  prompt: |
+    Use discover-testing to route BUG-742. The report and reproduction input are available; the fix commit is abc123. We need to compare baseline and target versions, verify the fix, and select regression candidates. Route only: do not inspect a repository or claim reproduction or verification.
+expect:
+  must_contain:
+    - "bugfix-verification"
+    - "root-cause-analysis"
+    - "regression-test-selection"
+    - "verification_state: NOT_RUN"
+  must_not_contain:
+    - "TODO"
+    - "verification_state: PASS"
+    - "verification_state: VERIFIED"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "bugfix-verification"
+          - "root-cause-analysis"
+          - "regression-test-selection"
+          - "verification_state: NOT_RUN"

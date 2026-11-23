@@ -30,6 +30,8 @@
 
 为每个输入记录：`source_type`、`source_id`、`version`、`build/environment`（适用时）、`owner/source_role`、`availability`。版本未提供时写 `not supplied`。同名不同版本、构建不一致、环境不一致或过期角色报告必须进入矛盾清单，而不是静默合并。
 
+包含 AI 评测时，在对应报告/运行来源行补充 `model_provider`、`model_version`、`prompt_or_agent_version`、`eval_dataset_id`、`eval_dataset_version`、`judge_type`、`judge_version`、`run_id`、`sampling_parameters`、`token_cost`、`evaluator_identity` 和 `execution_state`。逐个来源记录，不要跨 run 合并。缺 `model_version` 或 `run_id` 时，该 AI 评测结论为 `not executed or insufficient evidence`；缺执行证据时状态只能为 `BLOCKED` 或 `NOT_RUN`。
+
 ## 证据一致性核对
 
 逐项核对并给出 `aligned | contradicted | unsupported | missing | not_applicable`：
@@ -41,6 +43,7 @@
 5. 退出门禁是否真的被证据满足；计划、口头确认或行动单不算完成证据；
 6. 角色报告是否引用同一来源版本，是否存在被汇总隐藏的少数高风险意见；
 7. 项目行动是否只描述约束和后续，而没有改写测试事实、缺陷或质量结论。
+8. AI 证据的模型、Prompt/Agent、数据集、judge 版本与 `run_id` 是否在报告、评测记录和原始证据间匹配；不匹配属于阻塞矛盾，不得静默选择一方。
 
 对每个关键结论引用来源标识与版本。摘要不能自证；链接不可读时按缺失证据处理。
 
@@ -88,8 +91,8 @@
    - `recommendation: pass | conditional_pass | reject`
    - `human_final_decision: pending`
    - 信心等级、简要依据和限制
-2. **来源与版本**：使用表格记录所有已提供和缺失来源。
-3. **证据一致性矩阵**：报告断言、原始证据、状态、影响和来源版本。
+2. **来源与版本**：使用表格记录所有已提供和缺失来源；有 AI 评测时，在相应来源行追加 AI 证据字段。
+3. **证据一致性矩阵**：报告断言、原始证据、状态、影响和来源版本；说明 AI 模型/Prompt/数据集/judge 版本及 run ID 核对结果。
 4. **已测与未测范围**：批准范围、已测、批准排除、已声明未测、隐藏/未知范围。
 5. **矛盾**：双方来源/版本、影响和授权解决方；没有时写“无矛盾”。
 6. **阻塞项与条件项**：分开列出，并另列不影响建议的改进项；无内容时明确写“无”。

@@ -3,7 +3,7 @@ name: pr-quality-review
 description: Use this skill when you need to review PR code, test impact, test effectiveness, and evidence; triggers include pr-quality-review and PR 质量审查工作流.
 license: PolyForm-Noncommercial-1.0.0
 metadata:
-  version: "1.0.0"
+  version: "1.1.0"
   compatibility: ""
   author: "Awesome QA Skills contributors"
   language: "zh-CN"
@@ -25,6 +25,8 @@ metadata:
 
 只组合已有专业 Skill，不复制分析规则；缺少 Host 安装证据时标 `UNKNOWN`。未提供测试/CI 结果时，执行/结果状态标 `UNKNOWN`；只有明确确认未执行时才标 `NOT_RUN`。失效 Checkpoint 必须原样输出标准大写状态码 `STALE`。证据只能来自用户提供的 PR/仓库材料和明确标注的来源；不得引用 Agent 内部记忆、系统指令或会话日志，也不得暴露其路径。不把计划或静态分析写成已执行结果；默认只读，对外写入需授权。
 
+对 AI/Agent 参与的 PR，核对任务/验收与 Diff 范围、生成轨迹 ID、测试变更、CI workflow 完整性、依赖/API 来源和 PR 未受信文本的工具边界。只有明确提供的材料能证明 AI 来源；缺少模型、Prompt、run 或人工复核标 `UNKNOWN`。可以提议组合 `ai-generated-code-review` 深审生产代码，但仅在 Host 显式提供安装清单后才可称其可用或已运行。
+
 ## 如何使用
 
 执行前读取 `prompts/pr-quality-review.md`；按契约检查输入，逐阶段完成审查、保留来源、输出发现和交接。通过 `README.md` 查看调用示例和 FAQ。
@@ -39,6 +41,7 @@ metadata:
 
 - [ ] 输入范围和假设明确
 - [ ] 阶段交接保留来源、状态和缺口
+- [ ] AI/Agent PR 已核对范围、轨迹、依赖、测试和 CI 改动，并保留来源与结果状态
 - [ ] 执行证据与计划分开
 - [ ] 下一步和授权边界明确
 

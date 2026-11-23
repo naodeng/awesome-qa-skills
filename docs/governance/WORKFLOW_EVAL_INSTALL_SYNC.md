@@ -2,13 +2,14 @@
 
 # Workflow / Eval / 安装同步清单
 
-本清单把当前 14 个 `testing-workflows` 包的物理路径、双语目录、最低 Eval 工件和安装入口放在同一处核对。它们包含路由器、阶段工作流和质量视角集合；本清单是文档与结构证据，不代表每个包都已在真实项目运行。
+本清单把当前 15 个 `testing-workflows` 包的物理路径、双语目录、最低 Eval 工件和安装入口放在同一处核对。它们包含路由器、阶段工作流和质量视角集合；本清单是文档与结构证据，不代表每个包都已在真实项目运行。
 
-## 14 个 `testing-workflows` 包
+## 15 个 `testing-workflows` 包
 
 | Workflow | 中文路径 | English 路径 | Eval 结构 |
 | --- | --- | --- | --- |
 | `daily-testing-workflow` | `skills/zh/testing-workflows/daily-testing-workflow` | `skills/en/testing-workflows/daily-testing-workflow` | `eval.yaml` + 三类 case |
+| `ai-feature-release-workflow` | `skills/zh/testing-workflows/ai-feature-release-workflow` | `skills/en/testing-workflows/ai-feature-release-workflow` | `eval.yaml` + 阶段门禁与证据交接 case |
 | `discover-testing` | `skills/zh/testing-workflows/discover-testing` | `skills/en/testing-workflows/discover-testing` | `eval.yaml` + 三类 case |
 | `requirement-to-test` | `skills/zh/testing-workflows/requirement-to-test` | `skills/en/testing-workflows/requirement-to-test` | `eval.yaml` + 正常/边界/失败与交接 case |
 | `multi-role-quality-synthesis` | `skills/zh/testing-workflows/multi-role-quality-synthesis` | `skills/en/testing-workflows/multi-role-quality-synthesis` | `eval.yaml` + 三类 case |

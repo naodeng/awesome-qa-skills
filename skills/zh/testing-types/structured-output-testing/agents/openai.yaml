@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: structured-output-testing
+interface:
+  display_name: "结构化输出测试"
+  short_description: "区分 JSON 解析、Schema 与语义结果并追踪证据"
+  default_prompt: "Use the structured-output-testing skill to verify structured model output."
+policy:
+  allow_implicit_invocation: true

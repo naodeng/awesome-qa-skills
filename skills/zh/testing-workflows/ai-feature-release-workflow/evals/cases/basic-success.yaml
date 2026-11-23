@@ -1,0 +1,26 @@
+id: basic-success
+title: "规划有证据支持的 AI 特性灰度发布"
+description: "版本映射和已批准的评测记录支持有限灰度建议，但不能代替发布批准。"
+input:
+  prompt: |
+    使用 ai-feature-release-workflow 规划 support-answer 特性 8.2 的发布。候选模型 M2、Prompt P7、数据集 D4、judge J3 均已明确。评测 run R19 有原始报告 URI report://R19、240 个样本，95% 通过率，95% 置信下界为 92%；门槛为 90%。运行有效且无未处理的严重失败。已指定发布负责人但尚未批准。提出 30 分钟、5% 流量的灰度计划，注明有来源的错误与质量护栏、值班负责人、自动保持/回滚条件和灰度后复核。不要声称灰度已执行或批准发布。
+expect:
+  must_contain:
+    - "R19"
+    - "M2"
+    - "P7"
+    - "D4"
+    - "J3"
+    - "human_release_decision: PENDING"
+    - "rollout_status: NOT_RUN"
+  must_not_contain:
+    - "release approved"
+    - "canary passed"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "human_release_decision: PENDING"
+          - "rollout_status: NOT_RUN"
+          - "rollback"

@@ -1,0 +1,21 @@
+id: domain-ai-lifecycle
+title: "AI 发布门禁：评测失败与人工批准"
+description: "检查 AI eval 结果是否阻断发布，并保留人工决定边界。"
+input:
+  prompt: |
+    候选版本 model-v2 的必选 AI eval 中，P0 评测 FAIL，其他 eval PASS；灰度阈值来源已记录但尚未实际灰度，授权决策者尚未给决定。请给出门禁状态、Go/No-Go 建议和缺失的人工批准状态。
+expect:
+  must_contain:
+    - "FAIL"
+    - "PENDING"
+    - "Go/No-Go"
+    - "NOT_RUN"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "FAIL"
+          - "PENDING"
+          - "Go/No-Go"
+          - "NOT_RUN"

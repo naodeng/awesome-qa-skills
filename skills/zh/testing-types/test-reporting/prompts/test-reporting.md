@@ -35,6 +35,24 @@
   - 仍产出完整报告，不能只索要材料。
 - 只有证据支持的范围可以形成结论；推断必须标为未验证，不得填补执行、缺陷或覆盖事实。
 
+## AI 评测证据字段
+
+报告包含 AI 效果、AI 生成测试或模型评测结论时，为对应报告/运行记录填写以下字段；不适用时写明原因，不得推测：
+
+| 字段 | 说明 |
+| --- | --- |
+| `model_provider` / `model_version` | 模型提供方与可复核版本 |
+| `prompt_or_agent_version` | Prompt/Agent 版本或 commit |
+| `eval_dataset_id` / `eval_dataset_version` | 评测集标识与版本 |
+| `judge_type` / `judge_version` | 人工、规则或 LLM judge 及版本 |
+| `run_id` | 本次评测运行标识 |
+| `sampling_parameters` | temperature、top_p、seed 等实际参数 |
+| `token_cost` | 输入/输出/缓存 token 与费用币种或计费口径 |
+| `evaluator_identity` | 执行者/复核者或团队标识 |
+| `execution_state` | `PASS`、`FAIL`、`BLOCKED`、`NOT_RUN`、`UNKNOWN`、`STALE` |
+
+缺 `model_version` 或 `run_id` 时，AI 效果结论必须为 `UNKNOWN`。缺少可追溯执行证据时，`execution_state` 只能是 `BLOCKED` 或 `NOT_RUN`，不得写通过。版本不一致时列为矛盾/缺口，保留各自来源。
+
 ## 最低覆盖清单
 
 除非用户明确缩小范围，否则结果里要覆盖这些项目：
@@ -66,6 +84,8 @@
 - **缺失证据**：缺少的执行、缺陷、覆盖、环境/build 或范围证据及其影响
 - **残余风险**：即使完成已知验证后仍存在，或因缺证据无法关闭的风险
 - **建议**：获取证据、修复、复测、补测、风险处理和决策动作
+
+AI 效果类报告应在来源或证据表中附上上述字段；缺失项保留字段并标明 `UNKNOWN`、`NOT_RUN` 或 `BLOCKED`，不改变既有报告结构。
 
 ## 质量要求
 

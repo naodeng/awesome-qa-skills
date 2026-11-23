@@ -3,7 +3,7 @@ metadata:
   key: "ai-assisted-testing"
 interface:
   display_name: "AI-Assisted Testing"
-  short_description: "Use this skill when you need AI-assisted testing workflows such as test data generation, root-cause analysis, and prioritization; triggers include AI-assisted…"
-  default_prompt: "Use the ai-assisted-testing skill to complete this testing task with structured outputs and practical next steps."
+  short_description: "Use AI to draft QA work with human review, provenance, evidence, and cost tracking."
+  default_prompt: "Use ai-assisted-testing to draft this QA work, preserve provenance, keep unreviewed work as DRAFT, and identify the human gates and evidence required."
 policy:
   allow_implicit_invocation: true

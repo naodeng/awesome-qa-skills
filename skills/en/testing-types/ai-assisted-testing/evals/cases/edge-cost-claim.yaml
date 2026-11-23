@@ -1,0 +1,30 @@
+id: edge-cost-claim
+title: Productivity claim is unsupported without a manual baseline
+description: |
+  Only AI generation time is known; without manual baseline, review, rework, acceptance, and token data, productivity cannot be claimed.
+
+input:
+  prompt: |
+    Use ai-assisted-testing. AI took 10 minutes to generate test cases, so the lead claims a 50% cost saving. There is no same-scope manual baseline and no review, rework, acceptance, or token record.
+    Report cost fields and the conclusion. Mark the unsupported productivity claim UNSUPPORTED and list the minimum missing data. Do not replace unknown with zero or estimate token fees.
+
+expect:
+  must_contain:
+    - "UNSUPPORTED"
+    - "human_baseline_minutes"
+    - "review_minutes"
+    - "token_cost"
+    - "productivity_claim_status: UNSUPPORTED"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+    - "productivity_claim_status: SUPPORTED"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "generate_minutes"
+          - "acceptance_minutes"
+          - "productivity_claim_status: UNSUPPORTED"

@@ -4,7 +4,7 @@
 
 This is the English Skill root and mirrors `skills/zh` with identical Skill names and physical structure.
 
-Each language provides **171** Skills: 14 workflows + 152 testing types + 5 Skill Engineering. See the [Chinese README](../../README.md) and [English README](../../README_EN.md); see the [governance roadmap](../../docs/governance/SKILL_GOVERNANCE_ROADMAP_EN.md) and [governance matrix](../../docs/SKILL_MATRIX_EN.md) for long-term governance.
+Each language provides **176** Skills: 15 workflows + 155 testing types + 6 Skill Engineering. See the [Chinese README](../../README.md) and [English README](../../README_EN.md); see the [governance roadmap](../../docs/governance/SKILL_GOVERNANCE_ROADMAP_EN.md) and [governance matrix](../../docs/SKILL_MATRIX_EN.md) for long-term governance.
 
 ## Cross-phase workflows
 
@@ -35,6 +35,7 @@ Each language provides **171** Skills: 14 workflows + 152 testing types + 5 Skil
 | Skill | Directory |
 | --- | --- |
 | Release Testing Workflow | [`release-testing-workflow`](testing-workflows/release-testing-workflow/) |
+| AI Feature Release Workflow | [`ai-feature-release-workflow`](testing-workflows/ai-feature-release-workflow/) |
 | Multi-Role Quality Synthesis | [`multi-role-quality-synthesis`](testing-workflows/multi-role-quality-synthesis/) |
 
 ## Four Capability Stages × R&D and Testing Lifecycle
@@ -168,6 +169,7 @@ Each language provides **171** Skills: 14 workflows + 152 testing types + 5 Skil
 | Skill | Directory |
 | --- | --- |
 | Code Review | [`code-review`](testing-types/code-review/) |
+| AI-Generated Code Review | [`ai-generated-code-review`](testing-types/ai-generated-code-review/) |
 | Change Impact Analysis | [`change-impact-analysis`](testing-types/change-impact-analysis/) |
 | PR Test Impact Analysis | [`pr-test-impact-analysis`](testing-types/pr-test-impact-analysis/) |
 | API Contract Testing | [`api-contract-testing`](testing-types/api-contract-testing/) |
@@ -268,6 +270,7 @@ Each language provides **171** Skills: 14 workflows + 152 testing types + 5 Skil
 | --- | --- |
 | LLM Evaluation Design | [`llm-evaluation-design`](testing-types/llm-evaluation-design/) |
 | LLM Testing | [`llm-testing`](testing-types/llm-testing/) |
+| Structured Output Testing | [`structured-output-testing`](testing-types/structured-output-testing/) |
 | Prompt Testing | [`prompt-testing`](testing-types/prompt-testing/) |
 | RAG Quality Testing | [`rag-quality-testing`](testing-types/rag-quality-testing/) |
 | RAG Retrieval Testing | [`rag-retrieval-testing`](testing-types/rag-retrieval-testing/) |
@@ -282,6 +285,7 @@ Each language provides **171** Skills: 14 workflows + 152 testing types + 5 Skil
 | --- | --- |
 | AI Agent Testing | [`ai-agent-testing`](testing-types/ai-agent-testing/) |
 | Agent Tool Testing | [`agent-tool-testing`](testing-types/agent-tool-testing/) |
+| MCP Server Testing | [`mcp-server-testing`](testing-types/mcp-server-testing/) |
 | Prompt Injection Testing | [`prompt-injection-testing`](testing-types/prompt-injection-testing/) |
 | Agent Loop Testing | [`agent-loop-testing`](testing-types/agent-loop-testing/) |
 | Agent Memory Testing | [`agent-memory-testing`](testing-types/agent-memory-testing/) |
@@ -300,5 +304,6 @@ Each language provides **171** Skills: 14 workflows + 152 testing types + 5 Skil
 | Skill Evaluation | [`skill-evaluation`](skill-engineering/skill-evaluation/) |
 | Skill Prose Contract Review | [`skill-prose-review`](skill-engineering/skill-prose-review/) |
 | Process Prose Trimming | [`skill-prose-trim`](skill-engineering/skill-prose-trim/) |
+| Skill Supply-Chain Security Review | [`skill-security-review`](skill-engineering/skill-security-review/) |
 
 Physical directories do not change with logical classification. See the [complete English index](../../docs/catalog/skills-index_EN.md).

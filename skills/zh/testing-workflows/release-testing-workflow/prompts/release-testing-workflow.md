@@ -44,6 +44,12 @@ T-14 等日期是可压缩示例。紧急热修按“影响范围 → 必要回�
 3. **运维门禁**：回滚演练或回滚步骤可用；监控/告警就绪（按团队实际）。
 4. **决策门禁**：Go/No-Go 有证据包（结果摘要、缺陷、剩余风险、条件）。
 
+### AI 特性门禁交接（适用时）
+
+- 将 `ai-feature-release-workflow` 作为 AI 特性从评测到灰度、线上观察与回滚的主交接；本工作流只保留通用发布日历和批准边界。
+- 门禁证据绑定模型/Prompt/数据集/judge 版本、评测 run ID、覆盖范围、结果与成本；缺少必需证据时标 `BLOCKED` 或 `UNKNOWN`，未运行仅在证据明确时标 `NOT_RUN`。
+- 灰度/影子方案须给 cohort、观察窗口、阈值来源、停止/回滚条件、监控 Owner 和人工批准者。没有来源的阈值或未经授权的生产操作不得填成已确认。
+
 Go-with-conditions 必须写清：条件是什么、谁验收、不满足时是否自动 No-Go。
 
 ## 如何交接给类型 skill
@@ -56,6 +62,7 @@ Go-with-conditions 必须写清：条件是什么、谁验收、不满足时是�
 | 专项 | `performance-testing`（或 `performance-test-k6` / `gatling`）、`security-testing`、`accessibility-testing` | **一次交接一个专项主 skill** |
 | 候选版本 | `manual-testing`、`functional-testing`、`bug-reporting` | 最终回归与缺陷 |
 | Go/No-Go 与回顾 | `test-reporting` | 决策包与发布后回顾 |
+| AI 特性评测门禁与线上闭环 | `ai-feature-release-workflow` | 版本化评测证据、灰度/影子、线上信号、停止与回滚计划；不代替人工批准 |
 
 写清：阶段 → `<skill-name>` → 必带（版本号、范围、门禁状态、已知缺陷）。禁止相对路径链到其他 skill 文件。
 

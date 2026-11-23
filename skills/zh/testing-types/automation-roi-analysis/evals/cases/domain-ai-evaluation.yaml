@@ -1,0 +1,21 @@
+id: domain-ai-evaluation
+title: "AI 自动化 ROI：复核与 token 成本"
+description: "检查 ROI 同时计入 token、复核、返工及质量风险。"
+input:
+  prompt: |
+    同一周人工基线为 30 个任务×12 分钟；AI 草稿每任务 2 分钟生成、8 分钟复核、4 分钟返工，建设 180 分钟、维护 60 分钟；token 费用和假绿率未知。请计算已知工时净值，分开标注未知成本与能否批准。
+expect:
+  must_contain:
+    - "token"
+    - "假绿"
+    - "UNKNOWN"
+    - "人工"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "token"
+          - "假绿"
+          - "UNKNOWN"
+          - "人工"

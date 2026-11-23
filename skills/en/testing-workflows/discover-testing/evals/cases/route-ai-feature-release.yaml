@@ -1,0 +1,23 @@
+id: route-ai-feature-release
+title: "Route a complete AI feature release lifecycle"
+description: "Selects the AI feature release Workflow for evaluation-to-rollout coordination."
+input:
+  prompt: |
+    Use discover-testing. We need to take a customer-support model change from dataset/judge evaluation and a release gate through a 5% shadow/canary, online quality and cost monitoring, and rollback. Route only; do not design the evaluation or execute rollout.
+expect:
+  must_contain:
+    - "ai-feature-release"
+    - "ai-feature-release-workflow"
+    - "evaluation_gate_status: NOT_RUN"
+    - "rollout_status: NOT_RUN"
+  must_not_contain:
+    - "TODO"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "ai-feature-release"
+          - "ai-feature-release-workflow"
+          - "evaluation_gate_status: NOT_RUN"
+          - "rollout_status: NOT_RUN"

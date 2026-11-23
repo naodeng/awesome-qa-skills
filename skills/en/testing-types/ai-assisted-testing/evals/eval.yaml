@@ -20,6 +20,9 @@ cases:
     - evals/cases/edge-incomplete-input.yaml
     - evals/cases/edge-domain-boundary.yaml
     - evals/cases/domain-method-regression.yaml
+    - evals/cases/edge-missing-execution-record.yaml
+    - evals/cases/edge-false-green-claim.yaml
+    - evals/cases/edge-cost-claim.yaml
   defaults:
     timeout_seconds: 180
     max_turns: 8
@@ -31,3 +34,6 @@ cases:
 
 report:
   formats: [json]
+
+benchmark:
+  enabled: true

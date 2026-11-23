@@ -40,9 +40,13 @@ Apply these steps as design or static comparison of supplied material. Keep fixt
 2. Compute the actual DAG critical path without summing overlapping jobs. Preserve retry counts and original failures; retry green cannot erase first failure.
 3. Cache keys include relevant lockfile/toolchain/config identity. Compare cold/warm runs, hits, and invalidation evidence; mismatched cache cannot bypass dependency validation.
 4. Match before/after protection obligations, tests, fault detection, resources, and windows. Reject speedups through dropped tests/swallowed failures; propose measurable gains and rollback signals.
+5. For AI evaluation jobs, record model/prompt/dataset/judge versions, sample count, token or call cost, and latency. Thresholds and budgets need sources; one unusually cheap run is not a stable baseline.
+6. Shard by stable case IDs and dataset version; preserve failed, missing, and duplicate shards in aggregation. Reuse cached results only when input, model, and evaluation configuration identities match; do not cache variable model outputs by default.
+7. Separate transport failures from evaluation assertion failures. Retry only safe, idempotent calls and report every attempt, original failure, and cumulative cost; retry green cannot erase the first failure or missing evidence.
 ## Minimum Coverage Checklist
 
 - stage dependency, feedback latency, resource use, flakiness, caching and sharding
+- AI evaluation budgets, shard identity, model/dataset cache validity, retries, and cumulative cost when applicable
 - confirmed facts, working assumptions, open questions, evidence quality, and recency
 - high-risk paths, blockers, stop/escalation/rollback or human-handoff conditions
 - smallest validation action, owner role, close condition, residual risk, and Human decision

@@ -1,0 +1,22 @@
+id: route-ai-code-verification
+title: "路由到 Agent 生成生产代码的评审"
+description: "选择 AI 专项实现评审路线，不声称代码已经过检查。"
+input:
+  prompt: |
+    请用 discover-testing 为 Agent 编写的缓存实现选择 Skill。已有 diff 和验收标准；测试全绿，但实现用了固定 nonce，CI 安装了未固定版本的依赖。需要审查范围/证据、依赖与 API 真实性、测试有效性和 CI 完整性。只做路由，不检查文件，也不要声称实现已评审。
+expect:
+  must_contain:
+    - "ai-code-verification"
+    - "ai-generated-code-review"
+    - "verification_state: NOT_RUN"
+  must_not_contain:
+    - "verification_state: PASS"
+    - "TODO"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "ai-code-verification"
+          - "ai-generated-code-review"
+          - "verification_state: NOT_RUN"

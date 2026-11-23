@@ -1,0 +1,22 @@
+id: edge-incomplete-ai-feature-release
+title: "评测资产缺失不能转为 AI 发布通过"
+description: "生命周期信息不足时仍路由到 Workflow，并保留未运行门禁状态。"
+input:
+  prompt: |
+    请用 discover-testing 路由 AI 特性完整发布。负责人要求 Go，但没有提供数据集/judge 版本、run ID、原始报告、阈值或监控/回滚负责人。只做路由并列出交接缺口；不要称门禁或灰度成功。
+expect:
+  must_contain:
+    - "ai-feature-release"
+    - "evaluation_gate_status: NOT_RUN"
+    - "rollout_status: NOT_RUN"
+  must_not_contain:
+    - "evaluation_gate_status: PASS"
+    - "rollout_status: PASS"
+    - "TODO"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "evaluation_gate_status: NOT_RUN"
+          - "rollout_status: NOT_RUN"

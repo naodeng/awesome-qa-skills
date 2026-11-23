@@ -1,0 +1,47 @@
+id: trajectory-evidence
+title: "llm-hallucination-testing: 幻觉测试：声明与来源轨迹"
+description: "验证断言能绑定来源片段并区分支持、不支持和无法判断。"
+context:
+  files:
+    "structured-trace.json": |-
+      {
+        "trace_id": "TRACE-LHT-001",
+        "subject": "llm-hallucination-testing",
+        "run_id": "RUN-LHT-001",
+        "attempted": true,
+        "claims": [
+          {
+            "claim_id": "CL-1",
+            "text": "The account renews on May 1.",
+            "source_id": "SRC-1",
+            "source_excerpt": "Renewal date: May 1.",
+            "relation": "supported"
+          },
+          {
+            "claim_id": "CL-2",
+            "text": "Renewal is automatic.",
+            "source_id": null,
+            "source_excerpt": null,
+            "relation": "unassessed"
+          }
+        ],
+        "run_evidence": [
+          "result://RUN-LHT-001"
+        ]
+      }
+input:
+  prompt: |
+    请使用 llm-hallucination-testing 审阅 structured-trace.json。逐条判断 claim 与 source excerpt 的关系，保留 source_id 和 run_id；缺失证据时不得补写事实。
+expect:
+  must_contain:
+    - "TRACE-LHT-001"
+    - "SRC-1"
+    - "CL-2"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "TRACE-LHT-001"
+          - "SRC-1"
+          - "CL-2"

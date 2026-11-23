@@ -1,0 +1,19 @@
+id: edge-incomplete-input
+title: "MCP 服务端：契约信息不足时给出受限初版"
+description: "在服务端契约缺失时明确协议版本、传输和能力假设。"
+input:
+  prompt: "使用 mcp-server-testing。目前只知道：测试我们的 MCP 服务端。没有提供协议修订版、传输、能力、工具/资源契约、授权模型、环境或运行证据。给出受限的发现清单和候选测试方向，区分假设与事实，提出聚焦的待确认问题，不要声称测试已经运行。"
+expect:
+  must_contain:
+    - "当前假设"
+    - "待确认问题"
+    - "协议修订版"
+    - "NOT_RUN"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "当前假设"
+          - "待确认问题"
+          - "NOT_RUN"

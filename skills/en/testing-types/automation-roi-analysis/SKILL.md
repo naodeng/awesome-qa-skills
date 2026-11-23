@@ -3,7 +3,7 @@ name: automation-roi-analysis
 description: Use this skill when you need evidence-bounded automation candidates, build/run/maintenance costs, benefit assumptions, time horizon, and sensitivity; triggers include 自动化投资回报 and automation ROI.
 license: PolyForm-Noncommercial-1.0.0
 metadata:
-  version: "1.0.0"
+  version: "1.1.0"
   compatibility: ""
   author: "Awesome QA Skills contributors"
   language: "en"

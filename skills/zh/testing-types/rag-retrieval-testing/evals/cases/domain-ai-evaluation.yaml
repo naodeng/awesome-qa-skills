@@ -1,0 +1,21 @@
+id: domain-ai-evaluation
+title: "AI 检索迁移：embedding、hybrid 与新鲜度"
+description: "对 embedding/索引迁移、hybrid、reranker 与删除传播进行有证据的归因。"
+input:
+  prompt: |
+    比较 embedding-A/768 维旧索引与 embedding-B/1024 维新索引。产品约定删除文档 5 分钟内不可检索；删除 10 分钟后旧 DOC-7 仍排第 1。新配置启用 dense+sparse hybrid 和 reranker，query 集与权限过滤相同。请分解迁移风险、可观察证据和最小验证。
+expect:
+  must_contain:
+    - "embedding"
+    - "hybrid"
+    - "reranker"
+    - "freshness"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "embedding"
+          - "hybrid"
+          - "reranker"
+          - "freshness"

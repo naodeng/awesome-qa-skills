@@ -1,0 +1,39 @@
+id: review-missing-evaluation-evidence
+title: "rag-retrieval-testing: RAG retrieval: ranking and permission trace — missing run evidence"
+description: "Checks retrieval review for rank, document version, and tenant permissions."
+context:
+  files:
+    "structured-trace.json": |-
+      {
+        "trace_id": "TRACE-NORUN-RAG-RETRIEVAL-TESTING",
+        "subject": "rag-retrieval-testing",
+        "identity": {
+          "model_version": "model-A",
+          "prompt_version": "prompt-1",
+          "dataset_version": "dataset-1"
+        },
+        "run_id": null,
+        "attempted": false,
+        "run_evidence": [],
+        "evaluation_status": "NOT_RUN"
+      }
+input:
+  prompt: |
+    Use rag-retrieval-testing to review structured-trace.json. Report rank, document_id, version, and tenant filter per hit; a relevant but unauthorized result is a failure and cannot be offset by an average score.
+    The trace has no run_id and no raw result. Output exactly these machine-readable lines:
+    evaluation_status: NOT_RUN
+    run_evidence: []
+    domain_conclusion: UNASSESSED
+expect:
+  must_contain:
+    - "evaluation_status: NOT_RUN"
+    - "run_evidence: []"
+    - "domain_conclusion: UNASSESSED"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "evaluation_status: NOT_RUN"
+          - "run_evidence: []"
+          - "domain_conclusion: UNASSESSED"

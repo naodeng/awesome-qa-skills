@@ -1,0 +1,19 @@
+id: review-ai-evidence-missing-version
+title: AI 评测报告缺模型版本和 run ID
+description: |
+  AI 效果结论缺少模型版本、运行标识与原始执行证据时，应保持未知和未运行。
+
+input:
+  prompt: |
+    请为客服回答评测生成测试报告。汇总表声称“新模型效果从 82% 提升到 94%”，提供的数据只有 model_provider=OpenAI、prompt_or_agent_version=support-prompt-v4、eval_dataset_id=support-set、eval_dataset_version=v3、judge_type=LLM、sampling_parameters=temperature 0.2。model_version、judge_version、run_id、原始用例结果和执行日志均未提供；token_cost 与 evaluator_identity 也未提供。
+    按 test-reporting 输出完整报告和 AI 证据字段。不要把汇总表当作已核验事实；缺 model_version 或 run_id 时 AI 效果结论只能是 UNKNOWN，缺可追溯执行证据时 execution_state 只能为 BLOCKED 或 NOT_RUN，不得写通过。
+
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "列出 model_provider、model_version、prompt_or_agent_version、eval_dataset_id、eval_dataset_version、judge_type、judge_version、run_id、sampling_parameters、token_cost、evaluator_identity 和 execution_state；未提供项明确写 UNKNOWN 或 not supplied，不编造版本或费用。"
+    - "将 82% 到 94% 标为未经原始证据核验的输入声明；缺 model_version/run_id 时 AI 效果结论为 UNKNOWN。"
+    - "没有可追溯执行证据时，execution_state 只能是 BLOCKED 或 NOT_RUN；不得报告通过或已证实提升。"
+    - "仍提供完整报告的范围、风险、缺失证据和下一步，不把缺口当作零缺陷或零费用。"
+  pass_threshold: 0.8

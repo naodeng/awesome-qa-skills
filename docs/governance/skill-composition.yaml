@@ -249,6 +249,130 @@
         "en": "Hand off diff, base/head SHA, modules/business paths, test inventory, time and environment limits"
       },
       "optional": null
+    },
+    {
+      "id": "bugfix-verification",
+      "label": {
+        "zh": "缺陷修复验证",
+        "en": "Bugfix verification"
+      },
+      "intent": {
+        "zh": "从缺陷、复现步骤、基线与修复版本出发，建立复现、修复验证和回归证据",
+        "en": "Starting from a defect, reproduction steps, baseline, and fix version, establish reproduction, fix verification, and regression evidence"
+      },
+      "phase": {
+        "zh": "缺陷复现 / 修复验证 / 回归",
+        "en": "Defect reproduction / fix verification / regression"
+      },
+      "not_for": {
+        "zh": [
+          "不在无基线证据时声称已复现",
+          "不把测试通过单独当作缺陷已修，也不替代发布批准"
+        ],
+        "en": [
+          "Does not claim reproduction without baseline evidence",
+          "Does not treat a passing test alone as proof that the defect is fixed or as release approval"
+        ]
+      },
+      "primary": "root-cause-analysis",
+      "optional": "regression-test-selection",
+      "handoff": {
+        "zh": "交接缺陷 ID、复现输入、基线与目标 SHA、修复 diff、回归候选、执行状态和证据路径",
+        "en": "Hand off the defect ID, reproduction input, baseline and target SHAs, fix diff, regression candidates, execution state, and evidence paths"
+      }
+    },
+    {
+      "id": "ai-eval-gate",
+      "label": {
+        "zh": "AI 评测门禁",
+        "en": "AI evaluation gate"
+      },
+      "intent": {
+        "zh": "为 AI 功能、Prompt 或模型变更定义评测门禁、样本量与放行证据",
+        "en": "Define evaluation gates, sample sizes, and release evidence for AI feature, Prompt, or model changes"
+      },
+      "phase": {
+        "zh": "评测设计 / 发布门禁",
+        "en": "Evaluation design / release gate"
+      },
+      "not_for": {
+        "zh": [
+          "不设计数据集与 judge 的细节；这部分交给 llm-evaluation-design",
+          "不代替发布批准"
+        ],
+        "en": [
+          "Does not design dataset and judge details; hand those to llm-evaluation-design",
+          "Does not replace release approval"
+        ]
+      },
+      "primary": "quality-gate-design",
+      "optional": "llm-evaluation-design",
+      "handoff": {
+        "zh": "交接评测目标、数据集及版本、judge、阈值、样本量、回归基线和未运行项",
+        "en": "Hand off the evaluation goal, dataset and version, judge, thresholds, sample size, regression baseline, and unrun items"
+      }
+    },
+    {
+      "id": "ai-code-verification",
+      "label": {
+        "zh": "AI 生成代码验证",
+        "en": "AI-generated code verification"
+      },
+      "intent": {
+        "zh": "评审 Agent 编写或修改的生产代码，核对意图、变更范围、依赖、测试和 CI 证据",
+        "en": "Review production code written or changed by an Agent for intent, scope, dependencies, tests, and CI evidence"
+      },
+      "phase": {
+        "zh": "实现评审 / 变更验证",
+        "en": "Implementation review / change verification"
+      },
+      "not_for": {
+        "zh": [
+          "不代替完整 PR 质量流程",
+          "不因测试通过就认定实现正确或代码已执行验证"
+        ],
+        "en": [
+          "Does not replace the full PR quality workflow",
+          "Does not infer implementation correctness or code verification from passing tests alone"
+        ]
+      },
+      "primary": "ai-generated-code-review",
+      "optional": null,
+      "handoff": {
+        "zh": "交接目标/验收条件、base/head SHA、生成来源、完整 diff、依赖与测试/CI 原始结果、未验证项",
+        "en": "Hand off intent/acceptance criteria, base/head SHAs, generation provenance, complete diff, dependencies, raw test/CI results, and unverified items"
+      }
+    },
+    {
+      "id": "ai-feature-release",
+      "label": {
+        "zh": "AI 特性发布闭环",
+        "en": "AI feature release lifecycle"
+      },
+      "intent": {
+        "zh": "从 AI 评测资产与门禁连接到灰度/影子、线上质量观察和回滚准备",
+        "en": "Connect AI evaluation assets and gates to canary/shadow rollout, online quality monitoring, and rollback readiness"
+      },
+      "phase": {
+        "zh": "评测 / 发布门禁 / 线上观察",
+        "en": "Evaluation / release gate / online monitoring"
+      },
+      "not_for": {
+        "zh": [
+          "不代替评测引擎、CI Runner 或生产监控系统",
+          "不执行发布、流量切换、风险接受或人工批准"
+        ],
+        "en": [
+          "Does not replace an evaluation engine, CI runner, or production monitoring system",
+          "Does not execute releases, traffic changes, risk acceptance, or human approval"
+        ]
+      },
+      "primary": "ai-feature-release-workflow",
+      "optional": null,
+      "handoff": {
+        "zh": "交接模型/Prompt/数据集/judge/run 版本、门槛与样本、灰度 cohort、监控 Owner、停止/回滚条件和待批准决定",
+        "en": "Hand off model/prompt/dataset/judge/run versions, gates and samples, rollout cohort, monitoring Owner, stop/rollback conditions, and pending decisions"
+      }
     }
   ],
   "relations": [

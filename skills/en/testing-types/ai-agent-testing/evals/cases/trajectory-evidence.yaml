@@ -1,0 +1,51 @@
+id: trajectory-evidence
+title: "ai-agent-testing: Agent testing: step-level trace attribution"
+description: "Checks that Agent conclusions use run and step evidence rather than only the final answer."
+context:
+  files:
+    "structured-trace.json": |-
+      {
+        "trace_id": "TRACE-AGT-001",
+        "subject": "ai-agent-testing",
+        "run_id": "RUN-AGT-001",
+        "attempted": true,
+        "steps": [
+          {
+            "step_id": "S1",
+            "type": "tool_call",
+            "tool": "order_lookup",
+            "status": "ok"
+          },
+          {
+            "step_id": "S2",
+            "type": "tool_call",
+            "tool": "refund_submit",
+            "status": "blocked",
+            "reason": "approval_missing"
+          },
+          {
+            "step_id": "S3",
+            "type": "final",
+            "claim": "refund completed"
+          }
+        ],
+        "run_evidence": [
+          "trace://RUN-AGT-001"
+        ]
+      }
+input:
+  prompt: |
+    Use ai-agent-testing to review structured-trace.json. Reconstruct tool-call order and final-result provenance by step_id, report evidence gaps, and do not claim task success from final_answer alone.
+expect:
+  must_contain:
+    - "TRACE-AGT-001"
+    - "S2"
+    - "approval_missing"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "TRACE-AGT-001"
+          - "S2"
+          - "approval_missing"

@@ -1,0 +1,38 @@
+id: trajectory-evidence
+title: AI 生成测试轨迹：识别 mock 被测对象造成的假绿
+description: "结合结构化生成轨迹、测试断言和需求，区分测试设计缺陷与运行证据。"
+context:
+  files:
+    "renewal-contract.md": |-
+      A declined card must leave the subscription inactive and preserve a retryable payment failure.
+    "generated-test.js": |-
+      test('renews a subscription', async () => {
+        jest.spyOn(subscriptionService, 'renew').mockResolvedValue({ status: 'active' });
+        const result = await subscriptionService.renew('S-7');
+        expect(result.status).toBe('active');
+      });
+    "test-generation-trace.json": |-
+      {
+        "run_id": "TEST-RUN-19",
+        "source": {"tool": "coding-agent", "model": "model-v3"},
+        "events": [
+          {"step_id": "T1", "type": "task.received", "source_id": "renewal-contract.md"},
+          {"step_id": "T2", "type": "tool.call", "tool": "read_file", "args": {"path": "renewal-contract.md"}, "result_id": "TR2"},
+          {"step_id": "T3", "type": "tool.call", "tool": "edit_file", "args": {"path": "generated-test.js", "change": "mock subscriptionService.renew to return active and assert the preset value"}, "result_id": "TR3"},
+          {"step_id": "T4", "type": "tool.call", "tool": "run_command", "args": {"command": "npm test -- renewal.test.js"}, "result": "Agent-reported exit 0", "artifact": null}
+        ]
+      }
+input:
+  prompt: |
+    使用 ai-generated-test-review 静态审查 `renewal-contract.md`、`generated-test.js` 和 `test-generation-trace.json`。判断测试的 STRONG/WEAK/FAKE 分类，说明最小逃逸缺陷；保留 run/step ID，并区分轨迹中 Agent 自报的退出码与独立运行证据。不运行命令。
+expect:
+  must_contain: ["FAKE", "subscriptionService.renew", "TEST-RUN-19", "T3", "UNKNOWN"]
+  must_not_contain: ["测试已独立验证", "生产逻辑已执行"]
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "Classifies the test FAKE because it mocks the subject method to return active and then asserts that preset value; cites the conflict with the declined-card contract."
+    - "States a minimal escaping defect: renewal could activate a declined-card subscription while this mocked test still passes."
+    - "Preserves TEST-RUN-19 and relevant step IDs (especially T3/T4), treating the command result as Agent-reported without an artifact and marking independent execution evidence UNKNOWN."
+    - "Does not run commands or claim that production logic was exercised."

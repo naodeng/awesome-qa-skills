@@ -98,6 +98,50 @@
   - Use single-step impact analysis when only affected modules are requested
   - Does not claim regression has run
 
+### Bugfix verification (`bugfix-verification`)
+
+- Intent: Starting from a defect, reproduction steps, baseline, and fix version, establish reproduction, fix verification, and regression evidence
+- Applicable phase: Defect reproduction / fix verification / regression
+- Primary Skill: `root-cause-analysis`
+- Optional Skill: `regression-test-selection`
+- Handoff: Hand off the defect ID, reproduction input, baseline and target SHAs, fix diff, regression candidates, execution state, and evidence paths
+- Not for:
+  - Does not claim reproduction without baseline evidence
+  - Does not treat a passing test alone as proof that the defect is fixed or as release approval
+
+### AI evaluation gate (`ai-eval-gate`)
+
+- Intent: Define evaluation gates, sample sizes, and release evidence for AI feature, Prompt, or model changes
+- Applicable phase: Evaluation design / release gate
+- Primary Skill: `quality-gate-design`
+- Optional Skill: `llm-evaluation-design`
+- Handoff: Hand off the evaluation goal, dataset and version, judge, thresholds, sample size, regression baseline, and unrun items
+- Not for:
+  - Does not design dataset and judge details; hand those to llm-evaluation-design
+  - Does not replace release approval
+
+### AI-generated code verification (`ai-code-verification`)
+
+- Intent: Review production code written or changed by an Agent for intent, scope, dependencies, tests, and CI evidence
+- Applicable phase: Implementation review / change verification
+- Primary Skill: `ai-generated-code-review`
+- Optional Skill: none
+- Handoff: Hand off intent/acceptance criteria, base/head SHAs, generation provenance, complete diff, dependencies, raw test/CI results, and unverified items
+- Not for:
+  - Does not replace the full PR quality workflow
+  - Does not infer implementation correctness or code verification from passing tests alone
+
+### AI feature release lifecycle (`ai-feature-release`)
+
+- Intent: Connect AI evaluation assets and gates to canary/shadow rollout, online quality monitoring, and rollback readiness
+- Applicable phase: Evaluation / release gate / online monitoring
+- Primary Skill: `ai-feature-release-workflow`
+- Optional Skill: none
+- Handoff: Hand off model/prompt/dataset/judge/run versions, gates and samples, rollout cohort, monitoring Owner, stop/rollback conditions, and pending decisions
+- Not for:
+  - Does not replace an evaluation engine, CI runner, or production monitoring system
+  - Does not execute releases, traffic changes, risk acceptance, or human approval
+
 ## Handoff after selection
 
 State the routing reason, key assumptions, evidence gaps, and next handoff input; composition is navigation, not a mandatory execution chain.

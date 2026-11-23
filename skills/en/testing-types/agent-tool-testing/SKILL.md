@@ -3,7 +3,7 @@ name: agent-tool-testing
 description: Use this skill when you need to test AI agent tool-call contracts, authorization, failures, and side-effect boundaries; triggers include agent tool testing.
 license: PolyForm-Noncommercial-1.0.0
 metadata:
-  version: "1.0.0"
+  version: "1.0.1"
   compatibility: ""
   author: "Awesome QA Skills contributors"
   language: "en"

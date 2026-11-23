@@ -1,0 +1,52 @@
+id: trajectory-evidence
+title: "rag-quality-testing: RAG quality: citation and answer trace"
+description: "Checks answer claims against retrieved chunks and identifies unsupported statements."
+context:
+  files:
+    "structured-trace.json": |-
+      {
+        "trace_id": "TRACE-RAGQ-001",
+        "subject": "rag-quality-testing",
+        "run_id": "RUN-RAGQ-001",
+        "attempted": true,
+        "retrieved": [
+          {
+            "chunk_id": "CH-1",
+            "text": "Refunds are available within 30 days.",
+            "rank": 1
+          }
+        ],
+        "claims": [
+          {
+            "claim_id": "CL-1",
+            "text": "Refunds are available within 30 days.",
+            "citations": [
+              "CH-1"
+            ]
+          },
+          {
+            "claim_id": "CL-2",
+            "text": "Refunds are always instant.",
+            "citations": []
+          }
+        ],
+        "run_evidence": [
+          "result://RUN-RAGQ-001"
+        ]
+      }
+input:
+  prompt: |
+    Use rag-quality-testing to review structured-trace.json. Check grounding, citations, and completeness per claim; preserve chunk_id and do not treat retrieval of a relevant document as proof that the answer is supported.
+expect:
+  must_contain:
+    - "TRACE-RAGQ-001"
+    - "CH-1"
+    - "CL-2"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "TRACE-RAGQ-001"
+          - "CH-1"
+          - "CL-2"

@@ -3,7 +3,7 @@ name: agent-long-running-testing
 description: Use this skill when you need evidence-bounded checkpoints, heartbeats, resume, cancellation, duplicate submission, timeouts, and resource lifecycle; triggers include 长运行 Agent and long-running Agent.
 license: PolyForm-Noncommercial-1.0.0
 metadata:
-  version: "1.0.0"
+  version: "1.1.0"
   compatibility: ""
   author: "Awesome QA Skills contributors"
   language: "zh-CN"

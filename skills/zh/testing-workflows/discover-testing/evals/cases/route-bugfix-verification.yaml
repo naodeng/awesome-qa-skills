@@ -1,0 +1,25 @@
+id: route-bugfix-verification
+title: "明确任务：缺陷修复验证与回归交接"
+description: "为缺陷复现、修复验证和回归选择命中新路线；只做路由，不声称已经验证。"
+input:
+  prompt: |
+    请用 discover-testing 为 BUG-742 选择路线：已有报告和复现输入，修复提交 SHA 为 abc123，需要核对基线/目标版本、验证修复并选择回归候选。只做路由，不读取仓库，也不要声称已经复现或验证。
+expect:
+  must_contain:
+    - "bugfix-verification"
+    - "root-cause-analysis"
+    - "regression-test-selection"
+    - "verification_state: NOT_RUN"
+  must_not_contain:
+    - "TODO"
+    - "verification_state: PASS"
+    - "verification_state: VERIFIED"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "bugfix-verification"
+          - "root-cause-analysis"
+          - "regression-test-selection"
+          - "verification_state: NOT_RUN"

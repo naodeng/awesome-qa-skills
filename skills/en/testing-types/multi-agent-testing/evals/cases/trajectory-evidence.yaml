@@ -1,0 +1,46 @@
+id: trajectory-evidence
+title: "multi-agent-testing: Multi-agent: delegation and conflict trace"
+description: "Checks multi-agent traces for parent/child runs, ownership, and conflict outcomes."
+context:
+  files:
+    "structured-trace.json": |-
+      {
+        "trace_id": "TRACE-MAT-001",
+        "subject": "multi-agent-testing",
+        "parent_run_id": "RUN-MAT-001",
+        "attempted": true,
+        "agents": [
+          {
+            "agent_id": "AG-1",
+            "run_id": "RUN-MAT-1A",
+            "file": "checkout.py",
+            "change": "A"
+          },
+          {
+            "agent_id": "AG-2",
+            "run_id": "RUN-MAT-1B",
+            "file": "checkout.py",
+            "change": "B"
+          }
+        ],
+        "merge_event": null,
+        "run_evidence": [
+          "trace://RUN-MAT-001"
+        ]
+      }
+input:
+  prompt: |
+    Use multi-agent-testing to review structured-trace.json. Join delegation results by parent_run_id and agent_id, and identify conflicting writes to the same file plus evidence of final ownership.
+expect:
+  must_contain:
+    - "TRACE-MAT-001"
+    - "AG-1"
+    - "AG-2"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "TRACE-MAT-001"
+          - "AG-1"
+          - "AG-2"

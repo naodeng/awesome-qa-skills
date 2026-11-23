@@ -1,0 +1,47 @@
+id: trajectory-evidence
+title: "agent-long-running-testing: Long-running Agent: checkpoint and cancellation trace"
+description: "Checks long-task checkpoint, resume, and cancellation evidence."
+context:
+  files:
+    "structured-trace.json": |-
+      {
+        "trace_id": "TRACE-ALR-001",
+        "subject": "agent-long-running-testing",
+        "run_id": "RUN-ALR-001",
+        "attempted": true,
+        "events": [
+          {
+            "event": "checkpoint",
+            "checkpoint_id": "CP-7",
+            "step": "S7"
+          },
+          {
+            "event": "cancel_requested",
+            "checkpoint_id": "CP-7"
+          },
+          {
+            "event": "result_committed",
+            "checkpoint_id": "CP-7",
+            "after_cancel": true
+          }
+        ],
+        "run_evidence": [
+          "trace://RUN-ALR-001"
+        ]
+      }
+input:
+  prompt: |
+    Use agent-long-running-testing to review structured-trace.json. Compare resume position and cancel request by checkpoint_id, and flag a state conflict if a result was committed after cancellation.
+expect:
+  must_contain:
+    - "TRACE-ALR-001"
+    - "CP-7"
+    - "cancel"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "TRACE-ALR-001"
+          - "CP-7"
+          - "cancel"

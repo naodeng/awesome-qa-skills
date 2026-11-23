@@ -1,0 +1,48 @@
+id: basic-success
+title: "MCP 服务端：按协议版本设计测试"
+description: "根据固定版本的服务端契约和隔离工具行为生成优先级测试矩阵。"
+context:
+  files:
+    "server-contract.json": |-
+      {
+        "target_revision": "2026-07-28",
+        "transports": ["stdio", "Streamable HTTP"],
+        "capabilities": ["tools"],
+        "tools": [
+          {
+            "name": "refund_order",
+            "inputSchema": {"type":"object","required":["order_id","amount_cents","idempotency_key"],"properties":{"order_id":{"type":"string"},"amount_cents":{"type":"integer","minimum":1},"idempotency_key":{"type":"string"}},"additionalProperties":false},
+            "effects": "隔离沙箱中一条退款台账；使用相同幂等键重放不会新增台账"
+          }
+        ],
+        "constraints": {"production_calls": false, "test_order": "O-TEST", "human_approval_required": true}
+      }
+input:
+  prompt: "使用 mcp-server-testing。读取 server-contract.json 和固定版本参考资料。为协议发现、tools/list 与 schema 校验、tools/call 授权与拒绝、幂等重试及两种传输生成有优先级的测试矩阵。包含准备条件、请求或动作、预期判定、证据和停止条件。这只是计划；不要调用工具或声称有运行结果。"
+expect:
+  must_contain:
+    - "2026-07-28"
+    - "server/discover"
+    - "tools/list"
+    - "tools/call"
+    - "resultType"
+    - "stdio"
+    - "Streamable HTTP"
+    - "POST"
+    - "stdout"
+    - "证据"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "2026-07-28"
+          - "server/discover"
+          - "tools/list"
+          - "tools/call"
+          - "resultType"
+          - "stdio"
+          - "Streamable HTTP"
+          - "POST"
+          - "stdout"
+          - "证据"

@@ -16,6 +16,16 @@ class DocsBilingualCheckTest(unittest.TestCase):
         self.assertIn(("docs/README.md", "docs/README_EN.md"), PROJECT_PAIRS)
         self.assertIn(("skills/zh/README.md", "skills/en/README.md"), PROJECT_PAIRS)
 
+    def test_skill_authoring_rules_and_version_history_are_bilingual_pairs(self):
+        self.assertIn(("skills/SKILL_AUTHORING.md", "skills/SKILL_AUTHORING_EN.md"), PROJECT_PAIRS)
+        self.assertIn(
+            (
+                "docs/governance/SKILL_VERSION_HISTORY.md",
+                "docs/governance/SKILL_VERSION_HISTORY_EN.md",
+            ),
+            PROJECT_PAIRS,
+        )
+
     def test_current_review_reports_are_registered_as_bilingual_pairs(self):
         expected_pairs = (
             (
@@ -53,6 +63,10 @@ class DocsBilingualCheckTest(unittest.TestCase):
             (
                 "docs/reviews/2026-10-25-github-qa-skills-iteration-research.md",
                 "docs/reviews/2026-10-25-github-qa-skills-iteration-research_EN.md",
+            ),
+            (
+                "docs/reviews/2026-11-23-ai-native-qa-skill-gap-review.md",
+                "docs/reviews/2026-11-23-ai-native-qa-skill-gap-review_EN.md",
             ),
         )
 

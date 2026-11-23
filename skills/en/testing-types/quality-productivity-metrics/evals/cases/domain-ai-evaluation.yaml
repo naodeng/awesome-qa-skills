@@ -1,0 +1,21 @@
+id: domain-ai-evaluation
+title: "AI productivity metrics: generation is not accepted output"
+description: "Checks whether review, rework, quality, and denominators support a productivity claim."
+input:
+  prompt: |
+    A team generated 100 AI test drafts in one week; humans accepted 34, spent 11 hours reviewing, and spent 6 hours reworking. There is no human baseline, escaped-defect rate, or matched-complexity comparison. Decide whether productivity improvement is supported and list balanced metrics and evidence gaps.
+expect:
+  must_contain:
+    - "UNSUPPORTED"
+    - "review"
+    - "rework"
+    - "denominator"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "UNSUPPORTED"
+          - "review"
+          - "rework"
+          - "denominator"

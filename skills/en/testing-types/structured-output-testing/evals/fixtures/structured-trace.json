@@ -1,0 +1,58 @@
+{
+  "trace_id": "TRACE-ORDER-017",
+  "identity": {
+    "input_id": "Q17",
+    "model_version": "model-A",
+    "prompt_version": "P2",
+    "dataset_version": "D1",
+    "schema_version": "S3",
+    "parameters": {
+      "temperature": 0,
+      "seed": 7
+    }
+  },
+  "contract": {
+    "required": [
+      "decision",
+      "amount",
+      "reason"
+    ],
+    "types": {
+      "decision": "string",
+      "amount": "integer",
+      "reason": "string"
+    },
+    "semantic_oracle": {
+      "decision": "APPROVE",
+      "amount": 20,
+      "reason": "source-supported meaning"
+    }
+  },
+  "trials": [
+    {
+      "trial_id": "T1",
+      "raw_output": "{\"decision\":\"APPROVE\",\"amount\":20,\"reason\":\"eligible\"}",
+      "parse_status": "PASS",
+      "schema_status": "PASS",
+      "semantic_status": "PASS",
+      "evidence_ref": "run://T1"
+    },
+    {
+      "trial_id": "T2",
+      "raw_output": "{\"decision\":\"APPROVE\",\"amount\":\"20\",\"reason\":\"eligible\"}",
+      "parse_status": "PASS",
+      "schema_status": "FAIL",
+      "semantic_status": "NOT_EVALUATED",
+      "evidence_ref": "run://T2"
+    },
+    {
+      "trial_id": "T3",
+      "raw_output": "{\"decision\":\"APPROVE\",",
+      "parse_status": "FAIL",
+      "schema_status": "NOT_EVALUATED",
+      "semantic_status": "NOT_EVALUATED",
+      "evidence_ref": "run://T3"
+    }
+  ],
+  "trial_count": 3
+}

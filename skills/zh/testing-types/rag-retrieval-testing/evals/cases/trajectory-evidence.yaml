@@ -1,0 +1,49 @@
+id: trajectory-evidence
+title: "rag-retrieval-testing: RAG 检索：排名与权限轨迹"
+description: "验证检索审查覆盖排名、文档版本与租户权限。"
+context:
+  files:
+    "structured-trace.json": |-
+      {
+        "trace_id": "TRACE-RAGT-001",
+        "subject": "rag-retrieval-testing",
+        "run_id": "RUN-RAGT-001",
+        "attempted": true,
+        "query_id": "Q-1",
+        "tenant_id": "TENANT-A",
+        "hits": [
+          {
+            "document_id": "DOC-1",
+            "rank": 1,
+            "version": "v2",
+            "tenant_id": "TENANT-A",
+            "relevant": true
+          },
+          {
+            "document_id": "DOC-2",
+            "rank": 2,
+            "version": "v1",
+            "tenant_id": "TENANT-B",
+            "relevant": true
+          }
+        ],
+        "run_evidence": [
+          "result://RUN-RAGT-001"
+        ]
+      }
+input:
+  prompt: |
+    请使用 rag-retrieval-testing 审阅 structured-trace.json。逐条报告 rank、document_id、版本和 tenant filter；相关但越权的结果必须判为失败，不用平均分抵消。
+expect:
+  must_contain:
+    - "TRACE-RAGT-001"
+    - "DOC-2"
+    - "TENANT-B"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "TRACE-RAGT-001"
+          - "DOC-2"
+          - "TENANT-B"

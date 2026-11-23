@@ -98,6 +98,50 @@
   - 只需识别受影响模块时使用单步变更影响分析
   - 不声称回归已执行
 
+### 缺陷修复验证 (`bugfix-verification`)
+
+- 触发意图: 从缺陷、复现步骤、基线与修复版本出发，建立复现、修复验证和回归证据
+- 适用阶段: 缺陷复现 / 修复验证 / 回归
+- 主 Skill: `root-cause-analysis`
+- 可选 Skill: `regression-test-selection`
+- 交接: 交接缺陷 ID、复现输入、基线与目标 SHA、修复 diff、回归候选、执行状态和证据路径
+- 不适用:
+  - 不在无基线证据时声称已复现
+  - 不把测试通过单独当作缺陷已修，也不替代发布批准
+
+### AI 评测门禁 (`ai-eval-gate`)
+
+- 触发意图: 为 AI 功能、Prompt 或模型变更定义评测门禁、样本量与放行证据
+- 适用阶段: 评测设计 / 发布门禁
+- 主 Skill: `quality-gate-design`
+- 可选 Skill: `llm-evaluation-design`
+- 交接: 交接评测目标、数据集及版本、judge、阈值、样本量、回归基线和未运行项
+- 不适用:
+  - 不设计数据集与 judge 的细节；这部分交给 llm-evaluation-design
+  - 不代替发布批准
+
+### AI 生成代码验证 (`ai-code-verification`)
+
+- 触发意图: 评审 Agent 编写或修改的生产代码，核对意图、变更范围、依赖、测试和 CI 证据
+- 适用阶段: 实现评审 / 变更验证
+- 主 Skill: `ai-generated-code-review`
+- 可选 Skill: 无
+- 交接: 交接目标/验收条件、base/head SHA、生成来源、完整 diff、依赖与测试/CI 原始结果、未验证项
+- 不适用:
+  - 不代替完整 PR 质量流程
+  - 不因测试通过就认定实现正确或代码已执行验证
+
+### AI 特性发布闭环 (`ai-feature-release`)
+
+- 触发意图: 从 AI 评测资产与门禁连接到灰度/影子、线上质量观察和回滚准备
+- 适用阶段: 评测 / 发布门禁 / 线上观察
+- 主 Skill: `ai-feature-release-workflow`
+- 可选 Skill: 无
+- 交接: 交接模型/Prompt/数据集/judge/run 版本、门槛与样本、灰度 cohort、监控 Owner、停止/回滚条件和待批准决定
+- 不适用:
+  - 不代替评测引擎、CI Runner 或生产监控系统
+  - 不执行发布、流量切换、风险接受或人工批准
+
 ## 选择后的交接
 
 输出路由理由、关键假设、证据缺口和下一步交接输入；组合建议是导航信息，不是强制执行链。

@@ -30,6 +30,8 @@ Mark absent material `not supplied`. Do not infer missing content from a filenam
 
 Record `source_type`, `source_id`, `version`, applicable `build/environment`, `owner/source_role`, and `availability` for every input. Write `not supplied` for an absent version. Put same-name version mismatches, build mismatches, environment mismatches, and stale role reports in the contradiction register instead of silently merging them.
 
+For AI evaluation, add `model_provider`, `model_version`, `prompt_or_agent_version`, `eval_dataset_id`, `eval_dataset_version`, `judge_type`, `judge_version`, `run_id`, `sampling_parameters`, `token_cost`, `evaluator_identity`, and `execution_state` to the relevant report/run source row. Record each source separately; do not merge across runs. Without `model_version` or `run_id`, the AI-evaluation claim is `not executed or insufficient evidence`; without execution evidence, state is only `BLOCKED` or `NOT_RUN`.
+
 ## Evidence-consistency checks
 
 For each item, classify `aligned | contradicted | unsupported | missing | not_applicable`:
@@ -41,6 +43,7 @@ For each item, classify `aligned | contradicted | unsupported | missing | not_ap
 5. Does evidence actually meet the exit gates? Plans, verbal confirmation, and action tickets are not completion evidence.
 6. Do role reports cite the same source versions, and did aggregation hide a minority high-risk opinion?
 7. Do project actions describe only constraints and follow-up, without rewriting test facts, defects, or quality conclusions?
+8. Do model, prompt/agent, dataset, and judge versions and `run_id` match across the report, evaluation record, and raw evidence? A mismatch is a blocking contradiction; do not silently choose one side.
 
 Cite source identifier and version for each material conclusion. A summary cannot prove itself; treat an unreadable link as missing evidence.
 
@@ -88,8 +91,8 @@ Produce Markdown in this order:
    - `recommendation: pass | conditional_pass | reject`
    - `human_final_decision: pending`
    - confidence, concise basis, and limitations
-2. **Sources and Versions**: tabulate every supplied and missing source.
-3. **Evidence Consistency Matrix**: report claim, source evidence, status, impact, and source version.
+2. **Sources and Versions**: tabulate every supplied and missing source; append AI evidence fields to the relevant source row when applicable.
+3. **Evidence Consistency Matrix**: report claim, source evidence, status, impact, and source version; explain the AI model/prompt/dataset/judge version and run-ID check.
 4. **Tested and Untested Scope**: approved, tested, approved exclusion, declared untested, and hidden/unknown scope.
 5. **Contradictions**: both sources/versions, impact, and authorized resolver; state `No contradictions` when empty.
 6. **Blockers and Conditions**: list separately, plus optional improvements; state none for empty categories.

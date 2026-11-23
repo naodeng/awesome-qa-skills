@@ -3,7 +3,7 @@ name: ai-agent-testing
 description: Use this skill when you need to test AI agent goals, state, planning, recovery, and safety boundaries; triggers include AI Agent 测试 and ai agent testing.
 license: PolyForm-Noncommercial-1.0.0
 metadata:
-  version: "1.0.0"
+  version: "1.1.0"
   compatibility: ""
   author: "Awesome QA Skills contributors"
   language: "zh-CN"

@@ -311,7 +311,7 @@ class DiscoverTestingPromptContractTest(unittest.TestCase):
             ).read_text(encoding="utf-8")
             frontmatter = skill.split("---", 2)[1]
             with self.subTest(language=language):
-                self.assertIn('version: "1.3.0"', frontmatter)
+                self.assertIn('version: "1.4.0"', frontmatter)
 
     def test_end_state_router_eval_explicitly_forbids_executing_the_target_workflow(self) -> None:
         expected = {

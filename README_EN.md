@@ -9,10 +9,10 @@ Skills provide task guidance, test design, and reusable workflows; actual automa
 ![Awesome QA Skills social preview](social-preview.jpg)
 
 [![License: PolyForm Noncommercial 1.0.0](https://img.shields.io/badge/License-PolyForm%20Noncommercial%201.0.0-blue.svg)](./LICENSE)
-[![Skills](https://img.shields.io/badge/skills-342%20(zh%2Ben)-0A7EA4)](./docs/catalog/skills-index_EN.md)
-[![Workflows](https://img.shields.io/badge/workflows-14-informational)](./skills/en/testing-workflows/)
-[![Testing types](https://img.shields.io/badge/testing%20types-152-informational)](./skills/en/testing-types/)
-[![Skill engineering](https://img.shields.io/badge/skill%20engineering-5-informational)](./skills/en/skill-engineering/)
+[![Skills](https://img.shields.io/badge/skills-352%20(zh%2Ben)-0A7EA4)](./docs/catalog/skills-index_EN.md)
+[![Workflows](https://img.shields.io/badge/workflows-15-informational)](./skills/en/testing-workflows/)
+[![Testing types](https://img.shields.io/badge/testing%20types-155-informational)](./skills/en/testing-types/)
+[![Skill engineering](https://img.shields.io/badge/skill%20engineering-6-informational)](./skills/en/skill-engineering/)
 [![skills.sh](https://skills.sh/b/naodeng/awesome-qa-skills)](https://skills.sh/naodeng/awesome-qa-skills)
 
 **Online directory:** [https://inaodeng.com/qaskills/](https://inaodeng.com/qaskills/)
@@ -23,13 +23,13 @@ Skills provide task guidance, test design, and reusable workflows; actual automa
 
 ## What's included
 
-Each language has **171 Skills**, for **342 Skill directories** across Chinese and English:
+Each language has **176 Skills**, for **352 Skill directories** across Chinese and English:
 
 | Category | Count | Coverage |
 | --- | ---: | --- |
-| Testing workflows | 14 per language | Routing, requirement-to-test, PR review, change regression, iteration and release workflows, and quality perspectives |
-| Testing types | 152 per language | Requirements and strategy, test cases, functional/API/UI, regression, performance, security, production quality, and AI/LLM/agent testing |
-| Skill Engineering | 5 per language | Skill review, evaluation, change verification, and prose review |
+| Testing workflows | 15 per language | Routing, requirement-to-test, PR review, change regression, iteration and release workflows, and quality perspectives |
+| Testing types | 155 per language | Requirements and strategy, test cases, functional/API/UI, regression, performance, security, production quality, and AI/LLM/agent testing |
+| Skill Engineering | 6 per language | Skill review, evaluation, change verification, and prose review |
 
 Each Skill is an independently installable directory with a `SKILL.md`, primary prompt, and tool metadata; some also include examples, templates, scripts, and evaluation cases.
 
@@ -114,7 +114,7 @@ Core QA Skills → Engineering QA Skills → Production Quality Skills → AI Na
 
 ## Complete Skill catalog
 
-Each language provides **171** Skills: 14 workflows, 152 testing types, and 5 Skill Engineering packages; **342** bilingual directories in total. Physical directories remain stable; the catalog below is logical navigation only.
+Each language provides **176** Skills: 15 workflows, 155 testing types, and 6 Skill Engineering packages; **352** bilingual directories in total. Physical directories remain stable; the catalog below is logical navigation only.
 
 ### Cross-phase workflows
 
@@ -147,6 +147,7 @@ Workflows orchestrate lifecycle phases and do not form a fifth capability stage.
 | Skill | Directory | Primary use |
 | --- | --- | --- |
 | Release Testing Workflow | [`release-testing-workflow`](skills/en/testing-workflows/release-testing-workflow/) | Use this skill when you need release-phase QA workflow from T-14 planning to go/no-go and post-release monitoring; triggers include release testing workflow an… |
+| AI Feature Release Workflow | [`ai-feature-release-workflow`](skills/en/testing-workflows/ai-feature-release-workflow/) | Plan an evidence-backed path from AI evaluation gates through staged rollout, online monitoring, and rollback readiness. |
 | Multi-Role Quality Synthesis | [`multi-role-quality-synthesis`](skills/en/testing-workflows/multi-role-quality-synthesis/) | Combine role reports into a source-preserving quality synthesis |
 
 ### Four capability stages by R&D and testing phase
@@ -207,8 +208,8 @@ Each testing-type Skill appears once; routers and workflows cover cross-phase co
 | Skill | Directory | Primary use |
 | --- | --- | --- |
 | Bug Reporting <!-- data-skill:bug-reporting --> | [`bug-reporting`](skills/en/testing-types/bug-reporting/) | Use this skill when you need to write clear, reproducible bug reports with steps, environment details, and evidence; triggers include bug reporting and defect… |
-| Test Reporting <!-- data-skill:test-reporting --> | [`test-reporting`](skills/en/testing-types/test-reporting/) | Use this skill when you need to generate test reports with summary, metrics, defect analysis, and risk assessment; triggers include test reporting and QA statu… |
-| Test Report Review <!-- data-skill:test-report-review --> | [`test-report-review`](skills/en/testing-types/test-report-review/) | Check report claims against execution, defect, and scope evidence while preserving Human authority |
+| Test Reporting <!-- data-skill:test-reporting --> | [`test-reporting`](skills/en/testing-types/test-reporting/) | Report test status and risks; AI evaluation claims include model, prompt, dataset, judge, run, sampling, token cost, and execution-state evidence. |
+| Test Report Review <!-- data-skill:test-report-review --> | [`test-report-review`](skills/en/testing-types/test-report-review/) | Check test and AI evaluation source versions, run IDs, and raw evidence, preserving a Human-pending recommendation when conflicts exist. |
 
 #### Engineering QA Skills — Quality engineering
 
@@ -282,6 +283,7 @@ Each testing-type Skill appears once; routers and workflows cover cross-phase co
 | Skill | Directory | Primary use |
 | --- | --- | --- |
 | Code Review <!-- data-skill:code-review --> | [`code-review`](skills/en/testing-types/code-review/) | Risk-driven PR/diff code review with P0/P1/P2 findings and actionable fixes; triggers include code review and PR review. |
+| AI-Generated Code Review <!-- data-skill:ai-generated-code-review --> | [`ai-generated-code-review`](skills/en/testing-types/ai-generated-code-review/) | Review Agent-written production code, dependency authenticity, tests, CI integrity, and provenance evidence. |
 | Change Impact Analysis <!-- data-skill:change-impact-analysis --> | [`change-impact-analysis`](skills/en/testing-types/change-impact-analysis/) | Analyze quality impact scope and risk from change |
 | PR Test Impact Analysis <!-- data-skill:pr-test-impact-analysis --> | [`pr-test-impact-analysis`](skills/en/testing-types/pr-test-impact-analysis/) | Analyze PR impact, separating per-case predictions from actual run evidence. |
 | API Contract Testing <!-- data-skill:api-contract-testing --> | [`api-contract-testing`](skills/en/testing-types/api-contract-testing/) | Verify API contract compatibility and change risk |
@@ -324,7 +326,7 @@ Each testing-type Skill appears once; routers and workflows cover cross-phase co
 | Flaky Test Analysis <!-- data-skill:flaky-test-analysis --> | [`flaky-test-analysis`](skills/en/testing-types/flaky-test-analysis/) | Analyze intermittent test failures from evidence |
 | Regression Scope Analysis <!-- data-skill:regression-scope-analysis --> | [`regression-scope-analysis`](skills/en/testing-types/regression-scope-analysis/) | Define risk-based regression scope and exclusions |
 | Regression Test Selection <!-- data-skill:regression-test-selection --> | [`regression-test-selection`](skills/en/testing-types/regression-test-selection/) | Select a minimum risk-covering regression set |
-| AI-Assisted Testing <!-- data-skill:ai-assisted-testing --> | [`ai-assisted-testing`](skills/en/testing-types/ai-assisted-testing/) | Use this skill when you need AI-assisted testing workflows such as test data generation, root-cause analysis, and prioritization; triggers include AI-assisted… |
+| AI-Assisted Testing <!-- data-skill:ai-assisted-testing --> | [`ai-assisted-testing`](skills/en/testing-types/ai-assisted-testing/) | Use AI to draft and analyze QA artifacts while tracking human review, provenance, execution evidence, and full workflow cost. |
 | AI-Generated Test Review <!-- data-skill:ai-generated-test-review --> | [`ai-generated-test-review`](skills/en/testing-types/ai-generated-test-review/) | Review AI-generated tests for real regression protection, fake tests, weak assertions, and missing business outcomes. |
 | Test Code Review <!-- data-skill:test-code-review --> | [`test-code-review`](skills/en/testing-types/test-code-review/) | Identify assertion, isolation, fixture, determinism, and maintenance risks from test code and run evidence. |
 | Mutation Testing Analysis <!-- data-skill:mutation-testing-analysis --> | [`mutation-testing-analysis`](skills/en/testing-types/mutation-testing-analysis/) | Analyze test sensitivity from mutation operators and surviving results without inventing a quality score. |
@@ -375,6 +377,7 @@ Each testing-type Skill appears once; routers and workflows cover cross-phase co
 | Skill | Directory | Primary use |
 | --- | --- | --- |
 | AI Feature Testing <!-- data-skill:ai-feature-testing --> | [`ai-feature-testing`](skills/en/testing-types/ai-feature-testing/) | Design AI feature behavior, risk, and boundary tests |
+| Structured Output Testing <!-- data-skill:structured-output-testing --> | [`structured-output-testing`](skills/en/testing-types/structured-output-testing/) | Verify JSON/schema, partial streaming output, refusal/repair, and schema evolution. |
 
 ##### LLM and Prompt Evaluation Design
 
@@ -396,6 +399,7 @@ Each testing-type Skill appears once; routers and workflows cover cross-phase co
 | --- | --- | --- |
 | AI Agent Testing <!-- data-skill:ai-agent-testing --> | [`ai-agent-testing`](skills/en/testing-types/ai-agent-testing/) | Test AI agent goals, state, recovery, and safety boundaries |
 | Agent Tool Testing <!-- data-skill:agent-tool-testing --> | [`agent-tool-testing`](skills/en/testing-types/agent-tool-testing/) | Verify agent tool-call contracts, authorization, and side effects |
+| MCP Server Testing <!-- data-skill:mcp-server-testing --> | [`mcp-server-testing`](skills/en/testing-types/mcp-server-testing/) | Test versioned MCP protocol, transport, authorization, tool schemas, and poisoning boundaries. |
 | Prompt Injection Testing <!-- data-skill:prompt-injection-testing --> | [`prompt-injection-testing`](skills/en/testing-types/prompt-injection-testing/) | Design AI prompt-injection defense tests |
 | Agent Loop Testing <!-- data-skill:agent-loop-testing --> | [`agent-loop-testing`](skills/en/testing-types/agent-loop-testing/) | Test plan-act-observe loops, stop conditions, budgets, and repetition |
 | Agent Memory Testing <!-- data-skill:agent-memory-testing --> | [`agent-memory-testing`](skills/en/testing-types/agent-memory-testing/) | Test memory read/write, update/delete, retention, isolation, provenance, and forgetting |
@@ -414,6 +418,7 @@ Each testing-type Skill appears once; routers and workflows cover cross-phase co
 | Skill Evaluation | [`skill-evaluation`](skills/en/skill-engineering/skill-evaluation/) | Design, run, interpret, and report evidence-bounded Skill evaluations. |
 | Skill Prose Contract Review | [`skill-prose-review`](skills/en/skill-engineering/skill-prose-review/) | Audit executable contracts, boundaries, and evidence requirements in Skills and Prompts. |
 | Process Prose Trimming | [`skill-prose-trim`](skills/en/skill-engineering/skill-prose-trim/) | Remove review and design residue while preserving current-state contracts. |
+| Skill Supply-Chain Security Review | [`skill-security-review`](skills/en/skill-engineering/skill-security-review/) | Review third-party Skill, plugin, and MCP server instructions, permissions, scripts, and data-exfiltration risks. |
 
 Skill Engineering supports every capability stage without changing product-capability classification. Chinese Skills use the same folder names; switch languages at the top of the page.
 

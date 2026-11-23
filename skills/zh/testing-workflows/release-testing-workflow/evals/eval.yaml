@@ -23,6 +23,7 @@ cases:
     - evals/cases/expired-quality-evidence.yaml
     - evals/cases/approval-boundary.yaml
     - evals/cases/comparison-release-readiness.yaml
+    - evals/cases/domain-ai-lifecycle.yaml
   defaults:
     timeout_seconds: 180
     max_turns: 8

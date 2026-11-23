@@ -3,7 +3,7 @@ name: agent-loop-testing
 description: Use this skill when you need evidence-bounded loop state, plan/action/observation cycles, stop conditions, budgets, repetition, and trace evidence; triggers include Agent 循环 and Agent loop.
 license: PolyForm-Noncommercial-1.0.0
 metadata:
-  version: "1.0.0"
+  version: "1.1.0"
   compatibility: ""
   author: "Awesome QA Skills contributors"
   language: "zh-CN"

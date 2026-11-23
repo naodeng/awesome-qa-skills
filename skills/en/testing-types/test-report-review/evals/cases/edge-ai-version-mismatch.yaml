@@ -1,0 +1,22 @@
+id: edge-ai-version-mismatch
+title: AI evaluation report conflicts with raw run versions
+description: |
+  The report and raw record for the same run ID disagree on model, dataset, sampling parameters, and result; this is a blocking contradiction.
+
+input:
+  prompt: |
+    Use test-report-review to review customer-support AI evaluation report TR-AI-VAL-9 v1.2 for candidate build ai-eval-rc2. The report recommends pass and claims a 96% AI evaluation result. It records: model_provider=OpenAI, model_version=GPT-QA-2.0, prompt_or_agent_version=support-prompt-v5, eval_dataset_id=support-set, eval_dataset_version=v3, judge_type=LLM, judge_version=judge-v2, run_id=eval-804, sampling_parameters=temperature 0.2/top_p 0.9/seed 4, token_cost=12000 input + 900 output / USD 0.04, evaluator_identity=QA Core, execution_state=PASS.
+
+    Raw run record EVAL-804 v1.0 has the same run_id eval-804, but records model_version=GPT-QA-1.0, prompt_or_agent_version=support-prompt-v5, eval_dataset_id=support-set, eval_dataset_version=v2, judge_type=LLM, judge_version=judge-v2, sampling_parameters=temperature 0.7/top_p 0.9/seed 4, token use of 9000 input + 1000 output, and raw result 83%. Defect source DEF-AI-VAL-9 v1.0 records no open P0/P1. The Human has not made a final decision.
+
+    Check every field against report, run, and raw evidence. Model/dataset/sampling/result mismatches are blocking contradictions and require recommendation reject. List both values and source versions; do not silently choose one side or merge report and raw values. Keep human_final_decision: pending.
+
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "Outputs recommendation: reject, evidence_state: evidence_inconsistent, and human_final_decision: pending; it does not approve or report the AI evaluation as passed."
+    - "Separately inventories TR-AI-VAL-9 v1.2, EVAL-804 v1.0, and DEF-AI-VAL-9 v1.0 with source versions and AI evidence fields."
+    - "Identifies the model-version, dataset-version, temperature, token-count, and 96%-versus-83% result mismatches under the same run ID as blocking contradictions."
+    - "Preserves both source values and requests an authoritative correction or new run evidence; it does not merge silently or invent a resolved version or Human decision."
+  pass_threshold: 0.8

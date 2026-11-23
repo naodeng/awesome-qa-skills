@@ -4,11 +4,11 @@ description: "Checks per-item domain decisions, legitimate controls, and unknown
 input:
   prompt: |
     Use ai-assisted-testing to analyze this sanitized static fixture, without external actions. Follow the main prompt with domain steps, observable oracles, sources, gaps, and minimal validation.
-    Append a decision table with columns `ID | DECISION | Evidence`; give one row per ID and exactly one supplied enum value in the DECISION cell. FAIL/PASS denotes comparison of this fixture only, not a real test execution.
+    Append a decision table with columns `ID | DECISION | Evidence`; the only allowed rows are AIA-01 ACCEPTED, AIA-02 DRAFT, and AIA-03 UNSUPPORTED. `review_decision` still uses ACCEPTED/DRAFT/REJECTED; keep execution state separate from review decision.
 
-    Same 10 checkout cases: manual baseline 60 minutes; AI generation 10, review 25, rework 35, acceptance 10. I-1: sanitized input, QA R1 reviews D1 assertions, adopted V2 executes and acceptance is 10/10. I-2: D2 is called adopted without Human review. I-3: team claims total time improved using generation time alone. Decide I-1/I-2 ACCEPTED/DRAFT, I-3 UNSUPPORTED/SUPPORTED, showing total labor and provenance.
+    Same 10 checkout cases at equal scope and complexity: manual baseline 60 minutes; AI generation 10, review 25, rework 35, acceptance 10. Input is sanitized; QA R1 reviews D1 assertions, adopts V2, and raw evidence for run R7 shows 10/10 passing; review finds one false-green assertion and reworks it. D2 is unreviewed. No token counts or billing evidence are available. Show provenance and human gates.
 
-    Output exactly one decision table, each fixture ID once, exactly three cells and nonempty evidence; no duplicates or unknown IDs. Calculation keys likewise occur once with nonempty units/evidence.
+    Decision table has exactly one row per fixture ID, three cells, and nonempty evidence, with no duplicates or unknown IDs. Add a `METRIC | VALUE | Evidence` table with exactly human_baseline_minutes=60, generate_minutes=10, review_minutes=25, rework_minutes=35, acceptance_minutes=10, total_minutes=80, token_cost=UNSUPPORTED, defects_found=1, rework_count=1, false_green_count=1. Each evidence cell is nonempty; do not invent values.
 expect:
   exit_code: 0
 judge:

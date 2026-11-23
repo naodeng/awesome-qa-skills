@@ -1,0 +1,29 @@
+id: basic-success
+title: "AI-generated payment code review: green test misses duplicate charge"
+description: "Checks linked implementation, test, and CI changes without treating green status as behavior evidence."
+input:
+  prompt: |
+    Use ai-generated-code-review to review shop-api PR #184, head 9f31d2a, base 2b11c7e. Business requirement PAY-12: a callback retry for the same order may charge only once.
+
+    Diff at `src/payment/capture.py:41`:
+    ```diff
+    - if payment.has_capture(order.id): return existing_capture(order.id)
+    - payment.capture(order.id, order.total, idempotency_key=order.id)
+    + for attempt in range(3):
+    +     payment.capture(order.id, order.total, idempotency_key=str(uuid4()))
+    +     return {"status": "captured"}
+    ```
+    `tests/test_capture.py` removes the duplicate-callback assertion and now checks only HTTP 200. `.github/workflows/required.yml` changes the `payment-integration` job to `if: false`. The Agent claims “all CI passed” but gives no CI run URL, logs, or SHA-linked evidence; the model version is not supplied.
+
+    Review only the supplied material. Do not run tests or access the repository. Identify located implementation and quality-gate issues, separating CI results, model provenance, and code facts.
+expect:
+  must_contain: ["P0", "PAY-12", "idempotency_key", "payment-integration", "UNKNOWN"]
+  must_not_contain: ["CI passed", "safe to merge"]
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "Reports a P0 or equivalent blocking finding grounded in generating a UUID idempotency key for each retry, explaining that duplicate callbacks can capture the same order multiple times and tying the risk to PAY-12."
+    - "Identifies that the changed test checks only HTTP 200 and that the required payment-integration CI job is disabled; neither is treated as proof of correct behavior."
+    - "Marks the CI claim UNKNOWN because no run artifact is supplied, and marks missing model/provenance UNKNOWN without treating it as a code defect."
+    - "Provides file/line or snippet evidence and a minimal repair such as stable idempotency, a duplicate-callback assertion, and restoring the required job; does not claim a test ran or recommend merge."

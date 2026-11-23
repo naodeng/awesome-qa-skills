@@ -7012,6 +7012,212 @@
           "skills/en/testing-workflows/change-to-regression/evals/eval.yaml"
         ]
       }
+    },
+    {
+      "slug": "ai-feature-release-workflow",
+      "section": "testing-workflows",
+      "zh_path": "skills/zh/testing-workflows/ai-feature-release-workflow",
+      "en_path": "skills/en/testing-workflows/ai-feature-release-workflow",
+      "virtual_domain": "D12",
+      "status": "Candidate",
+      "priority": "P2",
+      "related": "UNASSESSED: AI feature lifecycle workflow from evaluation through staged rollout, monitoring, and rollback. Adjacent Skills are recorded in the package boundary; no runtime dependency is asserted.",
+      "governance_evidence": "skills/zh/testing-workflows/ai-feature-release-workflow/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension Quality Score evidence has been run for this newly added package."
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Eval cases and structural checks are present; real model and external-target evaluation has not been run."
+      },
+      "sdlc_stage": "release-and-production",
+      "roles": [
+        "QA",
+        "AI Quality"
+      ],
+      "inputs": "skills/zh/testing-workflows/ai-feature-release-workflow/prompts/ai-feature-release-workflow.md; skills/en/testing-workflows/ai-feature-release-workflow/prompts/ai-feature-release-workflow.md",
+      "outputs": "skills/zh/testing-workflows/ai-feature-release-workflow/prompts/ai-feature-release-workflow.md; skills/en/testing-workflows/ai-feature-release-workflow/prompts/ai-feature-release-workflow.md",
+      "workflow": "2026-11-23 AI-native QA iteration scope; navigation metadata only, not an installation or runtime dependency.",
+      "evidence_paths": [
+        "skills/zh/testing-workflows/ai-feature-release-workflow/SKILL.md",
+        "skills/zh/testing-workflows/ai-feature-release-workflow/prompts/ai-feature-release-workflow.md",
+        "skills/zh/testing-workflows/ai-feature-release-workflow/evals/eval.yaml",
+        "skills/zh/testing-workflows/ai-feature-release-workflow/agents/openai.yaml",
+        "skills/en/testing-workflows/ai-feature-release-workflow/SKILL.md",
+        "skills/en/testing-workflows/ai-feature-release-workflow/prompts/ai-feature-release-workflow.md",
+        "skills/en/testing-workflows/ai-feature-release-workflow/evals/eval.yaml",
+        "skills/en/testing-workflows/ai-feature-release-workflow/agents/openai.yaml"
+      ],
+      "lifecycle": {
+        "state": "UNASSESSED",
+        "reason": "Package structure exists; runtime use and behavior effectiveness are not established."
+      }
+    },
+    {
+      "slug": "ai-generated-code-review",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/ai-generated-code-review",
+      "en_path": "skills/en/testing-types/ai-generated-code-review",
+      "virtual_domain": "D02",
+      "status": "Candidate",
+      "priority": "P0",
+      "related": "UNASSESSED: Review AI-generated production code, dependencies, tests, CI integrity, and provenance. Adjacent Skills are recorded in the package boundary; no runtime dependency is asserted.",
+      "governance_evidence": "skills/zh/testing-types/ai-generated-code-review/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension Quality Score evidence has been run for this newly added package."
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Eval cases and structural checks are present; real model and external-target evaluation has not been run."
+      },
+      "sdlc_stage": "development-and-continuous-integration",
+      "roles": [
+        "QA",
+        "AI Quality"
+      ],
+      "inputs": "skills/zh/testing-types/ai-generated-code-review/prompts/ai-generated-code-review.md; skills/en/testing-types/ai-generated-code-review/prompts/ai-generated-code-review.md",
+      "outputs": "skills/zh/testing-types/ai-generated-code-review/prompts/ai-generated-code-review.md; skills/en/testing-types/ai-generated-code-review/prompts/ai-generated-code-review.md",
+      "workflow": "2026-11-23 AI-native QA iteration scope; navigation metadata only, not an installation or runtime dependency.",
+      "evidence_paths": [
+        "skills/zh/testing-types/ai-generated-code-review/SKILL.md",
+        "skills/zh/testing-types/ai-generated-code-review/prompts/ai-generated-code-review.md",
+        "skills/zh/testing-types/ai-generated-code-review/evals/eval.yaml",
+        "skills/zh/testing-types/ai-generated-code-review/agents/openai.yaml",
+        "skills/en/testing-types/ai-generated-code-review/SKILL.md",
+        "skills/en/testing-types/ai-generated-code-review/prompts/ai-generated-code-review.md",
+        "skills/en/testing-types/ai-generated-code-review/evals/eval.yaml",
+        "skills/en/testing-types/ai-generated-code-review/agents/openai.yaml"
+      ],
+      "lifecycle": {
+        "state": "UNASSESSED",
+        "reason": "Package structure exists; runtime use and behavior effectiveness are not established."
+      }
+    },
+    {
+      "slug": "mcp-server-testing",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/mcp-server-testing",
+      "en_path": "skills/en/testing-types/mcp-server-testing",
+      "virtual_domain": "D16",
+      "status": "Candidate",
+      "priority": "P0",
+      "related": "UNASSESSED: Test the declared MCP protocol revision, transport, authorization, schemas, and security boundaries. Adjacent Skills are recorded in the package boundary; no runtime dependency is asserted.",
+      "governance_evidence": "skills/zh/testing-types/mcp-server-testing/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension Quality Score evidence has been run for this newly added package."
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Eval cases and structural checks are present; real model and external-target evaluation has not been run."
+      },
+      "sdlc_stage": "protocol-and-agent-testing",
+      "roles": [
+        "QA",
+        "AI Quality"
+      ],
+      "inputs": "skills/zh/testing-types/mcp-server-testing/prompts/mcp-server-testing.md; skills/en/testing-types/mcp-server-testing/prompts/mcp-server-testing.md",
+      "outputs": "skills/zh/testing-types/mcp-server-testing/prompts/mcp-server-testing.md; skills/en/testing-types/mcp-server-testing/prompts/mcp-server-testing.md",
+      "workflow": "2026-11-23 AI-native QA iteration scope; navigation metadata only, not an installation or runtime dependency.",
+      "evidence_paths": [
+        "skills/zh/testing-types/mcp-server-testing/SKILL.md",
+        "skills/zh/testing-types/mcp-server-testing/prompts/mcp-server-testing.md",
+        "skills/zh/testing-types/mcp-server-testing/evals/eval.yaml",
+        "skills/zh/testing-types/mcp-server-testing/agents/openai.yaml",
+        "skills/en/testing-types/mcp-server-testing/SKILL.md",
+        "skills/en/testing-types/mcp-server-testing/prompts/mcp-server-testing.md",
+        "skills/en/testing-types/mcp-server-testing/evals/eval.yaml",
+        "skills/en/testing-types/mcp-server-testing/agents/openai.yaml"
+      ],
+      "lifecycle": {
+        "state": "UNASSESSED",
+        "reason": "Package structure exists; runtime use and behavior effectiveness are not established."
+      }
+    },
+    {
+      "slug": "skill-security-review",
+      "section": "skill-engineering",
+      "zh_path": "skills/zh/skill-engineering/skill-security-review",
+      "en_path": "skills/en/skill-engineering/skill-security-review",
+      "virtual_domain": "D10",
+      "status": "Candidate",
+      "priority": "P1",
+      "related": "UNASSESSED: Review third-party Skill, plugin, and MCP supply-chain instructions, permissions, scripts, and data boundaries. Adjacent Skills are recorded in the package boundary; no runtime dependency is asserted.",
+      "governance_evidence": "skills/zh/skill-engineering/skill-security-review/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension Quality Score evidence has been run for this newly added package."
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Eval cases and structural checks are present; real model and external-target evaluation has not been run."
+      },
+      "sdlc_stage": "skill-supply-chain-review",
+      "roles": [
+        "QA",
+        "Security",
+        "Engineering"
+      ],
+      "inputs": "skills/zh/skill-engineering/skill-security-review/prompts/skill-security-review.md; skills/en/skill-engineering/skill-security-review/prompts/skill-security-review.md",
+      "outputs": "skills/zh/skill-engineering/skill-security-review/prompts/skill-security-review.md; skills/en/skill-engineering/skill-security-review/prompts/skill-security-review.md",
+      "workflow": "2026-11-23 AI-native QA iteration scope; navigation metadata only, not an installation or runtime dependency.",
+      "evidence_paths": [
+        "skills/zh/skill-engineering/skill-security-review/SKILL.md",
+        "skills/zh/skill-engineering/skill-security-review/prompts/skill-security-review.md",
+        "skills/zh/skill-engineering/skill-security-review/evals/eval.yaml",
+        "skills/zh/skill-engineering/skill-security-review/agents/openai.yaml",
+        "skills/en/skill-engineering/skill-security-review/SKILL.md",
+        "skills/en/skill-engineering/skill-security-review/prompts/skill-security-review.md",
+        "skills/en/skill-engineering/skill-security-review/evals/eval.yaml",
+        "skills/en/skill-engineering/skill-security-review/agents/openai.yaml"
+      ],
+      "lifecycle": {
+        "state": "UNASSESSED",
+        "reason": "Package structure exists; runtime use and behavior effectiveness are not established."
+      }
+    },
+    {
+      "slug": "structured-output-testing",
+      "section": "testing-types",
+      "zh_path": "skills/zh/testing-types/structured-output-testing",
+      "en_path": "skills/en/testing-types/structured-output-testing",
+      "virtual_domain": "D16",
+      "status": "Candidate",
+      "priority": "P1",
+      "related": "UNASSESSED: Test structured model outputs, schemas, streaming, repair, refusal, and schema evolution. Adjacent Skills are recorded in the package boundary; no runtime dependency is asserted.",
+      "governance_evidence": "skills/zh/testing-types/structured-output-testing/SKILL.md",
+      "quality_score": {
+        "state": "NOT_SCORED",
+        "reason": "No nine-dimension Quality Score evidence has been run for this newly added package."
+      },
+      "eval_execution": {
+        "state": "NOT_RUN",
+        "reason": "Eval cases and structural checks are present; real model and external-target evaluation has not been run."
+      },
+      "sdlc_stage": "structured-output-and-schema-testing",
+      "roles": [
+        "QA",
+        "AI Quality"
+      ],
+      "inputs": "skills/zh/testing-types/structured-output-testing/prompts/structured-output-testing.md; skills/en/testing-types/structured-output-testing/prompts/structured-output-testing.md",
+      "outputs": "skills/zh/testing-types/structured-output-testing/prompts/structured-output-testing.md; skills/en/testing-types/structured-output-testing/prompts/structured-output-testing.md",
+      "workflow": "2026-11-23 AI-native QA iteration scope; navigation metadata only, not an installation or runtime dependency.",
+      "evidence_paths": [
+        "skills/zh/testing-types/structured-output-testing/SKILL.md",
+        "skills/zh/testing-types/structured-output-testing/prompts/structured-output-testing.md",
+        "skills/zh/testing-types/structured-output-testing/evals/eval.yaml",
+        "skills/zh/testing-types/structured-output-testing/agents/openai.yaml",
+        "skills/en/testing-types/structured-output-testing/SKILL.md",
+        "skills/en/testing-types/structured-output-testing/prompts/structured-output-testing.md",
+        "skills/en/testing-types/structured-output-testing/evals/eval.yaml",
+        "skills/en/testing-types/structured-output-testing/agents/openai.yaml"
+      ],
+      "lifecycle": {
+        "state": "UNASSESSED",
+        "reason": "Package structure exists; runtime use and behavior effectiveness are not established."
+      }
     }
   ],
   "match_reviews": [

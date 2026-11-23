@@ -80,6 +80,10 @@ PROJECT_PAIRS = (
         "docs/governance/WORKFLOW_EVAL_INSTALL_SYNC_EN.md",
     ),
     (
+        "docs/governance/SKILL_VERSION_HISTORY.md",
+        "docs/governance/SKILL_VERSION_HISTORY_EN.md",
+    ),
+    (
         "docs/governance/ENHANCEMENT_SPRINT.md",
         "docs/governance/ENHANCEMENT_SPRINT_EN.md",
     ),
@@ -147,6 +151,10 @@ PROJECT_PAIRS = (
     (
         "docs/reviews/2026-10-25-github-qa-skills-iteration-research.md",
         "docs/reviews/2026-10-25-github-qa-skills-iteration-research_EN.md",
+    ),
+    (
+        "docs/reviews/2026-11-23-ai-native-qa-skill-gap-review.md",
+        "docs/reviews/2026-11-23-ai-native-qa-skill-gap-review_EN.md",
     ),
     (
         "docs/superpowers/specs/2026-08-29-four-stage-qa-skills-evolution-design.md",

@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.0.0",
+  "id": "ai-feature-release-workflow",
+  "version": "1.0.0",
+  "kind": "sequence",
+  "title": {
+    "zh": "AI 特性发布工作流",
+    "en": "AI Feature Release Workflow"
+  },
+  "summary": {
+    "zh": "用版本化评测证据连接 AI 特性门禁、灰度、线上观察与回滚。",
+    "en": "Connect versioned AI evaluation evidence to release gates, staged rollout, production observation, and rollback."
+  },
+  "lifecycle_state": "EXPERIMENTAL",
+  "inputs": [
+    {"id": "release_request", "required": true, "description": "Feature goal, release scope, owner, and target window."},
+    {"id": "candidate_identity", "required": true, "description": "Provider/model, prompt/agent, serving configuration, and candidate version."},
+    {"id": "evaluation_assets", "required": false, "description": "Dataset, judge/rubric, sampling plan, thresholds, run IDs, and raw evidence references."},
+    {"id": "rollout_context", "required": false, "description": "Environment, cohort, guardrails, monitoring owner, stop conditions, and rollback action."}
+  ],
+  "outputs": [
+    {"id": "phase_contract", "description": "Entry evidence, owners, exit criteria, and state for each release phase.", "evidence_kind": "plan"},
+    {"id": "evaluation_gate_record", "description": "Versioned evaluation evidence, threshold comparison, uncertainty, cost, and evidence state.", "evidence_kind": "execution"},
+    {"id": "rollout_decision", "description": "Evidence-backed rollout recommendation and pending human decision.", "evidence_kind": "inference"},
+    {"id": "monitoring_rollback_plan", "description": "Cohort, observation window, sourced thresholds, stop conditions, rollback, and closeout actions.", "evidence_kind": "plan"}
+  ],
+  "steps": [
+    {"id": "scope-and-contract", "description": "Define AI feature scope, risks, evaluation assets, thresholds, and owner.", "skill_ids": ["ai-feature-testing", "llm-evaluation-design"], "prompt": "prompts/ai-feature-release-workflow.md", "depends_on": [], "on_failure": "stop", "permission": "read_only", "approval_required": false},
+    {"id": "pre-release-evaluation", "description": "Assess current evaluation runs and version-bound raw evidence; do not invent execution.", "skill_ids": ["llm-evaluation-design", "quality-gate-design"], "prompt": "prompts/ai-feature-release-workflow.md", "depends_on": ["scope-and-contract"], "on_failure": "stop", "permission": "read_only", "approval_required": false},
+    {"id": "release-gate", "description": "Compare required criteria with evidence and record a recommendation plus human decision state.", "skill_ids": ["quality-gate-design", "release-testing-workflow"], "prompt": "prompts/ai-feature-release-workflow.md", "depends_on": ["scope-and-contract", "pre-release-evaluation"], "on_failure": "stop", "permission": "read_only", "approval_required": false},
+    {"id": "staged-rollout-plan", "description": "Plan canary or shadow cohort, thresholds, observation, stop, and rollback without executing production changes.", "skill_ids": ["release-testing-workflow", "production-verification"], "prompt": "prompts/ai-feature-release-workflow.md", "depends_on": ["release-gate"], "on_failure": "stop", "permission": "read_only", "approval_required": false},
+    {"id": "monitor-and-closeout", "description": "Define online evaluation, drift/refusal/feedback/cost monitoring, rollback evidence, and closeout.", "skill_ids": ["production-verification", "quality-productivity-metrics"], "prompt": "prompts/ai-feature-release-workflow.md", "depends_on": ["staged-rollout-plan"], "on_failure": "continue_with_gap", "permission": "read_only", "approval_required": false}
+  ],
+  "failure_policy": {"on_missing_dependency": "continue_with_limitations", "on_blocked": "stop"},
+  "permission_policy": {"default": "read_only", "approval_required_for": ["execute_command", "write_repo", "external_write", "publish", "delete", "release_approval"]},
+  "checkpoint_policy": {"host_runtime_required": true, "fingerprint_fields": ["inputs", "commit_sha", "candidate_identity", "evaluation_assets", "rollout_context"], "invalidate_on_change": ["inputs", "commit_sha", "candidate_identity", "evaluation_assets", "rollout_context"], "automatic_replay": "side_effect_free_only"},
+  "handoff": {"required_fields": ["workflow_id", "source", "status", "open_gaps", "next_step"]},
+  "evidence_contract_version": "1.0.0"
+}

@@ -3,7 +3,7 @@ name: quality-productivity-metrics
 description: Use this skill when you need evidence-bounded quality and delivery metrics, denominators, attribution limits, gaming risk, and the Human-use boundary; triggers include 质量生产力 and quality productivity.
 license: PolyForm-Noncommercial-1.0.0
 metadata:
-  version: "1.0.0"
+  version: "1.1.0"
   compatibility: ""
   author: "Awesome QA Skills contributors"
   language: "zh-CN"

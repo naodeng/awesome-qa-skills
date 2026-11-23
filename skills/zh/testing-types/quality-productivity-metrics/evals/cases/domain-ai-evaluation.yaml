@@ -1,0 +1,21 @@
+id: domain-ai-evaluation
+title: "AI 生产力指标：生成量不等于验收产出"
+description: "检查复核、返工、质量和分母是否支持提效结论。"
+input:
+  prompt: |
+    团队一周生成 100 条 AI 测试草稿，人工接受 34 条，复核 11 小时，返工 6 小时；没有人工基线、缺陷逃逸率或同复杂度对照。请判断是否能宣称提效，并列出平衡指标与证据缺口。
+expect:
+  must_contain:
+    - "UNSUPPORTED"
+    - "复核"
+    - "返工"
+    - "分母"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "UNSUPPORTED"
+          - "复核"
+          - "返工"
+          - "分母"

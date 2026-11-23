@@ -1,0 +1,39 @@
+id: review-missing-evaluation-evidence
+title: "llm-hallucination-testing: 幻觉测试：声明与来源轨迹 — missing run evidence"
+description: "验证断言能绑定来源片段并区分支持、不支持和无法判断。"
+context:
+  files:
+    "structured-trace.json": |-
+      {
+        "trace_id": "TRACE-NORUN-LLM-HALLUCINATION-TESTING",
+        "subject": "llm-hallucination-testing",
+        "identity": {
+          "model_version": "model-A",
+          "prompt_version": "prompt-1",
+          "dataset_version": "dataset-1"
+        },
+        "run_id": null,
+        "attempted": false,
+        "run_evidence": [],
+        "evaluation_status": "NOT_RUN"
+      }
+input:
+  prompt: |
+    请使用 llm-hallucination-testing 审阅 structured-trace.json。逐条判断 claim 与 source excerpt 的关系，保留 source_id 和 run_id；缺失证据时不得补写事实。
+    The trace has no run_id and no raw result. Output exactly these machine-readable lines:
+    evaluation_status: NOT_RUN
+    run_evidence: []
+    domain_conclusion: UNASSESSED
+expect:
+  must_contain:
+    - "evaluation_status: NOT_RUN"
+    - "run_evidence: []"
+    - "domain_conclusion: UNASSESSED"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "evaluation_status: NOT_RUN"
+          - "run_evidence: []"
+          - "domain_conclusion: UNASSESSED"

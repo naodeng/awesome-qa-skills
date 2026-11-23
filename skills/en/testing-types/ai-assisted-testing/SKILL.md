@@ -1,9 +1,9 @@
 ---
 name: ai-assisted-testing
-description: Use this skill when you need AI-assisted testing workflows such as test data generation, root-cause analysis, and prioritization; triggers include AI-assisted testing and AI for QA.
+description: Use this skill when you want AI to draft, analyze, review, or prioritize ordinary QA work under human verification; triggers include AI-assisted testing and AI for QA.
 license: PolyForm-Noncommercial-1.0.0
 metadata:
-  version: "1.0.0"
+  version: "2.0.0"
   compatibility: ""
   author: "Awesome QA Skills contributors"
   language: "en"
@@ -14,55 +14,53 @@ metadata:
 
 # AI-Assisted Testing
 
-**Chinese version：** See the corresponding Chinese skill.
+**Chinese version:** See the corresponding Chinese skill.
 
 ## When to Use
 
-- Need help with ai assisted testing in a real project context.
-- Need an output that can be used directly for execution, review, or follow-up.
+- Use AI to assist with requirements analysis, test design, data preparation, script drafts, defect summaries, or test reports.
+- Separate AI drafts, human adoption, and real execution evidence while recording effort and quality outcomes.
+- For testing an AI product itself, use the matching AI Native QA Skill.
 
 ## Workflow
 
-1. Read and follow the main prompt listed under Progressive disclosure (coverage, structure, quality bar).
-2. Add only project context that changes the result: scope, environment, constraints, risks, dependencies, expected deliverable.
-3. If input is incomplete, return a usable first draft and explicitly mark assumptions and gaps.
-4. Default to Markdown; switch formats only when the user asks.
+1. Read `prompts/ai-assisted-testing.md` and identify the task, scope, risks, permitted data use, and deliverable.
+2. Use the delegation matrix to state what AI may draft, what a human must decide, and which evidence is required.
+3. Record the source snapshot, model and instruction versions, draft, review, adoption, and execution evidence for each AI artifact; mark missing values `UNKNOWN`.
+4. Compare manual baseline and full AI-assisted effort for the same scope, complexity, and time window. Report defects, rework, and false greens separately.
+5. Keep unreviewed artifacts `DRAFT` and unexecuted results `NOT_RUN` or `BLOCKED`.
 
-## Domain Execution Essentials
-
-1. Record input classification, sanitization, and allowed use. Replace identities, tokens, and personal data with non-reversible placeholders while retaining schema/business constraints.
-2. Trace input snapshot→model/prompt version→AI draft ID→Human review→adopted version ID→acceptance evidence. Drafts do not automatically become execution assets.
-3. Name the reviewers of business oracles, assertions, privacy, and high-risk tradeoffs. Unreviewed work remains draft, unexecuted work NOT_RUN; AI does not accept on behalf of Human.
-4. Compare equal tasks/complexity/windows: manual baseline versus AI generation+review+rework+acceptance time. Track defects/rework separately; generation time alone cannot prove productivity gains.
 ## Core Constraints
 
-- Prioritize by risk / business impact — do not treat everything equally.
-- Separate confirmed facts from current assumptions.
-- Do not invent endpoints, fields, environments, or root causes the user did not provide.
-- Keep output executable: concrete scenarios, clear priority, clear next steps.
+- A human must confirm the business oracle, assertion validity, privacy, high-risk tradeoffs, and release acceptance. AI cannot make these decisions.
+- For release approval, report `release_gate_status` and `human_release_decision`; until a human accepts the evidence, keep the decision `PENDING` and the gate below `PASS`. For productivity claims, report `productivity_claim_status`.
+- `review_decision` uses only `ACCEPTED`, `DRAFT`, or `REJECTED`; execution state uses only `PASS`, `FAIL`, `BLOCKED`, `NOT_RUN`, `UNKNOWN`, or `STALE`.
+- Without `model_version` or `run_id`, an AI-effect claim is `UNKNOWN`; without execution evidence, never report a pass.
+- Never remove or weaken failing checks to manufacture a green result. Coverage and generation speed do not prove defect detection or productivity gains.
+- Do not invent endpoints, fields, test results, token costs, or a manual baseline; report version conflicts as gaps.
 
 ## Progressive Disclosure
 
-- When calibrating domain outcomes, valid controls, or evidence gaps, read [references/domain-decision-example.md](references/domain-decision-example.md) for sanitized input, per-item oracles, and reproducible calculations.
-
-- Before producing output, read and follow `prompts/ai-assisted-testing.md` (minimum coverage, output structure, quality bar).
-- When Excel/CSV/JSON/Word is requested: read `output-formats.md` and honor the format.
-- When a ready-made template fits: use matching files under `output-templates/`.
-- For format conversion or helper checks: prefer existing `scripts/` over reinventing.
-- For evaluating/regressing this skill: use `evals/` with skill-up.
+- Before producing output, follow `prompts/ai-assisted-testing.md` for delegation, provenance, output contract, and human gates.
+- For artifact-by-stage ownership, read [references/ai-delegation-matrix.md](references/ai-delegation-matrix.md).
+- For false greens, unsupported productivity claims, or unreviewed adoption, read [references/false-confidence-catalog.md](references/false-confidence-catalog.md).
+- For per-item decisions and cost calculations, read [references/domain-decision-example.md](references/domain-decision-example.md).
+- To compare an existing project example, read only the relevant material under `examples/`.
+- When Excel, CSV, JSON, or Word is requested, read `output-formats.md`; format-conversion scripts and templates remain optional tools.
+- For format conversion or helper checks, use existing tools under `scripts/`; for the shortest onboarding path, read `quick-start.md`.
+- Use `evals/` to evaluate this Skill. If behavior evaluation needs a model or credentials, mark it `NOT_RUN` until authorized.
 
 ## Pre-delivery Checklist
 
-- [ ] Followed the main prompt's output structure
-- [ ] Minimum coverage focus: task scope, best AI-assisted opportunities, human verification points, high-risk areas that need manual judgment, draft artifacts to generate, review and approval steps, quality gates, time-saving opportunities, ... (details in main prompt)
-- [ ] Covered the minimum checklist, or explained omissions
-- [ ] High-risk items have explicit priority
-- [ ] Did not invent details the user did not provide
-- [ ] Assumptions and gaps are marked
+- [ ] Facts, assumptions, gaps, and recommendations are distinct
+- [ ] AI drafts have `AIA-##` IDs, provenance, and review status
+- [ ] Human gates and real execution evidence are explicit
+- [ ] Cost covers baseline, generation, review, rework, acceptance, and token-cost accounting
+- [ ] No draft, static analysis, or coverage figure is presented as executed or accepted
 
 ## Common Pitfalls
 
-- Do not pretend completeness when scope/context is missing.
-- Do not treat every item as equally important.
-- Do not skip assumptions and information gaps.
-- Do not dump generic theory unrelated to the current toolchain.
+- Claiming productivity gains from generation time alone.
+- Treating all-green tests as quality evidence without reviewing assertions.
+- Marking an unreviewed draft as adopted.
+- Using an AI summary in place of raw execution records or source evidence.

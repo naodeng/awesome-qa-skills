@@ -1,0 +1,20 @@
+id: edge-evidence-boundary
+title: "AI-generated code review: distinguish BLOCKED, NOT_RUN, and UNKNOWN"
+input:
+  prompt: |
+    Use ai-generated-code-review for a static review of shop-api PR #231, head 31e0a22, base 9f31d2a. Diff:
+    ```diff
+    - payment.capture(order.id, key=order.id)
+    + payment.capture(order.id, key=str(uuid4()))
+    ```
+    Model and generation trace are not supplied. The lead explicitly says “tests were not run”; no CI logs, test report, or platform status are available. Give a bounded static review and make `review_status`, `test_status`, `ci_status`, and `provenance_status` explicit. Do not approve merge.
+expect:
+  must_contain: ["review_status", "COMPLETE", "test_status", "NOT_RUN", "ci_status", "UNKNOWN", "provenance_status"]
+  must_not_contain: ["tests passed", "approved"]
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "Performs a bounded static review because code identity and diff are present; does not use BLOCKED merely because tests were not run."
+    - "Marks test_status NOT_RUN because non-execution is explicit, ci_status UNKNOWN because no CI result is supplied, and provenance_status UNKNOWN because generator details are absent."
+    - "Does not claim tests passed, approve merge, or infer model authorship; separates static findings from execution evidence."

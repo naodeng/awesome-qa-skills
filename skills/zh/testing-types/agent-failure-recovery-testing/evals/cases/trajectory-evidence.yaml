@@ -1,0 +1,47 @@
+id: trajectory-evidence
+title: "agent-failure-recovery-testing: Agent 故障恢复：重试与副作用轨迹"
+description: "验证恢复分析能区分失败、重试、幂等性与重复副作用。"
+context:
+  files:
+    "structured-trace.json": |-
+      {
+        "trace_id": "TRACE-AFR-001",
+        "subject": "agent-failure-recovery-testing",
+        "run_id": "RUN-AFR-001",
+        "attempted": true,
+        "attempts": [
+          {
+            "attempt": 1,
+            "tool": "payment_submit",
+            "idempotency_key": "K-1",
+            "side_effect": "accepted",
+            "response": "timeout"
+          },
+          {
+            "attempt": 2,
+            "tool": "payment_submit",
+            "idempotency_key": "K-2",
+            "side_effect": "accepted",
+            "response": "success"
+          }
+        ],
+        "run_evidence": [
+          "trace://RUN-AFR-001"
+        ]
+      }
+input:
+  prompt: |
+    请使用 agent-failure-recovery-testing 审阅 structured-trace.json。判断重试是否发生在副作用后、idempotency_key 是否保持一致，并区分观测证据与恢复建议。
+expect:
+  must_contain:
+    - "TRACE-AFR-001"
+    - "K-1"
+    - "K-2"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "TRACE-AFR-001"
+          - "K-1"
+          - "K-2"

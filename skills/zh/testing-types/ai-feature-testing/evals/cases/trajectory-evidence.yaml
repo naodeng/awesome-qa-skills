@@ -1,0 +1,50 @@
+id: trajectory-evidence
+title: "ai-feature-testing: AI 特性：真实运行轨迹核对"
+description: "验证 AI 特性评估能绑定 run、模型和输入版本，并把缺口与结论分开。"
+context:
+  files:
+    "structured-trace.json": |-
+      {
+        "trace_id": "TRACE-AIF-001",
+        "subject": "ai-feature-testing",
+        "run_id": "RUN-AIF-001",
+        "attempted": true,
+        "identity": {
+          "model_version": "model-A",
+          "prompt_version": "prompt-3",
+          "dataset_version": "dataset-7"
+        },
+        "events": [
+          {
+            "type": "request",
+            "input_id": "CASE-01"
+          },
+          {
+            "type": "response",
+            "latency_ms": 420,
+            "token_usage": {
+              "input": 120,
+              "output": 45
+            }
+          }
+        ],
+        "run_evidence": [
+          "result://RUN-AIF-001"
+        ]
+      }
+input:
+  prompt: |
+    请使用 ai-feature-testing 审阅 structured-trace.json。只分析提供的轨迹，列出 trace_id、run_id、模型/数据集身份和观察到的质量证据；不要把单个样本泛化为上线结论。
+expect:
+  must_contain:
+    - "TRACE-AIF-001"
+    - "RUN-AIF-001"
+    - "dataset-7"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "TRACE-AIF-001"
+          - "RUN-AIF-001"
+          - "dataset-7"

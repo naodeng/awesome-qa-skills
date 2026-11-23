@@ -19,6 +19,8 @@ cases:
     - evals/cases/review-correct-patch-control.yaml
     - evals/cases/review-upstream-guard-control.yaml
     - evals/cases/review-reachable-null-defect.yaml
+    - evals/cases/review-ai-generated-code-signals.yaml
+    - evals/cases/edge-ai-evidence-boundary.yaml
   defaults:
     timeout_seconds: 180
     max_turns: 8
@@ -30,3 +32,5 @@ cases:
 
 report:
   formats: [json]
+benchmark:
+  enabled: true

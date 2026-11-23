@@ -1,0 +1,38 @@
+id: review-missing-evaluation-evidence
+title: "prompt-testing: missing evaluation evidence cannot be reported as PASS"
+description: "Checks that machine-readable evaluation_status is NOT_RUN when no runtime evidence exists."
+context:
+  files:
+    "structured-trace.json": |-
+        {
+          "trace_id": "TRACE-NO-RUN-001",
+          "subject": "prompt-testing",
+          "input_id": "CASE-001",
+          "identity": {
+            "model_version": "model-A",
+            "prompt_version": "P1",
+            "dataset_version": "D1",
+            "schema_version": "S1",
+            "parameters": {
+              "temperature": 0,
+              "seed": 7
+            }
+          },
+          "run_id": null,
+          "attempted": false,
+          "run_evidence": [],
+          "evidence_refs": [],
+          "evaluation_status": "NOT_RUN"
+        }
+input:
+  prompt: |
+    Use prompt-testing to review `structured-trace.json`. No run was attempted and no result or evidence reference is supplied. Report the JSON evidence-status contract: output exactly one JSON code block with `trace_id`, `evaluation_status`, `run_evidence`, and `reason`. Do not treat the plan or version identity in the input as runtime evidence.
+expect:
+  must_contain:
+    - "TRACE-NO-RUN-001"
+    - "evaluation_status"
+    - "NOT_RUN"
+judge:
+  type: script
+  script_path: evals/fixtures/check_evaluation_status.py
+  timeout_seconds: 10

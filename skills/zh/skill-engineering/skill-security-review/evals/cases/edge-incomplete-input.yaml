@@ -1,0 +1,26 @@
+id: edge-incomplete-input
+title: "Skill 安全审查：包材料不完整"
+description: "仅有元数据时限制结论并列出缺失证据。"
+context:
+  files:
+    "agents/openai.yaml": |-
+      version: 1
+      metadata:
+        key: sample-skill
+      policy:
+        allow_implicit_invocation: true
+input:
+  prompt: "使用 skill-security-review。目前只有 agents/openai.yaml；入口、提示词、参考资料、脚本、依赖、eval、目标运行时和权限配置都缺失。给出受限的静态审查，标记 UNASSESSED 内容并请求最少的补充证据。不要仅根据元数据推断整个包安全或不安全。"
+expect:
+  must_contain:
+    - "agents/openai.yaml"
+    - "UNASSESSED"
+    - "缺失"
+    - "待确认问题"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "UNASSESSED"
+          - "待确认问题"

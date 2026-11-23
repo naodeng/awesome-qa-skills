@@ -39,9 +39,12 @@ Apply these steps as design or static comparison of supplied material. Keep fixt
 2. For one window, net saving = runs×(manual cost/run−automated cost/run)−maintenance−build cost. Define ROI numerator/denominator; absent monetary conversion, report labor only.
 3. If recurring net saving >0, break-even windows = build cost/recurring net saving, rounding up for whole execution windows. If <=0, no break-even under those assumptions.
 4. Vary frequency and change-driven maintenance in project-supplied low/base/high scenarios with sources and sign changes. Missing inputs yield formulas/conditional ranges, never precise invented returns or automatic adoption.
+5. For AI automation, include token/provider calls, infrastructure, human review, rework, and maintenance in the same window. Compare equally high-quality, human-accepted output; keep unquantified costs open and never equate generation speed with value.
+6. Treat false greens, missed defects, false positives, and human takeover as negative value or risk with sourced evidence. Sensitivity analysis varies task frequency, model cost, review time, and rework; it cannot automatically approve procurement or deployment.
 ## Minimum Coverage Checklist
 
 - candidate scenario, build cost, run cost, maintenance cost, benefit assumption
+- AI token/call, review, rework, false-green, and false-positive costs when applicable
 - confirmed facts, working assumptions, open questions, evidence quality, and recency
 - high-risk paths, blockers, stop/escalation/rollback or human-handoff conditions
 - smallest validation action, owner role, close condition, residual risk, and Human decision

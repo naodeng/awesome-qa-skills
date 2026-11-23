@@ -3,7 +3,7 @@ name: multi-agent-testing
 description: Use this skill when you need evidence-bounded delegation, coordination, shared state, conflicts, ownership, termination, and traceability; triggers include 多 Agent 协作 and multi-agent coordination.
 license: PolyForm-Noncommercial-1.0.0
 metadata:
-  version: "1.0.0"
+  version: "1.1.0"
   compatibility: ""
   author: "Awesome QA Skills contributors"
   language: "zh-CN"

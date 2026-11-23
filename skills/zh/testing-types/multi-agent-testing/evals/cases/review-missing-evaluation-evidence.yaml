@@ -1,0 +1,39 @@
+id: review-missing-evaluation-evidence
+title: "multi-agent-testing: 多 Agent：委派与冲突轨迹 — missing run evidence"
+description: "验证跨 Agent 轨迹保留父子 run、所有权和冲突结果。"
+context:
+  files:
+    "structured-trace.json": |-
+      {
+        "trace_id": "TRACE-NORUN-MULTI-AGENT-TESTING",
+        "subject": "multi-agent-testing",
+        "identity": {
+          "model_version": "model-A",
+          "prompt_version": "prompt-1",
+          "dataset_version": "dataset-1"
+        },
+        "run_id": null,
+        "attempted": false,
+        "run_evidence": [],
+        "evaluation_status": "NOT_RUN"
+      }
+input:
+  prompt: |
+    请使用 multi-agent-testing 审阅 structured-trace.json。按 parent_run_id 和 agent_id 归并委派结果，指出同一文件的冲突写入和最终所有权证据。
+    The trace has no run_id and no raw result. Output exactly these machine-readable lines:
+    evaluation_status: NOT_RUN
+    run_evidence: []
+    domain_conclusion: UNASSESSED
+expect:
+  must_contain:
+    - "evaluation_status: NOT_RUN"
+    - "run_evidence: []"
+    - "domain_conclusion: UNASSESSED"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "evaluation_status: NOT_RUN"
+          - "run_evidence: []"
+          - "domain_conclusion: UNASSESSED"

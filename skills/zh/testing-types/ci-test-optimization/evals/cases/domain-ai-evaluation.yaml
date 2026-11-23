@@ -1,0 +1,21 @@
+id: domain-ai-evaluation
+title: "AI Eval CI：分片、缓存与重试成本"
+description: "验证评测流水线保留 case 身份、缓存有效性、首失败与累计成本。"
+input:
+  prompt: |
+    一次 AI eval 有两个稳定 case ID。shard-1 首次 timeout、重试通过；shard-2 使用 dataset-v2，但缓存键仍是 dataset-v1。日志给出三次模型调用和累计 18,200 tokens。请判断可否作为绿灯并列最小修复。
+expect:
+  must_contain:
+    - "shard"
+    - "缓存"
+    - "重试"
+    - "18,200"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "shard"
+          - "缓存"
+          - "重试"
+          - "18,200"

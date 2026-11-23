@@ -1,0 +1,15 @@
+id: edge-evidence-boundary
+title: "AI-generated test review: block without an artifact and preserve evidence states"
+input:
+  prompt: |
+    Use ai-generated-test-review to review the AI test named “subscription renewal succeeds.” No test code/assertion, requirement, implementation, or CI log is supplied. I explicitly have not run this test; model, prompt, and generation trace are also absent. Report the boundary with `review_status`, `classification`, `test_status`, `result_evidence`, and `provenance_status`; do not guess what the test contains.
+expect:
+  must_contain: ["review_status", "BLOCKED", "classification", "UNASSESSED", "test_status", "NOT_RUN", "result_evidence", "UNKNOWN", "provenance_status"]
+  must_not_contain: ["test passed"]
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "Marks the behavior review BLOCKED and classification UNASSESSED because no test code/assertion exists; does not invent test behavior."
+    - "Marks test_status NOT_RUN because the user explicitly states non-execution, and result_evidence UNKNOWN because no CI/run result was supplied."
+    - "Marks provenance_status UNKNOWN because model, prompt, and trace are absent; requests the missing test and requirement/implementation material."

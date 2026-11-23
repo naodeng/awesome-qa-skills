@@ -3,7 +3,7 @@ name: quality-gate-design
 description: Use this skill when you need evidence-bounded entry criteria, evidence requirements, owners, and exception paths for a delivery or release gate; triggers include 质量门禁 and quality gate.
 license: PolyForm-Noncommercial-1.0.0
 metadata:
-  version: "1.0.0"
+  version: "1.1.0"
   compatibility: ""
   author: "Awesome QA Skills contributors"
   language: "zh-CN"
@@ -56,6 +56,12 @@ metadata:
 - 静态设计、计划、文件存在或 dry-run 只能保留原证据状态，不能升级为真实执行证明。
 - 证据不足时使用待确认、blocked、unassessed 或 NOT_SCORED，并给出最小验证方法。
 - 涉及生产、隐私或安全时采用最小权限、脱敏数据、mock、dry-run 或隔离环境。
+
+## 评测证据状态
+
+- 输出评测结论时包含 `evaluation_status`：`PASS`、`FAIL`、`BLOCKED`、`NOT_RUN` 或 `UNKNOWN`。
+- `PASS` 需要有范围内的实际运行记录和完整断言证据；没有运行结果用 `NOT_RUN`，运行受阻用 `BLOCKED`，证据不足用 `UNKNOWN`。方案、静态检查或文件存在不能单独证明 `PASS`。
+- 结构化追踪记录 `trace_id`、样本与版本、参数、run/trial、解析、Schema、语义状态及证据引用；三类检查分别判定。
 
 ## 交付前自检
 

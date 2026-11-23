@@ -1,0 +1,51 @@
+id: trajectory-evidence
+title: "ai-agent-testing: Agent 测试：步骤级轨迹归因"
+description: "验证 Agent 结论依据 run 与 step 轨迹，而非只看最终答案。"
+context:
+  files:
+    "structured-trace.json": |-
+      {
+        "trace_id": "TRACE-AGT-001",
+        "subject": "ai-agent-testing",
+        "run_id": "RUN-AGT-001",
+        "attempted": true,
+        "steps": [
+          {
+            "step_id": "S1",
+            "type": "tool_call",
+            "tool": "order_lookup",
+            "status": "ok"
+          },
+          {
+            "step_id": "S2",
+            "type": "tool_call",
+            "tool": "refund_submit",
+            "status": "blocked",
+            "reason": "approval_missing"
+          },
+          {
+            "step_id": "S3",
+            "type": "final",
+            "claim": "refund completed"
+          }
+        ],
+        "run_evidence": [
+          "trace://RUN-AGT-001"
+        ]
+      }
+input:
+  prompt: |
+    请使用 ai-agent-testing 审阅 structured-trace.json。按 step_id 还原工具调用顺序和最终结果的来源，报告证据缺口，不要只根据 final_answer 宣称任务成功。
+expect:
+  must_contain:
+    - "TRACE-AGT-001"
+    - "S2"
+    - "approval_missing"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "TRACE-AGT-001"
+          - "S2"
+          - "approval_missing"

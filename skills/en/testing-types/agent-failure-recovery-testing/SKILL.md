@@ -3,7 +3,7 @@ name: agent-failure-recovery-testing
 description: Use this skill when you need evidence-bounded failure classification, retry/fallback/escalation, state consistency, user notice, and recovery evidence; triggers include Agent 故障恢复 and Agent failure recovery.
 license: PolyForm-Noncommercial-1.0.0
 metadata:
-  version: "1.0.0"
+  version: "1.1.0"
   compatibility: ""
   author: "Awesome QA Skills contributors"
   language: "en"

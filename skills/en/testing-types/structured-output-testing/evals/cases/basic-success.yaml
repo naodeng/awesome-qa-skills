@@ -1,0 +1,25 @@
+id: basic-success
+title: "Structured Output: separate parse, schema, and semantic checks"
+description: "Checks that the basic path distinguishes parsing, structural constraints, and domain semantics."
+input:
+  prompt: |
+    Use structured-output-testing to analyze order-approval JSON outputs. The contract requires `decision` to be a string with value APPROVE or REJECT, `amount` to be an integer, `reason` to be a string, and no extra fields. Sample A is `{"decision":"APPROVE","amount":20,"reason":"eligible"}`; sample B is `{"decision":"APPROVE","amount":"20","reason":"eligible"}`; sample C is truncated JSON `{"decision":"APPROVE",`. The business oracle only says amount must be 20 and decision should be APPROVE. Give separate parse/schema/semantic checks, expected results, and trace fields.
+expect:
+  must_contain:
+    - "parse_status"
+    - "schema_status"
+    - "semantic_status"
+    - "trace_id"
+    - "amount"
+  must_not_contain:
+    - "TODO"
+    - "all samples passed"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "parse_status"
+          - "schema_status"
+          - "semantic_status"
+          - "trace_id"

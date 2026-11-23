@@ -3,7 +3,7 @@ name: ci-test-optimization
 description: Use this skill when you need evidence-bounded pipeline stages, feedback latency, resources, flakiness, caching/sharding, and rollback boundaries; triggers include CI 测试流水线 and CI test pipeline.
 license: PolyForm-Noncommercial-1.0.0
 metadata:
-  version: "1.0.0"
+  version: "1.1.0"
   compatibility: ""
   author: "Awesome QA Skills contributors"
   language: "zh-CN"

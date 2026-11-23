@@ -1,0 +1,21 @@
+id: domain-ai-evaluation
+title: "AI 评测数据：污染与来源限制"
+description: "检查合成评测集的版本、重复污染、许可与代表性边界。"
+input:
+  prompt: |
+    为客服摘要模型规划评测集：train-v2 与 eval-v1 含两个高度相似的订单退款样本；样本由外部数据生成，但没有来源许可记录；全部样本都是合成数据。请列出阻塞、最小清理步骤和不能据此声称的代表性。
+expect:
+  must_contain:
+    - "污染"
+    - "许可"
+    - "UNKNOWN"
+    - "合成"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "污染"
+          - "许可"
+          - "UNKNOWN"
+          - "合成"

@@ -1,0 +1,46 @@
+id: trajectory-evidence
+title: "agent-memory-testing: Agent memory: write/read isolation trace"
+description: "Checks memory review for provenance, scope, retention, and cross-tenant isolation."
+context:
+  files:
+    "structured-trace.json": |-
+      {
+        "trace_id": "TRACE-AMT-001",
+        "subject": "agent-memory-testing",
+        "run_id": "RUN-AMT-001",
+        "attempted": true,
+        "events": [
+          {
+            "event": "write",
+            "memory_item_id": "MEM-1",
+            "tenant_id": "TENANT-A",
+            "actor": "AGENT-A",
+            "source": "user-confirmed"
+          },
+          {
+            "event": "read",
+            "memory_item_id": "MEM-1",
+            "tenant_id": "TENANT-B",
+            "actor": "AGENT-B"
+          }
+        ],
+        "run_evidence": [
+          "trace://RUN-AMT-001"
+        ]
+      }
+input:
+  prompt: |
+    Use agent-memory-testing to review structured-trace.json. Check source, tenant scope, and writer/reader for each memory_item_id; explicitly flag any cross-tenant read as a risk.
+expect:
+  must_contain:
+    - "TRACE-AMT-001"
+    - "MEM-1"
+    - "TENANT-B"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "TRACE-AMT-001"
+          - "MEM-1"
+          - "TENANT-B"

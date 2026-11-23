@@ -1,0 +1,39 @@
+id: review-missing-evaluation-evidence
+title: "agent-long-running-testing: Long-running Agent: checkpoint and cancellation trace — missing run evidence"
+description: "Checks long-task checkpoint, resume, and cancellation evidence."
+context:
+  files:
+    "structured-trace.json": |-
+      {
+        "trace_id": "TRACE-NORUN-AGENT-LONG-RUNNING-TESTING",
+        "subject": "agent-long-running-testing",
+        "identity": {
+          "model_version": "model-A",
+          "prompt_version": "prompt-1",
+          "dataset_version": "dataset-1"
+        },
+        "run_id": null,
+        "attempted": false,
+        "run_evidence": [],
+        "evaluation_status": "NOT_RUN"
+      }
+input:
+  prompt: |
+    Use agent-long-running-testing to review structured-trace.json. Compare resume position and cancel request by checkpoint_id, and flag a state conflict if a result was committed after cancellation.
+    The trace has no run_id and no raw result. Output exactly these machine-readable lines:
+    evaluation_status: NOT_RUN
+    run_evidence: []
+    domain_conclusion: UNASSESSED
+expect:
+  must_contain:
+    - "evaluation_status: NOT_RUN"
+    - "run_evidence: []"
+    - "domain_conclusion: UNASSESSED"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "evaluation_status: NOT_RUN"
+          - "run_evidence: []"
+          - "domain_conclusion: UNASSESSED"

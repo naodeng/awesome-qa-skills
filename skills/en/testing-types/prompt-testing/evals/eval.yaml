@@ -24,6 +24,7 @@ cases:
     - evals/cases/prompt-regression-scope-boundary.yaml
     - evals/cases/review-paired-parser-semantic.yaml
     - evals/cases/review-changed-model-control.yaml
+    - evals/cases/review-missing-evaluation-evidence.yaml
   defaults:
     timeout_seconds: 180
     max_turns: 8
@@ -32,6 +33,9 @@ cases:
       must_not_contain:
         - "TODO"
         - "I cannot"
+
+benchmark:
+  enabled: true
 
 report:
   formats: [json]

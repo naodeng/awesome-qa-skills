@@ -3,7 +3,7 @@ name: llm-consistency-testing
 description: Use this skill when you need evidence-bounded repeat inputs, version/model/prompt factors, invariants, variance evidence, and comparison boundaries; triggers include LLM 一致性 and LLM consistency.
 license: PolyForm-Noncommercial-1.0.0
 metadata:
-  version: "1.0.0"
+  version: "1.1.0"
   compatibility: ""
   author: "Awesome QA Skills contributors"
   language: "en"
@@ -56,6 +56,12 @@ metadata:
 - Static design, plans, file presence, or a dry run retain their evidence state and cannot become proof of real execution.
 - When evidence is insufficient, use pending confirmation, blocked, unassessed, or NOT_SCORED and give the smallest validation method.
 - For user data, production, or safety work, use least privilege, masked data, mocks, dry runs, or isolation.
+
+## Evaluation Evidence Status
+
+- Include `evaluation_status`: `PASS`, `FAIL`, `BLOCKED`, `NOT_RUN`, or `UNKNOWN` for evaluation conclusions.
+- `PASS` requires in-scope runtime records and evidence for every required assertion. Use `NOT_RUN` when no run results exist, `BLOCKED` when execution was prevented, and `UNKNOWN` when evidence is insufficient. A plan, static check, or file presence alone cannot prove `PASS`.
+- Trace `trace_id`, sample and version identity, parameters, run/trial, parse, schema, semantic status, and evidence reference; decide those checks separately.
 
 ## Delivery Checklist
 

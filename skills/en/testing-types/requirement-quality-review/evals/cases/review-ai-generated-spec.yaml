@@ -1,0 +1,39 @@
+id: review-ai-generated-spec
+title: "AI-generated spec review: trace sources and identify invented criteria"
+description: "Checks generated requirements against source material while preserving run provenance and Human-adoption boundaries."
+context:
+  files:
+    "source-brief.md": |-
+      Buyers may apply existing points to reduce the checkout total. No rules define redemption caps, expiration, regions, account roles, or response time.
+    "generated-requirements.md": |-
+      G-1: Buyers may apply existing points to reduce the checkout total.
+      G-2: At most 70% of an order may be offset.
+      G-3: Points expire 90 days after issue.
+      G-4: The checkout balance must update within 5 minutes.
+      G-5: Administrators may bypass the redemption cap.
+    "spec-generation-trace.json": |-
+      {
+        "run_id": "SPEC-RUN-18",
+        "source": {"tool": "requirements-agent", "model": "assist-v4", "prompt_version": "UNKNOWN"},
+        "input_refs": ["source-brief.md"],
+        "events": [
+          {"step_id": "R1", "type": "task.received", "instruction": "Draft acceptance criteria; suggest plausible defaults where the source is silent"},
+          {"step_id": "R2", "type": "generation", "output_ref": "generated-requirements.md"}
+        ],
+        "human_review": null,
+        "adoption_status": "UNKNOWN"
+      }
+input:
+  prompt: |
+    Use requirement-quality-review for `source-brief.md`, `generated-requirements.md`, and `spec-generation-trace.json`. Map G-1 through G-5 to source and evidence state, identify the highest-impact added rules, and give owners, close conditions, and validation methods. Preserve SPEC-RUN-18/R1/R2; do not present suggested defaults or generated output as product decisions, and do not provide a universal score or Go/No-Go.
+expect:
+  must_contain: ["SPEC-RUN-18", "G-2", "G-3", "G-4", "G-5", "unassessed", "open"]
+  must_not_contain: ["requirements approved", "Go/No-Go"]
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "Recognizes G-1 as directly supported by the source brief and identifies G-2 through G-5 as unsupported because the brief explicitly leaves those rules undefined."
+    - "Treats 70%, 90 days, 5 minutes, and administrator override as unassessed/ambiguous decisions rather than facts or accepted requirements; prioritizes meaningful business/security impact."
+    - "Preserves SPEC-RUN-18, R1, and R2; records model assist-v4, missing prompt version, absent Human review, and unknown adoption status without inferring approval."
+    - "Provides owner questions and close/validation actions, and does not assign a universal score or Go/No-Go."

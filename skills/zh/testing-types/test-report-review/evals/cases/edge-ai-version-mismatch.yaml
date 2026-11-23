@@ -1,0 +1,22 @@
+id: edge-ai-version-mismatch
+title: AI 评测报告与原始运行版本冲突
+description: |
+  报告与同一 run ID 的原始记录在模型、评测集、采样参数和结果上不一致，属于阻塞矛盾。
+
+input:
+  prompt: |
+    使用 test-report-review 评审客服 AI 评测报告 TR-AI-VAL-9 v1.2，候选构建 ai-eval-rc2。报告推荐 pass，声称 AI 评测 96%。报告记录：model_provider=OpenAI、model_version=GPT-QA-2.0、prompt_or_agent_version=support-prompt-v5、eval_dataset_id=support-set、eval_dataset_version=v3、judge_type=LLM、judge_version=judge-v2、run_id=eval-804、sampling_parameters=temperature 0.2/top_p 0.9/seed 4、token_cost=12000 input + 900 output / USD 0.04、evaluator_identity=QA Core、execution_state=PASS。
+
+    原始运行记录 EVAL-804 v1.0 的 run_id 也是 eval-804，但记录 model_version=GPT-QA-1.0、prompt_or_agent_version=support-prompt-v5、eval_dataset_id=support-set、eval_dataset_version=v2、judge_type=LLM、judge_version=judge-v2、sampling_parameters=temperature 0.7/top_p 0.9/seed 4、token 使用为 9000 input + 1000 output，原始结果为 83%。缺陷来源 DEF-AI-VAL-9 v1.0 记录无开放 P0/P1。Human 最终决定尚未作出。
+
+    逐字段核对报告、运行和原始证据。模型/数据集/采样/结果不一致必须作为阻塞矛盾，推荐 reject；列出字段和两边来源版本，不得静默选一方或把报告值与原始值合并。保持 human_final_decision: pending。
+
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "输出 recommendation: reject、evidence_state: evidence_inconsistent 和 human_final_decision: pending；不得批准或报告 AI 评测通过。"
+    - "分别记录 TR-AI-VAL-9 v1.2、EVAL-804 v1.0、DEF-AI-VAL-9 v1.0 的来源版本和 AI 证据字段。"
+    - "明确指出同一 run ID 下模型版本、评测集版本、temperature、token 计数及 96%/83% 结果不一致，并将其定为阻塞矛盾。"
+    - "保留两侧来源，要求权威来源修正或新 run 证据；不静默合并，不虚构已解决的版本或 Human 决定。"
+  pass_threshold: 0.8

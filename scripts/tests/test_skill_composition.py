@@ -21,8 +21,12 @@ EXPECTED_ROUTE_IDS = {
     "pr-quality-review",
     "requirement-to-test",
     "change-to-regression",
+    "bugfix-verification",
+    "ai-eval-gate",
+    "ai-code-verification",
+    "ai-feature-release",
 }
-WORKFLOW_TARGETS = {"pr-quality-review", "requirement-to-test", "change-to-regression"}
+WORKFLOW_TARGETS = {"pr-quality-review", "requirement-to-test", "change-to-regression", "ai-feature-release-workflow"}
 ALLOWED_RELATION_TYPES = {
     "precedes",
     "recommended_with",
@@ -76,6 +80,11 @@ class SkillCompositionContractTest(unittest.TestCase):
                 "pr-quality-review",
                 "requirement-to-test",
                 "change-to-regression",
+                "root-cause-analysis",
+                "quality-gate-design",
+                "llm-evaluation-design",
+                "ai-generated-code-review",
+                "ai-feature-release-workflow",
             },
         )
         for target in targets:
@@ -148,9 +157,9 @@ class SkillCompositionContractTest(unittest.TestCase):
         )
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
         summary = json.loads(result.stdout)
-        self.assertEqual(summary["routes"], 8)
+        self.assertEqual(summary["routes"], 12)
         self.assertGreaterEqual(summary["relations"], 1)
-        self.assertEqual(summary["target_skills"], 13)
+        self.assertEqual(summary["target_skills"], 18)
 
 
 if __name__ == "__main__":

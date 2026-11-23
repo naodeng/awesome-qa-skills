@@ -1,0 +1,23 @@
+id: edge-scope-boundary
+title: "结构化输出：结构通过不能代替语义证据"
+description: "检查只有结构 Schema 而缺少语义 oracle 和运行记录时不会宣称整体质量通过。"
+input:
+  prompt: |
+    使用 structured-output-testing。提供的 Schema 验证只能确认 JSON 字段和类型；没有领域语义 oracle，也没有真实模型运行结果。说明能得出的结论、不能得出的结论、`evaluation_status` 和最小后续验证。
+expect:
+  must_contain:
+    - "Schema"
+    - "semantic"
+    - "不能"
+    - "evaluation_status"
+    - "NOT_RUN"
+  must_not_contain:
+    - "所有测试通过"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "evaluation_status"
+          - "NOT_RUN"
+          - "不能"

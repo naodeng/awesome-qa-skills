@@ -16,6 +16,8 @@ cases:
     - evals/cases/edge-incomplete-input.yaml
     - evals/cases/edge-scope-boundary.yaml
     - evals/cases/domain-method-regression.yaml
+    - evals/cases/review-permission-traces.yaml
+    - evals/cases/review-missing-evidence.yaml
   defaults:
     timeout_seconds: 180
     max_turns: 8
@@ -24,6 +26,9 @@ cases:
       must_not_contain:
         - "TODO"
         - "I cannot"
+
+benchmark:
+  enabled: true
 
 report:
   formats: [json]

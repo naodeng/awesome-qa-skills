@@ -1,0 +1,47 @@
+id: trajectory-evidence
+title: "llm-hallucination-testing: Hallucination testing: claim-to-source trace"
+description: "Checks claim/source attribution and distinguishes supported, unsupported, and unassessed claims."
+context:
+  files:
+    "structured-trace.json": |-
+      {
+        "trace_id": "TRACE-LHT-001",
+        "subject": "llm-hallucination-testing",
+        "run_id": "RUN-LHT-001",
+        "attempted": true,
+        "claims": [
+          {
+            "claim_id": "CL-1",
+            "text": "The account renews on May 1.",
+            "source_id": "SRC-1",
+            "source_excerpt": "Renewal date: May 1.",
+            "relation": "supported"
+          },
+          {
+            "claim_id": "CL-2",
+            "text": "Renewal is automatic.",
+            "source_id": null,
+            "source_excerpt": null,
+            "relation": "unassessed"
+          }
+        ],
+        "run_evidence": [
+          "result://RUN-LHT-001"
+        ]
+      }
+input:
+  prompt: |
+    Use llm-hallucination-testing to review structured-trace.json. Assess each claim against its source excerpt, preserve source_id and run_id, and do not fill missing evidence with facts.
+expect:
+  must_contain:
+    - "TRACE-LHT-001"
+    - "SRC-1"
+    - "CL-2"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "TRACE-LHT-001"
+          - "SRC-1"
+          - "CL-2"

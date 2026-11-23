@@ -22,6 +22,8 @@ Start with an input audit and record known, missing, conflicting, stale, out_of_
 5. Report residual risk, evidence gaps, and next actions without presenting assumptions as facts.
 
 ## Execution Rules
+- Plans, static analysis, and Eval fixtures are not run evidence. When asked to assess real evaluation/execution and the trace lacks a valid run ID and raw result, output `evaluation_status: NOT_RUN`, `run_evidence: []`, and `domain_conclusion: UNASSESSED`; never claim PASS.
+
 
 - Give a source, evidence state, and validation method for every important conclusion.
 - Each scenario must include preconditions, action or stimulus, expected behavior or decision criterion, required evidence, and a stop condition.

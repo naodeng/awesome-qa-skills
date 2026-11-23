@@ -48,6 +48,9 @@ Apply these steps as design or static comparison of supplied material. Keep fixt
 2. Separate valid happy/boundary data from deliberate invalid groups. Name the violated constraint and expected allow/reject outcome while preserving other relationships; invalid rows cannot silently enter valid groups.
 3. Deliver actual sanitized samples with uniqueness, foreign-key, type/range, state, and reproducibility checks. Equal seeds must reproduce data identities, not merely a strategy statement.
 4. Use isolated IDs/namespaces with provenance, privacy restrictions, and reverse dependency cleanup. Missing authority prevents real personal-data collection; synthetic rows do not establish population representativeness.
+5. For AI evaluation datasets, stratify by capability, risk, and failure mode and pin sample/label versions. Record synthetic provenance, license limits, and human labeling responsibility; generated text is not real-user evidence.
+6. Check duplicates, near-duplicates, and answer leakage across training/tuning/prompt examples and evaluation data. Keep entity or time boundaries across splits; incomplete contamination evidence leaves representativeness UNKNOWN.
+7. Check synthetic or masked user content for residual PII, reversibility, and cross-sample linkage. Reject unauthorized real-data collection and version dataset refresh, withdrawal, and deletion.
 
 ## Minimum Coverage Checklist
 
@@ -65,6 +68,7 @@ Unless the user narrows the scope, cover at least:
 - cleanup
 - confirmed facts, working assumptions, and open questions
 - blockers for execution, release, or decision making
+- AI evaluation dataset provenance/license, label version, training leakage, and contamination checks when applicable
 - residual risk and how it will be accepted, mitigated, or investigated
 
 ## Output

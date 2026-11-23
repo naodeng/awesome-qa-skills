@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "skill-security-review"
+interface:
+  display_name: "Skill 安全审查"
+  short_description: "审查 Skill 包的信任边界、工具、脚本、数据处理、依赖和安全证据。"
+  default_prompt: "使用 skill-security-review skill 审查此 Skill 包的安全边界和证据。"
+policy:
+  allow_implicit_invocation: true

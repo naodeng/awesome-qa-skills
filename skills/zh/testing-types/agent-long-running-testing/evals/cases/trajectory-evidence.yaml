@@ -1,0 +1,47 @@
+id: trajectory-evidence
+title: "agent-long-running-testing: 长运行 Agent：检查点与取消轨迹"
+description: "验证长任务检查点、恢复和取消状态可追溯。"
+context:
+  files:
+    "structured-trace.json": |-
+      {
+        "trace_id": "TRACE-ALR-001",
+        "subject": "agent-long-running-testing",
+        "run_id": "RUN-ALR-001",
+        "attempted": true,
+        "events": [
+          {
+            "event": "checkpoint",
+            "checkpoint_id": "CP-7",
+            "step": "S7"
+          },
+          {
+            "event": "cancel_requested",
+            "checkpoint_id": "CP-7"
+          },
+          {
+            "event": "result_committed",
+            "checkpoint_id": "CP-7",
+            "after_cancel": true
+          }
+        ],
+        "run_evidence": [
+          "trace://RUN-ALR-001"
+        ]
+      }
+input:
+  prompt: |
+    请使用 agent-long-running-testing 审阅 structured-trace.json。按 checkpoint_id 对照恢复位置和 cancel 请求，指出取消后仍提交结果的状态冲突。
+expect:
+  must_contain:
+    - "TRACE-ALR-001"
+    - "CP-7"
+    - "cancel"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "TRACE-ALR-001"
+          - "CP-7"
+          - "cancel"

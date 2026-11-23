@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "ai-generated-code-review"
+interface:
+  display_name: "AI-Generated Code Review"
+  short_description: "Review AI/Agent production code for intent, scope, dependencies, tests, and CI evidence."
+  default_prompt: "Use the ai-generated-code-review skill to review this AI-generated production code and its evidence."
+policy:
+  allow_implicit_invocation: true

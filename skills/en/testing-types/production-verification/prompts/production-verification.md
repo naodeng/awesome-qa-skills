@@ -40,6 +40,12 @@ If critical input is absent, list `Working Assumptions` and `Open Questions`, th
 - Reuse the current toolchain and assets; avoid large code samples unless the user requests them.
 - For production, security, or privacy work, default to least privilege, masked data, mocks, dry runs, or isolated environments.
 
+## AI Production Quality (When Applicable)
+
+- Bind the candidate release to model, prompt, dataset, retrieval-index, judge, and evaluation-run identities. Missing version evidence is `UNKNOWN`; use `NOT_RUN` only when a source explicitly confirms no execution.
+- From approved read-only monitoring evidence, assess online evaluation/sampling quality, drift, refusals and guardrail interceptions, user feedback, latency, and token/call cost. Thresholds must come from project SLOs or an approved baseline; never invent them.
+- Separate a one-time launch check from continuous monitoring. A rollout plan names cohort, observation window, metric sources, stop/rollback triggers, Owner, and evidence location. Do not change production traffic, approve release, or present a plan as an observation.
+
 ## Minimum Coverage Checklist
 
 Unless the user narrows the scope, cover at least:
@@ -50,6 +56,7 @@ Unless the user narrows the scope, cover at least:
 - data consistency
 - permissions
 - monitoring
+- online AI evaluation, drift, refusals/guardrails, feedback, latency, and cost when applicable
 - dependencies
 - rollback triggers
 - confirmed facts, working assumptions, and open questions

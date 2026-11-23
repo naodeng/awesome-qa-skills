@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "skill-security-review"
+interface:
+  display_name: "Skill Security Review"
+  short_description: "Review Skill package trust boundaries, tools, scripts, data handling, dependencies, and security evidence."
+  default_prompt: "Use the skill-security-review skill to review this Skill package's security boundaries and evidence."
+policy:
+  allow_implicit_invocation: true

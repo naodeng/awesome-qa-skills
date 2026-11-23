@@ -1,0 +1,21 @@
+id: route-ai-eval-gate
+title: "Explicit request: AI evaluation gate and release evidence"
+description: "Routes an AI feature or model change to evaluation-gate design."
+input:
+  prompt: |
+    Use discover-testing to route an AI model-version change. The team needs a pre-release evaluation gate, release thresholds, sample size, and evidence; dataset and judge details also need an owner. Route only; do not design the evaluation plan.
+expect:
+  must_contain:
+    - "ai-eval-gate"
+    - "quality-gate-design"
+    - "llm-evaluation-design"
+  must_not_contain:
+    - "TODO"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "ai-eval-gate"
+          - "quality-gate-design"
+          - "llm-evaluation-design"

@@ -3,7 +3,7 @@ name: ai-feature-testing
 description: Use this skill when you need to test an AI-enabled product feature for behavior, safety, and user-impact boundaries; triggers include AI 功能测试 and AI feature testing.
 license: PolyForm-Noncommercial-1.0.0
 metadata:
-  version: "1.0.0"
+  version: "1.1.0"
   compatibility: ""
   author: "Awesome QA Skills contributors"
   language: "zh-CN"

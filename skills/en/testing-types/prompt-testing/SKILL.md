@@ -3,7 +3,7 @@ name: prompt-testing
 description: Use this skill when you need to test prompt behavior, regression risk, and output boundaries across versions; triggers include prompt testing and prompt-regression.
 license: PolyForm-Noncommercial-1.0.0
 metadata:
-  version: "1.0.0"
+  version: "1.1.0"
   compatibility: ""
   author: "Awesome QA Skills contributors"
   language: "en"
@@ -52,6 +52,12 @@ metadata:
 - Explain priority using business impact, likelihood, or detectability.
 - In `prompt-regression`, use `PRT-##` finding IDs and distinguish baseline, candidate version, expected behavior, observed behavior, difference, and validation method.
 - Treat version differences as evidence-bounded comparisons; static analysis must not become a claim that a model ran or regression passed.
+
+## Evaluation Evidence Status
+
+- Include `evaluation_status`: `PASS`, `FAIL`, `BLOCKED`, `NOT_RUN`, or `UNKNOWN` for evaluation conclusions.
+- `PASS` requires in-scope runtime records and evidence for every required assertion. Use `NOT_RUN` when no run results exist, `BLOCKED` when execution was prevented, and `UNKNOWN` when evidence is insufficient. A plan, static check, or file presence alone cannot prove `PASS`.
+- Trace `trace_id`, sample and version identity, parameters, run/trial, parse, schema, semantic status, and evidence reference; decide those checks separately.
 
 ## Delivery Checklist
 

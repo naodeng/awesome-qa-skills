@@ -1,0 +1,21 @@
+id: domain-ai-evaluation
+title: "AI evaluation data: contamination and provenance"
+description: "Checks dataset versions, duplicate contamination, license provenance, and representativeness limits."
+input:
+  prompt: |
+    Plan an evaluation set for a support summarization model: train-v2 and eval-v1 contain two near-duplicate refund samples; samples were generated from an external source without a license record; all rows are synthetic. List blockers, smallest remediation, and representativeness claims that remain unsupported.
+expect:
+  must_contain:
+    - "contamination"
+    - "license"
+    - "UNKNOWN"
+    - "synthetic"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "contamination"
+          - "license"
+          - "UNKNOWN"
+          - "synthetic"
