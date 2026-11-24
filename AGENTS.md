@@ -193,6 +193,7 @@ bash scripts/setup-git-hooks.sh
 
 ## Commit & PR instructions
 
+- 开发分支约定：`develop` 是唯一持续开发分支；所有实现提交直接在 `develop` 上完成；不要创建临时 `codex/*` 功能分支或功能 worktree。
 - Commit 遵循 [Conventional Commits](https://www.conventionalcommits.org/)：`feat|fix|docs|refactor(scope): subject`
 - Scope 常用 skill 名或区域，例如：`feat(functional-testing): ...`、`docs(readme): ...`
 - PR 说明应写清：改了哪些 skill / 语言、是否双端同步、质量脚本是否通过。
