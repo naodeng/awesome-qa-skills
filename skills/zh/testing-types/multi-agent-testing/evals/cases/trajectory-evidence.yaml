@@ -1,0 +1,46 @@
+id: trajectory-evidence
+title: "multi-agent-testing: 多 Agent：委派与冲突轨迹"
+description: "验证跨 Agent 轨迹保留父子 run、所有权和冲突结果。"
+context:
+  files:
+    "structured-trace.json": |-
+      {
+        "trace_id": "TRACE-MAT-001",
+        "subject": "multi-agent-testing",
+        "parent_run_id": "RUN-MAT-001",
+        "attempted": true,
+        "agents": [
+          {
+            "agent_id": "AG-1",
+            "run_id": "RUN-MAT-1A",
+            "file": "checkout.py",
+            "change": "A"
+          },
+          {
+            "agent_id": "AG-2",
+            "run_id": "RUN-MAT-1B",
+            "file": "checkout.py",
+            "change": "B"
+          }
+        ],
+        "merge_event": null,
+        "run_evidence": [
+          "trace://RUN-MAT-001"
+        ]
+      }
+input:
+  prompt: |
+    请使用 multi-agent-testing 审阅 structured-trace.json。按 parent_run_id 和 agent_id 归并委派结果，指出同一文件的冲突写入和最终所有权证据。
+expect:
+  must_contain:
+    - "TRACE-MAT-001"
+    - "AG-1"
+    - "AG-2"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "TRACE-MAT-001"
+          - "AG-1"
+          - "AG-2"

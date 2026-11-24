@@ -3,7 +3,7 @@ name: code-review
 description: Use this skill when you need a risk-driven code review of a PR/diff with severity-ranked findings and actionable fixes; triggers include 代码审查, 代码评审, code review, and PR review.
 license: PolyForm-Noncommercial-1.0.0
 metadata:
-  version: "1.0.0"
+  version: "1.1.0"
   compatibility: ""
   author: "Awesome QA Skills contributors"
   language: "zh-CN"
@@ -21,6 +21,7 @@ metadata:
 - 需要审查 PR / Diff / 提交，拦截合入前的逻辑、安全、资损与可维护性风险。
 - 需要按 P0/P1/P2 分级、带定位与可落地修复建议的审查报告。
 - 需要从 QA / 工程质量视角补充开发自审未覆盖的风险点。
+- 需要审查 AI/Agent 参与编写的生产代码、超宽变更、依赖来源、测试改动或 CI 完整性；AI 代码专项可由 `ai-generated-code-review` 补充。
 
 ## 执行流程
 
@@ -41,6 +42,8 @@ metadata:
 - 把「已确认事实」和「当前假设」分开写；不要编造用户未提供的接口、字段、环境或根因。
 - 对事不对人；尊重现有技术栈，未经授权不要求换框架/推翻架构。
 - 结果必须可执行：每条问题有修复方向或修改前后示例。
+- 对 AI/Agent 生成代码按同一证据门槛审查，并检查任务范围、依赖/API 来源、静默兜底和测试/CI 门禁改动；模型或轨迹来源缺失标 `UNKNOWN`，不作为代码缺陷。
+- 执行证据明确未运行才标 `NOT_RUN`；缺少日志或 CI 结果标 `UNKNOWN`；不得把静态审查或 Agent 自述写成真实执行结果。
 
 ## 按需加载
 
@@ -61,6 +64,7 @@ metadata:
 - [ ] 已覆盖最低清单，或标明为何省略
 - [ ] 高风险项有明确 P0/P1 分级与依据
 - [ ] 未编造用户未提供的细节
+- [ ] 若涉及 AI/Agent 生成代码，已检查范围漂移、依赖来源、测试/CI 改动，并按证据区分来源与结果
 - [ ] 假设与信息缺口已标明
 
 ## 常见误区

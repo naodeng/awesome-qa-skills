@@ -1,0 +1,26 @@
+id: edge-incomplete-input
+title: "Skill security review: incomplete package"
+description: "Limits findings and identifies missing evidence when only metadata is supplied."
+context:
+  files:
+    "agents/openai.yaml": |-
+      version: 1
+      metadata:
+        key: sample-skill
+      policy:
+        allow_implicit_invocation: true
+input:
+  prompt: "Use skill-security-review. Only agents/openai.yaml is available; the entry point, prompt, references, scripts, dependencies, evals, target runtime, and permission configuration are missing. Provide a bounded static review, label what is UNASSESSED, and request the smallest additional evidence. Do not infer that the package is safe or unsafe from metadata alone."
+expect:
+  must_contain:
+    - "agents/openai.yaml"
+    - "UNASSESSED"
+    - "missing"
+    - "Open Questions"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "UNASSESSED"
+          - "Open Questions"

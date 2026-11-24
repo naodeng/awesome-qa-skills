@@ -21,7 +21,9 @@
       "evals/cases/missing-skill.yaml",
       "evals/cases/prompt-injection.yaml",
       "evals/cases/stale-checkpoint.yaml",
-      "evals/cases/comparison-pr-quality-review.yaml"
+      "evals/cases/comparison-pr-quality-review.yaml",
+      "evals/cases/review-ai-agent-pr.yaml",
+      "evals/cases/edge-ai-evidence-boundary.yaml"
     ],
     "defaults": {
       "timeout_seconds": 180,
@@ -40,5 +42,8 @@
     "formats": [
       "json"
     ]
+  },
+  "benchmark": {
+    "enabled": true
   }
 }

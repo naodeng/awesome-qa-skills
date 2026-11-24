@@ -3,7 +3,7 @@ name: ai-safety-testing
 description: Use this skill when you need evidence-bounded safety policy, abuse categories, refusal/redirect behavior, privacy, escalation, and Human risk decisions; triggers include AI 安全 and AI safety.
 license: PolyForm-Noncommercial-1.0.0
 metadata:
-  version: "1.0.0"
+  version: "1.0.2"
   compatibility: ""
   author: "Awesome QA Skills contributors"
   language: "en"
@@ -50,6 +50,8 @@ metadata:
 4. Labels retain policy source, sample version, expected and actual branches. Missing execution outputs remain NOT_RUN; unknown policy boundaries remain UNKNOWN.
 
 ## Core Constraints
+
+- Set authorized scope, policy categories, stop/escalation conditions, and harmful/benign pairs before red teaming; assess safety failures and over-refusal separately, and do not call “no failure found” a pass.
 
 - Keep the analysis focused on safety policy, abuse categories, refusal/redirect behavior, privacy, escalation, and Human risk decisions; do not replace business owners or Human risk acceptance, exception approval, or safety decisions.
 - Never invent system behavior, fields, model outputs, data, thresholds, root causes, execution records, or pass claims.

@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "ai-feature-release-workflow"
+interface:
+  display_name: "AI Feature Release Workflow"
+  short_description: "Connect AI eval evidence, release gates, staged rollout, monitoring, and rollback."
+  default_prompt: "Use the ai-feature-release-workflow skill to plan an evidence-backed AI feature release."
+policy:
+  allow_implicit_invocation: true

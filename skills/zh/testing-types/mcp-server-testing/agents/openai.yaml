@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "mcp-server-testing"
+interface:
+  display_name: "MCP 服务端测试"
+  short_description: "规划有版本依据的 MCP 服务端协议、工具、传输、授权与副作用安全测试。"
+  default_prompt: "使用 mcp-server-testing skill 为该 MCP 服务端及其声明的协议修订版设计有证据边界的测试。"
+policy:
+  allow_implicit_invocation: true

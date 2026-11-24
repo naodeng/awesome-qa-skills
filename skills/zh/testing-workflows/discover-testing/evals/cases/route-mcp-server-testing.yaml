@@ -1,0 +1,19 @@
+id: route-mcp-server-testing
+title: "路由 MCP 协议兼容与安全测试"
+description: "选择协议级 MCP 测试，不误路由到相邻的 Agent 工具使用 Skill。"
+input:
+  prompt: |
+    请用 discover-testing 测一个 MCP server 的 2025/2026 协议代际协商、stdio 与 Streamable HTTP 行为、OAuth issuer/resource 校验、工具 schema 和恶意工具描述投毒。只做路由，不执行测试。
+expect:
+  must_contain:
+    - "mcp-server-testing"
+    - "MCP"
+  must_not_contain:
+    - "GAP"
+    - "TODO"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "mcp-server-testing"

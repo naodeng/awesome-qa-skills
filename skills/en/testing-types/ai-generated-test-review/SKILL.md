@@ -3,7 +3,7 @@ name: ai-generated-test-review
 description: Use this skill when reviewing AI-generated unit, functional, API, or end-to-end tests for false confidence, weak assertions, missing risks, or unsafe test behavior; triggers include AI-generated test review and functional test review.
 license: PolyForm-Noncommercial-1.0.0
 metadata:
-  version: "1.0.0"
+  version: "1.1.0"
   compatibility: ""
   author: "Awesome QA Skills contributors"
   language: "en"
@@ -23,7 +23,7 @@ Determine whether AI-generated tests prove real behavior instead of merely raisi
 
 ## Workflow
 
-1. Inventory test types and files actually present in scope: unit, functional test, API, E2E, or a combination. Review only discovered or user-specified types.
+1. Inventory test types and files actually present in scope: unit, functional test, API, E2E, or a combination. Review only discovered or user-specified types. If no reviewable test code/assertion is supplied, mark the behavior review `BLOCKED` and request the specific file or content.
 2. Establish the behavior, risk, and available requirement or implementation evidence. Mark missing evidence; do not invent findings.
 3. Read `prompts/review-test.md` and report actionable findings by severity, tied to a test, risk, and repair direction.
 4. Load rules only for discovered layers: unit, functional test, API, or E2E. Load more than one only for cross-layer concerns; do not perform a global review just because multiple rule files exist.
@@ -39,6 +39,7 @@ Determine whether AI-generated tests prove real behavior instead of merely raisi
 ## Core Constraints
 
 - Judge observable behavior, failure signals, and risk coverage—not line coverage, test names, or mock-call counts alone.
+- Keep review status, test-execution status, and result evidence separate: explicit non-execution is `NOT_RUN`; absent run logs/CI results are `UNKNOWN`; a behavior review with no reviewable test artifact is `BLOCKED`.
 - When a broken implementation could still pass, state the smallest break and the assertion needed to catch it.
 - Never recommend deleting assertions, swallowing errors, loosening timeouts, or changing production behavior merely to obtain green tests.
 - Do not expose credentials, personal data, or production write operations in tests, logs, or examples.

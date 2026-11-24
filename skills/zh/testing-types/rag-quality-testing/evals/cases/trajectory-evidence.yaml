@@ -1,0 +1,52 @@
+id: trajectory-evidence
+title: "rag-quality-testing: RAG 质量：引用与答案轨迹"
+description: "验证答案主张可追溯到检索片段，并识别无支持断言。"
+context:
+  files:
+    "structured-trace.json": |-
+      {
+        "trace_id": "TRACE-RAGQ-001",
+        "subject": "rag-quality-testing",
+        "run_id": "RUN-RAGQ-001",
+        "attempted": true,
+        "retrieved": [
+          {
+            "chunk_id": "CH-1",
+            "text": "Refunds are available within 30 days.",
+            "rank": 1
+          }
+        ],
+        "claims": [
+          {
+            "claim_id": "CL-1",
+            "text": "Refunds are available within 30 days.",
+            "citations": [
+              "CH-1"
+            ]
+          },
+          {
+            "claim_id": "CL-2",
+            "text": "Refunds are always instant.",
+            "citations": []
+          }
+        ],
+        "run_evidence": [
+          "result://RUN-RAGQ-001"
+        ]
+      }
+input:
+  prompt: |
+    请使用 rag-quality-testing 审阅 structured-trace.json。按 claim 检查 grounding、引用和完整性，保留 chunk_id；不要把检索到相关文档当成答案已被支持。
+expect:
+  must_contain:
+    - "TRACE-RAGQ-001"
+    - "CH-1"
+    - "CL-2"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "TRACE-RAGQ-001"
+          - "CH-1"
+          - "CL-2"

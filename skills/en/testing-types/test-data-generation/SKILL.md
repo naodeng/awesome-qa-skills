@@ -3,7 +3,7 @@ name: test-data-generation
 description: Use this skill when you need to design safe, representative test data from stated constraints; triggers include test data generation.
 license: PolyForm-Noncommercial-1.0.0
 metadata:
-  version: "1.0.0"
+  version: "1.1.0"
   compatibility: ""
   author: "Awesome QA Skills contributors"
   language: "en"

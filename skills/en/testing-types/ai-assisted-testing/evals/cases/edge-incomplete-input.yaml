@@ -1,12 +1,12 @@
 id: edge-incomplete-input
 title: "AI-assisted: draft split when goals are vague"
 description: |
-  Vague scope still gets a draft split with limits and assumptions.
+  Vague scope gets a constrained draft with missing provenance, model version, baseline, and run state explicit.
 
 input:
   prompt: |
     Use ai-assisted-testing. Teammate says 'let AI do all the testing' with no module or quality bar.
-    Give a usable first split, and list limits, assumptions, and must-confirm items.
+    Give a usable first split, and list limits, assumptions, and must-confirm items. Do not invent a source snapshot, model version, reviewer, manual baseline, or run evidence; use UNKNOWN, DRAFT, NOT_RUN, or UNSUPPORTED as applicable.
 
 expect:
   must_contain:
@@ -23,3 +23,5 @@ judge:
         all:
           - "human"
           - "assumption"
+          - "UNKNOWN"
+          - "DRAFT"

@@ -1,0 +1,22 @@
+id: edge-incomplete-ai-code-evidence
+title: "AI 代码证据不完整仍只做路由"
+description: "缺少 diff 和运行证据时把缺口交给目标 Skill，不报告通过。"
+input:
+  prompt: |
+    请用 discover-testing 路由。Agent 称完成了支付重试变更并询问能否安全合并，但没有提供 diff、需求、测试报告、依赖锁文件或 CI run。只做路由，并为目标 Skill 索取最少必要证据。不得推断代码正确或声称已验证。
+expect:
+  must_contain:
+    - "ai-code-verification"
+    - "ai-generated-code-review"
+    - "verification_state: NOT_RUN"
+  must_not_contain:
+    - "verification_state: PASS"
+    - "可以安全合并"
+    - "TODO"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "verification_state: NOT_RUN"
+          - "ai-generated-code-review"

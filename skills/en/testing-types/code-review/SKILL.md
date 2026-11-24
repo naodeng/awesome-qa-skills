@@ -3,7 +3,7 @@ name: code-review
 description: Use this skill when you need a risk-driven code review of a PR/diff with severity-ranked findings and actionable fixes; triggers include code review, PR review,.
 license: PolyForm-Noncommercial-1.0.0
 metadata:
-  version: "1.0.0"
+  version: "1.1.0"
   compatibility: ""
   author: "Awesome QA Skills contributors"
   language: "en"
@@ -21,6 +21,7 @@ metadata:
 - Need to review a PR / diff / commit and catch logic, security, financial-loss, or maintainability risks before merge.
 - Need a P0/P1/P2-ranked report with locations and actionable fix guidance.
 - Need a QA / engineering-quality lens beyond author self-review.
+- Need to review AI/Agent-assisted production code, broad diffs, dependency provenance, test edits, or CI integrity; `ai-generated-code-review` can add a focused AI-code review.
 
 ## Workflow
 
@@ -41,6 +42,8 @@ metadata:
 - Separate confirmed facts from assumptions; do not invent endpoints, fields, environments, or root causes the user did not provide.
 - Critique the code, not the author; respect the current stack — do not demand framework/architecture rewrites without authorization.
 - Keep output executable: every finding needs a fix direction or before/after example.
+- Apply the same evidence gates to AI/Agent-generated code and check task scope, dependency/API sources, silent fallbacks, and test/CI gate changes; mark absent model or trace provenance `UNKNOWN`, not as a code defect.
+- Use `NOT_RUN` only for explicit non-execution and `UNKNOWN` when logs or CI results are missing; do not present static review or Agent self-report as real execution evidence.
 
 ## Progressive Disclosure
 
@@ -61,6 +64,7 @@ metadata:
 - [ ] Covered the minimum checklist, or explained omissions
 - [ ] High-risk items have explicit P0/P1 severity with rationale
 - [ ] Did not invent details the user did not provide
+- [ ] For AI/Agent-generated code, checked scope drift, dependency sources, and test/CI changes while separating provenance from results
 - [ ] Assumptions and gaps are marked
 
 ## Common Pitfalls

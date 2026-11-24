@@ -34,8 +34,9 @@ metadata:
 - `name` uses lowercase letters, digits, and hyphens and matches the directory and `agents/openai.yaml` key.
 - `description` uses `Use this skill when...`, states what and when, includes trigger phrases, and stays below 1024 characters.
 - `license` is the Skill's SPDX identifier; the repository default is `PolyForm-Noncommercial-1.0.0`. `metadata.license-url` links to its terms so a separately copied Skill can still find them. Preserve and verify separate license declarations for examples.
-- `metadata.version` is an independent semantic version, starting at `1.0.0` for new Skills. For existing Skills, `1.0.0` is the baseline when metadata was introduced, not a claim about their first historical release or the repository release version.
-- When releasing a Skill change, increment the major version for incompatible contract changes, minor for backward-compatible enhancements, and patch for backward-compatible fixes. Chinese and English are independent packages: version each according to its actual changes and check whether the counterpart needs an update.
+- `metadata.version` is an independent semantic version. Every new Skill must start at `1.0.0`. For existing Skills, `1.0.0` is the baseline when metadata was introduced, not a claim about their first historical release or the repository release version.
+- **Every Skill package change must increment its version and include an update note.** This applies to `SKILL.md`, Prompts, references, examples, scripts, Evals/fixtures, metadata, and package READMEs. Eval-, fixture-, or documentation-only changes still require at least a patch increment. Use a major increment for incompatible contract changes, minor for backward-compatible capability additions, and patch for compatible fixes.
+- For every new or modified Skill, record the initial version or update in the bilingual [Skill version history](../docs/governance/SKILL_VERSION_HISTORY_EN.md) / [Chinese version history](../docs/governance/SKILL_VERSION_HISTORY.md), including canonical name, previous/current version, and a concise change summary. Chinese and English are independent installable packages; bilingual changes should increment both together and keep the notes aligned.
 - `metadata.compatibility` is a string; use `""` when no compatibility information has been declared. It is custom metadata and does not prove compatibility testing. For specific environment requirements, use the Agent Skills specification's separate top-level `compatibility` field.
 - `metadata.author` credits the project contributors collectively; `source` points to the source repository; `language` matches the language directory (`zh-CN` or `en`); and `category` matches the physical category directory. These are repository-specific string metadata and clients may ignore them.
 - Add top-level `compatibility` only for actual environment requirements. Do not add dates or pre-approved tool permissions merely to fill fields; `allowed-tools` is experimental and should be used only when explicitly needed and applicable.
@@ -94,6 +95,12 @@ bash scripts/run_skill_eval.sh skills/en/testing-types/functional-testing/evals/
 ```
 
 Always write raw eval artifacts outside the Skill package, under `.skill-up-workspaces/<skill>-workspace/`, and do not commit those raw runs. When a delivery or governance record explicitly requires it, curated and sanitized evidence with source, time, version, and input-fingerprint provenance may be committed under `docs/governance/eval-runs/`; do not copy raw workspace output there wholesale.
+
+## AI Skill Effect and Bilingual Comparisons
+
+To claim that a Skill improves outcomes, run a no-skill baseline and a Skill-enabled candidate on the same task, equivalent input, data/fixture, engine, exact model version, and sampling parameters. Record model/prompt/dataset versions, run IDs, sample counts, result references, cost, and execution state for both groups. Compare only against the project's behavioral oracle; output length or heading matches are not quality evidence.
+
+To assess Chinese/English Skill parity, run the corresponding language Skill on semantically equivalent inputs for the same evaluation target. Compare required behavior, risk boundaries, evidence states, and failure classes; outputs need not be word-for-word identical. If the baseline or either language lacks actual run evidence, mark the comparison `NOT_RUN`/`UNKNOWN` and make no benefit or parity claim. YAML validation, static checks, and fixture presence establish structure only, not behavior.
 
 ## Distribution Compatibility
 

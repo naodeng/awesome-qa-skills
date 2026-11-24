@@ -1,0 +1,21 @@
+id: domain-ai-lifecycle
+title: "AI production verification: versions, online signals, and rollback"
+description: "Checks version binding, online drift/refusal/cost signals, and rollback evidence."
+input:
+  prompt: |
+    A canary candidate is bound to model-v3 and prompt-v8, but dataset/judge versions and the eval run ID are missing. Read-only monitoring shows refusal rate above the approved baseline, one day of token-cost data is missing, and no rollback Owner is named. State statuses, gate gaps, and the smallest escalation/rollback plan without accessing or changing production.
+expect:
+  must_contain:
+    - "UNKNOWN"
+    - "refusal"
+    - "cost"
+    - "rollback"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "UNKNOWN"
+          - "refusal"
+          - "cost"
+          - "rollback"

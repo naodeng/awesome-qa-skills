@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "mcp-server-testing"
+interface:
+  display_name: "MCP Server Testing"
+  short_description: "Plan versioned MCP server protocol, tool, transport, authorization, and safe side-effect tests."
+  default_prompt: "Use the mcp-server-testing skill to design evidence-bounded tests for this MCP server and its declared protocol revision."
+policy:
+  allow_implicit_invocation: true

@@ -4,11 +4,11 @@ description: "校验逐项领域决策，保留合法对照与未知证据，不
 input:
   prompt: |
     请使用 ai-assisted-testing 分析以下脱敏静态 fixture，仅分析提供材料，不执行外部动作。按主提示词提供领域步骤、可观察预期、来源、缺口和最小验证。
-    追加一个逐项判定表，固定表头为 `ID | DECISION | 依据`；每项独占一行，DECISION 格只写一个提供的枚举值，不列备选。FAIL/PASS 等仅表示 fixture 静态比对，不能说已经执行真实测试。
+    追加一个逐项判定表，表头固定为 `ID | DECISION | Evidence`，结果只允许 AIA-01 ACCEPTED、AIA-02 DRAFT、AIA-03 UNSUPPORTED。review_decision 仍遵循 ACCEPTED/DRAFT/REJECTED；执行状态与复核决定分开记录。
 
-    相同 10 个结账用例：人工基线 60 分钟。AI 生成 10、复核 25、返工 35、验收 10 分钟。I-1：输入已脱敏，draft D1 的断言经 QA R1 核对，采纳 V2 实际执行且验收 10/10。I-2：D2 未经人工复核却标已采纳。I-3：团队以生成 10 分钟宣称总耗时下降。判断 I-1/I-2 用 ACCEPTED/DRAFT，I-3 用 UNSUPPORTED/SUPPORTED，给总工时及来源链。
+    相同范围和复杂度的 10 个结账用例：人工基线 60 分钟。AI 生成 10、复核 25、返工 35、验收 10 分钟。输入已脱敏；D1 的断言经 QA R1 复核并采纳为 V2，run R7 原始证据显示 10/10 通过；复核发现一项断言假绿并返工。D2 未经复核。无 token 计数或计费记录。判断三项来源链和人工门禁。
 
-    只输出一个决策表，每个fixture ID恰好一行、三列且依据非空；不要重复或输出未知ID。计算表同样每键一行、单位/依据非空。
+    决策表每个fixture ID恰好一行、三列且 Evidence 非空；不要重复或输出未知ID。追加 `METRIC | VALUE | Evidence` 表，恰好包含 human_baseline_minutes=60、generate_minutes=10、review_minutes=25、rework_minutes=35、acceptance_minutes=10、total_minutes=80、token_cost=UNSUPPORTED、defects_found=1、rework_count=1、false_green_count=1。每行证据非空，数值不得编造。
 expect:
   exit_code: 0
 judge:

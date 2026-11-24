@@ -1,0 +1,23 @@
+id: route-ai-feature-release
+title: "路由 AI 特性的完整发布生命周期"
+description: "将从评测到灰度的 AI 特性发布协调交给专用 Workflow。"
+input:
+  prompt: |
+    请用 discover-testing 路由一个客服模型变更：需要数据集/judge 评测、发布门禁、5% 影子/灰度、线上质量与成本监控和回滚。只做路由，不设计评测，也不执行灰度。
+expect:
+  must_contain:
+    - "ai-feature-release"
+    - "ai-feature-release-workflow"
+    - "evaluation_gate_status: NOT_RUN"
+    - "rollout_status: NOT_RUN"
+  must_not_contain:
+    - "TODO"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "ai-feature-release"
+          - "ai-feature-release-workflow"
+          - "evaluation_gate_status: NOT_RUN"
+          - "rollout_status: NOT_RUN"

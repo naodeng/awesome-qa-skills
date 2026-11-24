@@ -17,6 +17,8 @@ cases:
     - evals/cases/edge-scope-boundary.yaml
     - evals/cases/review-complete-requirement-control.yaml
     - evals/cases/review-located-high-risk-gap.yaml
+    - evals/cases/review-ai-generated-spec.yaml
+    - evals/cases/edge-ai-evidence-boundary.yaml
   defaults:
     timeout_seconds: 180
     max_turns: 8
@@ -28,3 +30,5 @@ cases:
 
 report:
   formats: [json]
+benchmark:
+  enabled: true

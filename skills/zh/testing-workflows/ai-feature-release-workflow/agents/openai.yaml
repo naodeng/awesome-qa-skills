@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "ai-feature-release-workflow"
+interface:
+  display_name: "AI 特性发布工作流"
+  short_description: "串联 AI 评测证据、发布门禁、灰度、监控和回滚。"
+  default_prompt: "Use the ai-feature-release-workflow skill to plan an evidence-backed AI feature release."
+policy:
+  allow_implicit_invocation: true

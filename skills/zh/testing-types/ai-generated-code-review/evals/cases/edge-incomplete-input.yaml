@@ -1,0 +1,20 @@
+id: edge-incomplete-input
+title: AI 生成代码评审：只有片段时阻塞正式结论
+input:
+  prompt: |
+    使用 ai-generated-code-review。有人贴出代码片段：
+    ```python
+    def retry_charge(order):
+        return provider.charge(order.total)
+    ```
+    没有仓库、PR、提交或分支身份，也没有完整 Diff 或该函数的上下文。模型版本、测试和 CI 结果均未提供。请判断能否正式评审，并明确缺什么。
+expect:
+  must_contain: ["BLOCKED", "missing_code_identity", "missing_reviewable_change", "UNKNOWN"]
+  must_not_contain: ["P0", "建议合并"]
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "Returns BLOCKED because the repository/code identity and reviewable change are both absent, distinguishing missing_code_identity from missing_reviewable_change."
+    - "Requests a stable code identity and a complete accessible diff/context, and does not issue formal severity findings or a merge recommendation from the snippet."
+    - "Marks model, test, or CI evidence as UNKNOWN; does not say tests were not run unless explicitly established."

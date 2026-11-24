@@ -1,0 +1,30 @@
+id: review-ai-eval-gate-blocking
+title: "Block an AI evaluation gate when CI is green but evidence is weak"
+description: "Check sample, judge, cost, and flake requirements before deciding the gate."
+context:
+  files:
+    "ai-gate.json": |-
+      {
+        "dataset_id": "DS-AI-3", "dataset_version": "7", "model_version": "M4", "prompt_version": "P2", "judge_version": "J9", "run_id": "RUN-44",
+        "policy": {"minimum_samples": 30, "max_cost_usd": 20, "max_flake_rate": 0.05},
+        "run": {"sample_count": 18, "cost_usd": 22, "flake_rate": 0.08, "judge_calibrated": false},
+        "ci_job": "green"
+      }
+input:
+  prompt: "Use quality-gate-design to decide the AI evaluation gate from ai-gate.json. List evidence sources and versions, each unmet threshold, the owner/minimal evidence action; do not let green CI override insufficient samples, an uncalibrated judge, or overruns."
+expect:
+  must_contain: ["BLOCKED", "DS-AI-3", "RUN-44", "M4", "J9"]
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  context:
+    profile: minimal
+    final_message: include
+    transcript: omit
+    workspace_diff: include
+    generated_files: include
+  criteria:
+    - "Blocks the gate because the run has 18/30 samples, cost 22/20 USD, flake 0.08/0.05, and an uncalibrated judge."
+    - "Preserves dataset/model/prompt/judge/run provenance and separates quality, flake, and cost failures."
+    - "Does not claim PASS or release approval based on the green CI job; gives a minimal evidence-remediation action and Human decision boundary."
+  pass_threshold: 1.0

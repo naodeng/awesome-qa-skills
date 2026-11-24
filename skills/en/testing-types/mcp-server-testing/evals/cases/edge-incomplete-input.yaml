@@ -1,0 +1,19 @@
+id: edge-incomplete-input
+title: "MCP server: bounded first pass with missing contract details"
+description: "Keeps protocol version, transport, and feature assumptions explicit when the server contract is absent."
+input:
+  prompt: "Use mcp-server-testing. The only information is: test our MCP server. No protocol revision, transports, capabilities, tool/resource contracts, authorization model, environment, or runtime evidence is supplied. Give a bounded discovery checklist and candidate test areas; separate assumptions from facts, ask focused open questions, and do not claim tests ran."
+expect:
+  must_contain:
+    - "Working Assumptions"
+    - "Open Questions"
+    - "protocol revision"
+    - "NOT_RUN"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Working Assumptions"
+          - "Open Questions"
+          - "NOT_RUN"

@@ -1,0 +1,30 @@
+id: edge-cost-claim
+title: 缺少人工基线时提效结论应为 UNSUPPORTED
+description: |
+  仅有 AI 生成时间，缺人工基线、复核、返工、验收和 token 费用，不得声称提效。
+
+input:
+  prompt: |
+    使用 ai-assisted-testing。AI 生成用例花了 10 分钟，负责人据此说节省 50% 成本。没有相同范围的人工基线，也没有复核、返工、验收用时或 token 记录。
+    给出成本字段和结论；把无法支持的提效声明标为 UNSUPPORTED，列出最小补充数据。不要用零替代未知，也不要推算 token 费用。
+
+expect:
+  must_contain:
+    - "UNSUPPORTED"
+    - "human_baseline_minutes"
+    - "review_minutes"
+    - "token_cost"
+    - "productivity_claim_status: UNSUPPORTED"
+  must_not_contain:
+    - "TODO"
+    - "我无法"
+    - "productivity_claim_status: SUPPORTED"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "generate_minutes"
+          - "acceptance_minutes"
+          - "productivity_claim_status: UNSUPPORTED"

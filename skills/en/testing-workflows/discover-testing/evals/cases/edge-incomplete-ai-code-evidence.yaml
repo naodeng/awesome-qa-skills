@@ -1,0 +1,22 @@
+id: edge-incomplete-ai-code-evidence
+title: "Incomplete AI code diff still routes without claiming verification"
+description: "Missing diff and run evidence are handed off as gaps; the router does not report a pass."
+input:
+  prompt: |
+    Use discover-testing. An Agent says it implemented a payment retry change and asks whether the code is safe to merge, but provides no diff, requirements, test report, dependency lockfile, or CI run. Route the request only and ask for the minimum evidence needed by the target Skill. Do not infer correctness or claim verification.
+expect:
+  must_contain:
+    - "ai-code-verification"
+    - "ai-generated-code-review"
+    - "verification_state: NOT_RUN"
+  must_not_contain:
+    - "verification_state: PASS"
+    - "safe to merge"
+    - "TODO"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "verification_state: NOT_RUN"
+          - "ai-generated-code-review"

@@ -20,8 +20,9 @@ Produce a risk-driven, evidence-based, actionable code review report for this PR
 1. Check the independent code-identity and reviewable-change gates first; if either is missing, stop the formal review and return a blocked result.
 2. Once both gates pass, understand the business goal and change focus; separate new logic from edits to existing paths.
 3. Scan for logic defects, concurrency/consistency, financial-loss/security, API compatibility, and testability/maintainability.
-4. Rank findings as P0/P1/P2 and provide actionable fix guidance.
-5. Return a structured review that supports merge decisions and follow-up.
+4. When the supplied material identifies AI/Agent generation or includes a generation trace, also check task scope, dependency/API sources, silent fallbacks, weakened tests/CI configuration, and untrusted PR content entering scripts/tools.
+5. Rank findings as P0/P1/P2 and provide actionable fix guidance.
+6. Return a structured review that supports merge decisions and follow-up.
 
 ## Execution Rules
 
@@ -29,6 +30,8 @@ Produce a risk-driven, evidence-based, actionable code review report for this PR
 - **Two code gates**: identifiable code version and reviewable changes must both exist. With only a diff/code snippet, use `missing_code_identity`; with only repository/PR/commit/branch identity, use `missing_reviewable_change`; when neither exists, list both. Any missing gate prevents formal finding severity and merge conclusions.
 - **Blocking is not a speculative first review**: a blocked result records supplied material, the missing gate, why evidence is insufficient, and the exact material required. Do not turn role opinions or verbal descriptions into confirmed code defects, test conclusions, or P0/P1/P2 findings.
 - **Optional role input**: role reports are not prerequisites and cannot replace either code gate. Use a Product report only for relevant business rules, state flows, or acceptance semantics. Use a UI/UX report only for relevant UI states, interaction feedback, responsive behavior, or accessibility. Retain `source_role` whenever citing role content and keep it separate from code facts.
+- **AI/Agent change signals**: only source/tool/trace details explicitly supplied are provenance evidence; mark missing model, prompt, run, or Human review fields `UNKNOWN`. Check unrelated scope expansion, unverified packages/APIs, swallowed errors/success defaults, duplicate generated code, deleted/weakened tests, disabled required CI jobs, and PR/issue text crossing into a shell or Agent tool. An unfamiliar dependency alone does not prove it is fabricated; cite verifiable evidence or leave it open.
+- **Execution status boundary**: use `NOT_RUN` for explicit non-execution, `UNKNOWN` when test/CI results are absent, and `BLOCKED` only when code identity or reviewable changes are missing. Agent self-reports, static analysis, and claimed green CI are not independent execution evidence.
 - **Evidence-based**: prefer path, line, or snippet with trigger path, repro conditions, and worst-case impact; if you cannot locate precisely, mark the information gap.
 - **Strict severity**:
   - **P0**: block merge (financial loss, severe security, reproducible deadlock/OOM, main-path breakage, etc.)
@@ -51,6 +54,7 @@ Unless the user explicitly narrows the scope, make sure the result addresses the
 - financial-loss and security (including sensitive data leakage)
 - API / contract compatibility and upstream/downstream impact (when relevant)
 - testability and observability gaps
+- AI/Agent provenance and tool trace, when supplied, plus test/CI gate integrity and status evidence
 - high-value maintainability / performance items only
 - P0 / P1 / P2 lists (write “None” if empty)
 - recommended fix order

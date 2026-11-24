@@ -1,0 +1,47 @@
+id: trajectory-evidence
+title: "agent-failure-recovery-testing: Agent failure recovery: retry and side-effect trace"
+description: "Checks recovery analysis for failure, retry, idempotency, and duplicate side effects."
+context:
+  files:
+    "structured-trace.json": |-
+      {
+        "trace_id": "TRACE-AFR-001",
+        "subject": "agent-failure-recovery-testing",
+        "run_id": "RUN-AFR-001",
+        "attempted": true,
+        "attempts": [
+          {
+            "attempt": 1,
+            "tool": "payment_submit",
+            "idempotency_key": "K-1",
+            "side_effect": "accepted",
+            "response": "timeout"
+          },
+          {
+            "attempt": 2,
+            "tool": "payment_submit",
+            "idempotency_key": "K-2",
+            "side_effect": "accepted",
+            "response": "success"
+          }
+        ],
+        "run_evidence": [
+          "trace://RUN-AFR-001"
+        ]
+      }
+input:
+  prompt: |
+    Use agent-failure-recovery-testing to review structured-trace.json. Determine whether retry followed a side effect, whether idempotency_key stayed stable, and separate observed evidence from recovery advice.
+expect:
+  must_contain:
+    - "TRACE-AFR-001"
+    - "K-1"
+    - "K-2"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "TRACE-AFR-001"
+          - "K-1"
+          - "K-2"

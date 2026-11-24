@@ -1,0 +1,39 @@
+id: review-missing-evaluation-evidence
+title: "multi-agent-testing: Multi-agent: delegation and conflict trace — missing run evidence"
+description: "Checks multi-agent traces for parent/child runs, ownership, and conflict outcomes."
+context:
+  files:
+    "structured-trace.json": |-
+      {
+        "trace_id": "TRACE-NORUN-MULTI-AGENT-TESTING",
+        "subject": "multi-agent-testing",
+        "identity": {
+          "model_version": "model-A",
+          "prompt_version": "prompt-1",
+          "dataset_version": "dataset-1"
+        },
+        "run_id": null,
+        "attempted": false,
+        "run_evidence": [],
+        "evaluation_status": "NOT_RUN"
+      }
+input:
+  prompt: |
+    Use multi-agent-testing to review structured-trace.json. Join delegation results by parent_run_id and agent_id, and identify conflicting writes to the same file plus evidence of final ownership.
+    The trace has no run_id and no raw result. Output exactly these machine-readable lines:
+    evaluation_status: NOT_RUN
+    run_evidence: []
+    domain_conclusion: UNASSESSED
+expect:
+  must_contain:
+    - "evaluation_status: NOT_RUN"
+    - "run_evidence: []"
+    - "domain_conclusion: UNASSESSED"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "evaluation_status: NOT_RUN"
+          - "run_evidence: []"
+          - "domain_conclusion: UNASSESSED"

@@ -40,6 +40,20 @@ Apply these steps as design or static comparison of supplied material. Keep fixt
 3. Record exceptions separately with scope, authorizer, reason, approval, expiry, compensating controls and revocation. Invalid exceptions do not override or rewrite failures.
 4. State triggers, owners, revalidation and stop/rollback conditions. Separate design, evidence comparison and pipeline implementation; missing policy needs Human resolution.
 
+## Evaluation Evidence Status and Structured Traces
+
+For evaluation, regression, or result review, include an `evaluation_status` field with one of `PASS`, `FAIL`, `BLOCKED`, `NOT_RUN`, or `UNKNOWN` for each conclusion. `PASS` requires traceable runtime records and evidence that every required assertion in scope passed. Use `NOT_RUN` when no run result is supplied, `BLOCKED` when an attempted run was prevented by the environment or permissions, and `UNKNOWN` when evidence cannot support a decision. A design, static check, or file presence alone cannot support `PASS`. Keep this evidence status separate from any domain gate or per-sample decision.
+
+A structured trace records at least `trace_id`, input/sample ID, model/prompt/dataset/schema versions, result-affecting parameters, run/trial ID, parse status, schema status, semantic status, and evidence reference. Check JSON parsing, schema constraints, and domain semantics independently: a parse success does not prove schema or semantic success. Retain a redacted output or reviewable hash, repetition count, and denominator; missing evidence never becomes a pass.
+
+## AI Evaluation Gate Mode
+
+For an AI evaluation gate, bind each required check to `dataset_id/version`, model/prompt/judge versions, `run_id`, data provenance, and evidence references. From the project contract, record minimum sample/confidence requirements, quality thresholds, flake budget, and cost budget. Thresholds need an owner and source; the Skill must not invent business gates.
+
+- Recommend PASS only when every required evaluation has a fresh, traceable run, approved sample requirements are met, and each required assertion has evidence.
+- Missing run/version/provenance, insufficient samples, an uncalibrated judge, or `NOT_RUN`/`UNKNOWN` results must keep the gate BLOCKED/UNKNOWN; never turn a static plan, partial sample, or average score into green.
+- Report quality failures, variance/flake, cost overrun, and production guardrail state separately. Exceptions require Human approval, scope, expiry, and compensating controls.
+
 ## Minimum Coverage Checklist
 
 - gate objective, entry criteria, evidence source, owner role, exception and rollback

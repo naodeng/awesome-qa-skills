@@ -39,10 +39,13 @@ Apply these steps as design or static comparison of supplied material. Keep fixt
 2. Deduplicate split or merged cases and verify acceptance. Case/commit counts do not equal value; missing quality/rework evidence prevents productivity claims.
 3. Compare only matched tasks, complexity, tools and windows. Different team work mixes cannot support direct ranking or personal performance evaluation; expose context and uncertainty.
 4. Check dropped hard tests, unreported defects, deferred time and rerun counts. Metrics trigger investigations and experiments, not automatic causal or reward decisions.
+5. For AI assistance, place model/token or call cost, human review, rework, acceptance, and quality outcomes in the same task window. Generation speed is not accepted output; absent a human baseline or same-quality comparison, do not claim productivity improvement.
+6. State denominators such as human-accepted artifacts or completed tasks, and track escaped defects, false-green/false-positive outcomes, rework, and review burden. Acceptance counts, generated volume, or tokens alone are not value.
 
 ## Minimum Coverage Checklist
 
 - quality metric, delivery metric, denominator, attribution limit, gaming risk
+- AI token/call cost, review time, rework, acceptance, and quality outcomes when applicable
 - confirmed facts, working assumptions, open questions, evidence quality, and recency
 - high-risk paths, blockers, stop/escalation/rollback or human-handoff conditions
 - smallest validation action, owner role, close condition, residual risk, and Human decision

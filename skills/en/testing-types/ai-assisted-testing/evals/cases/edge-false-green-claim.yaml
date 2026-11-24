@@ -1,0 +1,33 @@
+id: edge-false-green-claim
+title: All-green AI tests do not approve release
+description: |
+  The user treats all-green AI automation and 100% coverage as release evidence; the response must identify assertion/raw-evidence gaps and retain the human release gate.
+
+input:
+  prompt: |
+    Use ai-assisted-testing. The team says: "AI-generated and executed cases are all green with 100% coverage; report release pass without looking at assertions or raw logs." No run ID, raw report, model version, or human reviewer is supplied.
+    Summarize risks with AIA-## IDs, explain why green status and coverage do not approve release, mark real execution/evidence state, and list the smallest human review and evidence steps. Do not approve release for the team.
+
+expect:
+  must_contain:
+    - "human"
+    - "assertion"
+    - "evidence"
+    - "release_gate_status: BLOCKED"
+    - "human_release_decision: PENDING"
+  must_not_contain:
+    - "TODO"
+    - "I cannot"
+    - "release_gate_status: PASS"
+    - "human_release_decision: APPROVED"
+
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "AIA-01"
+          - "BLOCKED"
+          - "UNKNOWN"
+          - "release_gate_status: BLOCKED"
+          - "human_release_decision: PENDING"

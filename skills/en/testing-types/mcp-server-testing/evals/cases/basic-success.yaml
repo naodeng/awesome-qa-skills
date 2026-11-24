@@ -1,0 +1,48 @@
+id: basic-success
+title: "MCP server: versioned protocol test plan"
+description: "Builds a prioritized test matrix from a versioned server contract and isolated tool behavior."
+context:
+  files:
+    "server-contract.json": |-
+      {
+        "target_revision": "2026-07-28",
+        "transports": ["stdio", "Streamable HTTP"],
+        "capabilities": ["tools"],
+        "tools": [
+          {
+            "name": "refund_order",
+            "inputSchema": {"type":"object","required":["order_id","amount_cents","idempotency_key"],"properties":{"order_id":{"type":"string"},"amount_cents":{"type":"integer","minimum":1},"idempotency_key":{"type":"string"}},"additionalProperties":false},
+            "effects": "one refund ledger entry in the isolated sandbox; replay with the same idempotency key creates no second entry"
+          }
+        ],
+        "constraints": {"production_calls": false, "test_order": "O-TEST", "human_approval_required": true}
+      }
+input:
+  prompt: "Use mcp-server-testing. Read server-contract.json and the version-pinned reference. Produce a prioritized test matrix for protocol discovery, tools/list and schema validation, authorized and denied tools/call behavior, idempotent retry, and both transports. Include setup, request or action, expected oracle, evidence to capture, and stop conditions. This is a plan only; do not invoke the tool or claim runtime results."
+expect:
+  must_contain:
+    - "2026-07-28"
+    - "server/discover"
+    - "tools/list"
+    - "tools/call"
+    - "resultType"
+    - "stdio"
+    - "Streamable HTTP"
+    - "POST"
+    - "stdout"
+    - "evidence"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "2026-07-28"
+          - "server/discover"
+          - "tools/list"
+          - "tools/call"
+          - "resultType"
+          - "stdio"
+          - "Streamable HTTP"
+          - "POST"
+          - "stdout"
+          - "evidence"

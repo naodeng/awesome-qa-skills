@@ -1,0 +1,21 @@
+id: domain-ai-evaluation
+title: "AI eval CI: shards, cache, and retry cost"
+description: "Checks that evaluation pipelines preserve case identity, cache validity, first failures, and cumulative cost."
+input:
+  prompt: |
+    An AI eval has two stable case IDs. shard-1 times out on its first attempt and passes on retry; shard-2 uses dataset-v2 while its cache key still says dataset-v1. Logs show three model calls and 18,200 cumulative tokens. Decide whether this can be green and list the smallest fixes.
+expect:
+  must_contain:
+    - "shard"
+    - "cache"
+    - "retry"
+    - "18,200"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "shard"
+          - "cache"
+          - "retry"
+          - "18,200"

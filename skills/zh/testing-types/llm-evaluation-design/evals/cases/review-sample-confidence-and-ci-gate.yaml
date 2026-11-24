@@ -1,0 +1,30 @@
+id: review-sample-confidence-and-ci-gate
+title: "样本量、置信要求与 CI 评测门禁"
+description: "数据集存在泄漏且样本不足时阻断 CI 绿灯。"
+context:
+  files:
+    "evaluation-manifest.json": |-
+      {
+        "dataset": {"id": "DS-7", "version": "3", "train_source_family": ["account"], "test_source_family": ["account", "billing"]},
+        "policy": {"minimum_samples": 100, "confidence_level": 0.95, "max_cost_usd": 20, "max_flake_rate": 0.05},
+        "run": {"run_id": "RUN-18", "model_version": "model-4", "prompt_version": "P2", "judge_version": "J1", "judge_calibrated": false, "sample_count": 18, "reported_cost_usd": 4.2, "flake_rate": 0.01},
+        "ci_status": "green"
+      }
+input:
+  prompt: "使用 llm-evaluation-design 审查 evaluation-manifest.json。输出数据卫生/泄漏风险、样本量与置信要求、judge 校准和 CI 门槛建议；只能使用给定阈值，不要把 CI green 当成评测通过。"
+expect:
+  must_contain: ["DS-7", "RUN-18", "BLOCKED", "J1"]
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  context:
+    profile: minimal
+    final_message: include
+    transcript: omit
+    workspace_diff: include
+    generated_files: include
+  criteria:
+    - "Identifies source-family leakage between train and test, and requires a clean held-out split or excludes contaminated samples from held-out claims."
+    - "Marks the proposed gate BLOCKED/UNKNOWN because 18 is below the supplied 100-sample minimum and judge J1 is not calibrated, despite green CI."
+    - "Preserves dataset/model/prompt/judge/run provenance and does not invent a confidence interval or claim a real evaluation passed."
+  pass_threshold: 1.0

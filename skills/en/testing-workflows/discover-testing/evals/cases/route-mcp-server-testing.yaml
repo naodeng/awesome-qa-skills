@@ -1,0 +1,19 @@
+id: route-mcp-server-testing
+title: "Route MCP protocol compatibility and security testing"
+description: "Selects protocol-level MCP testing rather than the adjacent Agent tool-use Skill."
+input:
+  prompt: |
+    Use discover-testing to test an MCP server's 2025/2026 protocol-era negotiation, stdio and Streamable HTTP behavior, OAuth issuer/resource checks, tool schema, and poisoned tool descriptions. Route only; do not execute tests.
+expect:
+  must_contain:
+    - "mcp-server-testing"
+    - "MCP"
+  must_not_contain:
+    - "GAP"
+    - "TODO"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "mcp-server-testing"

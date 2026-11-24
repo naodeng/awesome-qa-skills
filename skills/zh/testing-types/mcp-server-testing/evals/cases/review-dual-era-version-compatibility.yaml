@@ -1,0 +1,30 @@
+id: review-dual-era-version-compatibility
+title: "按声明版本分开设计 MCP 双代兼容测试"
+description: "检查旧握手代与 2026 无状态代的版本边界，不把一种行为套到另一代。"
+context:
+  files:
+    "compatibility-contract.json": |-
+      {
+        "product_claims": ["2025-11-25", "2026-07-28"],
+        "transports": ["stdio", "Streamable HTTP"],
+        "authorized_actions": ["offline test design only"],
+        "release_decision": "not requested"
+      }
+input:
+  prompt: "使用 mcp-server-testing 为 compatibility-contract.json 设计双代测试矩阵。分别查阅每个版本的官方规范，按版本核对生命周期/发现、传输、能力与授权，列出证据字段和停止条件。不要运行测试，也不要把某一代行为套用到另一代。"
+expect:
+  must_contain: ["2025-11-25", "2026-07-28", "2025", "2026", "NOT_RUN"]
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  context:
+    profile: minimal
+    final_message: include
+    transcript: omit
+    workspace_diff: include
+    generated_files: include
+  criteria:
+    - "Keeps the two declared protocol revisions in separate rows/cases and binds each expected lifecycle to the matching official revision."
+    - "Does not assume compatibility beyond the product claim; covers both declared transports and records authorization/evidence requirements without asserting they ran."
+    - "Marks execution NOT_RUN and does not conflate a planned compatibility matrix with conformance."
+  pass_threshold: 1.0

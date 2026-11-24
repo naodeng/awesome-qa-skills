@@ -1,0 +1,19 @@
+id: review-ai-evidence-missing-version
+title: AI evaluation report lacks model version and run ID
+description: |
+  When an AI-effect claim lacks model version, run identifier, and raw execution evidence, keep the claim unknown and unrun.
+
+input:
+  prompt: |
+    Write a test report for a customer-support answer evaluation. A summary claims "the new model improved results from 82% to 94%." Supplied data: model_provider=OpenAI, prompt_or_agent_version=support-prompt-v4, eval_dataset_id=support-set, eval_dataset_version=v3, judge_type=LLM, sampling_parameters=temperature 0.2. model_version, judge_version, run_id, raw case results, and execution logs are missing; token_cost and evaluator_identity are also missing.
+    Use test-reporting to produce the complete report and AI evidence fields. Do not treat the summary as verified fact. Without model_version or run_id the AI-effect conclusion must be UNKNOWN; without traceable execution evidence, execution_state is only BLOCKED or NOT_RUN. Do not report pass.
+
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "Lists model_provider, model_version, prompt_or_agent_version, eval_dataset_id, eval_dataset_version, judge_type, judge_version, run_id, sampling_parameters, token_cost, evaluator_identity, and execution_state; missing values are UNKNOWN or not supplied, with no invented versions or fees."
+    - "Treats the 82%-to-94% statement as an unverified input claim; the AI-effect conclusion is UNKNOWN without model_version/run_id."
+    - "Without traceable execution evidence, execution_state is only BLOCKED or NOT_RUN; the report does not claim a pass or proven improvement."
+    - "Still produces a complete report of scope, risks, missing evidence, and next steps; gaps are not turned into zero defects or zero cost."
+  pass_threshold: 0.8

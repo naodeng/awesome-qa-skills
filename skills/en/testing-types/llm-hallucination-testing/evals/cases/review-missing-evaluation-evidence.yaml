@@ -1,0 +1,39 @@
+id: review-missing-evaluation-evidence
+title: "llm-hallucination-testing: Hallucination testing: claim-to-source trace — missing run evidence"
+description: "Checks claim/source attribution and distinguishes supported, unsupported, and unassessed claims."
+context:
+  files:
+    "structured-trace.json": |-
+      {
+        "trace_id": "TRACE-NORUN-LLM-HALLUCINATION-TESTING",
+        "subject": "llm-hallucination-testing",
+        "identity": {
+          "model_version": "model-A",
+          "prompt_version": "prompt-1",
+          "dataset_version": "dataset-1"
+        },
+        "run_id": null,
+        "attempted": false,
+        "run_evidence": [],
+        "evaluation_status": "NOT_RUN"
+      }
+input:
+  prompt: |
+    Use llm-hallucination-testing to review structured-trace.json. Assess each claim against its source excerpt, preserve source_id and run_id, and do not fill missing evidence with facts.
+    The trace has no run_id and no raw result. Output exactly these machine-readable lines:
+    evaluation_status: NOT_RUN
+    run_evidence: []
+    domain_conclusion: UNASSESSED
+expect:
+  must_contain:
+    - "evaluation_status: NOT_RUN"
+    - "run_evidence: []"
+    - "domain_conclusion: UNASSESSED"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "evaluation_status: NOT_RUN"
+          - "run_evidence: []"
+          - "domain_conclusion: UNASSESSED"

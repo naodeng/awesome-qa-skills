@@ -1,0 +1,39 @@
+id: review-ai-generated-spec
+title: AI 生成需求评审：追溯来源并识别臆造的验收规则
+description: "按源材料逐条核对生成需求，保留 run/provenance 与人工采纳边界。"
+context:
+  files:
+    "source-brief.md": |-
+      买家可以在结账时使用已有积分抵扣订单金额。积分上限、有效期、适用地区、账号角色和响应时限均未定义。
+    "generated-requirements.md": |-
+      G-1: 买家可以在结账时使用已有积分抵扣订单金额。
+      G-2: 每笔订单最多抵扣 70%。
+      G-3: 积分自发放后 90 天过期。
+      G-4: 结账余额必须在 5 分钟内更新。
+      G-5: 管理员可以绕过抵扣上限。
+    "spec-generation-trace.json": |-
+      {
+        "run_id": "SPEC-RUN-18",
+        "source": {"tool": "requirements-agent", "model": "assist-v4", "prompt_version": "UNKNOWN"},
+        "input_refs": ["source-brief.md"],
+        "events": [
+          {"step_id": "R1", "type": "task.received", "instruction": "Draft acceptance criteria; suggest plausible defaults where the source is silent"},
+          {"step_id": "R2", "type": "generation", "output_ref": "generated-requirements.md"}
+        ],
+        "human_review": null,
+        "adoption_status": "UNKNOWN"
+      }
+input:
+  prompt: |
+    使用 requirement-quality-review 评审 `source-brief.md`、`generated-requirements.md` 和 `spec-generation-trace.json`。逐条映射 G-1 至 G-5 的来源与证据状态，识别影响最大的新增规则，并给出负责人、关闭问题和验证方法。保留 SPEC-RUN-18 / R1 / R2；不要把建议默认值或生成结果写成产品决定，不输出统一数值分或 Go/No-Go。
+expect:
+  must_contain: ["SPEC-RUN-18", "G-2", "G-3", "G-4", "G-5", "unassessed", "待确认"]
+  must_not_contain: ["需求已批准", "Go/No-Go"]
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "Recognizes G-1 as directly supported by the source brief while identifying G-2 through G-5 as unsupported because the brief explicitly leaves those rules undefined."
+    - "Treats 70%, 90 days, 5 minutes, and administrator override as unassessed/ambiguous decisions rather than facts or accepted requirements; prioritizes meaningful business/security impact."
+    - "Preserves SPEC-RUN-18, R1, and R2; records model assist-v4, missing prompt version, absent Human review, and unknown adoption status without inferring approval."
+    - "Provides owner questions and close/validation actions, and does not assign a universal score or Go/No-Go."

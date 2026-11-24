@@ -21,6 +21,8 @@ cases:
     - evals/cases/edge-risk-priority.yaml
     - evals/cases/review-contamination-and-calibration.yaml
     - evals/cases/review-disjoint-design-control.yaml
+    - evals/cases/review-missing-evaluation-evidence.yaml
+    - evals/cases/review-sample-confidence-and-ci-gate.yaml
   defaults:
     timeout_seconds: 180
     max_turns: 8
@@ -29,6 +31,9 @@ cases:
       must_not_contain:
         - "TODO"
         - "I cannot"
+
+benchmark:
+  enabled: true
 
 report:
   formats: [json]

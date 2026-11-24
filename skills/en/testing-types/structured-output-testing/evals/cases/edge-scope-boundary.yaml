@@ -1,0 +1,23 @@
+id: edge-scope-boundary
+title: "Structured Output: structural success is not semantic evidence"
+description: "Checks that schema-only evidence without a semantic oracle or runtime output does not become an overall pass claim."
+input:
+  prompt: |
+    Use structured-output-testing. The supplied schema check can confirm JSON fields and types only; no domain semantic oracle or real model run result is available. State what can and cannot be concluded, give `evaluation_status`, and propose the smallest follow-up validation.
+expect:
+  must_contain:
+    - "schema"
+    - "semantic"
+    - "cannot"
+    - "evaluation_status"
+    - "NOT_RUN"
+  must_not_contain:
+    - "all tests passed"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "evaluation_status"
+          - "NOT_RUN"
+          - "cannot"

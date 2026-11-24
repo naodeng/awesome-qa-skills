@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "snapshot_date": "2026-11-13",
+  "snapshot_date": "2026-11-23",
   "source_revision": "UNCOMMITTED_WORKTREE",
   "source": "awesome-qa-skills canonical catalog; snapshot of the working tree; update when names change",
   "installation_evidence": "UNKNOWN",
@@ -66,9 +66,21 @@
       "availability": "UNKNOWN"
     },
     {
+      "name": "ai-feature-release-workflow",
+      "category": "testing-workflows",
+      "capability": "AI Feature Release Workflow",
+      "availability": "UNKNOWN"
+    },
+    {
       "name": "ai-feature-testing",
       "category": "testing-types",
       "capability": "AI 功能测试",
+      "availability": "UNKNOWN"
+    },
+    {
+      "name": "ai-generated-code-review",
+      "category": "testing-types",
+      "capability": "AI-Generated Code Review",
       "availability": "UNKNOWN"
     },
     {
@@ -387,6 +399,12 @@
       "name": "manual-testing",
       "category": "testing-types",
       "capability": "手动/探索性测试（中文版）",
+      "availability": "UNKNOWN"
+    },
+    {
+      "name": "mcp-server-testing",
+      "category": "testing-types",
+      "capability": "MCP Server Testing",
       "availability": "UNKNOWN"
     },
     {
@@ -792,6 +810,12 @@
       "availability": "UNKNOWN"
     },
     {
+      "name": "skill-security-review",
+      "category": "skill-engineering",
+      "capability": "Skill Supply-Chain Security Review",
+      "availability": "UNKNOWN"
+    },
+    {
       "name": "sprint-testing-workflow",
       "category": "testing-workflows",
       "capability": "迭代测试工作流程（中文版）",
@@ -801,6 +825,12 @@
       "name": "state-transition-testing",
       "category": "testing-types",
       "capability": "状态迁移测试设计",
+      "availability": "UNKNOWN"
+    },
+    {
+      "name": "structured-output-testing",
+      "category": "testing-types",
+      "capability": "Structured Output Testing",
       "availability": "UNKNOWN"
     },
     {

@@ -1,0 +1,30 @@
+id: review-stratified-sampling-cost-budget
+title: "Stratify LLM samples and check the cost budget"
+description: "Identify inadequate convenience sampling, budget overrun, and missing latency evidence."
+context:
+  files:
+    "sample-run.json": |-
+      {
+        "population": {"high_risk": 120, "routine": 880},
+        "sample_plan": {"target_total": 40, "strata": ["risk", "language"], "repetitions": 3},
+        "observed": {"high_risk": 5, "routine": 3, "total": 8, "run_id": "RUN-LLM-9", "model": "model-4", "prompt": "P3", "input_tokens": 9000, "output_tokens": 3000, "reported_cost_usd": 0.24, "budget_usd": 0.20, "latency_percentiles": null},
+        "selection": "first eight available samples"
+      }
+input:
+  prompt: "Use llm-testing to review sample-run.json. Report observed sample coverage/denominator and cost state, propose follow-up sampling stratified by risk and language, and state what latency conclusion is supported. Do not call a model."
+expect:
+  must_contain: ["RUN-LLM-9", "8", "40", "0.24", "NOT_RUN"]
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  context:
+    profile: minimal
+    final_message: include
+    transcript: omit
+    workspace_diff: include
+    generated_files: include
+  criteria:
+    - "States that 8 observed convenience samples do not meet the target of 40 and are not representative of the stated population/strata."
+    - "Reports the supplied cost as over the 0.20 USD budget and does not replace missing latency evidence with zero or a PASS."
+    - "Proposes stratified, repeated follow-up sampling with fixed model/prompt/run provenance and marks unrun latency/evaluation work NOT_RUN."
+  pass_threshold: 1.0

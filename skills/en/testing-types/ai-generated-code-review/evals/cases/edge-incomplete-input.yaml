@@ -1,0 +1,20 @@
+id: edge-incomplete-input
+title: "AI-generated code review: block a formal conclusion from a snippet"
+input:
+  prompt: |
+    Use ai-generated-code-review. Someone pasted this snippet:
+    ```python
+    def retry_charge(order):
+        return provider.charge(order.total)
+    ```
+    There is no repository, PR, commit, or branch identity, and no complete diff or function context. Model version, test results, and CI results are also absent. Decide whether a formal review can proceed and state what is missing.
+expect:
+  must_contain: ["BLOCKED", "missing_code_identity", "missing_reviewable_change", "UNKNOWN"]
+  must_not_contain: ["P0", "recommend merge"]
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "Returns BLOCKED because repository/code identity and reviewable changes are both absent, distinguishing missing_code_identity from missing_reviewable_change."
+    - "Requests stable code identity and a complete accessible diff/context, and issues no formal severity finding or merge recommendation from the snippet."
+    - "Marks model, test, or CI evidence UNKNOWN; does not say tests were not run unless explicitly established."

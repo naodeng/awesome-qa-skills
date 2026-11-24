@@ -40,6 +40,20 @@ Apply these steps as design or static comparison of supplied material. Keep fixt
 3. Report repeated-trial denominators, structural/semantic failure counts, and intermittent failures per sample. Variance needs a named numeric variable, unit, and formula; wording difference rates are not quality variance.
 4. Single observations establish no repeated consistency. Missing rubrics leave semantic consistency UNKNOWN. Separate parameter/version groups rather than pooling them as stability evidence.
 
+## Evaluation Evidence Status and Structured Traces
+
+For evaluation, regression, or result review, include an `evaluation_status` field with one of `PASS`, `FAIL`, `BLOCKED`, `NOT_RUN`, or `UNKNOWN` for each conclusion. `PASS` requires traceable runtime records and evidence that every required assertion in scope passed. Use `NOT_RUN` when no run result is supplied, `BLOCKED` when an attempted run was prevented by the environment or permissions, and `UNKNOWN` when evidence cannot support a decision. A design, static check, or file presence alone cannot support `PASS`. Keep this evidence status separate from any domain gate or per-sample decision.
+
+A structured trace records at least `trace_id`, input/sample ID, model/prompt/dataset/schema versions, result-affecting parameters, run/trial ID, parse status, schema status, semantic status, and evidence reference. Check JSON parsing, schema constraints, and domain semantics independently: a parse success does not prove schema or semantic success. Retain a redacted output or reviewable hash, repetition count, and denominator; missing evidence never becomes a pass.
+
+## Model/Provider Migration Mode
+
+For a model, provider, or version migration, bind the old baseline and new candidate to one migration evaluation. Use the same task/dataset version, prompt, tools, parameters, and stratified sampling; record exact model versions, run IDs, failure cases, and cost/latency for both sides.
+
+- Record the source and deadline for old-model deprecation, migration owner, dual-run window, rollback point, and re-baseline approver. A production switch is not migration evidence.
+- Use project-supplied quality/capability, refusal/safety, latency, and cost thresholds. Compare outputs and statistical uncertainty by task stratum. Missing candidate runs or pricing keeps that dimension `NOT_RUN`/`UNKNOWN`.
+- Mark migration `PASS` only when both sides have complete evidence and all required gates pass. An expired baseline, incomparable tasks, or missing run ID on either side blocks the conclusion.
+
 ## Minimum Coverage Checklist
 
 - repeat input, version factor, model factor, invariant, variance evidence

@@ -44,6 +44,12 @@ T-14 and other dates are compressible examples. For a hotfix, preserve impact as
 3. **Ops gate**: rollback drill or usable rollback steps; monitoring/alerts ready (per team reality).
 4. **Decision gate**: Go/No-Go has an evidence pack (result summary, defects, residual risks, conditions).
 
+### AI Feature Gate Handoff (When Applicable)
+
+- Hand off the AI feature lifecycle from evaluation through rollout, online observation, and rollback to `ai-feature-release-workflow`; this workflow retains the general release calendar and approval boundary.
+- Bind gate evidence to model/prompt/dataset/judge versions, evaluation run IDs, coverage, outcomes, and cost. Missing required evidence is `BLOCKED` or `UNKNOWN`; use `NOT_RUN` only when evidence explicitly confirms no execution.
+- A canary/shadow plan names cohort, observation window, sourced thresholds, stop/rollback conditions, monitoring Owner, and human approver. Do not present unsourced thresholds or unauthorized production actions as confirmed.
+
 Go-with-conditions must state: the conditions, who accepts them, and whether failure implies automatic No-Go.
 
 ## Handoff to type skills
@@ -56,6 +62,7 @@ Go-with-conditions must state: the conditions, who accepts them, and whether fai
 | Specialty | `performance-testing` (or `performance-test-k6` / `gatling`), `security-testing`, `accessibility-testing` | **one specialty primary per handoff** |
 | RC | `manual-testing`, `functional-testing`, `bug-reporting` | final regression and defects |
 | Go/No-Go & retro | `test-reporting` | decision pack and post-release retro |
+| AI feature evaluation gate and online lifecycle | `ai-feature-release-workflow` | versioned evaluation evidence, canary/shadow, online signals, stop and rollback plan; does not replace human approval |
 
 State: stage → `<skill-name>` → must-carry (version, scope, gate status, known defects). No relative-path links to other skill files.
 

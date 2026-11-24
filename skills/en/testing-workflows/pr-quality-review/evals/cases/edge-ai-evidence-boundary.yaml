@@ -1,0 +1,21 @@
+{
+  "id": "edge-ai-evidence-boundary",
+  "title": "AI PR review: separate NOT_RUN from UNKNOWN",
+  "description": "Checks status boundaries when a PR is reviewable but test/CI and generation evidence are incomplete.",
+  "input": {
+    "prompt": "Use pr-quality-review for a static review of repo-a PR #431, base 4c29a13, head 887a20f. Diff: `retry(capture, key=order.id)` changes to `retry(capture, key=uuid4())`. The lead explicitly confirms tests were not run; no CI result, log, or platform status is supplied. AI/Agent source, model version, and trace are also missing. State boundaries explicitly with `test_status`, `ci_status`, and `provenance_status`; continue the static review, and do not approve merge or claim tests passed."
+  },
+  "expect": {
+    "must_contain": ["NOT_RUN", "UNKNOWN", "test", "CI", "provenance"],
+    "must_not_contain": ["tests passed", "approved for merge"]
+  },
+  "judge": {
+    "type": "agent_judge",
+    "model": "openai/gpt-5",
+    "criteria": [
+      "Continues a bounded static PR review because PR identity and diff are available; missing execution evidence alone is not BLOCKED.",
+      "Marks test_status NOT_RUN because non-execution is explicit, ci_status UNKNOWN because no CI result is supplied, and provenance_status UNKNOWN because generation details are absent.",
+      "Does not infer AI authorship, claim tests passed, or approve merge; preserves separation between review findings and execution evidence."
+    ]
+  }
+}

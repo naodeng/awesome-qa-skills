@@ -40,6 +40,19 @@ If critical input is absent, list `Working Assumptions` and `Open Questions`, th
 - Reuse the current toolchain and assets; avoid large code samples unless the user requests them.
 - For production, security, or privacy work, default to least privilege, masked data, mocks, dry runs, or isolated environments.
 
+## Evaluation Evidence Status and Structured Traces
+
+For evaluation, regression, or result review, include an `evaluation_status` field with one of `PASS`, `FAIL`, `BLOCKED`, `NOT_RUN`, or `UNKNOWN` for each conclusion. `PASS` requires traceable runtime records and evidence that every required assertion in scope passed. Use `NOT_RUN` when no run result is supplied, `BLOCKED` when an attempted run was prevented by the environment or permissions, and `UNKNOWN` when evidence cannot support a decision. A design, static check, or file presence alone cannot support `PASS`. Keep this evidence status separate from any domain gate or per-sample decision.
+
+A structured trace records at least `trace_id`, input/sample ID, model/prompt/dataset/schema versions, result-affecting parameters, run/trial ID, parse status, schema status, semantic status, and evidence reference. Check JSON parsing, schema constraints, and domain semantics independently: a parse success does not prove schema or semantic success. Retain a redacted output or reviewable hash, repetition count, and denominator; missing evidence never becomes a pass.
+
+## Dataset Hygiene, Statistics, and CI Handoff
+
+- Record sample provenance, licensing/PII constraints, deduplication rules, labeling ownership, and dataset version. Check near-duplicates, source/task-family leakage across train/dev/test splits, and contamination from model exposure. Split by source, time, or task family; exclude contaminated samples from held-out claims.
+- Determine sample size from task risk, target error, and available data. State the sampling frame, strata, repetitions, statistical unit, confidence-interval method, and uncertainty. If inputs are missing, list unresolved parameters; do not invent thresholds or claim representativeness.
+- Calibrate a judge version and rubric against human anchors; check agreement, disagreements, and position/length/identity bias. Record the audit plan, adjudication owner, and recalibration conditions after version changes.
+- Bind CI thresholds to dataset, model, prompt, judge versions, and run ID. Record minimum sample/confidence requirements, regression thresholds, flake budget, and cost budget. Missing required runs, sample size, or valid judge evidence means BLOCKED/UNKNOWN, never a green gate.
+
 ## Minimum Coverage Checklist
 
 Unless the user narrows the scope, cover at least:

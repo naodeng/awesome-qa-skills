@@ -1,0 +1,22 @@
+id: route-ai-code-verification
+title: "Route review of Agent-written production code"
+description: "Selects the AI-specific implementation review without claiming that the code was inspected."
+input:
+  prompt: |
+    Use discover-testing to route review of an Agent-written cache implementation. The diff and acceptance criteria are available; all tests pass, but the implementation uses a fixed nonce and installs an unpinned package in CI. We need scope/evidence review, dependency/API reality, test effectiveness, and CI integrity. Route only; do not inspect files or claim the implementation has been reviewed.
+expect:
+  must_contain:
+    - "ai-code-verification"
+    - "ai-generated-code-review"
+    - "verification_state: NOT_RUN"
+  must_not_contain:
+    - "verification_state: PASS"
+    - "TODO"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "ai-code-verification"
+          - "ai-generated-code-review"
+          - "verification_state: NOT_RUN"

@@ -3,7 +3,7 @@ name: ai-agent-testing
 description: Use this skill when you need to test AI agent goals, state, planning, recovery, and safety boundaries; triggers include AI Agent 测试 and ai agent testing.
 license: PolyForm-Noncommercial-1.0.0
 metadata:
-  version: "1.0.0"
+  version: "1.1.1"
   compatibility: ""
   author: "Awesome QA Skills contributors"
   language: "zh-CN"
@@ -49,6 +49,8 @@ metadata:
 3. 终止分类至少区分成功、目标失败、预算耗尽、取消、安全阻断和环境错误；没有终止事件不能推断已完成。
 4. 记录模型/Prompt/工具/数据/环境版本、样本选择与项目指定重复次数。报告每样本成功/失败数和偶发失败；没有重复试验仅报告单次，不能证明稳定性。
 ## 核心约束
+
+- 评估 Skill 效果时使用同任务 no-skill baseline；中英文比较需有语义等价输入和两侧运行证据，缺任一侧不得声称增益或等效。
 
 - 同时评价最终结果和过程轨迹
 - 将随机性纳入重复试验

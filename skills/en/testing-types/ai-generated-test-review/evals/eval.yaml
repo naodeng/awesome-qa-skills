@@ -15,5 +15,9 @@ cases:
     - evals/cases/fake-mocked-subject.yaml
     - evals/cases/functional-route.yaml
     - evals/cases/domain-method-regression.yaml
+    - evals/cases/trajectory-evidence.yaml
+    - evals/cases/edge-evidence-boundary.yaml
 report:
   formats: [json]
+benchmark:
+  enabled: true

@@ -9,10 +9,10 @@
 ![Awesome QA Skills 社交媒体预览图](social-preview.jpg)
 
 [![License: PolyForm Noncommercial 1.0.0](https://img.shields.io/badge/License-PolyForm%20Noncommercial%201.0.0-blue.svg)](./LICENSE)
-[![Skills](https://img.shields.io/badge/skills-342%20(zh%2Ben)-0A7EA4)](./docs/catalog/skills-index.md)
-[![Workflows](https://img.shields.io/badge/workflows-14-informational)](./skills/zh/testing-workflows/)
-[![Testing types](https://img.shields.io/badge/testing%20types-152-informational)](./skills/zh/testing-types/)
-[![Skill engineering](https://img.shields.io/badge/skill%20engineering-5-informational)](./skills/zh/skill-engineering/)
+[![Skills](https://img.shields.io/badge/skills-352%20(zh%2Ben)-0A7EA4)](./docs/catalog/skills-index.md)
+[![Workflows](https://img.shields.io/badge/workflows-15-informational)](./skills/zh/testing-workflows/)
+[![Testing types](https://img.shields.io/badge/testing%20types-155-informational)](./skills/zh/testing-types/)
+[![Skill engineering](https://img.shields.io/badge/skill%20engineering-6-informational)](./skills/zh/skill-engineering/)
 [![skills.sh](https://skills.sh/b/naodeng/awesome-qa-skills)](https://skills.sh/naodeng/awesome-qa-skills)
 
 **在线目录：** [中文 Skill 目录](https://inaodeng.com/zh-cn/qaskills/)
@@ -23,13 +23,13 @@
 
 ## 项目包含什么
 
-每种语言有 **171 个 Skill**，中英文合计 **342 个 Skill 目录**：
+每种语言有 **176 个 Skill**，中英文合计 **352 个 Skill 目录**：
 
 | 类别 | 数量 | 覆盖范围 |
 | --- | ---: | --- |
-| 测试工作流 | 14 / 语言 | 路由、需求到测试、PR 审查、变更回归、迭代与发布流程、质量视角 |
-| 测试类型 | 152 / 语言 | 需求与策略、用例、功能/API/UI、回归、性能、安全、生产质量、AI/LLM/Agent 测试 |
-| Skill Engineering | 5 / 语言 | Skill 质量审查、评测、变更验证与文案审查 |
+| 测试工作流 | 15 / 语言 | 路由、需求到测试、PR 审查、变更回归、迭代与发布流程、质量视角 |
+| 测试类型 | 155 / 语言 | 需求与策略、用例、功能/API/UI、回归、性能、安全、生产质量、AI/LLM/Agent 测试 |
+| Skill Engineering | 6 / 语言 | Skill 质量审查、评测、变更验证与文案审查 |
 
 每个 Skill 都是可独立安装的目录，包含 `SKILL.md`、主提示词和工具元数据；部分 Skill 还提供示例、模板、脚本和评测用例。
 
@@ -114,7 +114,7 @@ Core QA Skills → Engineering QA Skills → Production Quality Skills → AI Na
 
 ## 完整技能目录
 
-每种语言共 **171** 个 Skill：14 个工作流、152 个测试类型和 5 个 Skill Engineering；中英文合计 **342** 个目录。物理目录保持稳定，下面只提供逻辑导航。
+每种语言共 **176** 个 Skill：15 个工作流、155 个测试类型和 6 个 Skill Engineering；中英文合计 **352** 个目录。物理目录保持稳定，下面只提供逻辑导航。
 
 ### 跨阶段工作流
 
@@ -147,6 +147,7 @@ Core QA Skills → Engineering QA Skills → Production Quality Skills → AI Na
 | 名称 | 目录 | 主要用途 |
 | --- | --- | --- |
 | 发布测试工作流程 | [`release-testing-workflow`](skills/zh/testing-workflows/release-testing-workflow/) | 从发布前计划到 Go/No-Go 决策和发布后监控的质量工作流。 |
+| AI 特性发布工作流 | [`ai-feature-release-workflow`](skills/zh/testing-workflows/ai-feature-release-workflow/) | 连接 AI 评测门禁、灰度/影子、线上质量观察与回滚准备。 |
 | 多角色质量汇总 | [`multi-role-quality-synthesis`](skills/zh/testing-workflows/multi-role-quality-synthesis/) | 将同一阶段的多角色报告合并为保留来源、分歧和质量边界的可追溯汇总 |
 
 ### 四层能力体系与研发测试阶段
@@ -207,8 +208,8 @@ Core QA Skills → Engineering QA Skills → Production Quality Skills → AI Na
 | 名称 | 目录 | 主要用途 |
 | --- | --- | --- |
 | 缺陷上报 <!-- data-skill:bug-reporting --> | [`bug-reporting`](skills/zh/testing-types/bug-reporting/) | 编写包含复现步骤、环境信息和证据的清晰缺陷报告。 |
-| 测试报告 <!-- data-skill:test-reporting --> | [`test-reporting`](skills/zh/testing-types/test-reporting/) | 生成包含摘要、指标、缺陷分析和风险评估的测试报告。 |
-| 测试报告评审 <!-- data-skill:test-report-review --> | [`test-report-review`](skills/zh/testing-types/test-report-review/) | 核对测试报告与执行、缺陷和范围证据，形成 Human 待决的 AI 建议 |
+| 测试报告 <!-- data-skill:test-reporting --> | [`test-reporting`](skills/zh/testing-types/test-reporting/) | 汇总测试状态与风险；AI 评测结论需附模型、Prompt、数据集、judge、run、采样、token 成本及执行状态。 |
+| 测试报告评审 <!-- data-skill:test-report-review --> | [`test-report-review`](skills/zh/testing-types/test-report-review/) | 核对测试与 AI 评测的来源版本、run ID 和原始证据，发现冲突后保留 Human 待决建议。 |
 
 #### Engineering QA Skills — 质量工程能力
 
@@ -282,6 +283,7 @@ Core QA Skills → Engineering QA Skills → Production Quality Skills → AI Na
 | 名称 | 目录 | 主要用途 |
 | --- | --- | --- |
 | 代码审查 <!-- data-skill:code-review --> | [`code-review`](skills/zh/testing-types/code-review/) | 对 PR 或 Diff 进行风险驱动的代码审查，输出 P0/P1/P2 问题与可执行修复建议。 |
+| AI 生成代码评审 <!-- data-skill:ai-generated-code-review --> | [`ai-generated-code-review`](skills/zh/testing-types/ai-generated-code-review/) | 评审 Agent 编写的生产代码、依赖真实性、测试与 CI 完整性及来源证据。 |
 | 变更影响分析 <!-- data-skill:change-impact-analysis --> | [`change-impact-analysis`](skills/zh/testing-types/change-impact-analysis/) | 分析变更的质量影响范围与风险 |
 | PR 测试影响分析 <!-- data-skill:pr-test-impact-analysis --> | [`pr-test-impact-analysis`](skills/zh/testing-types/pr-test-impact-analysis/) | 从 PR 或 Diff 分析测试影响，并把逐用例预测与实际运行证据分开。 |
 | API 契约测试 <!-- data-skill:api-contract-testing --> | [`api-contract-testing`](skills/zh/testing-types/api-contract-testing/) | 验证 API 契约兼容性与变更风险 |
@@ -324,7 +326,7 @@ Core QA Skills → Engineering QA Skills → Production Quality Skills → AI Na
 | 不稳定测试分析 <!-- data-skill:flaky-test-analysis --> | [`flaky-test-analysis`](skills/zh/testing-types/flaky-test-analysis/) | 从运行证据分析间歇性测试失败 |
 | 回归范围分析 <!-- data-skill:regression-scope-analysis --> | [`regression-scope-analysis`](skills/zh/testing-types/regression-scope-analysis/) | 按风险定义回归范围和排除依据 |
 | 回归测试选择 <!-- data-skill:regression-test-selection --> | [`regression-test-selection`](skills/zh/testing-types/regression-test-selection/) | 从测试资产选择最小风险覆盖回归集 |
-| AI 辅助测试 <!-- data-skill:ai-assisted-testing --> | [`ai-assisted-testing`](skills/zh/testing-types/ai-assisted-testing/) | 使用 AI 辅助测试数据生成、根因分析和优先级判断等工作。 |
+| AI 辅助测试 <!-- data-skill:ai-assisted-testing --> | [`ai-assisted-testing`](skills/zh/testing-types/ai-assisted-testing/) | 用 AI 起草和分析 QA 产物，并记录人工复核、来源链、执行证据与全流程成本。 |
 | AI 生成测试评审 <!-- data-skill:ai-generated-test-review --> | [`ai-generated-test-review`](skills/zh/testing-types/ai-generated-test-review/) | 审查 AI 生成测试是否具备真实回归保护，识别伪测试、弱断言和缺失业务结果。 |
 | 测试代码评审 <!-- data-skill:test-code-review --> | [`test-code-review`](skills/zh/testing-types/test-code-review/) | 基于测试代码和运行证据识别断言、隔离、夹具、确定性和维护风险。 |
 | 变异测试分析 <!-- data-skill:mutation-testing-analysis --> | [`mutation-testing-analysis`](skills/zh/testing-types/mutation-testing-analysis/) | 根据变异算子和存活结果分析测试敏感性，不虚构质量分数。 |
@@ -375,6 +377,7 @@ Core QA Skills → Engineering QA Skills → Production Quality Skills → AI Na
 | 名称 | 目录 | 主要用途 |
 | --- | --- | --- |
 | AI 功能测试 <!-- data-skill:ai-feature-testing --> | [`ai-feature-testing`](skills/zh/testing-types/ai-feature-testing/) | 设计 AI 功能行为、风险和边界测试 |
+| 结构化输出测试 <!-- data-skill:structured-output-testing --> | [`structured-output-testing`](skills/zh/testing-types/structured-output-testing/) | 验证 JSON/schema、流式部分输出、拒绝与修复和 schema 演进。 |
 
 ##### LLM 与 Prompt 评测设计
 
@@ -396,6 +399,7 @@ Core QA Skills → Engineering QA Skills → Production Quality Skills → AI Na
 | --- | --- | --- |
 | AI Agent 测试 <!-- data-skill:ai-agent-testing --> | [`ai-agent-testing`](skills/zh/testing-types/ai-agent-testing/) | 测试 AI Agent 的目标、状态、恢复和安全边界 |
 | Agent 工具调用测试 <!-- data-skill:agent-tool-testing --> | [`agent-tool-testing`](skills/zh/testing-types/agent-tool-testing/) | 验证 Agent 工具调用契约、授权和副作用边界 |
+| MCP 服务端测试 <!-- data-skill:mcp-server-testing --> | [`mcp-server-testing`](skills/zh/testing-types/mcp-server-testing/) | 按版本验证 MCP 协议、传输、授权、工具 schema 和投毒边界。 |
 | Prompt Injection 测试 <!-- data-skill:prompt-injection-testing --> | [`prompt-injection-testing`](skills/zh/testing-types/prompt-injection-testing/) | 设计 AI 系统 Prompt 注入防护测试 |
 | Agent 循环测试 <!-- data-skill:agent-loop-testing --> | [`agent-loop-testing`](skills/zh/testing-types/agent-loop-testing/) | 测试规划-动作-观察循环、停止条件、预算和重复行为 |
 | Agent 记忆测试 <!-- data-skill:agent-memory-testing --> | [`agent-memory-testing`](skills/zh/testing-types/agent-memory-testing/) | 测试记忆读写、更新删除、保留、隔离、来源和遗忘 |
@@ -414,6 +418,7 @@ Core QA Skills → Engineering QA Skills → Production Quality Skills → AI Na
 | Skill 评测 | [`skill-evaluation`](skills/zh/skill-engineering/skill-evaluation/) | 设计、运行、解释和报告 evidence-bounded Skill 评测。 |
 | Skill 文案契约审查 | [`skill-prose-review`](skills/zh/skill-engineering/skill-prose-review/) | 审查 Skill、Prompt 与文档的可执行契约、边界和证据要求。 |
 | 过程性文案清理 | [`skill-prose-trim`](skills/zh/skill-engineering/skill-prose-trim/) | 清理文案中的审查和设计过程残留，同时保留当前状态契约。 |
+| Skill 供应链安全审查 | [`skill-security-review`](skills/zh/skill-engineering/skill-security-review/) | 审查第三方 Skill、插件和 MCP Server 的指令、权限、脚本与数据外泄风险。 |
 
 Skill Engineering 服务所有能力层，不改变产品能力分类。英文 Skill 使用相同目录名；可从页面顶部切换语言。
 

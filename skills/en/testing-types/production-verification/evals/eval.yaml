@@ -21,6 +21,7 @@ cases:
     - evals/cases/edge-risk-priority.yaml
     - evals/cases/review-read-only-plan.yaml
     - evals/cases/review-approved-write-cleanup-failure.yaml
+    - evals/cases/domain-ai-lifecycle.yaml
   defaults:
     timeout_seconds: 180
     max_turns: 8

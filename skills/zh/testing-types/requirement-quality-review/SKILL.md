@@ -3,7 +3,7 @@ name: requirement-quality-review
 description: Use this skill when a requirement, acceptance-criteria set, or change brief needs an evidence-bounded quality review before design or testing; triggers include 需求质量评审, requirement quality review, and requirements quality gate.
 license: PolyForm-Noncommercial-1.0.0
 metadata:
-  version: "1.0.0"
+  version: "1.1.0"
   compatibility: ""
   author: "Awesome QA Skills contributors"
   language: "zh-CN"
@@ -21,6 +21,7 @@ metadata:
 - 需要在测试设计、技术设计或排期前检查需求质量。
 - 验收标准看似完整，但异常路径、约束、角色或判定条件可能缺失。
 - 需要把一份需求分流给歧义、一致性、冲突或可追踪性专项分析。
+- 需要评审 AI/Agent 起草的需求、验收标准或变更说明，核对来源、范围漂移、臆造约束或遗漏。
 
 不适用于只要求编写测试用例、执行测试、批准发布或从无证据材料直接给质量分的任务。
 
@@ -40,12 +41,14 @@ metadata:
 1. 先阅读并遵循 `prompts/requirement-quality-review.md`；它定义完整输入审计、质量维度和输出顺序。
 2. 盘点用户明确提供的需求、故事、验收标准、变更说明、约束、版本和证据，并区分已知、缺失、冲突、过期和范围外信息。
 3. 按交付、质量和可测性影响排序发现；每条发现保留来源、证据、状态、优先级、责任角色和可关闭的下一步。
-4. 只提出专项路由建议，不读取或链接其他 Skill 的内部文件，不把推荐顺序当作安装依赖。
-5. 信息不足时先输出最小可用初版，再列 3–5 个高价值待确认问题；无法安全判断时明确阻塞。
+4. 对 AI/Agent 生成材料，按已提供的来源、run 和人工复核信息追溯条款到原始需求和验收标准；检查无来源规则、遗漏约束、虚构阈值和不可验证表述。未提供生成信息时标为未知，不推断作者。
+5. 只提出专项路由建议，不读取或链接其他 Skill 的内部文件，不把推荐顺序当作安装依赖。
+6. 信息不足时先输出最小可用初版，再列 3–5 个高价值待确认问题；无法安全判断时明确阻塞。
 
 ## 核心约束
 
 - 直接材料事实、证据支持的推断、建议和 Human 决策项必须分开。
+- AI 起草声明、模型/Prompt 版本、来源文档、生成 run 和人工采纳/审批分别记录；缺失材料标为 `UNKNOWN` 或 `UNASSESSED`，不得把生成文本写成已批准需求。
 - 不补造业务规则、字段、接口、阈值、SLA、环境、责任人、根因、执行结果或审批结果。
 - 不输出统一数值质量分，不从一段需求推断 Go/No-Go。
 - 用 `RQ-##` 标识发现；至少区分 `missing`、`ambiguous`、`untestable`、`conflict` 和 `unassessed`。

@@ -3,7 +3,7 @@ name: ai-generated-test-review
 description: Use this skill when reviewing AI-generated unit, functional, API, or end-to-end tests for false confidence, weak assertions, missing risks, or unsafe test behavior; triggers include AI 生成测试评审, AI-generated test review, and functional test review.
 license: PolyForm-Noncommercial-1.0.0
 metadata:
-  version: "1.0.0"
+  version: "1.1.0"
   compatibility: ""
   author: "Awesome QA Skills contributors"
   language: "zh-CN"
@@ -23,7 +23,7 @@ metadata:
 
 ## 工作方式
 
-1. 先盘点当前范围内实际存在的测试类型与文件：单元、功能（functional testing）、API、E2E 或其组合；只审查已发现或用户明确指定的类型。
+1. 先盘点当前范围内实际存在的测试类型与文件：单元、功能（functional testing）、API、E2E 或其组合；只审查已发现或用户明确指定的类型。没有可审查测试代码/断言时，将行为评审标为 `BLOCKED` 并请求具体文件或内容。
 2. 再明确被测行为、风险和可用的需求或实现证据；缺失时列为待确认，不虚构结论。
 3. 阅读 `prompts/review-test.md`，按严重度输出可行动的发现；每项关联具体测试、风险和修正方向。
 4. 仅加载已发现层级的规则：单元测试、功能测试（functional testing）、API 或 E2E；跨层问题可加载多份。不要因存在多个规则文件而直接全局审查。
@@ -38,6 +38,7 @@ metadata:
 ## 核心约束
 
 - 以可观察行为、失败信号和风险覆盖为准，不能只评价行覆盖率、测试名称或 mock 调用次数。
+- 分开记录评审状态、测试执行状态和结果证据：明确未执行为 `NOT_RUN`；没有运行日志/CI 结果为 `UNKNOWN`；缺少可审查测试本体时行为评审为 `BLOCKED`。
 - 发现测试会在实现被破坏后仍通过时，明确说明最小破坏方式和需要加强的断言。
 - 不建议为了绿灯删除断言、吞掉异常、放宽时间阈值或改生产逻辑以适应测试。
 - 测试代码、日志和示例中不得泄露真实凭据、个人数据或生产写操作。

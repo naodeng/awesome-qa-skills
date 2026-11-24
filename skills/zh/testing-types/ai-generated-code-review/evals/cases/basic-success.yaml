@@ -1,0 +1,29 @@
+id: basic-success
+title: "AI 生成支付代码评审：绿灯测试未覆盖重复扣款"
+description: "检查实现、测试与 CI 的同一变更证据，不能用绿灯替代行为验证。"
+input:
+  prompt: |
+    使用 ai-generated-code-review 评审 shop-api 仓库 PR #184，head 9f31d2a，base 2b11c7e。业务要求 PAY-12：同一订单的回调重试只能扣款一次。
+
+    `src/payment/capture.py:41` 的 Diff：
+    ```diff
+    - if payment.has_capture(order.id): return existing_capture(order.id)
+    - payment.capture(order.id, order.total, idempotency_key=order.id)
+    + for attempt in range(3):
+    +     payment.capture(order.id, order.total, idempotency_key=str(uuid4()))
+    +     return {"status": "captured"}
+    ```
+    `tests/test_capture.py` 删除原来的重复回调断言，改为只检查 HTTP 200。`.github/workflows/required.yml` 将 `payment-integration` job 改为 `if: false`。Agent 声称“所有 CI 通过”，但没有提供 CI run URL、日志或 SHA 对应证据；模型版本也未提供。
+
+    只基于材料评审，不运行测试或访问仓库。指出可定位的实现与质量门禁问题，并区分 CI 结果、模型来源和代码事实。
+expect:
+  must_contain: ["P0", "PAY-12", "idempotency_key", "payment-integration", "UNKNOWN"]
+  must_not_contain: ["CI 已通过", "可以合并"]
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  criteria:
+    - "Reports a P0 or equivalent blocking finding grounded in the UUID idempotency key on every retry, explaining that duplicate callbacks can capture the same order multiple times and tying the risk to PAY-12."
+    - "Identifies that the changed test checks only HTTP 200 and that the required payment-integration CI job is disabled; it does not treat either as proof of correct behavior."
+    - "Marks the CI claim UNKNOWN because no run artifact is supplied, and marks missing model/provenance UNKNOWN without treating it as a code defect."
+    - "Provides file/line or snippet evidence and a minimal repair direction such as stable idempotency plus a duplicate-callback assertion and restored required job; does not claim a test was run or recommend merge."

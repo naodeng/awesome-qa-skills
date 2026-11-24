@@ -3,7 +3,7 @@ name: test-report-review
 description: Use this skill when a test report needs an evidence-consistency review before Human approval; triggers include 测试报告评审、质量报告审核、测试结论复核, test report review and test evidence review.
 license: PolyForm-Noncommercial-1.0.0
 metadata:
-  version: "1.0.0"
+  version: "1.1.0"
   compatibility: ""
   author: "Awesome QA Skills contributors"
   language: "zh-CN"
@@ -39,6 +39,7 @@ metadata:
 - 80/80、100% 等统计只证明其明确对应的执行范围，不得外推到未测、遗漏或版本不明的范围。
 - PM 输入只提供排期、资源、依赖、责任和行动状态；不得改变执行结果、缺陷等级/状态、质量事实、风险或 Human 决定。
 - 每个结论引用来源及版本；冲突未获授权解决时保留双方，不自行选择对项目更有利的一方。
+- 有 AI 评测证据时核对模型、Prompt/Agent、数据集、judge、run、采样、token 费用、评估者和执行状态；版本不一致是阻塞项，缺 `model_version` 或 `run_id` 时 AI 评测证据为“未执行或证据不足”。
 - 输出始终是 **AI 辅助建议**，并保持 `human_final_decision: pending`；不得声称已批准、已放行或已接受风险。
 
 ## 建议规则

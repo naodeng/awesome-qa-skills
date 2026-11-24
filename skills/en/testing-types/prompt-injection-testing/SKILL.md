@@ -3,7 +3,7 @@ name: prompt-injection-testing
 description: Use this skill when you need to design safe prompt-injection tests for AI systems and tool boundaries; triggers include prompt injection testing.
 license: PolyForm-Noncommercial-1.0.0
 metadata:
-  version: "1.0.0"
+  version: "1.0.2"
   compatibility: ""
   author: "Awesome QA Skills contributors"
   language: "en"
@@ -41,6 +41,8 @@ metadata:
 - Load `references/`, `examples/`, `scripts/`, or `output-formats.md` only when those directories exist and the task needs them.
 
 ## Core Constraints
+
+- Include indirect RAG, MCP resource/tool-description, UI, and attachment surfaces; use synthetic canaries to check exfiltration channels and post-refusal side effects.
 
 - use safe placeholder data in authorized environments
 - do not target real sensitive systems

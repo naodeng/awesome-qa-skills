@@ -3,7 +3,7 @@ name: ai-agent-testing
 description: Use this skill when you need to test AI agent goals, state, planning, recovery, and safety boundaries; triggers include ai agent testing.
 license: PolyForm-Noncommercial-1.0.0
 metadata:
-  version: "1.0.0"
+  version: "1.1.1"
   compatibility: ""
   author: "Awesome QA Skills contributors"
   language: "en"
@@ -49,6 +49,8 @@ metadata:
 3. Classify termination as success, goal failure, budget exhaustion, cancellation, safety block, or environment error. Missing terminal events do not prove completion.
 4. Record model/prompt/tool/data/environment versions, sample selection, and project-supplied repetitions. Report per-sample pass/fail counts and intermittent failures; a single trial establishes no stability claim.
 ## Core Constraints
+
+- Skill-effect comparisons use a same-task no-skill baseline; Chinese/English comparisons need semantically equivalent inputs and run evidence on both sides before claiming benefit or parity.
 
 - evaluate both final results and execution traces
 - use repeated trials for stochastic behavior

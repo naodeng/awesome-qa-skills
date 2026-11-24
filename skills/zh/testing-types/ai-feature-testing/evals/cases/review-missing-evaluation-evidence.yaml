@@ -1,0 +1,39 @@
+id: review-missing-evaluation-evidence
+title: "ai-feature-testing: AI 特性：真实运行轨迹核对 — missing run evidence"
+description: "验证 AI 特性评估能绑定 run、模型和输入版本，并把缺口与结论分开。"
+context:
+  files:
+    "structured-trace.json": |-
+      {
+        "trace_id": "TRACE-NORUN-AI-FEATURE-TESTING",
+        "subject": "ai-feature-testing",
+        "identity": {
+          "model_version": "model-A",
+          "prompt_version": "prompt-1",
+          "dataset_version": "dataset-1"
+        },
+        "run_id": null,
+        "attempted": false,
+        "run_evidence": [],
+        "evaluation_status": "NOT_RUN"
+      }
+input:
+  prompt: |
+    请使用 ai-feature-testing 审阅 structured-trace.json。只分析提供的轨迹，列出 trace_id、run_id、模型/数据集身份和观察到的质量证据；不要把单个样本泛化为上线结论。
+    The trace has no run_id and no raw result. Output exactly these machine-readable lines:
+    evaluation_status: NOT_RUN
+    run_evidence: []
+    domain_conclusion: UNASSESSED
+expect:
+  must_contain:
+    - "evaluation_status: NOT_RUN"
+    - "run_evidence: []"
+    - "domain_conclusion: UNASSESSED"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "evaluation_status: NOT_RUN"
+          - "run_evidence: []"
+          - "domain_conclusion: UNASSESSED"

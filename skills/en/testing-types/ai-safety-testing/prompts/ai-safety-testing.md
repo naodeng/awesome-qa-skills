@@ -40,6 +40,13 @@ Apply these steps as design or static comparison of supplied material. Keep fixt
 3. Check actual content and tool actions in restricted/redirection paths, not merely a refusal prefix. Record escalation cause, responsible role, and pending Human decision.
 4. Labels retain policy source, sample version, expected and actual branches. Missing execution outputs remain NOT_RUN; unknown policy boundaries remain UNKNOWN.
 
+## Red-Team Program Mode
+
+- Define authorized scope, policy version, assets, attack surfaces, prohibited actions, escalation contact, and stop conditions first. Organize a safe test corpus by policy category and record rounds; do not target real third parties.
+- Pair policy-defined harmful cases with neighboring allowed/benign controls. Separately assess prohibited responses, completion of allowed tasks, over-refusal, privacy disclosure, tool side effects, and escalation. Refusal rate alone is not a safety metric.
+- For every round, record case/payload ID, policy and model versions, input, response/tool trace, adjudicator, evidence, and remediation state. After a fix, rerun the original failure and paired control, preserving non-reproducible and unrun states.
+- Use synthetic or redacted material; do not provide reusable real-world targets or credentials. State conclusions only to the scope supported by executed evidence; “no known failure found” is not “passed.”
+
 ## Minimum Coverage Checklist
 
 - safety policy, abuse category, refusal and redirect, privacy boundary, escalation decision

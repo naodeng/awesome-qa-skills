@@ -3,7 +3,7 @@ name: prompt-injection-testing
 description: Use this skill when you need to design safe prompt-injection tests for AI systems and tool boundaries; triggers include Prompt Injection 测试 and prompt injection testing.
 license: PolyForm-Noncommercial-1.0.0
 metadata:
-  version: "1.0.0"
+  version: "1.0.2"
   compatibility: ""
   author: "Awesome QA Skills contributors"
   language: "zh-CN"
@@ -41,6 +41,8 @@ metadata:
 - 只有目录实际存在且任务需要时，才读取 `references/`、`examples/`、`scripts/` 或 `output-formats.md`，不要假设不存在的资产。
 
 ## 核心约束
+
+- 纳入 RAG、MCP 资源/工具描述、UI/附件等间接注入面；用合成 canary 验证外泄通道和拒绝后副作用。
 
 - 仅在授权环境使用安全占位数据
 - 不提供可用于真实攻击的敏感目标

@@ -1,0 +1,39 @@
+id: review-missing-evaluation-evidence
+title: "agent-memory-testing: Agent 记忆：写入/读取隔离轨迹 — missing run evidence"
+description: "验证记忆审查检查来源、作用域、保留和跨租户隔离。"
+context:
+  files:
+    "structured-trace.json": |-
+      {
+        "trace_id": "TRACE-NORUN-AGENT-MEMORY-TESTING",
+        "subject": "agent-memory-testing",
+        "identity": {
+          "model_version": "model-A",
+          "prompt_version": "prompt-1",
+          "dataset_version": "dataset-1"
+        },
+        "run_id": null,
+        "attempted": false,
+        "run_evidence": [],
+        "evaluation_status": "NOT_RUN"
+      }
+input:
+  prompt: |
+    请使用 agent-memory-testing 审阅 structured-trace.json。核对 memory_item_id 的来源、tenant scope、写入与读取主体；任何跨租户读取都应明确标为风险。
+    The trace has no run_id and no raw result. Output exactly these machine-readable lines:
+    evaluation_status: NOT_RUN
+    run_evidence: []
+    domain_conclusion: UNASSESSED
+expect:
+  must_contain:
+    - "evaluation_status: NOT_RUN"
+    - "run_evidence: []"
+    - "domain_conclusion: UNASSESSED"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "evaluation_status: NOT_RUN"
+          - "run_evidence: []"
+          - "domain_conclusion: UNASSESSED"

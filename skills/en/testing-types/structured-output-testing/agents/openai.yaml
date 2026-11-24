@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: structured-output-testing
+interface:
+  display_name: "Structured Output Testing"
+  short_description: "Test parsing, schema conformance, semantics, and evidence traces"
+  default_prompt: "Use the structured-output-testing skill to verify structured model output."
+policy:
+  allow_implicit_invocation: true

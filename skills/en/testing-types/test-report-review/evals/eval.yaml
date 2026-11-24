@@ -18,6 +18,7 @@ cases:
     - evals/cases/edge-hidden-untested-scope.yaml
     - evals/cases/edge-pm-override.yaml
     - evals/cases/review-report-reconciliation.yaml
+    - evals/cases/edge-ai-version-mismatch.yaml
   defaults:
     timeout_seconds: 180
     max_turns: 8

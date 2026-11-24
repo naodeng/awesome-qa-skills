@@ -3,7 +3,7 @@ name: llm-testing
 description: Use this skill when you need to test LLM behavior, failure modes, and evidence-based quality boundaries; triggers include LLM 测试 and llm testing.
 license: PolyForm-Noncommercial-1.0.0
 metadata:
-  version: "1.0.0"
+  version: "1.1.1"
   compatibility: ""
   author: "Awesome QA Skills contributors"
   language: "zh-CN"
@@ -42,12 +42,20 @@ metadata:
 
 ## 核心约束
 
+- 明确与 feature、Prompt、Eval 设计的分工；按风险分层抽样，报告重复分母、token/成本来源和有样本依据的时延指标。
+
 - 避免只用精确字符串断言
 - 固定并记录模型参数
 - 对非确定性结果采用重复和分布判断
 - 不编造输入中不存在的系统行为、字段、数据、指标或根因。
 - 关键结论必须关联证据；证据不足时标记为假设并给出验证方法。
 - 优先级必须说明业务影响、发生可能性或可探测性依据。
+
+## 评测证据状态
+
+- 输出评测结论时包含 `evaluation_status`：`PASS`、`FAIL`、`BLOCKED`、`NOT_RUN` 或 `UNKNOWN`。
+- `PASS` 需要有范围内的实际运行记录和完整断言证据；没有运行结果用 `NOT_RUN`，运行受阻用 `BLOCKED`，证据不足用 `UNKNOWN`。方案、静态检查或文件存在不能单独证明 `PASS`。
+- 结构化追踪记录 `trace_id`、样本与版本、参数、run/trial、解析、Schema、语义状态及证据引用；三类检查分别判定。
 
 ## 交付前自检
 

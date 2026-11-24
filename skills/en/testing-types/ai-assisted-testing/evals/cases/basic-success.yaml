@@ -1,13 +1,13 @@
 id: basic-success
 title: "AI-assisted: split work and human gates"
 description: |
-  Return AI/human split, high-risk human gates, and pre-use checks.
+  Return AI/human split, provenance, AIA IDs, cost accounting, and human gates.
 
 input:
   prompt: |
     Use ai-assisted-testing.
     Task: in two days, draft points-redemption cases plus an exploration checklist; team may use AI drafts.
-    Provide AI vs human split, high-risk human gates, suggested draft artifacts, and checks before final use.
+    Use AIA-## IDs for draft findings and include source_snapshot_id, assistant/model, prompt/instruction_version, draft_id, reviewer, review_decision, adopted_version_id, execution_evidence, cost fields, and human gates. Nothing has been generated or executed yet; preserve unknown and unrun states.
 
 expect:
   must_contain:
@@ -22,5 +22,7 @@ judge:
   success:
     - output_contains:
         all:
-          - "Task Understanding"
-          - "High-Risk"
+          - "Task and Sources"
+          - "AIA-01"
+          - "source_snapshot_id"
+          - "DRAFT"

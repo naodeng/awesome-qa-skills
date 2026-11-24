@@ -28,6 +28,15 @@ Check each dimension with the minimum evidence needed; do not reproduce the sour
 | Scope | In-scope, out-of-scope, version, actor, platform, tenant, region, and data boundaries are clear | Version, permission, tenant, region, or data scope drifts |
 | Evidence quality | Claims have source, version, time, applicability, and validation method | Only a name or verbal conclusion is supplied, without artifact or execution evidence |
 
+### Provenance Checks for AI/Agent-Generated Requirements
+
+When the material identifies AI/Agent authorship or includes a generation trace:
+
+- Record available source requirements/references, model and prompt versions, run/trace IDs, Human review, and adoption status; mark absent items `UNKNOWN` / `UNASSESSED` and do not infer authorship.
+- Compare each clause with supplied source material. Identify added but unsupported scope, actors, thresholds, timing, permissions, SLAs, or business rules, as well as omitted constraints and failure paths.
+- Treat generated text as material to review. An authorship claim, tool trace, polished wording, or internal consistency is not a source fact, product decision, or approval.
+- Keep the usual finding contract: clause location, source evidence, evidence state, impact, decision question, and close/validation method. Do not provide a universal numeric score or Go/No-Go.
+
 ## Structured Findings
 
 Give every high-value finding an `RQ-##` ID and at least:
@@ -70,6 +79,7 @@ Use the audit results to perform this specialist analysis and deliver traceable,
 
 - Complete the input audit first; reason only from supplied material and retain source and minimum evidence for every finding.
 - Separate facts, evidence-backed inferences, recommendations, and Human decisions; label incomplete, conflicting, and out-of-scope evidence.
+- For AI/Agent-generated material, record authorship only from supplied source, model/prompt version, run/trace, and Human-review evidence; mark missing fields `UNKNOWN` and never present generated text as an adopted product rule.
 
 ## Minimum Coverage
 

@@ -1,0 +1,39 @@
+id: review-missing-evaluation-evidence
+title: "agent-loop-testing: Agent 循环：停止条件与预算轨迹 — missing run evidence"
+description: "验证循环评审检查迭代、预算和停止原因。"
+context:
+  files:
+    "structured-trace.json": |-
+      {
+        "trace_id": "TRACE-NORUN-AGENT-LOOP-TESTING",
+        "subject": "agent-loop-testing",
+        "identity": {
+          "model_version": "model-A",
+          "prompt_version": "prompt-1",
+          "dataset_version": "dataset-1"
+        },
+        "run_id": null,
+        "attempted": false,
+        "run_evidence": [],
+        "evaluation_status": "NOT_RUN"
+      }
+input:
+  prompt: |
+    请使用 agent-loop-testing 审阅 structured-trace.json。对照 max_iterations、预算和 stop_reason 判断是否越界或提前终止，保留 iteration_id 和证据。
+    The trace has no run_id and no raw result. Output exactly these machine-readable lines:
+    evaluation_status: NOT_RUN
+    run_evidence: []
+    domain_conclusion: UNASSESSED
+expect:
+  must_contain:
+    - "evaluation_status: NOT_RUN"
+    - "run_evidence: []"
+    - "domain_conclusion: UNASSESSED"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "evaluation_status: NOT_RUN"
+          - "run_evidence: []"
+          - "domain_conclusion: UNASSESSED"

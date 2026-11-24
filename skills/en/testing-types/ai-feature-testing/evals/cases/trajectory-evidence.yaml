@@ -1,0 +1,50 @@
+id: trajectory-evidence
+title: "ai-feature-testing: AI feature: runtime trace review"
+description: "Checks that AI feature assessment binds a run, model, and input versions while separating gaps from conclusions."
+context:
+  files:
+    "structured-trace.json": |-
+      {
+        "trace_id": "TRACE-AIF-001",
+        "subject": "ai-feature-testing",
+        "run_id": "RUN-AIF-001",
+        "attempted": true,
+        "identity": {
+          "model_version": "model-A",
+          "prompt_version": "prompt-3",
+          "dataset_version": "dataset-7"
+        },
+        "events": [
+          {
+            "type": "request",
+            "input_id": "CASE-01"
+          },
+          {
+            "type": "response",
+            "latency_ms": 420,
+            "token_usage": {
+              "input": 120,
+              "output": 45
+            }
+          }
+        ],
+        "run_evidence": [
+          "result://RUN-AIF-001"
+        ]
+      }
+input:
+  prompt: |
+    Use ai-feature-testing to review structured-trace.json. Analyze only the supplied trace, identify trace_id, run_id, model/dataset identity, and observed quality evidence; do not generalize one sample into a release conclusion.
+expect:
+  must_contain:
+    - "TRACE-AIF-001"
+    - "RUN-AIF-001"
+    - "dataset-7"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "TRACE-AIF-001"
+          - "RUN-AIF-001"
+          - "dataset-7"

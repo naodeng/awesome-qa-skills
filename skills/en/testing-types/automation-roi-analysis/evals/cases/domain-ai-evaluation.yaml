@@ -1,0 +1,21 @@
+id: domain-ai-evaluation
+title: "AI automation ROI: review and token cost"
+description: "Checks ROI accounting for token, review, rework, and quality risk."
+input:
+  prompt: |
+    For the same week, the manual baseline is 30 tasks × 12 minutes. AI drafts take 2 minutes to generate, 8 minutes to review, and 4 minutes to rework per task; build cost is 180 minutes and maintenance is 60 minutes. Token cost and false-green rate are unknown. Calculate known labor net, separate unknown costs, and state whether adoption is approved.
+expect:
+  must_contain:
+    - "token"
+    - "false-green"
+    - "UNKNOWN"
+    - "manual"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "token"
+          - "false-green"
+          - "UNKNOWN"
+          - "manual"

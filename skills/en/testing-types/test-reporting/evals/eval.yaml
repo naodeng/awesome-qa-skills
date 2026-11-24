@@ -22,6 +22,7 @@ cases:
     - evals/cases/edge-risk-priority.yaml
     - evals/cases/review-raw-execution-statistics.yaml
     - evals/cases/review-unknown-denominator.yaml
+    - evals/cases/review-ai-evidence-missing-version.yaml
   defaults:
     timeout_seconds: 180
     max_turns: 8

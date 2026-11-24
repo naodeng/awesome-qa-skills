@@ -2,13 +2,14 @@
 
 # Workflow / Eval / Installation Synchronization Checklist
 
-This checklist keeps the physical paths, bilingual directories, minimum Eval artifacts, and installation entry points for the 14 current `testing-workflows` packages together. They include a router, staged Workflows, and quality-perspective collections; this checklist is documentation and structural evidence, not proof that each package ran in a real project.
+This checklist keeps the physical paths, bilingual directories, minimum Eval artifacts, and installation entry points for the 15 current `testing-workflows` packages together. They include a router, staged Workflows, and quality-perspective collections; this checklist is documentation and structural evidence, not proof that each package ran in a real project.
 
-## 14 `testing-workflows` packages
+## 15 `testing-workflows` packages
 
 | Workflow | Chinese path | English path | Eval structure |
 | --- | --- | --- | --- |
 | `daily-testing-workflow` | `skills/zh/testing-workflows/daily-testing-workflow` | `skills/en/testing-workflows/daily-testing-workflow` | `eval.yaml` + three case classes |
+| `ai-feature-release-workflow` | `skills/zh/testing-workflows/ai-feature-release-workflow` | `skills/en/testing-workflows/ai-feature-release-workflow` | `eval.yaml` + staged gates and evidence handoff cases |
 | `discover-testing` | `skills/zh/testing-workflows/discover-testing` | `skills/en/testing-workflows/discover-testing` | `eval.yaml` + three case classes |
 | `requirement-to-test` | `skills/zh/testing-workflows/requirement-to-test` | `skills/en/testing-workflows/requirement-to-test` | `eval.yaml` + normal/boundary/failure and handoff cases |
 | `multi-role-quality-synthesis` | `skills/zh/testing-workflows/multi-role-quality-synthesis` | `skills/en/testing-workflows/multi-role-quality-synthesis` | `eval.yaml` + three case classes |

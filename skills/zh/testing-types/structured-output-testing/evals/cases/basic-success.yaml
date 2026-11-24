@@ -1,0 +1,25 @@
+id: basic-success
+title: "结构化输出：解析、Schema 与语义分层"
+description: "验证基本路径能独立分析解析、结构约束和领域语义。"
+input:
+  prompt: |
+    请使用 structured-output-testing 分析订单审批 JSON 输出。契约要求 `decision` 为字符串且值为 APPROVE/REJECT，`amount` 为整数，`reason` 为字符串，且不允许额外字段。样本 A 是 `{"decision":"APPROVE","amount":20,"reason":"符合规则"}`；样本 B 是 `{"decision":"APPROVE","amount":"20","reason":"符合规则"}`；样本 C 是截断 JSON `{"decision":"APPROVE",`。业务 oracle 只说明 amount 必须为 20 且 decision 应为 APPROVE。分别给出 parse/schema/semantic 检查方法、预期结果和可追踪字段。
+expect:
+  must_contain:
+    - "parse_status"
+    - "schema_status"
+    - "semantic_status"
+    - "trace_id"
+    - "amount"
+  must_not_contain:
+    - "TODO"
+    - "所有样本通过"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "parse_status"
+          - "schema_status"
+          - "semantic_status"
+          - "trace_id"

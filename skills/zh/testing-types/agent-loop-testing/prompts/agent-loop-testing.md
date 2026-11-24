@@ -22,6 +22,8 @@
 5. 给出剩余风险、证据缺口和下一步，不把假设包装成事实。
 
 ## 执行规则
+- 计划、静态分析和 Eval fixture 本身不是运行证据；若要求判断实际评测/执行且 trace 缺少有效 run ID 与原始结果，输出 `evaluation_status: NOT_RUN`、`run_evidence: []` 和 `domain_conclusion: UNASSESSED`，不得声称 PASS。
+
 
 - 每个关键结论都要说明来源、证据状态和验证方法。
 - 场景至少包含前置条件、动作或刺激、预期结果或判断标准、所需证据和停止条件。

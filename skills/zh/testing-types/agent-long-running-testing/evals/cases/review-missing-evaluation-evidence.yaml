@@ -1,0 +1,39 @@
+id: review-missing-evaluation-evidence
+title: "agent-long-running-testing: 长运行 Agent：检查点与取消轨迹 — missing run evidence"
+description: "验证长任务检查点、恢复和取消状态可追溯。"
+context:
+  files:
+    "structured-trace.json": |-
+      {
+        "trace_id": "TRACE-NORUN-AGENT-LONG-RUNNING-TESTING",
+        "subject": "agent-long-running-testing",
+        "identity": {
+          "model_version": "model-A",
+          "prompt_version": "prompt-1",
+          "dataset_version": "dataset-1"
+        },
+        "run_id": null,
+        "attempted": false,
+        "run_evidence": [],
+        "evaluation_status": "NOT_RUN"
+      }
+input:
+  prompt: |
+    请使用 agent-long-running-testing 审阅 structured-trace.json。按 checkpoint_id 对照恢复位置和 cancel 请求，指出取消后仍提交结果的状态冲突。
+    The trace has no run_id and no raw result. Output exactly these machine-readable lines:
+    evaluation_status: NOT_RUN
+    run_evidence: []
+    domain_conclusion: UNASSESSED
+expect:
+  must_contain:
+    - "evaluation_status: NOT_RUN"
+    - "run_evidence: []"
+    - "domain_conclusion: UNASSESSED"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "evaluation_status: NOT_RUN"
+          - "run_evidence: []"
+          - "domain_conclusion: UNASSESSED"

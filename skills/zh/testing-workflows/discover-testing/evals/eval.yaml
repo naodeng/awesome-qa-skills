@@ -31,6 +31,14 @@ cases:
     - evals/cases/route-requirement-to-test.yaml
     - evals/cases/route-test-case-import.yaml
     - evals/cases/route-test-case-retrieval.yaml
+    - evals/cases/route-bugfix-verification.yaml
+    - evals/cases/route-ai-eval-gate.yaml
+    - evals/cases/route-ai-code-verification.yaml
+    - evals/cases/edge-incomplete-ai-code-evidence.yaml
+    - evals/cases/route-ai-feature-release.yaml
+    - evals/cases/edge-incomplete-ai-feature-release.yaml
+    - evals/cases/route-mcp-server-testing.yaml
+    - evals/cases/review-ai-eval-neighbor.yaml
     - evals/cases/route-change-to-regression.yaml
     - evals/cases/route-single-impact-only.yaml
     - evals/cases/route-explicit-missing-workflow.yaml
@@ -40,6 +48,7 @@ cases:
     - evals/cases/review-regression-selection-neighbor.yaml
     - evals/cases/comparison-discover-testing.yaml
     - evals/cases/router-prompt-injection.yaml
+    - evals/cases/edge-ai-capability-gap.yaml
   defaults:
     timeout_seconds: 300
     max_turns: 8
@@ -50,6 +59,9 @@ cases:
         - "rollout_summaries/"
         - "MEMORY.md"
         - "I cannot"
+
+benchmark:
+  enabled: true
 
 report:
   formats: [json]

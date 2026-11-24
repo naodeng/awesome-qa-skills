@@ -1,0 +1,30 @@
+id: review-dual-era-version-compatibility
+title: "Design MCP compatibility tests by declared protocol revision"
+description: "Separate the legacy handshake era from the 2026 stateless era without applying one era's behavior to the other."
+context:
+  files:
+    "compatibility-contract.json": |-
+      {
+        "product_claims": ["2025-11-25", "2026-07-28"],
+        "transports": ["stdio", "Streamable HTTP"],
+        "authorized_actions": ["offline test design only"],
+        "release_decision": "not requested"
+      }
+input:
+  prompt: "Use mcp-server-testing to design a two-era test matrix for compatibility-contract.json. Consult the official specification for each revision separately and cover lifecycle/discovery, transport, capabilities, and authorization by version, including evidence fields and stop conditions. Do not run tests or apply one era's behavior to the other."
+expect:
+  must_contain: ["2025-11-25", "2026-07-28", "2025", "2026", "NOT_RUN"]
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  context:
+    profile: minimal
+    final_message: include
+    transcript: omit
+    workspace_diff: include
+    generated_files: include
+  criteria:
+    - "Keeps the two declared protocol revisions in separate rows/cases and binds each expected lifecycle to the matching official revision."
+    - "Does not assume compatibility beyond the product claim; covers both declared transports and records authorization/evidence requirements without asserting they ran."
+    - "Marks execution NOT_RUN and does not conflate a planned compatibility matrix with conformance."
+  pass_threshold: 1.0

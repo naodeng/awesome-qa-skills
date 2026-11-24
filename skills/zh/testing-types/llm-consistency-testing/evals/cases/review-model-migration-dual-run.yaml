@@ -1,0 +1,30 @@
+id: review-model-migration-dual-run
+title: "迁移结论必须绑定旧版和候选版双跑证据"
+description: "未达到质量、成本门槛或样本量时阻断模型迁移批准。"
+context:
+  files:
+    "migration.json": |-
+      {
+        "old": {"model_version": "provider-a/model-3", "run_id": "RUN-OLD-1", "dataset_version": "DS-8", "samples": 20, "quality": 0.94, "cost_usd_per_task": 0.10},
+        "candidate": {"model_version": "provider-b/model-4", "run_id": "RUN-NEW-1", "dataset_version": "DS-8", "samples": 20, "quality": 0.91, "cost_usd_per_task": 0.13},
+        "policy": {"minimum_samples_each": 100, "max_quality_drop": 0.02, "max_cost_ratio": 1.05},
+        "deprecation_deadline": "2026-12-31", "dual_run_window_complete": false
+      }
+input:
+  prompt: "使用 llm-consistency-testing 审查 migration.json。分别给旧版/候选版结果、样本限制、成本和质量变化；提出再基线审批、双跑、弃用截止与回滚条件。不要把候选版本标为迁移通过。"
+expect:
+  must_contain: ["RUN-OLD-1", "RUN-NEW-1", "BLOCKED", "2026-12-31"]
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  context:
+    profile: minimal
+    final_message: include
+    transcript: omit
+    workspace_diff: include
+    generated_files: include
+  criteria:
+    - "Binds both exact model versions, run IDs, and the shared dataset version; notes 20 samples on each side is below the 100-per-side requirement."
+    - "Calls out the observed 0.03 quality drop exceeding 0.02 and 1.3x cost exceeding 1.05, while treating estimates as fixture observations."
+    - "Keeps migration BLOCKED and requires completed dual run, approved re-baseline, deprecation/rollback plan, and adequate evidence before approval."
+  pass_threshold: 1.0

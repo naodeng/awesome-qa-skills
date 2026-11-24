@@ -1,0 +1,21 @@
+id: route-ai-eval-gate
+title: "明确任务：AI 评测门禁与放行证据"
+description: "为 AI 功能或模型变更命中评测门禁组合路线。"
+input:
+  prompt: |
+    请用 discover-testing 给一次 AI 模型版本变更选路由。团队需要定义上线前的评测门禁、放行阈值、样本量和证据；数据集与 judge 的详细设计也需要有人负责。只做路由，不设计评测方案。
+expect:
+  must_contain:
+    - "ai-eval-gate"
+    - "quality-gate-design"
+    - "llm-evaluation-design"
+  must_not_contain:
+    - "TODO"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "ai-eval-gate"
+          - "quality-gate-design"
+          - "llm-evaluation-design"

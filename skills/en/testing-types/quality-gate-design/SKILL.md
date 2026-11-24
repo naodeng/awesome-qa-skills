@@ -3,7 +3,7 @@ name: quality-gate-design
 description: Use this skill when you need evidence-bounded entry criteria, evidence requirements, owners, and exception paths for a delivery or release gate; triggers include 质量门禁 and quality gate.
 license: PolyForm-Noncommercial-1.0.0
 metadata:
-  version: "1.0.0"
+  version: "1.1.1"
   compatibility: ""
   author: "Awesome QA Skills contributors"
   language: "en"
@@ -51,11 +51,19 @@ metadata:
 
 ## Core Constraints
 
+- AI evaluation gates bind dataset/model/prompt/judge/run versions and minimum sample/confidence, flake, and cost thresholds; insufficient evidence remains BLOCKED/UNKNOWN.
+
 - Keep the analysis focused on entry criteria, evidence requirements, owners, and exception paths for a delivery or release gate; do not replace business owners or Human risk acceptance, exception approval, or release decisions.
 - Never invent system behavior, fields, metrics, thresholds, data, root causes, execution records, or pass claims.
 - Static design, plans, file presence, or a dry run retain their evidence state and cannot become proof of real execution.
 - When evidence is insufficient, use pending confirmation, blocked, unassessed, or NOT_SCORED and give the smallest validation method.
 - For production, privacy, or security work, use least privilege, masked data, mocks, dry runs, or isolation.
+
+## Evaluation Evidence Status
+
+- Include `evaluation_status`: `PASS`, `FAIL`, `BLOCKED`, `NOT_RUN`, or `UNKNOWN` for evaluation conclusions.
+- `PASS` requires in-scope runtime records and evidence for every required assertion. Use `NOT_RUN` when no run results exist, `BLOCKED` when execution was prevented, and `UNKNOWN` when evidence is insufficient. A plan, static check, or file presence alone cannot prove `PASS`.
+- Trace `trace_id`, sample and version identity, parameters, run/trial, parse, schema, semantic status, and evidence reference; decide those checks separately.
 
 ## Delivery Checklist
 

@@ -1,0 +1,22 @@
+id: edge-incomplete-ai-feature-release
+title: "Missing eval assets do not become an AI release pass"
+description: "An incomplete lifecycle request routes to the Workflow and preserves the unrun gate state."
+input:
+  prompt: |
+    Use discover-testing to route a full AI feature release. The owner asks for Go but supplies no dataset/judge versions, run ID, raw report, thresholds, or monitoring/rollback owner. Route only and identify the handoff gaps; do not call the gate or rollout successful.
+expect:
+  must_contain:
+    - "ai-feature-release"
+    - "evaluation_gate_status: NOT_RUN"
+    - "rollout_status: NOT_RUN"
+  must_not_contain:
+    - "evaluation_gate_status: PASS"
+    - "rollout_status: PASS"
+    - "TODO"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "evaluation_gate_status: NOT_RUN"
+          - "rollout_status: NOT_RUN"

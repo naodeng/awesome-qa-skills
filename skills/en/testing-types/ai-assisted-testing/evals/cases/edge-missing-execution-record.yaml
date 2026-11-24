@@ -1,0 +1,20 @@
+id: edge-missing-execution-record
+title: "AI-assisted testing: missing run record cannot imply execution"
+description: "Checks that absent run ID and results remain NOT_RUN and UNKNOWN."
+input:
+  prompt: |
+    Use ai-assisted-testing to summarize the execution state of this AI draft. Only a static-check plan exists; there is no run ID, result, or raw evidence. Produce the provenance record and state explicitly:
+    execution_state: NOT_RUN
+    execution_evidence: UNKNOWN
+    Do not treat a draft or plan as executed.
+expect:
+  must_contain:
+    - "execution_state: NOT_RUN"
+    - "execution_evidence: UNKNOWN"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "execution_state: NOT_RUN"
+          - "execution_evidence: UNKNOWN"

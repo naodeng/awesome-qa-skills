@@ -18,6 +18,10 @@
 | `pr-quality-review` — PR 质量审查 | 代码审查 / 测试影响 / 质量门禁 | `pr-quality-review` (`skills/zh/testing-workflows/pr-quality-review`) | 无 | 只需单项代码审查时不要强行进入完整工作流; 不能代替授权者评论或批准合并 |
 | `requirement-to-test` — 需求到测试设计 | 需求质量 / 可测试性 / 测试设计 | `requirement-to-test` (`skills/zh/testing-workflows/requirement-to-test`) | 无 | 只需澄清单条需求时优先单步需求分析; 不替业务方补写未确认规则 |
 | `change-to-regression` — 变更到回归计划 | 变更影响 / 回归规划 | `change-to-regression` (`skills/zh/testing-workflows/change-to-regression`) | 无 | 只需识别受影响模块时使用单步变更影响分析; 不声称回归已执行 |
+| `bugfix-verification` — 缺陷修复验证 | 缺陷复现 / 修复验证 / 回归 | `root-cause-analysis` (`skills/zh/testing-types/root-cause-analysis`) | `regression-test-selection` (`skills/zh/testing-types/regression-test-selection`) | 不在无基线证据时声称已复现; 不把测试通过单独当作缺陷已修，也不替代发布批准 |
+| `ai-eval-gate` — AI 评测门禁 | 评测设计 / 发布门禁 | `quality-gate-design` (`skills/zh/testing-types/quality-gate-design`) | `llm-evaluation-design` (`skills/zh/testing-types/llm-evaluation-design`) | 不设计数据集与 judge 的细节；这部分交给 llm-evaluation-design; 不代替发布批准 |
+| `ai-code-verification` — AI 生成代码验证 | 实现评审 / 变更验证 | `ai-generated-code-review` (`skills/zh/testing-types/ai-generated-code-review`) | 无 | 不代替完整 PR 质量流程; 不因测试通过就认定实现正确或代码已执行验证 |
+| `ai-feature-release` — AI 特性发布闭环 | 评测 / 发布门禁 / 线上观察 | `ai-feature-release-workflow` (`skills/zh/testing-workflows/ai-feature-release-workflow`) | 无 | 不代替评测引擎、CI Runner 或生产监控系统; 不执行发布、流量切换、风险接受或人工批准 |
 
 ## Relations
 

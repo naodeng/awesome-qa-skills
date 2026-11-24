@@ -4,7 +4,7 @@
 
 本目录是中文主语言 Skill 根目录，与 `skills/en` 使用相同 Skill 名和物理结构。
 
-每种语言共 **171** 个 Skill：14 workflows + 152 testing types + 5 Skill Engineering。完整项目说明见 [中文 README](../../README.md) 和 [English README](../../README_EN.md)；长期治理见 [治理路线图](../../docs/governance/SKILL_GOVERNANCE_ROADMAP.md) 与 [治理矩阵](../../docs/SKILL_MATRIX.md)。
+每种语言共 **176** 个 Skill：15 workflows + 155 testing types + 6 Skill Engineering。完整项目说明见 [中文 README](../../README.md) 和 [English README](../../README_EN.md)；长期治理见 [治理路线图](../../docs/governance/SKILL_GOVERNANCE_ROADMAP.md) 与 [治理矩阵](../../docs/SKILL_MATRIX.md)。
 
 ## 跨阶段工作流
 
@@ -35,6 +35,7 @@
 | Skill | 目录 |
 | --- | --- |
 | 发布测试工作流程（中文版） | [`release-testing-workflow`](testing-workflows/release-testing-workflow/) |
+| AI 特性发布工作流 | [`ai-feature-release-workflow`](testing-workflows/ai-feature-release-workflow/) |
 | 多角色质量汇总 | [`multi-role-quality-synthesis`](testing-workflows/multi-role-quality-synthesis/) |
 
 ## 四层能力体系 × 研发测试阶段
@@ -168,6 +169,7 @@
 | Skill | 目录 |
 | --- | --- |
 | 代码审查（中文版） | [`code-review`](testing-types/code-review/) |
+| AI 生成代码评审 | [`ai-generated-code-review`](testing-types/ai-generated-code-review/) |
 | 变更影响分析 | [`change-impact-analysis`](testing-types/change-impact-analysis/) |
 | PR 测试影响分析 | [`pr-test-impact-analysis`](testing-types/pr-test-impact-analysis/) |
 | API 契约测试 | [`api-contract-testing`](testing-types/api-contract-testing/) |
@@ -268,6 +270,7 @@
 | --- | --- |
 | LLM Eval 设计 | [`llm-evaluation-design`](testing-types/llm-evaluation-design/) |
 | LLM 测试 | [`llm-testing`](testing-types/llm-testing/) |
+| 结构化输出测试 | [`structured-output-testing`](testing-types/structured-output-testing/) |
 | Prompt 测试 | [`prompt-testing`](testing-types/prompt-testing/) |
 | RAG 质量测试 | [`rag-quality-testing`](testing-types/rag-quality-testing/) |
 | RAG 检索测试 | [`rag-retrieval-testing`](testing-types/rag-retrieval-testing/) |
@@ -282,6 +285,7 @@
 | --- | --- |
 | AI Agent 测试 | [`ai-agent-testing`](testing-types/ai-agent-testing/) |
 | Agent 工具调用测试 | [`agent-tool-testing`](testing-types/agent-tool-testing/) |
+| MCP 服务端测试 | [`mcp-server-testing`](testing-types/mcp-server-testing/) |
 | Prompt Injection 测试 | [`prompt-injection-testing`](testing-types/prompt-injection-testing/) |
 | Agent 循环测试 | [`agent-loop-testing`](testing-types/agent-loop-testing/) |
 | Agent 记忆测试 | [`agent-memory-testing`](testing-types/agent-memory-testing/) |
@@ -300,5 +304,6 @@
 | Skill 评测 | [`skill-evaluation`](skill-engineering/skill-evaluation/) |
 | Skill 文案契约审查 | [`skill-prose-review`](skill-engineering/skill-prose-review/) |
 | 过程性文案清理 | [`skill-prose-trim`](skill-engineering/skill-prose-trim/) |
+| Skill 供应链安全审查 | [`skill-security-review`](skill-engineering/skill-security-review/) |
 
 物理目录不随逻辑分类变化。完整双语索引见 [skills-index.md](../../docs/catalog/skills-index.md)。

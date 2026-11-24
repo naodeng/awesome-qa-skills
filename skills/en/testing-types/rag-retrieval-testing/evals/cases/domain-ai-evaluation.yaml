@@ -1,0 +1,21 @@
+id: domain-ai-evaluation
+title: "AI retrieval migration: embedding, hybrid, and freshness"
+description: "Attribute embedding/index migration, hybrid retrieval, reranking, and deletion propagation to evidence."
+input:
+  prompt: |
+    Compare the old index using embedding-A/768 dimensions with a new index using embedding-B/1024. The product contract says deleted documents must stop appearing within 5 minutes; DOC-7 still ranks first 10 minutes after deletion. The new config enables dense+sparse hybrid and a reranker, with the same query set and permission filters. Separate migration risks, observable evidence, and smallest validation.
+expect:
+  must_contain:
+    - "embedding"
+    - "hybrid"
+    - "reranker"
+    - "freshness"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "embedding"
+          - "hybrid"
+          - "reranker"
+          - "freshness"

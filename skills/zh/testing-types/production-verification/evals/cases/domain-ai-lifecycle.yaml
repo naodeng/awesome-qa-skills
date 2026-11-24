@@ -1,0 +1,21 @@
+id: domain-ai-lifecycle
+title: "AI 生产验证：版本、线上信号与回滚"
+description: "检查版本绑定、线上漂移/拒答/成本信号和回滚证据。"
+input:
+  prompt: |
+    灰度候选绑定 model-v3、prompt-v8，但 dataset/judge 版本和 eval run ID 缺失。只读监控窗口显示拒答率高于已批准 baseline，token 成本数据缺一天，回滚 Owner 未提供。请列出状态、门禁缺口和最小升级/回滚计划，不要访问或修改生产。
+expect:
+  must_contain:
+    - "UNKNOWN"
+    - "拒答"
+    - "成本"
+    - "回滚"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "UNKNOWN"
+          - "拒答"
+          - "成本"
+          - "回滚"

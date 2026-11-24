@@ -35,6 +35,24 @@ Existing standalone inputs such as test results, defects, coverage, scope, and e
   - still produce a complete report rather than only requesting documents.
 - Conclusions apply only to evidence-supported scope. Mark inference unverified; never use it to fill execution, defect, or coverage facts.
 
+## AI Evaluation Evidence Fields
+
+For reports with AI-effect, AI-generated test, or model-evaluation claims, record these fields for the relevant report/run. State why a field is not applicable; do not infer it:
+
+| Field | Meaning |
+| --- | --- |
+| `model_provider` / `model_version` | Provider and reviewable model version |
+| `prompt_or_agent_version` | Prompt/Agent version or commit |
+| `eval_dataset_id` / `eval_dataset_version` | Evaluation dataset ID and version |
+| `judge_type` / `judge_version` | Human, rule-based, or LLM judge and version |
+| `run_id` | Identifier for this evaluation run |
+| `sampling_parameters` | Actual temperature, top_p, seed, etc. |
+| `token_cost` | Input/output/cached tokens and currency or billing basis |
+| `evaluator_identity` | Executor/reviewer or team identity |
+| `execution_state` | `PASS`, `FAIL`, `BLOCKED`, `NOT_RUN`, `UNKNOWN`, `STALE` |
+
+Without `model_version` or `run_id`, the AI-effect conclusion must be `UNKNOWN`. Without traceable execution evidence, `execution_state` is only `BLOCKED` or `NOT_RUN`; never report a pass. List version mismatches as contradictions/gaps and preserve each source.
+
 ## Minimum Coverage Checklist
 
 Unless the user explicitly narrows the scope, make sure the result addresses these items:
@@ -66,6 +84,8 @@ Return the result in this order:
 - **Missing Evidence**: absent execution, defect, coverage, environment/build, or scope evidence and its impact
 - **Residual Risk**: risk remaining after known checks or unable to close because evidence is missing
 - **Recommendations**: evidence collection, fixes, retests, added coverage, risk handling, and decision actions
+
+For AI-effect reports, append the fields above to the source or evidence table. Keep missing values visible as `UNKNOWN`, `NOT_RUN`, or `BLOCKED` without changing the existing report structure.
 
 ## Quality Bar
 

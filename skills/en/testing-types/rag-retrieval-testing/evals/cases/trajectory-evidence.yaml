@@ -1,0 +1,49 @@
+id: trajectory-evidence
+title: "rag-retrieval-testing: RAG retrieval: ranking and permission trace"
+description: "Checks retrieval review for rank, document version, and tenant permissions."
+context:
+  files:
+    "structured-trace.json": |-
+      {
+        "trace_id": "TRACE-RAGT-001",
+        "subject": "rag-retrieval-testing",
+        "run_id": "RUN-RAGT-001",
+        "attempted": true,
+        "query_id": "Q-1",
+        "tenant_id": "TENANT-A",
+        "hits": [
+          {
+            "document_id": "DOC-1",
+            "rank": 1,
+            "version": "v2",
+            "tenant_id": "TENANT-A",
+            "relevant": true
+          },
+          {
+            "document_id": "DOC-2",
+            "rank": 2,
+            "version": "v1",
+            "tenant_id": "TENANT-B",
+            "relevant": true
+          }
+        ],
+        "run_evidence": [
+          "result://RUN-RAGT-001"
+        ]
+      }
+input:
+  prompt: |
+    Use rag-retrieval-testing to review structured-trace.json. Report rank, document_id, version, and tenant filter per hit; a relevant but unauthorized result is a failure and cannot be offset by an average score.
+expect:
+  must_contain:
+    - "TRACE-RAGT-001"
+    - "DOC-2"
+    - "TENANT-B"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "TRACE-RAGT-001"
+          - "DOC-2"
+          - "TENANT-B"

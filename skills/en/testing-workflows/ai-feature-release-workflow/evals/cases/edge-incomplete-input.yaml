@@ -1,0 +1,23 @@
+id: edge-incomplete-input
+title: "Missing dataset and judge evidence blocks the AI release gate"
+description: "An evaluation summary without asset versions or raw evidence cannot pass the release gate."
+input:
+  prompt: |
+    Use ai-feature-release-workflow. A team says model v3 is 98% accurate and asks for Go. They have not supplied the dataset or judge version, run ID, raw report, sample size, confidence bound, or an authorized approver. Create the smallest useful first pass, identify the missing evidence, and do not invent thresholds or approve release.
+expect:
+  must_contain:
+    - "evaluation_gate_status: BLOCKED"
+    - "human_release_decision: PENDING"
+    - "run ID"
+    - "dataset"
+    - "judge"
+  must_not_contain:
+    - "evaluation_gate_status: PASS"
+    - "human_release_decision: APPROVED"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "evaluation_gate_status: BLOCKED"
+          - "human_release_decision: PENDING"

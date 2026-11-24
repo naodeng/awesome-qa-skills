@@ -1,0 +1,20 @@
+id: edge-missing-execution-record
+title: "AI 辅助测试：缺少执行记录时不得声称已运行"
+description: "检查缺少 run ID 和结果时保留 NOT_RUN 与 UNKNOWN。"
+input:
+  prompt: |
+    请使用 ai-assisted-testing 汇总本次 AI 草稿的执行状态。只有静态检查计划，没有 run ID、运行结果或原始证据。输出 provenance 记录，并明确：
+    execution_state: NOT_RUN
+    execution_evidence: UNKNOWN
+    不要把草稿或计划当作已执行。
+expect:
+  must_contain:
+    - "execution_state: NOT_RUN"
+    - "execution_evidence: UNKNOWN"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "execution_state: NOT_RUN"
+          - "execution_evidence: UNKNOWN"

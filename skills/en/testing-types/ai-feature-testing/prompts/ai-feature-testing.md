@@ -29,6 +29,8 @@ If critical input is absent, list `Working Assumptions` and `Open Questions`, th
 5. Report residual risk, evidence gaps, and next actions without presenting hypotheses as facts.
 
 ## Execution Rules
+- Plans, static analysis, and Eval fixtures are not run evidence. When asked to assess real evaluation/execution and the trace lacks a valid run ID and raw result, output `evaluation_status: NOT_RUN`, `run_evidence: []`, and `domain_conclusion: UNASSESSED`; never claim PASS.
+
 
 - do not test only ideal inputs
 - distinguish model limitations from integration defects

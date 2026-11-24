@@ -3,7 +3,7 @@ name: production-verification
 description: Use this skill when you need to plan or assess evidence-based production verification after a release; triggers include production verification.
 license: PolyForm-Noncommercial-1.0.0
 metadata:
-  version: "1.0.0"
+  version: "1.1.0"
   compatibility: ""
   author: "Awesome QA Skills contributors"
   language: "en"

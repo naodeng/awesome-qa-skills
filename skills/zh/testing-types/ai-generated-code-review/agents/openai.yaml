@@ -1,0 +1,9 @@
+version: 1
+metadata:
+  key: "ai-generated-code-review"
+interface:
+  display_name: "AI 生成代码评审"
+  short_description: "审查 AI/Agent 生产代码的意图、范围、依赖、测试与 CI 证据。"
+  default_prompt: "Use the ai-generated-code-review skill to review this AI-generated production code and its evidence."
+policy:
+  allow_implicit_invocation: true

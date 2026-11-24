@@ -2,7 +2,7 @@
 
 ## Skill Overview
 
-Need help with test reporting in a real project context; Need an output that can be used directly for execution, review, or follow-up.
+Summarize test scope, quality status, risks, defects, and next steps. When a report includes AI-effect or model-evaluation claims, record model, prompt, dataset, judge, run, sampling, token cost, evaluator, and execution state; without a model version or run ID, keep the AI-effect conclusion `UNKNOWN`.
 
 ## How to Use
 

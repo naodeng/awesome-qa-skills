@@ -40,6 +40,14 @@ If critical input is absent, list `Working Assumptions` and `Open Questions`, th
 - Reuse the current toolchain and assets; avoid large code samples unless the user requests them.
 - For production, security, or privacy work, default to least privilege, masked data, mocks, dry runs, or isolated environments.
 
+## Injection Surfaces and Exfiltration Channels
+
+- Indirect injection surfaces include RAG content, MCP resources, MCP/agent tool descriptions, web/UI content, and attachments; state the trust source and context path for each.
+- For each surface, record the trust boundary, payload source, expected instruction priority, and observable assertion. Distinguish text appearing in context from the model acting on it.
+- Check exfiltration channels including response text, tool arguments, logs/telemetry, files, and message sends. Use synthetic canaries and simulated sinks only; verify attempted/confirmed exfiltration without connecting to a real target.
+- Check multi-turn persistence, recovery after retrieval/description changes, and defense in depth: refusal text does not cancel an unauthorized tool call or side effect.
+- Hand off MCP wire protocol and server transport/authorization compatibility to `mcp-server-testing`; this Skill owns whether the application treats MCP resources/descriptions as untrusted data.
+
 ## Minimum Coverage Checklist
 
 Unless the user narrows the scope, cover at least:

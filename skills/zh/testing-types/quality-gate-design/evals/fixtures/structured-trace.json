@@ -1,0 +1,20 @@
+{
+  "trace_id": "TRACE-NO-RUN-001",
+  "subject": "quality-gate-design",
+  "input_id": "CASE-001",
+  "identity": {
+    "model_version": "model-A",
+    "prompt_version": "P1",
+    "dataset_version": "D1",
+    "schema_version": "S1",
+    "parameters": {
+      "temperature": 0,
+      "seed": 7
+    }
+  },
+  "run_id": null,
+  "attempted": false,
+  "run_evidence": [],
+  "evidence_refs": [],
+  "evaluation_status": "NOT_RUN"
+}

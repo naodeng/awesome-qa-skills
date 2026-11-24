@@ -1,0 +1,20 @@
+id: review-ai-eval-neighbor
+title: "近邻区分：评测设计与模型/Prompt 行为测试"
+description: "已有评测集与 judge 时，区分设计门禁和测试模型输出行为。"
+input:
+  prompt: |
+    请用 discover-testing 路由：数据集、指标和 judge 已经确定；现在要比较两个模型版本的输出行为，并验证 Prompt 回归。不要重新设计评测集或 judge。只给一个主 Skill 和至多一个辅助 Skill。
+expect:
+  must_contain:
+    - "llm-testing"
+    - "prompt-testing"
+  must_not_contain:
+    - "llm-evaluation-design"
+    - "TODO"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "llm-testing"
+          - "prompt-testing"

@@ -1,0 +1,20 @@
+id: review-ai-eval-neighbor
+title: "Neighbor distinction: evaluation design versus model/Prompt behavior testing"
+description: "With a dataset and judge already defined, distinguish gate design from model-output testing."
+input:
+  prompt: |
+    Use discover-testing to route this request: the dataset, metrics, and judge are already fixed. We now need to compare two model versions' output behavior and test Prompt regressions. Do not redesign the dataset or judge. Give one primary Skill and at most one helper.
+expect:
+  must_contain:
+    - "llm-testing"
+    - "prompt-testing"
+  must_not_contain:
+    - "llm-evaluation-design"
+    - "TODO"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "llm-testing"
+          - "prompt-testing"

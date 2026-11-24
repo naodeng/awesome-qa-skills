@@ -3,7 +3,7 @@ name: agent-permission-testing
 description: Use this skill when you need evidence-bounded Agent identity, tool/resource scope, approval, denial, escalation, and side-effect boundaries; triggers include Agent 权限 and Agent permission.
 license: PolyForm-Noncommercial-1.0.0
 metadata:
-  version: "1.0.0"
+  version: "1.0.1"
   compatibility: ""
   author: "Awesome QA Skills contributors"
   language: "en"

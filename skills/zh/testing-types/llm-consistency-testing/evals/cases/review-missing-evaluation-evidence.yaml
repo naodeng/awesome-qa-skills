@@ -1,0 +1,38 @@
+id: review-missing-evaluation-evidence
+title: "llm-consistency-testing：缺少评测证据时不得报告 PASS"
+description: "检查没有实际运行证据时，机器可读的 evaluation_status 必须是 NOT_RUN。"
+context:
+  files:
+    "structured-trace.json": |-
+        {
+          "trace_id": "TRACE-NO-RUN-001",
+          "subject": "llm-consistency-testing",
+          "input_id": "CASE-001",
+          "identity": {
+            "model_version": "model-A",
+            "prompt_version": "P1",
+            "dataset_version": "D1",
+            "schema_version": "S1",
+            "parameters": {
+              "temperature": 0,
+              "seed": 7
+            }
+          },
+          "run_id": null,
+          "attempted": false,
+          "run_evidence": [],
+          "evidence_refs": [],
+          "evaluation_status": "NOT_RUN"
+        }
+input:
+  prompt: |
+    使用 llm-consistency-testing 审阅 `structured-trace.json`。没有实际运行，也没有结果或证据引用。按 JSON 证据状态契约报告：只输出一个 JSON 代码块，字段包含 `trace_id`、`evaluation_status`、`run_evidence`、`reason`。不得把方案或输入中的版本信息当作运行证据。
+expect:
+  must_contain:
+    - "TRACE-NO-RUN-001"
+    - "evaluation_status"
+    - "NOT_RUN"
+judge:
+  type: script
+  script_path: evals/fixtures/check_evaluation_status.py
+  timeout_seconds: 10

@@ -2,7 +2,7 @@
 
 # Skill Inventory
 
-> Snapshot scope: 171 Chinese and 171 English Skill directories. This records verifiable filesystem structure only; it does not assert virtual Domain, Capability Match, quality score, or runtime effectiveness.
+> Snapshot scope: 176 Chinese and 176 English Skill directories. This records verifiable filesystem structure only; it does not assert virtual Domain, Capability Match, quality score, or runtime effectiveness.
 
 | Skill | Language | Physical category | Required artifact contract |
 | --- | --- | --- | --- |
@@ -17,6 +17,7 @@
 | `ai-agent-testing` | zh | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `ai-assisted-testing` | zh | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `ai-feature-testing` | zh | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
+| `ai-generated-code-review` | zh | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `ai-generated-test-review` | zh | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `ai-safety-testing` | zh | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `api-contract-testing` | zh | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
@@ -67,6 +68,7 @@
 | `llm-testing` | zh | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `log-analysis` | zh | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `manual-testing` | zh | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
+| `mcp-server-testing` | zh | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `metamorphic-testing` | zh | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `metrics-anomaly-analysis` | zh | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `mobile-testing` | zh | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
@@ -123,6 +125,7 @@
 | `security-testing` | zh | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `session-security-testing` | zh | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `state-transition-testing` | zh | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
+| `structured-output-testing` | zh | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `technical-design-quality-review` | zh | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `test-case-importer` | zh | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `test-case-retrieval` | zh | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
@@ -158,6 +161,7 @@
 | `ui-test-wait-strategy-review` | zh | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `ui-test-webdriverio` | zh | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `visual-regression-testing` | zh | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
+| `ai-feature-release-workflow` | zh | testing-workflows | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `change-to-regression` | zh | testing-workflows | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `daily-testing-workflow` | zh | testing-workflows | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `discover-testing` | zh | testing-workflows | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
@@ -177,6 +181,7 @@
 | `skill-prose-review` | zh | skill-engineering | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `skill-prose-trim` | zh | skill-engineering | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `skill-quality-review` | zh | skill-engineering | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
+| `skill-security-review` | zh | skill-engineering | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `acceptance-criteria-review` | en | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `accessibility-testing` | en | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `agent-failure-recovery-testing` | en | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
@@ -188,6 +193,7 @@
 | `ai-agent-testing` | en | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `ai-assisted-testing` | en | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `ai-feature-testing` | en | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
+| `ai-generated-code-review` | en | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `ai-generated-test-review` | en | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `ai-safety-testing` | en | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `api-contract-testing` | en | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
@@ -238,6 +244,7 @@
 | `llm-testing` | en | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `log-analysis` | en | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `manual-testing` | en | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
+| `mcp-server-testing` | en | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `metamorphic-testing` | en | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `metrics-anomaly-analysis` | en | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `mobile-testing` | en | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
@@ -294,6 +301,7 @@
 | `security-testing` | en | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `session-security-testing` | en | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `state-transition-testing` | en | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
+| `structured-output-testing` | en | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `technical-design-quality-review` | en | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `test-case-importer` | en | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `test-case-retrieval` | en | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
@@ -329,6 +337,7 @@
 | `ui-test-wait-strategy-review` | en | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `ui-test-webdriverio` | en | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `visual-regression-testing` | en | testing-types | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
+| `ai-feature-release-workflow` | en | testing-workflows | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `change-to-regression` | en | testing-workflows | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `daily-testing-workflow` | en | testing-workflows | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `discover-testing` | en | testing-workflows | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
@@ -348,3 +357,4 @@
 | `skill-prose-review` | en | skill-engineering | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `skill-prose-trim` | en | skill-engineering | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
 | `skill-quality-review` | en | skill-engineering | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |
+| `skill-security-review` | en | skill-engineering | `SKILL.md` / `prompts/` / `agents/openai.yaml` / `evals/` |

@@ -1,0 +1,52 @@
+id: trajectory-evidence
+title: "agent-loop-testing: Agent 循环：停止条件与预算轨迹"
+description: "验证循环评审检查迭代、预算和停止原因。"
+context:
+  files:
+    "structured-trace.json": |-
+      {
+        "trace_id": "TRACE-ALT-001",
+        "subject": "agent-loop-testing",
+        "run_id": "RUN-ALT-001",
+        "attempted": true,
+        "max_iterations": 3,
+        "budget_limit": 100,
+        "iterations": [
+          {
+            "iteration_id": 1,
+            "tokens": 28,
+            "action": "search"
+          },
+          {
+            "iteration_id": 2,
+            "tokens": 31,
+            "action": "search"
+          },
+          {
+            "iteration_id": 3,
+            "tokens": 55,
+            "action": "search"
+          }
+        ],
+        "stop_reason": "max_iterations",
+        "total_tokens": 114,
+        "run_evidence": [
+          "trace://RUN-ALT-001"
+        ]
+      }
+input:
+  prompt: |
+    请使用 agent-loop-testing 审阅 structured-trace.json。对照 max_iterations、预算和 stop_reason 判断是否越界或提前终止，保留 iteration_id 和证据。
+expect:
+  must_contain:
+    - "TRACE-ALT-001"
+    - "iteration_id"
+    - "114"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "TRACE-ALT-001"
+          - "iteration_id"
+          - "114"

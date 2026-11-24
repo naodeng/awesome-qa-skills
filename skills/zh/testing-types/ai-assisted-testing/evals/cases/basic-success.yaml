@@ -1,13 +1,13 @@
 id: basic-success
 title: AI 辅助：分工与人工把关点
 description: |
-  应给出 AI/人工分工、高风险人工点与使用前检查。
+  应给出 AI/人工分工、来源链、AIA 编号、成本口径和人工门禁。
 
 input:
   prompt: |
     请使用 ai-assisted-testing。
     任务：两天内完成积分兑换相关用例草稿 + 一轮探索清单；团队可用 AI 生成草稿。
-    请给出 AI 与人工分工、必须人工把关的高风险点、建议草稿产物与正式使用前检查项。
+    请用 AIA-## 编号给出草稿分工，并明确 source_snapshot_id、assistant/model、prompt/instruction_version、draft_id、reviewer、review_decision、adopted_version_id、execution_evidence、成本字段及人工把关点。当前尚未生成或执行，请保留相应未知和未运行状态。
 
 expect:
   must_contain:
@@ -23,4 +23,7 @@ judge:
     - output_contains:
         all:
           - "任务理解"
+          - "AIA-01"
+          - "source_snapshot_id"
+          - "DRAFT"
           - "高风险"

@@ -3,7 +3,7 @@ name: llm-testing
 description: Use this skill when you need to test LLM behavior, failure modes, and evidence-based quality boundaries; triggers include llm testing.
 license: PolyForm-Noncommercial-1.0.0
 metadata:
-  version: "1.0.0"
+  version: "1.1.1"
   compatibility: ""
   author: "Awesome QA Skills contributors"
   language: "en"
@@ -42,12 +42,20 @@ metadata:
 
 ## Core Constraints
 
+- Keep boundaries with feature, Prompt, and Eval design explicit; stratify samples by risk and report repetition denominators, token/cost provenance, and latency metrics with sample counts.
+
 - avoid exact-string assertions alone
 - pin and record model settings
 - evaluate stochastic outputs with repetitions and distributions
 - Never invent system behavior, fields, data, metrics, or root causes absent from the evidence.
 - Link important conclusions to evidence; mark unsupported conclusions as hypotheses with a verification method.
 - Explain priority using business impact, likelihood, or detectability.
+
+## Evaluation Evidence Status
+
+- Include `evaluation_status`: `PASS`, `FAIL`, `BLOCKED`, `NOT_RUN`, or `UNKNOWN` for evaluation conclusions.
+- `PASS` requires in-scope runtime records and evidence for every required assertion. Use `NOT_RUN` when no run results exist, `BLOCKED` when execution was prevented, and `UNKNOWN` when evidence is insufficient. A plan, static check, or file presence alone cannot prove `PASS`.
+- Trace `trace_id`, sample and version identity, parameters, run/trial, parse, schema, semantic status, and evidence reference; decide those checks separately.
 
 ## Delivery Checklist
 

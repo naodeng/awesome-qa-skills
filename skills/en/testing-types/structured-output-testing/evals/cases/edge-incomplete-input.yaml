@@ -1,0 +1,21 @@
+id: edge-incomplete-input
+title: "Structured Output: missing schema and run evidence"
+description: "Checks that missing schema and output records produce a bounded first pass and explicit gaps."
+input:
+  prompt: |
+    Use structured-output-testing. The only known requirement is that the model returns JSON; no schema, samples, semantic expectation, or run record is available. Give a minimal test design, list information gaps, and provide `evaluation_status`.
+expect:
+  must_contain:
+    - "schema"
+    - "Open Questions"
+    - "evaluation_status"
+    - "NOT_RUN"
+  must_not_contain:
+    - "TODO"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "Open Questions"
+          - "NOT_RUN"

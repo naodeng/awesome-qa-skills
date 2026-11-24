@@ -7,7 +7,7 @@ import sys
 from decimal import Decimal, InvalidOperation
 from pathlib import Path
 
-ORACLE = {'decisions': {'I-1': 'ACCEPTED', 'I-2': 'DRAFT', 'I-3': 'UNSUPPORTED'}, 'calculations': {}, 'required_details': ['80', '60']}
+ORACLE = {'decisions': {'AIA-01': 'ACCEPTED', 'AIA-02': 'DRAFT', 'AIA-03': 'UNSUPPORTED'}, 'calculations': {'human_baseline_minutes': 60, 'generate_minutes': 10, 'review_minutes': 25, 'rework_minutes': 35, 'acceptance_minutes': 10, 'total_minutes': 80, 'token_cost': 'UNSUPPORTED', 'defects_found': 1, 'rework_count': 1, 'false_green_count': 1}, 'required_details': ['80', '60', 'token_cost', 'UNSUPPORTED']}
 
 def clean(value):
     value = value.strip()
@@ -68,18 +68,23 @@ def check(text, oracle):
         for key, value, evidence in require_table(groups, 'METRIC', 'VALUE'):
             if key in values:
                 raise ValueError(f'duplicate metric: {key}')
-            try:
-                numeric = Decimal(value)
-            except InvalidOperation:
-                raise ValueError(f'invalid numeric value: {key}')
-            if not numeric.is_finite():
-                raise ValueError(f'non-finite metric: {key}')
-            values[key] = numeric
+            expected = calculations.get(key)
+            if isinstance(expected, str):
+                values[key] = value
+            else:
+                try:
+                    numeric = Decimal(value)
+                except InvalidOperation:
+                    raise ValueError(f'invalid numeric value: {key}')
+                if not numeric.is_finite():
+                    raise ValueError(f'non-finite metric: {key}')
+                values[key] = numeric
         if set(values) != set(calculations):
             raise ValueError('metric keys do not exactly match the fixture')
         for key, value in calculations.items():
-            if values[key] != Decimal(str(value)):
-                raise ValueError(f'wrong numeric result: {key}')
+            expected = value if isinstance(value, str) else Decimal(str(value))
+            if values[key] != expected:
+                raise ValueError(f'wrong metric result: {key}')
     for item in oracle.get('required_details', []):
         if item not in text:
             raise ValueError(f'missing required detail: {item}')

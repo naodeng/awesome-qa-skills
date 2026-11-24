@@ -1,0 +1,46 @@
+id: trajectory-evidence
+title: "agent-memory-testing: Agent 记忆：写入/读取隔离轨迹"
+description: "验证记忆审查检查来源、作用域、保留和跨租户隔离。"
+context:
+  files:
+    "structured-trace.json": |-
+      {
+        "trace_id": "TRACE-AMT-001",
+        "subject": "agent-memory-testing",
+        "run_id": "RUN-AMT-001",
+        "attempted": true,
+        "events": [
+          {
+            "event": "write",
+            "memory_item_id": "MEM-1",
+            "tenant_id": "TENANT-A",
+            "actor": "AGENT-A",
+            "source": "user-confirmed"
+          },
+          {
+            "event": "read",
+            "memory_item_id": "MEM-1",
+            "tenant_id": "TENANT-B",
+            "actor": "AGENT-B"
+          }
+        ],
+        "run_evidence": [
+          "trace://RUN-AMT-001"
+        ]
+      }
+input:
+  prompt: |
+    请使用 agent-memory-testing 审阅 structured-trace.json。核对 memory_item_id 的来源、tenant scope、写入与读取主体；任何跨租户读取都应明确标为风险。
+expect:
+  must_contain:
+    - "TRACE-AMT-001"
+    - "MEM-1"
+    - "TENANT-B"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "TRACE-AMT-001"
+          - "MEM-1"
+          - "TENANT-B"

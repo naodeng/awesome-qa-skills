@@ -1,12 +1,12 @@
 id: edge-domain-boundary
 title: "AI-assisted: AI cannot sign off release"
 description: |
-  If AI is treated as a release authority, reinforce human-gate boundaries.
+  If AI is treated as a release authority, reinforce human gates and preserve unverified states.
 
 input:
   prompt: |
     Use ai-assisted-testing. Lead says: after AI generates and runs cases, ship without human review.
-    Correct the boundary: what AI may draft vs what humans must gate; include checks before final use.
+    Correct the boundary: what AI may draft vs what humans must gate; list evidence needed for adoption and real execution, and do not approve release on the lead's behalf.
 
 expect:
   must_contain:
@@ -21,5 +21,5 @@ judge:
   success:
     - output_contains:
         all:
-          - "High-Risk"
-          - "Check"
+          - "Human Gates"
+          - "Before Delivery"

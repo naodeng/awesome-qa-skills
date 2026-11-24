@@ -1,0 +1,21 @@
+id: edge-incomplete-input
+title: "结构化输出：Schema 与运行证据不完整"
+description: "检查缺少 Schema 和输出记录时仍能给出受限初版与明确缺口。"
+input:
+  prompt: |
+    使用 structured-output-testing。当前只知道模型需要返回 JSON；没有 Schema、样本、语义预期或运行记录。请给出最小测试设计，标出信息缺口，并提供 `evaluation_status`。
+expect:
+  must_contain:
+    - "Schema"
+    - "信息缺口"
+    - "evaluation_status"
+    - "NOT_RUN"
+  must_not_contain:
+    - "TODO"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "信息缺口"
+          - "NOT_RUN"

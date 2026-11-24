@@ -1,0 +1,33 @@
+id: review-json-mode-schema-evolution-streaming
+title: "覆盖 JSON mode、Schema 演进与流式部分输出"
+description: "将模式声明、工具参数、Schema 兼容和未完成流分别判定。"
+context:
+  files:
+    "structured-contract.json": |-
+      {
+        "json_mode_supported": true,
+        "function_schema_v1": {"required": ["decision", "reason"], "decision_enum": ["ALLOW", "DENY"]},
+        "function_schema_v2": {"required": ["decision", "reason", "review_id"], "decision_enum": ["ALLOW", "DENY"]},
+        "old_consumer_accepts_review_id": false,
+        "stream_chunks": ["{\"decision\":\"ALLOW\",", "\"reason\":\"policy match\""],
+        "terminal_marker_seen": false,
+        "runtime_output_available": false
+      }
+input:
+  prompt: "使用 structured-output-testing 审查 structured-contract.json。分别设计 JSON mode、function-call 参数、v1→v2 Schema 兼容和流式截断断言；说明哪些结论可由 fixture 判定、哪些需要运行结果。"
+expect:
+  must_contain: ["JSON mode", "function", "v1", "v2", "stream", "NOT_RUN"]
+judge:
+  type: agent_judge
+  model: openai/gpt-5
+  context:
+    profile: minimal
+    final_message: include
+    transcript: omit
+    workspace_diff: include
+    generated_files: include
+  criteria:
+    - "Does not treat JSON mode as a guarantee and checks function arguments independently against the declared schema."
+    - "Identifies that v2 adds a required field rejected by the stated old consumer, so compatibility needs an explicit migration decision or a compatible contract."
+    - "Treats the stream as incomplete because no terminal marker is present; runtime behavior remains NOT_RUN because no output run is supplied."
+  pass_threshold: 1.0

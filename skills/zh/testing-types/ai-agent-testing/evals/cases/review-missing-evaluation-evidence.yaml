@@ -1,0 +1,39 @@
+id: review-missing-evaluation-evidence
+title: "ai-agent-testing: Agent 测试：步骤级轨迹归因 — missing run evidence"
+description: "验证 Agent 结论依据 run 与 step 轨迹，而非只看最终答案。"
+context:
+  files:
+    "structured-trace.json": |-
+      {
+        "trace_id": "TRACE-NORUN-AI-AGENT-TESTING",
+        "subject": "ai-agent-testing",
+        "identity": {
+          "model_version": "model-A",
+          "prompt_version": "prompt-1",
+          "dataset_version": "dataset-1"
+        },
+        "run_id": null,
+        "attempted": false,
+        "run_evidence": [],
+        "evaluation_status": "NOT_RUN"
+      }
+input:
+  prompt: |
+    请使用 ai-agent-testing 审阅 structured-trace.json。按 step_id 还原工具调用顺序和最终结果的来源，报告证据缺口，不要只根据 final_answer 宣称任务成功。
+    The trace has no run_id and no raw result. Output exactly these machine-readable lines:
+    evaluation_status: NOT_RUN
+    run_evidence: []
+    domain_conclusion: UNASSESSED
+expect:
+  must_contain:
+    - "evaluation_status: NOT_RUN"
+    - "run_evidence: []"
+    - "domain_conclusion: UNASSESSED"
+judge:
+  type: rule_based
+  success:
+    - output_contains:
+        all:
+          - "evaluation_status: NOT_RUN"
+          - "run_evidence: []"
+          - "domain_conclusion: UNASSESSED"

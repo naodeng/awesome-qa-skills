@@ -3,7 +3,7 @@ name: test-reporting
 description: Use this skill when you need to generate test reports with summary, metrics, defect analysis, and risk assessment; triggers include test reporting and QA status report.
 license: PolyForm-Noncommercial-1.0.0
 metadata:
-  version: "1.0.0"
+  version: "1.1.0"
   compatibility: ""
   author: "Awesome QA Skills contributors"
   language: "en"
@@ -36,6 +36,8 @@ metadata:
 - Do not invent endpoints, fields, environments, or root causes the user did not provide.
 - Keep output executable: concrete scenarios, clear priority, clear next steps.
 - When both execution and defect evidence are absent, the only overall quality state is `not executed or insufficient evidence`; never report pass or release readiness.
+- For AI-effect claims, record model, prompt/agent, evaluation dataset, judge, run, sampling, token cost, evaluator, and execution state; without `model_version` or `run_id`, the AI-effect conclusion is `UNKNOWN`.
+- Without traceable execution evidence, `execution_state` is only `BLOCKED` or `NOT_RUN`; report version conflicts instead of merging them silently.
 
 ## Progressive Disclosure
 
