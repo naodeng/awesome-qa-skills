@@ -21,6 +21,28 @@
 
 ---
 
+## **Website & Autofill Extension (Sponsored)**
+
+[![Apply to jobs in seconds with Zapply.](apply-faster-banner.png)](https://app.zapply.jobs/onboarding/?ref=github-cta-naodeng)
+
+Looking for your next opportunity in QA, software testing, or development?
+
+Zapply helps you simplify the job application process:
+
+- **Autofill applications** in seconds using our Chrome extension.
+- **Discover job openings** across technical and other roles.
+- **Manage multiple resume profiles** and track your applications in one place.
+
+Spend less time filling out forms and more time preparing for your next opportunity! 🚀
+
+<p align="center">
+  <a href="https://app.zapply.jobs/onboarding/?ref=github-cta-naodeng">
+    <img src="get-started-button.png" alt="Visit Zapply" width="700">
+  </a>
+</p>
+
+<p align="right"><sub>Sponsored by Zapply</sub></p>
+
 ## 项目包含什么
 
 每种语言有 **176 个 Skill**，中英文合计 **352 个 Skill 目录**：
